@@ -1,0 +1,12 @@
+"parnor" <-
+function(lmom) {
+    para <- matrix(nrow = 2, ncol = 1)
+    if(! are.lmom.valid(lmom)) {
+      warning("L-moments are invalid.")
+      return()
+    }
+    para[1] <- lmom$L1
+    para[2] <- lmom$L2*sqrt(pi)
+    return(list(type = 'nor', para=para))
+}
+

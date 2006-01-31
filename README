@@ -1,0 +1,12 @@
+README
+
+The analysis of univariate distributions is a complex subject. This is particularly the case with heavy-tailed data.  The L-moments, which have similar meaning as the ordinary (product or central) moments, have revolutionized many fields including statistical hydrology in which your author operates. L-moments have many properties that make them extremely attractive. These properties include unbiasedness, efficiency, consistency, robustness, and others. The R package contained here fully implements L-moments in the context of 11 probability distributions including the Exponential, Gamma, Gumbel, Normal, Generalized Extreme Value, Generalized Logistic, Generalized Normal (log-Normal), Generalized Pareto, Pearson Type III, Kappa, and Wakeby. This package provides core functions and numerous ancillary functions to help get the user started and to keep the user entertained by building complex analysis applications. Very recent and extremely exciting developments have extended L-moments to multivariate analysis--the sample L-comoments are implemented here on an experimental basis.
+
+Things to do:
+(1) Extend Generalized Lambda distribution with full L-moment support.
+(2) Add multivariate distributions with full L-moment support.
+(3) Add Trimmed L-moment support.
+(4) Add additional distributions (uniform, cauchy, others).
+(5) Make further progress on documentation including nontrivial examples.
+
+wha (January 24, 2005)

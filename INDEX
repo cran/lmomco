@@ -1,0 +1,231 @@
+are.lmom.valid          Are the L-moments valid
+are.parcau.valid        Are the Distribution Parameters Consistent
+                        with the Cauchy Distribution
+are.parexp.valid        Are the Distribution Parameters Consistent
+                        with the Exponential Distribution
+are.pargam.valid        Are the Distribution Parameters Consistent
+                        with the Gamma Distribution
+are.pargev.valid        Are the Distribution Parameters Consistent
+                        with the Generalized Extreme Value
+                        Distribution
+are.pargld.valid        Are the Distribution Parameters Consistent
+                        with the Generalized Lambda Distribution
+are.parglo.valid        Are the Distribution Parameters Consistent
+                        with the Generalized Logistic Distribution
+are.pargno.valid        Are the Distribution Parameters Consistent
+                        with the Generalized Normal Distribution
+are.pargpa.valid        Are the Distribution Parameters Consistent
+                        with the Generalized Pareto Distribution
+are.pargum.valid        Are the Distribution Parameters Consistent
+                        with the Gumbel Distribution
+are.parkap.valid        Are the Distribution Parameters Consistent
+                        with the Kappa Distribution
+are.parnor.valid        Are the Distribution Parameters Consistent
+                        with the Normal Distribution
+are.parpe3.valid        Are the Distribution Parameters Consistent
+                        with the Pearson Type III Distribution
+are.par.valid           Are the Distribution Parameters Consistent
+                        with the Distribution
+are.parwak.valid        Are the Distribution Parameters Consistent
+                        with the Wakeby Distribution
+cdfcau                  Cumulative Distribution Function of the
+                        Cauchy Distribution
+cdfexp                  Cumulative Distribution Function of the
+                        Exponential Distribution
+cdfgam                  Cumulative Distribution Function of the Gamma
+                        Distribution
+cdfgev                  Cumulative Distribution Function of the
+                        Generalized Extreme Value Distribution
+cdfglo                  Cumulative Distribution Function of the
+                        Generalized Logistic Distribution
+cdfgno                  Cumulative Distribution Function of the
+                        Generalized Normal Distribution
+cdfgpa                  Cumulative Distribution Function of the
+                        Generalized Pareto Distribution
+cdfgum                  Cumulative Distribution Function of the Gumbel
+                        Distribution
+cdfkap                  Cumulative Distribution Function of the Kappa
+                        Distribution
+cdfnor                  Cumulative Distribution Function of the Normal
+                        Distribution
+cdfpe3                  Cumulative Distribution Function of the
+                        Pearson Type III Distribution
+cdfwak                  Cumulative Distribution Function of the Wakeby
+                        Distribution
+freq.curve.all          Compute Frequency Curve for All Distributions
+freq.curve.cau          Frequency Curve of the Cauchy
+                        Distribution
+freq.curve.exp          Frequency Curve of the Exponential
+                        Distribution
+freq.curve.gam          Frequency Curve of the Gamma Distribution
+freq.curve.gev          Frequency Curve of the Generalized Extreme
+                        Value Distribution
+freq.curve.gld          Frequency Curve of the Generalized Lambda
+                        Distribution
+freq.curve.glo          Frequency Curve of the Generalized Logistic
+                        Distribution
+freq.curve.gno          Frequency Curve of the Generalized Normal
+                        Distribution
+freq.curve.gpa          Frequency Curve of the Generalized Pareto
+                        Distribution
+freq.curve.gum          Frequency Curve of the Gumbel Distribution
+freq.curve.kap          Frequency Curve of the Kappa Distribution
+freq.curve.nor          Frequency Curve of the Normal Distribution
+freq.curve.pe3          Frequency Curve of the Pearson Type III
+                        Distribution
+freq.curve.wak          Frequency Curve of the Wakeby Distribution
+INT.check.fs            INTernal Function to Check Vector of
+                        Nonexceedance Probabilities
+INT.kapicase1           INTernal Function for Kappa Distribution-ICASE
+                        1
+INT.kapicase2           INTernal Function for Kappa Distribution-ICASE
+                        2
+INT.kapicase3           INTernal Function for Kappa Distribution-ICASE
+                        3
+INT.kapicase4           INTernal Function for Kappa Distribution-ICASE
+                        4
+INT.kapicase5           INTernal Function for Kappa Distribution-ICASE
+                        5
+INT.kapicase6           INTernal Function for Kappa Distribution-ICASE
+                        6
+is.cau                  Is a Distribution Parameter Object Typed as
+                        Cauchy
+is.exp                  Is a Distribution Parameter Object Typed as
+                        Exponential
+is.gam                  Is a Distribution Parameter Object Typed as
+                        Gamma
+is.gev                  Is a Distribution Parameter Object Typed as
+                        Generalized Extreme Value
+is.gld                  Is a Distribution Parameter Object Typed as
+                        Generalized Lambda
+is.glo                  Is a Distribution Parameter Object Typed as
+                        Generalized Logistic
+is.gno                  Is a Distribution Parameter Object Typed as
+                        Generalized Normal
+is.gpa                  Is a Distribution Parameter Object Typed as
+                        Generalized Pareto
+is.gum                  Is a Distribution Parameter Object Typed as
+                        Gumbel
+is.kap                  Is a Distribution Parameter Object Typed as
+                        Kappa
+is.nor                  Is a Distribution Parameter Object Typed as
+                        Normal
+is.pe3                  Is a Distribution Parameter Object Typed as
+                        Pearson Type III
+is.wak                  Is a Distribution Parameter Object Typed as
+                        Wakeby
+Lcomoment.coefficients
+                        L-comoment Coefficient Matrix
+Lcomoment.correlation   L-correlation Matrix (L-correlation throught
+                        sample L-comoments)
+Lcomoment.Lk12          Compute a Single Sample L-comoment
+Lcomoment.matrix        Compute Sample L-comoment Matrix
+Lcomoment.Wk            Weighting Coefficient for Sample L-comoment
+lmom2par                Convert L-moments to the the Parameters of a
+                        Distribution
+lmom2pwm                L-moments to Probability-Weighted Moments
+lmom.diff               Difference Between L-moments of the
+                        Distribution and the L-moments of the Data
+lmomexp                 L-moments of the Exponential Distribution
+lmomgam                 L-moments of the Gamma Distribution
+lmomgev                 L-moments of the Generalized Extreme Value
+                        Distribution
+lmomglo                 L-moments of the Generalized Logistic
+                        Distribution
+lmomgno                 L-moments of the Generalized Normal
+                        Distribution
+lmomgpa                 L-moments of the Generalized Pareto
+                        Distribution
+lmomgum                 L-moments of the Gumbel Distribution
+lmomkap                 L-moments of the Kappa Distribution
+lmomnor                 L-moments of the Normal Distribution
+lmompe3                 L-moments of the Pearson Type III Distribution
+lmom.references         Important References Related to L-moments
+lmom.test.all           Test All lmom.CCC.test Functions
+lmom.test.exp           Test L-moment and Parameter Algorithms of the
+                        Exponential Distribution
+lmom.test.gam           Test L-moment and Parameter Algorithms of the
+                        Gamma Distribution
+lmom.test.gev           Test L-moment and Parameter Algorithms of the
+                        Generalized Extreme Value Distribution
+lmom.test.glo           Test L-moment and Parameter Algorithms of the
+                        Generalized Logistic Distribution
+lmom.test.gno           Test L-moment and Parameter Algorithms of the
+                        Generalized Normal Distribution
+lmom.test.gpa           Test L-moment and Parameter Algorithms of the
+                        Generalized Pareto Distribution
+lmom.test.gum           Test L-moment and Parameter Algorithms of the
+                        Gumbel Distribution
+lmom.test.kap           Test L-moment and Parameter Algorithms of the
+                        Kappa Distribution
+lmom.test.nor           Test L-moment and Parameter Algorithms of the
+                        Normal Distribution
+lmom.test.pe3           Test L-moment and Parameter Algorithms of the
+                        Pearson Type III Distribution
+lmom.test.wak           Test L-moment and Parameter Algorithms of the
+                        Wakeby Distribution
+lmom.ub                 Unbiased L-moments by Direct Sample Estimators
+lmomwak                 L-moments of the Wakeby Distribution
+lmrdia                  L-moment Ratio Diagram Components
+nonexceeds              Common Nonexceedance Probabilities
+par2cdf                 Cumulative Distribution Function of the
+                        Distributions
+par2lmom                Convert the Parameters of a Distribution to
+                        the L-moments
+par2qua                 Quantile Function of the Distributions
+parexp                  Estimate the Parameters of the Exponential
+                        Distribution
+pargam                  Estimate the Parameters of the Gamma
+                        Distribution
+pargev                  Estimate the Parameters of the Generalized
+                        Extreme Value Distribution
+parglo                  Estimate the Parameters of the Generalized
+                        Logistic Distribution
+pargno                  Estimate the Parameters of the Generalized
+                        Normal Distribution
+pargpa                  Estimate the Parameters of the Generalized
+                        Pareto Distribution
+pargum                  Estimate the Parameters of the Gumbel
+                        Distribution
+parkap                  Estimate the Parameters of the Kappa
+                        Distribution
+parnor                  Estimate the Parameters of the Normal
+                        Distribution
+parpe3                  Estimate the Parameters of the Pearson Type
+                        III Distribution
+parwak                  Estimate the Parameters of the Wakeby
+                        Distribution
+plotlmrdia              Plot L-moment Ratio Diagram
+pwm2lmom                Probability-Weighted Moments to L-moments
+pwm.gev                 Generalized Extreme Value Plotting Position
+                        Probability-Weighted Moments
+pwm.pp                  Plotting Position Probability-Weighted Moments
+pwm.ub                  Unbiased Probability-Weighted Moments
+quacau                  Quantile Function of the Cauchy
+                        Distribution
+quaexp                  Quantile Function of the Exponential
+                        Distribution
+quagam                  Quantile Function of the Gamma Distribution
+quagev                  Quantile Function of the Generalized Extreme
+                        Value Distribution
+quagld                  Quantile Function of the Generalized Lambda
+                        Distribution
+quaglo                  Quantile Function of the Generalized Logistic
+                        Distribution
+quagno                  Quantile Function of the Generalized Normal
+                        Distribution
+quagpa                  Quantile Function of the Generalized Pareto
+                        Distribution
+quagum                  Quantile Function of the Gumbel Distribution
+quakap                  Quantile Function of the Kappa Distribution
+quanor                  Quantile Function of the Normal Distribution
+quape3                  Quantile Function of the Pearson Type III
+                        Distribution
+quawak                  Quantile Function of the Wakeby Distribution
+vec2lmom                Convert a Vector of L-moments to a L-moment
+                        Object
+vec2par                 Convert a Vector of Parameters to a Parameter
+                        Object of a Distribution
+vec2pwm                 Convert a Vector of Probability-Weighted
+                        Moments to a Probability-Weighted Moments
+                        Object
