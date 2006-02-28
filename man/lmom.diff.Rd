@@ -11,11 +11,12 @@ The difference is computed as the L-moment from the distribution minus the
 L-moment of the data.
 }
 \usage{
-lmom.diff(lmomparm, lmomdata)
+lmom.diff(lmomparm, lmomdata,verbose=TRUE)
 }
 \arguments{
   \item{lmomparm}{L-moments of a distribution such as from \code{par2lmom}}
   \item{lmomdata}{L-moments of the data such as from \code{lmom.ub}}
+  \item{verbose}{Logical switch on verbosity of output.  Default is \code{TRUE}.}
 }
 \value{
 

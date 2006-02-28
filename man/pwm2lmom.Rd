@@ -6,23 +6,15 @@ Converts the Probability-Weighted Moments (PWM) to the L-moments given the
 PWM. The conversion is linear so procedures based on PWMs and identical to 
 those based on L-moments.
 
-\deqn{\lambda_1 = \beta_0}
-
-\deqn{\lambda_2 = 2\beta_1 - \beta_0}
-
-\deqn{\lambda_3 = 6\beta_2 - 6\beta_1 + \beta_0}
-
-\deqn{\lambda_4 = 20\beta_3 - 30\beta_2 + 12\beta_1 - \beta_0}
-
-\deqn{\lambda_5 = 70\beta_4 - 140\beta_3 + 90\beta_2 - 20\beta_1 + \beta_0}
-
-\deqn{\tau = \lambda_2/\lambda_1}
-
-\deqn{\tau_3 = \lambda_3/\lambda_2}
-
-\deqn{\tau_4 = \lambda_4/\lambda_2}
-
-\deqn{\tau_5 = \lambda_5/\lambda_2}
+\deqn{\lambda_1 = \beta_0 \mbox{,}}
+\deqn{\lambda_2 = 2\beta_1 - \beta_0 \mbox{,}}
+\deqn{\lambda_3 = 6\beta_2 - 6\beta_1 + \beta_0 \mbox{,}}
+\deqn{\lambda_4 = 20\beta_3 - 30\beta_2 + 12\beta_1 - \beta_0 \mbox{,}}
+\deqn{\lambda_5 = 70\beta_4 - 140\beta_3 + 90\beta_2 - 20\beta_1 + \beta_0 \mbox{,}}
+\deqn{\tau = \lambda_2/\lambda_1 \mbox{,}}
+\deqn{\tau_3 = \lambda_3/\lambda_2 \mbox{,}}
+\deqn{\tau_4 = \lambda_4/\lambda_2 \mbox{, and}}
+\deqn{\tau_5 = \lambda_5/\lambda_2 \mbox{.}}
 }
 \usage{
 pwm2lmom(pwm)
@@ -31,9 +23,7 @@ pwm2lmom(pwm)
   \item{pwm}{ A PWM object created by \code{\link{pwm.ub}} or similar. }
 }
 \details{
-The Probability Weighted Moments (PWMs) are linear combinations of the L-moments and
-therefore contain the same statistical information of the data as the L-moments.
-However, the PWMs are harder to interpret as measures of probability distributions.
+The Probability Weighted Moments (PWMs) are linear combinations of the L-moments and therefore contain the same statistical information of the data as the L-moments. However, the PWMs are harder to interpret as measures of probability distributions. The linearity between L-moments and Probability-Weighted Moments means that procedures base on one are equivalent to the other.
 }
 \value{
   An R \code{list} is returned.

@@ -23,16 +23,18 @@ INT.check.fs(fs)
 }
 \author{ W.H. Asquith}
 \seealso{
+\code{\link{freq.curve.cau}},
 \code{\link{freq.curve.exp}}, 
 \code{\link{freq.curve.gam}}, 
-\code{\link{freq.curve.gev}}, 
+\code{\link{freq.curve.gev}}, \cr
+\code{\link{freq.curve.gld}}, 
 \code{\link{freq.curve.glo}}, 
 \code{\link{freq.curve.gno}}, 
-\code{\link{freq.curve.gpa}}, 
+\code{\link{freq.curve.gpa}}, \cr
 \code{\link{freq.curve.gum}}, 
 \code{\link{freq.curve.kap}}, 
 \code{\link{freq.curve.nor}}, 
-\code{\link{freq.curve.pe3}}, and 
+\code{\link{freq.curve.pe3}}, and \cr
 \code{\link{freq.curve.wak}}
 }
 \keyword{distribution}

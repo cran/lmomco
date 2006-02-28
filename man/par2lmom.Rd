@@ -4,8 +4,8 @@
 \description{
 This function converts the parameters of a distribution to the L-moment as
 represented in an L-moment object. This function dispatches to \code{lmomCCC}
-where CCC represents the three character distribution identifier: \code{exp}, 
-\code{gam}, \code{gev}, \code{glo}, \code{gno}, \code{gpa},
+where CCC represents the three character distribution identifier: \code{cau},
+\code{exp}, \code{gam}, \code{gev}, \code{gld}, \code{glo}, \code{gno}, \code{gpa},
 \code{gum}, \code{kap}, \code{nor}, \code{pe3}, and \code{wak}.
 }
 \usage{

@@ -7,7 +7,6 @@ This function estimates the L-moments of the Generalized Normal (log-Normal) dis
 The L-moments in terms of the parameters are
 
 \deqn{\lambda_1 = \xi + \frac{\alpha}{\kappa}(1-e^{\kappa^2/2})}
-
 \deqn{\lambda_2 = \frac{\alpha}{\kappa}(e^{\kappa^2/2})(1-2\Phi(-\kappa/\sqrt{2}))} 
 
 where \eqn{\Phi} is the cumulative distribution of the standard normal distribution.
@@ -32,6 +31,8 @@ lmomgno(para)
   \item{L3}{The third L-moment.}
   \item{L4}{The fourth L-moment.}
   \item{L5}{The fifth L-moment.}
+  \item{source}{An attribute identifying the computational 
+source of the L-moments: \dQuote{lmomgno--ordinary}.}
 }
 \references{
 Hosking, J.R.M., 1990, L-moments--Analysis and estimation of

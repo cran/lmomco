@@ -8,17 +8,19 @@ argument list: \code{cau}, \code{exp}, \code{gam}, \code{gev}, \code{glo}, \code
 \code{gum}, \code{kap}, \code{nor}, \code{pe3}, and \code{wak}.
 }
 \usage{
-vec2par(vec, type)
+vec2par(vec, type, ...)
 }
 \arguments{
   \item{vec}{A vector of parameter values for the distribution specified by type.}
   \item{type}{Three character distribution type (for example, \code{type='gev'}).}
+  \item{...}{Additional arguments for the \code{\link{are.par.valid}} call that is made internally.}
 }
 \value{
   An R \code{list} is returned.
 
   \item{type}{The type of distribution in three character format.}
   \item{para}{The parameters of the distribution.}
+  \item{source}{Attribution specifying source of the parametes--\dQuote{vec2par}.}
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{lmom2par}}}

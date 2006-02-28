@@ -10,7 +10,7 @@ This function checks that type is \code{cau} for the Cauchy distribution.
 is.cau(para)
 }
 \arguments{
-  \item{para}{A parameter \code{list} returned from \code{vec2par}.}
+  \item{para}{A parameter \code{list} returned from \code{\link{parcau}} or \code{\link{vec2par}}.}
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{cau}.}

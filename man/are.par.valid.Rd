@@ -9,10 +9,11 @@ only by \code{vec2par} in the process of converting a vector into a proper
 distribution parameter object for this package.
 }
 \usage{
-are.par.valid(para)
+are.par.valid(para,...)
 }
 \arguments{
   \item{para}{A distribution parameter object having at least attributes \code{type} and \code{para}.}
+  \item{...}{Additional arguments for the \code{are.parCCC.valid} call that is made internally.}
 }
 \value{
   \item{TRUE}{If the parameters are consistent with the distribution specified by the type attribute.}

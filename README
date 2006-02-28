@@ -1,12 +1,30 @@
 README
 
-The analysis of univariate distributions is a complex subject. This is particularly the case with heavy-tailed data.  The L-moments, which have similar meaning as the ordinary (product or central) moments, have revolutionized many fields including statistical hydrology in which your author operates. L-moments have many properties that make them extremely attractive. These properties include unbiasedness, efficiency, consistency, robustness, and others. The R package contained here fully implements L-moments in the context of 11 probability distributions including the Exponential, Gamma, Gumbel, Normal, Generalized Extreme Value, Generalized Logistic, Generalized Normal (log-Normal), Generalized Pareto, Pearson Type III, Kappa, and Wakeby. This package provides core functions and numerous ancillary functions to help get the user started and to keep the user entertained by building complex analysis applications. Very recent and extremely exciting developments have extended L-moments to multivariate analysis--the sample L-comoments are implemented here on an experimental basis.
+The analysis of univariate distributions is a complex subject. This
+is particularly the case with heavy-tailed data.  The L-moments, 
+which have similar meaning as the ordinary (product or central) moments, 
+have revolutionized many fields including statistical hydrology in which 
+your author operates. L-moments have many properties that make them 
+extremely attractive. These properties include unbiasedness, efficiency, 
+consistency, robustness, and others. The R package contained here fully 
+implements L-moments in the context of many probability distributions 
+including the Exponential, Gamma, Gumbel, Normal, Generalized Extreme Value, 
+Generalized Logistic, Generalized Normal (log-Normal), Generalized Pareto, 
+Pearson Type III, Kappa, and Wakeby. This package provides core functions 
+and numerous ancillary functions to help get the user started and to keep 
+the user entertained by building complex analysis applications. Very recent 
+and extremely exciting developments have extended L-moments to multivariate 
+analysis--the sample L-comoments are implemented here on an experimental 
+basis. The package also implements the trimmed L-moments and support for the 
+Cauchy, Generalized Lambda, and Generalized Pareto distributions.
 
 Things to do:
-(1) Extend Generalized Lambda distribution with full L-moment support.
-(2) Add multivariate distributions with full L-moment support.
-(3) Add Trimmed L-moment support.
-(4) Add additional distributions (uniform, cauchy, others).
-(5) Make further progress on documentation including nontrivial examples.
+(1) Extend parameter estimation of Generalized Lambda distribution.
+(2) Add additional distributions (uniform, others).
+(3) Make further progress on documentation including nontrivial examples.
+(4) Further "design" the L-moment object for greater function portability.
+      Deprecate the object design from lmom.ub and similar.
+      
+wha (February 28, 2006)
 
-wha (January 24, 2005)
+See inst/doc/WARRANTY for lack-of-warranty information.

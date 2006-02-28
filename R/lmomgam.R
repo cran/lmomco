@@ -8,7 +8,8 @@ function(para) {
               LCV  = NULL,
               L3   = NULL,
               L4   = NULL,
-              L5   = NULL
+              L5   = NULL,
+              source = "lmomgam--ordinary"
              )
     # Note that TAU5 and L5 are not available from Hosking's FORTRAN base.
 

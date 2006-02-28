@@ -1,30 +1,71 @@
 "freq.curve.all" <-
-function(lmom) {
+function(lmom,exp=TRUE,gam=TRUE,gev=TRUE,gld=TRUE,glo=TRUE,
+              gno=TRUE,gpa=TRUE,gum=TRUE,kap=TRUE,nor=TRUE,pe3=TRUE,wak=TRUE,...) {
     F <- nonexceeds()
-    print("Exponential distribution")
-    EXP <- freq.curve.exp(F,parexp(lmom))
-    print("Gamma distribution")
-    GAM <- freq.curve.gam(F,pargam(lmom))
-    print("Generalized Extreme Value distribution")
-    GEV <- freq.curve.gev(F,pargev(lmom))
-    print("Generalized Logistic distribution")
-    GLO <- freq.curve.glo(F,parglo(lmom))
-    print("Generalized Normal distribution")
-    GNO <- freq.curve.gno(F,pargno(lmom))
-    print("Generalized Pareto distribution")
-    GPA <- freq.curve.gpa(F,pargpa(lmom))
-    print("Generalized Gumbel distribution")
-    GUM <- freq.curve.gum(F,pargum(lmom))
-    print("Kappa distribution")
-    KAP <- freq.curve.kap(F,parkap(lmom))
-    print("Normal distribution")
-    NOR <- freq.curve.nor(F,parnor(lmom))
-    print("Pearson Type III distribution")
-    PE3 <- freq.curve.pe3(F,parpe3(lmom))
-    print("Wakeby distribution")
-    WAK <- freq.curve.wak(F,parwak(lmom))
+    EXP <- NULL
+    GAM <- NULL
+    GEV <- NULL
+    GLD <- NULL
+    GLO <- NULL
+    GNO <- NULL
+    GPA <- NULL
+    GUM <- NULL
+    KAP <- NULL
+    NOR <- NULL
+    PE3 <- NULL
+    WAK <- NULL
+
+    if(exp == TRUE) {
+      cat("Exponential distribution\n")
+      EXP <- freq.curve.exp(F,parexp(lmom))
+    }
+    if(gam == TRUE) {
+      cat("Gamma distribution\n")
+      GAM <- freq.curve.gam(F,pargam(lmom))
+    }
+    if(gev == TRUE) {
+      cat("Generalized Extreme Value distribution\n")
+      GEV <- freq.curve.gev(F,pargev(lmom))
+    }
+    if(gld == TRUE) {
+      cat("Generalized Lambda distribution\n")
+      GLD <- freq.curve.gld(F,pargld(lmom,...))
+    }
+    if(glo == TRUE) {
+      cat("Generalized Logistic distribution\n")
+      GLO <- freq.curve.glo(F,parglo(lmom))
+    }
+    if(gno == TRUE) {
+      cat("Generalized Normal distribution\n")
+      GNO <- freq.curve.gno(F,pargno(lmom))
+    }
+    if(gpa == TRUE) {
+      cat("Generalized Pareto distribution\n")
+      GPA <- freq.curve.gpa(F,pargpa(lmom))
+    }
+    if(gum == TRUE) {
+      cat("Generalized Gumbel distribution\n")
+      GUM <- freq.curve.gum(F,pargum(lmom))
+    }
+    if(kap == TRUE) {
+      cat("Kappa distribution\n")
+      KAP <- freq.curve.kap(F,parkap(lmom))
+    }
+    if(nor == TRUE) {
+      cat("Normal distribution\n")
+      NOR <- freq.curve.nor(F,parnor(lmom))
+    }
+    if(pe3 == TRUE) {
+      cat("Pearson Type III distribution\n")
+      PE3 <- freq.curve.pe3(F,parpe3(lmom))
+    }
+    if(wak == TRUE) {
+      cat("Wakeby distribution\n")
+      WAK <- freq.curve.wak(F,parwak(lmom))
+    }
+
     return(list(exp = EXP, gam = GAM, gev = GEV, glo = GLO,
-                gno = GNO, gpa = GPA, gum = GUM, kap = KAP,
-                nor = NOR, pe3 = PE3, wak = WAK))
+                gld = GLD, gno = GNO, gpa = GPA, gum = GUM,
+		kap = KAP, nor = NOR, pe3 = PE3, wak = WAK))
 }
 

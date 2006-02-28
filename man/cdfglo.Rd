@@ -7,12 +7,13 @@ of the Generalized Logistic distribution given parameters (\eqn{\xi}, \eqn{\alph
 and \eqn{\kappa}) of the distribution computed by \code{\link{parglo}}. The cumulative
 distribution function of the distribution is
 
-\deqn{F(x) = 1/(1+e^{-y})} where \eqn{y} is
+\deqn{F(x) = 1/(1+e^{-y})}
+where \eqn{y} is
 
-\deqn{y = -\kappa^{-1} \log\left(1 - \frac{\kappa(x-\xi)}{\alpha}\right)} for \eqn{\kappa \ne 0}
+\deqn{y = -\kappa^{-1} \log\left(1 - \frac{\kappa(x-\xi)}{\alpha}\right)}
+for \eqn{\kappa \ne 0}
 
 \deqn{y = (x-\xi)/\alpha} for \eqn{\kappa = 0}
-
 where \eqn{F(x)} is the nonexceedance probability for quantile \eqn{x},
 \eqn{\xi} is a location parameter, \eqn{\alpha} is a scale parameter, and
 \eqn{\kappa} is a shape parameter.

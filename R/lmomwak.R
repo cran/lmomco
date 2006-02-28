@@ -8,7 +8,8 @@ function(wakpara) {
               LCV  = NULL,
               L3   = NULL,
               L4   = NULL,
-              L5   = NULL
+              L5   = NULL,
+              source = "lmomwak--ordinary"
              )
 
     if(! are.parwak.valid(wakpara)) return()

@@ -3,51 +3,34 @@
 \title{ Unbiased L-moments by Direct Sample Estimators }
 \description{
 Unbiased L-moments are computed for a vector using the direct sample estimation
-method as opposed to the use of probability weighted moments.  The mean, 
-L-scale, coefficient of L-variation (\eqn{\tau}, L-CV, L-scale/mean),
+method as opposed to the use of sample probability-weighted moments. The L-moments are the ordinary L-moments and not the trimmed L-moments (see 
+\code{\link{TLmoms}}). The mean, 
+L-scale, coefficient of L-variation (\eqn{\tau}, LCV, L-scale/mean),
 L-skew (\eqn{\tau_3}, TAU3, L3/L2), 
 L-kurtosis (\eqn{\tau_4}, TAU4, L4/L2), and \eqn{\tau_5} (TAU5, L4/L2) are computed.
 In conventional nomenclature, the L-moments are
 
-\deqn{ \lambda_1 = L1 = \mbox{mean}}
-
-
-\deqn{ \lambda_2 = L2 = \mbox{L-scale}}
-
-
-\deqn{ \lambda_3 = L3 = \mbox{third L-moment}}
-
-
-\deqn{ \lambda_4 = L4 = \mbox{fourth L-moment}}
-
-
-\deqn{ \lambda_5 = L5 = \mbox{fifth L-moment}}
-
-
-\deqn{ \tau = LCV = \lambda_2/\lambda_1 = \mbox{coefficient of L-variation}}
-
-
-\deqn{ \tau_3 = TAU3 = \lambda_3/\lambda_2 = \mbox{L-skew}}
-
-
-\deqn{ \tau_4 = TAU4 = \lambda_4/\lambda_2 = \mbox{L-kurtosis}}
-
-
-\deqn{ \tau_5 = TAU5 = \lambda_5/\lambda_2 = \mbox{not named}}
-
-
+\deqn{ \lambda_1 = \mbox{L1} = \mbox{mean, }}
+\deqn{ \lambda_2 = \mbox{L2} = \mbox{L-scale, }}
+\deqn{ \lambda_3 = \mbox{L3} = \mbox{third L-moment, }}
+\deqn{ \lambda_4 = \mbox{L4} = \mbox{fourth L-moment, }}
+\deqn{ \lambda_5 = \mbox{L5} = \mbox{fifth L-moment, }}
+\deqn{ \tau = \mbox{LCV} = \lambda_2/\lambda_1 = \mbox{coefficient of L-variation, }}
+\deqn{ \tau_3 = \mbox{TAU3} = \lambda_3/\lambda_2 = \mbox{L-skew, }}
+\deqn{ \tau_4 = \mbox{TAU4} = \lambda_4/\lambda_2 = \mbox{L-kurtosis, and}}
+\deqn{ \tau_5 = \mbox{TAU5} = \lambda_5/\lambda_2 = \mbox{not named.}}
 }
 \usage{
 lmom.ub(x)
 }
 \arguments{
-  \item{x}{a vector of data values}
+  \item{x}{A vector of data values.}
 }
 \details{
 The L-moment ratios (\eqn{\tau}, \eqn{\tau_3}, \eqn{\tau_4}, and \eqn{\tau_5})
 are the primary higher L-moments for application, such as for distribution parameter estimation.
 However, the actual L-moments (\eqn{\lambda_3}, \eqn{\lambda_4}, and \eqn{\lambda_5}) are also
-reported.  This implementation of L-moment calculation requires a minimum of five data points.
+reported. This implementation of L-moment calculation requires a minimum of five data points.
 }
 \value{
   An R \code{list} is returned.
@@ -61,6 +44,7 @@ reported.  This implementation of L-moment calculation requires a minimum of fiv
   \item{L3}{The third L-moment.}
   \item{L4}{The fourth L-moment.}
   \item{L5}{The fifth L-moment.}
+  \item{source}{An attribute identifying the computational source of the L-moments: \dQuote{lmom.ub--ordinary}.}
 }
 \source{
 The Perl code base of W.H. Asquith

@@ -6,7 +6,7 @@ This function computes the quantiles of the Cauchy distribution given
 parameters (\eqn{\xi} and \eqn{\alpha}) of the distribution provided by
 \code{\link{vec2par}}. The quantile function of the distribution is
 
-\deqn{x(F) = \xi + \alpha \times atan(\pi*(F-0.5))}
+\deqn{x(F) = \xi + \alpha \times \tan(\pi*(F-0.5))}
 
 where \eqn{x(F)} is the quantile for nonexceedance probability \eqn{F},
 \eqn{\xi} is a location parameter and \eqn{\alpha} is a scale parameter.
@@ -20,17 +20,20 @@ quacau(f, para)
 }
 \arguments{
   \item{f}{Nonexceedance probability (\eqn{0 \le F \le 1}).}
-  \item{para}{The parameters from \code{\link{vec2par}} or similar.}
+  \item{para}{The parameters from \code{\link{parcau}} or \code{\link{vec2par}}.}
 }
 \value{
   Quantile value for for nonexceedance probability \eqn{F}.
 }
 \references{
+Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational statistics
+and data analysis, vol. 43, pp. 299-314.
+
 Gilchirst, W.G., 2000, Statistical modeling with quantile functions: 
 Chapman and Hall/CRC, Boca Raton, FL.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{cdfcau}}, \code{\link{vec2par}}}
+\seealso{\code{\link{cdfcau}}, \code{\link{parcau}}, \code{\link{vec2par}}}
 \examples{
   para <- c(12,12)
   quacau(.5,vec2par(para,type='cau'))

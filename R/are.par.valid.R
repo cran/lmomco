@@ -1,11 +1,11 @@
 "are.par.valid" <-
-function(para) {
+function(para,...) {
     if(is.null(para$para)) {
-      warning("The parameter object is missing a para attribute.")
+      warning("The parameter object is missing a para attribute")
       return()
     }
     if(is.null(para$type)) {
-      warning("The parameter object is missing a type attribute.")
+      warning("The parameter object is missing a type attribute")
       return()
     }
     type <- para$type
@@ -22,7 +22,7 @@ function(para) {
       return(are.pargev.valid(para))
     }
     else if(type == 'gld') {
-      return(are.pargld.valid(para))
+      return(are.pargld.valid(para,...))
     }    
     else if(type == 'glo') {
       return(are.parglo.valid(para))
@@ -49,6 +49,6 @@ function(para) {
       return(are.pareak.valid(para))
     }
     else {
-      stop("Did not find a valid distribution type.")
+      stop("Did not find a valid distribution type")
     }
 }

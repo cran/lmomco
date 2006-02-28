@@ -8,7 +8,7 @@ parameters (\eqn{mean} and \eqn{sd}) of the distribution computed by
 The quantile function of the distribution has no explicit form
 (see \code{cdfnor} and \code{qnorm}). The parameters have the following 
 interpretations: \eqn{mean} is the arithmetic
-mean and \eqn{sd} is the standard deviation.
+mean and \eqn{sd} is the standard deviation. The R-function \code{qnorm} is used.
 }
 \usage{
 quanor(f, para)

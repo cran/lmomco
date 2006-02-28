@@ -11,7 +11,7 @@ by \code{\link{parnor}}.  The cumulative distribution function of the distributi
 where \eqn{F(x)} is the nonexceedance probability for quantile \eqn{x},
 \eqn{\mu} is the arithmetic mean, and \eqn{\sigma} is the standard deviation, and
 \eqn{\Phi} is the cumulative distribution function of the standard normal
-distribution.
+distribution. The R-function \code{pnorm} is used.
 }
 \usage{
 cdfnor(x, para)

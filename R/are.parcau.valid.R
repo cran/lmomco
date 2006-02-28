@@ -4,7 +4,7 @@ function(para) {
     U <- para$para[1] 
     A  <- para$para[2] 
     #if() {
-    #  warning("Parameters are invalid.")
+    #  warning("Parameters are invalid")
     #  return(FALSE)
     #}
     return(TRUE)

@@ -16,7 +16,7 @@ Lcomoment.coefficients(Lk,L2)
 \details{
 L-correlation is computed by \code{Lcomoment.coefficients(L2,L2)} where \code{L2} is
 a \eqn{k = 2} L-comoment matrix.  L-coskew, L-cokurtosis, and so on are computed
-by \code{Lcomoment.coefficients(L3,L2)}, \code{Lcomoment.coefficients(L4,L2)},
+by the function \cr \code{Lcomoment.coefficients(L3,L2)}, \code{Lcomoment.coefficients(L4,L2)},
 and so on. The usual univariate L-moments as seen from \code{lmom.ub} are
 along the diagonal. This function does not make use of \code{lmom.ub}. The
 L-correlation is computed by extraction of the diagonal and dividing each row

@@ -9,14 +9,14 @@ The plotting position formula is
 
 \deqn{p_i = \frac{i+A}{n+B}}
 
-where \eqn{pp_i} is the nonexceedance probability \eqn{F} of the \eqn{i}th ascending
+where \eqn{p_i} is the nonexceedance probability \eqn{F} of the \eqn{i}th ascending
 data values.  The parameters \eqn{A} and \eqn{B} together specify the plotting
 position type, and \eqn{n} is the sample size. The PWMs are computed by
 
-\deqn{\beta_r = n^{-1}\sum_{i=1}^{n}p_i^r \times X_{j:n}}
+\deqn{\beta_r = n^{-1}\sum_{i=1}^{n}p_i^r \times x_{j:n}}
 
-where \eqn{X_{j:n}} is the \eqn{j}th order statistic
-\eqn{X_{1:n} \le X_{2:n} \le X_{j:n} \dots \le X_{n:n}} of random variable X, and
+where \eqn{x_{j:n}} is the \eqn{j}th order statistic
+\eqn{x_{1:n} \le x_{2:n} \le x_{j:n} \dots \le x_{n:n}} of random variable X, and
 \eqn{r} is \eqn{0, 1, 2, \dots}.
 }
 \usage{

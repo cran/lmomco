@@ -7,15 +7,15 @@ function(para) {
     G <- para$para[3]
     H <- para$para[4]
     if(A <= 0) {
-      warning("Parameters are invalid.")
+      warning("Parameters are invalid")
       return(FALSE)
     }
     if(G <= -1) {
-      warning("Parameters are invalid.")
+      warning("Parameters are invalid")
       return(FALSE)
     }
     if(H < 0 & G*H <= -1) {
-      warning("Parameters are invalid.")
+      warning("Parameters are invalid")
       return(FALSE)
     }
     return(TRUE)

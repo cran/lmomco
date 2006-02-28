@@ -8,7 +8,8 @@ function(para) {
               LCV  = NULL,
               L3   = NULL,
               L4   = NULL,
-              L5   = NULL
+              L5   = NULL,
+              source = "lmompe3--ordinary"
              )
 
     if(! are.parpe3.valid(para)) return()

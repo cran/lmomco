@@ -13,7 +13,7 @@ Lcomoment.correlation(L2)
   \item{L2}{A \eqn{k = 2} L-comoment matrix from \code{Lcomoment.matrix(Dataframe,k=2)}.}
 }
 \details{
-L-correlation is computed by \code{Lcomoment.coefficients(L2,L2)} where L2 is
+L-correlation is computed by \code{Lcomoment.coefficients(L2,L2)} where \code{L2} is
 second order L-comoment matrix. The usual L-scale values as seen from \code{lmom.ub}
 are along the diagonal. This function does not make use of \code{lmom.ub} and can be used to verify 
 computation of \eqn{\tau} (coefficient of L-variation).
@@ -21,7 +21,7 @@ computation of \eqn{\tau} (coefficient of L-variation).
 \value{
   An R \code{list} is returned.
 
-  \item{type}{The type of L-comoment representation in the matrix: \dQuote{Lcomoment.coefficients"}.}
+  \item{type}{The type of L-comoment representation in the matrix: \dQuote{Lcomoment.coefficients}.}
   \item{order}{The order of the matrix--extracted from the first matrix in arguments.}
   \item{matrix}{A \eqn{k \ge 2} L-comoment coefficient matrix.}
 }

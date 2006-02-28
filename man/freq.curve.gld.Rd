@@ -18,8 +18,7 @@ freq.curve.gld(fs, para)
   A vector of quantiles for the distribution.
 }
 \references{
-Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions--
-The generalized lambda distribution and generalized bootstrap methods: 
+Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions--The generalized lambda distribution and generalized bootstrap methods: 
 CRC Press, Boca Raton, FL, 438 p.
 }
 \author{ W.H. Asquith}

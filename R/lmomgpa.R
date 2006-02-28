@@ -8,7 +8,8 @@ function(para) {
               LCV  = NULL,
               L3   = NULL,
               L4   = NULL,
-              L5   = NULL
+              L5   = NULL,
+              source = "lmomgpa--ordinary"
              )
 
     if(! are.pargpa.valid(para)) return()

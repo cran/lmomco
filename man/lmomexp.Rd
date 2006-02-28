@@ -11,7 +11,6 @@ L-moments in terms of the parameters are
 \deqn{\tau_3 = 1/3}
 \deqn{\tau_4 = 1/6}
 \deqn{\tau_5 = 1/10}
-
 }
 \usage{
 lmomexp(para)
@@ -31,6 +30,8 @@ lmomexp(para)
   \item{L3}{The third L-moment.}
   \item{L4}{The fourth L-moment.}
   \item{L5}{The fifth L-moment.}
+  \item{source}{An attribute identifying the computational 
+source of the L-moments: \dQuote{lmomexp--ordinary}.}
 }
 \references{
 Hosking, J.R.M., 1990, L-moments--Analysis and estimation of

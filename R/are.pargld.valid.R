@@ -1,55 +1,48 @@
 "are.pargld.valid" <-
-function(para) {
+function(para,verbose=FALSE) {
     if(! is.gld(para)) return(FALSE)
 
     La2 <- para$para[2]
     La3 <- para$para[3]
     La4 <- para$para[4]
+    if(verbose == TRUE) cat("Checking by Theorem 1.3.33\n")
 
-    if(La3 <= -1 && La4 >=  1) { # REGION 1
+    # The regional tests below are applicable if and only if
+    # the following condition is met--this ensures that Lambda2
+    # is suitable for the GLD.
+    for(F in seq(0,1,by=0.00001)) {
+      tmp <- La2*(La3*F^(La3-1) + La4*(1-F)^(La4-1))
+      #print(tmp)
+      if(tmp < 0) {
+        warning("Parameters are invalid by Theorem 1.3.33 of Karian and Dudewicz (2000)")
+        return(FALSE)
+      }
+    }
+    if(verbose == TRUE) cat("Checking by region\n")
+    ratio <- -1/La3
+    # See Theorem 1.3.33 of Karian and Dudewicz and figure1.3-1
+    if(La3 <= -1 && La4 >=  1) {         # REGION 1
+       warning("Parameters are valid by L-moments are not")
+       return(FALSE) # ordinary L-moments do not exist in REGION 1
+       #return(TRUE)  # However the GLD is valid
+    }
+    else if(La3 >=  1 && La4 <= -1) {    # REGION 2
+       warning("Parameters are valid by L-moments are not")
+       return(FALSE) # ordinary L-moments do not exist in REGION 2
+       #return(TRUE) # However the GLD is valid
+    }
+    else if(La3 >= 0 && La4 >= 0) {      # REGION 3
+       return(TRUE) 
+    }
+    else if(La3 <= 0 && La4 <= 0) {      # REGION 4
        return(TRUE)
     }
-    if(La3 >=  1 && La4 <= -1) { # REGION 2
+    else if((La4 <= ratio && La4 >= -1) && La3 >= 1) {  # REGION 6
        return(TRUE)
     }
-    if(La3 < 0 && La4 > 0 && La4 < 1) { # REGION V1
-       warning("Parameters are invalid (region V1).")
-       return(FALSE)
+    else if(La4 >= ratio && (La3 >= -1 && La3 <= 0)) { # REGION 5
+       return(TRUE)
     }
-    if(La3 > 0 && La3 < 1 && La4 < 0) { # REGION V2
-       warning("Parameters are invalid (region V2).")
-       return(FALSE)
-    }
-    if(La3 > -1 && La3 < 0 && La4 > 1) { # REGION V3
-       tmp1 <- (1-La3)**(1-La3)
-       tmp2 <- (La4-La3)**(La4-La3)
-       tmp3 <- (La4-1)**(La4-1)
-       rhs  <- -La3/La4
-       if(tmp3*(tmp1/tmp2) < rhs) {
-         return(TRUE)
-       }
-       else {
-         warning("Parameters are invalid (region V3).")
-         return(FALSE)
-       }
-    }
-    if(La3 > 1 && La4 > -1 && La4 < 0) { # REGION V4
-       # Unclear in Karian and Dudewicz (2000) that
-       # the following same condition on V3 applies
-       # in V4.  See top of page 16. However, this basic
-       # test is also stated on page 17 to be an if and only if
-       tmp1 <- (1-La3)**(1-La3)
-       tmp2 <- (La4-La3)**(La4-La3)
-       tmp3 <- (La4-1)**(La4-1)
-       rhs  <- -La3/La4
-       if(tmp3*(tmp1/tmp2) < rhs) {
-         return(TRUE)
-       }
-       else {
-         warning("Parameters are invalid (region V4).")
-         return(FALSE)
-       }
-    }
-    return(TRUE)
+    warning("Parameters are invalid by figure 1.3-1 of Karian and Dudewicz (2000)")
+    return(FALSE)
 }
-

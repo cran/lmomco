@@ -7,13 +7,9 @@ the parameters (\eqn{\mu} and \eqn{\sigma}) from \code{\link{parnor}}.
 The L-moments in terms of the parameters are
 
 \deqn{\lambda_1 = \mu}
-
 \deqn{\lambda_2 = \sqrt{\pi} \sigma}
-
 \deqn{\tau_3 = 0}
-
 \deqn{\tau_4 = 0.122602}
-
 \deqn{\tau_5 = 0}
 }
 \usage{
@@ -34,6 +30,8 @@ lmomnor(para)
   \item{L3}{The third L-moment.}
   \item{L4}{The fourth L-moment.}
   \item{L5}{The fifth L-moment.}
+  \item{source}{An attribute identifying the computational 
+source of the L-moments: \dQuote{lmomnor--ordinary}.}
 }
 \references{
 Hosking, J.R.M., 1990, L-moments--Analysis and estimation of

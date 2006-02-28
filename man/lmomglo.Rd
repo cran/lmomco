@@ -7,11 +7,8 @@ This function estimates the L-moments of the Generalized Logistic distribution g
 The L-moments in terms of the parameters are
 
 \deqn{\lambda_1 = \xi + \alpha \left(\frac{1}{\kappa} - \frac{\pi}{\sin(\kappa\pi)}\right)}    
-
 \deqn{\lambda_2 = \frac{\alpha \kappa \pi}{\sin(\kappa\pi)}}
-
 \deqn{\tau_3 = -\kappa}
-
 \deqn{\tau_4 = \frac{(1+5\kappa^2)}{6}}
 }
 \usage{
@@ -32,6 +29,8 @@ lmomglo(para)
   \item{L3}{The third L-moment.}
   \item{L4}{The fourth L-moment.}
   \item{L5}{The fifth L-moment.}
+  \item{source}{An attribute identifying the computational 
+source of the L-moments: \dQuote{lmomglo--ordinary}.}
 }
 \references{
 Hosking, J.R.M., 1990, L-moments--Analysis and estimation of

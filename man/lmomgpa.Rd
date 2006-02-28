@@ -6,13 +6,10 @@ This function estimates the L-moments of the Generalized Pareto distribution
 given the parameters (\eqn{\xi}, \eqn{\alpha}, and \eqn{\kappa}) from \code{\link{pargpa}}.
 The L-moments in terms of the parameters are
 
-\deqn{\lambda_1 = \xi + \frac{\alpha}{1+\kappa}}
-
-\deqn{\lambda_2 = \frac{\alpha}{(1+\kappa)(2+\kappa)}}
-
-\deqn{\tau_3 = \frac{(1-\kappa)}{(3+\kappa)}}
-
-\deqn{\tau_4 = \frac{(1-\kappa)(2-\kappa)}{(3+\kappa)(4+\kappa)}}
+\deqn{\lambda_1 = \xi + \frac{\alpha}{\kappa+1}}
+\deqn{\lambda_2 = \frac{\alpha}{(\kappa+2)(\kappa+1)}}
+\deqn{\tau_3 = \frac{(1-\kappa)}{(\kappa+3)}}
+\deqn{\tau_4 = \frac{(1-\kappa)(2-\kappa)}{(\kappa+4)(\kappa+3)}}
 }
 \usage{
 lmomgpa(para)
@@ -32,6 +29,8 @@ lmomgpa(para)
   \item{L3}{The third L-moment.}
   \item{L4}{The fourth L-moment.}
   \item{L5}{The fifth L-moment.}
+  \item{source}{An attribute identifying the computational 
+source of the L-moments: \dQuote{lmomgpa--ordinary}.}
 }
 \references{
 Hosking, J.R.M., 1990, L-moments--Analysis and estimation of

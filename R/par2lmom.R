@@ -1,7 +1,10 @@
 "par2lmom" <-
 function(para) {
     type <- para$type
-    if(type == 'exp') {
+    if(type == 'cau')  {
+      return(lmomcau(para))
+    }
+    else if(type == 'exp') {
       return(lmomexp(para))
     }
     else if(type == 'gam') {
@@ -9,6 +12,9 @@ function(para) {
     }
     else if(type == 'gev') {
       return(lmomgev(para))
+    }
+    else if(type == 'gld') {
+      return(lmomgld(para))
     }
     else if(type == 'glo') {
       return(lmomglo(para))

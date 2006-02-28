@@ -8,7 +8,8 @@ function(para) {
               LCV  = NULL,
               L3   = NULL,
               L4   = NULL,
-              L5   = NULL
+              L5   = NULL,
+              source = "lmomgev--ordinary"
              )
     lmom <- matrix(nrow = 5, ncol = 1)
 

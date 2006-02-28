@@ -3,15 +3,14 @@
 \title{Estimate the Parameters of the Generalized Pareto Distribution}
 \description{
 This function estimates the parameters of the Generalized Pareto distribution given
-the L-moments of the data in an L-moment object such as that returned by
-\code{lmom.ub}.
+the L-moments of the data in an ordinary L-moment object (\code{\link{lmom.ub}} or a trimmed L-moment object (\code{\link{TLmoms}} for \code{t=1}. The relation between distribution parameters and L-moments
+is seen under \code{lmomgpa}.
 }
 \usage{
 pargpa(lmom)
 }
 \arguments{
-  \item{lmom}{A L-moment object created by \code{\link{lmom.ub}}
-or \code{\link{pwm2lmom}}.}
+  \item{lmom}{A L-moment object created by \code{\link{lmom.ub}}, \code{\link{pwm2lmom}}, or \code{\link{TLmoms}} with \code{trim=0}.}
 }
 
 \value{

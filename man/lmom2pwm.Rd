@@ -19,7 +19,19 @@ therefore contain the same statistical information of the data as the L-moments.
 However, the PWMs are harder to interpret as measures of probability distributions.
 The PWMs are included here for theoretical completeness and are not intended for
 use with the majority of the other functions implementing the various probability
-distributions.
+distributions. The relation between L-moments (\eqn{\lambda_r})and PWMs (\eqn{\beta_{r-1}}) for \eqn{1 \le r \le 5} order is
+
+ \deqn{\lambda_1 = \beta_0 \mbox{,}}
+ 
+ \deqn{\lambda_2 = 2\beta_1 - \beta_0 \mbox{,}}
+ 
+ \deqn{\lambda_3 = 6\beta_2 - 6\beta_1 + \beta_0 \mbox{,}}
+ 
+ \deqn{\lambda_4 = 20\beta_3 - 30\beta_2 + 12\beta_1 - \beta_0\mbox{, and}}
+
+ \deqn{\lambda_5 = 70\beta_4  - 140\beta_3 + 90\beta_2 - 20\beta_1 + \beta_0\mbox{.}}
+
+The linearity between L-moments and Probability-Weighted Moments means that procedures base on one are equivalent to the other. 
 }
 \value{
   An R \code{list} is returned.

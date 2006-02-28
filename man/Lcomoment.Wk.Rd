@@ -20,29 +20,12 @@ necessarily for end users. The weight factor \eqn{w^{(k)}_{r:n}} is the discrete
 polynomial. The weight factors are well illustrated in figure 2.6 of Hosking
 and Wallis (1997).
 
-  \deqn{(\begin{array}{c}
-                 k-1  \\
-		 j
-	      \end{array} )}
+ \deqn{ w^{(k)}_{r:n} = \sum_{j=0}^{min\{r-1,k-1\}} (-1)^{k-1-j}
+                                    \frac{C(k-1,j)C(k-1+j,j)C(r-1,j)}
+				         {C(n-1,j)}
+      \mbox{,}}
 
-   \deqn{w^{(k)}_{r:n} = \sum_{j=0}^{min\{r-1,k-1\}} (-1)^{k-1-j}
-                                          \left(  \begin{array}{c}
-                                               k-1 \\
-                                               j
-                                           \end{array} \right)
-                                           \left(  \begin{array}{c}
-                                               k-1+j \\
-                                               j
-                                           \end{array} \right)
-                                           \left(  \begin{array}{c}
-                                               n-1 \\
-                                               j
-                                           \end{array} \right)^{-1}
-                                           \left(  \begin{array}{c}
-                                               r-1 \\
-                                               j
-                                           \end{array} \right)
-        }
+where \eqn{C(a,b)} is the combinatorial function (\code{choose} in R).
 }
 \value{A single L-comoment weight factor.}
 \note{

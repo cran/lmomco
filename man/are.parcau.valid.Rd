@@ -13,7 +13,7 @@ respectively.
 are.parcau.valid(para)
 }
 \arguments{
-  \item{para}{A distribution parameter list returned by \code{vec2par}.}
+  \item{para}{A distribution parameter list returned by \code{parcau} or \code{vec2par}.}
 }
 \value{
   \item{TRUE}{If the parameters are \code{cau} consistent.}
@@ -21,7 +21,10 @@ are.parcau.valid(para)
   \item{FALSE}{If the parameters are not \code{cau} consistent.}
 }
 \references{
-Gilchirst, W.G., 2000, Statistical modeling with quantile functions: 
+Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational statistics
+and data analysis, vol. 43, pp. 299-314.
+
+Gilchrist, W.G., 2000, Statistical modeling with quantile functions: 
 Chapman and Hall/CRC, Boca Raton, FL.
 }
 \note{

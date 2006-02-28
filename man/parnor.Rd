@@ -4,7 +4,8 @@
 \description{
 This function estimates the parameters of the Normal distribution given
 the L-moments of the data in an L-moment object such as that returned by
-\code{lmom.ub}.
+\code{lmom.ub}. The relation between distribution parameters and L-moments
+is seen under \code{lmomnor}.
 }
 \usage{
 parnor(lmom)

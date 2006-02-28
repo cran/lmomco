@@ -1,0 +1,11 @@
+Version 0.3--January 31, 2006 Initial Release
+
+Version 0.4--February 28, 2006
+0. Numerous enhancements to the documentation
+1. Bug fix on fourth L-moment of Cauchy distribution in lmomcau.R
+2. Bug fix on absolute value of TAU5 in are.lmom.valid.R
+3. Bug fixes on are.pargld.valid.R.
+4. Addition of cdfgld.R (stable), lmomgld.R (stable), pargld.R (highly experimental).
+5. Addition of lmomTLgld.R (stable) and parTLgld.R (highly experimental)
+6. Addition of lmomTLgpa.R (stable) and parTLgpa.R (stable)
+7. Addition of vec2TLmom.R

@@ -10,7 +10,8 @@ function(para) {
               LCV  = NULL,
               L3   = NULL,
               L4   = NULL,
-              L5   = NULL
+              L5   = NULL,
+              source = "lmomglo--ordinary"
              )
     # fifth L-moment is not given by Hosking and Wallis (1997)
     #  SMALL IS USED TO DECIDE WHETHER TO APPROXIMATE THE FIRST 2 

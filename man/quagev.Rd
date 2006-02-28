@@ -7,11 +7,11 @@ distribution given parameters (\eqn{\xi}, \eqn{\alpha}, and \eqn{\kappa}) of the
 distribution computed by \code{\link{pargev}}. The quantile function of the
 distribution is
 
-\deqn{x(F) = \xi + \frac{\alpha}{\kappa} \left( 1-(-log(F))^\kappa \right) }
+\deqn{x(F) = \xi + \frac{\alpha}{\kappa} \left( 1-(-\log(F))^\kappa \right) }
 
 for \eqn{\kappa \ne 0}
 
-\deqn{x(F) = \xi - \alpha log(-log(F))}
+\deqn{x(F) = \xi - \alpha \log(-\log(F))}
 
 for \eqn{\kappa = 0}
 

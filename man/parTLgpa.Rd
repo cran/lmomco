@@ -1,0 +1,46 @@
+\name{parTLgpa}
+\alias{parTLgpa}
+\title{Estimate the Parameters of the Generalized Pareto Distribution using Trimmed L-moments}
+\description{
+This function estimates the parameters of the Generalized Pareto distribution given
+the the trimmed L-moments (TL-moments) for \eqn{t=1} of the data in TL-moment object with a trim
+level of unity (\code{trim=1}). The parameters are computed as
+
+\deqn{\kappa = \frac{10-45\tau_3}{9\tau_3+10} \mbox{,}}
+\deqn{\alpha = \frac{1}{6}\lambda_2(\kappa+2)(\kappa+3)(\kappa+4) \mbox{, and}}
+\deqn{\xi = \lambda_1 - \frac{\alpha(\kappa+5)}{(\kappa+2)(\kappa+3)} \mbox{.}}
+
+}
+\usage{
+parTLgpa(lmom)
+}
+\arguments{
+  \item{lmom}{A TL-moment object created by \code{\link{TLmoms}}.}
+}
+\value{
+  An R \code{list} is returned.
+
+  \item{type}{The type of distribution: \code{gpa}.}
+  \item{para}{The parameters of the distribution.}
+  \item{source}{The source of the parameters--\dQuote{parTLgpa}.}
+}
+\references{
+Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational statistics
+and data analysis, vol. 43, pp. 299-314.
+
+Hosking, J.R.M., 1990, L-moments--Analysis and estimation of
+distributions using linear combinations of order statistics: Journal
+of the Royal Statistical Society, Series B, vol. 52, p. 105-124.
+
+Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis--An
+approach based on L-moments: Cambridge University Press.
+}
+\author{ W.H. Asquith}
+\seealso{\code{\link{TLmoms}}, \code{\link{lmomTLgpa}},
+\code{\link{cdfgpa}}, \code{\link{quagpa}}
+}
+\examples{
+TL <- TLmoms(rnorm(20),trim=1)
+parTLgpa(TL)
+}
+\keyword{distribution}

@@ -5,7 +5,8 @@
 A subtantial body of statistical research provides foundation for the theory of
 L-moments and demonstration of L-moment theory in practice exists.  Whereas, in many ways,
 J.R.M. Hosking should be considered the father of L-moments, there are indeed
-many contributors to L-moment literature.  Further, R. Serfling and P. Xiao in 2006 have
+many contributors to L-moment literature.  E.A.H. Elamir and A.H. Seheult in 2003
+introduced the concept of trimmed L-moments and further, R. Serfling and P. Xiao in 2006 have
 taken up the reigns of multivariate L-moments. A substantial sampling is provided in the
 documentation of this package for the benefit of users.
 }
@@ -33,6 +34,9 @@ David, H.A., 1981, Order statistics: John Wiley and Sons Inc., New York, 360 p.
 
 Dingman, S.L., 2002, Physical Hydrology: Prentice Hall, New Jersey,
 2nd edition, 646 p.
+
+Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational statistics
+and data analysis, vol. 43, pp. 299-314.
 
 Evans M., Hastings, N.A.J., and Peacock, J. B., 2000, Statistical distributions,
 3rd ed.: John Wiley and Sons Inc., 221 p.
@@ -103,8 +107,7 @@ moments: Technometrics, vol. 27, pp. 251-261.
 Kaigh, W.D., and Driscoll, M.F., 1987, Numerical and graphical data summary
 using O-statistics: The American Statistician, vol. 41, no. 1, pp. 25-32.
 
-Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions--
-The generalized lambda distribution and generalized bootstrap methods: 
+Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions--The generalized lambda distribution and generalized bootstrap methods: 
 CRC Press, Boca Raton, FL, 438 p.
 
 Kirby, W., 1974, Algebraic boundedness of sample statistics: Water Resources

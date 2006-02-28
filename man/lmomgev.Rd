@@ -7,11 +7,8 @@ This function estimates the L-moments of the Generalized Extreme Value distribut
 The L-moments in terms of the parameters are
 
 \deqn{\lambda_1 = \xi + \frac{\alpha}{\kappa}(1-\Gamma(1+\kappa))}
-
 \deqn{\lambda_2 = \frac{\alpha}{\kappa}(1-2^{-\kappa})\Gamma(1+\kappa)}
-
 \deqn{\tau_3 = \frac{2(1-3^{-\kappa})}{1-2^{-\kappa}} - 3}
-
 \deqn{\tau_4 = \frac{5(1-4^{-\kappa})-10(1-3^{-\kappa})+6(1-2^{-\kappa})}{1-2^{-\kappa}}}
 }
 \usage{
@@ -32,6 +29,8 @@ lmomgev(para)
   \item{L3}{The third L-moment.}
   \item{L4}{The fourth L-moment.}
   \item{L5}{The fifth L-moment.}
+  \item{source}{An attribute identifying the computational 
+source of the L-moments: \dQuote{lmomgev--ordinary}.}
 }
 \references{
 Hosking, J.R.M., 1990, L-moments--Analysis and estimation of

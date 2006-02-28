@@ -12,13 +12,16 @@ freq.curve.cau(fs, para)
 }
 \arguments{
   \item{fs}{Vector of nonexceedance probabilities.}
-  \item{para}{Parameters of the distribution as from \code{vec2par}.}
+  \item{para}{Parameters of the distribution from \code{parcau} or \code{vec2par}.}
 }
 \value{
   A vector of quantiles for the distribution.
 }
 \references{
-Gilchirst, W.G., 2000, Statistical modeling with quantile functions: 
+Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational statistics
+and data analysis, vol. 43, pp. 299-314.
+
+Gilchrist, W.G., 2000, Statistical modeling with quantile functions: 
 Chapman and Hall/CRC, Boca Raton, FL.
 }
 \author{ W.H. Asquith}

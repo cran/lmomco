@@ -10,8 +10,9 @@ of L-moment diagram plotting. It is expected that users will \dQuote{roll their 
 }
 \usage{
 plotlmrdia(lmr, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
-           nogev=FALSE, noglo=FALSE, nogpa=FALSE, nope3=FALSE, nogno=FALSE,
-	   noexp=FALSE, nonor=FALSE, nogum=FALSE, nouni=FALSE, ...)
+           nogev=FALSE, noglo=FALSE, nogpa=FALSE, nope3=FALSE, 
+	   nogno=FALSE, noexp=FALSE, nonor=FALSE, nogum=FALSE, 
+	   nouni=FALSE, ...)
 }
 \arguments{
   \item{lmr}{L-moment diagram object from \code{lmrdia}.}

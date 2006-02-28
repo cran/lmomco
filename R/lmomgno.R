@@ -10,7 +10,8 @@ function(para) {
               LCV  = NULL,
               L3   = NULL,
               L4   = NULL,
-              L5   = NULL
+              L5   = NULL,
+              source = "lmomgno--ordinary"
              )
     erf <- function(x) 2 * pnorm(x * sqrt(2)) - 1
 
