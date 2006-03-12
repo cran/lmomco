@@ -2,12 +2,7 @@
 \alias{lmomTLgld}
 \title{Trimmed L-moments (t=1) of the Generalized Lambda Distribution}
 \description{
-This function estimates the trimmed L-moments (TL-moments) for \eqn{t=1} of the Generalized Lambda distribution given
-the parameters (\eqn{\Lambda_1}, \eqn{\Lambda_2}, \eqn{\Lambda_3}, and \eqn{\Lambda_4}) 
-from \code{\link{vec2par}}. The TL-moments in terms of the
-parameters are complicated; however, there are analytical solutions. There are no simple 
-expressions of the parameters in terms of the L-moments. It is conventional to express L-moments in terms only the parameters with the following substitution for further curtness (\eqn{\Lambda_1 = \xi}, \eqn{\Lambda_2 = \alpha}, 
-\eqn{\Lambda_3 = \kappa}, and \eqn{\Lambda_4 = h}), the first four trimmed L-moments of the distribution are
+This function estimates the trimmed L-moments (TL-moments) for \eqn{t=1} of the Generalized Lambda distribution given the parameters (\eqn{\xi}, \eqn{\alpha}, \eqn{\kappa}, and \eqn{h}) from \code{\link{vec2par}}. The TL-moments in terms of the parameters are complicated; however, there are analytical solutions. There are no simple expressions of the parameters in terms of the L-moments. The first four TL-moments of the distribution are
 
 \deqn{\lambda^{(1)}_1 = \xi + 6\alpha
                               \left(\frac{1}{(\kappa+3)(\kappa+2)} - 
@@ -58,7 +53,7 @@ Finally the TL-moment (\eqn{t=1}) for \eqn{\tau^{(1)}_5} is
 \deqn{D2 = [\kappa(h+4)(h+3)(h+2) + h(\kappa+4)(\kappa+3)(\kappa+2)] \mbox{, and}}
 \deqn{\tau^{(1)}_5 = \frac{7}{5} \left( \frac{N1 -  N2}{D1 \times D2} \right)\mbox{.}}
 
-By inspection the \eqn{\tau_r} equations are not applicable for negative integer values \eqn{k=\{-1, -2, -3, -4, \dots \}} and \eqn{h=\{-1, -2, -3, -4, \dots \}} as division by zero will result. There are additional, but difficult to formulate, restrictions on the parameters both to define a valid Generalized Lambda distribution as well as valid L-moments. Verification of the parameters is conducted through \code{\link{are.pargld.valid}}, and verification of the L-moment validity is conducted through \code{\link{are.lmom.valid}}.
+By inspection the \eqn{\tau_r} equations are not applicable for negative integer values \eqn{k=\{-2, -3, -4, \dots \}} and \eqn{h=\{-2, -3, -4, \dots \}} as division by zero will result. There are additional, but difficult to formulate, restrictions on the parameters both to define a valid Generalized Lambda distribution as well as valid L-moments. Verification of the parameters is conducted through \code{\link{are.pargld.valid}}, and verification of the L-moment validity is conducted through \code{\link{are.lmom.valid}}.
 }
 \usage{
 lmomTLgld(gldpara)
@@ -73,8 +68,9 @@ lmomTLgld(gldpara)
 \eqn{\lambda^{(1)}_1}, second element is \eqn{\lambda^{(1)}_2}, and so on.}
   \item{ratios}{Vector of the TL-moment ratios. Second element is 
 \eqn{\tau^{(1)}}, third element is \eqn{tau^{(1)}_3} and so on. }
+  \item{trim}{Trim level = 1}
   \item{source}{An attribute identifying the computational source 
-of the TL-moments: \dQuote{lmomTLgld--trimmed (t=1)}.}
+of the TL-moments: \dQuote{lmomTLgld}.}
 }
 \source{
 Derivations conducted by W.H. Asquith on February 18 and 19, 2006.

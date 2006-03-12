@@ -11,11 +11,31 @@ is not called because of its dependency on trimmed L-moments and its general lac
 research problems (at least those familiar to the author).
 }
 \usage{
-freq.curve.all(lmom,exp=TRUE,gam=TRUE,gev=TRUE,gld=TRUE,glo=TRUE,
-              gno=TRUE,gpa=TRUE,gum=TRUE,kap=TRUE,nor=TRUE,pe3=TRUE,wak=TRUE,...)
+freq.curve.all(lmom,aslog10=FALSE,asprob=TRUE,
+                    no2para=FALSE,no3para=FALSE, no4para=FALSE,no5para=FALSE,
+                    step=FALSE,show=FALSE,
+                    xmin=NULL,xmax=NULL,xlim=NULL,
+                    ymin=NULL,ymax=NULL,ylim=NULL,
+                    exp=TRUE,gam=TRUE,gev=TRUE,gld=FALSE,glo=TRUE,
+                    gno=TRUE,gpa=TRUE,gum=TRUE,kap=TRUE,
+		    nor=TRUE,pe3=TRUE,wak=TRUE,...)
 }
 \arguments{
   \item{lmom}{A L-moment object from \code{lmom.ub} or similar.}
+  \item{aslog10}{Compute \code{log10} of quantiles--note that \preformatted{NaNs produced in: log(x, base)} will be produced for less than zero values.}
+  \item{asprob}{The \code{qnorm} function is used to convert nonexceedance probabilities, which are produced by \code{\link{nonexceeds}}, to standard normal deviations. The normal distribution will plot as straight line when this argument is \code{TRUE}}
+  \item{no2para}{If \code{TRUE}, do not run the 2-parameter distributions: \code{exp}, \code{gam}, \code{gum}, and \code{nor}.}
+  \item{no3para}{If \code{TRUE}, do not run the 3-parameter distributions: \code{gev}, \code{glo}, \code{gno}, \code{gpa}, and \code{pe3}.}
+  \item{no4para}{If \code{TRUE}, do not run the 4-parameter distributions: \code{kap} and \code{gld}.}
+  \item{no5para}{If \code{TRUE}, do not run the 5-parameter distributions: \code{wak}.}
+  \item{step}{Shows incremental processing of each distribution.}
+  \item{show}{Plots all the frequency curves in a simple (crowded) \code{plot}.}
+  \item{xmin}{Minimum x-axis value to use instead of the automatic value determined from the nonexceedance probabilities. This argument is only used is \code{show=TRUE}.}
+  \item{xmax}{Maximum x-axis value to use instead of the automatic value determined from the nonexceedance probabilities. This argument is only used is \code{show=TRUE}.}
+  \item{xlim}{Both limits of the x-axis. This argument is only used is \code{show=TRUE}.}
+  \item{ymin}{Minimum y-axis value to use instead of the automatic value determined from the nonexceedance probabilities. This argument is only used is \code{show=TRUE}.}
+  \item{ymax}{Maximum y-axis value to use instead of the automatic value determined from the nonexceedance probabilities. This argument is only used is \code{show=TRUE}.}
+  \item{ylim}{Both limits of the y-axis. This argument is only used is \code{show=TRUE}.}
   \item{exp}{A logical switch on computation of corresponding distribution--Default is \code{TRUE}.} 
   \item{gam}{A logical switch on computation of corresponding distribution--Default is \code{TRUE}.} 
   \item{gev}{A logical switch on computation of corresponding distribution--Default is \code{TRUE}.} 
@@ -31,7 +51,7 @@ freq.curve.all(lmom,exp=TRUE,gam=TRUE,gev=TRUE,gld=TRUE,glo=TRUE,
   \item{...}{Additional parameters are passed to the parameter estimation routines such as \code{parexp}.}
 }
 \value{
-  An extensive R \code{list} of frequency curves.
+  An extensive R \code{data.frame} of frequency curves. The nonexceedance probability values, which are provided by \code{\link{nonexceeds}}, are the first item in the \code{data.frame} under the heading of \code{nonexceeds}. If a particular distribution could not be fit to the L-moments of the data; this particular function returns zeros so that a \code{data.frame} can be returned.
 }
 \author{ W.H. Asquith}
 \seealso{
@@ -47,6 +67,11 @@ freq.curve.all(lmom,exp=TRUE,gam=TRUE,gev=TRUE,gld=TRUE,glo=TRUE,
 \code{\link{freq.curve.nor}},
 \code{\link{freq.curve.pe3}}, and 
 \code{\link{freq.curve.wak}}
-
 }
+\examples{
+L <- vec2lmom(c(35612,23593,0.48,0.21,0.11))
+freq.curve.all(L,gld=FALSE)
+freq.curve.all(L,step=TRUE,no2para=TRUE,no4para=TRUE)
+}
+
 \keyword{distribution}

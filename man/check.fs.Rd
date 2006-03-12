@@ -1,6 +1,6 @@
-\name{INT.check.fs}
-\alias{INT.check.fs}
-\title{ INTernal Function to Check Vector of Nonexceedance Probabilities }
+\name{check.fs}
+\alias{check.fs}
+\title{ Check Vector of Nonexceedance Probabilities }
 \description{
 This function checks that a nonexceedance probability (\eqn{F}) is in the \eqn{0 \le F \le 1} range.
 It does not check that the distribution whether the function as specified by current parameters if valid
@@ -11,7 +11,7 @@ Users are not expected to need this function themselves. The \code{INT.check.fs}
 of the heavy use of the logic across a myriad of functions in this package.
 }
 \usage{
-INT.check.fs(fs)
+check.fs(fs)
 }
 \arguments{
   \item{fs}{A vector of nonexceedance probablity values.}

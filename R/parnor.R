@@ -1,6 +1,6 @@
 "parnor" <-
 function(lmom) {
-    para <- matrix(nrow = 2, ncol = 1)
+    para <- vector(mode="numeric", length=2)
     if(! are.lmom.valid(lmom)) {
       warning("L-moments are invalid.")
       return()

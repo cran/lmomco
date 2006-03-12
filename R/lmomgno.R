@@ -15,11 +15,11 @@ function(para) {
              )
     erf <- function(x) 2 * pnorm(x * sqrt(2)) - 1
 
-    SUM <- matrix(nrow = 5, ncol = 1)
+    SUM <- vector(mode="numeric",length=5)
     for(i in seq(1,5)) SUM[i] <- 0
-    EST <- matrix(nrow = 5, ncol = 1)
+    EST <- vector(mode="numeric",length=5)
     for(i in seq(1,5)) EST[i] <- 0
-    ESTX <- matrix(nrow = 5, ncol = 1)
+    ESTX <- vector(mode="numeric",length=5)
     for(i in seq(1,5)) ESTX[i] <- 0
 
 

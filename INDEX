@@ -1,17 +1,5 @@
-INT.check.fs            INTernal Function to Check Vector of
+check.fs                Function to Check Vector of
                         Nonexceedance Probabilities
-INT.kapicase1           INTernal Function for Kappa Distribution-ICASE
-                        1
-INT.kapicase2           INTernal Function for Kappa Distribution-ICASE
-                        2
-INT.kapicase3           INTernal Function for Kappa Distribution-ICASE
-                        3
-INT.kapicase4           INTernal Function for Kappa Distribution-ICASE
-                        4
-INT.kapicase5           INTernal Function for Kappa Distribution-ICASE
-                        5
-INT.kapicase6           INTernal Function for Kappa Distribution-ICASE
-                        6
 Lcomoment.Lk12          Compute a Single Sample L-comoment
 Lcomoment.Wk            Weighting Coefficient for Sample L-comoment
 Lcomoment.coefficients

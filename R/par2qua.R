@@ -38,7 +38,7 @@ function(f,para) {
       return(quawak(f,para))
     }
     else {
-      stop("Do not find a valid distribution type.")
+      stop("Did not find a valid distribution type")
     }
 }
 

@@ -1,6 +1,6 @@
 "parkap" <-
 function(lmom) {
-    para <- matrix(nrow = 4, ncol = 1)
+    para <- vector(mode="numeric", length=4)
     #  IFAIL  *OUTPUT* FAIL FLAG. ON EXIT, IT IS SET AS FOLLOWS.
     #                  0  SUCCESSFUL EXIT
     #                  1  L-MOMENTS INVALID

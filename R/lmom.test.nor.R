@@ -2,13 +2,13 @@
 function(data) {
    lmom <- lmom.ub(data)
    para <- parnor(lmom)
-   print("NORMAL DISTRIBUTION PARAMETERS")
-   print(para)
+   cat("NORMAL DISTRIBUTION PARAMETERS\n")
+   str(para)
    lmompara <- lmomnor(para)
    Q50 <- quanor(0.5,para)
-   print(c('MEDIAN ',Q50))
+   cat(c("Computed median=",Q50,"\n"),sep="")
    P50 <- cdfnor(Q50,para)
-   print(c('NONEXCEEDANCE OF COMPUTED MEDIAN ',P50))
+   cat(c("Nonexceedance of computed median=",P50,"\n"),sep="")
    lmom.diff(lmompara,lmom)
 }
 

@@ -24,8 +24,9 @@ lmomTLgpa(para)
 \eqn{\lambda^{(1)}_1}, second element is \eqn{\lambda^{(1)}_2}, and so on.}
   \item{ratios}{Vector of the L-moment ratios. Second element is 
 \eqn{\tau^{(1)}}, third element is \eqn{tau^{(1)}_3} and so on. }
+  \item{trim}{Trim level = 1}
   \item{source}{An attribute identifying the computational source 
-of the TL-moments: \dQuote{lmomTLgpa--trimmed (t=1)}.}
+of the TL-moments: \dQuote{lmomTLgpa}.}
 }
 \references{
 Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational statistics

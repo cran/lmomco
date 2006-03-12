@@ -7,7 +7,7 @@ function(x,A,B) {
     #  A=-0.35D0 AND B=0.0D0 YIELDS THE ESTIMATORS RECOMMENDED BY
     #  HOSKING ET AL. (1985, TECHNOMETRICS) FOR THE GEV DISTRIBUTION.
     #
-    PWM <- matrix(nrow = 5, ncol = 1)
+    PWM <- vector(mode="numeric",length=5)
     for(j in seq(1,5)) PWM[j] <- 0
 
     if(A == 0 & B == 0) {

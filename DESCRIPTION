@@ -1,7 +1,7 @@
 Package: lmomco
 Title: L-moments, L-comoments, Trimmed L-moments, and Distributions
-Version: 0.4
-Date: 2006-02-28
+Version: 0.5
+Date: 2006-03-12
 Author: William H. Asquith
 Description: The package implements the statistical theory of L-moments including 
  L-moment estimation, probability-weighted moment estimation, parameter estimation 
@@ -18,7 +18,11 @@ Description: The package implements the statistical theory of L-moments includin
  recent years. E.A.H. Elamir and A.H. Seheult have developed the trimmed L-moments, 
  which are implemented in this package. Further, recent developments by Robert 
  Serfling and Peng Xiao have extended L-moments into multivariate space; the so-called 
- sample L-comoments are implemented here.
+ sample L-comoments are implemented here. The supported distributions with moment
+ type shown as L (L-moments) or TL (trimmed L-moments) include the Cauchy(TL), 
+ Exponential(L), Gamma(L), Generalized Extreme Value(L), Generalized Lambda(L/TL), 
+ Generalized Logistic (L), Generalized Normal(L), Generalized Pareto(L/TL), 
+ Gumbel(L), Normal(L), Kappa(L), Pearson Type III(L), and Wakeby(L).
 Maintainer: William H. Asquith <wasquith@austin.rr.com>
 License: GPL
-Packaged: Mon Feb 27 22:40:01 2006; wasquith
+Packaged: Sun Mar 12 14:36:16 2006; wasquith

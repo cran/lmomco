@@ -26,7 +26,7 @@ function(para) {
     z$L2 <- A*Y
 
     #  HIGHER MOMENTS
-    x <- matrix(nrow = 5, ncol = 1)
+    x <- vector(mode="numeric",length=5)
     Y <- 1
     for(m in seq(3,5)) {
       AM   <- m-2

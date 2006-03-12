@@ -2,7 +2,7 @@
 function(lmom) {
     SMALL <- 1e-6 
     # Estimate kappa of distribution
-    para <- matrix(nrow = 3, ncol = 1)
+    para <- vector(mode="numeric", length=3)
     K <- -lmom$TAU3
     if(! are.lmom.valid(lmom)) {
        warning("L-moments are invalid.")

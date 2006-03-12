@@ -6,7 +6,7 @@ The second through fifth order L-moments are perhaps the most common in
 analysis situations.  These L-moments have particular constraints on 
 magnitudes and relation to each other.  This function 
 evaluates and L-moment object whether: L-scale (\eqn{\lambda_2 > 0}), 
-L-CV (\eqn{0 < \tau < 1}), (\eqn L-skew (\eqn{-1 < \tau_3 < 1}),
+(\eqn L-skew (\eqn{-1 < \tau_3 < 1}),
 L-kurtosis (\eqn{0.25(5\tau_3^2 - 1) \le \tau_4 < 1}), and
 \eqn{|\tau_5| < 1}.
 }

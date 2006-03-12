@@ -12,7 +12,102 @@ function(para) {
               L5   = NULL,
               source = "lmomkap--ordinary"
              )
-    BETA <- matrix(nrow = 5, ncol = 1)
+    BETA <- vector(mode="numeric",length=5)
+
+"kapicase1" <-
+function(U,A,G,H) {
+    BETA <- vector(mode="numeric",length=5)
+    # OFL SHOULD BE CHOSEN SO THAT EXP(OFL) JUST DOES NOT CAUSE OVERFLOW
+    # Hosking's code based used 170
+    OFL <- log(.Machine$double.xmax)
+    DLGAM <- lgamma(1+G)
+      #
+      #  - CASE H<0, G NONZERO
+    for(R in seq(1,5)) {
+      ARG <- DLGAM+lgamma(-R/H-G)-lgamma(-R/H)-G*log(-H)
+      if(abs(ARG) > OFL) {
+        warning("Calculations of L-moments have broken down")
+        return()
+      }
+      BETA[R] <- exp(ARG)
+    }
+    return(BETA)
+}
+
+"kapicase2" <-
+function(U,A,G,H) {
+    BETA <- vector(mode="numeric",length=5)
+    DLGAM <- lgamma(1+G)
+    #
+    #         - CASE H SMALL, G NONZERO
+    #
+    for(R in seq(1,5)) {
+      BETA[R] <- exp(DLGAM-G*log(R))*(1-0.5*H*G*(1+G)/R)
+    }
+    return(BETA)
+}
+
+"kapicase3" <-
+function(U,A,G,H) {
+    BETA <- vector(mode="numeric",length=5)
+    # OFL SHOULD BE CHOSEN SO THAT EXP(OFL) JUST DOES NOT CAUSE OVERFLOW
+    OFL <- log(.Machine$double.xmax)
+    DLGAM <- lgamma(1+G)
+    #
+    #         - CASE H>0, G NONZERO
+    #
+    for(R in seq(1,5)) {
+      ARG <- DLGAM+lgamma(1+R/H)-lgamma(1+G+R/H)-G*log(H)
+      if(abs(ARG) > OFL) {
+        warning("Calculations of L-moments have broken down")
+        return()
+      }
+      BETA[R] <- exp(ARG)
+    }
+    return(BETA)
+}
+
+"kapicase4" <-
+function(U,A,G,H) {
+    BETA <- vector(mode="numeric",length=5)
+    #
+    #         - CASE H<0, G <- 0
+    #
+    #   EU  IS EULER'S CONSTANT
+    EU <- 0.577215664901532861
+    for(R in seq(1,5)) {
+      BETA[R] <- EU + log(-H)+digamma(-R/H)
+    }
+    return(BETA)
+}
+
+"kapicase5" <-
+function(U,A,G,H) {
+    BETA <- vector(mode="numeric",length=5)
+    #
+    #         - CASE H SMALL, G <- 0
+    #
+    #   EU  IS EULER'S CONSTANT
+    EU <- 0.577215664901532861
+    for(R in seq(1,5)) {
+      BETA[R] <- EU+log(R)
+    }
+    return(BETA)
+}
+
+"kapicase6" <-
+function(U,A,G,H) {
+    BETA <- vector(mode="numeric",length=5)
+    #
+    #         - CASE H>0, G <- 0
+    #
+    #   EU  IS EULER'S CONSTANT
+    EU <- 0.577215664901532861
+    for(R in seq(1,5)) {
+      BETA[R] <- EU+log(H)+digamma(1+R/H)
+    }
+    return(BETA)
+}
 
     # SMALL IS USED TO TEST WHETHER H IS EFFECTIVELY ZERO
     SMALL <- 1e-8
@@ -28,12 +123,12 @@ function(para) {
     if(H > 0)          ICASE <- 3
     if(abs(H) < SMALL) ICASE <- 2
     if(G == 0)         ICASE <- ICASE+3
-    if(ICASE == 1) BETA <- INT.kapicase1(U,A,G,H)
-    if(ICASE == 2) BETA <- INT.kapicase2(U,A,G,H)
-    if(ICASE == 3) BETA <- INT.kapicase3(U,A,G,H)
-    if(ICASE == 4) BETA <- INT.kapicase4(U,A,G,H)
-    if(ICASE == 5) BETA <- INT.kapicase5(U,A,G,H)
-    if(ICASE == 6) BETA <- INT.kapicase6(U,A,G,H)
+    if(ICASE == 1) BETA <- kapicase1(U,A,G,H)
+    if(ICASE == 2) BETA <- kapicase2(U,A,G,H)
+    if(ICASE == 3) BETA <- kapicase3(U,A,G,H)
+    if(ICASE == 4) BETA <- kapicase4(U,A,G,H)
+    if(ICASE == 5) BETA <- kapicase5(U,A,G,H)
+    if(ICASE == 6) BETA <- kapicase6(U,A,G,H)
 
     #         LAMBDA-1
     if(G == 0) {
@@ -54,7 +149,7 @@ function(para) {
     z$LCV <- z$L2 / z$L1
     #         HIGHER MOMENTS
     Z0 <- 1
-    x <- matrix(nrow = 5, ncol = 1)
+    x <- vector(mode="numeric",length=5)
     for(J in seq(3,5)) {
       Z0 <- Z0*(4*J-6)/J
       Z <- Z0*3*(J-1)/(J+1)

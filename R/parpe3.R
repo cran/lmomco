@@ -1,6 +1,6 @@
 "parpe3" <-
 function(lmom) {
-    para <- matrix(nrow = 3, ncol = 1)
+    para <- vector(mode="numeric", length=3)
 
     # METHOD: RATIONAL APPROXIMATION IS USED TO EXPRESS ALPHA, THE SHAPE
     # PARAMETER OF THE GAMMA DISTRIBUTION, AS A FUNCTION OF TAU-3.

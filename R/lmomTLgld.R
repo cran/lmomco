@@ -55,7 +55,7 @@ function(gldpara) {
     R[4] <- T4
     R[5] <- T5
 
-    z <- list(lambdas = L, ratios = R, source = "lmomTLgld--trimmed (t=1)")
+    z <- list(lambdas = L, ratios = R, trim = 1, source = "lmomTLgld")
     return(z)
 }
 

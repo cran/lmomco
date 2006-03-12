@@ -35,7 +35,7 @@ function(wakpara) {
 
     #  HIGHER MOMENTS
     #
-    x <- matrix(nrow = 5, ncol = 1)
+    x <- vector(mode="numeric",length=5)
     for(M in seq(3,5)) {
       Y <- Y*(M-2-B)/(M+B)
       Z <- Z*(M-2+D)/(M-D)

@@ -19,12 +19,12 @@ basis. The package also implements the trimmed L-moments and support for the
 Cauchy, Generalized Lambda, and Generalized Pareto distributions.
 
 Things to do:
-(1) Extend parameter estimation of Generalized Lambda distribution.
+(1) Continue to explore parameter estimation of Generalized Lambda distribution.
 (2) Add additional distributions (uniform, others).
 (3) Make further progress on documentation including nontrivial examples.
 (4) Further "design" the L-moment object for greater function portability.
       Deprecate the object design from lmom.ub and similar.
       
-wha (February 28, 2006)
+wha (March 12, 2006)
 
 See inst/doc/WARRANTY for lack-of-warranty information.

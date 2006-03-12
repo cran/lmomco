@@ -17,6 +17,6 @@ function(para) {
     R[4] <- 5*(K-1)*(K-2)/(4*(K+6)*(K+5))
     L[4] <- L[2]*R[4]
  
-    z <- list(lambdas = L, ratios = R, source = 'lmomTLgpa--trimmed (t=1)')
+    z <- list(lambdas = L, ratios = R, trim = 1, source = 'lmomTLgpa')
     return(z)
 }

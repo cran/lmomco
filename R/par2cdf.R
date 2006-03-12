@@ -38,7 +38,7 @@ function(x,para) {
       return(cdfwak(x,para))
     }
     else {
-      stop("Do not find a valid distribution type.")
+      stop("Did not find a valid distribution type")
     }
 }
 

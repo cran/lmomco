@@ -11,7 +11,7 @@ function(para) {
               L5   = NULL,
               source = "lmomgev--ordinary"
              )
-    lmom <- matrix(nrow = 5, ncol = 1)
+    lmom <- vector(mode="numeric",length=5)
 
     # ARRAY ZMOM CONTAINS THE L-MOMENT RATIOS OF THE STANDARD
     #  GUMBEL DISTRIBUTION (XI=0, ALPHA=1).

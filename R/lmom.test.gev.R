@@ -2,13 +2,13 @@
 function(data) {
    lmom <- lmom.ub(data)
    para <- pargev(lmom)
-   print("GENERALIZED EXTREME VALUE DISTRIBUTION PARAMETERS")
-   print(para)
+   cat("GENERALIZED EXTREME VALUE DISTRIBUTION PARAMETERS\n")
+   str(para)
    lmompara <- lmomgev(para)
    Q50 <- quagev(0.5,para)
-   print(c('MEDIAN ',Q50))
+   cat(c("Computed median=",Q50,"\n"),sep="")
    P50 <- cdfgev(Q50,para)
-   print(c('NONEXCEEDANCE OF COMPUTED MEDIAN ',P50))
+   cat(c("Nonexceedance of computed median=",P50,"\n"),sep="")
    lmom.diff(lmompara,lmom)
 }
 

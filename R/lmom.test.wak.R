@@ -2,13 +2,13 @@
 function(data) {
    lmom <- lmom.ub(data)
    para <- parwak(lmom)
-   print("WAKEBY DISTRIBUTION PARAMETERS")
-   print(para)
+   cat("WAKEBY DISTRIBUTION PARAMETERS\n")
+   str(para)
    lmompara <- lmomwak(para)
    Q50 <- quawak(0.5,para)
-   print(c('MEDIAN ',Q50))
+   cat(c("Computed median=",Q50,"\n"),sep="")
    P50 <- cdfwak(Q50,para)
-   print(c('NONEXCEEDANCE OF COMPUTED MEDIAN ',P50))
+   cat(c("Nonexceedance of computed median=",P50,"\n"),sep="")
    lmom.diff(lmompara,lmom)
 }
 

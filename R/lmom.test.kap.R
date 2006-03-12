@@ -2,13 +2,13 @@
 function(data) {
    lmom <- lmom.ub(data)
    para <- parkap(lmom)
-   print("GENERALIZED KAPPA DISTRIBUTION PARAMETERS")
-   print(para)
+   cat("GENERALIZED KAPPA DISTRIBUTION PARAMETERS\n")
+   str(para)
    lmompara <- lmomkap(para)
    Q50 <- quakap(0.5,para)
-   print(c('MEDIAN ',Q50))
+   cat(c("Computed median=",Q50,"\n"),sep="")
    P50 <- cdfkap(Q50,para)
-   print(c('NONEXCEEDANCE OF COMPUTED MEDIAN ',P50))
+   cat(c("Nonexceedance of computed median=",P50,"\n"),sep="")
    lmom.diff(lmompara,lmom)
 }
 

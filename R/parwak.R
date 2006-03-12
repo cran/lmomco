@@ -22,7 +22,7 @@ function(lmom) {
 
 # Hosking's GOTO 20 in the Wakeby Parameter Estimation
 wak.gpa_instead <- function(ALAM1,ALAM2,T3) {
-    para <- matrix(nrow = 5, ncol = 1)
+    para <- vector(mode="numeric", length=5)
     #
     #         CAN'T FIND VALID ESTIMATES EVEN WITH XI=0 -
     #         FIT GENERALIZED PARETO DISTRIBUTION INSTEAD
@@ -56,7 +56,7 @@ wak.gpa_instead <- function(ALAM1,ALAM2,T3) {
 
 
 
-    para <- matrix(nrow = 5, ncol = 1)
+    para <- vector(mode="numeric", length=5)
 
     ALAM1 <- lmom$L1
     ALAM2 <- lmom$L2

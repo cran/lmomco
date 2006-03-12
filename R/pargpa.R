@@ -1,6 +1,6 @@
 "pargpa" <-
 function(lmom) {
-    para <- matrix(nrow = 3, ncol = 1)
+    para <- vector(mode="numeric", length=3)
 
     L1 <- NULL
     L2 <- NULL

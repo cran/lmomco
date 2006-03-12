@@ -1,6 +1,6 @@
 "pargno" <-
 function(lmom) {
-    para <- matrix(nrow = 3, ncol = 1)
+    para <- vector(mode="numeric", length=3)
     erf <- function(x) 2 * pnorm(x * sqrt(2)) - 1
 
     # METHOD: RATIONAL-FUNCTION APPROXIMATION OF K IN TERMS OF TAU-3

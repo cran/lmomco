@@ -1,5 +1,5 @@
 "pargld" <-
-function(lmom,verbose=FALSE) {
+function(lmom,result='best',verbose=FALSE) {
 
     LM1 <- NULL
     LM2 <- NULL
@@ -33,11 +33,11 @@ function(lmom,verbose=FALSE) {
       return()
     }
     
-    estLa1 <- function(La2,La3,La4) {
+    estla1 <- function(La2,La3,La4) {
       La1 <- LM1 - La2*(1/(La3+1) - 1/(La4+1))
     }
 
-    estLa2 <- function(LM2,La3,La4) {
+    estla2 <- function(LM2,La3,La4) {
       return(LM2/(La3/((La3+1)*(La3+2)) + La4/((La4+1)*(La4+2))))
     }
 
@@ -72,7 +72,6 @@ function(lmom,verbose=FALSE) {
       La4 <- x[2]
       t3  <- esttau3(La3,La4)
       t4  <- esttau4(La3,La4)
-      t5  <- esttau5(La3,La4)
       ss  <- ((T3-t3)^2 + (T4-t4)^2)
       return(ss)
     }
@@ -124,13 +123,13 @@ function(lmom,verbose=FALSE) {
     # function above. Early testing of pargld() before the suitabiliy
     # of the second L-moment for GLD showed that the validlmom() test
     # was needed.  Consider this for safety at any rate.
-    validlmom <- function(sol,region) {
+    validlmom <- function(sol,attempt) {
       LM3 <- sol$par[1]
       LM4 <- sol$par[2]
       T3 <- esttau3(LM3,LM4)
       T4 <- esttau4(LM3,LM4)
       T5 <- esttau5(LM3,LM4)
-      #if(verbose == TRUE) cat(c("validlmom(region,Tau3,Tau4,Tau5)?:\n",region,T3,T4,T5))
+      #if(verbose == TRUE) cat(c("validlmom(region,Tau3,Tau4,Tau5)?:\n",attempt,T3,T4,T5))
       if(abs(T3) > 1)  return(FALSE)
       if(T4 < (0.25*(5*T3^2 - 1)) || T4 > 1) return(FALSE)
       if(abs(T5) > 1)  return(FALSE)
@@ -158,55 +157,104 @@ function(lmom,verbose=FALSE) {
    # Journal of VLSI Signal Processing, vol. 32, pp. 83--92.
    KEKguess <- (3+7*T4+(1+98*T4+T4^2)^0.5)/(2*(1-T4))
    M[14,] <- c(KEKguess,KEKguess)
+   
+   each_count            <- 0
+   each_attempt          <- vector(mode = 'numeric', length = 1)
+   each_initialK         <- vector(mode = 'numeric', length = 1)
+   each_initialH         <- vector(mode = 'numeric', length = 1)
+   each_error            <- vector(mode = 'numeric', length = 1)
+   each_interpretederror <- vector(mode = 'numeric', length = 1)
+   each_xi               <- vector(mode = 'numeric', length = 1)
+   each_alpha            <- vector(mode = 'numeric', length = 1)
+   each_kappa            <- vector(mode = 'numeric', length = 1)
+   each_h                <- vector(mode = 'numeric', length = 1)
+   each_t5diff           <- vector(mode = 'numeric', length = 1)
+   
+   WIDTH <- getOption("width")
 
-   EPS <- 1e-5
-   SMALL <- Inf
-   FinalT5diff <- Inf
-   para <- matrix(nrow = 4, ncol = 1)
    if(verbose == TRUE) {
      cat("SUMMARY OF INCREMENTAL OPTIMIZATIONS\n")
      cat("  Q(F) = X + A*(F^K + (1-F)^H)\n")
-     cat("--------------------------------------------------------------------------------------------\n")
-     cat("Attempt      X        A        K        H            Tau5_diff     SumSqError    Diagnostics\n")
-     cat("--------------------------------------------------------------------------------------------\n")
+     cat(c(rep("-",WIDTH),"\n"),sep="")
+     cat("Attempt      X        A        K        H            tau5_diff     SumSqError    Diagnostics\n")
+     cat(c(rep("-",WIDTH),"\n"),sep="")
    }
    for(i in seq(1,g)) {
-     r <- optim(M[i,],fn)
-     e <- r$value
-     K <- r$par[1]
-     H <- r$par[2]
-     T5diff <- T5 - esttau5(K,H)
-     A <- estLa2(LM2,K,H)
-     X <- estLa1(A,K,H)
-     if(verbose == TRUE) cat(c(" ",i,sprintf("%6.6f",X),",", 
-                                     sprintf("%6.6f",A),",",
-			             sprintf("%6.6f",K),",",
+     # Test for NaN from the KEK guess
+     if(is.nan(M[i,1]) || is.nan(M[i,2])) next
+
+     r      <- optim(M[i,],fn) # THE MAGIC IS HERE!!!!!!!!!!
+     e      <- r$value # extract error
+     K      <- r$par[1] # extract the two solutions
+     H      <- r$par[2]
+     T5diff <- abs(T5 - esttau5(K,H)) # compute difference
+     A      <- estla2(LM2,K,H)
+     X      <- estla1(A,K,H)
+
+     # BEGIN SECTION FOR DETAILED OUTPUT
+     if(verbose == TRUE) cat(c(" ",i,"  ",
+                                     sprintf("%6.6f",X),", ", 
+                                     sprintf("%6.6f",A),", ",
+			             sprintf("%6.6f",K),", ",
 				     sprintf("%6.6f",H),"   ",
 			             sprintf("%6.6f",T5diff),"  ",
-				     sprintf("%8.8f",e)))
-     if(validgld(A,K,H) == FALSE) {
-       if(verbose == TRUE) cat(c("       Invalid GLD parameters--\n"))
-       next
-     }
-     if(verbose == TRUE) cat(c("     Valid GLD parameters--"))
-     if(validlmom(r,region=i) == FALSE) {
-       if(verbose == TRUE) cat(c("Invalid L-moments\n"))
+				     sprintf("%8.10f",e)),sep="")
+     if(validlmom(r,attempt=i) == FALSE) {
+       if(verbose == TRUE) cat(c("       inval:tau_r\n"))
        next 
      }
-     if(verbose == TRUE) cat(c("Valid L-moments\n"))
-     if(e < SMALL) {
-       para[1] <- X
-       para[2] <- A
-       para[3] <- K
-       para[4] <- H
-       SMALL <- e
-       FinalT5diff <- T5diff
+     if(verbose == TRUE) cat(c("       val:tau_r--"))
+     if(validgld(A,K,H) == FALSE) {
+       if(verbose == TRUE) cat(c("inval:GLD\n"))
+       next
      }
+     if(verbose == TRUE) cat(c("val:GLD\n"))
+     # END SECTION FOR DETAILED OUTPUT
+     
+     each_count                <- each_count + 1
+     each_attempt[each_count]  <- i
+     each_initialK[each_count] <- M[i,1]
+     each_initialH[each_count] <- M[i,2]
+     each_xi[each_count]       <- X
+     each_alpha[each_count]    <- A
+     each_kappa[each_count]    <- K
+     each_h[each_count]        <- H
+     each_t5diff[each_count]   <- T5diff
+     each_error[each_count]    <- e
    }
-   if(verbose == TRUE) {
-     cat("--------------------------------------------------------------------------------------------\n")
-   }
+   if(verbose == TRUE) cat(c(rep("-",WIDTH),"\n"),sep="")
 
-  return(list(type = 'gld', para = para, error=SMALL, tau5diff = FinalT5diff,
-              source="pargld"))
+   EACH <- data.frame(attempt    = each_attempt,
+                      x          = each_xi,
+		      a          = each_alpha,
+		      k          = each_kappa,
+		      h          = each_h,
+		      absDelTau5 = each_t5diff,
+		      error      = each_error,
+		      initial_k  = each_initialK,
+		      initial_h  = each_initialH)
+   EACH <- EACH[order(EACH$error),]
+   
+   # Preparing final best guess . . .
+   para <- vector(mode="numeric", length=4)
+   para[1]  <- EACH$x[1]
+   para[2]  <- EACH$a[1]
+   para[3]  <- EACH$k[1]
+   para[4]  <- EACH$h[1]
+   tau5diff <- EACH$tau5diff[1]
+   error    <- EACH$mse[1]
+   
+   if(result == 'best') {
+     return(list(type       = 'gld',
+                 para       = para,
+                 error      = error,
+                 absDelTau5 = tau5diff,
+                 source     = "pargld")) 
+   }
+   else if(result == 'dataframe') {
+     return(EACH)
+   }
+   else {
+     warning("result argument is not 'best' or 'dataframe'")
+   }
 }

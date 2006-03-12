@@ -1,16 +1,11 @@
 "parTLgpa" <-
 function(lmom) {
-
-    if(length(lmom$source) == 1 && lmom$source != "TLmoms") {
-      warning("TL-moments with trim=1 are required--can not complete parameter estimation")
-      return()    
-    }
-    else if(length(lmom$trim) == 1 && lmom$trim != 1) {
+    if(length(lmom$trim) == 1 && lmom$trim != 1) {
       warning("Attribute of TL-moments is not trim=1--can not complete parameter estimation")
       return()
     }  
 
-   para    <- matrix(nrow = 3, ncol = 1)
+   para <- vector(mode="numeric", length=3)
 
    L1 <- lmom$lambdas[1]
    L2 <- lmom$lambdas[2]
