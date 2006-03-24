@@ -21,11 +21,10 @@ polynomial. The weight factors are well illustrated in figure 2.6 of Hosking
 and Wallis (1997).
 
  \deqn{ w^{(k)}_{r:n} = \sum_{j=0}^{min\{r-1,k-1\}} (-1)^{k-1-j}
-                                    \frac{C(k-1,j)C(k-1+j,j)C(r-1,j)}
-				         {C(n-1,j)}
-      \mbox{,}}
-
-where \eqn{C(a,b)} is the combinatorial function (\code{choose} in R).
+                                    \frac{{k-1 \choose j}{k-1+j \choose j}
+				          {r-1 \choose j}}
+				         {{n-1 \choose j}}
+      \mbox{.}}
 }
 \value{A single L-comoment weight factor.}
 \note{
@@ -38,7 +37,7 @@ releases.
 Serfling and Xiao (2006).
 }
 \references{
-Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis--An
+Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
 approach based on L-moments: Cambridge University Press.
 
 Serfling, R., and Xiao, P., 2006, Multivariate L-moments, preprint.

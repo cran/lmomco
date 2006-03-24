@@ -135,7 +135,8 @@ function(lmom,result='best',verbose=FALSE) {
     validlmom <- function(sol,attempt) {
       LM3 <- sol$par[1]
       LM4 <- sol$par[2]
-
+      # TL-moment (t=1) based GLD only valid for > -2 parameters--Hosking email
+      if(LM3 <= -2 || LM4 <= -2) return(FALSE)
       T3 <- esttau3(LM3,LM4)
       T4 <- esttau4(LM3,LM4)
       T5 <- esttau5(LM3,LM4)
@@ -243,8 +244,8 @@ function(lmom,result='best',verbose=FALSE) {
    para[2]  <- EACH$a[1]
    para[3]  <- EACH$k[1]
    para[4]  <- EACH$h[1]
-   tau5diff <- EACH$tau5diff[1]
-   error    <- EACH$mse[1]
+   tau5diff <- EACH$absDeltau5[1]
+   error    <- EACH$error[1]
    
    if(result == 'best') {
      return(list(type       = 'gld',

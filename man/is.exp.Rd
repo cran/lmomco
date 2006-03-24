@@ -4,7 +4,7 @@
 \description{
 The distribution parameter object returned by functions of this module such as by
 \code{parexp} are typed by an attribute \code{type}.
-This function checks that type is \code{exp} for the Exponential distribution.
+This function checks that \code{type} is \code{exp} for the Exponential distribution.
 }
 \usage{
 is.exp(para)

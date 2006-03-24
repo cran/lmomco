@@ -12,7 +12,7 @@ Because in typical practice, the \eqn{k \ge 3} order L-moments are dimensionless
 \eqn{\lambda^{(t)}_4}, \eqn{\lambda^{(t)}_5} from \eqn{\lambda^{(t)}_2} and the ratios. However, typical 
 practice is not set on the use of \eqn{\lambda^{(t)}_2} or \eqn{\tau^{(t)}} as measure of dispersion. 
 Therefore, this function takes an \code{lscale} optional logical 
-(\code{TRUE|FALSE}) argument--if \eqn{\lambda^{(t)}_2} is provided and \code{lscale=TRUE}, then
+(\code{TRUE|FALSE}) argument---if \eqn{\lambda^{(t)}_2} is provided and \code{lscale=TRUE}, then
 \eqn{\tau} is computed by the function and if \eqn{\tau} is provided, then 
 \eqn{\lambda^{(t)}_2} is computed by the function. The trim level of the TL-moment is required.
 }
@@ -34,11 +34,11 @@ vec2TLmom(vec,trim,lscale)
   \item{ratios}{Vector of the L-moment ratios. Second element is 
 \eqn{\tau^{(t)}}, third element is \eqn{\tau^{(t)}_3} and so on.}
   \item{trim}{Level of symmetrical trimming used in the computation. 
-Default is 0--the usual L-moments are returned.}
+Default is 0---the usual L-moments are returned.}
   \item{source}{An attribute identifying the computational source of the L-moments: \dQuote{TLmoms}.}
 }
 \note{
-It is important to note that the \dQuote{TL-moment object} returned by \code{TLmoms} is different in structure to that returned by \code{\link{TLmoms}}, and similar as the TL-moments should not be confused with the ordinary L-moments. Implementation in the package might change.
+It is important to note that the \dQuote{TL-moment object} returned by \code{TLmoms} is different in structure to that returned by \code{\link{TLmoms}}, and similar as the TL-moments should not be confused with the ordinary L-moments. Implementation in the package might change. At present asymmetrical TL-moment construction using this function is not available.s
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{lmom.ub}}, \code{\link{TLmoms}}, \code{\link{vec2lmom}}}

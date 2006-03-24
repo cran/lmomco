@@ -1,40 +1,42 @@
 \name{TLmoms}
 \alias{TLmoms}
-\title{ The Trimmed L-moments and L-moment Ratios }
+\title{ The Sample Trimmed L-moments and L-moment Ratios }
 \description{
-Compute the trimmed L-moments (TL-moments) for a vector. The level of symmetrical trimming is
+Compute the sample trimmed L-moments (TL-moments) for a vector. The level of symmetrical trimming is
 specified. A TL-moment is 
 
-\deqn{ \lambda^{(t)}_r = \frac{1}{r}\sum^{n-t}_{i=t+1}
-           \left[ \frac{\sum^{r-1}_{k=0}{ (-1)^k C(r-1,k)
-                                                 C(i-1,r+t-1-k)
-                                                 C(n-i,t+k)
-                                         }}{C(n,r+2t)}
-           \right] x_{i:n}}
+\deqn{ \hat{\lambda}^{(t_1,t_2)}_r = \frac{1}{r}\sum^{n-t_2}_{i=t_1+1}
+           \left[ \frac{\sum\limits^{r-1}_{k=0}{ (-1)^k {r-1 \choose k}
+                                                 {i-1 \choose r+t_1-1-k}
+                                                 {n-i \choose t_2+k}
+                                         }}{{n \choose r+t_1+t_2}}
+           \right] x_{i:n} \mbox{,}}
 
-where \eqn{C(a,b)} represents the combinatorial notation (in R \code{choose}), 
-\eqn{t} represents the trimming level of the \eqn{t}-largest or \eqn{t}-smallest 
+where \eqn{t} represents the trimming level of the \eqn{t}-largest or \eqn{t}-smallest 
 values, \eqn{r} represents the order of the L-moments, \eqn{n} represents the 
 sample size, and \eqn{x_{i:n}} represents the \eqn{i}th sample order statistic (\eqn{x_{1:n} \le x_{2:n} \le \dots \le x_{n:n}}). This function loops across the above equation for each \code{nmom} set in 
 the argument list.
 }
 \usage{
-TLmoms(x,nmom,trim)
+TLmoms(x,nmom,trim=NULL,leftrim=NULL,rightrim=NULL)
 }
 \arguments{
   \item{x}{A vector of data values.}
   \item{nmom}{The number of moments to compute. Default is 5.}
-  \item{trim}{The trimming level to use.}
+  \item{trim}{Level of symmetrical trimming to use in the computations, which will equal \code{NULL} if asymmetrical trimming was used. Although \code{NULL} in the argument list, the default is 0---the usual L-moment is returned.}
+  \item{leftrim}{Level of trimming of the left-tail of the sample.}
+  \item{rightrim}{Level of trimming of the right-tail of the sample.}
 }
 \value{
-  An R \code{list} is returned where \eqn{t} represents the \code{trim} level.
+  An R \code{list} is returned.
 
   \item{lambdas}{Vector of the TL-moments. First element is
-\eqn{\lambda^{(t)}_1}, second element is \eqn{\lambda^{(t)}_2}, and so on.}
+\eqn{\hat{\lambda}^{(t_1,t_2)}_1}, second element is \eqn{\hat{\lambda}^{(t_1,t_2)}_2}, and so on.}
   \item{ratios}{Vector of the L-moment ratios. Second element is 
-\eqn{\tau^{(t)}}, third element is \eqn{\tau^{(t)}_3} and so on.}
-  \item{trim}{Level of symmetrical trimming used in the computation. 
-Default is 0--the usual L-moments are returned.}
+\eqn{\hat{\tau}^{(t_1,t_2)}}, third element is \eqn{\hat{\tau}^{(t_1,t_2)}_3} and so on.}
+  \item{trim}{Level of symmetrical trimming used in the computation, which will equal \code{NULL} if asymmetrical trimming was used.}
+  \item{leftrim}{Level of left-tail trimming used in the computation.}
+  \item{rightrim}{Level of right-tail trimming used in the computation.}
   \item{source}{An attribute identifying the computational source of the L-moments: \dQuote{TLmoms}.}
 }
 \note{

@@ -21,7 +21,7 @@ freq.curve.gld(fs, para)
 This function assumes that the parameters are already confirmed as valid for the GLD distribution. A check is not made with successive calls to \code{\link{quagld}}; this is done primarly for speed purposes. Therefore, when \code{quagld} is called the \code{paracheck=FALSE} options to that function is made.
 }
 \references{
-Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions--The generalized lambda distribution and generalized bootstrap methods: 
+Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions---The generalized lambda distribution and generalized bootstrap methods: 
 CRC Press, Boca Raton, FL, 438 p.
 }
 \author{ W.H. Asquith}

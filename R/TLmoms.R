@@ -1,12 +1,23 @@
 "TLmoms" <-
-function(x,nmom=5,trim=0) {
+function(x,nmom=5,trim=NULL,leftrim=NULL,rightrim=NULL) {
   if(nmom < 1) {
     warning("Number of L-moments is less than 1")
-    return(FALSE)
+    return()
   }
-  if(trim < 0) {
+  if(! is.null(trim) && trim < 0) {
     warning("Trimming value is less than 0")
-    return(FALSE)
+    return()
+  }
+  if(! is.null(leftrim) && leftrim < 0) {
+    warning("Left rimming value is less than 0")
+    return()
+  }
+  if(! is.null(rightrim) && rightrim < 0) {
+    warning("Right trimming value is less than 0")
+    return()
+  }
+  if(is.null(trim) && is.null(leftrim) && is.null(rightrim)) {
+    trim <- 0
   }
   t <- trim
   x <- sort(x)
@@ -14,11 +25,11 @@ function(x,nmom=5,trim=0) {
   L <- seq(1,nmom)
   R <- seq(1,nmom)
   for(r in seq(1,nmom)) {
-    lambda <- TLmom(x,trim=trim,order=r,sort=FALSE)
+    lambda <- TLmom(x,trim=trim,leftrim=leftrim,rightrim=rightrim,order=r,sort=FALSE)
     lr <- lambda$lambda
     L[r] <- lr
   }
-  L
+  
   if(nmom >= 2) {
     R[2] <- L[2]/L[1]
   }
@@ -28,6 +39,8 @@ function(x,nmom=5,trim=0) {
     }
   }
   R[1] <- 0
-  z <- list(lambdas = L, ratios = R, trim=trim, source="TLmoms")
+
+  z <- list(lambdas = L, ratios = R,
+            trim=trim, leftrim=leftrim, rightrim=rightrim, source="TLmoms")
   return(z)
 }

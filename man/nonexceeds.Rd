@@ -15,15 +15,15 @@ nonexceeds()
   respectively. The relation between annual recurrence interval and nonexceedance
   probability (when annual data are analyzed) is
 
-  \deqn{ F = 1 - \frac{1}{T}}
+  \deqn{ F = 1 - \frac{1}{T} \mbox{,}}
 
-where T is the T-year event.
+where T is the \eqn{T}-year event.
 }
 \author{ W.H. Asquith}
 \seealso{ \code{\link{quaexp}}, \code{\link{quagam}}, \code{\link{quagev}},
 \code{\link{quaglo}}, \code{\link{quagno}}, \code{\link{quagpa}},
 \code{\link{quagum}}, \code{\link{quakap}}, \code{\link{quanor}},
-\code{\link{quape3}}, \code{\link{quawak}} }
+\code{\link{quape3}}, \code{\link{quawak}}, and \code{\link{check.fs}} }
 \examples{
 lmr <- lmom.ub(rnorm(20))
 para <- parnor(lmr)

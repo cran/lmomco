@@ -4,7 +4,7 @@
 \description{
 The distribution parameter object returned by functions of this module such as by
 \code{pargno} are typed by an attribute \code{type}.
-This function checks that type is \code{gno} for the Generalized
+This function checks that \code{type} is \code{gno} for the Generalized
 Normal distribution.
 }
 \usage{

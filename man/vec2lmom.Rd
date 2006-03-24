@@ -30,10 +30,10 @@ vec2lmom(vec,lscale)
   An R \code{list} is returned.
 
   \item{L1}{Arithmetic mean.}
-  \item{L2}{L-scale--analogous to standard deviation.}
-  \item{LCV}{coefficient of L-variation--analogous to coe. of variation.}
-  \item{TAU3}{The third L-moment ratio or L-skew--analogous to skew.}
-  \item{TAU4}{The fourth L-moment ratio or L-kurtosis--analogous to kurtosis.}
+  \item{L2}{L-scale---analogous to standard deviation.}
+  \item{LCV}{coefficient of L-variation---analogous to coe. of variation.}
+  \item{TAU3}{The third L-moment ratio or L-skew---analogous to skew.}
+  \item{TAU4}{The fourth L-moment ratio or L-kurtosis---analogous to kurtosis.}
   \item{TAU5}{The fifth L-moment ratio.}
   \item{L3}{The third L-moment.}
   \item{L4}{The fourth L-moment.}

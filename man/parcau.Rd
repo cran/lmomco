@@ -31,14 +31,14 @@ defined by Elamir and Seheult (2003). The function \code{parcau} calls
 \code{TLlmoms(x,trim=1)}) internally to compute the trimmed L-moments.
 The relation between the parameters and the trimmed L-moments is
 
-\deqn{\xi = \lambda^{(1)}_1 }
+\deqn{\xi = \lambda^{(1)}_1 \mbox{and}}
 
-\deqn{\alpha = \frac{\lambda^{(1)}_2}{0.698} }
+\deqn{\alpha = \frac{\lambda^{(1)}_2}{0.698} \mbox{.}}
 
 }
 \references{
-Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational statistics
-and data analysis, vol. 43, pp. 299-314.
+Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational Statistics
+and Data Analysis, vol. 43, pp. 299--314.
 
 Gilchrist, W.G., 2000, Statistical modeling with quantile functions: 
 Chapman and Hall/CRC, Boca Raton, FL.

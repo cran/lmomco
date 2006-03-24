@@ -13,6 +13,9 @@ function(x,para) {
     else if(type == 'gev') {
       return(cdfgev(x,para))
     }
+    else if(type == 'gld') {
+      return(cdfgld(x,para))
+    }
     else if(type == 'glo') {
       return(cdfglo(x,para))
     }

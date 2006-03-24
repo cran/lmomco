@@ -4,7 +4,7 @@
 \description{
 The distribution parameter object returned by functions of this module such as by
 \code{parwak} are typed by an attribute \code{type}.
-This function checks that type is \code{wak} for the Wakeby distribution.
+This function checks that \code{type} is \code{wak} for the Wakeby distribution.
 }
 \usage{
 is.wak(para)

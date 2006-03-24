@@ -1,5 +1,5 @@
 "vec2par" <-
-function(vec,type,...) {
+function(vec,type,nowarn=FALSE,...) {
     if(type == 'cau') {
       z <- list(type = 'cau', para = vec, source = "vec2par")
     }
@@ -42,8 +42,11 @@ function(vec,type,...) {
     else {
       stop("Did not find a valid distribution type")
     }
-    if(! are.par.valid(z,...)) {
+    if(! are.par.valid(z,nowarn,...)) {
+      op <- options()
+      if(nowarn == TRUE) options(warn=-1)
       warning("The parameters are invalid for the distribution")
+      options(op)
       return()
     }
     return(z)

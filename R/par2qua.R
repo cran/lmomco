@@ -1,5 +1,5 @@
 "par2qua" <-
-function(f,para) {
+function(f,para,...) {
     type <- para$type
     if(type == 'cau') {
       return(quacau(f,para))
@@ -12,6 +12,9 @@ function(f,para) {
     }
     else if(type == 'gev') {
       return(quagev(f,para))
+    }
+    else if(type == 'gld') {
+      return(quagld(f,para,...))
     }
     else if(type == 'glo') {
       return(quaglo(f,para))

@@ -4,7 +4,7 @@
 \description{
 The distribution parameter object returned by functions of this module such as by
 \code{pargum} are typed by an attribute \code{type}.
-This function checks that type is \code{gum} for the Gumbel distribution.
+This function checks that \code{type} is \code{gum} for the Gumbel distribution.
 }
 \usage{
 is.gum(para)

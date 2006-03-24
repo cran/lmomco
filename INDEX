@@ -228,6 +228,10 @@ quanor                  Quantile Function of the Normal Distribution
 quape3                  Quantile Function of the Pearson Type III
                         Distribution
 quawak                  Quantile Function of the Wakeby Distribution
+theoLmoms               Theoretical L-moments and L-moment Ratios 
+                        using Integration of the Quantile Function
+theoTLmoms              Theoretical TL-moments and TL-moment Ratios 
+                        using Integration of the Quantile Function
 vec2TLmom               Convert a Vector of TL-moments to a TL-moment
                         Object
 vec2lmom                Convert a Vector of L-moments to a L-moment

@@ -7,7 +7,7 @@ of the Cauchy distribution given parameters (\eqn{\xi} and \eqn{\alpha}) of the
 distribution provided by \code{\link{parcau}} or \code{\link{vec2par}}.  The cumulative distribution
 function of the distribution is
 
-\deqn{F(x) = \frac{\arctan(\frac{x - \xi}{\alpha})}{\pi}+0.5}
+\deqn{F(x) = \frac{\arctan(\frac{x - \xi}{\alpha})}{\pi}+0.5 \mbox{,}}
 
 where \eqn{F(x)} is the nonexceedance probability for quantile \eqn{x},
 \eqn{\xi} is a location parameter and \eqn{\alpha} is a scale parameter.
@@ -24,8 +24,8 @@ cdfcau(x, para)
   Nonexceedance probability (\eqn{F}) for \eqn{x}.
 }
 \references{
-Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational statistics
-and data analysis, vol. 43, pp. 299-314.
+Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational Statistics
+and Data Analysis, vol. 43, pp. 299--314.
 
 Gilchrist, W.G., 2000, Statistical modeling with quantile functions: 
 Chapman and Hall/CRC, Boca Raton, FL.

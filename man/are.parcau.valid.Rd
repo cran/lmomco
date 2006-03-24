@@ -10,19 +10,20 @@ probability (nonexceedance), quantile, and L-moments of the distribution,
 respectively.
 }
 \usage{
-are.parcau.valid(para)
+are.parcau.valid(para,nowarn=FALSE,...)
 }
 \arguments{
   \item{para}{A distribution parameter list returned by \code{parcau} or \code{vec2par}.}
+  \item{nowarn}{A logical switch on warning surpression. If \code{TRUE} then \code{options(warn=-1)} is made and restored on return. This switch is to permit calls in which warnings are not desired as the user knows how to handle the returned value---say in an optimization algorithm.}
+  \item{...}{Additional arguments for the \code{are.parCCC.valid} call that is made internally.}
 }
 \value{
   \item{TRUE}{If the parameters are \code{cau} consistent.}
-  
   \item{FALSE}{If the parameters are not \code{cau} consistent.}
 }
 \references{
-Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational statistics
-and data analysis, vol. 43, pp. 299-314.
+Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational Statistics
+and Data Analysis, vol. 43, pp. 299--314.
 
 Gilchrist, W.G., 2000, Statistical modeling with quantile functions: 
 Chapman and Hall/CRC, Boca Raton, FL.

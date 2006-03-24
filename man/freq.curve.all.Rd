@@ -12,13 +12,14 @@ research problems (at least those familiar to the author).
 }
 \usage{
 freq.curve.all(lmom,aslog10=FALSE,asprob=TRUE,
-                    no2para=FALSE,no3para=FALSE, no4para=FALSE,no5para=FALSE,
+                    no2para=FALSE,no3para=FALSE, 
+		    no4para=FALSE,no5para=FALSE,
                     step=FALSE,show=FALSE,
                     xmin=NULL,xmax=NULL,xlim=NULL,
                     ymin=NULL,ymax=NULL,ylim=NULL,
-                    exp=TRUE,gam=TRUE,gev=TRUE,gld=FALSE,glo=TRUE,
-                    gno=TRUE,gpa=TRUE,gum=TRUE,kap=TRUE,
-		    nor=TRUE,pe3=TRUE,wak=TRUE,...)
+                    exp=TRUE,gam=TRUE,gev=TRUE,gld=FALSE,
+		    glo=TRUE,gno=TRUE,gpa=TRUE,gum=TRUE,
+		    kap=TRUE,nor=TRUE,pe3=TRUE,wak=TRUE,...)
 }
 \arguments{
   \item{lmom}{A L-moment object from \code{lmom.ub} or similar.}
@@ -36,18 +37,18 @@ freq.curve.all(lmom,aslog10=FALSE,asprob=TRUE,
   \item{ymin}{Minimum y-axis value to use instead of the automatic value determined from the nonexceedance probabilities. This argument is only used is \code{show=TRUE}.}
   \item{ymax}{Maximum y-axis value to use instead of the automatic value determined from the nonexceedance probabilities. This argument is only used is \code{show=TRUE}.}
   \item{ylim}{Both limits of the y-axis. This argument is only used is \code{show=TRUE}.}
-  \item{exp}{A logical switch on computation of corresponding distribution--Default is \code{TRUE}.} 
-  \item{gam}{A logical switch on computation of corresponding distribution--Default is \code{TRUE}.} 
-  \item{gev}{A logical switch on computation of corresponding distribution--Default is \code{TRUE}.} 
-  \item{gld}{A logical switch on computation of corresponding distribution--Default is \code{TRUE}.} 
-  \item{glo}{A logical switch on computation of corresponding distribution--Default is \code{TRUE}.} 
-  \item{gno}{A logical switch on computation of corresponding distribution--Default is \code{TRUE}.} 
-  \item{gpa}{A logical switch on computation of corresponding distribution--Default is \code{TRUE}.} 
-  \item{gum}{A logical switch on computation of corresponding distribution--Default is \code{TRUE}.} 
-  \item{kap}{A logical switch on computation of corresponding distribution--Default is \code{TRUE}.} 
-  \item{nor}{A logical switch on computation of corresponding distribution--Default is \code{TRUE}.} 
-  \item{pe3}{A logical switch on computation of corresponding distribution--Default is \code{TRUE}.} 
-  \item{wak}{A logical switch on computation of corresponding distribution--Default is \code{TRUE}.} 
+  \item{exp}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
+  \item{gam}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
+  \item{gev}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
+  \item{gld}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
+  \item{glo}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
+  \item{gno}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
+  \item{gpa}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
+  \item{gum}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
+  \item{kap}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
+  \item{nor}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
+  \item{pe3}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
+  \item{wak}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
   \item{...}{Additional parameters are passed to the parameter estimation routines such as \code{parexp}.}
 }
 \value{

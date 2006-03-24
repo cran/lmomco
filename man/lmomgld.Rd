@@ -4,14 +4,14 @@
 \description{
 This function estimates the L-moments of the Generalized Lambda distribution given the parameters (\eqn{\xi}, \eqn{\alpha}, \eqn{\kappa}, and \eqn{h})  from \code{\link{vec2par}}. The L-moments in terms of the parameters are complicated; however, there are analytical solutions. There are no simple expressions of the parameters in terms of the L-moments. The first L-moment or the mean of the distribution is
 
-\deqn{\xi = \xi + \alpha
+\deqn{\lambda_1 = \xi + \alpha
                               \left(\frac{1}{\kappa+1} - 
 			            \frac{1}{h+1} \right) \mbox{.}}    
 
 
 The second L-moment or L-scale in terms of the parameters and the mean is
 
-\deqn{\alpha = \xi + \frac{2\alpha}{(\kappa+2)} - 
+\deqn{\lambda_2 = \xi + \frac{2\alpha}{(\kappa+2)} - 
                       2\alpha
                       \left( \frac{1}{h+1} - 
 		             \frac{1}{h+2} \right) - \xi \mbox{.}}
@@ -21,7 +21,7 @@ The third L-moment in terms of the parameters, the mean, and L-scale is
 
 \deqn{\mbox{\boldmath $Y$} = 2\xi + \frac{6\alpha}{(\kappa+3)} - 
                                          3(\alpha+\xi) + \xi \mbox{ and}}
-\deqn{\kappa = \mbox{\boldmath $Y$} + 6\alpha
+\deqn{\lambda_3 = \mbox{\boldmath $Y$} + 6\alpha
                       \left(\frac{2}{h+2} -
 		            \frac{1}{h+3} - 
 			    \frac{1}{h+1}\right) \mbox{.}}
@@ -33,25 +33,25 @@ The fourth L-moment in termes of the parameters and the first three L-moments is
 				\frac{1}{h+1}\right) \mbox{,}}
 \deqn{\mbox{\boldmath $Z$} = \frac{20\xi}{4} + \frac{20\alpha}{(\kappa+4)} - 
                                               20 \mbox{\boldmath $Y$}\alpha \mbox{, and}}
-\deqn{h = \mbox{\boldmath $Z$} - 	
+\deqn{\lambda_4 = \mbox{\boldmath $Z$} - 	
                          5(\kappa + 3(\alpha+\xi) - \xi) +
                                 6(\alpha + \xi) - \xi \mbox{.}}
 
 It is conventional to express L-moments in terms of only the parameters and not the other L-moments. Lengthy algebra and further manipulation yields such a system of equations. The L-moments of the distribution are
 
-\deqn{\xi = \xi + \alpha
+\deqn{\lambda_1 = \xi + \alpha
                               \left(\frac{1}{\kappa+1} - 
 			            \frac{1}{h+1} \right) \mbox{,}}    
 
-\deqn{\alpha = \alpha \left(\frac{\kappa}{(\kappa+2)(\kappa+1)} +
+\deqn{\lambda_2 = \alpha \left(\frac{\kappa}{(\kappa+2)(\kappa+1)} +
                                            \frac{h}{(h+2)(h+1)}\right) \mbox{,}}
 
-\deqn{\kappa =  \alpha \left(\frac{\kappa (\kappa - 1)}
+\deqn{\lambda_3 =  \alpha \left(\frac{\kappa (\kappa - 1)}
                                                 {(\kappa+3)(\kappa+2)(\kappa+1)} -
 					   \frac{h (h - 1)}
 					        {(h+3)(h+2)(h+1)} \right) \mbox{, and}}
 
-\deqn{h = \alpha \left(\frac{\kappa (\kappa - 2)(\kappa - 1)}
+\deqn{\lambda_4 = \alpha \left(\frac{\kappa (\kappa - 2)(\kappa - 1)}
                                                 {(\kappa+4)(\kappa+3)(\kappa+2)(\kappa+1)} +
 					   \frac{h (h - 2)(h - 1)}
 					        {(h+4)(h+3)(h+2)(h+1)} \right) \mbox{.}}
@@ -95,10 +95,10 @@ lmomgld(gldpara)
   An R \code{list} is returned.
 
   \item{L1}{Arithmetic mean.}
-  \item{L2}{L-scale--analogous to standard deviation.}
-  \item{LCV}{coefficient of L-variation--analogous to coe. of variation.}
-  \item{TAU3}{The third L-moment ratio or L-skew--analogous to skew.}
-  \item{TAU4}{The fourth L-moment ratio or L-kurtosis--analogous to kurtosis.}
+  \item{L2}{L-scale---analogous to standard deviation.}
+  \item{LCV}{coefficient of L-variation---analogous to coe. of variation.}
+  \item{TAU3}{The third L-moment ratio or L-skew---analogous to skew.}
+  \item{TAU4}{The fourth L-moment ratio or L-kurtosis---analogous to kurtosis.}
   \item{TAU5}{The fifth L-moment ratio.}
   \item{L3}{The third L-moment.}
   \item{L4}{The fourth L-moment.}
@@ -110,13 +110,13 @@ source of the L-moments: \dQuote{lmomgld--ordinary}.}
 Derivations conducted by W.H. Asquith on February 11 and 12, 2006.
 }
 \references{
-Hosking, J.R.M., 1990, L-moments--Analysis and estimation of
+Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
 distributions using linear combinations of order statistics: Journal
-of the Royal Statistical Society, Series B, vol. 52, p. 105-124.
+of the Royal Statistical Society, Series B, vol. 52, p. 105--124.
 
-Karvanen, J., Eriksson, J., and Koivunen, V., 2002, Adaptive score functions for maximum likelihood ICA: Journal of VLSI Signal Processing, vol. 32, p. 82-92.
+Karvanen, J., Eriksson, J., and Koivunen, V., 2002, Adaptive score functions for maximum likelihood ICA: Journal of VLSI Signal Processing, vol. 32, p. 82--92.
 
-Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions--The generalized lambda distribution and generalized bootstrap methods: 
+Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distibutions---The generalized lambda distribution and generalized bootstrap methods: 
 CRC Press, Boca Raton, FL, 438 p.
 }
 \author{ W.H. Asquith}

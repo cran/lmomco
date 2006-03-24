@@ -7,7 +7,7 @@ It does not check that the distribution whether the function as specified by cur
 for \eqn{F = 0} or \eqn{F = 1}. End point checking 
 is left to additional internal checks within the functions implementing the distribution. The function
 is intended for internal use within this library to build logic flow throughout the distribution functions.
-Users are not expected to need this function themselves. The \code{INT.check.fs} function is separate because 
+Users are not expected to need this function themselves. The \code{check.fs} function is separate because 
 of the heavy use of the logic across a myriad of functions in this package.
 }
 \usage{
@@ -18,7 +18,6 @@ check.fs(fs)
 }
 \value{
   \item{TRUE}{The nonexceedance probabilities are valid.}
-  
   \item{FALSE}{The nonexceedance probabilities are invalid.}
 }
 \author{ W.H. Asquith}
@@ -36,5 +35,9 @@ check.fs(fs)
 \code{\link{freq.curve.nor}}, 
 \code{\link{freq.curve.pe3}}, and \cr
 \code{\link{freq.curve.wak}}
+}
+\examples{
+F <- c(0.5,0.7,0.9,1.1)
+if(check.fs(F) == FALSE) cat("Bad nonexceedances 0<F<1\n")
 }
 \keyword{distribution}

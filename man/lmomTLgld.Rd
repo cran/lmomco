@@ -2,7 +2,7 @@
 \alias{lmomTLgld}
 \title{Trimmed L-moments (t=1) of the Generalized Lambda Distribution}
 \description{
-This function estimates the trimmed L-moments (TL-moments) for \eqn{t=1} of the Generalized Lambda distribution given the parameters (\eqn{\xi}, \eqn{\alpha}, \eqn{\kappa}, and \eqn{h}) from \code{\link{vec2par}}. The TL-moments in terms of the parameters are complicated; however, there are analytical solutions. There are no simple expressions of the parameters in terms of the L-moments. The first four TL-moments of the distribution are
+This function estimates the symmetrical trimmed L-moments (TL-moments) for \eqn{t=1} of the Generalized Lambda distribution given the parameters (\eqn{\xi}, \eqn{\alpha}, \eqn{\kappa}, and \eqn{h}) from \code{\link{vec2par}}. The TL-moments in terms of the parameters are complicated; however, there are analytical solutions. There are no simple expressions of the parameters in terms of the L-moments. The first four TL-moments of the distribution are
 
 \deqn{\lambda^{(1)}_1 = \xi + 6\alpha
                               \left(\frac{1}{(\kappa+3)(\kappa+2)} - 
@@ -67,7 +67,7 @@ lmomTLgld(gldpara)
   \item{lambdas}{Vector of the TL-moments. First element is
 \eqn{\lambda^{(1)}_1}, second element is \eqn{\lambda^{(1)}_2}, and so on.}
   \item{ratios}{Vector of the TL-moment ratios. Second element is 
-\eqn{\tau^{(1)}}, third element is \eqn{tau^{(1)}_3} and so on. }
+\eqn{\tau^{(1)}}, third element is \eqn{\tau^{(1)}_3} and so on. }
   \item{trim}{Trim level = 1}
   \item{source}{An attribute identifying the computational source 
 of the TL-moments: \dQuote{lmomTLgld}.}

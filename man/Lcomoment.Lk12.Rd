@@ -25,7 +25,7 @@ notation reflects that of Serfling and Xiao (2006). The weights for
 the computation are derived from calls by \code{Lcomoment.Lk12} to
 \code{Lcomoment.Wk}.
 
-  \deqn{ \hat{\lambda}_{k[12]} = n^{-1}\sum_{r=1}^{n}
+  \deqn{ \hat{\lambda}_{k[12]} = \frac{1}{n}\sum_{r=1}^{n}
                                      w^{(k)}_{r:n} x^{(12)}_{[r:n]}
        }
 
@@ -33,7 +33,7 @@ The L-comoments of \eqn{X2} are computed from the concomitants of \eqn{X1} (\eqn
 order and in turn shuffling \eqn{X2} by the order of \eqn{X1}. The sample concomitants are thus formed (\eqn{x^{(12)}_{[r:n]}}). By symmetry the L-comoment
 is
 
-  \deqn{ \hat{\lambda}_{k[21]} = n^{-1}\sum_{r=1}^{n}
+  \deqn{ \hat{\lambda}_{k[21]} = \frac{1}{n}\sum_{r=1}^{n}
                                      w^{(k)}_{r:n} x^{(21)}_{[r:n]}
        }
 
@@ -49,6 +49,9 @@ releases.
 Serfling and Xiao (2006).
 }
 \references{
+Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
+approach based on L-moments: Cambridge University Press.
+
 Serfling, R., and Xiao, P., 2006, Multivariate L-moments, preprint.
 }
 \author{ W.H. Asquith}

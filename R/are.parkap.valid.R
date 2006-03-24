@@ -1,5 +1,5 @@
 "are.parkap.valid" <-
-function(para) {
+function(para,nowarn=FALSE) {
     if(! is.kap(para)) return(FALSE)
     # The ifail==2 case is above the Generalized Logistic Line
     # if the length is one, then the ifail is present and we
@@ -9,18 +9,23 @@ function(para) {
     A <- para$para[2]
     G <- para$para[3]
     H <- para$para[4]
+    op <- options()
+    GO <- TRUE
+    if(nowarn == TRUE) options(warn=-1)
     if(A <= 0) {
       warning("Parameters are invalid")
-      return(FALSE)
+      GO <- FALSE
     }
     if(G <= -1) {
       warning("Parameters are invalid")
-      return(FALSE)
+      GO <- FALSE
     }
     if(H < 0 && G*H <= -1) {
       warning("Parameters are invalid")
-      return(FALSE)
+      GO <- FALSE
     }
-    return(TRUE)
+    options(op)
+    if(GO) return(TRUE)
+    return(FALSE)
 }
 

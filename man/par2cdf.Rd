@@ -3,8 +3,7 @@
 \title{Cumulative Distribution Function of the Distributions}
 \description{
 This function acts as a front end of dispatcher to the distribution-specific cumulative
-distribution functions. The Generalized Lambda distribution is not supported by 
-this function.
+distribution functions.
 }
 \usage{
 par2cdf(x,para)

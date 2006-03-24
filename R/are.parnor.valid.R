@@ -1,11 +1,16 @@
 "are.parnor.valid" <-
-function(para) {
+function(para,nowarn=FALSE) {
     if(! is.nor(para)) return(FALSE)
     sd <- para$para[2]
+    op <- options()
+    GO <- TRUE
+    if(nowarn == TRUE) options(warn=-1)
     if(sd <= 0) {
       warning("Parameters are invalid")
-      return(FALSE)
+      GO <- FALSE
     }
-    return(TRUE)
+    options(op)
+    if(GO) return(TRUE)
+    return(FALSE)
 }
 

@@ -16,16 +16,15 @@ are.par.valid(para,...)
   \item{...}{Additional arguments for the \code{are.parCCC.valid} call that is made internally.}
 }
 \value{
-  \item{TRUE}{If the parameters are consistent with the distribution specified by the type attribute.}
-
-  \item{FALSE}{If the parameters are not consistent with the distribution specified by the type attribute.}
+  \item{TRUE}{If the parameters are consistent with the distribution specified by the \code{type} attribute of the parameter object.}
+  \item{FALSE}{If the parameters are not consistent with the distribution specified by the \code{type} attribute of the parameter object.}
 }
 \references{
 Hosking, J.R.M., 1996, FORTRAN routines for use with the method of L-moments:
 Version 3, IBM Research Report RC20525, T.J. Watson Research Center,
 Yorktown Heights, New York.
 
-Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis--An
+Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
 approach based on L-moments: Cambridge University Press.
 }
 \author{ W.H. Asquith}

@@ -25,14 +25,14 @@ parTLgpa(lmom)
   \item{source}{The source of the parameters--\dQuote{parTLgpa}.}
 }
 \references{
-Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational statistics
-and data analysis, vol. 43, pp. 299-314.
+Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational Statistics
+and Data Analysis, vol. 43, pp. 299--314.
 
-Hosking, J.R.M., 1990, L-moments--Analysis and estimation of
+Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
 distributions using linear combinations of order statistics: Journal
-of the Royal Statistical Society, Series B, vol. 52, p. 105-124.
+of the Royal Statistical Society, Series B, vol. 52, p. 105--124.
 
-Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis--An
+Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
 approach based on L-moments: Cambridge University Press.
 }
 \author{ W.H. Asquith}

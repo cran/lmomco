@@ -4,7 +4,7 @@
 \description{
 The distribution parameter object returned by functions of this module such as by
 \code{parkap} are typed by an attribute \code{type}.
-This function checks that type is \code{kap} for the Kappa distribution.
+This function checks that \code{type} is \code{kap} for the Kappa distribution.
 }
 \usage{
 is.kap(para)

@@ -6,7 +6,7 @@ This function computes the quantiles of the Cauchy distribution given
 parameters (\eqn{\xi} and \eqn{\alpha}) of the distribution provided by
 \code{\link{vec2par}}. The quantile function of the distribution is
 
-\deqn{x(F) = \xi + \alpha \times \tan(\pi*(F-0.5))}
+\deqn{x(F) = \xi + \alpha \times \tan(\pi(F-0.5)) \mbox{,}}
 
 where \eqn{x(F)} is the quantile for nonexceedance probability \eqn{F},
 \eqn{\xi} is a location parameter and \eqn{\alpha} is a scale parameter.
@@ -26,8 +26,8 @@ quacau(f, para)
   Quantile value for for nonexceedance probability \eqn{F}.
 }
 \references{
-Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational statistics
-and data analysis, vol. 43, pp. 299-314.
+Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational Statistics
+and Data Analysis, vol. 43, pp. 299--314.
 
 Gilchirst, W.G., 2000, Statistical modeling with quantile functions: 
 Chapman and Hall/CRC, Boca Raton, FL.

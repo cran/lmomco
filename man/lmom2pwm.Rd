@@ -14,7 +14,7 @@ lmom2pwm(lmom)
   \item{lmom}{ An L-moment object created by \code{\link{lmom.ub}} or similar.}
 }
 \details{
-The Probability Weighted Moments (PWMs) are linear combinations of the L-moments and
+PWMs are linear combinations of the L-moments and
 therefore contain the same statistical information of the data as the L-moments.
 However, the PWMs are harder to interpret as measures of probability distributions.
 The PWMs are included here for theoretical completeness and are not intended for
@@ -31,12 +31,12 @@ distributions. The relation between L-moments (\eqn{\lambda_r})and PWMs (\eqn{\b
 
  \deqn{\lambda_5 = 70\beta_4  - 140\beta_3 + 90\beta_2 - 20\beta_1 + \beta_0\mbox{.}}
 
-The linearity between L-moments and Probability-Weighted Moments means that procedures base on one are equivalent to the other. 
+The linearity between L-moments and PWMs means that procedures based on one are equivalent to the other. 
 }
 \value{
   An R \code{list} is returned.
 
-  \item{BETA0}{The first PWM--equal to the arithmetic mean.}
+  \item{BETA0}{The first PWM---equal to the arithmetic mean.}
   \item{BETA1}{The second PWM.}
   \item{BETA2}{The third PWM.}
   \item{BETA3}{The fourth PWM.}
@@ -44,19 +44,19 @@ The linearity between L-moments and Probability-Weighted Moments means that proc
 }
 \references{
 Greenwood, J.A., Landwehr, J.M., Matalas, N.C., and Wallis, J.R., 1979,
-Probability weighted moments--Definition and relation to parameters of
+Probability weighted moments---Definition and relation to parameters of
 several distributions expressable in inverse form: Water Resources Research,
-vol. 15, p. 1,049-1,054.
+vol. 15, p. 1,049--1,054.
 
-Hosking, J.R.M., 1990, L-moments--Analysis and estimation of
+Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
 distributions using linear combinations of order statistics: Journal
-of the Royal Statistical Society, Series B, vol. 52, p. 105-124.
+of the Royal Statistical Society, Series B, vol. 52, p. 105--124.
 
 Hosking, J.R.M., 1996, FORTRAN routines for use with the method of L-moments:
 Version 3, IBM Research Report RC20525, T.J. Watson Research Center,
 Yorktown Heights, New York.
 
-Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis--An
+Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
 approach based on L-moments: Cambridge University Press.
 }
 \author{ W.H. Asquith }

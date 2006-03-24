@@ -3,16 +3,16 @@
 \title{Quantile Function of the Generalized Lambda Distribution}
 \description{
 This function computes the quantiles of the Generalized Lambda distribution given
-parameters (\eqn{\Lambda_1}, \eqn{\Lambda_2}, \eqn{\Lambda_3}, and \eqn{\Lambda_4})
+parameters (\eqn{\xi}, \eqn{\alpha}, \eqn{\kappa}, and \eqn{h})
 of the distribution computed by \code{\link{vec2par}}.
 The quantile function of the distribution is
 
-\deqn{x(F) = \Lambda_1 + \Lambda_2(F^{\Lambda_3} - (1-F)^{\Lambda_4})}{
-      x(F) = Lambda_1 + Lambda_2*(F^Lambda_3-(1-F)^Lambda_4)}
+\deqn{x(F) = \xi + \alpha(F^{\kappa} - (1-F)^{h}) \mbox{,}}{
+      x(F) = x + a*(F^k-(1-F)^h)}
 
 where \eqn{x(F)} is the quantile for nonexceedance probability \eqn{F},
-\eqn{\Lambda_1} is a location parameter, \eqn{\Lambda_2} is a scale
-parameter, and \eqn{\Lambda_3}, and \eqn{\Lambda_4} are
+\eqn{\xi} is a location parameter, \eqn{\alpha} is a scale
+parameter, and \eqn{\kappa}, and \eqn{h} are
 shape parameters. Note that in this parameterization the scale term is shown
 in the numerator and not the denominator. This is done in this package as 
 part of the parallel nature between distributions. The scale parameter is often
@@ -30,7 +30,7 @@ quagld(f, gldpara, paracheck)
   Quantile value for nonexceedance probability \eqn{F}.
 }
 \references{
-Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions--The generalized lambda distribution and generalized bootstrap methods: 
+Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions---The generalized lambda distribution and generalized bootstrap methods: 
 CRC Press, Boca Raton, FL, 438 p.
 }
 \author{ W.H. Asquith}

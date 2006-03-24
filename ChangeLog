@@ -11,7 +11,7 @@ Version 0.4--February 28, 2006
 7. Addition of vec2TLmom()
 
 Version 0.5--March 12, 2006
-1. Total design of pargld() and parTLgld()
+1. Total redesign of pargld() and parTLgld().
 2. Adjustments to interface of lmomTLgpa() and parTLgpa() for consistency with
      the GLD distribution.
 3. Major additions to freq.curve.all() (addition of plotting options and
@@ -21,3 +21,18 @@ Version 0.5--March 12, 2006
 6. check.fs() added.
 7. Improvement to output of lmom.test.*() functions.
 
+Version 0.6--March 25, 2006
+0. Tweaks and corrections to documentation--learning more about LaTeX too.
+1. are.par.valid() could not dispatch to Wakeby distribution--fixed.
+2. Extension of TL-moments to asymmetry: trimming in tails can be controlled.
+3. Addition of theoLmoms() to compute theoretical L-moments: uses theoTLmoms().
+4. Addition of theoTLmoms() to compute theoretical TL-moments using numerical
+     integration of the quantile function. A valuable check on par2lmom()
+     or the lmomCCC() functions.
+5. par2cdf() did not dispatch to Generalized Lambda distribution--fixed.
+6. Addition of nowarn toggle to vec2par() {implemented therein}, through 
+     are.par.valid() via the ..., and each of the are.parCCC.valid() 
+     {implemented therein}. This was done so that parameter optimization 
+     algorithms could be build on top of the parameter validation checks and 
+     cascading warning messages that the user would not care about can be 
+     surpressed.

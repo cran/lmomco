@@ -22,15 +22,15 @@ or \code{\link{pwm2lmom}}.}
   \item{para}{The parameters of the distribution.}
 }
 \references{
-Hosking, J.R.M., 1990, L-moments--Analysis and estimation of
+Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
 distributions using linear combinations of order statistics: Journal
-of the Royal Statistical Society, Series B, vol. 52, p. 105-124.
+of the Royal Statistical Society, Series B, vol. 52, p. 105--124.
 
 Hosking, J.R.M., 1996, FORTRAN routines for use with the method of L-moments:
 Version 3, IBM Research Report RC20525, T.J. Watson Research Center,
 Yorktown Heights, New York.
 
-Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis--An
+Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
 approach based on L-moments: Cambridge University Press.
 }
 \author{ W.H. Asquith}

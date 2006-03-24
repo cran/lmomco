@@ -54,7 +54,7 @@ Although the underlying derivations of the TL-moments in terms of the parameters
 R hacking by W.H. Asquith in February 2006 with copy of Karian and Dudewicz (2000).
 }
 \references{
-Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions--The generalized lambda distribution and generalized bootstrap methods: 
+Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions---The generalized lambda distribution and generalized bootstrap methods: 
 CRC Press, Boca Raton, FL, 438 p.
 }
 \author{ W.H. Asquith}

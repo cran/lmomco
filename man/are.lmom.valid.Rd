@@ -22,11 +22,11 @@ are.lmom.valid(lmom)
   \item{FALSE}{L-moments are not valid.}
 }
 \references{
-Hosking, J.R.M., 1990, L-moments--Analysis and estimation of
+Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
 distributions using linear combinations of order statistics: Journal
 of the Royal Statistical Society, Series B, vol. 52, p. 105-124.
 
-Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis--An
+Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
 approach based on L-moments: Cambridge University Press.
 }
 \author{ W.H. Asquith}

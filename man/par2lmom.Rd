@@ -5,8 +5,7 @@
 This function converts the parameters of a distribution to the L-moment as
 represented in an L-moment object. This function dispatches to \code{lmomCCC}
 where CCC represents the three character distribution identifier: \code{cau},
-\code{exp}, \code{gam}, \code{gev}, \code{gld}, \code{glo}, \code{gno}, \code{gpa},
-\code{gum}, \code{kap}, \code{nor}, \code{pe3}, and \code{wak}.
+\code{exp}, \code{gam}, \code{gev}, \code{gld}, \code{glo}, \code{gno}, \code{gpa}, \code{gum}, \code{kap}, \code{nor}, \code{pe3}, and \code{wak}. The conversion of parameters to TL-moments (\code{\link{TLmoms}}) is not supported. Specific use of functions such as \code{lmomTLgld} or \code{lmomTLgpa} for the TL-moments of the Generalized Lambda and Generalized Pareto distributions is required.
 }
 \usage{
 par2lmom(para)

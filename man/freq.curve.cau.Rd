@@ -18,8 +18,8 @@ freq.curve.cau(fs, para)
   A vector of quantiles for the distribution.
 }
 \references{
-Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational statistics
-and data analysis, vol. 43, pp. 299-314.
+Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational Statistics
+and Data Analysis, vol. 43, pp. 299--314.
 
 Gilchrist, W.G., 2000, Statistical modeling with quantile functions: 
 Chapman and Hall/CRC, Boca Raton, FL.

@@ -24,7 +24,11 @@ Things to do:
 (3) Make further progress on documentation including nontrivial examples.
 (4) Further "design" the L-moment object for greater function portability.
       Deprecate the object design from lmom.ub and similar.
+(5) Continue discussions with Juha Karvanen on a cross-package L-moment 
+      object. (Related to ToDo no. 4.)
       
-wha (March 12, 2006)
+wha (March 24, 2006)
 
 See inst/doc/WARRANTY for lack-of-warranty information.
+
+See the excellent R-package Lmoments by Juha Karvanen.
