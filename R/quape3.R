@@ -8,29 +8,34 @@ function(f,para) {
     U <- para$para[1]
     A <- para$para[2]
     GAMMA <- para$para[3]
-    if(f <= 0 || f >= 1) {
-      if((f == 0 & GAMMA > 0) |
-         (f == 1 & GAMMA < 0)) {
-        U-2*A/GAMMA
+
+    x <- vector(mode="numeric")
+    for(i in seq(1,length(f))) {
+      if(f[i] <= 0 || f[i] >= 1) {
+        if((f[i] == 0 & GAMMA > 0) |
+           (f[i] == 1 & GAMMA < 0)) {
+          U-2*A/GAMMA
+        }
+        else {
+          warning("Argument to function invalid")
+          return()
+        }
+      }
+      if(abs(GAMMA) < SMALL) {
+        # ZERO SKEWNESS, qnorm() is the standard normal distribution
+        x[i] <- U+A*qnorm(f[i])
       }
       else {
-        warning("Argument to function invalid")
-        return()
+         ALPHA <- 4/GAMMA^2
+         BETA <- abs(0.5*A*GAMMA)
+         if(GAMMA > 0) {
+           x[i] <- U-ALPHA*BETA+qgamma(f[i],ALPHA,scale=BETA)
+         }
+         else {
+           x[i] <- U+ALPHA*BETA-qgamma(1-f[i],ALPHA,scale=BETA)
+         }
       }
     }
-    if(abs(GAMMA) < SMALL) {
-      # ZERO SKEWNESS, qnorm() is the standard normal distribution
-      return(U+A*qnorm(f))
-    }
-    else {
-       ALPHA <- 4/GAMMA^2
-       BETA <- abs(0.5*A*GAMMA)
-       if(GAMMA > 0) {
-         return(U-ALPHA*BETA+qgamma(f,ALPHA,scale=BETA))
-       }
-       else {
-         return(U+ALPHA*BETA-qgamma(1-f,ALPHA,scale=BETA))
-       }
-    }
+    return(x)
 }
 

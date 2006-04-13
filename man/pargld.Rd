@@ -8,12 +8,13 @@ is seen under \code{lmomgld}. There are no simple expressions for the parameters
 L-moments. This function is considered HIGHLY EXPERIMENTAL and general details of the algorithm are provided below. Further, consider that multiple parameter solutions are possible with the Generalized Lambda so some expertise in the distribution and other aspects are needed.
 }
 \usage{
-pargld(lmom,result='best',verbose=FALSE)
+pargld(lmom,result='best',verbose=FALSE,extract=0)
 }
 \arguments{
   \item{lmom}{A L-moment object created by \code{\link{lmom.ub}}, \code{\link{pwm2lmom}}, or \code{\link{TLmoms}} with \code{trim=0}.}
   \item{result}{If \code{best}, then the minimum error solution is returned. If \code{dataframe}, then \code{data.frame} is returned with sequence of valid solutions sorted in ascending error order.}
   \item{verbose}{A logical switch on the verbosity of output.  Default is \code{verbose=FALSE}.}
+  \item{extract}{If \code{result=dataframe} and \code{extract} greater than zero, then the \code{extract=n} returns the \code{n}th element of the \code{data.frame} as if that element was the \code{best} solution.}
 }
 \details{
 Karian and Dudewicz (2000) summarize six regions of the \eqn{\kappa} and \eqn{h} space in which the Generalized Lambda distribution is valid for suitably choosen \eqn{\alpha}. Numerical experimentation suggestions that the L-moments are not valid in Regions 1 and 2. However, initial guesses of the parameters within each region are used for numerous separate \code{optim} (the R function) efforts to perform a least sum-of-square errors on the following objective function.

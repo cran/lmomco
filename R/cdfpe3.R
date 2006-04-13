@@ -15,16 +15,21 @@ function(x,para) {
     A <- para$para[2]
     GAMMA <- para$para[3]
 
-    if(abs(GAMMA) <= SMALL) { 
-      # ZERO SKEWNESS
-      Z <- (x-U)/A
-      return(0.5+0.5*erf(Z*ROOT0p5))
+    f <- vector(mode="numeric")
+    for(i in seq(1,length(x))) {
+      if(abs(GAMMA) <= SMALL) { 
+        # ZERO SKEWNESS
+        Z <- (x[i]-U)/A
+        f[i] <- 0.5+0.5*erf(Z*ROOT0p5)
+        next
+      }
+      ALPHA <- 4/GAMMA^2
+      Z <- 2*(x[i]-U)/(A*GAMMA)+ALPHA
+      CDFPE3 <- 0
+      if(Z     > 0)  CDFPE3 <- pgamma(Z,ALPHA)
+      if(GAMMA < 0 ) CDFPE3 <- 1-CDFPE3
+      f[i] <- CDFPE3
     }
-    ALPHA <- 4/GAMMA^2
-    Z <- 2*(x-U)/(A*GAMMA)+ALPHA
-    CDFPE3 <- 0
-    if(Z     > 0)  CDFPE3 <- pgamma(Z,ALPHA)
-    if(GAMMA < 0 ) CDFPE3 <- 1-CDFPE3
-    return(CDFPE3)
+    return(f)
 }
 

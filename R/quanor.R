@@ -1,6 +1,10 @@
 "quanor" <-
 function(f,para) {
     if(! are.parnor.valid(para)) return()
-    return(qnorm(f,mean = para$para[1], sd = para$para[2]))
+    x <- vector(mode="numeric")
+    for(i in seq(1,length(f))) {
+      x[i] <- qnorm(f[i],mean = para$para[1], sd = para$para[2])
+    }
+    return(x)
 }
 

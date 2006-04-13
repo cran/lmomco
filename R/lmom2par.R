@@ -1,5 +1,5 @@
 "lmom2par" <-
-function(lmom,type) {
+function(lmom,type,...) {
     if(type == 'exp') {
       return(parexp(lmom))
     }
@@ -8,6 +8,9 @@ function(lmom,type) {
     }
     else if(type == 'gev') {
       return(pargev(lmom))
+    }
+    else if(type == 'gld') {
+      return(pargld(lmom,...))
     }
     else if(type == 'glo') {
       return(parglo(lmom))

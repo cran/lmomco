@@ -12,18 +12,24 @@ function(x,para) {
     XI <- para$para[1]
     A  <- para$para[2]
     K  <- para$para[3]
-    Y <- (x-XI)/A
-    if(K != 0) {
-      ARG <- 1-K*Y
-      if(ARG > SMALL) {
-        Y <- -log(ARG)/K
+
+    f <- vector(mode="numeric")
+    for(i in seq(1,length(x))) {
+      Y <- (x[i]-XI)/A
+      if(K != 0) {
+        ARG <- 1-K*Y
+        if(ARG > SMALL) {
+          Y <- -log(ARG)/K
+        }
+        else {
+          if(K < 0) { f[i] <- 0; next }
+          # K must be greater than zero--other end of distribution
+          f[i] <- 1
+          next
+        }
       }
-      else {
-        if(K < 0) return(0)
-        # K must be greater than zero--other end of distribution
-        return(1)
-      }
+      f[i] <- 0.5+0.5*erf(Y*RTHALF)
     }
-    return(0.5+0.5*erf(Y*RTHALF))
+    return(f)
 }
 

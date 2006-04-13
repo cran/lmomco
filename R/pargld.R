@@ -1,5 +1,5 @@
 "pargld" <-
-function(lmom,result='best',verbose=FALSE) {
+function(lmom,result='best',verbose=FALSE,extract=0) {
 
     LM1 <- NULL
     LM2 <- NULL
@@ -254,7 +254,19 @@ function(lmom,result='best',verbose=FALSE) {
                  source     = "pargld")) 
    }
    else if(result == 'dataframe') {
-     return(EACH)
+     if(extract > 0) {
+       return(list(type       = 'gld',
+                   para       = c(EACH[extract,]$x,
+                                  EACH[extract,]$a,
+                                  EACH[extract,]$k,
+                                  EACH[extract,]$h),
+                   error      = EACH[extract,]$error,
+                   absDelTau5 = EACH[extract,]$absDelTau5,
+                   source     = "pargld")) 
+     }
+     else {
+       return(EACH)
+     }
    }
    else {
      warning("result argument is not 'best' or 'dataframe'")

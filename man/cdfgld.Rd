@@ -2,16 +2,16 @@
 \alias{cdfgld}
 \title{Cumulative Distribution Function of the Generalized Lambda Distribution}
 \description{
-This function computes the cumulative probability or nonexceedance probability of the Generalized Lambda distribution given parameters (\eqn{\xi}, \eqn{\alpha}, \eqn{\kappa}, and \eqn{h}) of the distribution computed by \code{\link{pargld}} or similar. The cumulative distribution function of the distribution has no explicit form. The R function \code{uniroot} is used to root the quantile function \code{\link{quagld}} to compute the nonexceedance probability.
+This function computes the cumulative probability or nonexceedance probability of the Generalized Lambda distribution given parameters (\eqn{\xi}, \eqn{\alpha}, \eqn{\kappa}, and \eqn{h}) of the distribution computed by \code{\link{pargld}} or similar. The cumulative distribution function of the distribution has no explicit form. The R function \code{uniroot} is used to root the quantile function \code{\link{quagld}} to compute the nonexceedance probability. The function returns 0 or 1 if the \code{x} argument is at or beyond the limits of the distribution as specified by the parameters.
 }
 \usage{
-cdfgld(x, gldpara)
+cdfgld(x, gldpara, paracheck)
 }
 \arguments{
   \item{x}{A real value.}
   \item{gldpara}{The parameters from \code{\link{pargld}} or similar.}
+  \item{paracheck}{A logical switch as to whether the validity of the parameters should be checked. Default is \code{paracheck=TRUE}. This switch is made so that the root solution needed for \code{\link{cdfgld}} exhibits an extreme speed increase because of the repeated calls to \code{quagld}.}
 }
-
 \value{
   Nonexceedance probability (\eqn{F}) for \eqn{x}.
 }

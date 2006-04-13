@@ -7,6 +7,11 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
               exp=TRUE,gam=TRUE,gev=TRUE,gld=FALSE,glo=TRUE,
               gno=TRUE,gpa=TRUE,gum=TRUE,kap=TRUE,nor=TRUE,pe3=TRUE,wak=TRUE,...) {
 
+    if(! are.lmom.valid(lmom)) {
+      warning("L-moments are invalid")
+      return()
+    }
+
     if(no2para) {
      exp <- FALSE
      gam <- FALSE

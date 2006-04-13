@@ -9,11 +9,12 @@ argument list: \code{exp}, \code{gam}, \code{gev}, \code{glo}, \code{gno},
 is no Cauchy distribution support by the \code{lmom2par} function because Cauchy uses TL-moments and not the ordinary L-moments. For Cauchy functions such as \code{\link{parcau}} and \code{\link{lmomcau}} should be used in accordance with their documentation. 
 }
 \usage{
-lmom2par(lmom, type)
+lmom2par(lmom, type, ...)
 }
 \arguments{
   \item{lmom}{An L-moment object such as that returned by \code{lmom.ub} or \code{pwm2lmom}.}
   \item{type}{Three character distribution type (for example, \code{type='gev'}).}
+  \item{\ldots}{Additional arguments for the \code{parCCC} functions.}
 }
 \value{
   An R \code{list} is returned.

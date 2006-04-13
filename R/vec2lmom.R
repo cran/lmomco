@@ -33,5 +33,8 @@ function(vec,lscale=TRUE) {
       z$L4   <- z$TAU4*z$L2
       z$L5   <- z$TAU5*z$L2
     }
+    if(! are.lmom.valid(z)) {
+      warning("L-moments are invalid, but still returning the values")
+    }
     return(z) 
 }

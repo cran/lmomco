@@ -1,5 +1,5 @@
 "par2cdf" <-
-function(x,para) {
+function(x,para,...) {
     type <- para$type
     if(type == 'cau') {
       return(cdfcau(x,para))
@@ -14,7 +14,7 @@ function(x,para) {
       return(cdfgev(x,para))
     }
     else if(type == 'gld') {
-      return(cdfgld(x,para))
+      return(cdfgld(x,para,...))
     }
     else if(type == 'glo') {
       return(cdfglo(x,para))

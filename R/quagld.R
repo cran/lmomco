@@ -10,9 +10,13 @@ function(f,gldpara,paracheck=TRUE) {
     La3 <- gldpara$para[3]
     La4 <- gldpara$para[4]
 
-    if(f <= 0 || f >= 1) {
-      if(f == 0) return(La1-La2)
-      if(f == 1) return(La1+La2)
+    x <- vector(mode="numeric")
+    for(i in seq(1,length(f))) {
+      if(f[i] <= 0 || f[i] >= 1) {
+        if(f[i] == 0) { x[i] <- La1-La2; next }
+        if(f[i] == 1) { x[i] <- La1+La2; next }
+      }
+      x[i] <- La1 + La2*(f[i]**La3 - (1-f[i])**La4)
     }
-    return(La1 + La2*(f**La3 - (1-f)**La4))
+    return(x)
 }

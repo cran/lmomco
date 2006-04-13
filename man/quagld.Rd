@@ -24,7 +24,7 @@ quagld(f, gldpara, paracheck)
 \arguments{
   \item{f}{Nonexceedance probability (\eqn{0 \le F \le 1}).}
   \item{gldpara}{The parameters from \code{\link{vec2par}} or similar.}
-  \item{paracheck}{A logical switch as to whether the validity of the parameters should be checked. Default is \code{paracheck=TRUE}. This switch is made so that the root solution needed for \code{\link{cdfgld}} exhibits an extreme speed increase because of the repeated calls to \code{quagld}.}
+  \item{paracheck}{A logical switch as to whether the validity of the parameters should be checked. Default is \code{paracheck=TRUE}.}
 }
 \value{
   Quantile value for nonexceedance probability \eqn{F}.

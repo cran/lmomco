@@ -36,3 +36,10 @@ Version 0.6--March 25, 2006
      algorithms could be build on top of the parameter validation checks and 
      cascading warning messages that the user would not care about can be 
      surpressed.
+
+Version 0.7--April 13, 2006
+1. Added full vectorization of the quaCCC.R and cdfCCC.R functions. Previously
+     each function did not handle a vector of nonexceedance probability and 
+     quantile values in each respective function.
+2. Added extract argument to the pargld.R and parTLgld.R functions.
+3. Incorporated endpoint or range checking on cdfgld.R.

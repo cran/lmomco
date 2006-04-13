@@ -5,35 +5,40 @@ function(f,para) {
     U <- para$para[1]
     A <- para$para[2]
     G <- para$para[3]
-    H <- para$para[4]   
-    if(f <= 0 || f >= 1) {
-      if(f == 0) {
-        if(H <= 0 & G  < 0) return(U+A/G)
-        if(H >  0 & G != 0) return(U+A/G*(1-H^-G))
-        if(H >  0 & G == 0) return(U+A*log(H))
-        if(H <= 0 & G >= 0) {
-          warning("argument to function invalid.")
-          return()
+    H <- para$para[4]
+
+    x <- vector(mode="numeric")
+    for(i in seq(1,length(f))) {
+      if(f[i] <= 0 || f[i] >= 1) {
+        if(f[i] == 0) {
+          if(H <= 0 & G  < 0) { x[i] <- U+A/G; next }
+          if(H >  0 & G != 0) { x[i] <- U+A/G*(1-H^-G); next }
+          if(H >  0 & G == 0) { x[i] <- U+A*log(H); next }
+          if(H <= 0 & G >= 0) {
+            warning("argument to function invalid.")
+            return()
+          }
+          stop("f is fine: should not be here in code execution.")
         }
-        stop("f is fine: should not be here in code execution.")
+        if(f[i] == 1) {
+          if(G <= 0) {
+            warning("argument of function is invalid")
+            return()
+          }
+          else {
+            x[i] <- U+A/G
+          }
+          stop("f=1: should not be here in code execution.")
+        }
       }
-      if(f == 1) {
-        if(G <= 0) {
-          warning("argument of function is invalid")
-          return()
-        }
-        else {
-          return(U+A/G)
-        }
-        stop("f=1: should not be here in code execution.")
+      else {
+        Y <- -log(f[i])
+        if(H != 0) Y <- (1-exp(-H*Y))/H
+        Y <- -log(Y)
+        if(G != 0) Y <- (1-exp(-G*Y))/G
+        x[i] <- U+A*Y
       }
     }
-    else {
-      Y <- -log(f)
-      if(H != 0) Y <- (1-exp(-H*Y))/H
-      Y <- -log(Y)
-      if(G != 0) Y <- (1-exp(-G*Y))/G
-      return(U+A*Y)
-    }
+    return(x)
 }
 

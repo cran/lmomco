@@ -5,16 +5,24 @@ function(x,para) {
     XI <- para$para[1] 
     A  <- para$para[2] 
     K  <- para$para[3] 
-    Y  <- (x-XI)/A 
-    if(K == 0) {
-      return(1/(1+exp(-Y)))
+
+    f <- vector(mode="numeric")
+    for(i in seq(1,length(x))) {
+      Y  <- (x[i]-XI)/A 
+      if(K == 0) {
+        f[i] <- 1/(1+exp(-Y))
+        next
+      }
+      ARG <- 1-K*Y 
+      if(ARG > SMALL) {
+        Y <- -log(ARG)/K
+        f[i] <- 1/(1+exp(-Y))
+        next
+      }
+      if(K < 0) { f[i] <- 0; next }
+      if(K > 0) { f[i] <- 1; next }
+      warning("Should not be here in execution")
     }
-    ARG <- 1-K*Y 
-    if(ARG > SMALL) {
-      Y <- -log(ARG)/K
-      return(1/(1+exp(-Y)))
-    }
-    if(K < 0) return(0)
-    if(K > 0) return(1)
+    return(f)
 }
 

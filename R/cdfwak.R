@@ -34,90 +34,95 @@ function(x,wakpara) {
     C  <- wakpara$para[4]
     D  <- wakpara$para[5]
 
-    if(x <= XI) return(0)
-
-    #
-    #         TEST FOR SPECIAL CASES
-    #
-    if(B == 0 & C == 0 & D == 0) {
-      #  SPECIAL CASE B=C=D=0: WAKEBY IS EXPONENTIAL
-      Z <- (x-XI)/A
-      return(z2f(Z,UFL))
-    }
-    if(C == 0) {
-      #  SPECIAL CASE C=0: WAKEBY IS GENERALIZED PARETO, BOUNDED ABOVE
-      CDFWAK <- 1
-      if(x >= XI+A/B) return(1)
-      Z <- -log(1-(x-XI)*B/A)/B
-      return(z2f(Z,UFL))
-    }
-    if(A == 0) {
-      #  SPECIAL CASE A=0: WAKEBY IS GENERALIZED PARETO, NO UPPER BOUND
-      Z <- log(1+(x-XI)*D/C)/D
-      return(z2f(Z,UFL))
-    }
-
-
-    #         GENERAL CASE
-    #
-    if(D < 0 & x >= XI+A/B-C/D) return(1)
-
-    # INITIAL VALUES FOR ITERATION:
-    #   IF X IS IN THE LOWEST DECILE OF THE DISTRIBUTION,
-    #     START AT Z = 0 (F = 0);
-    #   IF X IS IN THE HIGHEST PERCENTILE OF THE DISTRIBUTION,
-    #   STARTING VALUE IS OBTAINED FROM ASYMPTOTIC FORM OF THE
-    #   DISTRIBUTION FOR LARGE Z (F NEAR 1);
-    #   OTHERWISE START AT Z <- 0.7 (CLOSE TO F <- 0.5).
-    #
-    Z <- 0.7
-    if(x < quawak(0.1,wakpara)) Z <- 0
-    if(x >= quawak(0.99,wakpara)) {
-      if(D <  0) Z <- log((x-XI-A/B)*D/C+1)/D
-      if(D == 0) Z <- (x-XI-A/B)/C
-      if(D >  0) Z <- log((x-XI)*D/C+1)/D
-    }
-    #
-    #  HALLEY'S METHOD, WITH MODIFICATIONS:
-    #  IF HALLEY ITERATION WOULD MOVE IN WRONG DIRECTION
-    #   (TEMP <= ZERO), USE ORDINARY NEWTON-RAPHSON INSTEAD;
-    #   IF STEP GOES TOO FAR (ZINC > ZINCMX | ZNEW <= 0),
-    #   LIMIT ITS LENGTH.
-    #
-
-    LOOPEND <- FALSE
-
-    for(IT in seq(1,MAXIT)) {
-      EB <- 0
-      BZ <- -B*Z
-      if(BZ >= UFL) EB <- exp(BZ)
-      GB <- Z
-      if(abs(B) > EPS) GB <- (1-EB)/B
-      ED <- exp(D*Z)
-      GD <- -Z
-      if(abs(D) > EPS) GD <- (1-ED)/D
-      XEST <- XI+A*GB-C*GD
-      FUNC <- x-XEST
-      DERIV1 <- A*EB+C*ED
-      DERIV2 <- -A*B*EB+C*D*ED
-      TEMP <- DERIV1+0.5*FUNC*DERIV2/DERIV1
-      if(TEMP <= 0) TEMP <- DERIV1
-      ZINC <- FUNC/TEMP
-      if(ZINC > ZINCMX) ZINC <- ZINCMX
-      ZNEW <- Z+ZINC
-      if(ZNEW <= 0) { 
-        Z <- Z*ZMULT
+    f <- vector(mode="numeric")
+    for(i in seq(1,length(x))) {
+      if(x[i] <= XI) { f[i] <- 0; next }
+      #
+      #         TEST FOR SPECIAL CASES
+      #
+      if(B == 0 & C == 0 & D == 0) {
+        #  SPECIAL CASE B=C=D=0: WAKEBY IS EXPONENTIAL
+        Z <- (x[i]-XI)/A
+        f[i] <- z2f(Z,UFL)
         next
       }
-      Z <- ZNEW
-      if(abs(ZINC) <= EPS) break
-      if(IT == MAXIT) LOOPEND <- TRUE
-    }
-    if(LOOPEND == TRUE) {
-      warning("Iteration has not converged. Result might be unreliable.")
-    }
+      if(C == 0) {
+        #  SPECIAL CASE C=0: WAKEBY IS GENERALIZED PARETO, BOUNDED ABOVE
+        CDFWAK <- 1
+        if(x[i] >= XI+A/B) { f[i] <- 1; next }
+        Z <- -log(1-(x[i]-XI)*B/A)/B
+        f[i] <- z2f(Z,UFL)
+        next
+      }
+      if(A == 0) {
+        #  SPECIAL CASE A=0: WAKEBY IS GENERALIZED PARETO, NO UPPER BOUND
+        Z <- log(1+(x[i]-XI)*D/C)/D
+        f[i] <- z2f(Z,UFL)
+        next
+      }
 
-    # CONVERT Z VALUE TO PROBABILITY
-    return(z2f(Z,UFL))
+      #         GENERAL CASE
+      #
+      if(D < 0 & x[i] >= XI+A/B-C/D) { f[i] <- 1; next }
+
+      # INITIAL VALUES FOR ITERATION:
+      #   IF X IS IN THE LOWEST DECILE OF THE DISTRIBUTION,
+      #     START AT Z = 0 (F = 0);
+      #   IF X IS IN THE HIGHEST PERCENTILE OF THE DISTRIBUTION,
+      #   STARTING VALUE IS OBTAINED FROM ASYMPTOTIC FORM OF THE
+      #   DISTRIBUTION FOR LARGE Z (F NEAR 1);
+      #   OTHERWISE START AT Z <- 0.7 (CLOSE TO F <- 0.5).
+      #
+      Z <- 0.7
+      if(x[i] < quawak(0.1,wakpara)) Z <- 0
+      if(x[i] >= quawak(0.99,wakpara)) {
+        if(D <  0) Z <- log((x[i]-XI-A/B)*D/C+1)/D
+        if(D == 0) Z <- (x[i]-XI-A/B)/C
+        if(D >  0) Z <- log((x[i]-XI)*D/C+1)/D
+      }
+      #
+      #  HALLEY'S METHOD, WITH MODIFICATIONS:
+      #  IF HALLEY ITERATION WOULD MOVE IN WRONG DIRECTION
+      #   (TEMP <= ZERO), USE ORDINARY NEWTON-RAPHSON INSTEAD;
+      #   IF STEP GOES TOO FAR (ZINC > ZINCMX | ZNEW <= 0),
+      #   LIMIT ITS LENGTH.
+      #
+
+      LOOPEND <- FALSE
+
+      for(IT in seq(1,MAXIT)) {
+        EB <- 0
+        BZ <- -B*Z
+        if(BZ >= UFL) EB <- exp(BZ)
+        GB <- Z
+        if(abs(B) > EPS) GB <- (1-EB)/B
+        ED <- exp(D*Z)
+        GD <- -Z
+        if(abs(D) > EPS) GD <- (1-ED)/D
+        XEST <- XI+A*GB-C*GD
+        FUNC <- x[i]-XEST
+        DERIV1 <- A*EB+C*ED
+        DERIV2 <- -A*B*EB+C*D*ED
+        TEMP <- DERIV1+0.5*FUNC*DERIV2/DERIV1
+        if(TEMP <= 0) TEMP <- DERIV1
+        ZINC <- FUNC/TEMP
+        if(ZINC > ZINCMX) ZINC <- ZINCMX
+        ZNEW <- Z+ZINC
+        if(ZNEW <= 0) { 
+          Z <- Z*ZMULT
+          next
+        }
+        Z <- ZNEW
+        if(abs(ZINC) <= EPS) break
+        if(IT == MAXIT) LOOPEND <- TRUE
+      }
+      if(LOOPEND == TRUE) {
+        warning("Iteration has not converged--result might be unreliable")
+      }
+
+      # CONVERT Z VALUE TO PROBABILITY
+      f[i] <- z2f(Z,UFL)
+    }
+    return(f)
 }
 

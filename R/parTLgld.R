@@ -1,5 +1,5 @@
 "parTLgld" <-
-function(lmom,result='best',verbose=FALSE) {
+function(lmom,result='best',verbose=FALSE,extract=0) {
     if(length(lmom$trim) == 1 && lmom$trim != 1) {
       warning("Attribute of TL-moments is not trim=1--can not complete parameter estimation")
       return()
@@ -252,10 +252,22 @@ function(lmom,result='best',verbose=FALSE) {
                  para       = para,
                  error      = error,
                  absDelTau5 = tau5diff,
-                 source     = "pargld")) 
+                 source     = "parTLgld")) 
    }
    else if(result == 'dataframe') {
-     return(EACH)
+     if(extract > 0) {
+       return(list(type       = 'gld',
+                   para       = c(EACH[extract,]$x,
+                                  EACH[extract,]$a,
+                                  EACH[extract,]$k,
+                                  EACH[extract,]$h),
+                   error      = EACH[extract,]$error,
+                   absDelTau5 = EACH[extract,]$absDelTau5,
+                   source     = "parTLgld")) 
+     }
+     else {
+       return(EACH)
+     }
    }
    else {
      warning("result argument is not 'best' or 'dataframe'")
