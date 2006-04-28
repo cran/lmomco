@@ -5,7 +5,8 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
               xmin=NULL,xmax=NULL,xlim=NULL,
               ymin=NULL,ymax=NULL,ylim=NULL,
               exp=TRUE,gam=TRUE,gev=TRUE,gld=FALSE,glo=TRUE,
-              gno=TRUE,gpa=TRUE,gum=TRUE,kap=TRUE,nor=TRUE,pe3=TRUE,wak=TRUE,...) {
+              gno=TRUE,gpa=TRUE,gum=TRUE,kap=TRUE,nor=TRUE,pe3=TRUE,
+              wak=TRUE,wei=TRUE,...) {
 
     if(! are.lmom.valid(lmom)) {
       warning("L-moments are invalid")
@@ -24,6 +25,7 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
      gno <- FALSE
      gpa <- FALSE
      pe3 <- FALSE
+     wei <- FALSE
     }
     if(no4para) {
      gld <- FALSE
@@ -47,6 +49,7 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
     NOR <- vector(mode="numeric",length=n)
     PE3 <- vector(mode="numeric",length=n)
     WAK <- vector(mode="numeric",length=n)
+    WEI <- vector(mode="numeric",length=n)
 
     if(exp == TRUE) {
       if(show == TRUE) cat("Exponential distribution--")
@@ -144,10 +147,19 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
       if(aslog10 == TRUE) WAK <- log10(WAK)
       if(show == TRUE) cat("quantiles\n")
     }
+    if(wei == TRUE) {
+      if(show == TRUE) cat("Weibull distribution--")
+      P <- parwei(lmom)
+      if(show == TRUE) cat("parameters--")
+      WEI <- freq.curve.wei(F,P)
+      if(aslog10 == TRUE) WEI <- log10(WEI)
+      if(show == TRUE) cat("quantiles\n")
+    }
     
     Q <- data.frame(nonexceeds = F,exp = EXP, gam = GAM, gev = GEV, glo = GLO,
                                    gld = GLD, gno = GNO, gpa = GPA, gum = GUM,
-		                   kap = KAP, nor = NOR, pe3 = PE3, wak = WAK)
+		                   kap = KAP, nor = NOR, pe3 = PE3, wak = WAK,
+                                   wei = WEI)
     if(show == TRUE) {
       xlab <- "NONEXCEEDANCE PROBABILITY"
       if(asprob == TRUE) {
@@ -160,7 +172,7 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
       if(length(xmax) == 1) limx[2] <- xmin
       if(length(xlim) == 2) limx    <- xlim
 
-      limy <- range(EXP,GAM,GEV,GLO,GLD,GNO,GPA,GUM,KAP,NOR,PE3,WAK,finite=TRUE)
+      limy <- range(EXP,GAM,GEV,GLO,GLD,GNO,GPA,GUM,KAP,NOR,PE3,WAK,WEI,finite=TRUE)
       if(length(ymin) == 1) limy[1] <- ymin
       if(length(ymax) == 1) limy[2] <- ymin
       if(length(ylim) == 2) limy    <- ylim
@@ -178,6 +190,7 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
       lines(F,Q$nor,col=1)
       lines(F,Q$pe3,col=3)
       lines(F,Q$wak,col=6)
+      lines(F,Q$wei,col=3,lty=2) # same color as GEV
     }
 
     return(Q)

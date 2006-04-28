@@ -26,7 +26,7 @@ function(lmom) {
     }
 
     if(! are.lmom.valid(lmom)) {
-       warning("L-moments are invalid.")
+       warning("L-moments are invalid")
        return()
     } 
     K <- (1-3*T3)/(1+T3)

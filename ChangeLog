@@ -43,3 +43,13 @@ Version 0.7--April 13, 2006
      quantile values in each respective function.
 2. Added extract argument to the pargld.R and parTLgld.R functions.
 3. Incorporated endpoint or range checking on cdfgld.R.
+
+
+Version 0.75--April 30, 2006
+1. Added lmoms.R, which in reality dispatches to TLmoms, but provides a lower
+     case name space and eventually could take lmom.ub.R place.
+2. Added additional error trapping to TLmom.R and TLmoms.R.
+3. Added the Weibull distribution (wei)
+4. Added the random deviate generator rlmomco.R given sample size and 
+     parameter object. 
+5. Added the plotting-position formula by pp.R

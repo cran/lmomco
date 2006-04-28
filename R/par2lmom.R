@@ -40,6 +40,9 @@ function(para) {
     else if(type == 'wak') {
       return(lmomwak(para))
     }
+    else if(type == 'wei') {
+      return(lmomwei(para))
+    }
     else {
       stop("Did not find a valid distribution type")
     }

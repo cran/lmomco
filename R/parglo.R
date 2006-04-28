@@ -5,7 +5,7 @@ function(lmom) {
     para <- vector(mode="numeric", length=3)
     K <- -lmom$TAU3
     if(! are.lmom.valid(lmom)) {
-       warning("L-moments are invalid.")
+       warning("L-moments are invalid")
        return()
     } 
     if(abs(K) <= SMALL) {

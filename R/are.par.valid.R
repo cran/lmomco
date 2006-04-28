@@ -48,6 +48,9 @@ function(para,...) {
     else if(type == 'wak') {
       return(are.parwak.valid(para,...))
     }
+    else if(type == 'wei') {
+      return(are.parwei.valid(para,...))
+    }
     else {
       stop("Did not find a valid distribution type")
     }

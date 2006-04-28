@@ -24,6 +24,7 @@ function(x,gldpara,paracheck=TRUE) {
 
     f <- vector(mode="numeric")
     for(i in seq(1,length(x))) {
+      #cat(c("Working on i=",i," and x[i]=",x[i],"\n"),sep="")
       QUAx <- x[i]
       if(QUAx <= qua.min) { f[i] <- end.min; next }
       if(QUAx >= qua.max) { f[i] <- end.max; next }
@@ -31,7 +32,7 @@ function(x,gldpara,paracheck=TRUE) {
       fn <- function(F) {
         qua <- quagld(F,gldpara,paracheck=FALSE)
         val <- QUAx - qua
-        cat(c("Status: i=",i,"; x[i]=",QUAx,"; F=",F,"; and quagld=",qua,"\n"),sep="")
+        #cat(c("Status: i=",i,"; x[i]=",QUAx,"; F=",F,"; and quagld=",qua,"\n"),sep="")
         return(val)
       }
 

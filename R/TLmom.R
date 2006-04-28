@@ -1,10 +1,18 @@
 "TLmom" <-
 function(x,order=1,trim=NULL,leftrim=NULL,rightrim=NULL,sortdata=TRUE) {
   r <- order
+  n <- length(x)
+
+  if(r > n) {
+    stop("TLmoment 'order' greater than data points available in 'x'")
+  }
+
   if(! is.null(trim) && (! is.null(leftrim) || ! is.null(rightrim))) {
     warning("Ambiguous trimming arguments")
     return()
   }
+
+  if(length(unique(x)) == 1) stop("all values are equal--TLmoment can not be computed")
 
   t1 <- NULL
   t2 <- NULL
@@ -32,7 +40,6 @@ function(x,order=1,trim=NULL,leftrim=NULL,rightrim=NULL,sortdata=TRUE) {
 
 
   if(sortdata == TRUE) x <- sort(x)
-  n <- length(x)
   lambda <- 0
   for(i in seq(t1+1,n-t2)) {
     wk <- 0

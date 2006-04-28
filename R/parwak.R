@@ -69,7 +69,7 @@ wak.gpa_instead <- function(ALAM1,ALAM2,T3) {
     T5    <- lmom$TAU5
 
     if(! are.lmom.valid(lmom)) {
-      warning("L-moments are invalid.")
+      warning("L-moments are invalid")
       IFAIL <- 3
       return()
     }

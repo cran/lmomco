@@ -40,6 +40,9 @@ function(x,para,...) {
     else if(type == 'wak') {
       return(cdfwak(x,para))
     }
+    else if(type == 'wei') {
+      return(cdfwei(x,para))
+    }
     else {
       stop("Did not find a valid distribution type")
     }

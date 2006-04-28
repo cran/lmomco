@@ -23,7 +23,7 @@ function(lmom) {
     ROOTPI <- sqrt(pi)
 
     if(! are.lmom.valid(lmom)) {
-      warning("L-moments are invalid.")
+      warning("L-moments are invalid")
       return()
     }
     

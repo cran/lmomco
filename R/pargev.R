@@ -23,7 +23,7 @@ function(lmom) {
     T3 <- lmom$TAU3
 
     if(! are.lmom.valid(lmom)) {
-      warning("L-moments are invalid.")
+      warning("L-moments are invalid")
       return()
     } 
 

@@ -40,6 +40,9 @@ function(f,para,...) {
     else if(type == 'wak') {
       return(quawak(f,para))
     }
+    else if(type == 'wei') {
+      return(quawei(f,para))
+    }
     else {
       stop("Did not find a valid distribution type")
     }

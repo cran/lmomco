@@ -46,7 +46,7 @@ function(lmom) {
     T4 <- lmom$TAU4
 
     if(! are.lmom.valid(lmom)) {
-      warning("L-moments are invalid.")
+      warning("L-moments are invalid")
       IFAIL <- 1
       return()
     }

@@ -1,5 +1,3 @@
-check.fs                Function to Check Vector of
-                        Nonexceedance Probabilities
 Lcomoment.Lk12          Compute a Single Sample L-comoment
 Lcomoment.Wk            Weighting Coefficient for Sample L-comoment
 Lcomoment.coefficients
@@ -7,38 +5,40 @@ Lcomoment.coefficients
 Lcomoment.correlation   L-correlation Matrix (L-correlation throught
                         sample L-comoments)
 Lcomoment.matrix        Compute Sample L-comoment Matrix
-TLmom                   A Trimmed L-moment
-TLmoms                  The Trimmed L-moments and L-moment Ratios
+TLmom                   A Sample Trimmed L-moment
+TLmoms                  The Sample Trimmed L-moments and L-moment
+                        Ratios
 are.lmom.valid          Are the L-moments valid
-are.par.valid           Are the Distribution Parameters Consistent
-                        with the Distribution
-are.parcau.valid        Are the Distribution Parameters Consistent
-                        with the Cauchy Distribution
-are.parexp.valid        Are the Distribution Parameters Consistent
-                        with the Exponential Distribution
-are.pargam.valid        Are the Distribution Parameters Consistent
-                        with the Gamma Distribution
-are.pargev.valid        Are the Distribution Parameters Consistent
-                        with the Generalized Extreme Value
-                        Distribution
-are.pargld.valid        Are the Distribution Parameters Consistent
-                        with the Generalized Lambda Distribution
-are.parglo.valid        Are the Distribution Parameters Consistent
-                        with the Generalized Logistic Distribution
-are.pargno.valid        Are the Distribution Parameters Consistent
-                        with the Generalized Normal Distribution
-are.pargpa.valid        Are the Distribution Parameters Consistent
-                        with the Generalized Pareto Distribution
-are.pargum.valid        Are the Distribution Parameters Consistent
-                        with the Gumbel Distribution
-are.parkap.valid        Are the Distribution Parameters Consistent
-                        with the Kappa Distribution
-are.parnor.valid        Are the Distribution Parameters Consistent
-                        with the Normal Distribution
-are.parpe3.valid        Are the Distribution Parameters Consistent
-                        with the Pearson Type III Distribution
-are.parwak.valid        Are the Distribution Parameters Consistent
-                        with the Wakeby Distribution
+are.par.valid           Are the Distribution Parameters Consistent with
+                        the Distribution
+are.parcau.valid        Are the Distribution Parameters Consistent with
+                        the Cauchy Distribution
+are.parexp.valid        Are the Distribution Parameters Consistent with
+                        the Exponential Distribution
+are.pargam.valid        Are the Distribution Parameters Consistent with
+                        the Gamma Distribution
+are.pargev.valid        Are the Distribution Parameters Consistent with
+                        the Generalized Extreme Value Distribution
+are.pargld.valid        Are the Distribution Parameters Consistent with
+                        the Generalized Lambda Distribution
+are.parglo.valid        Are the Distribution Parameters Consistent with
+                        the Generalized Logistic Distribution
+are.pargno.valid        Are the Distribution Parameters Consistent with
+                        the Generalized Normal Distribution
+are.pargpa.valid        Are the Distribution Parameters Consistent with
+                        the Generalized Pareto Distribution
+are.pargum.valid        Are the Distribution Parameters Consistent with
+                        the Gumbel Distribution
+are.parkap.valid        Are the Distribution Parameters Consistent with
+                        the Kappa Distribution
+are.parnor.valid        Are the Distribution Parameters Consistent with
+                        the Normal Distribution
+are.parpe3.valid        Are the Distribution Parameters Consistent with
+                        the Pearson Type III Distribution
+are.parwak.valid        Are the Distribution Parameters Consistent with
+                        the Wakeby Distribution
+are.parwei.valid        Are the Distribution Parameters Consistent with
+                        the Weibull Distribution
 cdfcau                  Cumulative Distribution Function of the Cauchy
                         Distribution
 cdfexp                  Cumulative Distribution Function of the
@@ -61,14 +61,16 @@ cdfkap                  Cumulative Distribution Function of the Kappa
                         Distribution
 cdfnor                  Cumulative Distribution Function of the Normal
                         Distribution
-cdfpe3                  Cumulative Distribution Function of the
-                        Pearson Type III Distribution
+cdfpe3                  Cumulative Distribution Function of the Pearson
+                        Type III Distribution
 cdfwak                  Cumulative Distribution Function of the Wakeby
                         Distribution
+cdfwei                  Cumulative Distribution Function of the Weibull
+                        Distribution
+check.fs                Check Vector of Nonexceedance Probabilities
 freq.curve.all          Compute Frequency Curve for All Distributions
 freq.curve.cau          Frequency Curve of the Cauchy Distribution
-freq.curve.exp          Frequency Curve of the Exponential
-                        Distribution
+freq.curve.exp          Frequency Curve of the Exponential Distribution
 freq.curve.gam          Frequency Curve of the Gamma Distribution
 freq.curve.gev          Frequency Curve of the Generalized Extreme
                         Value Distribution
@@ -86,6 +88,7 @@ freq.curve.nor          Frequency Curve of the Normal Distribution
 freq.curve.pe3          Frequency Curve of the Pearson Type III
                         Distribution
 freq.curve.wak          Frequency Curve of the Wakeby Distribution
+freq.curve.wei          Frequency Curve of the Weibull Distribution
 is.cau                  Is a Distribution Parameter Object Typed as
                         Cauchy
 is.exp                  Is a Distribution Parameter Object Typed as
@@ -112,9 +115,11 @@ is.pe3                  Is a Distribution Parameter Object Typed as
                         Pearson Type III
 is.wak                  Is a Distribution Parameter Object Typed as
                         Wakeby
+is.wei                  Is a Distribution Parameter Object Typed as
+                        Weibull
 lmom.diff               Difference Between L-moments of the
                         Distribution and the L-moments of the Data
-lmom.references         Important References Related to L-moments
+lmom.references         Useful References Related to L-moments
 lmom.test.all           Test All lmom.CCC.test Functions
 lmom.test.exp           Test L-moment and Parameter Algorithms of the
                         Exponential Distribution
@@ -138,13 +143,14 @@ lmom.test.pe3           Test L-moment and Parameter Algorithms of the
                         Pearson Type III Distribution
 lmom.test.wak           Test L-moment and Parameter Algorithms of the
                         Wakeby Distribution
-lmom.ub                 Unbiased L-moments by Direct Sample Estimators
+lmom.ub                 Unbiased Sample L-moments by Direct Sample
+                        Estimators
 lmom2par                Convert L-moments to the the Parameters of a
                         Distribution
 lmom2pwm                L-moments to Probability-Weighted Moments
 lmomTLgld               Trimmed L-moments (t=1) of the Generalized
                         Lambda Distribution
-lmomTLgpa               L-moments of the Generalized Pareto
+lmomTLgpa               Trimmed L-moments of the Generalized Pareto
                         Distribution
 lmomcau                 Trimmed L-moments of the Cauchy Distribution
 lmomexp                 L-moments of the Exponential Distribution
@@ -163,13 +169,15 @@ lmomgum                 L-moments of the Gumbel Distribution
 lmomkap                 L-moments of the Kappa Distribution
 lmomnor                 L-moments of the Normal Distribution
 lmompe3                 L-moments of the Pearson Type III Distribution
+lmoms                   The Sample L-moments and L-moment Ratios
 lmomwak                 L-moments of the Wakeby Distribution
+lmomwei                 L-moments of the Weibull Distribution
 lmrdia                  L-moment Ratio Diagram Components
 nonexceeds              Common Nonexceedance Probabilities
 par2cdf                 Cumulative Distribution Function of the
                         Distributions
-par2lmom                Convert the Parameters of a Distribution to
-                        the L-moments
+par2lmom                Convert the Parameters of a Distribution to the
+                        L-moments
 par2qua                 Quantile Function of the Distributions
 parTLgld                Estimate the Parameters of the Generalized
                         Lambda Distribution using Trimmed L-moments
@@ -198,15 +206,19 @@ parkap                  Estimate the Parameters of the Kappa
                         Distribution
 parnor                  Estimate the Parameters of the Normal
                         Distribution
-parpe3                  Estimate the Parameters of the Pearson Type
-                        III Distribution
+parpe3                  Estimate the Parameters of the Pearson Type III
+                        Distribution
 parwak                  Estimate the Parameters of the Wakeby
                         Distribution
+parwei                  Estimate the Parameters of the Weibull
+                        Distribution
 plotlmrdia              Plot L-moment Ratio Diagram
+pp                      Plotting-Position Formula
 pwm.gev                 Generalized Extreme Value Plotting Position
                         Probability-Weighted Moments
-pwm.pp                  Plotting Position Probability-Weighted Moments
-pwm.ub                  Unbiased Probability-Weighted Moments
+pwm.pp                  Plotting-Position Sample Probability-Weighted
+                        Moments
+pwm.ub                  Unbiased Sample Probability-Weighted Moments
 pwm2lmom                Probability-Weighted Moments to L-moments
 quacau                  Quantile Function of the Cauchy Distribution
 quaexp                  Quantile Function of the Exponential
@@ -228,10 +240,13 @@ quanor                  Quantile Function of the Normal Distribution
 quape3                  Quantile Function of the Pearson Type III
                         Distribution
 quawak                  Quantile Function of the Wakeby Distribution
-theoLmoms               Theoretical L-moments and L-moment Ratios 
+quawei                  Quantile Function of the Weibull Distribution
+rlmomco                 Random Deviates of a Distribution
+theoLmoms               The Theoretical L-moments and L-moment Ratios
                         using Integration of the Quantile Function
-theoTLmoms              Theoretical TL-moments and TL-moment Ratios 
-                        using Integration of the Quantile Function
+theoTLmoms              The Theoretical Trimmed L-moments and TL-moment
+                        Ratios using Integration of the Quantile
+                        Function
 vec2TLmom               Convert a Vector of TL-moments to a TL-moment
                         Object
 vec2lmom                Convert a Vector of L-moments to a L-moment

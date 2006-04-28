@@ -1,0 +1,46 @@
+\name{parwei}
+\alias{parwei}
+\title{Estimate the Parameters of the Weibull Distribution}
+\description{
+This function estimates the parameters of the Weibull distribution given
+the L-moments of the data in an L-moment object such as that returned by
+\code{lmom.ub}. The Weibull distribution is a reverse Generalized Extreme Value distribution.  As result, the Generalized Extreme Value algorithms are used for implementation of the Weibull in this package. The relation between the Generalized Extreme Value parameters (\eqn{\xi}, \eqn{\alpha}, and \eqn{\kappa}) is
+
+\deqn{\kappa = 1/\delta \mbox{,}}
+
+\deqn{\alpha = \beta/\delta \mbox{, and}}
+
+\deqn{\xi = \zeta - \beta \mbox{.}}
+
+These relations are taken from Hosking and Wallis (1997).
+}
+\usage{
+parwei(lmom)
+}
+\arguments{
+  \item{lmom}{A L-moment object created by \code{\link{lmom.ub}}
+or \code{\link{pwm2lmom}}.}
+}
+
+\value{
+  An R \code{list} is returned.
+
+  \item{type}{The type of distribution: \code{wei}.}
+  \item{para}{The parameters of the distribution.}
+}
+\references{
+Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
+approach based on L-moments: Cambridge University Press.
+}
+\author{ W.H. Asquith}
+\seealso{\code{\link{lmom.ub}}, \code{\link{lmomwei}},
+\code{\link{cdfwei}}, \code{\link{quawei}}
+}
+\examples{
+lmr <- lmom.ub(rnorm(20))
+parwei(lmr)
+lmr <- parwei(lmom.ub(rweibull(3000,1.3,scale=340)-1200))
+str(lmr)
+
+}
+\keyword{distribution}

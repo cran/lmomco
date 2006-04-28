@@ -10,7 +10,7 @@ function(lmom) {
     B1 <-  0.7213; B2 <- -0.5947;  B3 <- -2.1817; B4 <- 1.2113
     
     if(! are.lmom.valid(lmom)) {
-      warning("L-moments are invalid.")
+      warning("L-moments are invalid")
       return()
     }
 

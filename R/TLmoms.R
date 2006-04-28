@@ -19,9 +19,17 @@ function(x,nmom=5,trim=NULL,leftrim=NULL,rightrim=NULL) {
   if(is.null(trim) && is.null(leftrim) && is.null(rightrim)) {
     trim <- 0
   }
+
+  if(length(unique(x)) == 1) stop("all values are equal--TLmoments can not be computed")
+
   t <- trim
   x <- sort(x)
   n <- length(x)
+
+  if(nmom > n) {
+    stop("More TLmoments requested by parameter 'nmom' than data points available in 'x'")
+  }
+
   L <- seq(1,nmom)
   R <- seq(1,nmom)
   for(r in seq(1,nmom)) {

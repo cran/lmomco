@@ -36,6 +36,9 @@ function(lmom,type,...) {
     else if(type == 'wak') {
       return(parwak(lmom))
     }
+    else if(type == 'wei') {
+      return(parwei(lmom))
+    }
     else {
       stop("Do not find a valid distribution type.")
     }

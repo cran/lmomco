@@ -39,6 +39,9 @@ function(vec,type,nowarn=FALSE,...) {
     else if(type == 'wak') {
       z <- list(type = 'wak', para = vec, source = "vec2par")
     }
+    else if(type == 'wei') {
+      z <- list(type = 'wei', para = vec, source = "vec2par")
+    }
     else {
       stop("Did not find a valid distribution type")
     }
