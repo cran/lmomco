@@ -9,7 +9,7 @@ function(para) {
               L3   = NULL,
               L4   = NULL,
               L5   = NULL,
-              source = "lmomnor--ordinary"
+              source = "lmomnor"
              )
 
     if(! are.parnor.valid(para)) return()

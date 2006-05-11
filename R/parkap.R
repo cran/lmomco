@@ -42,14 +42,18 @@ function(lmom) {
     OFLEXP <- log(.Machine$double.xmax);
     OFLGAM <- uniroot(function(x) lgamma(x)-OFLEXP,c(1,OFLEXP))$root;
 
-    T3 <- lmom$TAU3
-    T4 <- lmom$TAU4
-
+    if(length(lmom$L1) == 0) { # convert to named L-moments
+      lmom <- lmorph(lmom)     # nondestructive conversion!
+    }
     if(! are.lmom.valid(lmom)) {
       warning("L-moments are invalid")
       IFAIL <- 1
       return()
     }
+
+    T3 <- lmom$TAU3
+    T4 <- lmom$TAU4
+
     if(T4 >= (5*T3*T3+1)/6 ) {
       IFAIL <- 2
       return(list(type = 'kap', para = para, ifail = IFAIL,

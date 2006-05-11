@@ -9,7 +9,7 @@ function(para) {
               L3   = NULL,
               L4   = NULL,
               L5   = NULL,
-              source = "lmomgum--ordinary"
+              source = "lmomgum"
              )
     #  ARRAY ZMOM CONTAINS THE L-MOMENT RATIOS OF THE STANDARD 
     #  GUMBEL DISTRIBUTION (XI=0, ALPHA=1). 

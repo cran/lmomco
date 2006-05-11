@@ -1,37 +1,23 @@
 "pargld" <-
 function(lmom,result='best',verbose=FALSE,extract=0) {
 
-    LM1 <- NULL
-    LM2 <- NULL
-
-    T3 <- NULL
-    T4 <- NULL
-    T5 <- NULL
-
     if(length(lmom$source) == 1 && lmom$source == "TLmoms") {
       if(lmom$trim != 0) {
         warning("Attribute of TL-moments is not trim=0--can not complete parameter estimation")
         return()
       }
-      LM1 <- lmom$lambdas[1]
-      LM2 <- lmom$lambdas[2]
+    }
 
-      T3 <- lmom$ratios[3]
-      T4 <- lmom$ratios[4]
-      T5 <- lmom$ratios[5]
+    if(length(lmom$L1) == 0) { # convert to named L-moments
+      lmom <- lmorph(lmom)     # nondestructive conversion!
     }
-    else if(length(lmom$L1) == 1) {
-      LM1 <- lmom$L1
-      LM2 <- lmom$L2
 
-      T3 <- lmom$TAU3
-      T4 <- lmom$TAU4
-      T5 <- lmom$TAU5
-    }
-    else {
-      warning("An L-moment object or TL-moment object was not provided as an argument")
-      return()
-    }
+    LM1 <- lmom$L1
+    LM2 <- lmom$L2
+
+    T3 <- lmom$TAU3
+    T4 <- lmom$TAU4
+    T5 <- lmom$TAU5
     
     estla1 <- function(La2,La3,La4) {
       La1 <- LM1 - La2*(1/(La3+1) - 1/(La4+1))

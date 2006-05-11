@@ -9,7 +9,7 @@ function(gldpara) {
               L3   = NULL,
               L4   = NULL,
               L5   = NULL,
-              source = "lmomgld--ordinary"
+              source = "lmomgld"
              )
 
     if(! are.pargld.valid(gldpara)) return()

@@ -4,7 +4,7 @@
 \description{
 This function is a dispatcher on top of \code{lmom.CCC.test} functions, where
 \code{CCC} represents distribution: \code{exp}, \code{gam}, \code{gev}, \code{glo}, \code{gno}, \code{gpa},
-\code{gum}, \code{kap}, \code{nor}, \code{pe3}, and \code{wak}. The motivation for the function is provide an example and builtin tool
+\code{gum}, \code{kap}, \code{nor}, \code{pe3}, \code{wak}, and \code{wei}. The motivation for the function is provide an example and builtin tool
 to assess the performance of the algorithms implements the L-moments for the
 supported univariate distributions functions. This function is to broadly call each supported 
 distribution in the library through (1) computation of the L-moments of the data, 
@@ -37,8 +37,9 @@ than output to the user.
 \code{\link{lmom.test.gum}}, 
 \code{\link{lmom.test.kap}}, \cr
 \code{\link{lmom.test.nor}}, 
-\code{\link{lmom.test.pe3}}, and
-\code{\link{lmom.test.wak}}. 
+\code{\link{lmom.test.pe3}},
+\code{\link{lmom.test.wak}}, and
+\code{\link{lmom.test.wei}}. 
 }
 \examples{
 lmom.test.all(c(123,34,4,654,37,78))

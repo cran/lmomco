@@ -31,7 +31,7 @@ lmomexp(para)
   \item{L4}{The fourth L-moment.}
   \item{L5}{The fifth L-moment.}
   \item{source}{An attribute identifying the computational 
-source of the L-moments: \dQuote{lmomexp--ordinary}.}
+source of the L-moments: \dQuote{lmomexp}.}
 }
 \references{
 Hosking, J.R.M., 1990, L-moments---Analysis and estimation of

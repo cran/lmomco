@@ -23,7 +23,7 @@ The Weibull distribution is a reverse Generalized Extreme Value distribution.  A
 
 These relations are taken from Hosking and Wallis (1997).
 
-In R the quantile function of the Weibull distribution is \code{qweibull}. Given a Weibull parameter object \code{para}, the R syntax is \code{qweibull(f,para$para[3],scale=para$para[2]) - para$para[1]}. For the current implementation for this package, the reversed Generalized Extreme Value distribution is used \code{-quagev((1-f),para)}.
+In R the quantile function of the Weibull distribution is \code{qweibull}. Given a Weibull parameter object \code{p}, the R syntax is \code{qweibull(f, p$para[3], scale=p$para[2]) - p$para[1]}. For the current implementation for this package, the reversed Generalized Extreme Value distribution is used \code{-quagev((1-f),para)}.
 }
 \usage{
 quawei(f, para)
@@ -42,10 +42,22 @@ approach based on L-moments: Cambridge University Press.
 \author{ W.H. Asquith}
 \seealso{\code{\link{cdfwei}}, \code{\link{parwei}}}
 \examples{
+  # Evaluate Weibull deployed here and within R (qweibull)
   lmr <- lmom.ub(c(123,34,4,654,37,78))
   WEI <- parwei(lmr)
   Q1  <- quawei(0.5,WEI)
   Q2  <- qweibull(0.5,shape=WEI$para[3],scale=WEI$para[2])-WEI$para[1]
   if(Q1 == Q2) EQUAL <- TRUE
+
+  # The Weibull is a reversed generalized extreme value
+  Q <- sort(rlmomco(34,WEI)) # generate Weibull sample
+  lm1 <- lmoms(Q)    # regular L-moments
+  lm2 <- lmoms(-Q)   # L-moment of negated (reversed) data
+  WEI <- parwei(lm1) # parameters of Weibull
+  GEV <- pargev(lm2) # parameters of GEV
+  F <- nonexceeds()  # Get a vector of nonexceedance probs
+  plot(pp(Q),Q) 
+  lines(F,quawei(F,WEI))
+  lines(F,-quagev(1-F,GEV),col=2) # line over laps previous
 }
 \keyword{distribution}

@@ -20,12 +20,15 @@ function(lmom) {
     C1 <- 1.59921491;  C2 <- -0.48832213; C3 <-  0.01573152
     D1 <- -0.64363929; D2 <-  0.08985247
 
-    T3 <- lmom$TAU3
-
+    if(length(lmom$L1) == 0) { # convert to named L-moments
+      lmom <- lmorph(lmom)     # nondestructive conversion!
+    }
     if(! are.lmom.valid(lmom)) {
       warning("L-moments are invalid")
       return()
     } 
+
+    T3 <- lmom$TAU3
 
     if(T3 > 0) {
       #  RATIONAL-FUNCTION APPROXIMATION FOR TAU3 BETWEEN 0 AND 1

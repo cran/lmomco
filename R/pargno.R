@@ -13,11 +13,15 @@ function(lmom) {
     #  SMALL IS USED TO TEST WHETHER SKEWNESS IS EFFECTIVELY ZERO
     SMALL <- 1e-8
 
-    T3 <- lmom$TAU3
+    if(length(lmom$L1) == 0) { # convert to named L-moments
+      lmom <- lmorph(lmom)     # nondestructive conversion!
+    }
     if(! are.lmom.valid(lmom)) {
        warning("L-moments are invalid")
        return()
-    } 
+    }
+
+    T3 <- lmom$TAU3
     if(abs(T3) >= 0.95) {
       warning("L-SKEW IS TOO LARGE FOR ROUTINE")
       para[1] = 0

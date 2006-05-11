@@ -44,7 +44,7 @@ reported. This implementation of L-moment calculation requires a minimum of five
   \item{L3}{The third L-moment.}
   \item{L4}{The fourth L-moment.}
   \item{L5}{The fifth L-moment.}
-  \item{source}{An attribute identifying the computational source of the L-moments: \dQuote{lmom.ub--ordinary}.}
+  \item{source}{An attribute identifying the computational source of the L-moments: \dQuote{lmom.ub}.}
 }
 \source{
 The Perl code base of W.H. Asquith
@@ -66,10 +66,10 @@ Research, vol. 32, no. 12., pp. 3617--3619.
 }
 \author{ W.H. Asquith}
 
-\seealso{\code{\link{lmom2pwm}}, \code{\link{pwm.ub}}, \code{\link{pwm2lmom}}}
+\seealso{\code{\link{lmom2pwm}}, \code{\link{pwm.ub}}, \code{\link{pwm2lmom}}, \code{\link{lmoms}}, and \code{\link{lmorph}}}
 \examples{
 lmr <- lmom.ub(c(123,34,4,654,37,78))
-
+lmorph(lmr)
 lmom.ub(rnorm(100))
 }
 \keyword{univar}

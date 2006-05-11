@@ -6,7 +6,7 @@ This function computes the quantiles of the Exponential distribution given
 parameters (\eqn{\xi} and \eqn{\alpha}) of the distribution computed by
 \code{\link{parexp}}. The quantile function of the distribution is 
 
-\deqn{x(F) = \xi - \alpha \log(1-F), \mbox{,}}
+\deqn{x(F) = \xi - \alpha \log(1-F) \mbox{,}}
 
 where \eqn{x(F)} is the quantile for nonexceedance probability \eqn{F},
 \eqn{\xi} is a location parameter and \eqn{\alpha} is a scale parameter.

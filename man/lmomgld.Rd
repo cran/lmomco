@@ -104,7 +104,7 @@ lmomgld(gldpara)
   \item{L4}{The fourth L-moment.}
   \item{L5}{The fifth L-moment.}
   \item{source}{An attribute identifying the computational 
-source of the L-moments: \dQuote{lmomgld--ordinary}.}
+source of the L-moments: \dQuote{lmomgld}.}
 }
 \source{
 Derivations conducted by W.H. Asquith on February 11 and 12, 2006.

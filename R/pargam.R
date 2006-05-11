@@ -8,7 +8,10 @@ function(lmom) {
     #
     A1 <- -0.3080; A2 <- -0.05812; A3 <-  0.01765
     B1 <-  0.7213; B2 <- -0.5947;  B3 <- -2.1817; B4 <- 1.2113
-    
+
+    if(length(lmom$L1) == 0) { # convert to named L-moments
+      lmom <- lmorph(lmom)     # nondestructive conversion!
+    }    
     if(! are.lmom.valid(lmom)) {
       warning("L-moments are invalid")
       return()

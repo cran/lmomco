@@ -3,11 +3,16 @@ function(lmom) {
     SMALL <- 1e-6 
     # Estimate kappa of distribution
     para <- vector(mode="numeric", length=3)
-    K <- -lmom$TAU3
+
+    if(length(lmom$L1) == 0) { # convert to named L-moments
+      lmom <- lmorph(lmom)     # nondestructive conversion!
+    }
     if(! are.lmom.valid(lmom)) {
        warning("L-moments are invalid")
        return()
-    } 
+    }
+
+    K <- -lmom$TAU3 
     if(abs(K) <= SMALL) {
       # kappa is effectively zero
       para[3] = 0

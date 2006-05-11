@@ -58,6 +58,17 @@ wak.gpa_instead <- function(ALAM1,ALAM2,T3) {
 
     para <- vector(mode="numeric", length=5)
 
+
+    if(length(lmom$L1) == 0) { # convert to named L-moments
+      lmom <- lmorph(lmom)     # nondestructive conversion!
+    }
+
+    if(! are.lmom.valid(lmom)) {
+      warning("L-moments are invalid")
+      IFAIL <- 3
+      return()
+    }
+
     ALAM1 <- lmom$L1
     ALAM2 <- lmom$L2
     ALAM3 <- lmom$L3
@@ -68,9 +79,20 @@ wak.gpa_instead <- function(ALAM1,ALAM2,T3) {
     T4    <- lmom$TAU4
     T5    <- lmom$TAU5
 
-    if(! are.lmom.valid(lmom)) {
-      warning("L-moments are invalid")
-      IFAIL <- 3
+    # These checks made for Wakeby because your author often
+    # forgets the fifth L-moment in testing all distributions
+    # just a handy reminder as to not trigger error on if(DISC >= 0)
+    # I then added the T3 and T4 tests for parallel
+    if(is.null(T3) || is.na(T3)) {
+      warning("The third L-moment ratio is undefined")
+      return()
+    }
+    if(is.null(T4) || is.na(T4)) {
+      warning("The fourth L-moment ratio is undefined")
+      return()
+    }   
+    if(is.null(T5) || is.na(T5)) {
+      warning("The fifth L-moment ratio is undefined")
       return()
     }
 

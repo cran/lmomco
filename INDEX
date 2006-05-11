@@ -68,6 +68,7 @@ cdfwak                  Cumulative Distribution Function of the Wakeby
 cdfwei                  Cumulative Distribution Function of the Weibull
                         Distribution
 check.fs                Check Vector of Nonexceedance Probabilities
+dist.list               List of Distribution Names
 freq.curve.all          Compute Frequency Curve for All Distributions
 freq.curve.cau          Frequency Curve of the Cauchy Distribution
 freq.curve.exp          Frequency Curve of the Exponential Distribution
@@ -143,6 +144,8 @@ lmom.test.pe3           Test L-moment and Parameter Algorithms of the
                         Pearson Type III Distribution
 lmom.test.wak           Test L-moment and Parameter Algorithms of the
                         Wakeby Distribution
+lmom.test.wei           Test L-moment and Parameter Algorithms of the
+                        Weibull Distribution
 lmom.ub                 Unbiased Sample L-moments by Direct Sample
                         Estimators
 lmom2par                Convert L-moments to the the Parameters of a
@@ -172,13 +175,18 @@ lmompe3                 L-moments of the Pearson Type III Distribution
 lmoms                   The Sample L-moments and L-moment Ratios
 lmomwak                 L-moments of the Wakeby Distribution
 lmomwei                 L-moments of the Weibull Distribution
+lmorph                  Morph an L-moment Object
 lmrdia                  L-moment Ratio Diagram Components
 nonexceeds              Common Nonexceedance Probabilities
 par2cdf                 Cumulative Distribution Function of the
                         Distributions
+par2cdf2                Equivalent Cumulative Distribution Function of
+                        Two Distributions
 par2lmom                Convert the Parameters of a Distribution to the
                         L-moments
 par2qua                 Quantile Function of the Distributions
+par2qua2                Equivalent Quantile Function of Two
+                        Distributions
 parTLgld                Estimate the Parameters of the Generalized
                         Lambda Distribution using Trimmed L-moments
                         (t=1)

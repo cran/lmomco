@@ -1,7 +1,10 @@
 "pargum" <-
 function(lmom) {
    euler <- 0.577215664901532861
-    para <- vector(mode="numeric", length=2)
+   para <- vector(mode="numeric", length=2)
+   if(length(lmom$L1) == 0) { # convert to named L-moments
+     lmom <- lmorph(lmom)     # nondestructive conversion!
+   }
    if(! are.lmom.valid(lmom)) {
      warning("L-moments are invalid")
      return()

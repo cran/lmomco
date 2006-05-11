@@ -9,7 +9,7 @@ function(para) {
               L3   = NULL,
               L4   = NULL,
               L5   = NULL,
-              source = "lmomwei--ordinary"
+              source = "lmomwei"
              )
     if(! are.parwei.valid(para)) return()
 
@@ -31,7 +31,7 @@ function(para) {
     z$L3   <- -z$L3
     z$L5   <- -z$L5
 
-    z$source <- "lmomwei--ordinary"
+    z$source <- "lmomwei"
 
     return(z)
 }

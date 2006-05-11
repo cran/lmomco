@@ -35,7 +35,7 @@ function(x) {
   L5 <- L5 / C5 / 5
   z <- list(L1 = L1, L2 = L2, TAU3 = L3/L2, TAU4 = L4/L2, TAU5 = L5/L2,
             LCV = L2/L1, L3 = L3, L4 = L4, L5=L5,
-            source = "lmom.ub--ordinary"
+            source = "lmom.ub"
             )
   return(z)
 }

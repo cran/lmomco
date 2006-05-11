@@ -40,7 +40,7 @@ function(lmom,type,...) {
       return(parwei(lmom))
     }
     else {
-      stop("Do not find a valid distribution type.")
+      stop("Do not find a valid distribution type")
     }
 }
 

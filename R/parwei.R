@@ -1,6 +1,9 @@
 "parwei" <-
 function(lmom) {
     para <- vector(mode="numeric", length=3)
+    if(length(lmom$L1) == 0) { # convert to named L-moments
+      lmom <- lmorph(lmom)     # nondestructive conversion!
+    }
 
     if(! are.lmom.valid(lmom)) {
       warning("L-moments are invalid")

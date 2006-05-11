@@ -10,7 +10,7 @@ function(para) {
               L3   = NULL,
               L4   = NULL,
               L5   = NULL,
-              source = "lmomkap--ordinary"
+              source = "lmomkap"
              )
     BETA <- vector(mode="numeric",length=5)
 

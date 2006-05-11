@@ -3,7 +3,7 @@
 \title{L-moments of the Weibull Distribution}
 \description{
 This function estimates the L-moments of the Weibull distribution given the parameters
-(\eqn{\zeta}, \eqn{\beta}, and \eqn{\delta}) from \code{\link{parwei}}. The Weibull distribution is a reverse Generalized Extreme Value distribution.  As result, the Generalized Extreme Value algorithms are used for computation of the L-moments of the Weibull in this package (see \code{\link{parwei}}).
+(\eqn{\zeta}, \eqn{\beta}, and \eqn{\delta}) from \code{\link{parwei}}. The Weibull distribution is a reverse Generalized Extreme Value distribution.  As result, the Generalized Extreme Value algorithms (\code{\link{lmomgev}}) are used for computation of the L-moments of the Weibull in this package (see \code{\link{parwei}}).
 
 }
 \usage{
@@ -25,7 +25,7 @@ lmomwei(para)
   \item{L4}{The fourth L-moment.}
   \item{L5}{The fifth L-moment.}
   \item{source}{An attribute identifying the computational 
-source of the L-moments: \dQuote{lmomwei--ordinary}.}
+source of the L-moments: \dQuote{lmomwei}.}
 }
 \references{
 Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An

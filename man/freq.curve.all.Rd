@@ -3,7 +3,7 @@
 \title{ Compute Frequency Curve for All Distributions}
 \description{
 This function is dispatcher on top of the suite of \code{freq.curve.CCC}
-functions that compute frequency curves for the L-moments. Frequency curves in hydrologic science is a term typically renaming the more conventional quantile function. The notation \code{CCC} represents the three character notation for the distribution: \code{exp}, \code{gam}, \code{gev}, \code{gld}, \code{glo}, \code{gno}, \code{gpa}, \code{gum}, \code{kap}, \code{nor}, \code{pe3}, \code{wak}, and \code{wei}. The Cauchy distribution is not called because of its dependency on trimmed L-moments and its general lack of use in applied research problems (at least those familiar to the author).
+functions that compute frequency curves for the L-moments. Frequency curves in hydrologic science is a term typically renaming the more conventional quantile function. The notation \code{CCC} represents the three character notation for the distribution: \code{exp}, \code{gam}, \code{gev}, \code{gld}, \code{glo}, \code{gno}, \code{gpa}, \code{gum}, \code{kap}, \code{nor}, \code{pe3}, \code{wak}, and \code{wei}. The Cauchy distribution is not used because of its dependency on trimmed L-moments and its general lack of use in applied research problems (at least those familiar to the author). The nonexceedance probabilities to construct the curves are derived from \code{nonexceeds}.
 }
 \usage{
 freq.curve.all(lmom,aslog10=FALSE,asprob=TRUE,
@@ -19,7 +19,7 @@ freq.curve.all(lmom,aslog10=FALSE,asprob=TRUE,
 }
 \arguments{
   \item{lmom}{A L-moment object from \code{lmom.ub} or similar.}
-  \item{aslog10}{Compute \code{log10} of quantiles--note that \preformatted{NaNs produced in: log(x, base)} will be produced for less than zero values.}
+  \item{aslog10}{Compute \code{log10} of quantiles---note that \preformatted{NaNs produced in: log(x, base)} will be produced for less than zero values.}
   \item{asprob}{The \code{qnorm} function is used to convert nonexceedance probabilities, which are produced by \code{\link{nonexceeds}}, to standard normal deviations. The normal distribution will plot as straight line when this argument is \code{TRUE}}
   \item{no2para}{If \code{TRUE}, do not run the 2-parameter distributions: \code{exp}, \code{gam}, \code{gum}, and \code{nor}.}
   \item{no3para}{If \code{TRUE}, do not run the 3-parameter distributions: \code{gev}, \code{glo}, \code{gno}, \code{gpa}, \code{pe3}, and \code{wei}.}
@@ -36,7 +36,7 @@ freq.curve.all(lmom,aslog10=FALSE,asprob=TRUE,
   \item{exp}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
   \item{gam}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
   \item{gev}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
-  \item{gld}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
+  \item{gld}{A logical switch on computation of corresponding distribution---default is \code{FALSE}.} 
   \item{glo}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
   \item{gno}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
   \item{gpa}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 

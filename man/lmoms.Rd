@@ -36,7 +36,7 @@ of the Royal Statistical Society, Series B, vol. 52, p. 105--124.
 }
 \author{ W.H. Asquith}
 
-\seealso{\code{\link{lmom.ub}}, \code{\link{TLmoms}}}
+\seealso{\code{\link{lmom.ub}}, \code{\link{TLmoms}}, and \code{\link{lmorph}}}
 \examples{
 X1 <- rnorm(30)
 L5 <- lmoms(X1)

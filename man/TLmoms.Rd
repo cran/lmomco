@@ -48,7 +48,7 @@ and data analysis, vol. 43, pp. 299-314.
 }
 \author{ W.H. Asquith}
 
-\seealso{\code{\link{TLmom}}}
+\seealso{\code{\link{TLmom}}, \code{\link{lmoms}}, and \code{\link{lmorph}}}
 \examples{
 X1 <- rcauchy(30)
 TL <- TLmoms(X1,nmom=6,trim=1)

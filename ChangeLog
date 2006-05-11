@@ -1,6 +1,6 @@
-Version 0.3--January 31, 2006 Initial Release
+Version 0.3---January 31, 2006 Initial Release
 
-Version 0.4--February 28, 2006
+Version 0.4---February 28, 2006
 0. Numerous enhancements to the documentation
 1. Bug fix on fourth L-moment of Cauchy distribution in lmomcau()
 2. Bug fix on absolute value of TAU5 in are.lmom.valid()
@@ -10,7 +10,7 @@ Version 0.4--February 28, 2006
 6. Addition of lmomTLgpa() (stable) and parTLgpa() (stable)
 7. Addition of vec2TLmom()
 
-Version 0.5--March 12, 2006
+Version 0.5---March 12, 2006
 1. Total redesign of pargld() and parTLgld().
 2. Adjustments to interface of lmomTLgpa() and parTLgpa() for consistency with
      the GLD distribution.
@@ -21,7 +21,7 @@ Version 0.5--March 12, 2006
 6. check.fs() added.
 7. Improvement to output of lmom.test.*() functions.
 
-Version 0.6--March 25, 2006
+Version 0.6---March 25, 2006
 0. Tweaks and corrections to documentation--learning more about LaTeX too.
 1. are.par.valid() could not dispatch to Wakeby distribution--fixed.
 2. Extension of TL-moments to asymmetry: trimming in tails can be controlled.
@@ -37,19 +37,33 @@ Version 0.6--March 25, 2006
      cascading warning messages that the user would not care about can be 
      surpressed.
 
-Version 0.7--April 13, 2006
+Version 0.7---April 13, 2006
 1. Added full vectorization of the quaCCC.R and cdfCCC.R functions. Previously
      each function did not handle a vector of nonexceedance probability and 
      quantile values in each respective function.
 2. Added extract argument to the pargld.R and parTLgld.R functions.
 3. Incorporated endpoint or range checking on cdfgld.R.
 
-
-Version 0.75--April 30, 2006
+Version 0.75---April 30, 2006
 1. Added lmoms.R, which in reality dispatches to TLmoms, but provides a lower
-     case name space and eventually could take lmom.ub.R place.
+     case name space and eventually could take the place of lmom.ub.R.
 2. Added additional error trapping to TLmom.R and TLmoms.R.
 3. Added the Weibull distribution (wei)
 4. Added the random deviate generator rlmomco.R given sample size and 
      parameter object. 
 5. Added the plotting-position formula by pp.R
+
+Version 0.76---May 11, 2006
+0a. Further progress on documentation following R-help feedback and my own
+      proofreads.
+0b. Adding more examples to the documentation.
+1. Added par2cdf2() and par2qua2() for combining two quantile functions
+     into one through minor abilities to control weight factors.
+2. Bug fix on vec2lmom()---function did not retain NULL for undefined
+     L-moment (because of sample size) prior to calling are.lmom.valid().
+3. Plotting-position formula changed in pp.R and substantial documentation
+     added to parallel that in Handbook of Hydrology.
+4. Adjusted all parCCC.R functions (not including parameter estimation
+     using TL-moments) to support either the lmom.ub() or lmoms() L-moment
+     objects. The new function lmorph() is used for the object conversion.
+5. Added the dist.list() function for convenience.

@@ -23,6 +23,8 @@ function(data) {
     cat(c(DASH,"\n"),sep="")
     lmom.test.pe3(data)
     cat(c(DASH,"\n"),sep="")
+    lmom.test.wei(data)
+    cat(c(DASH,"\n"),sep="")
     lmom.test.wak(data)
     cat(c(DASH,"\n"),sep="")
     return()

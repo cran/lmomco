@@ -3,7 +3,7 @@ function(x,nmom=5) {
   n <- length(x)
 
   if(nmom > n) {
-    stop("More Lmoments requested by parameter 'nmom' than data points available in 'x'")
+    stop("More L-moments requested by parameter 'nmom' than data points available in 'x'")
   }
 
   if(length(unique(x)) == 1) stop("all values are equal--Lmoments can not be computed")

@@ -9,7 +9,7 @@ function(para) {
               L3   = NULL,
               L4   = NULL,
               L5   = NULL,
-              source = "lmomexp--ordinary"
+              source = "lmomexp"
              )
     if(! are.parexp.valid(para)) return()
     A <- para$para[2]

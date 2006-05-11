@@ -9,7 +9,7 @@ function(wakpara) {
               L3   = NULL,
               L4   = NULL,
               L5   = NULL,
-              source = "lmomwak--ordinary"
+              source = "lmomwak"
              )
 
     if(! are.parwak.valid(wakpara)) return()

@@ -9,7 +9,7 @@ function(para) {
               L3   = NULL,
               L4   = NULL,
               L5   = NULL,
-              source = "lmomgpa--ordinary"
+              source = "lmomgpa"
              )
 
     if(! are.pargpa.valid(para)) return()

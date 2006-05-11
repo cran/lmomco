@@ -9,7 +9,7 @@ function(para) {
               L3   = NULL,
               L4   = NULL,
               L5   = NULL,
-              source = "lmomgev--ordinary"
+              source = "lmomgev"
              )
     lmom <- vector(mode="numeric",length=5)
 
