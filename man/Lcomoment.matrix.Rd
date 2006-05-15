@@ -31,7 +31,7 @@ computed over the pairs (\eqn{X^{(i)},X^{(j)}}) where \eqn{1 \le i \le j \le d}.
   An R \code{list} is returned.
 
   \item{type}{The type of L-comoment representation in the matrix: \dQuote{Lcomoments}.}
-  \item{order}{The order of the matrix--specified by k in the argument list.}
+  \item{order}{The order of the matrix---specified by k in the argument list.}
   \item{matrix}{A kth order L-comoment matrix.}
 }
 \note{

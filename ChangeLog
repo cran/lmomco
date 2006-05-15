@@ -67,3 +67,10 @@ Version 0.76---May 11, 2006
      using TL-moments) to support either the lmom.ub() or lmoms() L-moment
      objects. The new function lmorph() is used for the object conversion.
 5. Added the dist.list() function for convenience.
+
+Version 0.77--May 15, 2006
+0. Pertaining to number 1, enhancement to documentation of the Lcomoment
+     functions has been made.
+1. Bug fix on a single conditional in Lcomoment.coefficients. Function was
+     handling a first-order first argument, but crashing on order evaluation
+     of the second argument.
