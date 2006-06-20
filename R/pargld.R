@@ -1,5 +1,5 @@
 "pargld" <-
-function(lmom,result='best',verbose=FALSE,extract=0) {
+function(lmom,result='best',verbose=FALSE,extract=0,initkh=NULL) {
 
     if(length(lmom$source) == 1 && lmom$source == "TLmoms") {
       if(lmom$trim != 0) {
@@ -11,13 +11,21 @@ function(lmom,result='best',verbose=FALSE,extract=0) {
     if(length(lmom$L1) == 0) { # convert to named L-moments
       lmom <- lmorph(lmom)     # nondestructive conversion!
     }
-
+    
     LM1 <- lmom$L1
     LM2 <- lmom$L2
 
     T3 <- lmom$TAU3
     T4 <- lmom$TAU4
     T5 <- lmom$TAU5
+
+    # Four parameter distributions do not normally need the
+    # fifth L-moment, but for the GLD as implemented here--we do
+    # This error message is to help with this fact.
+    if(is.null(T5)) {
+      warning("The fifth L-moment ratio TAU5 is undefined")
+      return()
+    }
     
     estla1 <- function(La2,La3,La4) {
       La1 <- LM1 - La2*(1/(La3+1) - 1/(La4+1))
@@ -124,28 +132,33 @@ function(lmom,result='best',verbose=FALSE,extract=0) {
       return(TRUE)
     }
    
-   g <- 14
-   M <- matrix(nrow = g, ncol = 2)
-   M[1,]  <- c(-2.5,2.5)   # REGION 1
-   M[2,]  <- c(2.5,-2.5)   # REGION 2
-   M[3,]  <- c(2.5,2.5)    # REGION 3
-   M[4,]  <- c(-.5,-.5)    # REGION 4
-   M[5,]  <- c(-1.5,-1.5)  # REGION 4
-   M[6,]  <- c(-2.5,-2.5)  # REGION 4
-   M[7,]  <- c(-3.5,-3.5)  # REGION 4
-   M[8,]  <- c(-4.5,-4.5)  # REGION 4
-   M[9,]  <- c(-5.5,-5.5)  # REGION 4
-   M[10,] <- c(-6.5,-6.5)  # REGION 4
-   M[11,] <- c(-7.5,-7.5)  # REGION 4
-   M[12,] <- c(-.5,2.5)    # REGION 5
-   M[13,] <- c(2.5,-.5)    # REGION 6
+   if(is.null(initkh)) {
+     g <- 14
+     M <- matrix(nrow = g, ncol = 2)
+     M[1,]  <- c(-2.5,2.5)   # REGION 1
+     M[2,]  <- c(2.5,-2.5)   # REGION 2
+     M[3,]  <- c(2.5,2.5)    # REGION 3
+     M[4,]  <- c(-.5,-.5)    # REGION 4
+     M[5,]  <- c(-1.5,-1.5)  # REGION 4
+     M[6,]  <- c(-2.5,-2.5)  # REGION 4
+     M[7,]  <- c(-3.5,-3.5)  # REGION 4
+     M[8,]  <- c(-4.5,-4.5)  # REGION 4
+     M[9,]  <- c(-5.5,-5.5)  # REGION 4
+     M[10,] <- c(-6.5,-6.5)  # REGION 4
+     M[11,] <- c(-7.5,-7.5)  # REGION 4
+     M[12,] <- c(-.5,2.5)    # REGION 5
+     M[13,] <- c(2.5,-.5)    # REGION 6
 
-   # See equation 25 of Karvanen, Eriksson, and Koivunen (2002)
-   # Adaptive Score Functions for Maximum Likelihood ICA
-   # Journal of VLSI Signal Processing, vol. 32, pp. 83--92.
-   KEKguess <- (3+7*T4+(1+98*T4+T4^2)^0.5)/(2*(1-T4))
-   M[14,] <- c(KEKguess,KEKguess)
-   
+     # See equation 25 of Karvanen, Eriksson, and Koivunen (2002)
+     # Adaptive Score Functions for Maximum Likelihood ICA
+     # Journal of VLSI Signal Processing, vol. 32, pp. 83--92.
+     KEKguess <- (3+7*T4+(1+98*T4+T4^2)^0.5)/(2*(1-T4))
+     M[14,] <- c(KEKguess,KEKguess)
+   }
+   else {
+     M <- matrix(nrow = 1, ncol = 2)
+     M[1,] <- initkh
+   }
    each_count            <- 0
    each_attempt          <- vector(mode = 'numeric', length = 1)
    each_initialK         <- vector(mode = 'numeric', length = 1)
@@ -167,7 +180,7 @@ function(lmom,result='best',verbose=FALSE,extract=0) {
      cat("Attempt      X        A        K        H            tau5_diff     SumSqError    Diagnostics\n")
      cat(c(rep("-",WIDTH),"\n"),sep="")
    }
-   for(i in seq(1,g)) {
+   for(i in seq(1,nrow(M))) {
      # Test for NaN from the KEK guess
      if(is.nan(M[i,1]) || is.nan(M[i,2])) next
 

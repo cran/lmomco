@@ -38,20 +38,20 @@ Version 0.6---March 25, 2006
      surpressed.
 
 Version 0.7---April 13, 2006
-1. Added full vectorization of the quaCCC.R and cdfCCC.R functions. Previously
+1. Added full vectorization of the quaCCC() and cdfCCC() functions. Previously
      each function did not handle a vector of nonexceedance probability and 
      quantile values in each respective function.
-2. Added extract argument to the pargld.R and parTLgld.R functions.
-3. Incorporated endpoint or range checking on cdfgld.R.
+2. Added extract argument to the pargld() and parTLgld() functions.
+3. Incorporated endpoint or range checking on cdfgld().
 
 Version 0.75---April 30, 2006
 1. Added lmoms.R, which in reality dispatches to TLmoms, but provides a lower
-     case name space and eventually could take the place of lmom.ub.R.
-2. Added additional error trapping to TLmom.R and TLmoms.R.
+     case name space and eventually could take the place of lmom.ub().
+2. Added additional error trapping to TLmom() and TLmoms().
 3. Added the Weibull distribution (wei)
-4. Added the random deviate generator rlmomco.R given sample size and 
+4. Added the random deviate generator rlmomco() given sample size and 
      parameter object. 
-5. Added the plotting-position formula by pp.R
+5. Added the plotting-position formula by pp()
 
 Version 0.76---May 11, 2006
 0a. Further progress on documentation following R-help feedback and my own
@@ -68,9 +68,18 @@ Version 0.76---May 11, 2006
      objects. The new function lmorph() is used for the object conversion.
 5. Added the dist.list() function for convenience.
 
-Version 0.77--May 15, 2006
+Version 0.77---May 15, 2006
 0. Pertaining to number 1, enhancement to documentation of the Lcomoment
      functions has been made.
 1. Bug fix on a single conditional in Lcomoment.coefficients. Function was
      handling a first-order first argument, but crashing on order evaluation
      of the second argument.
+     
+Version 0.80---June 20, 2006
+0. Further tweaks to the documentation.
+1. Warning message added when Tau5 missing on call to pargld() and parTLgld().
+2. Added support for user supplied initial guess for pargld() and parTLgld().
+3. Bug fix on pargev(). The function was broken for Tau3 < -0.80. Bug caused
+   during port from Hosking FORTRAN library. Bug discovered, during tests of
+   parwei().
+

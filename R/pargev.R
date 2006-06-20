@@ -44,9 +44,10 @@ function(lmom) {
       }
     }
     else { # T3 is <= to zero
-      if(T3 < 0 & T3 >= -0.80) {
+      G <- (A0+T3*(A1+T3*(A2+T3*(A3+T3*A4))))/(1+T3*(B1+T3*(B2+T3*B3)))
+      if(T3 >= -0.80) {
         #   RATIONAL-FUNCTION APPROXIMATION FOR TAU3 BETWEEN -0.8 AND 0
-        G <- (A0+T3*(A1+T3*(A2+T3*(A3+T3*A4))))/(1+T3*(B1+T3*(B2+T3*B3)))
+        # DO NOTHING--code paralleling Hosking's as best as possible.
       }
       else {
         #  NEWTON-RAPHSON ITERATION FOR TAU3 LESS THAN -0.8
@@ -70,7 +71,9 @@ function(lmom) {
               CONVERGE = TRUE
             }
           }
-          if(CONVERGE == FALSE) warning("Iteration has not converged. Results might be unreliable.")
+          if(CONVERGE == FALSE) {
+             warning("Noconvergence---results might be unreliable")
+          }
         }
       }
     }

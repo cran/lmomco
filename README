@@ -26,8 +26,6 @@ Things to do:
       Deprecate the object design from lmom.ub and similar.
 (5) Continue discussions with Juha Karvanen on a cross-package L-moment 
       object. (Related to ToDo no. 4.)
-(6) The Weibull distribution is added for version 0.75 following traffic
-      on the listserv. This is experimental until this TODO is removed.
             
 wha (April 30, 2006)
 

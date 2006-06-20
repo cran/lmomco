@@ -16,7 +16,7 @@ par2qua2(f,leftpara,rightpara,weight=NULL,...)
   \item{leftpara}{The left-tail parameters from \code{\link{lmom2par}} or similar.}
   \item{rightpara}{The right-tail parameters from \code{\link{lmom2par}} or similar.}
   \item{weight}{An optional weighting argument to use in lieu of \code{F}.}
-  \item{...}{The additional arguments are passed to the quantile function such as \code{paracheck=FALSE} for the generalized Lambda distribution (\code{\link{quagld}}).}
+  \item{...}{The additional arguments are passed to the quantile function such as \code{paracheck = FALSE} for the generalized Lambda distribution (\code{\link{quagld}}).}
 }
 \value{
   Quantile value for \eqn{F} from the two distributions.

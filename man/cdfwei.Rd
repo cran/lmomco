@@ -20,7 +20,7 @@ The Weibull distribution is a reverse Generalized Extreme Value distribution.  A
 
 These relations are taken from Hosking and Wallis (1997).
 
-In R the cumulative distribution function of the Weibull distribution is \code{pweibull}. Given a Weibull parameter object \code{para}, the R syntax is \code{pweibull(x+para$para[1],para$para[3],scale=para$para[2])}. For the current implementation for this package, the reversed Generalized Extreme Value distribution is used \code{1-cdfgev(-x,para)}.
+In R the cumulative distribution function of the Weibull distribution is \code{pweibull}. Given a Weibull parameter object \code{para}, the R syntax is \code{pweibull(x+para$para[1], para$para[3], scale=para$para[2])}. For the current implementation for this package, the reversed Generalized Extreme Value distribution is used \code{1-cdfgev(-x,para)}.
 }
 \usage{
 cdfwei(x, para)

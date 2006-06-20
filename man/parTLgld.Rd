@@ -8,13 +8,14 @@ level of unity (\code{trim=1}). The relation between distribution parameters and
 is seen under \code{lmomTLgld}. There are no simple expressions for the parameters in terms of the L-moments. This function is considered EXPERIMENTAL and general details of the algorithm are provided below. Further, consider that multiple parameter solutions are possible with the Generalized Lambda so some expertise in the distribution and other aspects are needed.
 }
 \usage{
-parTLgld(lmom,result='best',verbose=FALSE,extract=0)
+parTLgld(lmom,result='best',verbose=FALSE,extract=0,initkh=NULL)
 }
 \arguments{
   \item{lmom}{A TL-moment object created by \code{\link{TLmoms}}.}
   \item{result}{If \code{best}, then the minimum error solution is returned. If \code{dataframe}, then \code{data.frame} is returned with sequence of valid solutions sorted in ascending error order.}
   \item{verbose}{A logical switch on the verbosity of output.  Default is \code{verbose=FALSE}.}
   \item{extract}{If \code{result=dataframe} and \code{extract} greater than zero, then the \code{extract=n} returns the \code{n}th element of the \code{data.frame} as if that element was the \code{best} solution.}
+  \item{initkh}{A vector of the initial guess of the \eqn{\kappa} and \eqn{h} parameters. No other regions of parameter space are consulted.}
 }
 \details{
 Karian and Dudewicz (2000) summarize six regions of the \eqn{\kappa} and \eqn{h} space in

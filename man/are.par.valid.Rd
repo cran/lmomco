@@ -31,9 +31,10 @@ approach based on L-moments: Cambridge University Press.
 \seealso{ \code{\link{vec2par}} }
 \examples{
 vec  <- c(12,120)           # parameters of exponential distribution
-para <- vec2par(vec,'exp')  # build exponential distribution parameter object
-# The following two conditionals are equivalent as are.parexp.valid() is called
-# within are.par.valid().
+para <- vec2par(vec,'exp')  # build exponential distribution parameter 
+                            # object
+# The following two conditionals are equivalent as are.parexp.valid()
+# is called within are.par.valid().
 if(are.par.valid(para))    Q <- quaexp(0.5,para)
 if(are.parexp.valid(para)) Q <- quaexp(0.5,para)
 
