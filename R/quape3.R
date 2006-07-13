@@ -1,5 +1,6 @@
 "quape3" <-
 function(f,para) { 
+    if(! check.fs(f)) return()
     if(! are.parpe3.valid(para)) return()
 
     # SMALL IS USED TO TEST WHETHER SKEWNESS IS EFFECTIVELY ZERO
@@ -8,22 +9,18 @@ function(f,para) {
     U <- para$para[1]
     A <- para$para[2]
     GAMMA <- para$para[3]
-
-    x <- vector(mode="numeric")
-    for(i in seq(1,length(f))) {
-      if(f[i] <= 0 || f[i] >= 1) {
-        if((f[i] == 0 & GAMMA > 0) |
-           (f[i] == 1 & GAMMA < 0)) {
-          U-2*A/GAMMA
-        }
-        else {
-          warning("Argument to function invalid")
-          return()
-        }
+    n <- length(f)
+    x <- vector(mode="numeric",length=n)
+    for(i in seq(1,n)) {
+      if((f[i] == 0 && GAMMA > 0) ||
+         (f[i] == 1 && GAMMA < 0)) {
+        x[i] <- U-2*A/GAMMA
+        next
       }
       if(abs(GAMMA) < SMALL) {
         # ZERO SKEWNESS, qnorm() is the standard normal distribution
         x[i] <- U+A*qnorm(f[i])
+        next
       }
       else {
          ALPHA <- 4/GAMMA^2

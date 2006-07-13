@@ -16,7 +16,6 @@ function(lmom) {
       warning("L-moments are invalid")
       return()
     }
-
     if(lmom$LCV >= 0.5) { 
       T <- 1-lmom$LCV
       ALPHA <- T*(B1+T*B2)/(1+T*(B3+T*B4))
@@ -27,6 +26,13 @@ function(lmom) {
     }  
     para[1] <- ALPHA
     para[2] <- lmom$L1/ALPHA
-    return(list(type = 'gam', para = para))
+    z <- list(type = 'gam', para = para)
+    if(are.pargam.valid(z)) {
+      return(z)
+    }
+    else {
+      warning("Parameters can not be computed likely because L1 <= L2 or L2 <= 0")
+      return()
+    }
 }
 

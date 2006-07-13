@@ -7,6 +7,8 @@ This function computes the nonexceedance probability of a given quantile from th
 \deqn{ Q(F) = (1-F) \times Q_{lefttail}(F) + F \times Q_{righttail}(F)} 
 
 where \eqn{Q(F)} is the equivalent quantile for nonexceedance probability \eqn{F} computed by the tail weigthing. \eqn{Q_{lefttail}(F)} is the left-tail quantile function; \eqn{Q_{righttail}} is the right-tail quantile function. The \code{par2cdf2} function inverses the above equation for \eqn{F}. Parameter objects are discussed in \code{\link{vec2par}} and \code{\link{lmom2par}} functions. If the optional \code{weight} argument is provided, then the multiplication of \code{1-F} or \code{F} is replaced by \code{1-weight} or \code{weight}, respectively. If \code{weight=0}, then the quantiles for the right tail are returned, and if \code{weight=1}, then the quantiles for the left tail are returned.
+
+A word of caution. The resulting weighted quantile function is not checked for monotonic increase with \eqn{F}. This is a required property of quantile functions.
 }
 \usage{
 par2cdf2(x,leftpara,rightpara,weight=NULL,...)

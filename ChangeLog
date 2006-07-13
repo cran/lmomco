@@ -1,21 +1,21 @@
 Version 0.3---January 31, 2006 Initial Release
 
 Version 0.4---February 28, 2006
-0. Numerous enhancements to the documentation
-1. Bug fix on fourth L-moment of Cauchy distribution in lmomcau()
-2. Bug fix on absolute value of TAU5 in are.lmom.valid()
+0. Numerous enhancements to the documentation.
+1. Bug fix on fourth L-moment of Cauchy distribution in lmomcau().
+2. Bug fix on absolute value of TAU5 in are.lmom.valid().
 3. Bug fixes on are.pargld.valid().
 4. Addition of cdfgld() (stable), lmomgld() (stable), pargld() (highly experimental).
-5. Addition of lmomTLgld() (stable) and parTLgld() (highly experimental)
-6. Addition of lmomTLgpa() (stable) and parTLgpa() (stable)
-7. Addition of vec2TLmom()
+5. Addition of lmomTLgld() (stable) and parTLgld() (highly experimental).
+6. Addition of lmomTLgpa() (stable) and parTLgpa() (stable).
+7. Addition of vec2TLmom().
 
 Version 0.5---March 12, 2006
 1. Total redesign of pargld() and parTLgld().
 2. Adjustments to interface of lmomTLgpa() and parTLgpa() for consistency with
      the GLD distribution.
 3. Major additions to freq.curve.all() (addition of plotting options and
-     more verbose messaging)
+     more verbose messaging).
 4. Speed up of freq.curve.gld() by addition of paracheck=FALSE to quagld().
 5. Internal functions to lmomkap() are now defined internal to the function.
 6. check.fs() added.
@@ -48,10 +48,10 @@ Version 0.75---April 30, 2006
 1. Added lmoms.R, which in reality dispatches to TLmoms, but provides a lower
      case name space and eventually could take the place of lmom.ub().
 2. Added additional error trapping to TLmom() and TLmoms().
-3. Added the Weibull distribution (wei)
+3. Added the Weibull distribution (wei).
 4. Added the random deviate generator rlmomco() given sample size and 
      parameter object. 
-5. Added the plotting-position formula by pp()
+5. Added the plotting-position formula by pp().
 
 Version 0.76---May 11, 2006
 0a. Further progress on documentation following R-help feedback and my own
@@ -63,7 +63,7 @@ Version 0.76---May 11, 2006
      L-moment (because of sample size) prior to calling are.lmom.valid().
 3. Plotting-position formula changed in pp.R and substantial documentation
      added to parallel that in Handbook of Hydrology.
-4. Adjusted all parCCC.R functions (not including parameter estimation
+4. Adjusted all parCCC() functions (not including parameter estimation
      using TL-moments) to support either the lmom.ub() or lmoms() L-moment
      objects. The new function lmorph() is used for the object conversion.
 5. Added the dist.list() function for convenience.
@@ -80,6 +80,34 @@ Version 0.80---June 20, 2006
 1. Warning message added when Tau5 missing on call to pargld() and parTLgld().
 2. Added support for user supplied initial guess for pargld() and parTLgld().
 3. Bug fix on pargev(). The function was broken for Tau3 < -0.80. Bug caused
-   during port from Hosking FORTRAN library. Bug discovered, during tests of
-   parwei().
+   during port from Hosking FORTRAN library. Bug was discovered during tests
+   of parwei().
+
+Version 0.82--July 13, 2006
+0. Further tweaks to the documentation.
+1. Word of caution about lack of checking by the function of monotonic 
+   increase of par2cdf2() an par2qua2().
+2. Added the qua2ci() function for estimation of confidence limits of quantiles
+   of a distribution using Monte Carlo simulation.
+3. It was possible to call are.lmom.valid() with an object from lmoms()
+   without an actual check on the L-moments because length(lmom$L1) == 0 was
+   not checked. The function lmorph() is now used to convert prior to
+   validation.
+4. Added the gen.freq.curves() function for plotting randomly generated
+   frequency curves by specifying: sample size, the parent distribution, and
+   the number of simulations.
+5. Added the genci() function for generation of lists or data.frames of
+   confidence intervals for a vector of nonexceedance probabilities, a given
+   sample size, and a specified parent using Monte Carlo simulation.
+6. Recognized the quaCCC() functions had been extended into the features 
+   provided by freq.curve.CCC() functions.  Thus, all freq.curve.CCC()
+   functions are removed from the package.
+7. Bug fix on F=0||1 probabilities into quape3(). Bug occurred in extension
+   of function to handle a vector of probabilities during development of
+   version 0.7 of this package.
+8. lmompe3() did not compute and hence return L-CV---incomplete port from
+   Hosking library. L-CV is returned now.
+9. pargam() would return invalid parameters as the specific range of L-moments
+   for a valid gamma was not being checked. This was because of an incomplete
+   port of Hosking FORTRAN library.
 

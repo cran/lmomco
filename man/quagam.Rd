@@ -5,7 +5,7 @@
 This function computes the quantiles of the Gamma distribution given
 parameters (\eqn{\alpha} and \eqn{\beta}) of the distribution computed by
 \code{\link{pargam}}.  The quantile function has no explicit form. See the
-\code{qgamma} function. The parameters have the following interpretations: \eqn{\alpha} is a shape parameter and
+\code{qgamma} function and \code{\link{cdfgam}}. The parameters have the following interpretations: \eqn{\alpha} is a shape parameter and
 \eqn{\beta} is a scale parameter in the R syntax.
 }
 \usage{
@@ -34,6 +34,12 @@ approach based on L-moments: Cambridge University Press.
 \seealso{\code{\link{cdfgam}}, \code{\link{pargam}}}
 \examples{
   lmr <- lmom.ub(c(123,34,4,654,37,78))
-  quagam(0.5,pargam(lmr))
+  g <- pargam(lmr)
+  quagam(0.5,g)
+ 
+  # generate 50 random samples from this fitted parent
+  Qsim <- rlmomco(5000,g)
+  # compute the apparent gamma parameter for this parent
+  gsim <- pargam(lmoms(Qsim))
 }
 \keyword{distribution}

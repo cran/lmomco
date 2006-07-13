@@ -1,15 +1,14 @@
 \name{pwm.gev}
 \alias{pwm.gev}
-\title{ Generalized Extreme Value Plotting Position Probability-Weighted Moments }
+\title{ Generalized Extreme Value Plotting-Position Probability-Weighted Moments }
 \description{
-Generalized Extreme Value plotting position Probability-Weighted Moments
+Generalized Extreme Value plotting-position Probability-Weighted Moments
 (PWMs) are computed from a sample.  The first five \eqn{\beta_r}'s are computed.
 The plotting-position formula for the Generalized Extreme Value distribution is
 
 \deqn{p_i = \frac{i-0.35}{n} \mbox{,}}
 
-where \eqn{pp_i} is the nonexceedance probability \eqn{F} of the \eqn{i}th ascending
-data values. The parameters \eqn{A} and \eqn{B} together specify the plotting-position type, and \eqn{n} is the sample size. The PWMs are computed by
+where \eqn{p_i} is the nonexceedance probability \eqn{F} of the \eqn{i}th ascending values of the sample of size \eqn{n}. The PWMs are computed by
 
 \deqn{\beta_r = n^{-1}\sum_{i=1}^{n}p_i^r \times x_{j:n} \mbox{,}}
 

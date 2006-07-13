@@ -1,35 +1,34 @@
 "quakap" <-
 function(f,para) {
+    if(! check.fs(f)) return()
     if(! are.parkap.valid(para)) return()
 
     U <- para$para[1]
     A <- para$para[2]
     G <- para$para[3]
     H <- para$para[4]
-
-    x <- vector(mode="numeric")
-    for(i in seq(1,length(f))) {
-      if(f[i] <= 0 || f[i] >= 1) {
-        if(f[i] == 0) {
-          if(H <= 0 & G  < 0) { x[i] <- U+A/G; next }
-          if(H >  0 & G != 0) { x[i] <- U+A/G*(1-H^-G); next }
-          if(H >  0 & G == 0) { x[i] <- U+A*log(H); next }
-          if(H <= 0 & G >= 0) {
-            warning("argument to function invalid.")
-            return()
-          }
-          stop("f is fine: should not be here in code execution.")
+    n <- length(f)
+    x <- vector(mode="numeric",length(f))
+    for(i in seq(1,n)) {
+      if(f[i] == 0) {
+        if(H <= 0 & G  < 0) { x[i] <- U+A/G; next }
+        if(H >  0 & G != 0) { x[i] <- U+A/G*(1-H^-G); next }
+        if(H >  0 & G == 0) { x[i] <- U+A*log(H); next }
+        if(H <= 0 & G >= 0) {
+          warning("argument to function invalid.")
+          return()
         }
-        if(f[i] == 1) {
-          if(G <= 0) {
-            warning("argument of function is invalid")
-            return()
-          }
-          else {
-            x[i] <- U+A/G
-          }
-          stop("f=1: should not be here in code execution.")
+        stop("f is fine: should not be here in code execution.")
+      }
+      else  if(f[i] == 1) {
+        if(G <= 0) {
+          warning("argument of function is invalid")
+          return()
         }
+        else {
+          x[i] <- U+A/G
+        }
+        stop("f=1: should not be here in code execution.")
       }
       else {
         Y <- -log(f[i])

@@ -5,7 +5,7 @@ function(f,wakpara) {
     #    UNDERFLOW 
     #
     UFL <- log(.Machine$double.xmin);
-
+    if(! check.fs(f)) return()
     if(! are.parwak.valid(wakpara)) return()
 
     XI <- wakpara$para[1]
@@ -13,17 +13,15 @@ function(f,wakpara) {
     B <- wakpara$para[3]
     C <- wakpara$para[4]
     D <- wakpara$para[5]
-
-    x <- vector(mode="numeric")
-    for(i in seq(1,length(f))) {
-      if(f[i] <= 0 || f[i] >= 1) {
-        if(f[i] == 0) { x[i] <- XI; next }
-        if(f[i] == 1) {
-          if(D < 0) { x[i] <- XI+A/B-C/D; next }
-          if(D == 0 & C == 0 & B > 0) { x[i] <- XI+A/B; next }
-          warning("argument of function is invalid")
-          return()
-        }
+    n <- length(f)
+    x <- vector(mode="numeric",length=n)
+    for(i in seq(1,n)) {
+      if(f[i] == 0) { x[i] <- XI; next }
+      if(f[i] == 1) {
+        if(D < 0) { x[i] <- XI+A/B-C/D; next }
+        if(D == 0 & C == 0 & B > 0) { x[i] <- XI+A/B; next }
+        warning("argument of function is invalid")
+        return()
       }
       Z <- -log(1-f[i])
       Y1 <- Z

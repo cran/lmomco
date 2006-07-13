@@ -88,6 +88,7 @@ function(para) {
         z$L4 <- z$L2*z$TAU4
       }
     }
+    z$LCV <- z$L2/z$L1
     return(z)
 }
 

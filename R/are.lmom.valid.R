@@ -1,5 +1,10 @@
 "are.lmom.valid" <-
 function(lmom) {
+
+   if(length(lmom$L1) == 0) { # convert to named L-moments
+     lmom <- lmorph(lmom)     # nondestructive conversion!
+   }
+
    # The early return trues are for situations in which the higher moments
    # are simply not available--say from computing the l-moments of a distribution
    if(is.null(lmom$L2) || is.na(lmom$L2))    return(TRUE)

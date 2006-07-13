@@ -1,6 +1,6 @@
 \name{Lcomoment.correlation}
 \alias{Lcomoment.correlation}
-\title{ L-correlation Matrix (L-correlation throught sample L-comoments) }
+\title{ L-correlation Matrix (L-correlation through Sample L-comoments) }
 \description{
 Compute the L-correlation from an L-comoment matrix of order \eqn{k = 2}.
 This function assumes that each matrix is already computed by the function

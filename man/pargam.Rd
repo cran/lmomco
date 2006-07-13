@@ -5,7 +5,7 @@
 This function estimates the parameters of the Gamma distribution given
 the L-moments of the data in an L-moment object such as that returned by
 \code{lmom.ub}. The relation between distribution parameters and L-moments
-is seen under \code{lmomgam}.
+is seen under \code{lmomgam}. The parameters can not be estimated if \eqn{\lambda_1 \le \lambda_2} or \eqn{\lambda_2 \le 0}.
 }
 \usage{
 pargam(lmom)

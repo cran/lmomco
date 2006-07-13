@@ -5,8 +5,8 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
               xmin=NULL,xmax=NULL,xlim=NULL,
               ymin=NULL,ymax=NULL,ylim=NULL,
               exp=TRUE,gam=TRUE,gev=TRUE,gld=FALSE,glo=TRUE,
-              gno=TRUE,gpa=TRUE,gum=TRUE,kap=TRUE,nor=TRUE,pe3=TRUE,
-              wak=TRUE,wei=TRUE,...) {
+              gno=TRUE,gpa=TRUE,gum=TRUE,kap=TRUE,nor=TRUE,
+              pe3=TRUE,wak=TRUE,wei=TRUE,...) {
 
     if(! are.lmom.valid(lmom)) {
       warning("L-moments are invalid")
@@ -55,7 +55,7 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
       if(show == TRUE) cat("Exponential distribution--")
       P <- parexp(lmom)
       if(show == TRUE) cat("parameters--")
-      EXP <- freq.curve.exp(F,P)
+      EXP <- quaexp(F,P)
       if(aslog10 == TRUE) EXP <- log10(EXP)
       if(show == TRUE) cat("quantiles\n")
     }
@@ -63,7 +63,7 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
       if(show == TRUE) cat("Gamma distribution--")
       P <- pargam(lmom)
       if(show == TRUE) cat("parameters--")
-      GAM <- freq.curve.gam(F,P)
+      GAM <- quagam(F,P)
       if(aslog10 == TRUE) GAM <- log10(GAM)
       if(show == TRUE) cat("quantiles\n")
     }
@@ -71,7 +71,7 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
       if(show == TRUE) cat("Generalized Extreme Value distribution--")
       P <- pargev(lmom)
       if(show == TRUE) cat("parameters--")
-      GEV <- freq.curve.gev(F,P)
+      GEV <- quagev(F,P)
       if(aslog10 == TRUE) GEV <- log10(GEV)
       if(show == TRUE) cat("quantiles\n")
     }
@@ -79,7 +79,7 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
       if(show == TRUE) cat("Generalized Lambda distribution (takes awhile)--")
       P <- pargld(lmom,...)
       if(show == TRUE) cat("parameters--")
-      GLD <- freq.curve.gld(F,P)
+      GLD <- quagld(F,P)
       if(aslog10 == TRUE) GLD <- log10(GLD)
       if(show == TRUE) cat("quantiles\n")
     }
@@ -87,7 +87,7 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
       if(show == TRUE) cat("Generalized Logistic distribution--")
       P <- parglo(lmom)
       if(show == TRUE) cat("parameters--")
-      GLO <- freq.curve.glo(F,P)
+      GLO <- quaglo(F,P)
       if(aslog10 == TRUE) GLO <- log10(GLO)
       if(show == TRUE) cat("quantiles\n")
     }
@@ -95,7 +95,7 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
       if(show == TRUE) cat("Generalized Normal distribution--")
       P <- pargno(lmom)
       if(show == TRUE) cat("parameters--")
-      GNO <- freq.curve.gno(F,P)
+      GNO <- quagno(F,P)
       if(aslog10 == TRUE) GNO <- log10(GNO)
       if(show == TRUE) cat("quantiles\n")
     }
@@ -103,7 +103,7 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
       if(show == TRUE) cat("Generalized Pareto distribution--")
       P <- pargpa(lmom)
       if(show == TRUE) cat("parameters--")
-      GPA <- freq.curve.gpa(F,P)
+      GPA <- quagpa(F,P)
       if(aslog10 == TRUE) GPA <- log10(GPA)
       if(show == TRUE) cat("quantiles\n")
     }
@@ -111,7 +111,7 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
       if(show == TRUE) cat("Generalized Gumbel distribution--")
       P <- pargum(lmom)
       if(show == TRUE) cat("parameters--")
-      GUM <- freq.curve.gum(F,P)
+      GUM <- quagum(F,P)
       if(aslog10 == TRUE) GUM <- log10(GUM)
       if(show == TRUE) cat("quantiles\n")
     }
@@ -119,7 +119,7 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
       if(show == TRUE) cat("Kappa distribution--")
       P <- parkap(lmom)
       if(show == TRUE) cat("parameters--")
-      KAP <- freq.curve.kap(F,P)
+      KAP <- quakap(F,P)
       if(aslog10 == TRUE) KAP <- log10(KAP)
       if(show == TRUE) cat("quantiles\n")
     }
@@ -127,7 +127,7 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
       if(show == TRUE) cat("Normal distribution--")
       P <- parnor(lmom)
       if(show == TRUE) cat("parameters--")
-      NOR <- freq.curve.nor(F,P)
+      NOR <- quanor(F,P)
       if(aslog10 == TRUE) NOR <- log10(NOR)
       if(show == TRUE) cat("quantiles\n")
     }
@@ -135,7 +135,7 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
       if(show == TRUE) cat("Pearson Type III distribution--")
       P <- parpe3(lmom)
       if(show == TRUE) cat("parameters--")
-      PE3 <- freq.curve.pe3(F,P)
+      PE3 <- quape3(F,P)
       if(aslog10 == TRUE) PE3 <- log10(PE3)
       if(show == TRUE) cat("quantiles\n")
     }
@@ -143,7 +143,7 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
       if(show == TRUE) cat("Wakeby distribution--")
       P <- parwak(lmom)
       if(show == TRUE) cat("parameters--")
-      WAK <- freq.curve.wak(F,P)
+      WAK <- quawak(F,P)
       if(aslog10 == TRUE) WAK <- log10(WAK)
       if(show == TRUE) cat("quantiles\n")
     }
@@ -151,7 +151,7 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
       if(show == TRUE) cat("Weibull distribution--")
       P <- parwei(lmom)
       if(show == TRUE) cat("parameters--")
-      WEI <- freq.curve.wei(F,P)
+      WEI <- quawei(F,P)
       if(aslog10 == TRUE) WEI <- log10(WEI)
       if(show == TRUE) cat("quantiles\n")
     }

@@ -1,5 +1,6 @@
 "quawei" <-
 function(f,para) { 
+    if(! check.fs(f)) return()
     if(! are.parwei.valid(para)) return()
     ZETA <- para$para[1]
     B    <- para$para[2]

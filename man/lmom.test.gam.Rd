@@ -23,6 +23,6 @@ lmom.test.gam(data)
 \examples{
 lmom.test.gam(c(123,34,4,654,37,78))
 
-lmom.test.gam(rnorm(50))
+lmom.test.gam(rnorm(50,mean=1000,sd=50))
 }
 \keyword{distribution}

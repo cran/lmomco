@@ -22,19 +22,20 @@ check.fs(fs)
 }
 \author{ W.H. Asquith}
 \seealso{
-\code{\link{freq.curve.cau}},
-\code{\link{freq.curve.exp}}, 
-\code{\link{freq.curve.gam}}, 
-\code{\link{freq.curve.gev}}, \cr
-\code{\link{freq.curve.gld}}, 
-\code{\link{freq.curve.glo}}, 
-\code{\link{freq.curve.gno}}, 
-\code{\link{freq.curve.gpa}}, \cr
-\code{\link{freq.curve.gum}}, 
-\code{\link{freq.curve.kap}}, 
-\code{\link{freq.curve.nor}}, 
-\code{\link{freq.curve.pe3}}, and \cr
-\code{\link{freq.curve.wak}}
+\code{\link{quacau}},
+\code{\link{quaexp}}, 
+\code{\link{quagam}}, 
+\code{\link{quagev}},
+\code{\link{quagld}},  
+\code{\link{quaglo}}, \cr
+\code{\link{quagno}}, 
+\code{\link{quagpa}},
+\code{\link{quagum}}, 
+\code{\link{quakap}}, 
+\code{\link{quanor}}, 
+\code{\link{quape3}}, \cr
+\code{\link{quawak}}, and
+\code{\link{quawei}}
 }
 \examples{
 F <- c(0.5,0.7,0.9,1.1)

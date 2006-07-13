@@ -2,8 +2,8 @@ Lcomoment.Lk12          Compute a Single Sample L-comoment
 Lcomoment.Wk            Weighting Coefficient for Sample L-comoment
 Lcomoment.coefficients
                         L-comoment Coefficient Matrix
-Lcomoment.correlation   L-correlation Matrix (L-correlation throught
-                        sample L-comoments)
+Lcomoment.correlation   L-correlation Matrix (L-correlation through
+                        Sample L-comoments)
 Lcomoment.matrix        Compute Sample L-comoment Matrix
 TLmom                   A Sample Trimmed L-moment
 TLmoms                  The Sample Trimmed L-moments and L-moment
@@ -70,26 +70,10 @@ cdfwei                  Cumulative Distribution Function of the Weibull
 check.fs                Check Vector of Nonexceedance Probabilities
 dist.list               List of Distribution Names
 freq.curve.all          Compute Frequency Curve for All Distributions
-freq.curve.cau          Frequency Curve of the Cauchy Distribution
-freq.curve.exp          Frequency Curve of the Exponential Distribution
-freq.curve.gam          Frequency Curve of the Gamma Distribution
-freq.curve.gev          Frequency Curve of the Generalized Extreme
-                        Value Distribution
-freq.curve.gld          Frequency Curve of the Generalized Lambda
-                        Distribution
-freq.curve.glo          Frequency Curve of the Generalized Logistic
-                        Distribution
-freq.curve.gno          Frequency Curve of the Generalized Normal
-                        Distribution
-freq.curve.gpa          Frequency Curve of the Generalized Pareto
-                        Distribution
-freq.curve.gum          Frequency Curve of the Gumbel Distribution
-freq.curve.kap          Frequency Curve of the Kappa Distribution
-freq.curve.nor          Frequency Curve of the Normal Distribution
-freq.curve.pe3          Frequency Curve of the Pearson Type III
-                        Distribution
-freq.curve.wak          Frequency Curve of the Wakeby Distribution
-freq.curve.wei          Frequency Curve of the Weibull Distribution
+gen.freq.curves         Plot Randomly Generated Frequency Curves from a
+                        Parent Distribution
+genci                   Generate Confidence Intervals for Quantiles of
+                        a Parent Distribution
 is.cau                  Is a Distribution Parameter Object Typed as
                         Cauchy
 is.exp                  Is a Distribution Parameter Object Typed as
@@ -222,12 +206,14 @@ parwei                  Estimate the Parameters of the Weibull
                         Distribution
 plotlmrdia              Plot L-moment Ratio Diagram
 pp                      Plotting-Position Formula
-pwm.gev                 Generalized Extreme Value Plotting Position
+pwm.gev                 Generalized Extreme Value Plotting-Position
                         Probability-Weighted Moments
 pwm.pp                  Plotting-Position Sample Probability-Weighted
                         Moments
 pwm.ub                  Unbiased Sample Probability-Weighted Moments
 pwm2lmom                Probability-Weighted Moments to L-moments
+qua2ci                  Estimate Confidence Interval for a Single
+                        Quantile of a Parent Distribution
 quacau                  Quantile Function of the Cauchy Distribution
 quaexp                  Quantile Function of the Exponential
                         Distribution

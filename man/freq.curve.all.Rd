@@ -2,7 +2,7 @@
 \alias{freq.curve.all}
 \title{ Compute Frequency Curve for All Distributions}
 \description{
-This function is dispatcher on top of the suite of \code{freq.curve.CCC}
+This function is dispatcher on top of the suite of \code{quaCCC}
 functions that compute frequency curves for the L-moments. Frequency curves in hydrologic science is a term typically renaming the more conventional quantile function. The notation \code{CCC} represents the three character notation for the distribution: \code{exp}, \code{gam}, \code{gev}, \code{gld}, \code{glo}, \code{gno}, \code{gpa}, \code{gum}, \code{kap}, \code{nor}, \code{pe3}, \code{wak}, and \code{wei}. The Cauchy distribution is not used because of its dependency on trimmed L-moments and its general lack of use in applied research problems (at least those familiar to the author). The nonexceedance probabilities to construct the curves are derived from \code{nonexceeds}.
 }
 \usage{
@@ -20,7 +20,7 @@ freq.curve.all(lmom,aslog10=FALSE,asprob=TRUE,
 \arguments{
   \item{lmom}{A L-moment object from \code{lmom.ub} or similar.}
   \item{aslog10}{Compute \code{log10} of quantiles---note that \preformatted{NaNs produced in: log(x, base)} will be produced for less than zero values.}
-  \item{asprob}{The \code{qnorm} function is used to convert nonexceedance probabilities, which are produced by \code{\link{nonexceeds}}, to standard normal deviations. The normal distribution will plot as straight line when this argument is \code{TRUE}}
+  \item{asprob}{The \code{qnorm} function is used to convert nonexceedance probabilities, which are produced by \code{\link{nonexceeds}}, to standard normal deviates. The normal distribution will plot as straight line when this argument is \code{TRUE}}
   \item{no2para}{If \code{TRUE}, do not run the 2-parameter distributions: \code{exp}, \code{gam}, \code{gum}, and \code{nor}.}
   \item{no3para}{If \code{TRUE}, do not run the 3-parameter distributions: \code{gev}, \code{glo}, \code{gno}, \code{gpa}, \code{pe3}, and \code{wei}.}
   \item{no4para}{If \code{TRUE}, do not run the 4-parameter distributions: \code{kap} and \code{gld}.}
@@ -53,19 +53,19 @@ freq.curve.all(lmom,aslog10=FALSE,asprob=TRUE,
 }
 \author{ W.H. Asquith}
 \seealso{
-\code{\link{freq.curve.exp}}, 
-\code{\link{freq.curve.gam}}, 
-\code{\link{freq.curve.gev}}, 
-\code{\link{freq.curve.gld}}, \cr
-\code{\link{freq.curve.glo}}, 
-\code{\link{freq.curve.gno}}, 
-\code{\link{freq.curve.gpa}}, 
-\code{\link{freq.curve.gum}}, \cr
-\code{\link{freq.curve.kap}}, 
-\code{\link{freq.curve.nor}},
-\code{\link{freq.curve.pe3}},   
-\code{\link{freq.curve.wak}}, and \cr
-\code{\link{freq.curve.wei}}.
+\code{\link{quaexp}}, 
+\code{\link{quagam}}, 
+\code{\link{quagev}}, 
+\code{\link{quagld}}, \cr
+\code{\link{quaglo}}, 
+\code{\link{quagno}}, 
+\code{\link{quagpa}}, 
+\code{\link{quagum}}, \cr
+\code{\link{quakap}}, 
+\code{\link{quanor}},
+\code{\link{quape3}},   
+\code{\link{quawak}}, and \cr
+\code{\link{quawei}}.
 }
 \examples{
 L <- vec2lmom(c(35612,23593,0.48,0.21,0.11))
