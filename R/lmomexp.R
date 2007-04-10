@@ -13,14 +13,15 @@ function(para) {
              )
     if(! are.parexp.valid(para)) return()
     A <- para$para[2]
-    z$L1 <- para$para[1]+A
-    z$L2 <- 0.5*A
+    z$L1   <- para$para[1]+A
+    z$L2   <- 0.5*A
+    z$LCV  <- z$L2/z$L1
     z$TAU3 <- 2/(3*(2))
     z$TAU4 <- 2/(4*(3))
     z$TAU5 <- 2/(5*(4))
-    z$L3 <- z$TAU3*z$L2
-    z$L4 <- z$TAU4*z$L2
-    z$L5 <- z$TAU5*z$L2
+    z$L3   <- z$TAU3*z$L2
+    z$L4   <- z$TAU4*z$L2
+    z$L5   <- z$TAU5*z$L2
     return(z)
 }
 

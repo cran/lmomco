@@ -28,11 +28,11 @@ function(x,para,...) {
     else if(type == 'gum') {
       return(cdfgum(x,para))
     }
-    else if(type == 'nor') {
-      return(cdfnor(x,para))
-    }
     else if(type == 'kap') {
       return(cdfkap(x,para))
+    }
+    else if(type == 'nor') {
+      return(cdfnor(x,para))
     }
     else if(type == 'pe3') {
       return(cdfpe3(x,para))

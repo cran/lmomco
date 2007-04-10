@@ -1,7 +1,7 @@
 Package: lmomco
 Title: L-moments, Trimmed L-moments, L-comoments, and Many Distributions
-Version: 0.82
-Date: 2006-07-13
+Version: 0.83
+Date: 2007-04-10
 Author: William H. Asquith
 Description: The package implements the statistical theory of L-moments including 
  L-moment estimation, probability-weighted moment estimation, parameter estimation 
@@ -26,4 +26,4 @@ Description: The package implements the statistical theory of L-moments includin
  Type III(L), Wakeby(L), and Weibull(L).
 Maintainer: William H. Asquith <wasquith@austin.rr.com>
 License: GPL
-Packaged: Wed Jul 12 20:56:35 2006; wasquith
+Packaged: Mon Apr  9 07:20:10 2007; wasquith

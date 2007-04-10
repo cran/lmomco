@@ -9,14 +9,15 @@ extremely attractive. These properties include unbiasedness, efficiency,
 consistency, robustness, and others. The R package contained here fully 
 implements L-moments in the context of many probability distributions 
 including the Exponential, Gamma, Gumbel, Normal, Generalized Extreme Value, 
-Generalized Logistic, Generalized Normal (log-Normal), Generalized Pareto, 
-Pearson Type III, Kappa, Wakeby, and Weibull. This package provides core 
-functions and numerous ancillary functions to help get the user started and 
-to keep the user entertained by building complex analysis applications. Very 
-recent and extremely exciting developments have extended L-moments to multi-
-variate analysis--the sample L-comoments are implemented here on an experimental 
-basis. The package also implements the trimmed L-moments and support for the 
-Cauchy, Generalized Lambda, and Generalized Pareto distributions.
+Generalized Lambda, Generalized Logistic, Generalized Normal (log-Normal),
+Generalized Pareto, Pearson Type III, Kappa, Wakeby, and Weibull. This package
+provides core functions and numerous ancillary functions to help get the user
+started and to keep the user entertained by building complex analysis
+applications. Very recent and extremely exciting developments have extended
+L-moments to multi-variate analysis---the sample L-comoments are implemented
+here on an experimental basis. The package also implements the trimmed
+L-moments and support for the Cauchy, Generalized Lambda, and Generalized
+Pareto distributions.
 
 Things to do:
 (1) Continue to explore parameter estimation of Generalized Lambda distribution.
@@ -27,7 +28,7 @@ Things to do:
 (5) Continue discussions with Juha Karvanen on a cross-package L-moment 
       object. (Related to ToDo no. 4.)
             
-wha (April 30, 2006)
+wha (April 10, 2007)
 
 See inst/doc/WARRANTY for lack-of-warranty information.
 

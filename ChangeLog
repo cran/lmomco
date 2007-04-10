@@ -111,3 +111,10 @@ Version 0.82--July 13, 2006
    for a valid gamma was not being checked. This was because of an incomplete
    port of Hosking FORTRAN library.
 
+Version 0.83--April 10, 2007
+0. Further tweaks to documentation.
+1. Added callplot and showsample options to gen.freq.curves().
+2. Added plmomco() and qlmomco() as adjuncts to rlmomco() and to better 
+   parallel built-in distribution functions of R itself.
+3. Bug fix on examples in genci() that manifested as the April 2007
+   release of R approached.

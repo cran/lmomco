@@ -28,11 +28,11 @@ function(f,para,...) {
     else if(type == 'gum') {
       return(quagum(f,para))
     }
-    else if(type == 'nor') {
-      return(quanor(f,para))
-    }
     else if(type == 'kap') {
       return(quakap(f,para))
+    }
+    else if(type == 'nor') {
+      return(quanor(f,para))
     }
     else if(type == 'pe3') {
       return(quape3(f,para))
