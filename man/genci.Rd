@@ -27,6 +27,7 @@ verbose=FALSE, showpar=FALSE)
   \item{true}{The true quantile value from \eqn{Q(F,\theta)} for the corresponding \eqn{F} value.}
   \item{upper}{The upper value of the confidence interval having \eqn{F} equal to \code{1-(1-ci)/2}.}
   \item{lscale}{The second L-moment (L-scale, \eqn{\lambda_2}) of the distribution of quantiles for the corresponding \eqn{F}. This value is included in the primary returned \code{data.frame} because it measures the fundamental sampling variability.}
+  \item{lcv}{The ratio of lscale to true. A measure of relative variability}
   \item{parent}{The paraments of the parent distribution if \code{expand=TRUE}.}
   \item{edist}{The type of error distribution used to model the confidence interval if \code{expand=TRUE}.}
   \item{elmoms}{The L-moment of the distribution of quantiles for the corresponding \eqn{F} if \code{expand=TRUE}.}

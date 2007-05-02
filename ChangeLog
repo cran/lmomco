@@ -118,3 +118,19 @@ Version 0.83--April 10, 2007
    parallel built-in distribution functions of R itself.
 3. Bug fix on examples in genci() that manifested as the April 2007
    release of R approached.
+
+Version 0.84--May 2, 2007
+1. Bug fix on genci() related to overwriting the sample size by the length
+   of the nonexceedance probability vector. Fixed and tested. The function
+   was extended to handle the ifail value from qua2ci().
+2. Additional warning message added to qua2ci() when the L-moments of the
+   simulated sample are not valid---likely a cause of a small sample size and
+   a complex (high parameter number distribution), which produces one or more
+   giant magnitude numbers for a simulated quantile. Added the ifail and
+   ifailtext return elements from the qua2ci() function for better processing
+   by the genci() or other calling functions. Also, added the maxlogdiff
+   argument to control whether a simulated quantile is actually retained
+   before the completion sequence of the function is begun. This argument
+   is used to control whether hideously ``out-of-whack,'' which would 
+   likely occur for heavy-tailed infinite limit upper tails. 
+

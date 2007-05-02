@@ -12,7 +12,7 @@ Finally, it is often useful to have vectors of lower and upper limits for confid
 }
 \usage{
 qua2ci(f, para, n, ci=0.90, edist='nor', nsim=1000, 
-verbose=FALSE, showpar=FALSE)
+verbose=FALSE, showpar=FALSE, maxlogdiff=6)
 }
 \arguments{
   \item{f}{Nonexceedance probability (\eqn{0 \le F \le 1}) of the quantile for which the confidence interval is needed.}
@@ -23,6 +23,7 @@ verbose=FALSE, showpar=FALSE)
   \item{nsim}{The number of simulations for the sample size \code{n} to perform. Large numbers produce more refined confidence limit estimates at the cost of CPU time. The default is anticipated to be large enough for evaluative-useage without too much computational delay. Much larger simulation numbers are highly recommended.}
   \item{verbose}{The verbosity of the operation of the function.}
   \item{showpar}{The parameters of the \code{edist} for each simulation are printed.}
+  \item{maxlogdiff}{The maximum permitted difference in log10 space between a simulated quantile and the true value. It is possible that a well fit simulated sample to the parent distribution type provides crazy quantile estimates in the far reaches of either tail. The default value of 6 was chosen base on experience with the Kappa distribution fit to a typical heavy-right tail flood magnitude data set. If \code{verbose=TRUE} then a message will be printed when the \code{maxlogdiff} condition is tripped.}
 }
 \value{
   An R \code{list} is returned.
@@ -32,6 +33,8 @@ verbose=FALSE, showpar=FALSE)
   \item{upper}{The upper  value of the confidence interval having nonexceedance probability equal to 1-(1-\code{ci})/2.}
   \item{elmoms}{The L-moments of the distribution of simulated of quantiles.}
   \item{epara}{The parameters of the error distribution fit using the \code{elmoms}.}
+  \item{ifail}{A diagnostic value. A value of zero means that successful exit was made.}
+  \item{ifailtext}{A descriptive message related to the ifail value.}
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{lmoms}}, \code{lmom2par}, \code{\link{par2qua}}, \code{\link{genci}}

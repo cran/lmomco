@@ -1,5 +1,9 @@
 "qua2ci" <-
-function(f,para,n,ci=0.90,edist='nor',nsim=1000,verbose=FALSE,showpar=FALSE) {
+function(f,para,n,ci=0.90,edist='nor',nsim=1000,
+         verbose=FALSE,showpar=FALSE,maxlogdiff=6) {
+  maximum.permitted.log10cycle.difference <- maxlogdiff
+  ifail <- 0
+  ifailtext <- "successful qua2ci() run"
   if(! check.fs(f)) return()
   if(! are.par.valid(para)) return()
   if(ci < 0.5 || ci >= 1) {
@@ -32,8 +36,15 @@ function(f,para,n,ci=0.90,edist='nor',nsim=1000,verbose=FALSE,showpar=FALSE) {
       # parent---just do it again---ad hoc.
       next
     }
+    tmpQ      <- par2qua(f,sPAR) # save for the next test before loading into sQ
+    if(log10(abs(tmpQ - Xtrue)) > maximum.permitted.log10cycle.difference ) {
+      if(verbose == TRUE) {
+        cat("qua2ci: Large difference between simulated quantile and the true seen. Skipping this simulation run.\n")
+      }
+      next 
+    }
     count     <- count + 1
-    sQ[count] <- par2qua(f,sPAR)
+    sQ[count] <- tmpQ
     if(verbose == TRUE) {
       cat(c(nsim-count,"-"),sep="")
     }
@@ -42,16 +53,28 @@ function(f,para,n,ci=0.90,edist='nor',nsim=1000,verbose=FALSE,showpar=FALSE) {
     cat("\n")
   }
   ciLMR <- lmoms(sQ)
-  ciPAR <- lmom2par(ciLMR,type=edist)
-  upper <- par2qua(1-(1-ci)/2,ciPAR)
-  lower <- par2qua((1-ci)/2,ciPAR)
-  z <- c(lower,Xtrue,upper)
-  if(verbose == TRUE) {
-    pci <- 100*ci
-    cat(c(pci,"-percent Confidence Interval\n"),sep="")
-    cat("LowerCI      Prediction      UpperCI\n")
-    cat(c(lower,Xtrue,upper,"\n"),sep="    ")
+  if(! are.lmom.valid(ciLMR)) {
+    ifail <- 1
+    ifailtext <- "L-moments are invalid, poorly distributed simulated values, sample size too small for the complexity of the parent distribution"
+    ciPAR <- 0
+    upper <- 0
+    lower <- 0
+    if(verbose == TRUE) {
+       cat(c("qua2ci:",ifailtext,"\n"),sep="")
+    }
   }
-  return(list(lower=lower,true=Xtrue,upper=upper,
-              elmoms=ciLMR,epara=ciPAR))
+  else {
+    ciPAR <- lmom2par(ciLMR,type=edist)
+    upper <- par2qua(1-(1-ci)/2,ciPAR)
+    lower <- par2qua((1-ci)/2,ciPAR)
+    if(verbose == TRUE) {
+      pci <- 100*ci
+      cat(c(pci,"-percent Confidence Interval\n"),sep="")
+      cat("LowerCI      Prediction      UpperCI\n")
+      cat(c(lower,Xtrue,upper,"\n"),sep="    ")
+    }
+  }
+  return(list(lower=lower, true=Xtrue, upper=upper,
+              elmoms=ciLMR, epara=ciPAR,
+              ifail=ifail, ifailtext=ifailtext))
 }
