@@ -13,7 +13,7 @@ function(lmom) {
   if(length(lmom$L1) == 1) {
     # object is like the lmom.ub object--thus, trimming is 0
     L <- c(lmom$L1,lmom$L2,lmom$L3,lmom$L4,lmom$L5)
-    R <- c(0,lmom$LCV,lmom$TAU3,lmom$TAU4,lmom$TAU5)
+    R <- c(NA,lmom$LCV,lmom$TAU3,lmom$TAU4,lmom$TAU5)
     z <- list(lambdas = L, ratios = R,
               trim=0, leftrim=NULL, rightrim=NULL, source="lmorph")
   }

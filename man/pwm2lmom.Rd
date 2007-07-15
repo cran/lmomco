@@ -15,6 +15,10 @@ those based on L-moments.
 \deqn{\tau_3 = \lambda_3/\lambda_2 \mbox{,}}
 \deqn{\tau_4 = \lambda_4/\lambda_2 \mbox{, and}}
 \deqn{\tau_5 = \lambda_5/\lambda_2 \mbox{.}}
+
+The general expression and the expression used for computation if the argument is a vector of PWMs is
+
+\deqn{\lambda_{r+1} = \sum^r_{k=0} (-1)^{r-k}{r \choose k}{r+k \choose k} \beta_{k+1}}
 }
 \usage{
 pwm2lmom(pwm)
@@ -23,10 +27,12 @@ pwm2lmom(pwm)
   \item{pwm}{ A PWM object created by \code{\link{pwm.ub}} or similar. }
 }
 \details{
-The Probability Weighted Moments (PWMs) are linear combinations of the L-moments and therefore contain the same statistical information of the data as the L-moments. However, the PWMs are harder to interpret as measures of probability distributions. The linearity between L-moments and Probability-Weighted Moments means that procedures base on one are equivalent to the other.
+The Probability Weighted Moments (PWMs) are linear combinations of the L-moments and therefore contain the same statistical information of the data as the L-moments. However, the PWMs are harder to interpret as measures of probability distributions. The linearity between L-moments and PWMs means that procedures base on one are equivalent to the other.
+
+The function can take a variety of PWM argument types in \code{pwm}. The function checks whether the argument is a list and if so attempts to extract the \eqn{\beta_r}'s from \code{list} names such as \code{BETA0}, \code{BETA1}, and so on. If the extraction is successful, then a list of L-moments similar to \code{lmom.ub} is returned. If the extraction was not successful, then a \code{list} name \code{betas} is checked; if \code{betas} is found then this vector of PWMs is used to compute the L-moments. If \code{pwm} is a \code{list} but can not be routed in the function, a \code{warnings} is made and \code{NULL} returned. If the \code{pwm} argument is a \code{vector}, then this vector of PWMs is used to compute the L-moments are returned.
 }
 \value{
-  An R \code{list} is returned.
+  One of two R \code{list} are returned.
 
   \item{L1}{Arithmetic mean}
   \item{L2}{L-scale---analogous to standard deviation}
@@ -36,7 +42,12 @@ The Probability Weighted Moments (PWMs) are linear combinations of the L-moments
   \item{TAU5}{The fifth L-moment ratio}
   \item{L3}{The third L-moment}
   \item{L4}{The fourth L-moment}
-  \item{L5}{The fifth L-moment}
+  \item{L5}{The fifth L-moment \newline \newline or the following list \newline \mbox{\ }}
+
+  \item{lambdas}{The L-moments}
+  \item{ratios}{The L-moment ratios}
+  \item{source}{Source of the L-moments (\code{pwm2lmom})}
+
 }
 \references{
 Greenwood, J.A., Landwehr, J.M., Matalas, N.C., and Wallis, J.R., 1979,
@@ -48,19 +59,17 @@ Hosking, J.R.M., 1990, L-moments--Analysis and estimation of
 distributions using linear combinations of order statistics: Journal
 of the Royal Statistical Society, Series B, vol. 52, p. 105--124.
 
-Hosking, J.R.M., 1996, FORTRAN routines for use with the method of L-moments:
-Version 3, IBM Research Report RC20525, T.J. Watson Research Center,
-Yorktown Heights, New York.
-
 Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
 approach based on L-moments: Cambridge University Press.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{lmom.ub}}, \code{\link{pwm.ub}}, \code{\link{lmom2pwm}}}
+\seealso{\code{\link{lmom.ub}}, \code{\link{pwm.ub}}, \code{\link{pwm}}, \code{\link{lmom2pwm}}}
 \examples{
-lmom <- pwm2lmom(pwm.ub(c(123,34,4,654,37,78)))
+D <- c(123,34,4,654,37,78)
+pwm2lmom(pwm.ub(D))
+pwm2lmom(pwm(D))
 
-pwm2lmom(pwm.ub(rnorm(100)))
+pwm2lmom(pwm(rnorm(100)))
 }
 \keyword{univar}
 \keyword{distribution}

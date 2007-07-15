@@ -50,7 +50,8 @@ wak.gpa_instead <- function(ALAM1,ALAM2,T3) {
       para[4] <- C
       para[5] <- D
     }
-    return(list(type = 'wak', para = para, ifail = 2,
+    return(list(type = 'wak', para = para, source="parwak",
+                ifail = 2,
                 ifailtext = "Solution possible by fitting Generalized Pareto instead."))
 }
 
@@ -135,7 +136,8 @@ wak.gpa_instead <- function(ALAM1,ALAM2,T3) {
           para[3] <- B
           para[4] <- C
           para[5] <- D
-          return(list(type = 'wak', para = para, ifail = IFAIL,
+          return(list(type = 'wak', para = para, source="parwak",
+                      ifail = IFAIL,
                       ifailtext = "Successful parameter estimation."))
         }
       }
@@ -176,7 +178,8 @@ wak.gpa_instead <- function(ALAM1,ALAM2,T3) {
           para[3] <- B
           para[4] <- C
           para[5] <- D
-          return(list(type = 'wak', para = para, ifail = IFAIL,
+          return(list(type = 'wak', para = para, source="parwak", 
+                      ifail = IFAIL,
                       ifailtext = "Solution possible only with XI=0."))
         }
       }

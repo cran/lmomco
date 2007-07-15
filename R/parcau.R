@@ -11,5 +11,5 @@ function(lmom) {
    }
    para[1] <- lmom$lambdas[1] 
    para[2] <- lmom$lambdas[2]/0.698 
-   return(list(type = 'cau', para=para))
+   return(list(type = 'cau', para=para, source="parcau"))
 }

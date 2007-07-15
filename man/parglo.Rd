@@ -20,6 +20,7 @@ or \code{\link{pwm2lmom}}.}
 
   \item{type}{The type of distribution: \code{glo}.}
   \item{para}{The parameters of the distribution.}
+  \item{source}{The source of the parameters: \dQuote{parglo}.}
 }
 \references{
 Hosking, J.R.M., 1990, L-moments---Analysis and estimation of

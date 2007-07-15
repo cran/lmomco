@@ -4,13 +4,14 @@
 \description{
 This function estimates the parameters of the Generalized Pareto distribution given
 the L-moments of the data in an ordinary L-moment object (\code{\link{lmom.ub}} or a trimmed L-moment object (\code{\link{TLmoms}} for \code{t=1}. The relation between distribution parameters and L-moments
-is seen under \code{lmomgpa}.
+is seen under \code{lmomgpa} or \code{lmomgpa2}.
 }
 \usage{
-pargpa(lmom)
+pargpa(lmom,zeta=1)
 }
 \arguments{
   \item{lmom}{A L-moment object created by \code{\link{lmom.ub}}, \code{\link{pwm2lmom}}, or \code{\link{TLmoms}} with \code{trim=0}.}
+  \item{zeta}{The right censoring fraction. If less than unity then a dispatch to the \code{\link{pargpaRC}} is made and the \code{lmom} argument must contain the B-type L-moments. If the data is not right, then this value must be left alone to the default of unity.}
 }
 
 \value{
@@ -18,6 +19,7 @@ pargpa(lmom)
 
   \item{type}{The type of distribution: \code{gpa}.}
   \item{para}{The parameters of the distribution.}
+  \item{source}{The source of the parameters: \dQuote{pargpa}.}
 }
 \references{
 Hosking, J.R.M., 1990, L-moments---Analysis and estimation of

@@ -19,10 +19,13 @@ function(lmom,type,...) {
       return(pargno(lmom))
     }
     else if(type == 'gpa') {
-      return(pargpa(lmom))
+      return(pargpa(lmom,...))
     }
     else if(type == 'gum') {
       return(pargum(lmom))
+    }
+    else if(type == 'revgum') {
+      return(parrevgum(lmom,...))
     }
     else if(type == 'kap') {
       return(parkap(lmom))

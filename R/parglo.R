@@ -26,6 +26,6 @@ function(lmom) {
     para[1] <- lmom$L1 - A*(1-KK)/K
     para[2] <- A 
     para[3] <- K 
-    return(list(type = 'glo', para = para)) 
+    return(list(type = 'glo', para = para, source="parglo")) 
 }
 

@@ -11,6 +11,6 @@ function(lmom) {
    } 
    para[2] <- lmom$L2/log(2) 
    para[1] <- lmom$L1-euler*para[2] 
-   return(list(type = 'gum', para=para))
+   return(list(type = 'gum', para=para, source="pargum"))
 }
 

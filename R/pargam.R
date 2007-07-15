@@ -26,7 +26,7 @@ function(lmom) {
     }  
     para[1] <- ALPHA
     para[2] <- lmom$L1/ALPHA
-    z <- list(type = 'gam', para = para)
+    z <- list(type = 'gam', para = para, source="pargam")
     if(are.pargam.valid(z)) {
       return(z)
     }

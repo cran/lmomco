@@ -83,6 +83,6 @@ function(lmom) {
     GAM <- exp(lgamma(1+G))
     para[2] <- lmom$L2*G/(GAM*(1-2**(-G)))
     para[1] <- lmom$L1 - para[2]*(1-GAM)/G
-    return(list(type = 'gev', para = para))
+    return(list(type = 'gev', para = para, source="pargev"))
 }
 

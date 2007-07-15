@@ -16,7 +16,7 @@ parcau(lmom)
 
   \item{type}{The type of distribution: \code{cau}.}
   \item{para}{The parameters of the distribution.}
-  
+  \item{source}{The source of the parameters: \dQuote{parcau}.}
 }
 \details{
 Unlike many of the other distributions in this package,

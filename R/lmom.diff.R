@@ -1,5 +1,14 @@
 "lmom.diff" <-
 function(lmomparm, lmomdata, verbose=TRUE) {
+
+   if(length(lmomparm$L1) == 0) { # convert to named L-moments
+     lmomparm <- lmorph(lmomparm)     # nondestructive conversion!
+   }
+   if(length(lmomdata$L1) == 0) { # convert to named L-moments
+     lmomdata <- lmorph(lmomdata)     # nondestructive conversion!
+   }
+
+
    L1diff <- lmomparm$L1 - lmomdata$L1
    L2diff <- lmomparm$L2 - lmomdata$L2
    T3diff <- lmomparm$TAU3 - lmomdata$TAU3

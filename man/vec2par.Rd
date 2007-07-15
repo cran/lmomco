@@ -2,10 +2,9 @@
 \alias{vec2par}
 \title{Convert a Vector of Parameters to a Parameter Object of a Distribution}
 \description{
-This function converts the L-moments of the data to the parameters of a
-distribution. The type of distribution is specified in the 
+This function converts a vector of parameters to a parameter object of a distribution. The type of distribution is specified in the 
 argument list: \code{cau}, \code{exp}, \code{gam}, \code{gev}, \code{glo}, \code{gno}, \code{gpa},
-\code{gum}, \code{kap}, \code{nor}, \code{pe3}, and \code{wak}.
+\code{gum}, \code{kap}, \code{nor}, \code{pe3}, \code{revgum}, \code{wak}, and \code{wei}.
 }
 \usage{
 vec2par(vec, type, nowarn=FALSE, ...)
@@ -17,11 +16,14 @@ vec2par(vec, type, nowarn=FALSE, ...)
   \item{...}{Additional arguments for the \code{\link{are.par.valid}} call that is made internally.}
 }
 \value{
-  An R \code{list} is returned.
+  An R \code{list} is returned. This list should contain at least the following items, but some distributions such as the \code{revgum} have extra.
 
   \item{type}{The type of distribution in three character format.}
   \item{para}{The parameters of the distribution.}
-  \item{source}{Attribution specifying source of the parametes---\dQuote{vec2par}.}
+  \item{source}{Attribute specifying source of the parameters---\dQuote{vec2par}.}
+}
+\details{
+If the distribution is a Reverse Gumbel (\code{type=revgum})) or Generalized Pareto (\code{type=gpa}) , which are two-parameter or three-parameter distributions, the third or fourth value in the vector is the \eqn{\zeta} of the distribution. \eqn{\zeta} represents the fraction of the sample that is noncensored, or number of observed (noncensored) values divided by the sample size. The \eqn{\zeta} represents censoring on the right, that is there are unknown observations above a threshold or the largest observed sample. Consultation of \code{\link{parrevgum}} or \code{\link{pargpaRC}} should elucidate the censoring discussion.
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{lmom2par}}}

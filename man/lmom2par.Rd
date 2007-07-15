@@ -5,7 +5,7 @@
 This function converts the L-moments of the data to the parameters of a
 distribution. The type of distribution is specified in the 
 argument list: \code{exp}, \code{gam}, \code{gev}, \code{gld}, \code{glo}, \code{gno},
-\code{gpa}, \code{gum}, \code{kap}, \code{nor}, \code{pe3}, \code{wak}, or \code{wei}. There
+\code{gpa}, \code{gum}, \code{kap}, \code{nor}, \code{pe3}, \code{revgum}, \code{wak}, or \code{wei}. There
 is no Cauchy distribution support by the \code{lmom2par} function because Cauchy uses TL-moments and not the ordinary L-moments. For Cauchy functions such as \code{\link{parcau}} and \code{\link{lmomcau}} should be used in accordance with their documentation. 
 }
 \usage{
@@ -17,10 +17,11 @@ lmom2par(lmom, type, ...)
   \item{\ldots}{Additional arguments for the \code{parCCC} functions.}
 }
 \value{
-  An R \code{list} is returned.
+  An R \code{list} is returned.  This list should contain at least the following items, but some distributions such as the \code{revgum} have extra.
 
   \item{type}{The type of distribution in three character format.}
   \item{para}{The parameters of the distribution.}
+  \item{source}{Attribute specifying source of the parameters.}
 }
 \references{
 Hosking, J.R.M., 1990, L-moments--Analysis and estimation of

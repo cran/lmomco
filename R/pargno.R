@@ -43,6 +43,6 @@ function(lmom) {
     para[1] <- XI
     para[2] <- A 
     para[3] <- K 
-    return(list(type = 'gno', para = para)) 
+    return(list(type = 'gno', para = para, source="pargno")) 
 }
 

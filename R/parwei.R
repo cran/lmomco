@@ -22,6 +22,6 @@ function(lmom) {
     para[3] <- 1/par.gev$para[3]
     para[2] <- par.gev$para[2]*para[3]
     para[1] <- par.gev$para[1]+para[2]
-    return(list(type = 'wei', para=para)) 
+    return(list(type = 'wei', para=para, source="parwei")) 
 }
 

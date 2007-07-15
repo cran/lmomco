@@ -1,5 +1,10 @@
 "pargpa" <-
-function(lmom) {
+function(lmom,zeta=1) {
+
+    # B-type L-moments are presumably being passed, dispatch to the
+    # alternative parameter estimation function
+    if(zeta < 1) return(pargpaRC(lmom,zeta=zeta))
+
     para <- vector(mode="numeric", length=3)
 
     if(length(lmom$source) == 1 && lmom$source == "TLmoms") {
@@ -25,6 +30,6 @@ function(lmom) {
     para[3] <- K
     para[2] <- (1+K)*(2+K)*L2
     para[1] <- L1 - para[2]/(1+K)
-    return(list(type = 'gpa', para=para)) 
+    return(list(type = 'gpa', para=para, source="pargpa")) 
 }
 

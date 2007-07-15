@@ -56,7 +56,8 @@ function(lmom) {
 
     if(T4 >= (5*T3*T3+1)/6 ) {
       IFAIL <- 2
-      return(list(type = 'kap', para = para, ifail = IFAIL,
+      return(list(type = 'kap', para = para, source="parkap",
+                  ifail = IFAIL,
                   ifailtext = "TAU3 and TAU4 are above Generalized Logistic line."))
     }
     #
@@ -92,7 +93,8 @@ function(lmom) {
         #
         if(G > OFLGAM) {
           IFAIL <- 5
-          return(list(type = 'kap', para = para, ifail = IFAIL,,
+          return(list(type = 'kap', para = para, source="parkap",
+                  ifail = IFAIL,,
                   ifailtext = "H/K iteration encountered numerical difficulties."))
         }
         if(H > 0) {
@@ -112,7 +114,8 @@ function(lmom) {
         ALAM4 <-  U1-12*U2+30*U3-20*U4
         if(ALAM2 == 0) {
           IFAIL <- 5
-          return(list(type = 'kap', para = para, ifail = IFAIL,
+          return(list(type = 'kap', para = para, source="parkap",
+                  ifail = IFAIL,
                   ifailtext = "H/K iteration encountered numerical difficulties."))
         }
         TAU3 <- ALAM3/ALAM2
@@ -140,7 +143,8 @@ function(lmom) {
         # TOO MANY STEPLENGTH REDUCTIONS
         #
         IFAIL <- 4
-        return(list(type = 'kap', para = para, ifail = IFAIL,
+        return(list(type = 'kap', para = para, source="parkap",
+                  ifail = IFAIL,
                   ifailtext = "Unable to make progress from current point in H/K iteration."))
       }
       #
@@ -235,7 +239,8 @@ function(lmom) {
     #
     if(MAXITLOOPEND == TRUE) {
       IFAIL <- 3
-      return(list(type = 'kap', para = para, ifail = IFAIL,
+      return(list(type = 'kap', para = para, source="parkap",
+                  ifail = IFAIL,
                   ifailtext = "Iteration on H and K failed to converge."))
     }
     #
@@ -247,20 +252,23 @@ function(lmom) {
     TEMP <- lgamma(1+G)
     if(TEMP > OFLEXP) {
       IFAIL <- 6
-      return(list(type = 'kap', para = para, ifail = IFAIL,
+      return(list(type = 'kap', para = para, source="parkap",
+                  ifail = IFAIL,
                   ifailtext = "H and K converged, but overflow on XI and ALPHA."))
     }
     GAM  <- exp(TEMP)
     TEMP <- (1+G)*log(abs(H))
     if(TEMP > OFLEXP) {
       IFAIL <- 6
-      return(list(type = 'kap', para = para, ifail = IFAIL,
+      return(list(type = 'kap', para = para, source="parkap",
+                  ifail = IFAIL,
                   ifailtext = "H and K converged, but overflow on XI and ALPHA."))
     }
     HH <- exp(TEMP)
     para[2] <- lmom$L2*G*HH/(ALAM2*GAM)
     para[1] <- lmom$L1-para[2]/G*(1-GAM*U1/HH)
-    return(list(type = 'kap', para = para, ifail = IFAIL,
+    return(list(type = 'kap', para = para, source="parkap",
+                ifail = IFAIL,
                 ifailtext = "Successful parameter estimation."))
 }
 

@@ -22,7 +22,7 @@ parTLgpa(lmom)
 
   \item{type}{The type of distribution: \code{gpa}.}
   \item{para}{The parameters of the distribution.}
-  \item{source}{The source of the parameters--\dQuote{parTLgpa}.}
+  \item{source}{The source of the parameters: \dQuote{parTLgpa}.}
 }
 \references{
 Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational Statistics

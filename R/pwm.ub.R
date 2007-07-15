@@ -1,3 +1,6 @@
 "pwm.ub" <-
-function(x) { return(pwm.pp(x,A=0,B=0)) }
-
+function(x,nmom=5,sort=TRUE) {
+  z <- pwm(x,nmom=nmom,sort=sort)
+  z$source <- "pwm.ub"
+  return(z)
+}

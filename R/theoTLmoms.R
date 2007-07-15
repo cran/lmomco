@@ -43,8 +43,8 @@ function(para,nmom=5,trim=NULL,leftrim=NULL,rightrim=NULL,verbose=FALSE) {
     return()
   }
 
-  L <- seq(1,nmom)
-  R <- seq(1,nmom)
+  L <- vector(mode="numeric",length=nmom)
+  R <- vector(mode="numeric",length=nmom)
   for(r in seq(1,nmom)) { # for each  order of moment
     sum <- 0
     for(k in seq(0,r-1)) {
@@ -76,7 +76,7 @@ function(para,nmom=5,trim=NULL,leftrim=NULL,rightrim=NULL,verbose=FALSE) {
       R[r] <- L[r]/L[2]
     }
   }
-  R[1] <- 0
+  R[1] <- NA
 
   z <- list(lambdas = L, ratios = R, trim=trim,
             leftrim=leftrim, rightrim=rightrim, source="theoTLmoms")

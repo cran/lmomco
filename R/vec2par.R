@@ -22,10 +22,15 @@ function(vec,type,nowarn=FALSE,...) {
       z <- list(type = 'gno', para = vec, source = "vec2par")
     }
     else if(type == 'gpa') {
-      z <- list(type = 'gpa', para = vec, source = "vec2par")
+      z <- list(type = 'gpa',  para = c(vec[1],vec[2],vec[3]),
+                zeta=vec[4], source = "vec2par")
     }
     else if(type == 'gum') {
       z <- list(type = 'gum', para = vec, source = "vec2par")
+    }
+    else if(type == 'revgum') {
+      z <- list(type = 'revgum', para = c(vec[1],vec[2]),
+                zeta=vec[3], source = "vec2par")
     }
     else if(type == 'kap') {
       z <- list(type = 'kap', para = vec, source = "vec2par")

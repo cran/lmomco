@@ -39,7 +39,7 @@ function(lmom) {
       para[1] <- L1
       para[2] <- L2*ROOTPI
       para[3] <- 0
-      return(list(type = 'pe3', para = para))
+      return(list(type = 'pe3', para = para, source="parpe3"))
     }
     if(T3 >= 1/3) {
       T <- 1-T3
@@ -55,6 +55,6 @@ function(lmom) {
     para[2] <- BETA*RTALPH
     para[3] <- 2/RTALPH
     if(T3 < 0) para[3] <- -para[3]
-    return(list(type = 'pe3', para = para))
+    return(list(type = 'pe3', para = para, source="parpe3"))
 }
 

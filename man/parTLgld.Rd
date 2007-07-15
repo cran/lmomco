@@ -35,7 +35,7 @@ For each optimization a check on the validity of the parameters so produced is m
   \item{para}{The parameters of the distribution.}
   \item{error}{Smallest sum of square error found.}
   \item{tau5diff}{Difference between true \eqn{\hat{\tau}^{(1)}_5} and the \eqn{\tilde{\tau}^{(1)}_5} of the fitted distribution.}
-  \item{source}{The source of the parameters--\dQuote{pargld}.}
+  \item{source}{The source of the parameters: \dQuote{parTLgld}.}
 
   An R \code{data.frame} is returned if \code{result='dataframe'}, which is sorted by ascending error.
   

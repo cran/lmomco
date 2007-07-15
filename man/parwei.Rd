@@ -27,6 +27,7 @@ or \code{\link{pwm2lmom}}.}
 
   \item{type}{The type of distribution: \code{wei}.}
   \item{para}{The parameters of the distribution.}
+  \item{source}{The source of the parameters: \dQuote{parwei}.}
 }
 \references{
 Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An

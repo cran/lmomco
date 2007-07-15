@@ -1,3 +1,9 @@
+Apwm2BpwmRC             Conversion between A- and B-Type
+                        Probability-Weighted Moments for Right-Tail
+                        Censoring of An Appropriate Distribution
+Bpwm2ApwmRC             Conversion between B- and A-Type
+                        Probability-Weighted Moments for Right-Tail
+                        Censoring of An Appropriate Distribution
 Lcomoment.Lk12          Compute a Single Sample L-comoment
 Lcomoment.Wk            Weighting Coefficient for Sample L-comoment
 Lcomoment.coefficients
@@ -35,6 +41,8 @@ are.parnor.valid        Are the Distribution Parameters Consistent with
                         the Normal Distribution
 are.parpe3.valid        Are the Distribution Parameters Consistent with
                         the Pearson Type III Distribution
+are.parrevgum.valid     Are the Distribution Parameters Consistent with
+                        the Reverse Gumbel Distribution
 are.parwak.valid        Are the Distribution Parameters Consistent with
                         the Wakeby Distribution
 are.parwei.valid        Are the Distribution Parameters Consistent with
@@ -63,6 +71,8 @@ cdfnor                  Cumulative Distribution Function of the Normal
                         Distribution
 cdfpe3                  Cumulative Distribution Function of the Pearson
                         Type III Distribution
+cdfrevgum               Cumulative Distribution Function of the Reverse
+                        Gumbel Distribution
 cdfwak                  Cumulative Distribution Function of the Wakeby
                         Distribution
 cdfwei                  Cumulative Distribution Function of the Weibull
@@ -98,6 +108,8 @@ is.nor                  Is a Distribution Parameter Object Typed as
                         Normal
 is.pe3                  Is a Distribution Parameter Object Typed as
                         Pearson Type III
+is.revgum               Is a Distribution Parameter Object Typed as
+                        Reverse Gumbel
 is.wak                  Is a Distribution Parameter Object Typed as
                         Wakeby
 is.wei                  Is a Distribution Parameter Object Typed as
@@ -126,6 +138,8 @@ lmom.test.nor           Test L-moment and Parameter Algorithms of the
                         Normal Distribution
 lmom.test.pe3           Test L-moment and Parameter Algorithms of the
                         Pearson Type III Distribution
+lmom.test.revgum        Test L-moment and Parameter Algorithms of the
+                        Reverse Gumbel Distribution
 lmom.test.wak           Test L-moment and Parameter Algorithms of the
                         Wakeby Distribution
 lmom.test.wei           Test L-moment and Parameter Algorithms of the
@@ -152,10 +166,13 @@ lmomgno                 L-moments of the Generalized Normal
                         Distribution
 lmomgpa                 L-moments of the Generalized Pareto
                         Distribution
+lmomgpaRC               B-type L-moments of the Generalized Pareto
+                        Distribution with Right-Tail Censoring
 lmomgum                 L-moments of the Gumbel Distribution
 lmomkap                 L-moments of the Kappa Distribution
 lmomnor                 L-moments of the Normal Distribution
 lmompe3                 L-moments of the Pearson Type III Distribution
+lmomrevgum              L-moments of the Reverse Gumbel Distribution
 lmoms                   The Sample L-moments and L-moment Ratios
 lmomwak                 L-moments of the Wakeby Distribution
 lmomwei                 L-moments of the Weibull Distribution
@@ -192,6 +209,8 @@ pargno                  Estimate the Parameters of the Generalized
                         Normal Distribution
 pargpa                  Estimate the Parameters of the Generalized
                         Pareto Distribution
+pargpaRC                Estimate the Parameters of the Generalized
+                        Pareto Distribution with Right-Tail Censoring
 pargum                  Estimate the Parameters of the Gumbel
                         Distribution
 parkap                  Estimate the Parameters of the Kappa
@@ -200,18 +219,26 @@ parnor                  Estimate the Parameters of the Normal
                         Distribution
 parpe3                  Estimate the Parameters of the Pearson Type III
                         Distribution
+parrevgum               Estimate the Parameters of the Reverse Gumbel
+                        Distribution
 parwak                  Estimate the Parameters of the Wakeby
                         Distribution
 parwei                  Estimate the Parameters of the Weibull
                         Distribution
+plmomco                 Cumulative Distribution Function of the
+                        Distributions
 plotlmrdia              Plot L-moment Ratio Diagram
 pp                      Plotting-Position Formula
+pwm                     Unbiased Sample Probability-Weighted Moments
 pwm.gev                 Generalized Extreme Value Plotting-Position
                         Probability-Weighted Moments
 pwm.pp                  Plotting-Position Sample Probability-Weighted
                         Moments
 pwm.ub                  Unbiased Sample Probability-Weighted Moments
 pwm2lmom                Probability-Weighted Moments to L-moments
+pwmRC                   Sample Probability-Weighted Moments for
+                        Right-Tail Censoring
+qlmomco                 Quantile Function of the Distributions
 qua2ci                  Estimate Confidence Interval for a Single
                         Quantile of a Parent Distribution
 quacau                  Quantile Function of the Cauchy Distribution
@@ -232,6 +259,8 @@ quagum                  Quantile Function of the Gumbel Distribution
 quakap                  Quantile Function of the Kappa Distribution
 quanor                  Quantile Function of the Normal Distribution
 quape3                  Quantile Function of the Pearson Type III
+                        Distribution
+quarevgum               Quantile Function of the Reverse Gumbel
                         Distribution
 quawak                  Quantile Function of the Wakeby Distribution
 quawei                  Quantile Function of the Weibull Distribution
