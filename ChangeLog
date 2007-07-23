@@ -192,3 +192,15 @@ Version 0.85--July 14, 2007
 11. Added the Apwm2Bpwm() and Bpwm2Apwm() functions.
 12. Modified lmom.diff() to accommodate both the named L-moment object style
      and the vector style through a dispatch to the lmorph() function.
+
+Version 0.86--July 23, 2007
+1. Added the pmoms() function, justified in part by revisions Pearson Type III.
+2. Cleaned up the documentation for the Pearson Type III to better reflect
+     the meaning of the parameters. Reimplemented cdfpe3() in more native
+     R from Hosking's FORTRAN. This function is now broken from the FORTRAN
+     code base. The original cdfpe3() of this package is now renamed to
+     cdfpe3.original() and is not loaded with the package, but resides
+     elsewhere in the directory structure. This reworking was spawned by
+     an inquiry from R.R.P. van Nooyen in July 2007.
+3. BUG FIX on parpe3(). Condition of negative L-skew was not implemented
+     correctly---fixed and rigorously tested using the pmoms() function.

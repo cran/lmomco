@@ -1,0 +1,76 @@
+\name{pmoms}
+\alias{pmoms}
+\title{ The Sample Product Moments: Mean, Standard Deviation, Skew, and Excess Kurtosis}
+\description{
+Compute the four sample product moments for a vector. 
+}
+\usage{
+pmoms(x)
+}
+\arguments{
+  \item{x}{A vector of data values.}
+}
+\value{
+  An R \code{list} is returned.
+
+  \item{moments}{Vector of the product moments. First element is the mean (\code{mean()}), second is standard deviation, and the higher values typically are not used, but the ratios[3] and ratios[4] are.}
+  \item{ratios}{Vector of the product moment ratios. Second element is the coefficient of variation, ratios[3] is skew, and ratios[4] is excess kurtosis.}
+  \item{unbiased.sd}{Unbiased standard deviation [well at least unbiased variance (\code{unbiased.sd^2})] computed by \R \code{sd()}. }
+  \item{unbiased.skew}{Unbiased skew, same as ratios[3].}
+  \item{unbiased.kurtosis}{Unbiased excess kurtosis, same as ratios[4].}
+  \item{classical.sd}{Classical (theoretical) definition of standard deviation.}
+  \item{classical.skew}{Classical (theoretical) definition of skew.}
+  \item{classical.kurtosis}{Classical (theoretical) definition of excess kurtosis}
+  \item{message}{The product moments are confusing in terms of definition because they are not naturally unbiased. Your author thinks that it is informative to show the biased versions on the output from the \code{pmoms} function. Therefore, this \code{message} includes several clarifications of the output.}
+  \item{source}{An attribute identifying the computational source of the product moments: \dQuote{pmoms}.}
+}
+\note{
+This function is primarily available for gamesmanship playing with the Pearson Type III distribution as its parameterization in the \pkg{lmomco} package returns the product moments as the parameters. See the example below. Another reason for having this function is that it demonstrates application of unbiased product moments and permits comparisons to the L-moments.
+}
+\references{
+Dingman, S.L., 2002, Physical hydrology, 2nd ed: Prentice Hall, Upper Saddle River, NJ, appendix C.
+
+Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
+approach based on L-moments: Cambridge University Press.
+}
+\author{ W.H. Asquith}
+
+\seealso{\code{\link{lmoms}}}
+\examples{
+# A simple example
+PM <- pmoms(rnorm(1000)) # n standard normal values as a fake data set.
+cat(c(PM$moments[1],PM$moments[2],PM$ratios[3],PM$ratios[4],"\n"))
+# As sample size gets very large the four values returned should be
+# 0,1,0,0 by definition of the standard normal distribution.
+
+# A more complex example
+para <- vec2par(c(100,500,3),type='pe3') # mean=100, sd=500, skew=3
+# The Pearson type III distribution is implemented here such that
+# the "parameters" are equal to the mean, standard deviation, and skew.  
+simDATA <- rlmomco(100,para) # simulate 100 observations
+PM <- pmoms(simDATA) # compute the product moments
+
+p.tmp <- c(PM$moments[1],PM$moments[2],PM$ratios[3])
+cat(c("Sample P-moments:",p.tmp,"\n"))
+# This distribution has considerable variation and large skew. Stability
+# of the sample product moments requires LARGE sample sizes (too large
+# for a builtin example)
+
+# Continue the example through the L-moments
+lmr <- lmoms(simDATA) # compute the L-moments
+epara <- parpe3(lmr) # estimate the Pearson III parameters. This is a
+# hack to back into comparative estimates of the product moments. This
+# can only be done because we know that the parent distribution is a
+# Pearson Type III
+
+l.tmp <- c(epara$para[1],epara$para[2],epara$para[3]) 
+cat(c("PearsonIII by L-moments:",l.tmp,"\n"))
+# The first values are the means and will be identical and close to 100.
+# The second values are the standard deviations and the L-moment to
+#   PearsonIII will be closer to 500 than the product moment (this
+#   shows the raw power of L-moment based analysis---they work).
+# The third values are the skew. Almost certainly the L-moment estimate
+#   of skew will be closer to 3 than the product moment.
+}
+\keyword{univar}
+\keyword{distribution}

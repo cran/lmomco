@@ -3,9 +3,11 @@
 \title{L-moments of the Pearson Type III Distribution}
 \description{
 This function estimates the L-moments of the Pearson Type III distribution
-given the parameters (\eqn{\xi}, \eqn{\alpha}, and \eqn{\gamma}) from 
+given the parameters (\eqn{\mu}, \eqn{\sigma}, and \eqn{\gamma}) from 
 \code{\link{parpe3}}. The L-moments in terms of the parameters are
 complicated and solved numerically.
+
+For the implementation in the \pkg{lmomco} package, the three parameters are \eqn{\mu}, \eqn{\sigma}, and \eqn{\gamma} for the mean, standard deviation, and skew, respectively. Therefore, the Pearson Type III distribution is of considerable theoretical interest to this package because the parameters, which are estimated via the L-moments, are in fact the product moments. Although, these values fitted by the method of L-moments will not be numerically equal to the sample product moments.  Further details are provided in the examples section of the \code{\link{pmoms}} function documentation.
 }
 \usage{
 lmompe3(para)

@@ -1,35 +1,52 @@
-"cdfpe3" <-
+"cdfpe3" <- 
 function(x,para) {
-    if(! are.parpe3.valid(para)) return()
 
-    ROOT0p5 <- sqrt(1/2)
+  # This function is a verbatim implementation of 
+  # Pearson Type III CDF as defined by Hosking and Wallis (1997, p. 200)
+  # This function represents a complete break from Hosking's FORTRAN 
+  # implementation seen in cdfpe3.original().
+ 
+  if(! are.parpe3.valid(para)) return()
 
-    # Error function as defined by R documentation
-    #   and is used for zero skew condition
-    erf <- function(x) 2 * pnorm(x * sqrt(2)) - 1
+  MU    <- para$para[1] # location
+  SIGMA <- para$para[2] # scale
+  GAMMA <- para$para[3] # shape
 
-    # SMALL IS USED TO TEST WHETHER SKEWNESS IS EFFECTIVELY ZERO
-    SMALL <- 1e-6
+  f <- vector(mode="numeric")
 
-    U <- para$para[1]
-    A <- para$para[2]
-    GAMMA <- para$para[3]
-
-    f <- vector(mode="numeric")
+  if(GAMMA == 0) { # distribution is normal
     for(i in seq(1,length(x))) {
-      if(abs(GAMMA) <= SMALL) { 
-        # ZERO SKEWNESS
-        Z <- (x[i]-U)/A
-        f[i] <- 0.5+0.5*erf(Z*ROOT0p5)
-        next
-      }
-      ALPHA <- 4/GAMMA^2
-      Z <- 2*(x[i]-U)/(A*GAMMA)+ALPHA
-      CDFPE3 <- 0
-      if(Z     > 0)  CDFPE3 <- pgamma(Z,ALPHA)
-      if(GAMMA < 0 ) CDFPE3 <- 1-CDFPE3
-      f[i] <- CDFPE3
+      f[i] = pnorm((x[i] - MU)/SIGMA)
     }
     return(f)
-}
+  }
 
+  # GAMMA != 0, distribution is nonnormal
+
+  # Letting
+  ALPHA <- 4/GAMMA^2
+  BETA  <- 0.5*SIGMA*abs(GAMMA)
+  XI    <- MU - 2*SIGMA/GAMMA
+
+  # 'pgamma' is closely related to the incomplete gamma function.  As
+  # defined by Abramowitz and Stegun 6.5.1
+  #
+  #      P(a,x) = 1/Gamma(a) integral_0^x t^(a-1) exp(-t) dt
+
+  # P(a, x) is 'pgamma(x, a)'.  Other authors (for example Karl
+  # Pearson in his 1922 tables) omit the normalizing factor, defining
+  # the incomplete gamma function as 'pgamma(x, a) * gamma(a)'.
+  
+  # **** Note the switch in argument order between definition and R's
+  # implementation **** This screwed me up at first code version.  
+
+
+  # HW1997 defines G(ALPHA,x) = integral_0^x t^(a-1) exp(-t) dt
+  #      and F(x) = G(ALPHA,(x-XI)/BETA)/COMPLETE_GAMMA(ALPHA) for GAMMA > 0
+
+  # The definition in R permits us to not call gamma(ALPHA) at all
+  G <- pgamma((x-XI)/BETA,ALPHA)
+
+  if(GAMMA > 0) return(G)
+  return(1 - G)  # must be GAMMA < 0
+}

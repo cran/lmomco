@@ -54,7 +54,7 @@ function(lmom) {
     para[1] <- L1
     para[2] <- BETA*RTALPH
     para[3] <- 2/RTALPH
-    if(T3 < 0) para[3] <- -para[3]
+    if(lmom$TAU3 < 0) para[3] <- -para[3]
     return(list(type = 'pe3', para = para, source="parpe3"))
 }
 

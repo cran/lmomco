@@ -228,6 +228,8 @@ parwei                  Estimate the Parameters of the Weibull
 plmomco                 Cumulative Distribution Function of the
                         Distributions
 plotlmrdia              Plot L-moment Ratio Diagram
+pmoms                   The Sample Product Moments: Mean, Standard
+                        Deviation, Skew, and Excess Kurtosis
 pp                      Plotting-Position Formula
 pwm                     Unbiased Sample Probability-Weighted Moments
 pwm.gev                 Generalized Extreme Value Plotting-Position
