@@ -11,8 +11,11 @@ function(lmr,
 	 noexp=FALSE,
 	 nonor=FALSE,
 	 nogum=FALSE,
-	 nouni=FALSE, ...) {
-   plot(lmr$limits, xlab = "L-SKEW", ylab = "L-KURTOSIS", type = "n",
+	 nouni=FALSE,
+         xlab="L-SKEW",
+         ylab="L-KURTOSIS",
+         ...) {
+   plot(lmr$limits, xlab = xlab, ylab = ylab, type = "n",
         ...)
    if(nolimits == FALSE) {
      lines(lmr$limits,lwd=2,col=8)

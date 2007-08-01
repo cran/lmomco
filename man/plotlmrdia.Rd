@@ -6,13 +6,14 @@ Plot the L-moment ratio diagram of L-skew and L-kurtosis from an L-moment ratio
 diagram object returned by \code{lmrdia}.  This diagram is useful for selecting
 a distribution to model the data. The application of L-moment diagrams is well 
 documented in the literature. This function is intended to function as a demonstration
-of L-moment diagram plotting. It is expected that users will \dQuote{roll their own}.
+of L-moment diagram plotting. It is expected that users will \dQuote{roll their own} version 
+of this function for their own specific purposes.
 }
 \usage{
 plotlmrdia(lmr, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
            nogev=FALSE, noglo=FALSE, nogpa=FALSE, nope3=FALSE, 
 	   nogno=FALSE, noexp=FALSE, nonor=FALSE, nogum=FALSE, 
-	   nouni=FALSE, ...)
+	   nouni=FALSE, xlab="L-SKEW", ylab="L-KURTOSIS", ...)
 }
 \arguments{
   \item{lmr}{L-moment diagram object from \code{lmrdia}.}
@@ -28,6 +29,8 @@ plotlmrdia(lmr, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
   \item{nonor}{If \code{TRUE} then point of Normal distribution is not drawn.}
   \item{nogum}{If \code{TRUE} then point of Gumbel distribution is not drawn.}
   \item{nouni}{If \code{TRUE} then point of Uniform distribution is not drawn.}
+  \item{xlab}{Horizonal axis label passed to \code{xlab} of the \code{plot} function.}
+  \item{ylab}{Vertical axis label passed to \code{ylab} of the \code{plot} function.}
   \item{...}{Additional arguments passed onto the \code{plot} function.}
 }
 \note{

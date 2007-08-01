@@ -1,5 +1,5 @@
 "pargpaRC" <-
-function(lmom,zeta=1,lower=-1,upper=20) {
+function(lmom,zeta=1,lower=-1,upper=20,checklmom=TRUE) {
 
     para <- vector(mode="numeric", length=3)
 
@@ -13,7 +13,7 @@ function(lmom,zeta=1,lower=-1,upper=20) {
     if(length(lmom$L1) == 0) { # convert to named L-moments
       lmom <- lmorph(lmom)     # nondestructive conversion!
     }
-    if(! are.lmom.valid(lmom)) {
+    if(checklmom & ! are.lmom.valid(lmom)) {
        warning("B-type L-moments are invalid")
        return()
     } 

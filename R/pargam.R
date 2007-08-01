@@ -1,5 +1,5 @@
 "pargam" <-
-function(lmom) {
+function(lmom,checklmom=TRUE) {
     para <- vector(mode="numeric", length=2)
     # METHOD: RATIONAL APPROXIMATION IS USED TO EXPRESS ALPHA AS A FUNCTION
     # OF L-CV. RELATIVE ACCURACY OF THE  APPROXIMATION IS BETTER THAN 5E-5.
@@ -12,7 +12,7 @@ function(lmom) {
     if(length(lmom$L1) == 0) { # convert to named L-moments
       lmom <- lmorph(lmom)     # nondestructive conversion!
     }    
-    if(! are.lmom.valid(lmom)) {
+    if(checklmom & ! are.lmom.valid(lmom)) {
       warning("L-moments are invalid")
       return()
     }

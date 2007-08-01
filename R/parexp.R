@@ -1,7 +1,7 @@
 "parexp" <-
-function(lmom) {
+function(lmom,checklmom=TRUE) {
     para <- vector(mode="numeric", length=2)
-    if(! are.lmom.valid(lmom)) {
+    if(checklmom & ! are.lmom.valid(lmom)) {
       warning("L-moments are invalid")
       return()
     }

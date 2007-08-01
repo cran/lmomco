@@ -1,5 +1,5 @@
 "pargev" <-
-function(lmom) {
+function(lmom,checklmom=TRUE) {
     para <- vector(mode="numeric", length=3)
     #  METHOD: FOR  -0.8 LE TAU3 LT 1,  K IS APPROXIMATED BY RATIONAL
     #  FUNCTIONS AS IN DONALDSON (1996, COMMUN. STATIST. SIMUL. COMPUT.).
@@ -23,7 +23,7 @@ function(lmom) {
     if(length(lmom$L1) == 0) { # convert to named L-moments
       lmom <- lmorph(lmom)     # nondestructive conversion!
     }
-    if(! are.lmom.valid(lmom)) {
+    if(checklmom & ! are.lmom.valid(lmom)) {
       warning("L-moments are invalid")
       return()
     } 

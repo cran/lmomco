@@ -1,5 +1,5 @@
 "pargpa" <-
-function(lmom,zeta=1) {
+function(lmom,zeta=1,checklmom=TRUE) {
 
     # B-type L-moments are presumably being passed, dispatch to the
     # alternative parameter estimation function
@@ -17,7 +17,7 @@ function(lmom,zeta=1) {
     if(length(lmom$L1) == 0) { # convert to named L-moments
       lmom <- lmorph(lmom)     # nondestructive conversion!
     }
-    if(! are.lmom.valid(lmom)) {
+    if(checklmom & ! are.lmom.valid(lmom)) {
        warning("L-moments are invalid")
        return()
     } 

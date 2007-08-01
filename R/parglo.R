@@ -1,5 +1,5 @@
 "parglo" <-
-function(lmom) {
+function(lmom,checklmom=TRUE) {
     SMALL <- 1e-6 
     # Estimate kappa of distribution
     para <- vector(mode="numeric", length=3)
@@ -7,7 +7,7 @@ function(lmom) {
     if(length(lmom$L1) == 0) { # convert to named L-moments
       lmom <- lmorph(lmom)     # nondestructive conversion!
     }
-    if(! are.lmom.valid(lmom)) {
+    if(checklmom & ! are.lmom.valid(lmom)) {
        warning("L-moments are invalid")
        return()
     }

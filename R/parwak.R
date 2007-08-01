@@ -1,5 +1,5 @@
 "parwak" <-
-function(lmom) {
+function(lmom,checklmom=TRUE) {
     #  PARA   *OUTPUT* ARRAY OF LENGTH 5. ON EXIT, CONTAINS THE PARAMETERS
     #                  IN THE ORDER XI, ALPHA, BETA, GAMMA, DELTA.
     #  IFAIL  *OUTPUT* FAIL FLAG. ON EXIT, IT IS SET AS FOLLOWS.
@@ -64,7 +64,7 @@ wak.gpa_instead <- function(ALAM1,ALAM2,T3) {
       lmom <- lmorph(lmom)     # nondestructive conversion!
     }
 
-    if(! are.lmom.valid(lmom)) {
+    if(checklmom & ! are.lmom.valid(lmom)) {
       warning("L-moments are invalid")
       IFAIL <- 3
       return()

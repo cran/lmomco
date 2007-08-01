@@ -1,5 +1,5 @@
 "parrevgum" <-
-function(lmom,zeta=1) {
+function(lmom,zeta=1,checklmom=TRUE) {
    # L-moments need to be Type-B
    euler <- 0.577215664901532861
 
@@ -17,7 +17,7 @@ function(lmom,zeta=1) {
    if(length(lmom$L1) == 1) { # convert to unnamed L-moments
      lmom <- lmorph(lmom)     # nondestructive conversion!
    }
-   if(! are.lmom.valid(lmom)) {
+   if(checklmom & ! are.lmom.valid(lmom)) {
      warning("B-type L-moments are invalid")
      return()
    }

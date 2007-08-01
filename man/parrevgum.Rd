@@ -17,12 +17,13 @@ is
 \noindent where \eqn{\mathrm{Ei}(-\log(1-\zeta)) \rightarrow 0} as \eqn{\zeta \rightarrow 1} and \eqn{\mathrm{Ei}(-\log(1-\zeta))} can not be evaluated as \eqn{\zeta \rightarrow 0}.
 }
 \usage{
-parrevgum(lmom,zeta=1)
+parrevgum(lmom,zeta=1,checklmom=TRUE)
 }
 \arguments{
   \item{lmom}{A L-moment object created by \code{\link{pwm2lmom}}
 through \code{\link{pwmRC}} or other L-moment type object. The user intervention of the \code{zeta} differentiates this distribution and hence this function from similar parameter estimation functions in the \pkg{lmomco} package.}
   \item{zeta}{The right censoring fraction. Number of samples observed (noncensored) divided by the total number of samples.}
+  \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{are.lmom.valid} function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check.}
 }
 
 \value{

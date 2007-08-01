@@ -1,5 +1,5 @@
 "parkap" <-
-function(lmom) {
+function(lmom,checklmom=TRUE) {
     para <- vector(mode="numeric", length=4)
     #  IFAIL  *OUTPUT* FAIL FLAG. ON EXIT, IT IS SET AS FOLLOWS.
     #                  0  SUCCESSFUL EXIT
@@ -45,7 +45,7 @@ function(lmom) {
     if(length(lmom$L1) == 0) { # convert to named L-moments
       lmom <- lmorph(lmom)     # nondestructive conversion!
     }
-    if(! are.lmom.valid(lmom)) {
+    if(checklmom & ! are.lmom.valid(lmom)) {
       warning("L-moments are invalid")
       IFAIL <- 1
       return()

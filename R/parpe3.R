@@ -1,5 +1,5 @@
 "parpe3" <-
-function(lmom) {
+function(lmom,checklmom=TRUE) {
     para <- vector(mode="numeric", length=3)
 
     # METHOD: RATIONAL APPROXIMATION IS USED TO EXPRESS ALPHA, THE SHAPE
@@ -26,7 +26,7 @@ function(lmom) {
       lmom <- lmorph(lmom)     # nondestructive conversion!
     }
 
-    if(! are.lmom.valid(lmom)) {
+    if(checklmom & ! are.lmom.valid(lmom)) {
       warning("L-moments are invalid")
       return()
     }

@@ -10,11 +10,12 @@ complicated and solved numerically.
 For the implementation in the \pkg{lmomco} package, the three parameters are \eqn{\mu}, \eqn{\sigma}, and \eqn{\gamma} for the mean, standard deviation, and skew, respectively. Therefore, the Pearson Type III distribution is of considerable theoretical interest to this package because the parameters, which are estimated via the L-moments, are in fact the product moments. Although, these values fitted by the method of L-moments will not be numerically equal to the sample product moments. Further details are provided in the examples section of the \code{\link{pmoms}} function documentation.
 }
 \usage{
-parpe3(lmom)
+parpe3(lmom,checklmom=TRUE)
 }
 \arguments{
   \item{lmom}{A L-moment object created by \code{\link{lmom.ub}}
 or \code{\link{pwm2lmom}}.}
+  \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{are.lmom.valid} function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check.}
 }
 
 \value{

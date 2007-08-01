@@ -15,11 +15,12 @@ the L-moments of the data in an L-moment object such as that returned by
 These relations are taken from Hosking and Wallis (1997).
 }
 \usage{
-parwei(lmom)
+parwei(lmom,checklmom=TRUE)
 }
 \arguments{
   \item{lmom}{A L-moment object created by \code{\link{lmom.ub}}
 or \code{\link{pwm2lmom}}.}
+  \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{are.lmom.valid} function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check.}
 }
 
 \value{
