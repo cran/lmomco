@@ -215,7 +215,16 @@ Version 0.87--August 1, 2007
      discussion with Hosking about a simulation study of the Pearson
      Type III distribution. One can simulate values and compute L-moments
      that fail the tau4/tau3 inequality and parameters can not be estimated.
-     However, because that distribution is only three parameters, we do not
+     However, because that distribution has only three parameters, we do not
      care whether the tau4 is actually viable. Invalid L-moments can manifest
      with the Pearson Type III  when the sample size is small and the standard
      deviation and skew magnitude are large.
+
+Version 0.88--September 1, 2007
+1. Added the prob2T() and T2prob() functions for annual nonexceedance
+     probability and T-year return period conversions.
+2. Added the harmonic.mean() function for support of a zero-value corrected
+     computation of this particular statistics. Whereas, this statistic
+     is not L-moment related, it is important in the field of surface-water
+     hydrology and the lmomco package is a convenient place to store the
+     function for the specific needs of your author.

@@ -11,6 +11,8 @@ Lcomoment.coefficients
 Lcomoment.correlation   L-correlation Matrix (L-correlation through
                         Sample L-comoments)
 Lcomoment.matrix        Compute Sample L-comoment Matrix
+T2prob                  Convert a Vector of T-year Return Periods to
+                        Annual Nonexceedance Probabilities
 TLmom                   A Sample Trimmed L-moment
 TLmoms                  The Sample Trimmed L-moments and L-moment
                         Ratios
@@ -84,6 +86,7 @@ gen.freq.curves         Plot Randomly Generated Frequency Curves from a
                         Parent Distribution
 genci                   Generate Confidence Intervals for Quantiles of
                         a Parent Distribution
+harmonic.mean           The Harmonic Mean with Zero-Value Correction
 is.cau                  Is a Distribution Parameter Object Typed as
                         Cauchy
 is.exp                  Is a Distribution Parameter Object Typed as
@@ -231,6 +234,8 @@ plotlmrdia              Plot L-moment Ratio Diagram
 pmoms                   The Sample Product Moments: Mean, Standard
                         Deviation, Skew, and Excess Kurtosis
 pp                      Plotting-Position Formula
+prob2T                  Convert a Vector of Annual Nonexceedance
+                        Probabilities to T-year Return Periods
 pwm                     Unbiased Sample Probability-Weighted Moments
 pwm.gev                 Generalized Extreme Value Plotting-Position
                         Probability-Weighted Moments
