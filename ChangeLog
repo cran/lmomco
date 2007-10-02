@@ -144,14 +144,14 @@ Version 0.85--July 14, 2007
 1. Textual fixes to documentation of qua2ci() and warning message change
      in qua2ci().
 2. BUG FIX on pwm.ub() by fixing pwm.pp(). I had misinterpreted Hosking's
-     arguement call in his samlmr FORTRAN function. The unbiased PWMs were
+     argument call in his samlmr FORTRAN function. The unbiased PWMs were
      certainly not being correctly computed. I gutted the code entirely and
      now rely on R's choose() to get binomial coeficients. The much cleaner 
      code no longer shares structure with Hosking's function. The changes in
      pwm.ub() and pwm.pp() caused a cascade of adjustments to pwm.gev(). Each
      of these functions now returns a more logical list structure containing
      the betas in a similar fashion as lmoms(). Some of the last vestiges of
-     the original lmomco package (preCTAN) are nearly gone. The new list
+     the original lmomco package (preCRAN) are now updated. The new list
      structure supports an arbitrary number of moments now. This activity
      was spawned by the addition of pwm(), which in turn was spawned by
      the addition of pwmRC() described in the next item. In fact 
@@ -228,3 +228,22 @@ Version 0.88--September 1, 2007
      is not L-moment related, it is important in the field of surface-water
      hydrology and the lmomco package is a convenient place to store the
      function for the specific needs of your author.
+
+
+Version 0.90--October 2, 2007
+1. Added the autolegend, xleg, and yleg arguments to plotlmrdia().
+2. Error in lmrdia.Rd regarding gamma distribution fixed.
+3. Error in equation in pwm.ub.Rd fixed.
+4. BUG FIX on pwm.pp(). Why has getting the plotting-position estimator
+     working correctly been a nightmare? I think it is finally correct.
+     Part of the problem is in inconsistencies in nomenclature in the
+     literature as well as your humble author.
+5. Correction to math in TLmoms.Rd.
+6. Correction to math in parTLgpa.Rd.
+7. BUG FIX on cdfpe3() and a correction made to the documentation. The
+     functionDid not work for negative skew. Whew! Problem was discovered
+     during development of pdfpe3().
+8. Added probability density functions for cau, exp, gam, gev, gld, glo,
+     gno, gpa, gum, nor, pe3.  More to come---in another release.
+9. Added par2pdf().
+

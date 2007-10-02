@@ -6,9 +6,9 @@ This function estimates the parameters of the Generalized Pareto distribution gi
 the the trimmed L-moments (TL-moments) for \eqn{t=1} of the data in TL-moment object with a trim
 level of unity (\code{trim=1}). The parameters are computed as
 
-\deqn{\kappa = \frac{10-45\tau_3}{9\tau_3+10} \mbox{,}}
-\deqn{\alpha = \frac{1}{6}\lambda_2(\kappa+2)(\kappa+3)(\kappa+4) \mbox{, and}}
-\deqn{\xi = \lambda_1 - \frac{\alpha(\kappa+5)}{(\kappa+2)(\kappa+3)} \mbox{.}}
+\deqn{\kappa = \frac{10-45\tau^{(1)}_3}{9\tau^{(1)}_3+10} \mbox{,}}
+\deqn{\alpha = \frac{1}{6}\lambda^{(1)}_2(\kappa+2)(\kappa+3)(\kappa+4) \mbox{, and}}
+\deqn{\xi = \lambda^{(1)}_1 - \frac{\alpha(\kappa+5)}{(\kappa+2)(\kappa+3)} \mbox{.}}
 
 }
 \usage{

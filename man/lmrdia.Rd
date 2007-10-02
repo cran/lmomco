@@ -15,7 +15,6 @@ lmrdia()
   \item{limits}{The theoretical limits of \eqn{\tau_3} and \eqn{\tau_4}--below \eqn{\tau_4} are theoretically
   not possible.}
   \item{exp}{\eqn{\tau_3} and \eqn{\tau_4} of the Exponential distribution.}
-  \item{gam}{\eqn{\tau_3} and \eqn{\tau_4} of the Gamma distribution.}
   \item{gev}{\eqn{\tau_3} and \eqn{\tau_4} of the Generalized Extreme Value distribution.}
   \item{glo}{\eqn{\tau_3} and \eqn{\tau_4} of the Generalized Logistic distribution.}
   \item{gpa}{\eqn{\tau_3} and \eqn{\tau_4} of the Generalized Pareto distribution.}

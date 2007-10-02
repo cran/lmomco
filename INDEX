@@ -188,6 +188,8 @@ par2cdf2                Equivalent Cumulative Distribution Function of
                         Two Distributions
 par2lmom                Convert the Parameters of a Distribution to the
                         L-moments
+par2pdf                 Probability Density Function of the
+                        Distributions
 par2qua                 Quantile Function of the Distributions
 par2qua2                Equivalent Quantile Function of Two
                         Distributions
@@ -228,6 +230,28 @@ parwak                  Estimate the Parameters of the Wakeby
                         Distribution
 parwei                  Estimate the Parameters of the Weibull
                         Distribution
+pdfcau                  Probability Density Function of the Cauchy
+                        Distribution
+pdfexp                  Probability Density Function of the Exponential
+                        Distribution
+pdfgam                  Probability Density Function of the Gamma
+                        Distribution
+pdfgev                  Probability Density Function of the Generalized
+                        Extreme Value Distribution
+pdfgld                  Probability Density Function of the Generalized
+                        Lambda Distribution
+pdfglo                  Probability Density Function of the Generalized
+                        Logistic Distribution
+pdfgno                  Probability Density Function of the Generalized
+                        Normal Distribution
+pdfgpa                  Probability Density Function of the Generalized
+                        Pareto Distribution
+pdfgum                  Probability Density Function of the Gumbel
+                        Distribution
+pdfnor                  Probability Density Function of the Normal
+                        Distribution
+pdfpe3                  Probability Density Function of the Pearson
+                        Type III Distribution
 plmomco                 Cumulative Distribution Function of the
                         Distributions
 plotlmrdia              Plot L-moment Ratio Diagram

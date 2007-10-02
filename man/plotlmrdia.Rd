@@ -13,7 +13,8 @@ of this function for their own specific purposes.
 plotlmrdia(lmr, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
            nogev=FALSE, noglo=FALSE, nogpa=FALSE, nope3=FALSE, 
 	   nogno=FALSE, noexp=FALSE, nonor=FALSE, nogum=FALSE, 
-	   nouni=FALSE, xlab="L-SKEW", ylab="L-KURTOSIS", ...)
+	   nouni=FALSE, xlab="L-SKEW", ylab="L-KURTOSIS", 
+           autolegend=FALSE, xleg=NULL, yleg=NULL, ...)
 }
 \arguments{
   \item{lmr}{L-moment diagram object from \code{lmrdia}.}
@@ -31,6 +32,9 @@ plotlmrdia(lmr, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
   \item{nouni}{If \code{TRUE} then point of Uniform distribution is not drawn.}
   \item{xlab}{Horizonal axis label passed to \code{xlab} of the \code{plot} function.}
   \item{ylab}{Vertical axis label passed to \code{ylab} of the \code{plot} function.}
+  \item{autolegend}{Generate the legend by built-in algorithm.}
+  \item{xleg}{X-coordinate of the legend.}
+  \item{yleg}{Y-coordinate of the legend.}
   \item{...}{Additional arguments passed onto the \code{plot} function.}
 }
 \note{
@@ -73,6 +77,6 @@ product moment diagrams: Water Resources Research, vol. 29, no. 6, pp. 1745-1752
 \author{ W.H. Asquith}
 \seealso{\code{\link{lmrdia}}}
 \examples{
-plotlmrdia(lmrdia())
+# plotlmrdia(lmrdia())
 }
 \keyword{distribution}

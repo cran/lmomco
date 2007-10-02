@@ -12,7 +12,7 @@ specified. A TL-moment is
                                          }}{{n \choose r+t_1+t_2}}
            \right] x_{i:n} \mbox{,}}
 
-where \eqn{t} represents the trimming level of the \eqn{t}-largest or \eqn{t}-smallest 
+where \eqn{t_a} represents the trimming level of the \eqn{t_2}-largest or \eqn{t_1}-smallest 
 values, \eqn{r} represents the order of the L-moments, \eqn{n} represents the 
 sample size, and \eqn{x_{i:n}} represents the \eqn{i}th sample order statistic (\eqn{x_{1:n} \le x_{2:n} \le \dots \le x_{n:n}}). This function loops across the above equation for each \code{nmom} set in 
 the argument list.

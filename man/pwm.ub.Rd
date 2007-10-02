@@ -5,7 +5,7 @@
 Unbiased sample Probability-Weighted Moments (PWMs) are computed from a sample.
 The first five \eqn{\beta_r}'s are computed by default.
 
-\deqn{\beta_r = n^{-1}\sum^n_{j=1} (j-1 \choose r)x_{j:n}}
+\deqn{\beta_r = n^{-1} {n-1 \choose r}^{-1} \sum^n_{j=1} (j-1 \choose r)x_{j:n}}
 
 }
 \usage{

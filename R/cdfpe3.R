@@ -45,8 +45,12 @@ function(x,para) {
   #      and F(x) = G(ALPHA,(x-XI)/BETA)/COMPLETE_GAMMA(ALPHA) for GAMMA > 0
 
   # The definition in R permits us to not call gamma(ALPHA) at all
-  G <- pgamma((x-XI)/BETA,ALPHA)
-
-  if(GAMMA > 0) return(G)
-  return(1 - G)  # must be GAMMA < 0
+  if(GAMMA > 0) {
+  	G <- pgamma((x-XI)/BETA,ALPHA)
+    return(G)
+  }
+  else {
+  	G <- pgamma((XI - x)/BETA,ALPHA)  	
+    return(1 - G)  # must be GAMMA < 0
+  }
 }

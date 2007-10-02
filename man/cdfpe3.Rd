@@ -5,14 +5,14 @@
 This function computes the cumulative probability or nonexceedance probability
 of the Pearson Type III distribution given parameters (\eqn{\mu}, \eqn{\sigma},
 and \eqn{\gamma}) of the distribution computed
-by \code{\link{parpe3}}. These parameters are equal to the product moments: mean, standard deviation, and skew (see \code{\link{pmoms}}). The cumulative distribution function of the distribution for \eqn{\gamma > 0} is
+by \code{\link{parpe3}}. These parameters are equal to the product moments: mean, standard deviation, and skew (see \code{\link{pmoms}}). The cumulative distribution function of the distribution for \eqn{\gamma \ne 0} is
 
-\deqn{F(x) = \frac{G\left(\alpha,\frac{x - \xi}{\beta}\right)}{\Gamma(\alpha)} \mbox{,}}
+\deqn{F(x) = \frac{G\left(\alpha,\frac{Y}{\beta}\right)}{\Gamma(\alpha)} \mbox{,}}
 
 where \eqn{F(x)} is the nonexceedance probability for quantile \eqn{x},
 \eqn{G} is defined below and is related to the incomplete gamma function of \R (\code{pgamma()}), \eqn{\Gamma} is the complete gamma function,
-\eqn{\xi} is a location parameter, \eqn{\beta} is a scale parameter, and
-\eqn{\alpha} is a shape parameter. These three \dQuote{new} parameters are related to the product moments by
+\eqn{\xi} is a location parameter, \eqn{\beta} is a scale parameter,
+\eqn{\alpha} is a shape parameter, and \eqn{Y = x - \xi} if \eqn{\gamma > 0} and \eqn{Y = \xi - x} if \eqn{\gamma < 0}. These three \dQuote{new} parameters are related to the product moments by
 
 \deqn{\alpha = 4/\gamma^2 \mbox{,}}
 \deqn{\beta  = \frac{1}{2}\sigma |\gamma| \mbox{,}}
