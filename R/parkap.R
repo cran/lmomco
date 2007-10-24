@@ -48,8 +48,9 @@ function(lmom,checklmom=TRUE) {
     if(checklmom & ! are.lmom.valid(lmom)) {
       warning("L-moments are invalid")
       IFAIL <- 1
-      return()
-    }
+      return(list(type = 'kap', para = para, source="parkap",
+                  ifail = IFAIL,
+                  ifailtext = "L-moments are invalid."))    }
 
     T3 <- lmom$TAU3
     T4 <- lmom$TAU4

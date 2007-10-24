@@ -22,6 +22,7 @@ function(lmr,
    Epch    <- vector(mode = "numeric")
    Ecol    <- vector(mode = "numeric")
    Elty    <- vector(mode = "numeric")
+   Ecex    <- vector(mode = "numeric")
    entryi  <- 0
 
    plot(lmr$limits, xlab = xlab, ylab = ylab, type = "n",
@@ -35,6 +36,7 @@ function(lmr,
      Ecol[entryi] <- 8
      Epch[entryi] <- NA
      Elty[entryi] <- 1
+     Ecex[entryi] <- 1
    }
    if(nolines == FALSE) {
      if(nogev == FALSE) {
@@ -45,6 +47,7 @@ function(lmr,
         Ecol[entryi] <- 2
         Epch[entryi] <- NA
         Elty[entryi] <- 2
+        Ecex[entryi] <- 1
      }
      if(noglo == FALSE) {
      	lines(lmr$glo, col=3)
@@ -54,6 +57,7 @@ function(lmr,
         Ecol[entryi] <- 3
         Epch[entryi] <- NA
         Elty[entryi] <- 1
+        Ecex[entryi] <- 1
      }
      if(nogno == FALSE) {
      	lines(lmr$gno, col=4, lty=2)
@@ -63,6 +67,7 @@ function(lmr,
         Ecol[entryi] <- 4
         Epch[entryi] <- NA
         Elty[entryi] <- 2
+        Ecex[entryi] <- 1
      }
      if(nogpa == FALSE) {
      	lines(lmr$gpa, col=4)
@@ -72,6 +77,7 @@ function(lmr,
         Ecol[entryi] <- 4
         Epch[entryi] <- NA
         Elty[entryi] <- 1
+        Ecex[entryi] <- 1
      }
      if(nope3 == FALSE) {
      	lines(lmr$pe3, col=6)
@@ -81,35 +87,39 @@ function(lmr,
         Ecol[entryi] <- 6
         Epch[entryi] <- NA
         Elty[entryi] <- 1
+        Ecex[entryi] <- 1
      }
    }
    if(nopoints == FALSE) {
      if(noexp == FALSE) {
-     	points(lmr$exp,pch=16,col=2)
+     	points(lmr$exp,pch=16,col=2,cex=1.5)
      	entryi <- entryi + 1
         entries[entryi] <- "EXP"
         Elwd[entryi] <- NA
         Ecol[entryi] <- 2
         Epch[entryi] <- 16
         Elty[entryi] <- NA
+        Ecex[entryi] <- 1.5
      }
      if(nonor == FALSE) {
-     	points(lmr$nor,pch=15,col=2)
+     	points(lmr$nor,pch=15,col=2,cex=1.5)
      	entryi <- entryi + 1
         entries[entryi] <- "NOR"
         Elwd[entryi] <- NA
         Ecol[entryi] <- 2
         Epch[entryi] <- 15
         Elty[entryi] <- NA
+        Ecex[entryi] <- 1.5
      }
      if(nogum == FALSE) {
-     	points(lmr$gum,pch=17,col=2)
+     	points(lmr$gum,pch=17,col=2,cex=1.5)
      	entryi <- entryi + 1
         entries[entryi] <- "GUM"
         Elwd[entryi] <- NA
         Ecol[entryi] <- 2
         Epch[entryi] <- 17
         Elty[entryi] <- NA
+        Ecex[entryi] <- 1.5
      }
      if(nouni == FALSE) {
      	points(lmr$uniform,pch=18,cex=1.5,col=2)
@@ -119,11 +129,12 @@ function(lmr,
         Ecol[entryi] <- 2
         Epch[entryi] <- 18
         Elty[entryi] <- NA
+        Ecex[entryi] <- 1.5
      }
    }
    if(autolegend == TRUE & length(entries) > 0) {
    	 legend(xleg,yleg,entries,
-   	        lwd=Elwd,col=Ecol,pch=Epch,lty=Elty,
-   	        xjust=0.5,bty="n",cex=0.9,...)
+   	        lwd=Elwd,col=Ecol,pch=Epch,lty=Elty,pt.cex=Ecex,
+   	        xjust=0.5,bty="n",cex=0.9)
    }
 }

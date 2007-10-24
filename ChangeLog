@@ -241,9 +241,29 @@ Version 0.90--October 2, 2007
 5. Correction to math in TLmoms.Rd.
 6. Correction to math in parTLgpa.Rd.
 7. BUG FIX on cdfpe3() and a correction made to the documentation. The
-     functionDid not work for negative skew. Whew! Problem was discovered
+     function did not work for negative skew. Whew! Problem was discovered
      during development of pdfpe3().
 8. Added probability density functions for cau, exp, gam, gev, gld, glo,
      gno, gpa, gum, nor, pe3.  More to come---in another release.
 9. Added par2pdf().
 
+
+Version 0.91--October 24, 2007
+1. Refined plotlmrdia().
+2. Added pdfrevgum() and pdfwei().
+3. Documentation fix for cdfrevgum().
+4. Added check.pdf(), which will be an important convenience function for
+     testing the properties of the pdfCCC() functions and the cdfCCC()
+     functions.
+5. BUG fix on parwei(). Function was unnecessarily querying fifth
+     L-moment when the fifth L-moment is not needed. So one did not have five
+     or more L-moments then parwei() would not work. This was unnecessarily 
+     restrictive.
+6. Added z.par2cdf() and z.par2qua() to accommodate zero values or other in the
+     building of ``blipped distributions'' to quote Gilchrist (2000, p. 148).
+7. Added umvu.sd to pmoms()---uniformly-minimum variance unbiased estimator.
+8. BUG fix on quacau(). Function did not return a vector if one of the F values
+     happened to be equal to exactly 0.5.
+9. BUG fix on are.pargam.valid(). Test did not permit Beta > 0, but mistakenly 
+     tested for Beta > 1.
+10. BUG fix on are.parcau.valid(). Test did not check that Alpha > 0.

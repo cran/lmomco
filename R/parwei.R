@@ -13,9 +13,7 @@ function(lmom,checklmom=TRUE) {
     lmom$L1   <- -lmom$L1
     lmom$LCV  <- -lmom$LCV
     lmom$TAU3 <- -lmom$TAU3
-    lmom$TAU5 <- -lmom$TAU5
     lmom$L3   <- -lmom$L3
-    lmom$L5   <- -lmom$L5
 
     par.gev <- pargev(lmom)
     

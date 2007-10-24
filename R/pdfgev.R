@@ -13,7 +13,7 @@ function(x,para) {
     for(i in seq(1,length(x))) {
       Y  <- (x[i] - XI)/A
       if(K == 0) {
-      	f[i] <- A^(-1) * exp(-(1-K)*y-exp(-Y))
+      	f[i] <- A^(-1) * exp(-(1-K)*Y-exp(-Y))
       	next
       }
       ARG <- 1-K*Y 

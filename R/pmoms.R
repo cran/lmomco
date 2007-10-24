@@ -10,6 +10,8 @@ function(x) {
   MU <- mean(x)
   SD <- sd(x) # returns with the proper n - 1
               # division for bias correction of variance
+  SD.prime <- gamma((n-1)/2) / (sqrt(2)*gamma(n/2))
+  SD.prime <- SD.prime * sqrt(sum((x - MU)^2))
 
   M2 <- sqrt(sum((x-MU)^2) / n) # theoretical definition of standard deviation 
 
@@ -47,7 +49,8 @@ function(x) {
 
   z <- list(moments = c(MU,SD,M3,M4),
             ratios  = c(NA,SD/MU,unbiased.skew,unbiased.kurt),
-            unbiased.sd   = SD,
+            sd            = SD,
+            umvu.sd       = SD.prime,
             unbiased.skew = unbiased.skew,
             unbiased.kurt = unbiased.kurt,
             classic.sd    = M2,

@@ -80,6 +80,8 @@ cdfwak                  Cumulative Distribution Function of the Wakeby
 cdfwei                  Cumulative Distribution Function of the Weibull
                         Distribution
 check.fs                Check Vector of Nonexceedance Probabilities
+check.pdf               Check and Potentially Graph Probability Density
+                        Functions
 dist.list               List of Distribution Names
 freq.curve.all          Compute Frequency Curve for All Distributions
 gen.freq.curves         Plot Randomly Generated Frequency Curves from a
@@ -252,6 +254,10 @@ pdfnor                  Probability Density Function of the Normal
                         Distribution
 pdfpe3                  Probability Density Function of the Pearson
                         Type III Distribution
+pdfrevgum               Probability Density Function of the Reverse
+                        Gumbel Distribution
+pdfwei                  Probability Density Function of the Weibull
+                        Distribution
 plmomco                 Cumulative Distribution Function of the
                         Distributions
 plotlmrdia              Plot L-moment Ratio Diagram
@@ -310,3 +316,6 @@ vec2par                 Convert a Vector of Parameters to a Parameter
 vec2pwm                 Convert a Vector of Probability-Weighted
                         Moments to a Probability-Weighted Moments
                         Object
+z.par2cdf               Cumulative Distribution Function of the
+                        Distributions
+z.par2qua               Quantile Function of the Distributions

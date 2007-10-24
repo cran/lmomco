@@ -6,7 +6,7 @@ function(para,nowarn=FALSE) {
     op <- options()
     GO <- TRUE
     if(nowarn == TRUE) options(warn=-1) 
-    if(ALPHA <= 0 | BETA <= 1) {
+    if(ALPHA <= 0 | BETA <= 0) {
       warning("Parameters are invalid")
       GO <- FALSE
     }

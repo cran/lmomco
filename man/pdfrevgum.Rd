@@ -1,18 +1,22 @@
-\name{cdfrevgum}
-\alias{cdfrevgum}
-\title{Cumulative Distribution Function of the Reverse Gumbel Distribution}
+\name{pdfrevgum}
+\alias{pdfrevgum}
+\title{Probability Density Function of the Reverse Gumbel Distribution}
 \description{
-This function computes the cumulative probability or nonexceedance probability
+This function computes the probability density
 of the Reverse Gumbel distribution given parameters (\eqn{\xi} and \eqn{\alpha}) of the distribution computed
-by \code{\link{parrevgum}}. The cumulative distribution function of the distribution is
+by \code{\link{parrevgum}}. The probability density function of the distribution is
 
-\deqn{F(x) = 1 - e^{-e^{\left(-\frac{(x-\xi)}{\alpha}\right)}} \mbox{,}}
+\deqn{f(x) = \alpha^{-1} [-e^{-e^{-y}}][-e^y] \mbox{,}}
 
-where \eqn{F(x)} is the nonexceedance probability for quantile \eqn{x},
-\eqn{\xi} is a location parameter, and \eqn{\alpha} is a scale parameter. Notice that the function has some sign differences and uses the complement of \eqn{F} compared to the cumulative distribution function of the Gumbel distribution in \code{\link{cdfgum}}.
+where
+
+\deqn{y = \frac{x - \xi}{\alpha} \mbox{,}}
+
+where \eqn{f(x)} is the probability density for quantile \eqn{x},
+\eqn{\xi} is a location parameter, and \eqn{\alpha} is a scale parameter. Notice that the function has some sign differences and uses the complement of \eqn{f} compared to the probability density function of the Gumbel distribution in \code{\link{pdfgum}}.
 }
 \usage{
-cdfrevgum(x, para)
+pdfrevgum(x, para)
 }
 \arguments{
   \item{x}{A real value.}
@@ -20,7 +24,7 @@ cdfrevgum(x, para)
 }
 
 \value{
-  Nonexceedance probability (\eqn{F}) for \eqn{x}.
+  Probability density (\eqn{f}) for \eqn{x}.
 }
 \references{
 Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
@@ -32,7 +36,7 @@ in Recent Advances in Life-Testing and Reliability, edited by N. Balakrishnan,
 chapter 29, CRC Press, Boca Raton, Fla., pp. 546--560.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{quarevgum}}, \code{\link{parrevgum}}}
+\seealso{\code{\link{cdfrevgum}}, \code{\link{quarevgum}}, \code{\link{parrevgum}}}
 \examples{
 # See p. 553 of Hosking (1995)
 # Data listed in Hosking (1995, table 29.3, p. 553)
@@ -57,5 +61,9 @@ PP <- pp(D) # plotting positions of the data
 D  <- sort(D)
 plot(D,PP)
 lines(D,cdfrevgum(D,rg.pars))
+# Now finally do the PDF
+F <- seq(0.01,0.99,by=.01)
+x <- quarevgum(F,rg.pars)
+plot(x,pdfrevgum(x,rg.pars),type='l')
 }
 \keyword{distribution}
