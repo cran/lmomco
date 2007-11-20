@@ -154,6 +154,8 @@ lmom.ub                 Unbiased Sample L-moments by Direct Sample
 lmom2par                Convert L-moments to the the Parameters of a
                         Distribution
 lmom2pwm                L-moments to Probability-Weighted Moments
+lmom2vec                Convert an L-moment object to a Vector of
+                        L-moments
 lmomTLgld               Trimmed L-moments (t=1) of the Generalized
                         Lambda Distribution
 lmomTLgpa               Trimmed L-moments of the Generalized Pareto
@@ -250,12 +252,16 @@ pdfgpa                  Probability Density Function of the Generalized
                         Pareto Distribution
 pdfgum                  Probability Density Function of the Gumbel
                         Distribution
+pdfkap                  Probability Density Function of the Kappa
+                        Distribution
 pdfnor                  Probability Density Function of the Normal
                         Distribution
 pdfpe3                  Probability Density Function of the Pearson
                         Type III Distribution
 pdfrevgum               Probability Density Function of the Reverse
                         Gumbel Distribution
+pdfwak                  Probability Density Function of the Wakeby
+                        Distribution
 pdfwei                  Probability Density Function of the Weibull
                         Distribution
 plmomco                 Cumulative Distribution Function of the
@@ -276,6 +282,8 @@ pwm2lmom                Probability-Weighted Moments to L-moments
 pwmRC                   Sample Probability-Weighted Moments for
                         Right-Tail Censoring
 qlmomco                 Quantile Function of the Distributions
+qua.ostat               Compute the Quantiles of the Distribution of an
+                        Order Statistic
 qua2ci                  Estimate Confidence Interval for a Single
                         Quantile of a Parent Distribution
 quacau                  Quantile Function of the Cauchy Distribution
@@ -316,6 +324,6 @@ vec2par                 Convert a Vector of Parameters to a Parameter
 vec2pwm                 Convert a Vector of Probability-Weighted
                         Moments to a Probability-Weighted Moments
                         Object
-z.par2cdf               Cumulative Distribution Function of the
+z.par2cdf               Cumulative Distribution Function of Blipped
                         Distributions
-z.par2qua               Quantile Function of the Distributions
+z.par2qua               Quantile Function of the Blipped Distributions

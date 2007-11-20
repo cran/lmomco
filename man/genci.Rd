@@ -56,8 +56,8 @@ verbose=FALSE, showpar=FALSE)
   # are strictly positive. So to prevent negative lower limits, use the 
   # lognormal distribution as the error model.
   CI  <- genci(GEV,n=20,nsim=15,edist='gno')
-  ymin <- log10(min(CI$lower))
-  ymax <- log10(max(CI$upper))
+  ymin <- log10(min(CI$lower[CI$lower > 0])) # > 0 to protect log10() call
+  ymax <- log10(max(CI$upper[CI$upper > 0])) #    .. ditto ..
   plot(qnorm(CI$nonexceed_prob),log10(CI$true),type='l',ylim=c(ymin,ymax),lwd=2)
   lines(qnorm(CI$nonexceed_prob),log10(CI$lower),col=2)
   lines(qnorm(CI$nonexceed_prob),log10(CI$upper),col=3)

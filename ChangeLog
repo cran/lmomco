@@ -267,3 +267,18 @@ Version 0.91--October 24, 2007
 9. BUG fix on are.pargam.valid(). Test did not permit Beta > 0, but mistakenly 
      tested for Beta > 1.
 10. BUG fix on are.parcau.valid(). Test did not check that Alpha > 0.
+
+
+Version 0.92--November 20, 2007
+1. Documentation tweaks.
+2. Added pdfkap() and pdfwak() following written communication with
+     J.R.M Hosking.
+3. Added qua.ostat() for computation of the quantile distribution of an
+     arbitrary order statistics given a sample size and parameters of a fitted
+     distribution.
+4. Added digits=4 and signif() functions for reduction in returned numbers from
+     the lmom.test.CCC() and lmom.diff() functions in response to comments
+     from an anonymous reviewer.
+5. Added lmom2vec() for conversion of L-moment object to a simple vector. This
+     function spawned from discussions with an L-moment user who did not use
+     the parameter list model of lmomco functions.

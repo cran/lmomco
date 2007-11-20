@@ -7,10 +7,11 @@ Generalized Extreme Value distribution and in turn computes the L-moments from t
 parameters.
 }
 \usage{
-lmom.test.gev(data)
+lmom.test.gev(data, digits=4)
 }
 \arguments{
   \item{data}{A vector of data.}
+  \item{digits}{Number of digits to pass internally to the \code{signif} function for rounding of results.}
 }
 \value{
   Comparison of the median of the distribution and reverse computation

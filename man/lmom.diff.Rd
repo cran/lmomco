@@ -11,23 +11,27 @@ The difference is computed as the L-moment from the distribution minus the
 L-moment of the data. The \code{\link{lmorph}} function is used internally to get the L-moment objects into the appropriate format.
 }
 \usage{
-lmom.diff(lmomparm, lmomdata,verbose=TRUE)
+lmom.diff(lmomparm, lmomdata, verbose=TRUE, digits=4)
 }
 \arguments{
   \item{lmomparm}{L-moments of a distribution such as from \code{par2lmom}}
   \item{lmomdata}{L-moments of the data such as from \code{lmom.ub}}
   \item{verbose}{Logical switch on verbosity of output.  Default is \code{TRUE}.}
+  \item{digits}{Number of digits to pass internally to the \code{signif} function for rounding of results.}
 }
 \value{
 
-\preformatted{[1] "THE FIVE DIFFERENCES BETWEEN L-MOMENTS OF DISTRIBUTION AND DATA"}
+\preformatted{"THE FIVE DIFFERENCES BETWEEN L-MOMENTS OF DISTRIBUTION AND DATA"}
 
-\preformatted{[1] "Mean  L2   TAU3   TAU4   TAU5"}
+\preformatted{  L1diff    L2diff  T3diff  T4diff  T5diff}
 
-\preformatted{[1] -5.529431e-18  0.000000e+00  0.000000e+00  3.243155e-02}
+\preformatted{1      0 -1.11e-16 -0.7345 -0.4005 -0.3942}
 
 where the five values are the differences between the theoretical L-moments of the fitted distribution and
 the sample L-moments of the data (theoretical minus sample) in the titled column. These values are also returned as part of an R \code{list}. If a \code{list} element has \code{numeric(0)} then likely one of the L-moments is \code{NULL} or \code{NA} for the distribution such as the results reported for the example involving the Generalized Logistic distribution (\code{glo}).
+
+A dataframe of the difference is the returned value.
+
 }
 \author{ W.H. Asquith}
 \seealso{ \code{\link{par2lmom}}, \code{\link{lmom2par}}, \code{\link{lmorph}}}

@@ -7,10 +7,11 @@ Generalized Normal distribution and in turn computes the L-moments from the fitt
 parameters.
 }
 \usage{
-lmom.test.gno(data)
+lmom.test.gno(data, digits=4)
 }
 \arguments{
   \item{data}{A vector of data.}
+  \item{digits}{Number of digits to pass internally to the \code{signif} function for rounding of results.}
 }
 \value{
   Comparison of the median of the distribution and reverse computation

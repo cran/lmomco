@@ -1,6 +1,6 @@
 \name{z.par2qua}
 \alias{z.par2qua}
-\title{Quantile Function of the Distributions}
+\title{Quantile Function of the Blipped Distributions}
 \description{
 This function acts as a front end or dispatcher to the distribution-specific quantile functions. 
 \deqn{F(x) = \begin{cases}

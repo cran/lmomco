@@ -1,6 +1,6 @@
 \name{z.par2cdf}
 \alias{z.par2cdf}
-\title{Cumulative Distribution Function of the Distributions}
+\title{Cumulative Distribution Function of Blipped Distributions}
 \description{
 This function acts as a front end of dispatcher to the distribution-specific cumulative
 distribution functions.

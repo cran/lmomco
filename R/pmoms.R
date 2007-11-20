@@ -17,17 +17,17 @@ function(x) {
 
   M3 <- sum((x-MU)^3) / n 
   classic.skew  <- M3 / M2^3 # theoretical definition of skew
-  unbiased.skew <- n^2*M3 / ((n-1)*(n-2)*SD^3) # correct for sample size bias
+  skew <- n^2*M3 / ((n-1)*(n-2)*SD^3) # correct for sample size bias
 
   M4 <- sum((x-MU)^4) / n 
   classic.kurt  <- M4 / M2^4 # theoretical definition of kurtosis
-  unbiased.kurt <- n^3*M4 / ((n-1)*(n-2)*(n-3)*SD^4) # correct for sample size bias
+  kurt <- n^3*M4 / ((n-1)*(n-2)*(n-3)*SD^4) # correct for sample size bias
 
   # the excess kurtosis term is seen in some software packages
   # including your typical spreadsheet software
   exc <- (3*(n-1)^2)/((n-2)*(n-1))
-  unbiased.kurt <- unbiased.kurt - exc
-  classic.kurt  <- classic.kurt  - exc
+  kurt <- kurt # - exc
+  classic.kurt  <- classic.kurt  # - exc
  
   # For the bias corrections above, I used
   # S.L. Dingman (1992) "Physical Hydrology", Appendix C.
@@ -40,7 +40,7 @@ function(x) {
   #tmp <- n^2 / ((n-2)*(n-3))
   #hosking.k <- (n+1)/(n-1) * M4 - 3*M2^4
   #hosking.k <- hosking.k * tmp
-  #hosking.k <- hosking.k/SD^4 # note that I don't have the addition of 3 like hosking as I want excess kurtosis
+  #hosking.k <- hosking.k/SD^4 + 3
   #cat(c("DEBUG: Hosking's k",hosking.k,"\n"))
 
   # Stedinger and others, "Handbook of Hydrology" (1992, p. 18.4)
@@ -48,17 +48,16 @@ function(x) {
   #cat(c("DEBUG: Stedinger and others:",HB.k,"\n"))
 
   z <- list(moments = c(MU,SD,M3,M4),
-            ratios  = c(NA,SD/MU,unbiased.skew,unbiased.kurt),
+            ratios  = c(NA,SD/MU,skew,kurt),
             sd            = SD,
             umvu.sd       = SD.prime,
-            unbiased.skew = unbiased.skew,
-            unbiased.kurt = unbiased.kurt,
+            skew          = skew,
+            kurt          = kurt,
             classic.sd    = M2,
             classic.skew  = classic.skew,
             classic.kurt  = classic.kurt,
-            message = c("The kurtosis values are excess kurtosis from the normal distribution, which has a kurtosis of 3.",
-                        "The 'classic' values should be slightly different (the bias).",
-                        "unbiased.sd is not truly unbiased; although, surprizingly unbiased.sd^2 (variance) is."),            
+            message = c("The 'classic' values should be slightly different (the bias).",
+                        "sd is not truly unbiased; although, surprizingly sd^2 (variance) is."),            
             source = "pmoms")
   return(z)
 }

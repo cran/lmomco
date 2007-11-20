@@ -15,15 +15,15 @@ pmoms(x)
 
   \item{moments}{Vector of the product moments. First element is the mean (\code{mean()}), second is standard deviation, and the higher values typically are not used, but the ratios[3] and ratios[4] are.}
   \item{ratios}{Vector of the product moment ratios. Second element is the coefficient of variation, ratios[3] is skew, and ratios[4] is excess kurtosis.}
-  \item{sd}{Nearly unbiased standard deviation [well at least unbiased variance (\code{unbiased.sd^2})] computed by \R \code{sd()}. }
+  \item{sd}{Nearly unbiased standard deviation [well at least unbiased variance \cr (\code{unbiased.sd^2})] computed by \R \code{sd()}. }
   \item{umvu.sd}{Uniformly-minimum variance unbiased estimator of standard deviation.}
-  \item{unbiased.skew}{Unbiased skew, same as ratios[3].}
-  \item{unbiased.kurtosis}{Unbiased excess kurtosis, same as ratios[4].}
+  \item{skew}{Nearly unbiased skew, same as ratios[3].}
+  \item{kurt}{Nearly nbiased excess kurtosis, same as ratios[4].}
   \item{classic.sd}{Classical (theoretical) definition of standard deviation.}
   \item{classic.skew}{Classical (theoretical) definition of skew.}
   \item{classic.kurtosis}{Classical (theoretical) definition of excess kurtosis}
   \item{message}{The product moments are confusing in terms of definition because they are not naturally unbiased. Your author thinks that it is informative to show the biased versions on the output from the \code{pmoms} function. Therefore, this \code{message} includes several clarifications of the output.}
-  \item{source}{An attribute identifying the computational source of the product moments: \dQuote{pmoms}.}
+  \item{source}{An attribute identifying the computational source (the function name) of the product moments: \dQuote{pmoms}.}
 }
 \note{
 This function is primarily available for gamesmanship playing with the Pearson Type III distribution as its parameterization in the \pkg{lmomco} package returns the product moments as the parameters. See the example below. Another reason for having this function is that it demonstrates application of unbiased product moments and permits comparisons to the L-moments.

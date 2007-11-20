@@ -77,6 +77,41 @@ product moment diagrams: Water Resources Research, vol. 29, no. 6, pp. 1745-1752
 \author{ W.H. Asquith}
 \seealso{\code{\link{lmrdia}}}
 \examples{
-# plotlmrdia(lmrdia())
+plotlmrdia(lmrdia())
+
+# A more complex example follows.
+
+# For a given mean, L-scale, L-skew and L-kurtosis, a sample size
+# of 30 and using 50 simulations, set the L-moments in lmr and fit
+# a Kappa distribution
+T3 <- 0.34; T4 <- 0.21; n <- 30; nsim <- 50;
+lmr <- vec2lmom(c(10000,7500,T3,T4)); kap <- parkap(lmr)
+
+# Next, create vectors for storage of simulated L-skew (t3)
+# and L-kurtosis (t4)
+t3 <- vector(mode = "numeric"); t4 <- t3;
+
+# Next, perform nsim simulations by randomly drawing from the Kappa
+# distribution and compute the L-moments in sim.lmr and store the
+# t3 and t4 values of each simulated sample.
+for(i in 1:nsim) {
+  sim.lmr <- lmoms(rlmomco(n,kap))
+  t3[i] <- sim.lmr$ratios[3]; t4[i] <- sim.lmr$ratios[4]
+}
+
+# Finally, plot the diagram with a legend at a specified location,
+# and "zoom" into the diagram by setting the axis limits.
+plotlmrdia(lmrdia(), autolegend=TRUE, xleg=0.1, yleg=.41,
+           xlim=c(-.1,.5), ylim=c(-.1,.4), nopoints=TRUE)
+
+
+# Follow up with plotting of the t3,t4 values and the mean of these.
+points(t3,t4)
+points(mean(t3),mean(t4),pch=16,cex=3)
+
+# A complete the example by plotting crossing dashed lines at the 
+# population values of L-skew and L-kurtosis
+lines(c(T3,T3),c(-1,1),col=8, lty=2)
+lines(c(-1,1),c(T4,T4),col=8, lty=2)
 }
 \keyword{distribution}

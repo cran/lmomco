@@ -5,7 +5,6 @@ function(lmom) {
   if((length(lmom$trim)     == 1 && lmom$trim     > 0 ) ||
      (length(lmom$leftrim)  == 1 && lmom$leftrim  > 0 ) ||
      (length(lmom$rightrim) == 1 && lmom$rightrim > 0 ) ) {
-    cat("HERE\n")
     stop("L-moment argument appears to contain non zero trimming. I can not morph to alternative L-moment object")
   }
 

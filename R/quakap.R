@@ -27,6 +27,7 @@ function(f,para) {
         }
         else {
           x[i] <- U+A/G
+          next
         }
         stop("f=1: should not be here in code execution.")
       }
@@ -36,6 +37,7 @@ function(f,para) {
         Y <- -log(Y)
         if(G != 0) Y <- (1-exp(-G*Y))/G
         x[i] <- U+A*Y
+        next
       }
     }
     return(x)
