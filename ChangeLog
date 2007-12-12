@@ -255,18 +255,18 @@ Version 0.91--October 24, 2007
 4. Added check.pdf(), which will be an important convenience function for
      testing the properties of the pdfCCC() functions and the cdfCCC()
      functions.
-5. BUG fix on parwei(). Function was unnecessarily querying fifth
+5. BUG FIX on parwei(). Function was unnecessarily querying fifth
      L-moment when the fifth L-moment is not needed. So one did not have five
      or more L-moments then parwei() would not work. This was unnecessarily 
      restrictive.
 6. Added z.par2cdf() and z.par2qua() to accommodate zero values or other in the
      building of ``blipped distributions'' to quote Gilchrist (2000, p. 148).
 7. Added umvu.sd to pmoms()---uniformly-minimum variance unbiased estimator.
-8. BUG fix on quacau(). Function did not return a vector if one of the F values
+8. BUG FIX on quacau(). Function did not return a vector if one of the F values
      happened to be equal to exactly 0.5.
-9. BUG fix on are.pargam.valid(). Test did not permit Beta > 0, but mistakenly 
+9. BUG FIX on are.pargam.valid(). Test did not permit Beta > 0, but mistakenly 
      tested for Beta > 1.
-10. BUG fix on are.parcau.valid(). Test did not check that Alpha > 0.
+10. BUG FIX on are.parcau.valid(). Test did not check that Alpha > 0.
 
 
 Version 0.92--November 20, 2007
@@ -282,3 +282,8 @@ Version 0.92--November 20, 2007
 5. Added lmom2vec() for conversion of L-moment object to a simple vector. This
      function spawned from discussions with an L-moment user who did not use
      the parameter list model of lmomco functions.
+
+Version 0.93--December 12, 2007
+1. BUG FIX: prob2T() and T2prob() error traps were not sufficiently vectorized.
+2. Documentation error fixed on equation for pdfcau().
+

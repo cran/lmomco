@@ -7,7 +7,7 @@ of the Cauchy distribution given parameters (\eqn{\xi} and \eqn{\alpha}) of the
 distribution provided by \code{\link{parcau}} or \code{\link{vec2par}}.  The probability density
 function of the distribution is
 
-\deqn{f(x) = \left(\pi \alpha [1 + \left({\frac{x-\xi}{\alpha}}^2\right)] \right)^{-1} \mbox{,}}
+\deqn{f(x) = \left(\pi \alpha [1 + \left({\frac{x-\xi}{\alpha}}\right)^2] \right)^{-1} \mbox{,}}
 
 where \eqn{f(x)} is the probability density for quantile \eqn{x},
 \eqn{\xi} is a location parameter and \eqn{\alpha} is a scale parameter.

@@ -7,9 +7,8 @@ function(x,para) {
     f <- vector(mode="numeric")
     for(i in seq(1,length(x))) {
       tmp <- (x[i] - U)/A
-      tmp <- pi*A*(1 + tmp^2)^(-1)
+      tmp <- (pi*A*(1 + tmp^2))^(-1)
       f[i] = tmp
     }
     return(f)
 }
-

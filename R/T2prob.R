@@ -1,6 +1,6 @@
 "T2prob" <-
 function(T) {
-    if(T < 1) {
+    if(any(T < 1)) {
       warning("Invalid return period")
       return(NULL)
     }

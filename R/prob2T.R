@@ -1,6 +1,6 @@
 "prob2T" <-
 function(F) {
-    if(F < 0 || F > 1) {
+    if(any(F < 0) || any(F > 1)) {
       warning("Invalid nonexceedance probability")
       return(NULL)
     }
