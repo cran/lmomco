@@ -14,7 +14,6 @@ for the function. The parameters are restricted to the following conditions.
 
 \deqn{\alpha > 0 \mbox{ and } \beta > 0}\mbox{.}}
 
-}
 \usage{
 are.pargam.valid(para,nowarn=FALSE)
 }

@@ -30,7 +30,7 @@ lmom.ub(x)
 The L-moment ratios (\eqn{\tau}, \eqn{\tau_3}, \eqn{\tau_4}, and \eqn{\tau_5})
 are the primary higher L-moments for application, such as for distribution parameter estimation.
 However, the actual L-moments (\eqn{\lambda_3}, \eqn{\lambda_4}, and \eqn{\lambda_5}) are also
-reported. This implementation of L-moment calculation requires a minimum of five data points.
+reported. This implementation of L-moment calculation requires a minimum of five data points. If you want to compute more or fewer L-moments, then see \code{\link{lmoms}}.
 }
 \value{
   An R \code{list} is returned.

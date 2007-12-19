@@ -6,6 +6,7 @@ Version 0.3---January 31, 2006 Initial Release
    Note that "CCC" in these notes generically reflects the abbreviation
    of supported distributions such as "gam" for the Gamma distribution.
 
+
 Version 0.4---February 28, 2006
 0. Numerous enhancements to the documentation.
 1. BUG FIX on fourth L-moment of Cauchy distribution in lmomcau().
@@ -15,6 +16,7 @@ Version 0.4---February 28, 2006
 5. Addition of lmomTLgld() [stable] and parTLgld() [experimental].
 6. Addition of lmomTLgpa() [stable] and parTLgpa() [stable].
 7. Addition of vec2TLmom().
+
 
 Version 0.5---March 12, 2006
 1. Total redesign of pargld() and parTLgld().
@@ -26,6 +28,7 @@ Version 0.5---March 12, 2006
 5. Internal functions to lmomkap() are now defined internal to the function.
 6. check.fs() added.
 7. Improvement to output of lmom.test.CCC() functions.
+
 
 Version 0.6---March 25, 2006
 0. Tweaks and corrections to documentation---learning more about LaTeX too.
@@ -43,12 +46,14 @@ Version 0.6---March 25, 2006
      cascading warning messages that the user would not care about can be 
      surpressed.
 
+
 Version 0.7---April 13, 2006
 1. Added full vectorization of the quaCCC() and cdfCCC() functions. Previously
      each function did not handle a vector of nonexceedance probability and 
      quantile values in each respective function.
 2. Added extract argument to the pargld() and parTLgld() functions.
 3. Incorporated endpoint or range checking on cdfgld().
+
 
 Version 0.75---April 30, 2006
 1. Added lmoms(), which in reality dispatches to TLmoms(), but provides a lower
@@ -58,6 +63,7 @@ Version 0.75---April 30, 2006
 4. Added the random deviate generator rlmomco() given sample size and 
      parameter object. 
 5. Added the plotting-position formula by pp().
+
 
 Version 0.76---May 11, 2006
 0a. Further progress on documentation following R-help feedback and my own
@@ -74,12 +80,14 @@ Version 0.76---May 11, 2006
      objects. The new function lmorph() is used for the object conversion.
 5. Added the dist.list() function for convenience.
 
+
 Version 0.77---May 15, 2006
 0. Pertaining to number 1, enhancement to documentation of the Lcomoment
      functions has been made.
 1. BUG FIX on a single conditional in Lcomoment.coefficients. Function was
      handling a first-order first argument, but crashing on order evaluation
      of the second argument.
+
      
 Version 0.80---June 20, 2006
 0. Further tweaks to the documentation.
@@ -88,6 +96,7 @@ Version 0.80---June 20, 2006
 3. BUG FIX on pargev(). The function was broken for TAU3 < -0.80. Bug caused
      during port from Hosking FORTRAN library. Bug was discovered during tests
      of parwei().
+
 
 Version 0.82--July 13, 2006
 0. Further tweaks to the documentation.
@@ -117,6 +126,7 @@ Version 0.82--July 13, 2006
      for a valid gamma was not being checked. This was because of an incomplete
      port of Hosking FORTRAN library.
 
+
 Version 0.83--April 10, 2007
 0. Further tweaks to documentation.
 1. Added callplot and showsample options to gen.freq.curves().
@@ -124,6 +134,7 @@ Version 0.83--April 10, 2007
      parallel built-in distribution functions of R itself.
 3. BUG FIX on examples in genci() that manifested as the April 2007
      release of R approached.
+
 
 Version 0.84--May 2, 2007
 1. BUG FIX on genci() related to overwriting the sample size by the length
@@ -139,6 +150,7 @@ Version 0.84--May 2, 2007
      before the completion sequence of the function is begun. This argument
      is used to control whether hideously "out-of-whack," which would 
      likely occur for heavy-tailed infinite limit upper tails. 
+
 
 Version 0.85--July 14, 2007
 1. Textual fixes to documentation of qua2ci() and warning message change
@@ -193,6 +205,7 @@ Version 0.85--July 14, 2007
 12. Modified lmom.diff() to accommodate both the named L-moment object style
      and the vector style through a dispatch to the lmorph() function.
 
+
 Version 0.86--July 23, 2007
 1. Added the pmoms() function, justified in part by revisions Pearson Type III.
 2. Cleaned up the documentation for the Pearson Type III to better reflect
@@ -204,6 +217,7 @@ Version 0.86--July 23, 2007
      an inquiry from R.R.P. van Nooyen in July 2007.
 3. BUG FIX on parpe3(). Condition of negative L-skew was not implemented
      correctly---fixed and rigorously tested using the pmoms() function.
+
 
 Version 0.87--August 1, 2007
 1. Added the xlab and ylab arguments to plotlmrdia(), which provide user 
@@ -219,6 +233,7 @@ Version 0.87--August 1, 2007
      care whether the tau4 is actually viable. Invalid L-moments can manifest
      with the Pearson Type III  when the sample size is small and the standard
      deviation and skew magnitude are large.
+
 
 Version 0.88--September 1, 2007
 1. Added the prob2T() and T2prob() functions for annual nonexceedance
@@ -274,7 +289,7 @@ Version 0.92--November 20, 2007
 2. Added pdfkap() and pdfwak() following written communication with
      J.R.M Hosking.
 3. Added qua.ostat() for computation of the quantile distribution of an
-     arbitrary order statistics given a sample size and parameters of a fitted
+     arbitrary order statistic given a sample size and parameters of a fitted
      distribution.
 4. Added digits=4 and signif() functions for reduction in returned numbers from
      the lmom.test.CCC() and lmom.diff() functions in response to comments
@@ -283,7 +298,14 @@ Version 0.92--November 20, 2007
      function spawned from discussions with an L-moment user who did not use
      the parameter list model of lmomco functions.
 
+
 Version 0.93--December 12, 2007
 1. BUG FIX: prob2T() and T2prob() error traps were not sufficiently vectorized.
 2. Documentation error fixed on equation for pdfcau().
+
+
+Version 0.93.2--December 19, 2007
+1. BUG FIX: lmom2pwm() did not properly trap conditions that should result in
+     the return of NULL. Thanks to Roberto Ugoccioni for discovery and for
+     providing a patch.
 

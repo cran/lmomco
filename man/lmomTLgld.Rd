@@ -87,7 +87,7 @@ Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions--The g
 CRC Press, Boca Raton, FL, 438 p.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{lmomgld}}, \code{\link{pargld}}, \code{\link{cdfgld}}, \code{\link{quagld}}} }
+\seealso{\code{\link{lmomgld}}, \code{\link{pargld}}, \code{\link{cdfgld}}, \code{\link{quagld}}}
 \examples{
 lmomgld(vec2par(c(10,10,0.4,1.3),type='gld'))
 }
