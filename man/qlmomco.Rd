@@ -17,7 +17,7 @@ qlmomco(f,para)
   Quantile value for \eqn{F} for the specified parameters.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{rlmomco}}, \code{\link{rlmomco}}
+\seealso{\code{\link{dlmomco}}, \code{\link{plmomco}}, \code{\link{rlmomco}}
 }
 \examples{
 para <- vec2par(c(0,1),type='nor') # standard normal parameters

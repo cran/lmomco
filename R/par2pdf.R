@@ -20,7 +20,7 @@ function(f,para,...) {
       return(pdfglo(f,para))
     }
     else if(type == 'gno') {
-      #return(pdfgno(f,para))
+      return(pdfgno(f,para))
     }
     else if(type == 'gpa') {
       return(pdfgpa(f,para))
@@ -29,10 +29,10 @@ function(f,para,...) {
       return(pdfgum(f,para))
     }
     else if(type == 'revgum') {
-      #return(pdfrevgum(f,para,...))
+      return(pdfrevgum(f,para,...))
     }
     else if(type == 'kap') {
-      #return(pdfkap(f,para))
+      return(pdfkap(f,para))
     }
     else if(type == 'nor') {
       return(pdfnor(f,para))
@@ -41,10 +41,10 @@ function(f,para,...) {
       return(pdfpe3(f,para))
     }
     else if(type == 'wak') {
-      #return(pdfwak(f,para))
+      return(pdfwak(f,para))
     }
     else if(type == 'wei') {
-      #return(pdfwei(f,para))
+      return(pdfwei(f,para))
     }
     else {
       stop("Did not find a valid distribution type")

@@ -2,7 +2,11 @@
 \alias{rlmomco}
 \title{Random Deviates of a Distribution}
 \description{
-This function generates random deviates for the specified distribution in the parameter object argument. See documentation about the parameter object is seen in \code{\link{lmom2par}} or \code{\link{vec2par}}. The prepended \code{r} in the function name is to parallel the built-in distribution syntax of R but of course reflects the \pkg{lmomco} name in the function.
+This function generates random deviates for the specified distribution in the
+parameter object argument. See documentation about the parameter object is
+seen in \code{\link{lmom2par}} or \code{\link{vec2par}}. The prepended
+\code{r} in the function name is to parallel the built-in distribution
+syntax of R but of course reflects the \pkg{lmomco} name in the function.
 }
 \usage{
 rlmomco(n,para)
@@ -15,7 +19,8 @@ rlmomco(n,para)
   Vector of quantile values.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{lmom2par}}, \code{\link{vec2par}}}
+\seealso{\code{\link{dlmomco}}, \code{\link{plmomco}}, \code{\link{qlmomco}},
+\code{\link{lmom2par}}, \code{\link{vec2par}}}
 \examples{
 lmr      <- lmom.ub(rnorm(20)) # generate 20 standard normal deviates
 para     <- parnor(lmr) # estimate parameters of the normal

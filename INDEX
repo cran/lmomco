@@ -83,6 +83,8 @@ check.fs                Check Vector of Nonexceedance Probabilities
 check.pdf               Check and Potentially Graph Probability Density
                         Functions
 dist.list               List of Distribution Names
+dlmomco                 Probability Density Function of the
+                        Distributions
 freq.curve.all          Compute Frequency Curve for All Distributions
 gen.freq.curves         Plot Randomly Generated Frequency Curves from a
                         Parent Distribution
@@ -315,6 +317,8 @@ theoLmoms               The Theoretical L-moments and L-moment Ratios
 theoTLmoms              The Theoretical Trimmed L-moments and TL-moment
                         Ratios using Integration of the Quantile
                         Function
+theopwms                The Theoretical Probability-Weighted Moments
+                        using Integration of the Quantile Function
 vec2TLmom               Convert a Vector of TL-moments to a TL-moment
                         Object
 vec2lmom                Convert a Vector of L-moments to a L-moment
