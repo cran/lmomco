@@ -29,7 +29,7 @@ function(f,para,...) {
       return(quagum(f,para))
     }
     else if(type == 'revgum') {
-      return(quarevgum(f,para,...))
+      return(quarevgum(f,para))
     }
     else if(type == 'kap') {
       return(quakap(f,para))

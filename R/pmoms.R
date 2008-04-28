@@ -10,7 +10,8 @@ function(x) {
   MU <- mean(x)
   SD <- sd(x) # returns with the proper n - 1
               # division for bias correction of variance
-  SD.prime <- gamma((n-1)/2) / (sqrt(2)*gamma(n/2))
+  my.term  <- exp(lgamma((n-1)/2) - lgamma(n/2)) # this construct--avoid overflow
+  SD.prime <- my.term / sqrt(2)
   SD.prime <- SD.prime * sqrt(sum((x - MU)^2))
 
   M2 <- sqrt(sum((x-MU)^2) / n) # theoretical definition of standard deviation 

@@ -14,7 +14,12 @@ function(x,para) {
 
   f <- vector(mode="numeric")
 
-  if(GAMMA == 0) { # distribution is normal
+  ALPHA <- 4/GAMMA^2
+  options(warn = -1)
+  tmp <- gamma(ALPHA)
+  options(warn = 0)
+
+  if(GAMMA == 0 | tmp == Inf) { # distribution is normal
     for(i in seq(1,length(x))) {
       f[i] = dnorm((x[i] - MU)/SIGMA)
     }
@@ -24,11 +29,9 @@ function(x,para) {
   # GAMMA != 0, distribution is nonnormal
 
   # Letting
-  ALPHA <- 4/GAMMA^2
   BETA  <- 0.5*SIGMA*abs(GAMMA)
   XI    <- MU - 2*SIGMA/GAMMA
   
-  tmp <- gamma(ALPHA)
   if(GAMMA > 0) {
     for(i in seq(1,length(x))) {
       Y <- x[i] - XI

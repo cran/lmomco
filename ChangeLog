@@ -309,7 +309,25 @@ Version 0.93.2--December 19, 2007
      the return of NULL. Thanks to Roberto Ugoccioni for discovery and for
      providing a patch.
 
+
 Version 0.93.3--February 2, 2008
 1. Added dlmomco() to complete the quartet of R-like named distribution
      accessing functions: dlmomco(), plmomco(), qlmomco(), rlmomco().
 2. BUG FIX: are.pargpa.valid() mistakenly did not trip failure for K == -1.
+
+
+Version 0.93.4--April 28, 2008
+1. parrevgum() and lmomrevgum() had a str() on the L-moments and produced
+     output---left over from original development.
+2. BUG FIX: par2qua, par2cdf, and par2pdf did not properly dispatch for the
+     reverse Gumbel distribution. Fixed.
+3. Added the pwm2vec() function because there was an lmom2vec() already.
+4. BUG FIX: Small near zero gamma parameter for pdfpe3() was triggering an
+     Inf error on the gamma() function. This is now trapped and the Normal
+     distribution being used as required.
+5. Added prettydist() to produce full distribution names from the abbrev-
+     iations, such as returned by dist.list().
+6. Added clearforkporosity.R data set.
+7. BUG FIX: For the UMVE of standard deviation by pmoms() the ratio of two
+     gamma() functions blows up for large sample sizes. Therefore, computations
+     are now performed in log-space.

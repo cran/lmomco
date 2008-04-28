@@ -38,8 +38,8 @@ function(para) {
       z1 <- Ei(-log(zc))
       z2 <- Ei(-2*log(zc))
     }
-    str(z1)
-    str(z2)
+    #str(z1)
+    #str(z2)
 
     z$L1 <- xi - alpha*euler - alpha*z1$value
     z$L2 <- alpha * ( log(2) + z2$value - z1$value )

@@ -21,7 +21,8 @@ function(lmom,zeta=1,checklmom=TRUE) {
      warning("B-type L-moments are invalid")
      return()
    }
-   str(lmom)
+   
+
    zc <- 1 - zeta
 
    z1 <- list(value = 0)

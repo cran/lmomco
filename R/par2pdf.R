@@ -29,7 +29,7 @@ function(f,para,...) {
       return(pdfgum(f,para))
     }
     else if(type == 'revgum') {
-      return(pdfrevgum(f,para,...))
+      return(pdfrevgum(f,para))
     }
     else if(type == 'kap') {
       return(pdfkap(f,para))

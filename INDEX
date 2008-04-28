@@ -82,6 +82,7 @@ cdfwei                  Cumulative Distribution Function of the Weibull
 check.fs                Check Vector of Nonexceedance Probabilities
 check.pdf               Check and Potentially Graph Probability Density
                         Functions
+clearforkporosity       Porosity Data
 dist.list               List of Distribution Names
 dlmomco                 Probability Density Function of the
                         Distributions
@@ -272,6 +273,7 @@ plotlmrdia              Plot L-moment Ratio Diagram
 pmoms                   The Sample Product Moments: Mean, Standard
                         Deviation, Skew, and Excess Kurtosis
 pp                      Plotting-Position Formula
+prettydist              A Pretty List of Distribution Names
 prob2T                  Convert a Vector of Annual Nonexceedance
                         Probabilities to T-year Return Periods
 pwm                     Unbiased Sample Probability-Weighted Moments
@@ -281,6 +283,8 @@ pwm.pp                  Plotting-Position Sample Probability-Weighted
                         Moments
 pwm.ub                  Unbiased Sample Probability-Weighted Moments
 pwm2lmom                Probability-Weighted Moments to L-moments
+pwm2vec                 Convert Probability-Weighted Moment object to a
+                        Vector of Probability-Weighted Moments
 pwmRC                   Sample Probability-Weighted Moments for
                         Right-Tail Censoring
 qlmomco                 Quantile Function of the Distributions
