@@ -52,5 +52,8 @@ chapter 29, CRC Press, Boca Raton, Fla., pp. 546--560.
 \author{ W.H. Asquith}
 \seealso{\code{\link{parrevgum}}, \code{\link{quarevgum}}, \code{\link{cdfrevgum}} }
 \examples{
+lmr <- lmom.ub(c(123,34,4,654,37,78))
+rev.para <- lmom2par(lmr,type='revgum')
+lmomrevgum(rev.para)
 }
 \keyword{distribution}

@@ -1,5 +1,6 @@
 "harmonic.mean" <-
 function(x) {
+  x <- x[! is.na(x)]
   n <- length(x)
   x.nonzero <- x[x != 0]
   n.zero <- n - length(x.nonzero)

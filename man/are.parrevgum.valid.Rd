@@ -23,6 +23,9 @@ are.parrevgum.valid(para,nowarn=FALSE)
   \item{FALSE}{If the parameters are not \code{revgum} consistent.}
 }
 \references{
+Hosking, J.R.M., 1995, The use of L-moments in the analysis of censored data,
+in Recent Advances in Life-Testing and Reliability, edited by N. Balakrishnan,
+chapter 29, CRC Press, Boca Raton, Fla., pp. 546--560.
 }
 \note{
 This function calls \code{is.revgum} to verify consistency between 

@@ -15,7 +15,7 @@ Compute the harmonic mean of a vector with a zero-value correction.
 harmonic.mean(x)
 }
 \arguments{
-  \item{x}{A vector of data values.}
+  \item{x}{A vector of data values that will be reduced to non-missing values.}
 }
 \value{
   An R \code{list} is returned.

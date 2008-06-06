@@ -91,6 +91,7 @@ gen.freq.curves         Plot Randomly Generated Frequency Curves from a
                         Parent Distribution
 genci                   Generate Confidence Intervals for Quantiles of
                         a Parent Distribution
+gini.mean.diff          Gini Mean Difference Statistic
 harmonic.mean           The Harmonic Mean with Zero-Value Correction
 is.cau                  Is a Distribution Parameter Object Typed as
                         Cauchy
@@ -316,6 +317,7 @@ quarevgum               Quantile Function of the Reverse Gumbel
 quawak                  Quantile Function of the Wakeby Distribution
 quawei                  Quantile Function of the Weibull Distribution
 rlmomco                 Random Deviates of a Distribution
+sen.mean                Sen's Weighted Mean Statistic
 theoLmoms               The Theoretical L-moments and L-moment Ratios
                         using Integration of the Quantile Function
 theoTLmoms              The Theoretical Trimmed L-moments and TL-moment

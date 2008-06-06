@@ -34,7 +34,7 @@ pargpaRC(lmom,zeta=1,lower=-1,upper=20,checklmom=TRUE)
   \item{optim}{The \code{list} returned by the \code{optimize} function.}
 }
 \details{
-The \code{optimize} function is used to numerically solve for the shape parameter \eqn{\kappa}. No test or evaluation is made on the quality of the minimization. Users should concults the contents of the \code{optim} portion of the returned list. Finally, this function should return the same parameters if \eqn{\zeta=1} as the \code{\link{pargpa}} function.
+The \code{optimize} function is used to numerically solve for the shape parameter \eqn{\kappa}. No test or evaluation is made on the quality of the minimization. Users should consult the contents of the \code{optim} portion of the returned list. Finally, this function should return the same parameters if \eqn{\zeta=1} as the \code{\link{pargpa}} function.
 }
 \references{
 Hosking, J.R.M., 1990, L-moments---Analysis and estimation of

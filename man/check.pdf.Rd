@@ -27,8 +27,6 @@ An R list structure is returned
   \item{F}{The numerical integration of the probability density function from \code{lowerF} to \code{upperF}.}
 }
 \author{ W.H. Asquith}
-\seealso{
-}
 \examples{
 lmr <- vec2lmom(c(100,40,0.1)) # Arbitrary L-moments
 gev <- pargev(lmr) # parameters of Generalized Extreme Value distribution

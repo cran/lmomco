@@ -331,3 +331,14 @@ Version 0.93.4--April 28, 2008
 7. BUG FIX: For the UMVE of standard deviation by pmoms() the ratio of two
      gamma() functions blows up for large sample sizes. Therefore, computations
      are now performed in log-space.
+
+
+Version 0.94--June 6, 2008
+0. Documentation tweaks to remove or populated empty sections of check.pdf.Rd,
+     are.parrevgum.valid.Rd, and lmomrevgum.Rd.
+1. Added gini.mean.diff().
+2. Added sen.mean().
+3. Harmonic.mean() now strips is.na() values in similar fashion as
+     gini.mean.diff() and sen.mean(). In time such operations are expected in
+     other functions. Several users have commented on original lack of 
+     x <- x[! is.na(x)] filtering in other functions.
