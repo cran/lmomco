@@ -2,6 +2,7 @@
 function(lmom,zeta=1,lower=-1,upper=20,checklmom=TRUE) {
 
     para <- vector(mode="numeric", length=3)
+    names(para) <- c("xi","alpha","kappa")
 
     if(length(lmom$source) == 1 && lmom$source == "TLmoms") {
       if(lmom$trim != 0) {
@@ -41,8 +42,11 @@ function(lmom,zeta=1,lower=-1,upper=20,checklmom=TRUE) {
     mr2 <- mr(2,zeta,K)
     A <- L2/(mr1 - mr2)
     X <- L1 - A*mr1
+    para[1] <- X
+    para[2] <- A
+    para[3] <- K
     z <- list(type="gpa",
-              para=c(X,A,K),
+              para=para,
               zeta=zeta,
               source="pargpaRC",
               optim=optim)

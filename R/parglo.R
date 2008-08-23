@@ -3,7 +3,7 @@ function(lmom,checklmom=TRUE) {
     SMALL <- 1e-6 
     # Estimate kappa of distribution
     para <- vector(mode="numeric", length=3)
-
+    names(para) <- c("xi","alpha","kappa")
     if(length(lmom$L1) == 0) { # convert to named L-moments
       lmom <- lmorph(lmom)     # nondestructive conversion!
     }

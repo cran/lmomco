@@ -1,6 +1,7 @@
 "pargev" <-
 function(lmom,checklmom=TRUE) {
     para <- vector(mode="numeric", length=3)
+    names(para) <- c("xi","alpha","kappa")
     #  METHOD: FOR  -0.8 LE TAU3 LT 1,  K IS APPROXIMATED BY RATIONAL
     #  FUNCTIONS AS IN DONALDSON (1996, COMMUN. STATIST. SIMUL. COMPUT.).
     #  IF TAU3 IS OUTSIDE THIS RANGE, NEWTON-RAPHSON ITERATION IS USED.

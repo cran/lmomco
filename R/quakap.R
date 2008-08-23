@@ -15,15 +15,13 @@ function(f,para) {
         if(H >  0 & G != 0) { x[i] <- U+A/G*(1-H^-G); next }
         if(H >  0 & G == 0) { x[i] <- U+A*log(H); next }
         if(H <= 0 & G >= 0) {
-          warning("argument to function invalid.")
-          return()
+          x[i] <- -Inf
         }
         stop("f is fine: should not be here in code execution.")
       }
       else  if(f[i] == 1) {
         if(G <= 0) {
-          warning("argument of function is invalid")
-          return()
+          x[i] <- Inf
         }
         else {
           x[i] <- U+A/G

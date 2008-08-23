@@ -1,6 +1,7 @@
 "parpe3" <-
 function(lmom,checklmom=TRUE) {
     para <- vector(mode="numeric", length=3)
+    names(para) <- c("mu","sigma","gamma")
 
     # METHOD: RATIONAL APPROXIMATION IS USED TO EXPRESS ALPHA, THE SHAPE
     # PARAMETER OF THE GAMMA DISTRIBUTION, AS A FUNCTION OF TAU-3.

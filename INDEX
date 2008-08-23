@@ -4,6 +4,9 @@ Apwm2BpwmRC             Conversion between A- and B-Type
 Bpwm2ApwmRC             Conversion between B- and A-Type
                         Probability-Weighted Moments for Right-Tail
                         Censoring of An Appropriate Distribution
+DrillBitLifetime        Lifetime of Drill Bits
+IRSrefunds.by.state     U.S.~Internal Revenue Service Refunds by State
+                        for Fiscal Year 2006
 Lcomoment.Lk12          Compute a Single Sample L-comoment
 Lcomoment.Wk            Weighting Coefficient for Sample L-comoment
 Lcomoment.coefficients
@@ -16,6 +19,26 @@ T2prob                  Convert a Vector of T-year Return Periods to
 TLmom                   A Sample Trimmed L-moment
 TLmoms                  The Sample Trimmed L-moments and L-moment
                         Ratios
+USGSsta01515000peaks    Annual Peak Streamflow Data for U.S.~Geological
+                        Survey Streamflow-Gaging Station 01515000
+USGSsta02366500peaks    Annual Peak Streamflow Data for U.S.~Geological
+                        Survey Streamflow-Gaging Station 02366500
+USGSsta05405000peaks    Annual Peak Streamflow Data for U.S.~Geological
+                        Survey Streamflow-Gaging Station 05405000
+USGSsta06766000dvs      Daily Mean Streamflow Data for U.S.~Geological
+                        Survey Streamflow-Gaging Station 06766000
+USGSsta08151500peaks    Annual Peak Streamflow Data for U.S.~Geological
+                        Survey Streamflow-Gaging Station 08151500
+USGSsta08167000peaks    Annual Peak Streamflow Data for U.S.~Geological
+                        Survey Streamflow-Gaging Station 08167000
+USGSsta08190000peaks    Annual Peak Streamflow Data for U.S.~Geological
+                        Survey Streamflow-Gaging Station 08190000
+USGSsta09442000peaks    Annual Peak Streamflow Data for U.S.~Geological
+                        Survey Streamflow-Gaging Station 09442000
+USGSsta14321000peaks    Annual Peak Streamflow Data for U.S.~Geological
+                        Survey Streamflow-Gaging Station 14321000
+amarilloprecip          Annual Maximum Precipitation Data for Amarillo,
+                        Texas
 are.lmom.valid          Are the L-moments valid
 are.par.valid           Are the Distribution Parameters Consistent with
                         the Distribution
@@ -49,6 +72,8 @@ are.parwak.valid        Are the Distribution Parameters Consistent with
                         the Wakeby Distribution
 are.parwei.valid        Are the Distribution Parameters Consistent with
                         the Weibull Distribution
+canyonprecip            Annual Maximum Precipitation Data for Canyon,
+                        Texas
 cdfcau                  Cumulative Distribution Function of the Cauchy
                         Distribution
 cdfexp                  Cumulative Distribution Function of the
@@ -82,6 +107,8 @@ cdfwei                  Cumulative Distribution Function of the Weibull
 check.fs                Check Vector of Nonexceedance Probabilities
 check.pdf               Check and Potentially Graph Probability Density
                         Functions
+claudeprecip            Annual Maximum Precipitation Data for Claude,
+                        Texas
 clearforkporosity       Porosity Data
 dist.list               List of Distribution Names
 dlmomco                 Probability Density Function of the
@@ -93,6 +120,8 @@ genci                   Generate Confidence Intervals for Quantiles of
                         a Parent Distribution
 gini.mean.diff          Gini Mean Difference Statistic
 harmonic.mean           The Harmonic Mean with Zero-Value Correction
+herefordprecip          Annual Maximum Precipitation Data for Hereford,
+                        Texas
 is.cau                  Is a Distribution Parameter Object Typed as
                         Cauchy
 is.exp                  Is a Distribution Parameter Object Typed as
@@ -325,6 +354,10 @@ theoTLmoms              The Theoretical Trimmed L-moments and TL-moment
                         Function
 theopwms                The Theoretical Probability-Weighted Moments
                         using Integration of the Quantile Function
+tulia6Eprecip           Annual Maximum Precipitation Data for Tulia 6E,
+                        Texas
+tuliaprecip             Annual Maximum Precipitation Data for Tulia,
+                        Texas
 vec2TLmom               Convert a Vector of TL-moments to a TL-moment
                         Object
 vec2lmom                Convert a Vector of L-moments to a L-moment
@@ -334,6 +367,8 @@ vec2par                 Convert a Vector of Parameters to a Parameter
 vec2pwm                 Convert a Vector of Probability-Weighted
                         Moments to a Probability-Weighted Moments
                         Object
+vegaprecip              Annual Maximum Precipitation Data for Vega,
+                        Texas
 z.par2cdf               Cumulative Distribution Function of Blipped
                         Distributions
 z.par2qua               Quantile Function of the Blipped Distributions

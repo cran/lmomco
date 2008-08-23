@@ -1,6 +1,7 @@
 "parcau" <-
 function(lmom) {
    para <- vector(mode="numeric", length=2)
+   names(para) <- c("xi","alpha")
    if(length(lmom$source) == 1 && lmom$source != "TLmoms" ) {
      warning("TL-moments with trim=1 are required--can not complete parameter estimation")
      return()    

@@ -6,7 +6,7 @@ function(x,k=0) {
     stop("invalid k parameter: k < 0 or k >= (n-1)/2")
   }
   if(trunc(k) != k) {
-    stop("invalid k parameter: K is not integer")
+    stop("invalid k parameter: k is not integer")
   }
   sen <- sum(choose(0:(n-1),k) *
              choose((n-1):0,k) * x ) /

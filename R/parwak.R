@@ -23,6 +23,7 @@ function(lmom,checklmom=TRUE) {
 # Hosking's GOTO 20 in the Wakeby Parameter Estimation
 wak.gpa_instead <- function(ALAM1,ALAM2,T3) {
     para <- vector(mode="numeric", length=5)
+    names(para) <- c("xi","alpha","beta","gamma","delta")
     #
     #         CAN'T FIND VALID ESTIMATES EVEN WITH XI=0 -
     #         FIT GENERALIZED PARETO DISTRIBUTION INSTEAD
@@ -58,6 +59,7 @@ wak.gpa_instead <- function(ALAM1,ALAM2,T3) {
 
 
     para <- vector(mode="numeric", length=5)
+    names(para) <- c("xi","alpha","beta","gamma","delta")
 
 
     if(length(lmom$L1) == 0) { # convert to named L-moments

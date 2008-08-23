@@ -6,6 +6,7 @@ function(lmom) {
     }  
 
    para <- vector(mode="numeric", length=3)
+   names(para) <- c("xi","alpha","kappa")
 
    L1 <- lmom$lambdas[1]
    L2 <- lmom$lambdas[2]

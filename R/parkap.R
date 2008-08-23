@@ -1,6 +1,7 @@
 "parkap" <-
 function(lmom,checklmom=TRUE) {
     para <- vector(mode="numeric", length=4)
+    names(para) <- c("xi","alpha","kappa","h")
     #  IFAIL  *OUTPUT* FAIL FLAG. ON EXIT, IT IS SET AS FOLLOWS.
     #                  0  SUCCESSFUL EXIT
     #                  1  L-MOMENTS INVALID

@@ -2,6 +2,7 @@
 function(lmom,checklmom=TRUE) {
    euler <- 0.577215664901532861
    para <- vector(mode="numeric", length=2)
+   names(para) <- c("xi","alpha")
    if(length(lmom$L1) == 0) { # convert to named L-moments
      lmom <- lmorph(lmom)     # nondestructive conversion!
    }

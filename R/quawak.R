@@ -20,6 +20,7 @@ function(f,wakpara) {
       if(f[i] == 1) {
         if(D < 0) { x[i] <- XI+A/B-C/D; next }
         if(D == 0 & C == 0 & B > 0) { x[i] <- XI+A/B; next }
+        if(D < 0 | B == 0) { x[i] <- Inf }
         warning("argument of function is invalid")
         return()
       }

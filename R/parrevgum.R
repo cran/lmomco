@@ -13,6 +13,7 @@ function(lmom,zeta=1,checklmom=TRUE) {
 
 
    para <- vector(mode="numeric", length=2)
+   names(para) <- c("xi","alpha")
 
    if(length(lmom$L1) == 1) { # convert to unnamed L-moments
      lmom <- lmorph(lmom)     # nondestructive conversion!

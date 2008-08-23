@@ -258,6 +258,7 @@ function(lmom,result='best',verbose=FALSE,extract=0,initkh=NULL) {
    
    # Preparing final best guess . . .
    para <- vector(mode="numeric", length=4)
+   names(para) <- c("xi","alpha","kappa","h")
    para[1]  <- EACH$x[1]
    para[2]  <- EACH$a[1]
    para[3]  <- EACH$k[1]

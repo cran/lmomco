@@ -6,6 +6,7 @@ function(lmom,zeta=1,checklmom=TRUE) {
     if(zeta < 1) return(pargpaRC(lmom,zeta=zeta))
 
     para <- vector(mode="numeric", length=3)
+    names(para) <- c("xi","alpha","kappa")
 
     if(length(lmom$source) == 1 && lmom$source == "TLmoms") {
       if(lmom$trim != 0) {

@@ -342,3 +342,21 @@ Version 0.94--June 6, 2008
      gini.mean.diff() and sen.mean(). In time such operations are expected in
      other functions. Several users have commented on original lack of 
      x <- x[! is.na(x)] filtering in other functions.
+
+
+Version 0.95--August 23, 2008
+1. Warning message tweak (capitalization) in sen.mean().
+2. Added names() to the parameters in the $para field of the parameter list
+     returned by the parXXX() functions. These names parallel the Greek
+     letters used in the formal mathematical definitions of the distributions
+     in the package documentation and any additional write ups that your
+     humble author might make. The idea was stolen from the evir package
+     that provides maximum likelihood estimation for the GEV distribution.
+     Your author admits that these names should have been added long ago.
+3. Added names() to the parameters in the $para field of the parameter list
+     returned by the vec2par() function.
+4. quakap() and quawak() now return Inf (or -Inf) for appropriate limits as
+     dictated by the values of the arguments.
+5. Typo fixed in z.par2qua.Rd.
+6. Formally added the data subdirectory and a suite of data files suitable
+     for various exercises with lmomco.

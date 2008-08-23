@@ -13,7 +13,7 @@ z.par2qua(f,p,para,z=0,...)
 }
 \arguments{
   \item{f}{Nonexceedance probability (\eqn{0 \le F \le 1}).}
-  \item{p}{Nonexceedance robability of \code{z} value.}
+  \item{p}{Nonexceedance probability of \code{z} value.}
   \item{para}{The parameters from \code{\link{lmom2par}} or similar.}
   \item{z}{Threshold value.}
   \item{...}{The additional arguments are passed to the quantile function such as \code{paracheck = FALSE} for the Generalized Lambda distribution (\code{\link{quagld}}).}
