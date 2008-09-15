@@ -13,6 +13,8 @@ function(para) {
              )
 
     if(! are.pargpa.valid(para)) return()
+    attributes(para$para) <- NULL
+
     XI <- para$para[1] 
     A  <- para$para[2] 
     K  <- para$para[3] 

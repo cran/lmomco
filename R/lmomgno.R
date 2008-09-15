@@ -38,6 +38,7 @@ function(para) {
     MAXIT <- 10
 
     if(! are.pargno.valid(para)) return()
+    attributes(para$para) <- NULL
 
     U <- para$para[1]
     A <- para$para[2]

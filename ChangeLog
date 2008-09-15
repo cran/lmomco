@@ -360,3 +360,18 @@ Version 0.95--August 23, 2008
 5. Typo fixed in z.par2qua.Rd.
 6. Formally added the data subdirectory and a suite of data files suitable
      for various exercises with lmomco.
+
+
+Version  0.96--September 15, 2008
+1. Added support for known xi in parameter estimation in pargpa() and
+     pargpaRC().
+2. BUG FIX: cdfgam() was not properly vectorized.
+3. Added the Rayleigh distribution as abbreviation "ray".
+4. Added the attributes() function to strip parameters names from the
+     parameter vector within ALL the lmomXXX() functions. Unsightly,
+     L-moments were otherwise being returned.
+5. The example in is.revgum() did not actually call the function--does now.
+6. Added the quiet argument to genci().
+7. Added lcomoms2() to make it much easier to access bundles of
+     sample L-comoments values. Output of---that is, return of---the
+     matrices or diagonals can be specified.

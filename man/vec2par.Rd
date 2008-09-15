@@ -4,7 +4,7 @@
 \description{
 This function converts a vector of parameters to a parameter object of a distribution. The type of distribution is specified in the 
 argument list: \code{cau}, \code{exp}, \code{gam}, \code{gev}, \code{glo}, \code{gno}, \code{gpa},
-\code{gum}, \code{kap}, \code{nor}, \code{pe3}, \code{revgum}, \code{wak}, and \code{wei}.
+\code{gum}, \code{kap}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{wak}, and \code{wei}.
 }
 \usage{
 vec2par(vec, type, nowarn=FALSE, ...)

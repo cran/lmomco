@@ -31,6 +31,7 @@ function(para) {
     H1 <- 0.90551443e+01; H2 <- 0.26649995e+02; H3 <- 0.26193668e+02
  
     if(! are.pargam.valid(para)) return()
+    attributes(para$para) <- NULL
 
     ALPHA <- para$para[1] 
     BETA  <- para$para[2]

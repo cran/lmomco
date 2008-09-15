@@ -4,6 +4,7 @@ function(para) {
     R <- seq(1,4)
 
     if(! are.pargpa.valid(para)) return()
+    attributes(para$para) <- NULL
 
     XI <- para$para[1] 
     A  <- para$para[2]

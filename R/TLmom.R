@@ -45,7 +45,9 @@ function(x,order=1,trim=NULL,leftrim=NULL,rightrim=NULL,sortdata=TRUE) {
     wk <- 0
     for(k in seq(0,r-1)) {
       # FIX t TERMS ON THE CHOOSE
-      term <- (-1)^k * choose(r-1,k) * choose(i-1,r+t1-1-k) * choose(n-i,t2+k)
+      term <- (-1)^k * choose(r-1,k) *
+                       choose(i-1,r+t1-1-k) *
+                       choose(n-i,t2+k)
       wk <- wk + term
     }
     wk <- wk / choose(n,r+t1+t2)
@@ -53,7 +55,8 @@ function(x,order=1,trim=NULL,leftrim=NULL,rightrim=NULL,sortdata=TRUE) {
   }
   lambda <- lambda/r
 
-  z <- list(lambda = lambda, order = r, trim = trim, leftrim = t1, rightrim = t2)
+  z <- list(lambda = lambda, order = r,
+            trim = trim, leftrim = t1, rightrim = t2)
   return(z)
 }
 

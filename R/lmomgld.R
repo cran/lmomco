@@ -13,6 +13,7 @@ function(gldpara) {
              )
 
     if(! are.pargld.valid(gldpara)) return()
+    attributes(gldpara$para) <- NULL
 
     L1  <- gldpara$para[1]
     L2  <- gldpara$para[2]

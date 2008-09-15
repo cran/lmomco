@@ -58,9 +58,12 @@ function() {
    nor[1,] <- c(0,30*pi^-1*atan(sqrt(2))-9)
    uni <- matrix(nrow = 1, ncol = 2)
    uni[1,] <- c(0,0)
+   ray <- matrix(nrow = 1, ncol = 2)
+   ray[1,] <- c(0.1139671, 0.1053695)
+
    z <- list(limits = lim, exp=exp, gev = gev, glo = glo,
              gpa=gpa, gum=gum, gno=ln, nor=nor,
-             pe3=pIII, uniform=uni)
+             pe3=pIII, uniform=uni, ray=ray)
    return(z)
 }
 

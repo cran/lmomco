@@ -1,4 +1,4 @@
-"lmomexp" <-
+"lmomray" <-
 function(para) {
     z <- list(L1   = NULL,
               L2   = NULL,
@@ -9,21 +9,24 @@ function(para) {
               L3   = NULL,
               L4   = NULL,
               L5   = NULL,
-              source = "lmomexp"
+              source = "lmomray"
              )
-    if(! are.parexp.valid(para)) return()
     attributes(para$para) <- NULL
 
+    U <- para$para[1]
     A <- para$para[2]
-    z$L1   <- para$para[1]+A
-    z$L2   <- 0.5*A
+    z$L1 <- U + A*sqrt(pi/2)
+    z$L2 <- 0.5*A*(sqrt(2) - 1)/sqrt(pi)
+
+    z$TAU3 <- (1 - 3/sqrt(2) + 2/sqrt(3)) /
+              (1 - 1/sqrt(2))
+
+    z$TAU4 <- (1 - 6/sqrt(2) + 10/sqrt(3) - 5/sqrt(4)) /
+              (1 - 1/sqrt(2))
+ 
     z$LCV  <- z$L2/z$L1
-    z$TAU3 <- 2/(3*(2))
-    z$TAU4 <- 2/(4*(3))
-    z$TAU5 <- 2/(5*(4))
     z$L3   <- z$TAU3*z$L2
     z$L4   <- z$TAU4*z$L2
-    z$L5   <- z$TAU5*z$L2
+
     return(z)
 }
-

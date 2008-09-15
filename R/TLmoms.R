@@ -33,7 +33,8 @@ function(x,nmom=5,trim=NULL,leftrim=NULL,rightrim=NULL) {
   L <- vector(mode="numeric",length=nmom)
   R <- vector(mode="numeric",length=nmom)
   for(r in seq(1,nmom)) {
-    lambda <- TLmom(x,trim=trim,leftrim=leftrim,rightrim=rightrim,order=r,sort=FALSE)
+    lambda <- TLmom(x, trim=trim, leftrim=leftrim,
+                    rightrim=rightrim, order=r, sort=FALSE)
     lr <- lambda$lambda
     L[r] <- lr
   }
@@ -49,6 +50,7 @@ function(x,nmom=5,trim=NULL,leftrim=NULL,rightrim=NULL) {
   R[1] <- NA
 
   z <- list(lambdas = L, ratios = R,
-            trim=trim, leftrim=leftrim, rightrim=rightrim, source="TLmoms")
+            trim=trim, leftrim=leftrim,
+            rightrim=rightrim, source="TLmoms")
   return(z)
 }

@@ -14,11 +14,12 @@ the \dQuote{B}-type L-moments (through the B-type Probability-Weighted Moments) 
 \noindent where \eqn{m_r = \lbrace 1-(1-\zeta)^{r+\kappa} \rbrace/(r+\kappa)}  and \eqn{\zeta} is the right-tail censor fraction or the probability \eqn{\mathrm{Pr}\lbrace \rbrace} that \eqn{x} is less than the quantile at \eqn{\zeta} nonexceedance probability: (\eqn{\mathrm{Pr}\lbrace x < X(\zeta) \rbrace}). Finally, the \code{RC} in the function name is to denote \code{R}ight-tail \code{C}ensoring.
 }
 \usage{
-pargpaRC(lmom,zeta=1,lower=-1,upper=20,checklmom=TRUE)
+pargpaRC(lmom,zeta=1,xi=NULL,lower=-1,upper=20,checklmom=TRUE)
 }
 \arguments{
   \item{lmom}{A B-type L-moment object created by a function such as \code{pwm2lmom} from B-type Probability-Weighted Moments from \code{pwmRC}.}
   \item{zeta}{The censoring fraction. The number of samples observed (noncensored) divided by the total number of samples.}
+  \item{xi}{The lower limit of the distribution. If \eqn{\xi} is known then alternative algorithms are used.}
   \item{lower}{The lower value for \eqn{\kappa} for a call to the \code{optimize} function. For the L-moments of the distribution to be valid \eqn{\kappa > -1}.}
   \item{upper}{The upper value for \eqn{\kappa} for a call to the \code{optimize} function. Hopefully, a large enough default is chosen for real-world data sets.}
   \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{are.lmom.valid} function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check.}
@@ -69,9 +70,9 @@ cenpara <- pargpaRC(pwm2lmom(typeBpwm),zeta=zeta) # Estimated parameters
 F       <- nonexceeds() # nonexceedance probabilities for plotting purposes
 
 # Visualize some data
-plot( F,quagpa(F,para),type='l', lwd=3) # The true distribution
-lines( F,quagpa(F,estpara),col=3) # Green estimated in the ordinary fashion
-lines(F,quagpa(F,cenpara),col=2) # Red, consider that the data is censored
+plot(F,quagpa(F,para), type='l', lwd=3) # The true distribution
+lines(F,quagpa(F,estpara), col=3) # Green estimated in the ordinary fashion
+lines(F,quagpa(F,cenpara), col=2) # Red, consider that the data is censored
 # now add in what the drawn sample looks like.
 PP <- pp(fakedata) # plotting positions of the data
 points(PP,sort(fakedata)) # sorting is needed!
@@ -83,9 +84,17 @@ points(PP,sort(fakedata)) # sorting is needed!
 
 
 # Assertion, given some PWMs or L-moments, if zeta=1 then the parameter
-# estimates must be identifical. The following provides a demonstration.
+# estimates must be identical. The following provides a demonstration.
 para1 <- pargpaRC(pwm2lmom(typeBpwm),zeta=1)
 para2 <- pargpa(pwm2lmom(typeBpwm))
+str(para1)
+str(para2)
+
+# Assertion as previous assertion, let us trigger different optimizer
+# algorithms with a non-NULL xi parameter and see if the two parameter
+# lists are the same.
+para1 <- pargpaRC(pwm2lmom(typeBpwm), zeta=zeta)
+para2 <- pargpaRC(pwm2lmom(typeBpwm), xi=para1$para[1], zeta=zeta)
 str(para1)
 str(para2)
 }

@@ -28,6 +28,9 @@ function(f,para,...) {
     else if(type == 'gum') {
       return(pdfgum(f,para))
     }
+    else if(type == 'ray') {
+      return(pdfray(f,para))
+    }
     else if(type == 'revgum') {
       return(pdfrevgum(f,para))
     }

@@ -21,7 +21,7 @@ is.revgum(para)
 \seealso{ \code{\link{parrevgum}} }
 \examples{
 para <- vec2par(c(.9252, .1636, .7),type='revgum')
-if(are.parrevgum.valid(para)) {
+if(is.revgum(para)) {
   Q <- quarevgum(0.5,para)
 }
 }

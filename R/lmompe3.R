@@ -13,6 +13,7 @@ function(para) {
              )
 
     if(! are.parpe3.valid(para)) return()
+    attributes(para$para) <- NULL
 
     # SMALL IS USED TO TEST WHETHER SKEWNESS IS EFFECTIVELY ZERO
     SMALL <- 1e-6

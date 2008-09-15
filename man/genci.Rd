@@ -6,7 +6,7 @@ This function estimates the lower and upper limits of a specified confidence int
 }
 \usage{
 genci(para, n, F=NULL, ci=0.90, edist='nor', nsim=1000, expand=FALSE,
-verbose=FALSE, showpar=FALSE)
+verbose=FALSE, showpar=FALSE, quiet=FALSE)
 }
 \arguments{
   \item{para}{The parameters from \code{\link{lmom2par}} or similar.}
@@ -18,6 +18,7 @@ verbose=FALSE, showpar=FALSE)
   \item{expand}{Should the returned values be expanded to include information relating to the distribution type and L-moments of the distribution at the corresponding nonexceedance probabilities---in other words the information necessary to reconstruct the reported confidence interval. The default is \code{FALSE}. If \code{expand=FALSE} then a single \code{data.frame} of the lower and upper limits along with the true quantile value of the parent is returned. If \code{expand=TRUE}, then a more complicated \code{list} containing multiple \code{data.frame}s is returned.}
   \item{verbose}{The verbosity of the operation of the function. This argument is passed unused to \code{qua2ci}.}
   \item{showpar}{The parameters of the \code{edist} for each simulation for each \eqn{F} value passed to \code{qua2ci} are printed. This argument is passed unused to \code{qua2ci}.}
+  \item{quiet}{Suppress incremental counter for a count down of the \eqn{F} values.}
 }
 \value{
   An \pkg{R} \code{data.frame} or \code{list} is returned (see discussion of argument \code{expand}). The following elements could be available.

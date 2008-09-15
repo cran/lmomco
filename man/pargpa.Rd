@@ -7,11 +7,12 @@ the L-moments of the data in an ordinary L-moment object (\code{\link{lmom.ub}} 
 is seen under \code{lmomgpa} or \code{lmomgpa2}.
 }
 \usage{
-pargpa(lmom,zeta=1,checklmom=TRUE)
+pargpa(lmom,zeta=1,xi=NULL,checklmom=TRUE)
 }
 \arguments{
   \item{lmom}{A L-moment object created by \code{\link{lmom.ub}}, \code{\link{pwm2lmom}}, or \code{\link{TLmoms}} with \code{trim=0}.}
   \item{zeta}{The right censoring fraction. If less than unity then a dispatch to the \code{\link{pargpaRC}} is made and the \code{lmom} argument must contain the B-type L-moments. If the data is not right, then this value must be left alone to the default of unity.}
+  \item{xi}{The lower limit of the distribution. If \eqn{\xi} is known then alternative algorithms are used.}
   \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{are.lmom.valid} function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check.}
 }
 
@@ -39,7 +40,17 @@ approach based on L-moments: Cambridge University Press.
 \code{\link{cdfgpa}}, \code{\link{quagpa}}
 }
 \examples{
-lmr <- lmom.ub(rnorm(20))
-pargpa(lmr)
+X   <- rexp(200)
+lmr <- lmom.ub(X)
+P1  <- pargpa(lmr)
+P2  <- pargpa(lmr, xi=0.25)
+
+\dontrun{
+F <- nonexceeds()
+plot(pp(X), sort(X))
+lines(F,quagpa(F,P1))  # black line
+lines(F, quagpa(F,P2), col=2)   # red line
+}
+
 }
 \keyword{distribution}

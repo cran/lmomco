@@ -28,6 +28,9 @@ function(para) {
     else if(type == 'gum') {
       return(lmomgum(para))
     }
+    else if(type == 'ray') {
+      return(lmomray(para))
+    }
     else if(type == 'nor') {
       return(lmomnor(para))
     }

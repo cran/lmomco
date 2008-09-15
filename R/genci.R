@@ -1,6 +1,7 @@
 "genci" <-
-function(para,n,F=NULL,ci=0.90,edist='nor',nsim=1000,expand=FALSE,
-         verbose=FALSE,showpar=FALSE) {
+function(para,n,F=NULL,ci=0.90,edist='nor',
+         nsim=1000,expand=FALSE,
+         verbose=FALSE,showpar=FALSE,quiet=FALSE) {
   if(is.null(F) == TRUE) F <- nonexceeds()
   if(! check.fs(F)) return()
   if(! are.par.valid(para)) return()
@@ -17,7 +18,7 @@ function(para,n,F=NULL,ci=0.90,edist='nor',nsim=1000,expand=FALSE,
   ci_t4  <- vector(mode = 'numeric')
   ci_t5  <- vector(mode = 'numeric')
   num.Fs <- length(F)
-  cat(c(num.Fs,"-"),sep="")
+  if(! quiet) cat(c(num.Fs,"-"),sep="")
   for(i in seq(1,num.Fs)) {
     CI <- qua2ci(F[i], para, n,
                  ci=ci, edist=edist, nsim=nsim,
@@ -42,9 +43,9 @@ function(para,n,F=NULL,ci=0.90,edist='nor',nsim=1000,expand=FALSE,
     ci_t3[i]  <- CI$elmoms$ratios[3]
     ci_t4[i]  <- CI$elmoms$ratios[4]
     ci_t5[i]  <- CI$elmoms$ratios[5]
-    cat(c(num.Fs-i,"-"),sep="")
+    if(! quiet) cat(c(num.Fs-i,"-"),sep="")
   }
-  cat("\n")
+  if(! quiet) cat("\n")
 
   cis <- data.frame(nonexceed_prob=F,
                     lower=ci_low,

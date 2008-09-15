@@ -2,6 +2,7 @@
 function(para) {
     L <- seq(1,4)
     R <- seq(1,4)
+    attributes(para$para) <- NULL
 
     XI <- para$para[1]
     A  <- para$para[2]

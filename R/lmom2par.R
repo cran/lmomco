@@ -24,6 +24,9 @@ function(lmom,type,...) {
     else if(type == 'gum') {
       return(pargum(lmom))
     }
+    else if(type == 'ray') {
+      return(parray(lmom))
+    }
     else if(type == 'revgum') {
       return(parrevgum(lmom,...))
     }

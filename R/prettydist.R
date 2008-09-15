@@ -13,6 +13,7 @@ function(x) {
      if(x == "kap") return("Kappa")
      if(x == "nor") return("Normal")
      if(x == "pe3") return("Pearson Type III")
+     if(x == "ray") return("Rayleigh")
      if(x == "revgum") return("Reverse Gumbel")
      if(x == "wak") return("Wakeby")
      if(x == "wei") return("Weibull")

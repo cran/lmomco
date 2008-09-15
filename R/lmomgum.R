@@ -20,7 +20,9 @@ function(para) {
               0.169925001442312363,
               0.150374992788438185, 
               0.558683500577583138e-1)
- 
+
+    attributes(para$para) <- NULL
+
     A <- para$para[2] 
     z$L1 <- para$para[1] + A*ZMOM[1] 
     z$L2 <- A*ZMOM[2] 

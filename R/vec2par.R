@@ -37,6 +37,10 @@ function(vec,type,nowarn=FALSE,...) {
       z <- list(type = 'gum', para = vec, source = "vec2par")
       names(z$para) <- c("xi","alpha")
     }
+    else if(type == 'ray') {
+      z <- list(type = 'ray', para = vec, source = "vec2par")
+      names(z$para) <- c("xi","alpha")
+    }
     else if(type == 'revgum') {
       z <- list(type = 'revgum', para = c(vec[1],vec[2]),
                 zeta=vec[3], source = "vec2par")

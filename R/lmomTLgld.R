@@ -4,6 +4,7 @@ function(gldpara) {
     R <- seq(1,4)
 
     if(! are.pargld.valid(gldpara)) return()
+    attributes(gldpara$para) <- NULL
 
     E  <- gldpara$para[1]
     A  <- gldpara$para[2]

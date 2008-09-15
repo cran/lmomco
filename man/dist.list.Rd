@@ -3,7 +3,7 @@
 \title{ List of Distribution Names }
 \description{
 Return a list of the three character syntax identifying distributions supported within the \pkg{lmomco} package. The distributions are \code{cau}, \code{exp}, \code{gam}, \code{gev}, \code{gld}, \code{glo}, \code{gno},
-\code{gpa}, \code{gum}, \code{kap}, \code{nor}, \code{pe3}, \code{revgum}, \code{wak}, and \code{wei}.
+\code{gpa}, \code{gum}, \code{kap}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{wak}, and \code{wei}.
 }
 \usage{
 dist.list()

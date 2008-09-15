@@ -22,6 +22,7 @@ function(para) {
     C1 <- 0.164493406684822644e1; C2 <- 0.189406565899449184e1 
 
     if(! are.parglo.valid(para)) return()
+    attributes(para$para) <- NULL
 
     XI <- para$para[1] 
     A  <- para$para[2] 

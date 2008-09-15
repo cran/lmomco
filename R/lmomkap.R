@@ -1,6 +1,8 @@
 "lmomkap" <-
 function(para) {
     if(! are.parkap.valid(para)) return()
+    attributes(para$para) <- NULL
+
     z <- list(L1   = NULL,
               L2   = NULL,
               TAU3 = NULL,

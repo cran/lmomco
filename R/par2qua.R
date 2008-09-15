@@ -28,6 +28,9 @@ function(f,para,...) {
     else if(type == 'gum') {
       return(quagum(f,para))
     }
+    else if(type == 'ray') {
+      return(quaray(f,para))
+    }
     else if(type == 'revgum') {
       return(quarevgum(f,para))
     }

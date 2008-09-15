@@ -19,12 +19,17 @@ lmrdia()
   \item{glo}{\eqn{\tau_3} and \eqn{\tau_4} of the Generalized Logistic distribution.}
   \item{gpa}{\eqn{\tau_3} and \eqn{\tau_4} of the Generalized Pareto distribution.}
   \item{gum}{\eqn{\tau_3} and \eqn{\tau_4} of the Gumbel distribution.}
+  \item{ray}{\eqn{\tau_3} and \eqn{\tau_4} of the Rayleigh distribution.}
   \item{lognormal}{\eqn{\tau_3} and \eqn{\tau_4} of the Lognormal distribution.}
   \item{nor}{\eqn{\tau_3} and \eqn{\tau_4} of the Normal distribution.}
   \item{pe3}{\eqn{\tau_3} and \eqn{\tau_4} of the Pearson Type III distribution.}
   \item{uniform}{\eqn{\tau_3} and \eqn{\tau_4} of the uniform distribution.}
 }
 \references{
+Hosking, J.R.M., 1986, The theory of probability weighted moments:
+Research Report RC12210, IBM Research Division, Yorkton Heights, N.Y.
+
+
 Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
 distributions using linear combinations of order statistics: Journal
 of the Royal Statistical Society, Series B, vol. 52, p. 105--124.

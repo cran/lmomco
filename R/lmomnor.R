@@ -13,6 +13,7 @@ function(para) {
              )
 
     if(! are.parnor.valid(para)) return()
+    attributes(para$para) <- NULL
 
     erf <- function(x) 2 * pnorm(x * sqrt(2)) - 1
 

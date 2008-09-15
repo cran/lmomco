@@ -12,8 +12,8 @@ of this function for their own specific purposes.
 \usage{
 plotlmrdia(lmr, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
            nogev=FALSE, noglo=FALSE, nogpa=FALSE, nope3=FALSE, 
-	   nogno=FALSE, noexp=FALSE, nonor=FALSE, nogum=FALSE, 
-	   nouni=FALSE, xlab="L-SKEW", ylab="L-KURTOSIS", 
+	   nogno=FALSE, noexp=FALSE, nonor=FALSE, nogum=FALSE,
+           noray=FALSE, nouni=FALSE, xlab="L-SKEW", ylab="L-KURTOSIS", 
            autolegend=FALSE, xleg=NULL, yleg=NULL, ...)
 }
 \arguments{
@@ -29,6 +29,7 @@ plotlmrdia(lmr, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
   \item{noexp}{If \code{TRUE} then point of Exponential distribution is not drawn.}
   \item{nonor}{If \code{TRUE} then point of Normal distribution is not drawn.}
   \item{nogum}{If \code{TRUE} then point of Gumbel distribution is not drawn.}
+  \item{noray}{If \code{TRUE} then point of Rayleigh distribution is not drawn.}
   \item{nouni}{If \code{TRUE} then point of Uniform distribution is not drawn.}
   \item{xlab}{Horizonal axis label passed to \code{xlab} of the \code{plot} function.}
   \item{ylab}{Vertical axis label passed to \code{ylab} of the \code{plot} function.}
@@ -57,12 +58,16 @@ theoretical L-moment limits on the bottom.
   Exponential \tab symbol 16 (filled circle) and color 2 (red) \cr
   Normal \tab symbol 15 (filled square) and color 2 (red) \cr
   Gumbel \tab symbol 17 (filled triangle) and color 2 (red) \cr
-  Uniform \tab symbol 18 (filled diamond) and color 2 (red) \cr
+  Rayleigh \tab symbol 18 (filled diamond) and color 2 (red) \cr
+  Uniform \tab symbol 12 (square and a plus sign) and color 2 (red) \cr
 }
 }
 \references{
 Asquith, W.H., 1998, Depth-duration frequency of precipitation for Texas: U.S.
 Geological Survey Water-Resources Investigations Report 98-4044, 107 p.
+
+Hosking, J.R.M., 1986, The theory of probability weighted moments:
+Research Report RC12210, IBM Research Division, Yorkton Heights, N.Y.
 
 Hosking, J.R.M., 1990, L-moments--Analysis and estimation of
 distributions using linear combinations of order statistics: Journal

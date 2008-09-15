@@ -7,7 +7,7 @@ function(x,para) {
     f <- vector(mode="numeric")
     for(i in seq(1,length(x))) {
       if(x[i] <= 0) { f[i] <- 0; next }
-      f[i] <- pgamma(x,ALPHA,scale=BETA)
+      f[i] <- pgamma(x[i],ALPHA,scale=BETA)
     }
     return(f)
 }

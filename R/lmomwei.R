@@ -13,6 +13,8 @@ function(para) {
              )
     if(! are.parwei.valid(para)) return()
 
+    attributes(para$para) <- NULL
+
     ZETA <- para$para[1]
     B    <- para$para[2]
     D    <- para$para[3]

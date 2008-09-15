@@ -26,6 +26,7 @@ function(para) {
     SMALL <- 1e-6
 
     if(! are.pargev.valid(para)) return()
+    attributes(para$para) <- NULL
 
     U <- para$para[1]
     A <- para$para[2]

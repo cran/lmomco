@@ -23,6 +23,9 @@ function(para) {
                           return(z)
     }
   
+    attributes(para$para) <- NULL
+
+
     xi    <- para$para[1]
     alpha <- para$para[2]
 

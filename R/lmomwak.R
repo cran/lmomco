@@ -14,6 +14,8 @@ function(wakpara) {
 
     if(! are.parwak.valid(wakpara)) return()
 
+    attributes(wakpara$para) <- NULL
+
     XI <- wakpara$para[1]
     A  <- wakpara$para[2]
     B  <- wakpara$para[3]

@@ -11,6 +11,7 @@ function(lmr,
 	 noexp=FALSE,
 	 nonor=FALSE,
 	 nogum=FALSE,
+         noray=FALSE,
 	 nouni=FALSE,
          xlab="L-SKEW",
          ylab="L-KURTOSIS",
@@ -121,15 +122,25 @@ function(lmr,
         Elty[entryi] <- NA
         Ecex[entryi] <- 1.5
      }
-     if(nouni == FALSE) {
-     	points(lmr$uniform,pch=18,cex=1.5,col=2)
+     if(noray == FALSE) {
+     	points(lmr$ray,pch=18,col=2,cex=1.5)
      	entryi <- entryi + 1
-        entries[entryi] <- "UNI"
+        entries[entryi] <- "RAY"
         Elwd[entryi] <- NA
         Ecol[entryi] <- 2
         Epch[entryi] <- 18
         Elty[entryi] <- NA
         Ecex[entryi] <- 1.5
+     }
+     if(nouni == FALSE) {
+     	points(lmr$uniform,pch=12,cex=1.25,col=2)
+     	entryi <- entryi + 1
+        entries[entryi] <- "UNI"
+        Elwd[entryi] <- NA
+        Ecol[entryi] <- 2
+        Epch[entryi] <- 12
+        Elty[entryi] <- NA
+        Ecex[entryi] <- 1.25
      }
    }
    if(autolegend == TRUE & length(entries) > 0) {

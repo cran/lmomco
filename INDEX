@@ -66,6 +66,8 @@ are.parnor.valid        Are the Distribution Parameters Consistent with
                         the Normal Distribution
 are.parpe3.valid        Are the Distribution Parameters Consistent with
                         the Pearson Type III Distribution
+are.parray.valid        Are the Distribution Parameters Consistent with
+                        the Rayleigh Distribution
 are.parrevgum.valid     Are the Distribution Parameters Consistent with
                         the Reverse Gumbel Distribution
 are.parwak.valid        Are the Distribution Parameters Consistent with
@@ -98,6 +100,8 @@ cdfnor                  Cumulative Distribution Function of the Normal
                         Distribution
 cdfpe3                  Cumulative Distribution Function of the Pearson
                         Type III Distribution
+cdfray                  Cumulative Distribution Function of the
+                        Rayleigh Distribution
 cdfrevgum               Cumulative Distribution Function of the Reverse
                         Gumbel Distribution
 cdfwak                  Cumulative Distribution Function of the Wakeby
@@ -146,12 +150,15 @@ is.nor                  Is a Distribution Parameter Object Typed as
                         Normal
 is.pe3                  Is a Distribution Parameter Object Typed as
                         Pearson Type III
+is.ray                  Is a Distribution Parameter Object Typed as
+                        Rayleigh
 is.revgum               Is a Distribution Parameter Object Typed as
                         Reverse Gumbel
 is.wak                  Is a Distribution Parameter Object Typed as
                         Wakeby
 is.wei                  Is a Distribution Parameter Object Typed as
                         Weibull
+lcomoms2                The Sample L-comoments for Two Variables
 lmom.diff               Difference Between L-moments of the
                         Distribution and the L-moments of the Data
 lmom.references         Useful References Related to L-moments
@@ -176,6 +183,8 @@ lmom.test.nor           Test L-moment and Parameter Algorithms of the
                         Normal Distribution
 lmom.test.pe3           Test L-moment and Parameter Algorithms of the
                         Pearson Type III Distribution
+lmom.test.ray           Test L-moment and Parameter Algorithms of the
+                        Rayleigh Distribution
 lmom.test.revgum        Test L-moment and Parameter Algorithms of the
                         Reverse Gumbel Distribution
 lmom.test.wak           Test L-moment and Parameter Algorithms of the
@@ -212,6 +221,7 @@ lmomgum                 L-moments of the Gumbel Distribution
 lmomkap                 L-moments of the Kappa Distribution
 lmomnor                 L-moments of the Normal Distribution
 lmompe3                 L-moments of the Pearson Type III Distribution
+lmomray                 L-moments of the Rayleigh Distribution
 lmomrevgum              L-moments of the Reverse Gumbel Distribution
 lmoms                   The Sample L-moments and L-moment Ratios
 lmomwak                 L-moments of the Wakeby Distribution
@@ -261,6 +271,8 @@ parnor                  Estimate the Parameters of the Normal
                         Distribution
 parpe3                  Estimate the Parameters of the Pearson Type III
                         Distribution
+parray                  Estimate the Parameters of the Rayleigh
+                        Distribution
 parrevgum               Estimate the Parameters of the Reverse Gumbel
                         Distribution
 parwak                  Estimate the Parameters of the Wakeby
@@ -291,6 +303,8 @@ pdfnor                  Probability Density Function of the Normal
                         Distribution
 pdfpe3                  Probability Density Function of the Pearson
                         Type III Distribution
+pdfray                  Probability Density Function of the Rayleigh
+                        Distribution
 pdfrevgum               Probability Density Function of the Reverse
                         Gumbel Distribution
 pdfwak                  Probability Density Function of the Wakeby
@@ -341,6 +355,7 @@ quakap                  Quantile Function of the Kappa Distribution
 quanor                  Quantile Function of the Normal Distribution
 quape3                  Quantile Function of the Pearson Type III
                         Distribution
+quaray                  Quantile Function of the Rayleigh Distribution
 quarevgum               Quantile Function of the Reverse Gumbel
                         Distribution
 quawak                  Quantile Function of the Wakeby Distribution
