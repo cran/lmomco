@@ -375,3 +375,16 @@ Version  0.96--September 15, 2008
 7. Added lcomoms2() to make it much easier to access bundles of
      sample L-comoments values. Output of---that is, return of---the
      matrices or diagonals can be specified.
+
+
+Version 0.96.2--November 17, 2008
+1. Tweak to quawak() for condition of F=1.
+2. Added the sort=TRUE argument to pp() so that sorted (default and historical)
+     and unsorted plotting positions could be returned. An appropriate example
+     was added. Also strengthed the condition of the plotting-position
+     coefficient range---have restricted the coefficient between Weibull (a=0)
+     and Hazen (a=0.50) so "a \in [0,0.5]." The pp() function uses the rank()
+     function, which has specific settings to handle tied data. For the pp()
+     function, the ties.method="first" method is used for rank().
+3. Fixed Lcomoment.matrix() to return NA in the off diagonal elements if the
+     moment order is 1.

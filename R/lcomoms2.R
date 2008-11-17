@@ -36,14 +36,14 @@ function(DATAFRAME, nmom=3, asdiag=FALSE, opdiag=FALSE, ...) {
               T2=c(T2$matrix[1,2],T2$matrix[2,1]),
               T3=c(T3$matrix[1,2],T3$matrix[2,1]),
               T4=c(T4$matrix[1,2],T4$matrix[2,1]),
-              T5=c(T4$matrix[1,2],T5$matrix[2,1]))
+              T5=c(T5$matrix[1,2],T5$matrix[2,1]))
   } else if(asdiag) {
     z <- list(L1=diag(L1$matrix),
               L2=diag(L2$matrix),
               T2=diag(T2$matrix),
               T3=diag(T3$matrix),
               T4=diag(T4$matrix),
-              T5=diag(T4$matrix))
+              T5=diag(T5$matrix))
   }
   else {
     z <- list(L1=L1$matrix,
@@ -51,7 +51,7 @@ function(DATAFRAME, nmom=3, asdiag=FALSE, opdiag=FALSE, ...) {
               T2=T2$matrix,
               T3=T3$matrix,
               T4=T4$matrix,
-              T5=T4$matrix)  	
+              T5=T5$matrix)  	
   }
   z$nmom <- nmom
   z$source <- "lcomoms2"

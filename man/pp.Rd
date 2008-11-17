@@ -10,11 +10,12 @@ where \eqn{pp_i} is the nonexceedance probability \eqn{F} of the \eqn{i}th ascen
 data value. The parameter \eqn{a} specifies the plotting-position type, and \eqn{n} is the sample size (\code{length(x)}).
 }
 \usage{
-pp(x,a=0)
+pp(x, a=0, sort=TRUE)
 }
 \arguments{
-  \item{x}{A vector of data values. The vector is used to get sample size through \code{length()}.}
-  \item{a}{A value for the plotting-position formula. Default is \code{A=0}, which returns the Weibull plotting positions}
+  \item{x}{A vector of data values. The vector is used to get sample size through \code{length()};}
+  \item{a}{A value for the plotting-position formula, default is \code{A=0}, which returns the Weibull plotting positions; and}
+  \item{sort}{A logical whether the ranks of the data are sorted prior to \eqn{F} computation.}
 }  
 \value{
   An R \code{vector} is returned.
@@ -34,6 +35,8 @@ Various plotting positions have been suggested in the literature. Stedinger and 
  \hline \tab \tab
 }
 
+The function uses the \code{rank()} function, which has specific settings to handle tied data. For implementation here, the \code{ties.method="first"} method to \code{rank()} is used.
+
 }
 \references{
 Stedinger, J.R., Vogel, R.M., and Foufoula-Georgiou, E., 1992, Frequency
@@ -52,6 +55,12 @@ WEI <- parwei(lmom.ub(Q))
 PP <- pp(Q)
 plot(PP,sort(Q))
 lines(PP,quawei(PP,WEI))
+
+# This plot looks similar, but when connecting lines are added
+# the nature of the sorting is obvious.
+plot(pp(Q,sort=FALSE), Q)
+lines(pp(Q,sort=FALSE), Q, col=2)
+
 }
 \keyword{univar}
 \keyword{distribution}

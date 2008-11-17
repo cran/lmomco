@@ -13,6 +13,9 @@ function(DATAFRAME, k=1) {
       X2 <- DATAFRAME[,x2]      # extract array "2"
       M[x1,x2] <- Lcomoment.Lk12(X1,X2,k) # compute the L-comoments
                                 # for 1 and 2 and order k
+      # If the moment order is first and the x1 and x2
+      # indices are not equal, then off diagonals are NA
+      if(k == 1 & x1 != x2)  M[x1,x2] = NA
     }                           # END LOOP 2
   }                             # END LOOP 1
   z <- list(type="Lcomoment.matrix", order=k, matrix=M)

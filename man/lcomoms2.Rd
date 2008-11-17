@@ -29,7 +29,7 @@ lcomoms2(DATAFRAME, nmom=3, asdiag=FALSE, opdiag=FALSE, ...)
 This function computes the L-comoments through the generalization of the \code{\link{Lcomoment.matrix}} and \code{\link{Lcomoment.coefficients}} functions.
 }
 \references{
-Serfling, R., and Xiao, P., 2006, Multivariate L-moments, preprint.
+Serfling, R., and Xiao, P., 2007, A contribution to multivariate L-moments---L-comoment matrices: Journal of Multivariate Analysis, v.~98, pp.~1765--1781.
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{Lcomoment.matrix}} and \code{\link{Lcomoment.coefficients}}}

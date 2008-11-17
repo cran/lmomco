@@ -9,32 +9,27 @@ function(para,nowarn=FALSE) {
     op <- options()
     GO <- TRUE
     if(nowarn == TRUE) options(warn=-1)
-    if(B+D <= 0 & (B != 0 | C != 0 | D != 0)) {
-       warning("Parameters are invalid")
+    if(C < 0) {
+       warning("Parameters are invalid, gamma < 0")
+       GO <- FALSE
+    }  
+    if(A+C < 0) {
+       warning("Parameters are invalid, alpha + gamma < 0")
+       GO <- FALSE
+    }
+    if(B+D <= 0 & any(c(B,C,D) != 0)) {
+       warning("Parameters are invalid, either beta+delta <= 0 or any beta, gamma, delta != 0")
        GO <- FALSE
     }
     if(A == 0 & B != 0) {
-       warning("Parameters are invalid")
+       warning("Parameters are invalid, alpha == 0 and beta != 0")
        GO <- FALSE
     }
     if(C == 0  & D != 0) {
-       warning("Parameters are invalid")
-       GO <- FALSE
-    }
-    if(C < 0 | A+C < 0) {
-       warning("Parameters are invalid")
-       GO <- FALSE
-    }
-    if(A == 0 & C == 0) {
-       warning("Parameters are invalid")
-       GO <- FALSE
-    }
-    if(D >= 1) {
-       warning("Parameters are invalid")
+       warning("Parameters are invalid, gamma == 0 and delta != 0")
        GO <- FALSE
     }
     options(op)
     if(GO) return(TRUE)
     return(FALSE)
 }
-

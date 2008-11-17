@@ -35,11 +35,8 @@ Finally, the usual univariate L-moment ratios as seen from \code{lmom.ub} or \co
 \note{
 The function begins with a capital letter. This is intentionally done so that lower case namespace is preserved. L-comoments are new in the literature and experimental in this package. By using a capital letter now, then \code{lcomoment.coefficients} remains an available name in future releases.
 }
-\source{
-Serfling and Xiao (2006).
-}
 \references{
-Serfling, R., and Xiao, P., 2006, Multivariate L-moments, preprint.
+Serfling, R., and Xiao, P., 2007, A contribution to multivariate L-moments---L-comoment matrices: Journal of Multivariate Analysis, v.~98, pp.~1765--1781.
 }
 \author{ W.H. Asquith}
 

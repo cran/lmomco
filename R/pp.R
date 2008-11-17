@@ -1,15 +1,16 @@
 "pp" <-
-function(x,a=0) {
-    if(a < 0) {
-      warning("Plotting position parameter is invalid")
+function(x, a=0, sort=TRUE) {
+    if(a < 0 | a > 0.50) {
+      warning("Plotting position parameter is invalid, not in [0,0.5]")
       return()
     }
-    N <- length(x)
-    pp <- vector(mode = "numeric")
-
-    for(i in seq(1,N)) {
-      pp[i] <- (i-a)/(N+1-2*a)
+    
+    denom <- length(x) + 1 - 2*a
+    ranks <- rank(x, ties.method="first")
+    
+    if(sort) {
+      return( (sort(ranks) - a) / denom)
+    } else {
+      return(      (ranks  - a) / denom)
     }
-    return(pp)
 }
-
