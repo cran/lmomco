@@ -4,6 +4,7 @@
 \title{Annual Peak Streamflow Data for U.S.~Geological Survey Streamflow-Gaging Station 02366500}
 \description{
 Annual peak streamflow data for U.S.~Geological Survey streamflow-gaging station 02366500. The peak streamflow-qualification codes \code{Flag} are:
+\describe{
 \item{1}{Discharge is a Maximum Daily Average}
   \item{2}{Discharge is an Estimate}
   \item{3}{Discharge affected by Dam Failure}
@@ -18,28 +19,30 @@ Annual peak streamflow data for U.S.~Geological Survey streamflow-gaging station
   \item{C}{All or part of the record affected by Urbanization, Mining, Agricultural changes, Channelization, or other}
   \item{D}{Base Discharge changed during this year}
   \item{E}{Only Annual Maximum Peak available for this year}
-
-\bigskip
+}
 
 The gage height qualification codes \code{Flag.1} are:
+\describe{
   \item{1}{Gage height affected by backwater}
   \item{2}{Gage height not the maximum for the year}
   \item{3}{Gage height at different site and(or) datum}
   \item{4}{Gage height below minimum recordable elevation}
   \item{5}{Gage height is an estimate}
   \item{6}{Gage datum changed during this year}
-
+}
 }
 \usage{
 data(USGSsta02366500peaks)
 }
 \format{
 A data frame with
+\describe{
   \item{Date}{The date of the annual peak streamflow.}
   \item{Streamflow}{Annual peak streamflow data in cubic feet per second.}
   \item{Flags}{Qualification flags on the streamflow data.}
   \item{Stage}{Annual peak stage (gage height, river height) in feet.}
   \item{Flags.1}{Qualification flags on the gage height data.}
+}
 }
 \examples{
 data(USGSsta02366500peaks)

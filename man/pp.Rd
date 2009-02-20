@@ -23,16 +23,14 @@ pp(x, a=0, sort=TRUE)
 \note{
 Various plotting positions have been suggested in the literature. Stedinger and others (1992, p. 18.25) comment that "all plotting positions give crude estimates of the unknown [non]exceedance probabilities associated with the largest (and smallest) events." The various plotting positions are summarized in the follow table.
 
-\tabular{ccl}{
- \hline Name \tab a \tab Motivation \cr \hline 
- Weibull \tab 0 \tab Unbiased exceedance probability for all distributions \cr
- Median \tab 0.3175 \tab Median exceedance probabilities for all distributions \cr
- APL \tab about 0.35 \tab Often used with probability-weighted moments \cr
- Blom \tab 0.375 \tab Nearly unbiased quantiles for normal distribution \cr
- Cunnane \tab 0.40 \tab Approximately quantile unbiased \cr
- Gringorten \tab 0.44 \tab Optimized for Gumbel distribution \cr
- Hazen \tab 0.50 \tab A traditional choice \cr
- \hline \tab \tab
+\describe{
+ \item{Weibull}{\eqn{a=0}, Unbiased exceedance probability for all distributions}
+ \item{Median}{\eqn{a=0.3175}, Median exceedance probabilities for all distributions}
+ \item{APL}{\eqn{\approx 0.35}, Often used with probability-weighted moments}
+ \item{Blom}{\eqn{a=0.375}, Nearly unbiased quantiles for normal distribution}
+ \item{Cunnane}{\eqn{a=0.40}, Approximately quantile unbiased}
+ \item{Gringorten}{\eqn{a=0.44}, Optimized for Gumbel distribution}
+ \item{Hazen}{\eqn{a=0.50}, A traditional choice}
 }
 
 The function uses the \code{rank()} function, which has specific settings to handle tied data. For implementation here, the \code{ties.method="first"} method to \code{rank()} is used.

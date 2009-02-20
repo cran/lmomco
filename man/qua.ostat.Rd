@@ -6,7 +6,7 @@ This function computes a specified quantile by nonexceedance probability \eqn{F}
 
 \deqn{ \mathrm{B}^{-1}(F,j,n-j+1) \mbox{,} }
 
-\noindent and let \eqn{x(F,\Theta)} represent the quantile function of the given distribution and \eqn{\Theta} represents a vector of distribution parameters. The quantile function of the distribution of the \eqn{j}th-order statistic is
+and let \eqn{x(F,\Theta)} represent the quantile function of the given distribution and \eqn{\Theta} represents a vector of distribution parameters. The quantile function of the distribution of the \eqn{j}th-order statistic is
 
 \deqn{ x(\mathrm{B}^{-1}(F,j,n-j+1),\Theta) \mbox{.} }
 }

@@ -1,3 +1,4 @@
+\encoding{UTF-8}
 \name{sen.mean}
 \alias{sen.mean}
 \title{ Sen's Weighted Mean Statistic }
@@ -24,7 +25,7 @@ sen.mean(x,k=0)
   \item{source}{An attribute identifying the computational source of Sen's Weighted Mean: \dQuote{sen.mean}.}
 }
 \references{
-Jure\v{c}kov\'{a}, J., and Picek, J., 2006, Robust statistical methods
+\enc{Jurečková}{Jureckova}, J., and Picek, J., 2006, Robust statistical methods
 with R: Boca Raton, Fla., Chapman and Hall/CRC, ISBN 1--58488--454--1,
 197~p.
 

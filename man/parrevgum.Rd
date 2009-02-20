@@ -10,11 +10,11 @@ is
 \deqn{\alpha = \lambda^B_2/\lbrace\log(2) + \mathrm{Ei}(-2\log(1-\zeta)) - \mathrm{Ei}(-\log(1-\zeta))\rbrace\mbox{\ and}}
 \deqn{\xi = \lambda^B_1 + \alpha\lbrace\mathrm{Ei}(-\log(1-\zeta))\rbrace\mbox{,}}
 
-\noindent where \eqn{\zeta} is the right-tail censoring fraction of the sample o the nonexceedance probability of the right-tail censoring threshold, and \eqn{\mathrm{Ei}(x)} is the exponential integral defined as 
+where \eqn{\zeta} is the right-tail censoring fraction of the sample o the nonexceedance probability of the right-tail censoring threshold, and \eqn{\mathrm{Ei}(x)} is the exponential integral defined as 
 
 \deqn{ \mathrm{Ei}(X) = \int_X^{\infty} x^{-1}e^{-x}\mathrm{d}x \mbox{,}}
 
-\noindent where \eqn{\mathrm{Ei}(-\log(1-\zeta)) \rightarrow 0} as \eqn{\zeta \rightarrow 1} and \eqn{\mathrm{Ei}(-\log(1-\zeta))} can not be evaluated as \eqn{\zeta \rightarrow 0}.
+where \eqn{\mathrm{Ei}(-\log(1-\zeta)) \rightarrow 0} as \eqn{\zeta \rightarrow 1} and \eqn{\mathrm{Ei}(-\log(1-\zeta))} can not be evaluated as \eqn{\zeta \rightarrow 0}.
 }
 \usage{
 parrevgum(lmom,zeta=1,checklmom=TRUE)

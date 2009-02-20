@@ -10,7 +10,9 @@ clearforkporosity
 }
 \format{
 A data frame with
+\describe{
   \item{POROSITY}{The pre-sorted porosity data.}
+}
 }
 \details{
 Although the porosity data was collected at about 1-foot intervals, these

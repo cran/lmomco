@@ -6,7 +6,7 @@ Compute the sample Probability-Weighted Moments (PWMs) for right-tail censored d
 
 \deqn{\beta^A_r = m^{-1}\sum^m_{j=1} {j-1 \choose r} x_{[j:n]}\mbox{,}}
 
-\noindent which are the PWMs of the uncensored sample of \eqn{m} observed values. The B-type PWMs are computed from the \dQuote{complete} sample, in which the \eqn{n-m} censored values are replaced by the censoring threshold \eqn{T}. The B-type PWMs are defined by
+which are the PWMs of the uncensored sample of \eqn{m} observed values. The B-type PWMs are computed from the \dQuote{complete} sample, in which the \eqn{n-m} censored values are replaced by the censoring threshold \eqn{T}. The B-type PWMs are defined by
 
 \deqn{\beta^B_r = n^{-1} \biggl( \sum^m_{j=1} {j-1 \choose r} x_{[j:n]} + 
                                 \sum^n_{j=m+1} {j-1 \choose r} T \biggr) \mbox{.}}
@@ -15,7 +15,7 @@ The two previous expressions are used in the function. These PWMs are readily co
 
 \deqn{\beta^B_r = Z\beta^A_r + \frac{1-Z}{r+1}T\mbox{,}}
 
-\noindent where
+where
 
 \deqn{Z = \frac{m}{n}\frac{{m-1 \choose r}}{{n-1 \choose r}}\mbox{.}}
 

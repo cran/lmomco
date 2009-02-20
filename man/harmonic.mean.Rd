@@ -8,7 +8,7 @@ Compute the harmonic mean of a vector with a zero-value correction.
                        {N_T - N_0}\biggr)^{-1} \times \frac{N_T - N_0}
                  {N_T} \mbox{,}}
 
-\noindent where \eqn{\check{\mu}} is harmonic mean, \eqn{X_i} is a nonzero value of the vector, \eqn{N_T} is the (total) sample size, \eqn{N_0} is the number of zero values.
+where \eqn{\check{\mu}} is harmonic mean, \eqn{X_i} is a nonzero value of the vector, \eqn{N_T} is the (total) sample size, \eqn{N_0} is the number of zero values.
 
 }
 \usage{

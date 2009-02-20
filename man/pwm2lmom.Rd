@@ -33,7 +33,7 @@ The function can take a variety of PWM argument types in \code{pwm}. The functio
 }
 \value{
   One of two R \code{list} are returned.
-
+  \item{Version I}{\describe{
   \item{L1}{Arithmetic mean}
   \item{L2}{L-scale---analogous to standard deviation}
   \item{LCV}{coefficient of L-variation---analogous to coe. of variation}
@@ -42,12 +42,13 @@ The function can take a variety of PWM argument types in \code{pwm}. The functio
   \item{TAU5}{The fifth L-moment ratio}
   \item{L3}{The third L-moment}
   \item{L4}{The fourth L-moment}
-  \item{L5}{The fifth L-moment \newline \newline or the following list \newline \mbox{\ }}
-
+  \item{L5}{The fifth L-moment}
+}}
+  \item{Version II}{\describe{
   \item{lambdas}{The L-moments}
   \item{ratios}{The L-moment ratios}
   \item{source}{Source of the L-moments (\code{pwm2lmom})}
-
+}}
 }
 \references{
 Greenwood, J.A., Landwehr, J.M., Matalas, N.C., and Wallis, J.R., 1979,

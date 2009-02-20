@@ -10,8 +10,10 @@ data(herefordprecip)
 }
 \format{
 A data frame with
+\describe{
   \item{YEAR}{The calendar year of the annual maxima.}
   \item{DEPTH}{The depth of 7-day annual maxima rainfall in inches.}
+}
 }
 \references{
 Asquith, W.H., 1998, Depth-duration frequency of precipitation for

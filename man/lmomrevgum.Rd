@@ -12,11 +12,11 @@ The type-B L-moments in terms of the parameters are
 \deqn{\tau_4 =  \mbox{, and}}
 \deqn{\tau_5 = \mbox{.}}
 
-\noindent where \eqn{\zeta} is the right-tail censoring fraction of the sample o the nonexceedance probability of the right-tail censoring threshold, and \eqn{\mathrm{Ei}(x)} is the exponential integral defined as 
+where \eqn{\zeta} is the right-tail censoring fraction of the sample or the nonexceedance probability of the right-tail censoring threshold, and \eqn{\mathrm{Ei}(x)} is the exponential integral defined as 
 
 \deqn{ \mathrm{Ei}(X) = \int_X^{\infty} x^{-1}e^{-x}\mathrm{d}x \mbox{,}}
 
-\noindent where \eqn{\mathrm{Ei}(-\log(1-\zeta)) \rightarrow 0} as \eqn{\zeta \rightarrow 1} and \eqn{\mathrm{Ei}(-\log(1-\zeta))} can not be evaluated as \eqn{\zeta \rightarrow 0}.
+where \eqn{\mathrm{Ei}(-\log(1-\zeta)) \rightarrow 0} as \eqn{\zeta \rightarrow 1} and \eqn{\mathrm{Ei}(-\log(1-\zeta))} can not be evaluated as \eqn{\zeta \rightarrow 0}.
 }
 \usage{
 lmomrevgum(para)

@@ -12,8 +12,8 @@ respectively.  These functions internally use the \code{are.pargam.valid}
 function.  The FORTRAN source code of Hosking provides the basis
 for the function. The parameters are restricted to the following conditions.
 
-\deqn{\alpha > 0 \mbox{ and } \beta > 0}\mbox{.}}
-
+\deqn{\alpha > 0 \mbox{ and } \beta > 0\mbox{.}}
+}
 \usage{
 are.pargam.valid(para,nowarn=FALSE)
 }

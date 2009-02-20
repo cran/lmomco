@@ -8,7 +8,7 @@ This function uses the defined relation between to two PWM types when the \eqn{\
 
 \deqn{\beta^A_{r-1} = \frac{r\beta^B_{r-1} - (1-\zeta^r)X(\zeta)}{r\zeta^r} \mbox{,}}
 
-\noindent where \eqn{1 \le r \le n} and \eqn{n} is the number of moments, and \eqn{X(\zeta)} is the value of the quantile function at nonexceedance probability \eqn{\zeta}. Finally, the \code{RC} in the function name is to denote \code{R}ight-tail \code{C}ensoring.
+where \eqn{1 \le r \le n} and \eqn{n} is the number of moments, and \eqn{X(\zeta)} is the value of the quantile function at nonexceedance probability \eqn{\zeta}. Finally, the \code{RC} in the function name is to denote \code{R}ight-tail \code{C}ensoring.
 }
 \usage{
 Bpwm2ApwmRC(Bpwm,para)

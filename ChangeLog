@@ -388,3 +388,16 @@ Version 0.96.2--November 17, 2008
      function, the ties.method="first" method is used for rank().
 3. Fixed Lcomoment.matrix() to return NA in the off diagonal elements if the
      moment order is 1.
+
+Version 0.96.3--February 20, 2009
+1. Added the par2vec() function (added to aid feeding of parameters into
+     functions of the lmom package by J.R.M. Hosking).
+2. Added the hlmomco() function to compute the harzard function or hazard rate
+     of distributions.
+3. Added the zzz.R file that holds operations to perform when the lmomco
+     package is loaded. I have a message printed to terminal on loading of
+     the package. This feature needed the packageDescription() function from
+     the utils package. So the Depends: section of DESCRIPTION is now
+     populated accordingly.
+4. Tweaks to perhaps two dozen Rd files in preparation for the R-based parsing
+     in the R +2.8.x series in which previous LaTeX loop holes have been shut.

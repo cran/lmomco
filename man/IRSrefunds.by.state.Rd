@@ -10,8 +10,10 @@ data(IRSrefunds.by.state)
 }
 \format{
 A data frame with
+\describe{
   \item{STATE}{State name.}
   \item{REFUNDS}{Dollars of refunds.}
+}
 }
 \references{
 \url{http://www.irs.gov/taxstats/article/0,,id=168593,00.html} accessed in December 2007.

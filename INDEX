@@ -126,6 +126,7 @@ gini.mean.diff          Gini Mean Difference Statistic
 harmonic.mean           The Harmonic Mean with Zero-Value Correction
 herefordprecip          Annual Maximum Precipitation Data for Hereford,
                         Texas
+hlmomco                 Hazard Functions of the Distributions
 is.cau                  Is a Distribution Parameter Object Typed as
                         Cauchy
 is.exp                  Is a Distribution Parameter Object Typed as
@@ -240,6 +241,8 @@ par2pdf                 Probability Density Function of the
 par2qua                 Quantile Function of the Distributions
 par2qua2                Equivalent Quantile Function of Two
                         Distributions
+par2vec                 Convert a Parameter Object to a Vector of
+                        Parameters
 parTLgld                Estimate the Parameters of the Generalized
                         Lambda Distribution using Trimmed L-moments
                         (t=1)

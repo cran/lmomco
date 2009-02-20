@@ -1,3 +1,4 @@
+\encoding{UTF-8}
 \name{gini.mean.diff}
 \alias{gini.mean.diff}
 \title{ Gini Mean Difference Statistic }
@@ -17,7 +18,6 @@ gini.mean.diff(x)
 }
 \value{
   An R \code{list} is returned.
-
   \item{gini}{The gini mean difference \eqn{\mathcal{G}}}
   \item{L2}{The L-scale (second L-moment) via \eqn{0.5*\mathcal{G}}}
   \item{source}{An attribute identifying the computational source of the Gini's Mean Difference: \dQuote{gini.mean.diff}.}
@@ -27,7 +27,7 @@ Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
 distributions using linear combinations of order statistics: Journal
 of the Royal Statistical Society, Series B, vol. 52, p. 105--124.
 
-Jure\v{c}kov\'{a}, J., and Picek, J., 2006, Robust statistical methods
+\enc{Jurečková}{Jureckova}, J., and Picek, J., 2006, Robust statistical methods
 with R: Boca Raton, Fla., Chapman and Hall/CRC, ISBN 1--58488--454--1,
 197~p.
 }

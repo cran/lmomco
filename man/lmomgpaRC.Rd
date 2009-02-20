@@ -12,7 +12,7 @@ The B-type L-moments in terms of the parameters are
 \deqn{\lambda^B_4 = \alpha (m_1 - 6m_2 + 10m_3 - 5m_4)\mbox{, and}}
 \deqn{\lambda^B_5 = \alpha (m_1 - 10m_2 + 30m_3 - 35m_4 + 14m_5)\mbox{,}}
 
-\noindent where \eqn{m_r = \lbrace 1-(1-\zeta)^{r+\kappa}\rbrace/(r+\kappa)} and \eqn{\zeta} is the right-tail censor fraction or the probability \eqn{\mathrm{Pr}\lbrace \rbrace} that \eqn{x} is less than the quantile at \eqn{\zeta} nonexceedance probability: (\eqn{\mathrm{Pr}\lbrace x < X(\zeta) \rbrace}). Finally, the \code{RC} in the function name is to denote \code{R}ight-tail \code{C}ensoring.
+where \eqn{m_r = \lbrace 1-(1-\zeta)^{r+\kappa}\rbrace/(r+\kappa)} and \eqn{\zeta} is the right-tail censor fraction or the probability \eqn{\mathrm{Pr}\lbrace \rbrace} that \eqn{x} is less than the quantile at \eqn{\zeta} nonexceedance probability: (\eqn{\mathrm{Pr}\lbrace x < X(\zeta) \rbrace}). Finally, the \code{RC} in the function name is to denote \code{R}ight-tail \code{C}ensoring.
 }
 \usage{
 lmomgpaRC(para)
