@@ -401,3 +401,12 @@ Version 0.96.3--February 20, 2009
      populated accordingly.
 4. Tweaks to perhaps two dozen Rd files in preparation for the R-based parsing
      in the R +2.8.x series in which previous LaTeX loop holes have been shut.
+
+
+Version 0.97.1--July 18, 2009
+1. Tweak in documentation in is.ray().
+2. BUG FIX in parray() and lmomray().
+3. Added the 3-parameter log-Normal distribution ("ln3") by referencing the
+     algorithms in the lmom package by J.R.M. Hosking. Remember that the
+     3-parameter is an alternative parameterization of the Generalized
+     Normal distribution ("gno").

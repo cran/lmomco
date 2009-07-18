@@ -16,7 +16,7 @@ function(para) {
     U <- para$para[1]
     A <- para$para[2]
     z$L1 <- U + A*sqrt(pi/2)
-    z$L2 <- 0.5*A*(sqrt(2) - 1)/sqrt(pi)
+    z$L2 <- 0.5*A*(sqrt(2) - 1)*sqrt(pi)
 
     z$TAU3 <- (1 - 3/sqrt(2) + 2/sqrt(3)) /
               (1 - 1/sqrt(2))

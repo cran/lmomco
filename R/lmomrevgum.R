@@ -17,7 +17,7 @@ function(para) {
 
     # Exponential Integral as defined by Hosking (1995, p. 558, A.9)
     Ei <- function(X) {
-           z <- integrate(function(x){ x^-1*exp(-x) },
+           z <- integrate(function(x){ (x)^-1*exp(-x) },
                           lower=X,
                           upper=Inf);
                           return(z)

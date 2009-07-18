@@ -28,6 +28,9 @@ function(x,para,...) {
     else if(type == 'gum') {
       return(cdfgum(x,para))
     }
+    else if(type == 'ln3') {
+      return(cdfln3(x,para))
+    }
     else if(type == 'ray') {
       return(cdfray(x,para))
     }

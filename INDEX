@@ -62,6 +62,8 @@ are.pargum.valid        Are the Distribution Parameters Consistent with
                         the Gumbel Distribution
 are.parkap.valid        Are the Distribution Parameters Consistent with
                         the Kappa Distribution
+are.parln3.valid        Are the Distribution Parameters Consistent with
+                        the 3-Parameter Log-Normal Distribution
 are.parnor.valid        Are the Distribution Parameters Consistent with
                         the Normal Distribution
 are.parpe3.valid        Are the Distribution Parameters Consistent with
@@ -96,6 +98,8 @@ cdfgum                  Cumulative Distribution Function of the Gumbel
                         Distribution
 cdfkap                  Cumulative Distribution Function of the Kappa
                         Distribution
+cdfln3                  Cumulative Distribution Function of the
+                        3-Parameter Log-Normal Distribution
 cdfnor                  Cumulative Distribution Function of the Normal
                         Distribution
 cdfpe3                  Cumulative Distribution Function of the Pearson
@@ -147,6 +151,8 @@ is.gum                  Is a Distribution Parameter Object Typed as
                         Gumbel
 is.kap                  Is a Distribution Parameter Object Typed as
                         Kappa
+is.ln3                  Is a Distribution Parameter Object Typed as
+                        3-Parameter Log-Normal
 is.nor                  Is a Distribution Parameter Object Typed as
                         Normal
 is.pe3                  Is a Distribution Parameter Object Typed as
@@ -180,6 +186,8 @@ lmom.test.gum           Test L-moment and Parameter Algorithms of the
                         Gumbel Distribution
 lmom.test.kap           Test L-moment and Parameter Algorithms of the
                         Kappa Distribution
+lmom.test.ln3           Test L-moment and Parameter Algorithms of the
+                        3-Parameter Log-Normal Distribution
 lmom.test.nor           Test L-moment and Parameter Algorithms of the
                         Normal Distribution
 lmom.test.pe3           Test L-moment and Parameter Algorithms of the
@@ -220,6 +228,8 @@ lmomgpaRC               B-type L-moments of the Generalized Pareto
                         Distribution with Right-Tail Censoring
 lmomgum                 L-moments of the Gumbel Distribution
 lmomkap                 L-moments of the Kappa Distribution
+lmomln3                 L-moments of the 3-Parameter Log-Normal
+                        Distribution
 lmomnor                 L-moments of the Normal Distribution
 lmompe3                 L-moments of the Pearson Type III Distribution
 lmomray                 L-moments of the Rayleigh Distribution
@@ -270,6 +280,8 @@ pargum                  Estimate the Parameters of the Gumbel
                         Distribution
 parkap                  Estimate the Parameters of the Kappa
                         Distribution
+parln3                  Estimate the Parameters of the 3-Parameter
+                        Log-Normal Distribution
 parnor                  Estimate the Parameters of the Normal
                         Distribution
 parpe3                  Estimate the Parameters of the Pearson Type III
@@ -302,6 +314,8 @@ pdfgum                  Probability Density Function of the Gumbel
                         Distribution
 pdfkap                  Probability Density Function of the Kappa
                         Distribution
+pdfln3                  Probability Density Function of the 3-Parameter
+                        Log-Normal Distribution
 pdfnor                  Probability Density Function of the Normal
                         Distribution
 pdfpe3                  Probability Density Function of the Pearson
@@ -355,6 +369,8 @@ quagpa                  Quantile Function of the Generalized Pareto
                         Distribution
 quagum                  Quantile Function of the Gumbel Distribution
 quakap                  Quantile Function of the Kappa Distribution
+qualn3                  Quantile Function of the 3-Parameter Log-Normal
+                        Distribution
 quanor                  Quantile Function of the Normal Distribution
 quape3                  Quantile Function of the Pearson Type III
                         Distribution

@@ -36,6 +36,9 @@ function(para,...) {
     else if(type == 'gum') {
       return(are.pargum.valid(para,...))
     }
+    else if(type == 'ln3') {
+      return(are.parln3.valid(para,...))
+    }
     else if(type == 'ray') {
       return(are.parray.valid(para,...))
     }

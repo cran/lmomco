@@ -4,7 +4,7 @@
 \description{
 This function is a dispatcher on top of the \code{are.parCCC.valid} functions, 
 where \code{CCC} represents the distribution type:  \code{exp}, \code{gam}, \code{gev}, \code{glo}, \code{gno},
-\code{gpa}, \code{gum}, \code{kap}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{wak}, or \code{wei}. Internally, this function is called
+\code{gpa}, \code{gum}, \code{kap}, \code{ln3}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{wak}, or \code{wei}. Internally, this function is called
 only by \code{vec2par} in the process of converting a vector into a proper
 distribution parameter object for this package.
 }

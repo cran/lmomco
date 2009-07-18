@@ -11,13 +11,13 @@ function(lmom, xi=NULL, checklmom=TRUE) {
    }
 
    if(is.null(xi)) {
-     para[2] <- 2*lmom$L2*sqrt(pi)/(sqrt(2) - 1)
-     para[1] <- lmom$L1-para[2]*sqrt(pi/2)
+     para[2] <- 2*lmom$L2 / (sqrt(pi)*(sqrt(2) - 1))
+     para[1] <- lmom$L1 - para[2]*sqrt(pi/2)
    }
    else {
      para[1] <- xi
-     para[2] <- lmom$L1/sqrt(pi/2)
+     para[2] <- (lmom$L1-xi)/sqrt(pi/2)
    } 
-   return(list(type = 'ray', para=para, source="parray"))
+   return(list(type='ray', para=para, source="parray"))
 }
 

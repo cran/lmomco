@@ -19,8 +19,8 @@ are.parray.valid(para,nowarn=FALSE)
   \item{nowarn}{A logical switch on warning surpression. If \code{TRUE} then \code{options(warn=-1)} is made and restored on return. This switch is to permit calls in which warnings are not desired as the user knows how to handle the returned value---say in an optimization algorithm.}
 }
 \value{
-  \item{TRUE}{If the parameters are \code{gum} consistent.}
-  \item{FALSE}{If the parameters are not \code{gum} consistent.}
+  \item{TRUE}{If the parameters are \code{ray} consistent.}
+  \item{FALSE}{If the parameters are not \code{ray} consistent.}
 }
 \references{
 Hosking, J.R.M., 1986, The theory of probability weighted moments:

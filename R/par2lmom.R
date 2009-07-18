@@ -28,6 +28,9 @@ function(para) {
     else if(type == 'gum') {
       return(lmomgum(para))
     }
+    else if(type == 'ln3') {
+      return(lmomln3(para))
+    }
     else if(type == 'ray') {
       return(lmomray(para))
     }

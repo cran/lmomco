@@ -37,6 +37,10 @@ function(vec,type,nowarn=FALSE,...) {
       z <- list(type = 'gum', para = vec, source = "vec2par")
       names(z$para) <- c("xi","alpha")
     }
+    else if(type == 'ln3') {
+      z <- list(type = 'ln3', para = vec, source = "vec2par")
+      names(z$para) <- c("zeta","mu","sigma")
+    }
     else if(type == 'ray') {
       z <- list(type = 'ray', para = vec, source = "vec2par")
       names(z$para) <- c("xi","alpha")
@@ -67,7 +71,8 @@ function(vec,type,nowarn=FALSE,...) {
       names(z$para) <- c("zeta","beta","delta")
     }
     else {
-      stop("Did not find a valid distribution type")
+      z <- list(type = 'user', para = vec, source = "vec2par")
+      return(z)
     }
     if(! are.par.valid(z,nowarn,...)) {
       op <- options()
