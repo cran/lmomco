@@ -1,9 +1,9 @@
 Package: lmomco
 Title: L-moments, Trimmed L-moments, L-comoments, and Many
         Distributions
-Version: 0.97.1
+Version: 0.97.4
 Depends: R (>= 2.7.0), utils
-Date: 2009-07-18
+Date: 2009-10-28
 Author: William H. Asquith
 Description: The package implements the statistical theory of L-moments
         including L-moment estimation, probability-weighted moment
@@ -33,8 +33,8 @@ Description: The package implements the statistical theory of L-moments
         Generalized Normal(L), Generalized Pareto(L[RC] & TL),
         Gumbel(L), Normal(L), Kappa(L), Pearson Type III(L), Reverse
         Gumbel(L[RC]), Wakeby(L), and Weibull(L).
-Maintainer: William H. Asquith <wasquith@austin.rr.com>
+Maintainer: William H. Asquith <william.asquith@ttu.edu>
 License: GPL
-Packaged: Sat Jul 18 09:16:25 2009; wasquith
+Packaged: 2009-10-28 16:48:17 UTC; wasquith
 Repository: CRAN
-Date/Publication: 2009-07-18 16:41:56
+Date/Publication: 2009-10-28 17:13:42

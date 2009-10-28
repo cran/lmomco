@@ -3,10 +3,10 @@
 \title{Quantile Function of the Blipped Distributions}
 \description{
 This function acts as a front end or dispatcher to the distribution-specific quantile functions. 
-\deqn{F(x) = \begin{cases}
-0, & x \le 0 \\
-p + (1-p)G(x), & x > 0
-\end{cases}}
+\deqn{F(x) = 0}
+for \eqn{x \le 0} and
+\deqn{F(x) = p + (1-p)G(x)}
+for \eqn{x > 0}.
 }
 \usage{
 z.par2qua(f,p,para,z=0,...)

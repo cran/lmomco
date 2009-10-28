@@ -15,7 +15,7 @@ prob2T(F)
    A vector of T-year return periods.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{T2prob}, \code{\link{nonexceeds}}}}
+\seealso{\code{\link{T2prob}}, \code{\link{nonexceeds}}}
 \examples{
 F <- nonexceeds()
 T <- prob2T(F)

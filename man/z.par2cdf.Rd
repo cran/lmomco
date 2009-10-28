@@ -4,10 +4,10 @@
 \description{
 This function acts as a front end of dispatcher to the distribution-specific cumulative
 distribution functions.
-\deqn{x(F) = \begin{cases}
-0, & 0 \le F \le p \\
-x_G\left(\frac{F-p}{1-p}\right), & F > p
-\end{cases}}
+\deqn{x(F) = 0}
+for \eqn{0 \le F \le p} and
+\deqn{x_G\left(\frac{F-p}{1-p}\right)}
+for \eqn{F > p}.
 }
 \usage{
 z.par2cdf(x,p,para,z=0,...)

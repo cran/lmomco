@@ -410,3 +410,14 @@ Version 0.97.1--July 18, 2009
      algorithms in the lmom package by J.R.M. Hosking. Remember that the
      3-parameter is an alternative parameterization of the Generalized
      Normal distribution ("gno").
+
+
+Version 0.97.2--October 27, 2009
+1. Tweaks to lmomgld.Rd, prob2T.Rd, z.par2cdf.Rd, z.par2qua.Rd in preparation
+     for new release of R.
+
+
+Version 0.97.4--October 28, 2009
+1. Another tweaks to lmomgld.Rd in preparation for new release of R.
+
+
