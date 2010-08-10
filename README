@@ -10,29 +10,27 @@ consistency, robustness, and others. The R package contained here fully
 implements L-moments in the context of many probability distributions 
 including the Exponential, Gamma, Gumbel, Normal, Generalized Extreme Value, 
 Generalized Lambda, Generalized Logistic, Generalized Normal (log-Normal),
-Generalized Pareto, Pearson Type III, Kappa, Wakeby, and Weibull. This package
-provides core functions and numerous ancillary functions to help get the user
-started and to keep the user entertained by building complex analysis
-applications. Very recent and extremely exciting developments have extended
-L-moments to multi-variate analysis---the sample L-comoments are implemented
-here on an experimental basis. The package also implements the trimmed
+Generalized Pareto, Pearson Type III, Rayleigh, Kappa, Wakeby, and Weibull.
+
+This package provides core functions and numerous ancillary functions to
+help get the user started and to keep the user entertained by building complex
+analysis applications. Very recent and extremely exciting developments have
+extended L-moments to multi-variate analysis---the sample L-comoments are
+implemented here on an experimental basis. The package also implements the trimmed
 L-moments and support for the Cauchy, Generalized Lambda, and Generalized
 Pareto distributions.
 
 Things to do:
-(1) Continue to explore parameter estimation of Generalized Lambda distribution.
-(2) Add additional distributions (uniform, others).
-(3) Make further progress on documentation including nontrivial examples.
-(4) Further "design" the L-moment object for greater function portability.
-      Deprecate the object design from lmom.ub and similar.
-(5) Continue discussions with Juha Karvanen on a cross-package L-moment 
-      object. (Related to ToDo no. 4.)
+(1) Finish my dissertation that will fully document this package with over
+200 code examples and over 300 equations with a page count approaching 350 in 
+single-space, 10-pt font.
             
-wha (April 10, 2007)
+wha (August 10, 2010)
 
 See inst/doc/WARRANTY for lack-of-warranty information.
 
 See the excellent R-package Lmoments by Juha Karvanen.
+See the excellent R-package lmoms by J.R.M. Hosking.
 
 Note: This is a large package with hundreds of examples. The examples will 
 take considerable time to process on 'R CMD check lmomco'.

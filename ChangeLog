@@ -39,17 +39,17 @@ Version 0.6---March 25, 2006
      integration of the quantile function. A valuable check on par2lmom()
      or the lmomCCC() functions.
 5. par2cdf() did not dispatch to Generalized Lambda distribution---fixed.
-6. Addition of nowarn toggle to vec2par() {implemented therein}, through 
-     are.par.valid() via the ..., and each of the are.parCCC.valid() 
-     {implemented therein}. This was done so that parameter optimization 
-     algorithms could be built on top of the parameter validation checks and 
-     cascading warning messages that the user would not care about can be 
+6. Addition of nowarn toggle to vec2par() {implemented therein}, through
+     are.par.valid() via the ..., and each of the are.parCCC.valid()
+     {implemented therein}. This was done so that parameter optimization
+     algorithms could be built on top of the parameter validation checks and
+     cascading warning messages that the user would not care about can be
      surpressed.
 
 
 Version 0.7---April 13, 2006
 1. Added full vectorization of the quaCCC() and cdfCCC() functions. Previously
-     each function did not handle a vector of nonexceedance probability and 
+     each function did not handle a vector of nonexceedance probability and
      quantile values in each respective function.
 2. Added extract argument to the pargld() and parTLgld() functions.
 3. Incorporated endpoint or range checking on cdfgld().
@@ -60,8 +60,8 @@ Version 0.75---April 30, 2006
      case name space and eventually could take the place of lmom.ub().
 2. Added additional error trapping to TLmom() and TLmoms().
 3. Added the Weibull distribution (wei).
-4. Added the random deviate generator rlmomco() given sample size and 
-     parameter object. 
+4. Added the random deviate generator rlmomco() given sample size and
+     parameter object.
 5. Added the plotting-position formula by pp().
 
 
@@ -88,7 +88,7 @@ Version 0.77---May 15, 2006
      handling a first-order first argument, but crashing on order evaluation
      of the second argument.
 
-     
+
 Version 0.80---June 20, 2006
 0. Further tweaks to the documentation.
 1. Warning message added when TAU5 missing on call to pargld() and parTLgld().
@@ -100,7 +100,7 @@ Version 0.80---June 20, 2006
 
 Version 0.82--July 13, 2006
 0. Further tweaks to the documentation.
-1. Word of caution about lack of checking by the function of monotonic 
+1. Word of caution about lack of checking by the function of monotonic
      increase of par2cdf2() an par2qua2().
 2. Added the qua2ci() function for estimation of confidence limits of quantiles
      of a distribution using Monte Carlo simulation.
@@ -114,7 +114,7 @@ Version 0.82--July 13, 2006
 5. Added the genci() function for generation of lists or data.frames of
      confidence intervals for a vector of nonexceedance probabilities, a given
      sample size, and a specified parent using Monte Carlo simulation.
-6. Recognition that the quaCCC() functions had been extended into the features 
+6. Recognition that the quaCCC() functions had been extended into the features
      provided by freq.curve.CCC() functions.  Thus, all freq.curve.CCC()
      functions were removed from the package.
 7. BUG FIX on F=0||1 probabilities into quape3(). Bug occurred in extension
@@ -130,7 +130,7 @@ Version 0.82--July 13, 2006
 Version 0.83--April 10, 2007
 0. Further tweaks to documentation.
 1. Added callplot and showsample options to gen.freq.curves().
-2. Added plmomco() and qlmomco() as adjuncts to rlmomco() and to better 
+2. Added plmomco() and qlmomco() as adjuncts to rlmomco() and to better
      parallel built-in distribution functions of R itself.
 3. BUG FIX on examples in genci() that manifested as the April 2007
      release of R approached.
@@ -148,8 +148,8 @@ Version 0.84--May 2, 2007
      by the genci() or other calling functions. Also, added the maxlogdiff
      argument to control whether a simulated quantile is actually retained
      before the completion sequence of the function is begun. This argument
-     is used to control whether hideously "out-of-whack," which would 
-     likely occur for heavy-tailed infinite limit upper tails. 
+     is used to control whether hideously "out-of-whack," which would
+     likely occur for heavy-tailed infinite limit upper tails.
 
 
 Version 0.85--July 14, 2007
@@ -158,7 +158,7 @@ Version 0.85--July 14, 2007
 2. BUG FIX on pwm.ub() by fixing pwm.pp(). I had misinterpreted Hosking's
      argument call in his samlmr FORTRAN function. The unbiased PWMs were
      certainly not being correctly computed. I gutted the code entirely and
-     now rely on R's choose() to get binomial coeficients. The much cleaner 
+     now rely on R's choose() to get binomial coeficients. The much cleaner
      code no longer shares structure with Hosking's function. The changes in
      pwm.ub() and pwm.pp() caused a cascade of adjustments to pwm.gev(). Each
      of these functions now returns a more logical list structure containing
@@ -166,7 +166,7 @@ Version 0.85--July 14, 2007
      the original lmomco package (preCRAN) are now updated. The new list
      structure supports an arbitrary number of moments now. This activity
      was spawned by the addition of pwm(), which in turn was spawned by
-     the addition of pwmRC() described in the next item. In fact 
+     the addition of pwmRC() described in the next item. In fact
      pwm.ub() now dispatches to pwm(). Also if A=0 and B=0 in pwm.pp(), then a
      dispatch is made to pwm(); this mimics Hosking's ideas of implementation.
 3. Added the pwm() function. The function provides a nice neat and clean
@@ -175,19 +175,19 @@ Version 0.85--July 14, 2007
      implement the more complex logic of the pwmRC() function. Further
      the pwm() name shares a style with the lmoms() name, but I can not decide
      whether pwm() should really be pwms(); note the plural "s." I think I
-     will stay with the shorter version and leave lmoms() alone for legacy 
+     will stay with the shorter version and leave lmoms() alone for legacy
      reasons.
 4. Added the pwmRC() function. The RC stands for right censored; that is values
      larger than some value are not observed. The function computes the A-type
      and B-type Probability-Weighted Moments and the censoring fraction given
      a sample data set and an upper threshold. This new function can be used
-     to compute B-type PWMs and hence B-type L-moments for the Reversed 
+     to compute B-type PWMs and hence B-type L-moments for the Reversed
      Gumbel and Generalized Pareto Distributions.
 5. Added the lmomgpaRC() and pargpaRC() functions. These compute the B-type
      L-moments from the parameters of a right-censored Generalized Pareto
      Distribution, and compute the parameters of a right-censored Generalized
      Pareto Distribution. The distributions continues to be type "gpa" and
-     implemented in the usual fashion via quagpa() and cdfqpa(). Only the 
+     implemented in the usual fashion via quagpa() and cdfqpa(). Only the
      L-moments and parameter estimation functions are separately implemented.
 6. Added the cdfrevgum(), lmomrevgum(), parrevgum(), and quarevgum() functions
      to implement the Reverse Gumbel distribution.
@@ -220,7 +220,7 @@ Version 0.86--July 23, 2007
 
 
 Version 0.87--August 1, 2007
-1. Added the xlab and ylab arguments to plotlmrdia(), which provide user 
+1. Added the xlab and ylab arguments to plotlmrdia(), which provide user
      flexibility of the naming of each axis.
 2. Added the checklmom=TRUE argument to parexp(), pargam(), pargev(),
      parglo(), pargno(), pargpa(), pargpaRC(), pargum(), parkap(),
@@ -272,14 +272,14 @@ Version 0.91--October 24, 2007
      functions.
 5. BUG FIX on parwei(). Function was unnecessarily querying fifth
      L-moment when the fifth L-moment is not needed. So one did not have five
-     or more L-moments then parwei() would not work. This was unnecessarily 
+     or more L-moments then parwei() would not work. This was unnecessarily
      restrictive.
 6. Added z.par2cdf() and z.par2qua() to accommodate zero values or other in the
      building of ``blipped distributions'' to quote Gilchrist (2000, p. 148).
 7. Added umvu.sd to pmoms()---uniformly-minimum variance unbiased estimator.
 8. BUG FIX on quacau(). Function did not return a vector if one of the F values
      happened to be equal to exactly 0.5.
-9. BUG FIX on are.pargam.valid(). Test did not permit Beta > 0, but mistakenly 
+9. BUG FIX on are.pargam.valid(). Test did not permit Beta > 0, but mistakenly
      tested for Beta > 1.
 10. BUG FIX on are.parcau.valid(). Test did not check that Alpha > 0.
 
@@ -340,7 +340,7 @@ Version 0.94--June 6, 2008
 2. Added sen.mean().
 3. Harmonic.mean() now strips is.na() values in similar fashion as
      gini.mean.diff() and sen.mean(). In time such operations are expected in
-     other functions. Several users have commented on original lack of 
+     other functions. Several users have commented on original lack of
      x <- x[! is.na(x)] filtering in other functions.
 
 
@@ -389,6 +389,7 @@ Version 0.96.2--November 17, 2008
 3. Fixed Lcomoment.matrix() to return NA in the off diagonal elements if the
      moment order is 1.
 
+
 Version 0.96.3--February 20, 2009
 1. Added the par2vec() function (added to aid feeding of parameters into
      functions of the lmom package by J.R.M. Hosking).
@@ -417,7 +418,15 @@ Version 0.97.2--October 27, 2009
      for new release of R.
 
 
-Version 0.97.4--October 28, 2009
-1. Another tweaks to lmomgld.Rd in preparation for new release of R.
-
-
+Version 1.0.01--August 10, 2010 (version "1" because of censoring support)
+1. Added lmomsRCmark() and fliplmoms() for right-tail censoring and left-tail
+     censoring support, respectively (somewhat). Additional examples added
+     to document how to do right-tail censoring (see lmomsRCmark()) and left-
+     tail censoring (see fliplmoms()).
+2. Additional example in Lcomoment.Wk() to show how this function can be
+     use to compute weight factors representing the relative contribution
+     of each sample order statistics in the computation of a given order
+     of L-moment. The example shows how to double check output of lmoms().
+     Thanks to the anonymous poster.
+3. Very minor tweaks to documentation as R version change identified
+     some formatting problems.

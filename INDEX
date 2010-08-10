@@ -1,44 +1,8 @@
+amarilloprecip          Annual Maximum Precipitation Data for Amarillo,
+                        Texas
 Apwm2BpwmRC             Conversion between A- and B-Type
                         Probability-Weighted Moments for Right-Tail
                         Censoring of An Appropriate Distribution
-Bpwm2ApwmRC             Conversion between B- and A-Type
-                        Probability-Weighted Moments for Right-Tail
-                        Censoring of An Appropriate Distribution
-DrillBitLifetime        Lifetime of Drill Bits
-IRSrefunds.by.state     U.S.~Internal Revenue Service Refunds by State
-                        for Fiscal Year 2006
-Lcomoment.Lk12          Compute a Single Sample L-comoment
-Lcomoment.Wk            Weighting Coefficient for Sample L-comoment
-Lcomoment.coefficients
-                        L-comoment Coefficient Matrix
-Lcomoment.correlation   L-correlation Matrix (L-correlation through
-                        Sample L-comoments)
-Lcomoment.matrix        Compute Sample L-comoment Matrix
-T2prob                  Convert a Vector of T-year Return Periods to
-                        Annual Nonexceedance Probabilities
-TLmom                   A Sample Trimmed L-moment
-TLmoms                  The Sample Trimmed L-moments and L-moment
-                        Ratios
-USGSsta01515000peaks    Annual Peak Streamflow Data for U.S.~Geological
-                        Survey Streamflow-Gaging Station 01515000
-USGSsta02366500peaks    Annual Peak Streamflow Data for U.S.~Geological
-                        Survey Streamflow-Gaging Station 02366500
-USGSsta05405000peaks    Annual Peak Streamflow Data for U.S.~Geological
-                        Survey Streamflow-Gaging Station 05405000
-USGSsta06766000dvs      Daily Mean Streamflow Data for U.S.~Geological
-                        Survey Streamflow-Gaging Station 06766000
-USGSsta08151500peaks    Annual Peak Streamflow Data for U.S.~Geological
-                        Survey Streamflow-Gaging Station 08151500
-USGSsta08167000peaks    Annual Peak Streamflow Data for U.S.~Geological
-                        Survey Streamflow-Gaging Station 08167000
-USGSsta08190000peaks    Annual Peak Streamflow Data for U.S.~Geological
-                        Survey Streamflow-Gaging Station 08190000
-USGSsta09442000peaks    Annual Peak Streamflow Data for U.S.~Geological
-                        Survey Streamflow-Gaging Station 09442000
-USGSsta14321000peaks    Annual Peak Streamflow Data for U.S.~Geological
-                        Survey Streamflow-Gaging Station 14321000
-amarilloprecip          Annual Maximum Precipitation Data for Amarillo,
-                        Texas
 are.lmom.valid          Are the L-moments valid
 are.par.valid           Are the Distribution Parameters Consistent with
                         the Distribution
@@ -76,6 +40,9 @@ are.parwak.valid        Are the Distribution Parameters Consistent with
                         the Wakeby Distribution
 are.parwei.valid        Are the Distribution Parameters Consistent with
                         the Weibull Distribution
+Bpwm2ApwmRC             Conversion between B- and A-Type
+                        Probability-Weighted Moments for Right-Tail
+                        Censoring of An Appropriate Distribution
 canyonprecip            Annual Maximum Precipitation Data for Canyon,
                         Texas
 cdfcau                  Cumulative Distribution Function of the Cauchy
@@ -121,6 +88,9 @@ clearforkporosity       Porosity Data
 dist.list               List of Distribution Names
 dlmomco                 Probability Density Function of the
                         Distributions
+DrillBitLifetime        Lifetime of Drill Bits
+fliplmoms               Flip L-moments by Flip Attribute in L-moment
+                        Vector
 freq.curve.all          Compute Frequency Curve for All Distributions
 gen.freq.curves         Plot Randomly Generated Frequency Curves from a
                         Parent Distribution
@@ -131,6 +101,8 @@ harmonic.mean           The Harmonic Mean with Zero-Value Correction
 herefordprecip          Annual Maximum Precipitation Data for Hereford,
                         Texas
 hlmomco                 Hazard Functions of the Distributions
+IRSrefunds.by.state     U.S.~Internal Revenue Service Refunds by State
+                        for Fiscal Year 2006
 is.cau                  Is a Distribution Parameter Object Typed as
                         Cauchy
 is.exp                  Is a Distribution Parameter Object Typed as
@@ -165,6 +137,13 @@ is.wak                  Is a Distribution Parameter Object Typed as
                         Wakeby
 is.wei                  Is a Distribution Parameter Object Typed as
                         Weibull
+Lcomoment.coefficients
+                        L-comoment Coefficient Matrix
+Lcomoment.correlation   L-correlation Matrix (L-correlation through
+                        Sample L-comoments)
+Lcomoment.Lk12          Compute a Single Sample L-comoment
+Lcomoment.matrix        Compute Sample L-comoment Matrix
+Lcomoment.Wk            Weighting Coefficient for Sample L-comoment
 lcomoms2                The Sample L-comoments for Two Variables
 lmom.diff               Difference Between L-moments of the
                         Distribution and the L-moments of the Data
@@ -207,10 +186,6 @@ lmom2par                Convert L-moments to the the Parameters of a
 lmom2pwm                L-moments to Probability-Weighted Moments
 lmom2vec                Convert an L-moment object to a Vector of
                         L-moments
-lmomTLgld               Trimmed L-moments (t=1) of the Generalized
-                        Lambda Distribution
-lmomTLgpa               Trimmed L-moments of the Generalized Pareto
-                        Distribution
 lmomcau                 Trimmed L-moments of the Cauchy Distribution
 lmomexp                 L-moments of the Exponential Distribution
 lmomgam                 L-moments of the Gamma Distribution
@@ -233,8 +208,16 @@ lmomln3                 L-moments of the 3-Parameter Log-Normal
 lmomnor                 L-moments of the Normal Distribution
 lmompe3                 L-moments of the Pearson Type III Distribution
 lmomray                 L-moments of the Rayleigh Distribution
+lmomRCmark              Sample L-moment for Right-Tail Censoring by a
+                        Marking Variable
 lmomrevgum              L-moments of the Reverse Gumbel Distribution
 lmoms                   The Sample L-moments and L-moment Ratios
+lmomsRCmark             Sample L-moments Moments for Right-Tail
+                        Censoring by a Marking Variable
+lmomTLgld               Trimmed L-moments (t=1) of the Generalized
+                        Lambda Distribution
+lmomTLgpa               Trimmed L-moments of the Generalized Pareto
+                        Distribution
 lmomwak                 L-moments of the Wakeby Distribution
 lmomwei                 L-moments of the Weibull Distribution
 lmorph                  Morph an L-moment Object
@@ -253,11 +236,6 @@ par2qua2                Equivalent Quantile Function of Two
                         Distributions
 par2vec                 Convert a Parameter Object to a Vector of
                         Parameters
-parTLgld                Estimate the Parameters of the Generalized
-                        Lambda Distribution using Trimmed L-moments
-                        (t=1)
-parTLgpa                Estimate the Parameters of the Generalized
-                        Pareto Distribution using Trimmed L-moments
 parcau                  Estimate the Parameters of the Cauchy
                         Distribution
 parexp                  Estimate the Parameters of the Exponential
@@ -290,6 +268,11 @@ parray                  Estimate the Parameters of the Rayleigh
                         Distribution
 parrevgum               Estimate the Parameters of the Reverse Gumbel
                         Distribution
+parTLgld                Estimate the Parameters of the Generalized
+                        Lambda Distribution using Trimmed L-moments
+                        (t=1)
+parTLgpa                Estimate the Parameters of the Generalized
+                        Pareto Distribution using Trimmed L-moments
 parwak                  Estimate the Parameters of the Wakeby
                         Distribution
 parwei                  Estimate the Parameters of the Weibull
@@ -381,25 +364,48 @@ quawak                  Quantile Function of the Wakeby Distribution
 quawei                  Quantile Function of the Weibull Distribution
 rlmomco                 Random Deviates of a Distribution
 sen.mean                Sen's Weighted Mean Statistic
+T2prob                  Convert a Vector of T-year Return Periods to
+                        Annual Nonexceedance Probabilities
 theoLmoms               The Theoretical L-moments and L-moment Ratios
+                        using Integration of the Quantile Function
+theopwms                The Theoretical Probability-Weighted Moments
                         using Integration of the Quantile Function
 theoTLmoms              The Theoretical Trimmed L-moments and TL-moment
                         Ratios using Integration of the Quantile
                         Function
-theopwms                The Theoretical Probability-Weighted Moments
-                        using Integration of the Quantile Function
+TLmom                   A Sample Trimmed L-moment
+TLmoms                  The Sample Trimmed L-moments and L-moment
+                        Ratios
 tulia6Eprecip           Annual Maximum Precipitation Data for Tulia 6E,
                         Texas
 tuliaprecip             Annual Maximum Precipitation Data for Tulia,
                         Texas
-vec2TLmom               Convert a Vector of TL-moments to a TL-moment
-                        Object
+USGSsta01515000peaks    Annual Peak Streamflow Data for U.S.~Geological
+                        Survey Streamflow-Gaging Station 01515000
+USGSsta02366500peaks    Annual Peak Streamflow Data for U.S.~Geological
+                        Survey Streamflow-Gaging Station 02366500
+USGSsta05405000peaks    Annual Peak Streamflow Data for U.S.~Geological
+                        Survey Streamflow-Gaging Station 05405000
+USGSsta06766000dvs      Daily Mean Streamflow Data for U.S.~Geological
+                        Survey Streamflow-Gaging Station 06766000
+USGSsta08151500peaks    Annual Peak Streamflow Data for U.S.~Geological
+                        Survey Streamflow-Gaging Station 08151500
+USGSsta08167000peaks    Annual Peak Streamflow Data for U.S.~Geological
+                        Survey Streamflow-Gaging Station 08167000
+USGSsta08190000peaks    Annual Peak Streamflow Data for U.S.~Geological
+                        Survey Streamflow-Gaging Station 08190000
+USGSsta09442000peaks    Annual Peak Streamflow Data for U.S.~Geological
+                        Survey Streamflow-Gaging Station 09442000
+USGSsta14321000peaks    Annual Peak Streamflow Data for U.S.~Geological
+                        Survey Streamflow-Gaging Station 14321000
 vec2lmom                Convert a Vector of L-moments to a L-moment
                         Object
 vec2par                 Convert a Vector of Parameters to a Parameter
                         Object of a Distribution
 vec2pwm                 Convert a Vector of Probability-Weighted
                         Moments to a Probability-Weighted Moments
+                        Object
+vec2TLmom               Convert a Vector of TL-moments to a TL-moment
                         Object
 vegaprecip              Annual Maximum Precipitation Data for Vega,
                         Texas
