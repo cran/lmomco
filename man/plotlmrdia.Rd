@@ -12,8 +12,9 @@ of this function for their own specific purposes.
 \usage{
 plotlmrdia(lmr, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
            nogev=FALSE, noglo=FALSE, nogpa=FALSE, nope3=FALSE, 
-	   nogno=FALSE, noexp=FALSE, nonor=FALSE, nogum=FALSE,
-           noray=FALSE, nouni=FALSE, xlab="L-SKEW", ylab="L-KURTOSIS", 
+	       nogno=FALSE, noexp=FALSE, nonor=FALSE, nogum=FALSE,
+           noray=FALSE, nouni=FALSE,
+           xlab="L-SKEW", ylab="L-KURTOSIS", 
            autolegend=FALSE, xleg=NULL, yleg=NULL, ...)
 }
 \arguments{

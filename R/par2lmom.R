@@ -40,6 +40,9 @@ function(para) {
     else if(type == 'kap') {
       return(lmomkap(para))
     }
+    else if(type == 'kur') {
+      return(lmomkap(para))
+    }
     else if(type == 'pe3') {
       return(lmompe3(para))
     }

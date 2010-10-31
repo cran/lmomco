@@ -37,6 +37,10 @@ function(vec,type,nowarn=FALSE,...) {
       z <- list(type = 'gum', para = vec, source = "vec2par")
       names(z$para) <- c("xi","alpha")
     }
+    else if(type == 'kur') {
+      z <- list(type = 'kur', para = vec, source = "vec2par")
+      names(z$para) <- c("alpha","beta")
+    } 
     else if(type == 'ln3') {
       z <- list(type = 'ln3', para = vec, source = "vec2par")
       names(z$para) <- c("zeta","mu","sigma")

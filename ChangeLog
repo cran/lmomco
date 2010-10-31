@@ -430,3 +430,19 @@ Version 1.0.01--August 10, 2010 (version "1" because of censoring support)
      Thanks to the anonymous poster.
 3. Very minor tweaks to documentation as R version change identified
      some formatting problems.
+
+
+Version 1.1.0--October 31, 2010
+1. Deprecated lmom.test*.R/Rd and lmom.diff.R/Rd and moved them to inst/legacy.
+     These were simply no longered needed and were originally created for
+     development purposes anyway. Also lmom.references.Rd is now in inst/legacy.
+2. Added the Kumaraswamy distribution ("kur") functions and other supporting
+     functions. This distribution is bounded on (0,1) and is a semi-beta
+     replacement with very convenient distribution functions that are not 
+     dependent on the Beta function family. Additions to the supporting
+     functions provided the discovery of missing ln3 as described below.
+3. Added the 3-parameter log-Normal distribution ("ln3") to dist.list.R/Rd.
+4. Added the 3-parameter log-Normal distribution ("ln3") to lmom2par.R/Rd.
+5. Fixed text running over the right margin of the user manual for cdfrevgum.Rd,
+     genci.Rd, lmomsRCmark.Rd, parrevgum.Rd, pdfrevgum.Rd, plotlmrdia.Rd,
+     pwm.Rd, pwmRC.Rd, quarevgum.Rd, and sen.mean.Rd.

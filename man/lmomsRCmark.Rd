@@ -5,7 +5,8 @@
 Compute the sample L-moments for right-tail censored data set in which censored data values are identified by a marking variable. Extension of left-tail censoring can be made using \code{fliplmoms} and the example therein.
 }
 \usage{
-lmomsRCmark(x, rcmark=NULL, nmom=5, sort=TRUE, flip=NA, flipfactor=1.1)
+lmomsRCmark(x, rcmark=NULL, nmom=5, sort=TRUE, flip=NA,
+               flipfactor=1.1)
 }
 \arguments{
   \item{x}{A vector of data values.}
@@ -68,10 +69,10 @@ plot(PP, Efron.data, col=(Efron.rcmark+1), ylab="DATA")
 lines(PP, qlmomco(PP, lmom2par(lmr.noRC, type="kap")), lwd=3, col=8)
 lines(PP, qlmomco(PP, lmom2par(lmr.ub, type="kap")))
 lines(PP, qlmomco(PP, lmom2par(lmr.RC, type="kap")), lwd=2, col=2)
-legend(0,1000, c("uncensored L-moments by indicator (Kappa distribution)",
-                 "unbiased L-moments (Kappa)",
-                 "right-censored L-moments by indicator (Kappa distribution)"),
-                 lwd=c(3,1,2), col=c(8,1,2))
+legend(0,1000,c("uncensored L-moments by indicator (Kappa distribution)",
+                "unbiased L-moments (Kappa)",
+           "right-censored L-moments by indicator (Kappa distribution)"),
+                lwd=c(3,1,2), col=c(8,1,2))
 }
 \keyword{univar}
 \keyword{distribution}

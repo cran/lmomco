@@ -24,6 +24,9 @@ function(lmom,type,...) {
     else if(type == 'gum') {
       return(pargum(lmom))
     }
+    else if(type == 'kur') {
+      return(parkur(lmom))
+    }
     else if(type == 'ray') {
       return(parray(lmom))
     }
@@ -32,6 +35,9 @@ function(lmom,type,...) {
     }
     else if(type == 'kap') {
       return(parkap(lmom))
+    }
+    else if(type == 'ln3') {
+      return(parln3(lmom))    
     }
     else if(type == 'nor') {
       return(parnor(lmom))

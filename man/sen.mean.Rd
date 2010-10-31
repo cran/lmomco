@@ -38,7 +38,8 @@ Indian Society of Agricultural Statistics: vol.~16, pp.~51--61.
 fake.dat <- c(123,34,4,654,37,78)
 sen.mean(fake.dat); mean(fake.dat) # These should be the same values
 
-sen.mean(fake.dat, k=(length(fake.dat)/2) - 1); median(fake.dat) # Again, same values
+sen.mean(fake.dat, k=(length(fake.dat)/2) - 1); median(fake.dat)
+# Again, same values
 
 # Finally, the sen.mean() is like a symmetrically trimmed TL-moment
 # Let us demonstrate by computed a two sample trimming for each side

@@ -1,5 +1,6 @@
 "lmomsRCmark" <-
-function(x, rcmark=NULL, nmom=5, sort=TRUE, flip=NA, flipfactor=1.1) {
+function(x, rcmark=NULL, nmom=5, sort=TRUE, flip=NA,
+            flipfactor=1.1) {
     n <- length(x);
     if(nmom > n)
         stop("More L-moments requested by parameter 'nmom' than data points available in 'x'");

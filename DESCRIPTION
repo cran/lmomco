@@ -1,9 +1,9 @@
 Package: lmomco
 Title: L-moments, Trimmed L-moments, L-comoments, and Many
         Distributions
-Version: 1.0.1
+Version: 1.1.0
 Depends: R (>= 2.7.0), utils
-Date: 2010-08-10
+Date: 2010-10-31
 Author: William H. Asquith
 Description: The package implements the statistical theory of L-moments
         including L-moment estimation, probability-weighted moment
@@ -11,7 +11,7 @@ Description: The package implements the statistical theory of L-moments
         not-so-familiar distributions, and L-moment estimation for the
         same distributions from the parameters. L-moments are derived
         from the expectations of order statistics and are linear with
-        respect to the probability- weighted moments. L-moments are
+        respect to the probability-weighted moments. L-moments are
         directly analogous to the well-known product moments; however,
         L-moments have many advantages including unbiasedness,
         robustness, and consistency with respect to the product
@@ -35,11 +35,11 @@ Description: The package implements the statistical theory of L-moments
         censoring ([RC]) include: Cauchy(TL), Exponential(L), Gamma(L),
         Generalized Extreme Value(L), Generalized Lambda(L & TL),
         Generalized Logistic (L), Generalized Normal(L), Generalized
-        Pareto(L[RC] & TL), Gumbel(L), Normal(L), Kappa(L), Pearson
-        Type III(L), Rayleigh(L), Reverse Gumbel(L[RC]), Wakeby(L), and
-        Weibull(L).
+        Pareto(L[RC] & TL), Gumbel(L), Kappa(L), Kumaraswamy(L),
+        Normal(L), 3-parameter log-Normal(L), Pearson Type III(L),
+        Rayleigh(L), Reverse Gumbel(L[RC]), Wakeby(L), and Weibull(L).
 Maintainer: William H. Asquith <william.asquith@ttu.edu>
 License: GPL
-Packaged: 2010-08-09 16:50:48 UTC; wasquith
+Packaged: 2010-11-01 13:10:40 UTC; wasquith
 Repository: CRAN
-Date/Publication: 2010-08-09 19:12:47
+Date/Publication: 2010-11-03 07:41:14
