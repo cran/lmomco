@@ -1,24 +1,24 @@
 "plotlmrdia" <-
-function(lmr, 
-         nopoints=FALSE,
-	 nolines=FALSE,
-	 nolimits=FALSE,
-	 nogev=FALSE,
-	 noglo=FALSE,
-	 nogpa=FALSE,
-	 nope3=FALSE,
-	 nogno=FALSE,
-	 noexp=FALSE,
-	 nonor=FALSE,
-	 nogum=FALSE,
-         noray=FALSE,
-	 nouni=FALSE,
+function(lmr,
+      nopoints=FALSE,
+      nolines=FALSE,
+      nolimits=FALSE,
+      nogev=FALSE,
+      noglo=FALSE,
+      nogpa=FALSE,
+      nope3=FALSE,
+      nogno=FALSE,
+      noexp=FALSE,
+      nonor=FALSE,
+      nogum=FALSE,
+      noray=FALSE,
+      nouni=FALSE,
          xlab="L-SKEW",
          ylab="L-KURTOSIS",
          autolegend=FALSE,xleg=NULL,yleg=NULL,
          ...) {
-         	
-   entries <- vector(mode = "character")      	
+
+   entries <- vector(mode = "character")
    Elwd    <- vector(mode = "numeric")
    Epch    <- vector(mode = "numeric")
    Ecol    <- vector(mode = "numeric")
@@ -41,7 +41,7 @@ function(lmr,
    }
    if(nolines == FALSE) {
      if(nogev == FALSE) {
-     	lines(lmr$gev, col=2,lty=2)
+        lines(lmr$gev, col=2,lty=2)
         entryi <- entryi + 1
         entries[entryi] <- "GEV"
         Elwd[entryi] <- 1
@@ -51,7 +51,7 @@ function(lmr,
         Ecex[entryi] <- 1
      }
      if(noglo == FALSE) {
-     	lines(lmr$glo, col=3)
+        lines(lmr$glo, col=3)
         entryi <- entryi + 1
         entries[entryi] <- "GLO"
         Elwd[entryi] <- 1
@@ -61,8 +61,8 @@ function(lmr,
         Ecex[entryi] <- 1
      }
      if(nogno == FALSE) {
-     	lines(lmr$gno, col=4, lty=2)
-     	entryi <- entryi + 1
+        lines(lmr$gno, col=4, lty=2)
+        entryi <- entryi + 1
         entries[entryi] <- "GNO"
         Elwd[entryi] <- 1
         Ecol[entryi] <- 4
@@ -71,8 +71,8 @@ function(lmr,
         Ecex[entryi] <- 1
      }
      if(nogpa == FALSE) {
-     	lines(lmr$gpa, col=4)
-     	entryi <- entryi + 1
+        lines(lmr$gpa, col=4)
+        entryi <- entryi + 1
         entries[entryi] <- "GPA"
         Elwd[entryi] <- 1
         Ecol[entryi] <- 4
@@ -81,8 +81,8 @@ function(lmr,
         Ecex[entryi] <- 1
      }
      if(nope3 == FALSE) {
-     	lines(lmr$pe3, col=6)
-     	entryi <- entryi + 1
+        lines(lmr$pe3, col=6)
+        entryi <- entryi + 1
         entries[entryi] <- "PE3"
         Elwd[entryi] <- 1
         Ecol[entryi] <- 6
@@ -93,8 +93,8 @@ function(lmr,
    }
    if(nopoints == FALSE) {
      if(noexp == FALSE) {
-     	points(lmr$exp,pch=16,col=2,cex=1.5)
-     	entryi <- entryi + 1
+        points(lmr$exp,pch=16,col=2,cex=1.5)
+        entryi <- entryi + 1
         entries[entryi] <- "EXP"
         Elwd[entryi] <- NA
         Ecol[entryi] <- 2
@@ -103,8 +103,8 @@ function(lmr,
         Ecex[entryi] <- 1.5
      }
      if(nonor == FALSE) {
-     	points(lmr$nor,pch=15,col=2,cex=1.5)
-     	entryi <- entryi + 1
+        points(lmr$nor,pch=15,col=2,cex=1.5)
+        entryi <- entryi + 1
         entries[entryi] <- "NOR"
         Elwd[entryi] <- NA
         Ecol[entryi] <- 2
@@ -113,8 +113,8 @@ function(lmr,
         Ecex[entryi] <- 1.5
      }
      if(nogum == FALSE) {
-     	points(lmr$gum,pch=17,col=2,cex=1.5)
-     	entryi <- entryi + 1
+        points(lmr$gum,pch=17,col=2,cex=1.5)
+        entryi <- entryi + 1
         entries[entryi] <- "GUM"
         Elwd[entryi] <- NA
         Ecol[entryi] <- 2
@@ -123,8 +123,8 @@ function(lmr,
         Ecex[entryi] <- 1.5
      }
      if(noray == FALSE) {
-     	points(lmr$ray,pch=18,col=2,cex=1.5)
-     	entryi <- entryi + 1
+        points(lmr$ray,pch=18,col=2,cex=1.5)
+        entryi <- entryi + 1
         entries[entryi] <- "RAY"
         Elwd[entryi] <- NA
         Ecol[entryi] <- 2
@@ -133,8 +133,8 @@ function(lmr,
         Ecex[entryi] <- 1.5
      }
      if(nouni == FALSE) {
-     	points(lmr$uniform,pch=12,cex=1.25,col=2)
-     	entryi <- entryi + 1
+        points(lmr$uniform,pch=12,cex=1.25,col=2)
+        entryi <- entryi + 1
         entries[entryi] <- "UNI"
         Elwd[entryi] <- NA
         Ecol[entryi] <- 2
@@ -143,9 +143,17 @@ function(lmr,
         Ecex[entryi] <- 1.25
      }
    }
+
    if(autolegend == TRUE & length(entries) > 0) {
-   	 legend(xleg,yleg,entries,
-   	        lwd=Elwd,col=Ecol,pch=Epch,lty=Elty,pt.cex=Ecex,
-   	        xjust=0.5,bty="n",cex=0.9)
+     if(is.null(xleg)) warning("xleg is NULL, but needed")
+     if(is.null(yleg)) warning("yleg is NULL, but needed")
+
+     legend(xleg,yleg,entries,
+            lwd=Elwd,
+            col=Ecol,
+            pch=Epch,
+            lty=Elty,
+            pt.cex=Ecex,
+            xjust=0.5,bty="n",cex=0.9)
    }
 }

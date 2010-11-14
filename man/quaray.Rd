@@ -4,7 +4,7 @@
 \description{
 This function computes the quantiles of the Rayleigh distribution given
 parameters (\eqn{\xi} and \eqn{\alpha}) of the distribution computed by
-\code{\link{pargum}}.
+\code{\link{parray}}.
 The quantile function of the distribution is
 
 \deqn{x(F) = \xi + \sqrt{-2\alpha^2\log(1-F)} \mbox{,}}

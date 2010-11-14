@@ -28,11 +28,17 @@ function(f,para,...) {
     else if(type == 'gum') {
       return(pdfgum(f,para))
     }
+    else if(type == 'kur') {
+      return(pdfkur(f,para))
+    }
     else if(type == 'ln3') {
       return(pdfln3(f,para))
     }
     else if(type == 'ray') {
       return(pdfray(f,para))
+    }
+    else if(type == 'rice') {
+      return(pdfrice(f,para))
     }
     else if(type == 'revgum') {
       return(pdfrevgum(f,para))

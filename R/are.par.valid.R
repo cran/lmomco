@@ -23,7 +23,7 @@ function(para,...) {
     }
     else if(type == 'gld') {
       return(are.pargld.valid(para,...))
-    }    
+    }
     else if(type == 'glo') {
       return(are.parglo.valid(para,...))
     }
@@ -44,6 +44,9 @@ function(para,...) {
     }
     else if(type == 'ray') {
       return(are.parray.valid(para,...))
+    }
+    else if(type == 'rice') {
+      return(are.parrice.valid(para,...))
     }
     else if(type == 'revgum') {
       return(are.parrevgum.valid(para,...))

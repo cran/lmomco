@@ -2,8 +2,7 @@
 \alias{dist.list}
 \title{ List of Distribution Names }
 \description{
-Return a list of the three character syntax identifying distributions supported within the \pkg{lmomco} package. The distributions are \code{cau}, \code{exp}, \code{gam}, \code{gev}, \code{gld}, \code{glo}, \code{gno},
-\code{gpa}, \code{gum}, \code{kap}, \code{kur}, \code{ln3}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{wak}, and \code{wei}.
+Return a list of the three character syntax identifying distributions supported within the \pkg{lmomco} package. The distributions are \code{cau}, \code{exp}, \code{gam}, \code{gev}, \code{gld}, \code{glo}, \code{gno}, \code{gpa}, \code{gum}, \code{kap}, \code{kur}, \code{ln3}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{rice}, \code{wak}, and \code{wei}.
 }
 \usage{
 dist.list()
@@ -29,7 +28,7 @@ for(i in seq(1,length(dist))) {
   # skip Cauchy (needs TL-moments) and GLD (speed)
   # Reverse Gumbel needs censoring . . .
   if(dist[i] == 'cau' | dist[i] == 'gld' |
-     dist[i] == 'revgum' | dist[i] == 'kur') next
+     dist[i] == 'revgum' | dist[i] == 'kur' | dist[i] == 'rice') next
   print(lmom2par(lm1,type=dist[i]))
   print(lmom2par(lm2,type=dist[i]))
 }

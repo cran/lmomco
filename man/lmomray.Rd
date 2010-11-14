@@ -30,15 +30,15 @@ lmomray(para)
   \item{L3}{The third L-moment.}
   \item{L4}{The fourth L-moment.}
   \item{L5}{The fifth L-moment.}
-  \item{source}{An attribute identifying the computational 
-source of the L-moments: \dQuote{lmomgum}.}
+  \item{source}{An attribute identifying the computational
+source of the L-moments: \dQuote{lmomray}.}
 }
 \references{
 Hosking, J.R.M., 1986, The theory of probability weighted moments:
 Research Report RC12210, IBM Research Division, Yorkton Heights, N.Y.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{pargum}}, \code{\link{quagum}}, \code{\link{cdfgum}} }
+\seealso{\code{\link{parray}}, \code{\link{quaray}}, \code{\link{cdfray}} }
 \examples{
 lmr <- lmom.ub(c(123,34,4,654,37,78))
 lmr

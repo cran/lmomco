@@ -3,7 +3,7 @@
 \title{Are the Distribution Parameters Consistent with the Rayleigh Distribution}
 \description{
 The distribution parameter object returned by functions of this package such as by
-\code{pargum} are consistent with the corresponding distribution, 
+\code{parray} are consistent with the corresponding distribution,
 otherwise a list would not have been returned.  However, other
 functions (\code{cdfray}, \code{quaray}, and
 \code{lmomray} require consistent parameters to return the cumulative
@@ -27,7 +27,7 @@ Hosking, J.R.M., 1986, The theory of probability weighted moments:
 Research Report RC12210, IBM Research Division, Yorkton Heights, N.Y.
 }
 \note{
-This function calls \code{is.ray} to verify consistency between 
+This function calls \code{is.ray} to verify consistency between
 the distribution parameter object and the intent of the user.
 }
 \author{ W.H. Asquith}

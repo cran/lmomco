@@ -30,6 +30,9 @@ function(lmom,type,...) {
     else if(type == 'ray') {
       return(parray(lmom))
     }
+    else if(type == 'rice') {
+      return(parrice(lmom))
+    }
     else if(type == 'revgum') {
       return(parrevgum(lmom,...))
     }
@@ -37,7 +40,7 @@ function(lmom,type,...) {
       return(parkap(lmom))
     }
     else if(type == 'ln3') {
-      return(parln3(lmom))    
+      return(parln3(lmom))
     }
     else if(type == 'nor') {
       return(parnor(lmom))

@@ -34,6 +34,9 @@ function(para) {
     else if(type == 'ray') {
       return(lmomray(para))
     }
+    else if(type == 'rice') {
+      return(lmomrice(para))
+    }
     else if(type == 'nor') {
       return(lmomnor(para))
     }
@@ -41,7 +44,7 @@ function(para) {
       return(lmomkap(para))
     }
     else if(type == 'kur') {
-      return(lmomkap(para))
+      return(lmomkur(para))
     }
     else if(type == 'pe3') {
       return(lmompe3(para))

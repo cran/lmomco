@@ -16,7 +16,7 @@ pdfray(x, para)
 }
 \arguments{
   \item{x}{A real value.}
-  \item{para}{The parameters from \code{\link{pargum}} or similar.}
+  \item{para}{The parameters from \code{\link{parray}} or similar.}
 }
 
 \value{

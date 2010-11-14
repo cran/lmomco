@@ -348,11 +348,12 @@ Version 0.95--August 23, 2008
 1. Warning message tweak (capitalization) in sen.mean().
 2. Added names() to the parameters in the $para field of the parameter list
      returned by the parXXX() functions. These names parallel the Greek
-     letters used in the formal mathematical definitions of the distributions
-     in the package documentation and any additional write ups that your
-     humble author might make. The idea was stolen from the evir package
-     that provides maximum likelihood estimation for the GEV distribution.
-     Your author admits that these names should have been added long ago.
+     letters used in the formal mathematical definitions of the
+     distributions in the package documentation and any additional write ups     
+     that your humble author might make. The idea was stolen from the evir
+     package that provides maximum likelihood estimation for the GEV
+     distribution. Your author admits that these names should have been
+     added long ago.
 3. Added names() to the parameters in the $para field of the parameter list
      returned by the vec2par() function.
 4. quakap() and quawak() now return Inf (or -Inf) for appropriate limits as
@@ -433,16 +434,46 @@ Version 1.0.01--August 10, 2010 (version "1" because of censoring support)
 
 
 Version 1.1.0--October 31, 2010
-1. Deprecated lmom.test*.R/Rd and lmom.diff.R/Rd and moved them to inst/legacy.
-     These were simply no longered needed and were originally created for
-     development purposes anyway. Also lmom.references.Rd is now in inst/legacy.
+1. Deprecated lmom.test*.R/Rd and lmom.diff.R/Rd and moved them to
+     inst/legacy. These were simply no longered needed and were originally
+     created for development purposes anyway. Also lmom.references.Rd is now
+     in inst/legacy.
 2. Added the Kumaraswamy distribution ("kur") functions and other supporting
      functions. This distribution is bounded on (0,1) and is a semi-beta
-     replacement with very convenient distribution functions that are not 
+     replacement with very convenient distribution functions that are not
      dependent on the Beta function family. Additions to the supporting
      functions provided the discovery of missing ln3 as described below.
 3. Added the 3-parameter log-Normal distribution ("ln3") to dist.list.R/Rd.
 4. Added the 3-parameter log-Normal distribution ("ln3") to lmom2par.R/Rd.
-5. Fixed text running over the right margin of the user manual for cdfrevgum.Rd,
-     genci.Rd, lmomsRCmark.Rd, parrevgum.Rd, pdfrevgum.Rd, plotlmrdia.Rd,
-     pwm.Rd, pwmRC.Rd, quarevgum.Rd, and sen.mean.Rd.
+5. Fixed text running over the right margin of the user manual for
+     cdfrevgum.Rd, genci.Rd, lmomsRCmark.Rd, parrevgum.Rd, pdfrevgum.Rd,
+     plotlmrdia.Rd, pwm.Rd, pwmRC.Rd, quarevgum.Rd, and sen.mean.Rd.
+
+
+Version 1.2.0--November 14, 2010
+1.  Trapping NULL values for xleg and yleg in plotlmrdia.R, which was
+      discovered in giving a presentation concerning the diagrams.
+2.  BUG FIX for incorrect "gum" references in are.parray.valid.Rd,
+      pdfray.Rd, quaray.Rd, and lmomray.Rd.
+3.  BUG FIX for incorrect "kur" dispatch in par2lmom.R and in par2qua.R.
+3.  Added the Rice distribution ("rice") functions and the SysDataBuilder.R
+      and of course the now present R/sysdata.rda because Rice distribution
+      uses tabular lookup and interpolation for parameter estimation. The
+      theoLmoms.max.ostat() function is used to compute the L-moments of
+      the Rice distribution. The sysdata.rda contains the .lmomcohash
+      hash that at least contains "RiceTable" (LCV, SNR, G) and "RiceT3T4"
+      for construction of L-moment ratio diagram using the TAU3 and TAU4
+      values for various distributions (see parrice.Rd).
+         ** CONSIDER RICE DISTRIBUTION EXPERIMENTAL **
+      For the author's part, much original reading, coding, and testing
+      has been accomplished concerning the Rice.
+4.  Added expect.max.ostat.R/Rd for the computation of the expected value
+      of a maximum order statistic (although the function is generalized
+      for other order statistics). The function is added to provided for
+      the theoLmoms.max.ostat() function.
+5.  Added theoLmoms.max.ostat.R/Rd for the computation of theoretical
+      L-moments of a distribution using a system of maximum order
+      statistic expectations. This function is used in L-moment
+      computation for the Rice distribution.
+
+
