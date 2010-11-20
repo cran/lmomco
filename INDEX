@@ -151,6 +151,7 @@ is.wak                  Is a Distribution Parameter Object Typed as
                         Wakeby
 is.wei                  Is a Distribution Parameter Object Typed as
                         Weibull
+LaguerreHalf            Laguerre Polynomial (Half)
 Lcomoment.coefficients
                         L-comoment Coefficient Matrix
 Lcomoment.correlation   L-correlation Matrix (L-correlation through

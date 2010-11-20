@@ -1,7 +1,7 @@
 "parrice" <-
 function(lmom, checklmom=TRUE) {
    para <- vector(mode="numeric", length=2)
-   names(para) <- c("nu","SNR")
+   names(para) <- c("nu","alpha")
    if(length(lmom$L1) == 0) { # convert to named L-moments
      lmom <- lmorph(lmom)     # nondestructive conversion!
    }
@@ -12,10 +12,12 @@ function(lmom, checklmom=TRUE) {
 
    L1  <- lmom$L1
    LCV <- lmom$LCV
-
+   if(is.null(L1) | is.null(lmom$LCV)) {
+      stop("NULL L-moments")
+   }
    RiceTable <- .lmomcohash$RiceTable
    if(LCV >  max(RiceTable$LCV)) {
-      stop("LCV too big for Rice distribution (greater than Rayleigh")
+      stop("LCV too big for Rice distribution (greater than Rayleigh)")
    }
    if(LCV <  min(RiceTable$LCV)) {
       stop("LCV too small for Rice distribution as implemented by lmomco")
@@ -25,7 +27,6 @@ function(lmom, checklmom=TRUE) {
    A    <- L1/G
    V    <- A*SNR
    para[1] <- V
-   para[2] <- SNR
+   para[2] <- A
    return(list(type='rice', para=para, source="parrice"))
 }
-

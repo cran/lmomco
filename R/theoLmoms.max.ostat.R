@@ -1,5 +1,5 @@
 "theoLmoms.max.ostat" <-
-function(para=NULL, cdf=NULL, pdf=NULL, nmom=5, ...) {
+function(para=NULL, cdf=NULL, pdf=NULL, nmom=4, ...) {
 
    if(is.null(para)) stop("parameter list of lmomco not specified")
    if(is.null(cdf))  stop("cdf function of lmomco not specified")

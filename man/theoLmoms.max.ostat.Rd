@@ -5,7 +5,7 @@
 This function computes
 }
 \usage{
-theoLmoms.max.ostat(para=NULL, cdf=NULL, pdf=NULL, nmom=5, ...)
+theoLmoms.max.ostat(para=NULL, cdf=NULL, pdf=NULL, nmom=4, ...)
 }
 \arguments{
   \item{para}{A distribution parameter list from a function such as \code{vec2par} or \code{lmom2par}.}
@@ -35,8 +35,18 @@ theoLmoms.max.ostat(para=para, cdf=cdfnor, pdf=pdfnor)
 # The Rice distribution is complex and tailoring of the integration
 # limits is needed to effectively trapped errors, the limits for the
 # Normal distribution above are infinite so no granular control is needed.
-para <- vec2par(c(30,.5), type="rice")
+para <- vec2par(c(30,10), type="rice")
 theoLmoms.max.ostat(para=para, cdf=cdfrice, pdf=pdfrice,
                     lower=0, upper=.Machine$double.max)
+
+\dontrun{
+# The Normal distribution is used on the fly for the Rice for
+# high signal to noise ratios (SNR=nu/alpha > some threshold). This
+# application here will error out.
+nu <- 30; alpha <- 0.5
+para <- vec2par(c(nu,alpha), type="rice")
+theoLmoms.max.ostat(para=para, cdf=cdfrice, pdf=pdfrice,
+                    lower=0, upper=.Machine$double.max)
+}
 }
 \keyword{distribution}

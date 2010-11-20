@@ -51,7 +51,7 @@ function(vec,type,nowarn=FALSE,...) {
     }
     else if(type == 'rice') {
       z <- list(type = 'rice', para = vec, source = "vec2par")
-      names(z$para) <- c("nu", "SNR")
+      names(z$para) <- c("nu", "alpha")
     }
     else if(type == 'revgum') {
       z <- list(type = 'revgum', para = c(vec[1],vec[2]),

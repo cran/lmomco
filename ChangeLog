@@ -349,7 +349,7 @@ Version 0.95--August 23, 2008
 2. Added names() to the parameters in the $para field of the parameter list
      returned by the parXXX() functions. These names parallel the Greek
      letters used in the formal mathematical definitions of the
-     distributions in the package documentation and any additional write ups     
+     distributions in the package documentation and any additional write ups
      that your humble author might make. The idea was stolen from the evir
      package that provides maximum likelihood estimation for the GEV
      distribution. Your author admits that these names should have been
@@ -451,29 +451,55 @@ Version 1.1.0--October 31, 2010
 
 
 Version 1.2.0--November 14, 2010
-1.  Trapping NULL values for xleg and yleg in plotlmrdia.R, which was
-      discovered in giving a presentation concerning the diagrams.
-2.  BUG FIX for incorrect "gum" references in are.parray.valid.Rd,
-      pdfray.Rd, quaray.Rd, and lmomray.Rd.
-3.  BUG FIX for incorrect "kur" dispatch in par2lmom.R and in par2qua.R.
-3.  Added the Rice distribution ("rice") functions and the SysDataBuilder.R
-      and of course the now present R/sysdata.rda because Rice distribution
-      uses tabular lookup and interpolation for parameter estimation. The
-      theoLmoms.max.ostat() function is used to compute the L-moments of
-      the Rice distribution. The sysdata.rda contains the .lmomcohash
-      hash that at least contains "RiceTable" (LCV, SNR, G) and "RiceT3T4"
-      for construction of L-moment ratio diagram using the TAU3 and TAU4
-      values for various distributions (see parrice.Rd).
-         ** CONSIDER RICE DISTRIBUTION EXPERIMENTAL **
-      For the author's part, much original reading, coding, and testing
-      has been accomplished concerning the Rice.
-4.  Added expect.max.ostat.R/Rd for the computation of the expected value
-      of a maximum order statistic (although the function is generalized
-      for other order statistics). The function is added to provided for
-      the theoLmoms.max.ostat() function.
-5.  Added theoLmoms.max.ostat.R/Rd for the computation of theoretical
-      L-moments of a distribution using a system of maximum order
-      statistic expectations. This function is used in L-moment
-      computation for the Rice distribution.
+1. Trapping NULL values for xleg and yleg in plotlmrdia.R, which was
+     discovered in giving a presentation concerning the diagrams.
+2. BUG FIX for incorrect "gum" references in are.parray.valid.Rd,
+     pdfray.Rd, quaray.Rd, and lmomray.Rd.
+3. BUG FIX for incorrect "kur" dispatch in par2lmom.R and in par2qua.R.
+3. Added the Rice distribution ("rice") functions and the SysDataBuilder.R
+     and of course the now present R/sysdata.rda because Rice distribution
+     uses tabular lookup and interpolation for parameter estimation. The
+     theoLmoms.max.ostat() function is used to compute the L-moments of
+     the Rice distribution. The sysdata.rda contains the .lmomcohash
+     hash that at least contains "RiceTable" (LCV, SNR, G) and "RiceT3T4"
+     for construction of L-moment ratio diagram using the TAU3 and TAU4
+     values for various distributions (see parrice.Rd).
+        ** CONSIDER RICE DISTRIBUTION EXPERIMENTAL **
+     For the author's part, much original reading, coding, and testing
+     has been accomplished concerning the Rice.
+4. Added expect.max.ostat.R/Rd for the computation of the expected value
+     of a maximum order statistic (although the function is generalized
+     for other order statistics). The function is added to provided for
+     the theoLmoms.max.ostat() function.
+5. Added theoLmoms.max.ostat.R/Rd for the computation of theoretical
+     L-moments of a distribution using a system of maximum order
+     statistic expectations. This function is used in L-moment
+     computation for the Rice distribution.
 
 
+Version 1.2.1--November 20, 2010
+1. Revisions to the DESCRIPTION file.
+2. Revisions to SysDataBuilder.R to better canvas LCV, SNR, and G pairings
+     to the Rice L-moment to parameter lookup table.
+3. Added the LaguerreHalf.R/Rd to support variance estimation of a set of
+     Rician parameters so that hand off to Normal distribution functions
+     for high SNR can be made.
+4. Revisions in parameterization of the Rice distribution over the confusion
+     caused by having several different definitions of the signal-to-noise
+     ratio SNR in the literature.
+     Also, if nu=0 for the Rice, then behind-the-scenes generation of
+     Rayleigh parameters with xi=0 is made and the Rayleigh distribution
+     functions are used.
+     If SNR > 24 for the Rice, then behind-the-scenes generation of Normal
+     parameters is made and the Normal distribution functions used. This
+     SNR threshold was determined by careful evaluation of the LCV, Tau3,
+     Tau4, SNR, and G used in RiceTable generation in the file
+     inst/doc/SysDataBuilder.R. The evaluation looks and numerical problems
+     such as Tau3 and Tau4 breakdown as Normal distribution is approached
+     and filtering for sub Rayleigh solutions.
+     Finally, if SNR > 52 for the Rice, then the use of the Laguerre poly
+     for variance estimation to feed to the Normal is bypassed and the
+     SNR used in place of sqrt(pi/2)*LaguerreHalf(-SNR^2/2) because.
+     sqrt(pi/2)*LaguerreHalf(-53^2/2) \approx 52 == 52.00962
+     sqrt(pi/2)*LaguerreHalf(-53^2/2) \approx 53 == 53.00943
+     sqrt(pi/2)*LaguerreHalf(-54^2/2) \approx 54 --> Inf (Bessel break down)

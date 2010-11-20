@@ -1,9 +1,25 @@
 "quarice" <-
 function(f, para, xmax=NULL) {
    if(! are.parrice.valid(para)) return()
-   V   <- para$para[1]
-   A   <- V/para$para[2]
-   names(A) <- "Alpha"
+   V <- para$para[1]
+   A <- para$para[2]
+   if(V == 0) {
+      ray <- vec2par(c(0,A), type="ray")
+      return(quaray(f,para=ray))
+   }
+   SNR <- V/A
+   if(SNR > 52) {
+      xbar <- A * SNR
+      xvar <- A^2; # as SNR --> infinity: 2*A^2 + V^2 - A^2 * SNR^2
+      nor  <- vec2par(c(xbar,sqrt(xvar)), type="nor")
+      return(quanor(f,para=nor))
+   } else if(SNR > 24) {
+      L05  <- LaguerreHalf(-V^2/(2*A^2))
+      xbar <- A * sqrt(pi/2) * L05
+      xvar <- 2*A^2 + V^2 - A^2 * (pi/2) * L05^2
+      nor  <- vec2par(c(xbar,sqrt(xvar)), type="nor")
+      return(quanor(f,para=nor))
+   }
    if(is.null(xmax)) {
       for(ord in (1:10)) {
         test.xmax <- 10^ord*(V+A)
@@ -37,13 +53,3 @@ function(f, para, xmax=NULL) {
    }
    return(x)
 }
-
-
-#"dorice" <- function(rF,a,v) {
-#  F <- nonexceeds()
-#  rice <- vec2par(c(a,v), type='rice')
-#  plot(F, quarice(F,rice), xlim=c(0,1-(1-rF)/10))
-#  lines(c(rF,rF),
-#        c(quarice(rF, rice),
-#          quarice(rF, rice)))
-#}

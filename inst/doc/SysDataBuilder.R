@@ -8,79 +8,121 @@
    return(exp(x/2)*((1-x)*I0 - x*I1))
 }
 
-"RiceCooker" <- function(v, factor=5) {
-  SNR  <- seq(0+v/100,factor*v, by=v/100);
+# One should comment out the SNR > 24 test in pdfrice, cdfrice, quarice
+# prior to running through the code herein. What you will see is the numerical
+# problems for SNR > 24. The Normal distribution is switched to on the fly
+# for Rice parameters having SNR > 24 to provide full support. As SNR gets big,
+# the sqrt(pi/2)*Laguerre polynomial == SNR.
+
+"RiceCooker" <- function(v, beg=NULL, end=NULL,
+                         factor=5, step=NULL, nmom=4, tag=0) {
+  if(is.null(step)) step <- v/100;
+  if(is.null(beg))  beg <- v/100
+  if(is.null(end))  end <- factor*v
+  SNR  <- seq(beg,end, by=step);
   lcvs <- vector(mode="numeric")
-  zetaLhalf <- zeta <- thevs <- lcvs
+  zetaLhalf <- zeta <- thevs <- tags <- lcvs
   t3 <- t4 <- lcvs
   j <- 0
   for(snr in SNR) {
     j <- j + 1
-    mypara <- vec2par(c(v,snr), type="rice")
-    lmr <- lmomrice(mypara)
+    mypara <- vec2par(c(v,v/snr), type="rice")
+    lmr <- lmomrice(mypara, nmom=nmom)
     if(is.null(lmr)) break
     lcv <- lmr$ratios[2]
     if(lcv <= 0) break
-     lcvs[j] <- lcv
-    thevs[j] <- v
-     zeta[j] <- snr
-       t3[j] <- lmr$ratios[3]
-       t4[j] <- lmr$ratios[4]
+      tags[j] <- tag
+     lcvs[j]  <- lcv
+    thevs[j]  <- v
+     zeta[j]  <- snr
+       t3[j]  <- lmr$ratios[3]
+       t4[j]  <- lmr$ratios[4]
     zetaLhalf[j] <- sqrt(pi/2)*Lhalf(-zeta[j]^2/2)
-    cat(c(lcvs[j], zeta[j], zetaLhalf[j], "\n"))
+    cat(c(tags[j], lcvs[j], zeta[j], zetaLhalf[j], "\n"))
   }
-  z <- list(LCV=lcvs, F.of.LCV = zeta, G.of.LCV=zetaLhalf, t3=t3, t4=t4)
+  z <- list(tag=tags, LCV=lcvs, F.of.LCV = zeta,
+            G.of.LCV=zetaLhalf, t3=t3, t4=t4)
   return(z)
 }
 
-try1 <- RiceCooker(1)
-try2 <- RiceCooker(10)
-try3 <- RiceCooker(100)
 
-LCV <- c(try1$LCV,try2$LCV,try3$LCV)
-SNR <- c(try1$F.of.LCV,try2$F.of.LCV,try3$F.of.LCV)
-G.of.LCV <- c(try1$G.of.LCV,try2$G.of.LCV,try3$G.of.LCV)
+try1 <- RiceCooker(1,   beg=0.035, end=1.2, step=0.02, nmom=4, tag=1)
+try2 <- RiceCooker(10,  beg=1.1, end=6.1, step=0.05,  nmom=4, tag=2)
+try3 <- RiceCooker(100, beg=5.1, end=25, step=0.1,  nmom=4, tag=3)
 
-xlim <- range(c(try1$LCV,try2$LCV,try3$LCV))
-ylim <- range(c(try1$F.of.LCV,try2$F.of.LCV,try3$F.of.LCV))
-plot(try1$LCV, try1$F.of.LCV, ylim=ylim, xlim=xlim,lwd=5,col=2,type="l")
+LCV      <- c(try1$LCV, try2$LCV, try3$LCV)
+SNR      <- c(try1$F.of.LCV, try2$F.of.LCV, try3$F.of.LCV)
+G.of.LCV <- c(try1$G.of.LCV, try2$G.of.LCV, try3$G.of.LCV)
+T3       <- c(try1$t3, try2$t3, try3$t3)
+T4       <- c(try1$t4, try2$t4, try3$t4)
+
+# Now from the simulations, add in the Rayleigh end point
+LCVray      <- (.5*(sqrt(2)-1)*sqrt(pi))/(sqrt(pi/2))
+raylmr <- lmomray(vec2par(c(0,1), type="ray"))
+norlmr <- lmomnor(vec2par(c(0,1), type="nor"))
+norT3 <- norlmr$TAU3
+norT4 <- norlmr$TAU4
+LCV      <- c(LCV, ray)
+SNR      <- c(SNR, 0)
+G.of.LCV <- c(G.of.LCV, sqrt(pi/2)*1)
+T3       <- c(T3, raylmr$TAU3)
+T4       <- c(T4, raylmr$TAU4)
+
+xlim <- range(LCV)
+ylim <- range(SNR)
+plot(try1$LCV, try1$F.of.LCV,
+     ylim=ylim, xlim=xlim,lwd=5,col=2,type="l")
 lines(try2$LCV, try2$F.of.LCV, lwd=3,col=3)
 lines(try3$LCV, try3$F.of.LCV, lwd=1,col=4)
 
 
-ylim <- range(c(try1$G.of.LCV,try2$G.of.LCV,try3$G.of.LCV))
-plot(try1$LCV, try1$G.of.LCV, ylim=ylim, xlim=xlim,lwd=5,col=2,type="l")
+ylim <- range(G.of.LCV)
+plot(try1$LCV, try1$G.of.LCV,
+     ylim=ylim, xlim=xlim,lwd=5,col=2,type="l")
 lines(try2$LCV, try2$G.of.LCV, lwd=3,col=3)
 lines(try3$LCV, try3$G.of.LCV, lwd=1,col=4)
 
-plot(c(try1$G.of.LCV,try2$G.of.LCV,try3$G.of.LCV),
-     c(try1$F.of.LCV,try2$F.of.LCV,try3$F.of.LCV))
 
 
-ray <- (.5*(sqrt(2)-1)*sqrt(pi))/(sqrt(pi/2))
-LCVest <- seq(as.numeric(sprintf("%0.3f",min(LCV))), ray, by=.001)
-LCVest <- c(LCVest,ray)
-RiceNomo <- data.frame(LCV=LCV, SNR=SNR, G=G.of.LCV)
+RiceNomo <- data.frame(LCV=LCV, SNR=SNR, G=G.of.LCV, TAU3=T3, TAU4=T4)
+row.names(RiceNomo) <- NULL
 idx <- order(RiceNomo$LCV)
 RiceNomo <- RiceNomo[idx,]
-row.names(RiceNomo) <- NULL
+RiceNomo <- RiceNomo[RiceNomo$LCV <= ray,] # insure numerically <= Rayleigh
+with(RiceNomo, plot(TAU3,TAU4))
+RiceNomo <- RiceNomo[RiceNomo$TAU3 >= norT3,] # insure numerically >= Normal
+with(RiceNomo, plot(TAU3,TAU4))
+RiceNomo <- RiceNomo[RiceNomo$TAU4 <= norT4,] # insure numerically <= Normal
+with(RiceNomo, plot(TAU3,TAU4)) # inspect plot!
+RiceNomo <- RiceNomo[RiceNomo$G <= 24,] # now visually we have numeric problems
+# still, with the TAU3,TAU4 diagram, looks like peak SNR is about 24
+with(RiceNomo, plot(TAU3,TAU4)) # inspect plot!
 
-SNRest <- approx(RiceNomo$LCV, RiceNomo$SNR, xout=LCVest, rule=2)$y
-Gest   <- approx(RiceNomo$LCV, RiceNomo$G.of.LCV, xout=LCVest, rule=2)$y
-RiceLCVnomo <- data.frame(LCV=LCVest, SNR=SNRest, G=Gest)
 
-.RiceTable <- RiceNomo
-assign("RiceTable", .RiceTable, .lmomcohash)
+LCVest <- seq(as.numeric(sprintf("%0.4f",min(RiceNomo$LCV))),
+                                         ray, by=.0001)
+LCVest <- c(LCVest,ray)
+SNRest <- approx(RiceNomo$LCV, RiceNomo$SNR,  xout=LCVest, rule=2)$y
+Gest   <- approx(RiceNomo$LCV, RiceNomo$G,    xout=LCVest, rule=2)$y
+T3est  <- approx(RiceNomo$LCV, RiceNomo$TAU3, xout=LCVest, rule=2)$y
+T4est  <- approx(RiceNomo$LCV, RiceNomo$TAU4, xout=LCVest, rule=2)$y
+RiceNomoEst <- data.frame(LCV=LCVest, SNR=SNRest,
+                          G=Gest, TAU3=T3est, TAU4=T4est)
+with(RiceNomoEst, plot(TAU3,TAU4)) # inspect plot!
+with(RiceNomoEst, plot(LCV,SNR))
+with(RiceNomoEst, plot(LCV,G))
 
+#T3seq <- seq(norT3, raylmr$TAU3,by=0.001)
+#T4seq <- approx(T3,T4, xout=T3seq)$y
+#T3seq <- c(T3seq, raylmr$TAU3)
+#T4seq <- c(T4seq, raylmr$TAU4)
+#.RiceT3T4 <- data.frame(TAU3=T3seq, TAU4=T4seq)
+#assign("RiceT3T4", .RiceT3T4, .lmomcohash)
 
-T3 <- c(try1$t3,try2$t3,try3$t3)
-T4 <- c(try1$t4,try2$t4,try3$t4)
+assign("RiceTable", RiceNomoEst, .lmomcohash)
 
-T3seq <- seq(mylmr$nor[1],mylmr$ray[1],by=0.001)
-T3seq <- c(T3seq,mylmr$ray[1])
-T4seq <- approx(T3,T4, xout=T3seq)$y
-.RiceT3T4 <- data.frame(TAU3=T3seq, TAU4=T4seq)
-assign("RiceT3T4", .RiceT3T4, .lmomcohash)
+assign("RiceTable.minLCV", min(RiceNomoEst$LCV), .lmomcohash)
+assign("RiceTable.maxLCV", max(RiceNomoEst$LCV), .lmomcohash)
 # END
 ################# RICE DISTRIBUTION ######################
 
