@@ -3,7 +3,7 @@
 \title{L-moments of the Rice Distribution}
 \description{
 This function estimates the L-moments of the Rice distribution given
-the parameters (\eqn{\nu} and \eqn{\mathrm{alpha}}) from \code{\link{parrice}}. The L-moments in terms of the parameters are complex. They are computed here by the system of maximum order statistic expectations from the \code{\link{theoLmoms.max.ostat}}, which uses the \code{\link{expect.max.ostat}}. The connection between \eqn{\tau_2} and \eqn{\nu/\alpha} and a special function (Laguerre polynomial) of \eqn{\nu^2/\alpha^2} and additional algebraic terms is tabulated in the data frame located in \env{.lmomcohash$RiceTable}. The file \file{SysDataBuilder.R} provides additional technical details.
+the parameters (\eqn{\nu} and \eqn{\alpha}) from \code{\link{parrice}}. The L-moments in terms of the parameters are complex. They are computed here by the system of maximum order statistic expectations from the \code{\link{theoLmoms.max.ostat}}, which uses the \code{\link{expect.max.ostat}}. The connection between \eqn{\tau_2} and \eqn{\nu/\alpha} and a special function (Laguerre polynomial) of \eqn{\nu^2/\alpha^2} and additional algebraic terms is tabulated in the data frame located in \env{.lmomcohash$RiceTable}. The file \file{SysDataBuilder.R} provides additional technical details.
 }
 \usage{
 lmomrice(para, ...)
@@ -21,8 +21,9 @@ lmomrice(para, ...)
 \eqn{\tau}, third element is \eqn{\tau_3} and so on.}
   \item{trim}{Level of symmetrical trimming used in the computation, which will equal \code{NULL} until trimming support is made.}
   \item{leftrim}{Level of left-tail trimming used in the computation, which will equal \code{NULL} until trimming support is made.}
-  \item{rightrim}{Level of right-tail trimming used in the computation, which will equal \code{NULL} until trimming support is made.}  \item{source}{An attribute identifying the computational
-source of the L-moments: \dQuote{lmomrice}.}
+  \item{rightrim}{Level of right-tail trimming used in the computation, which will equal \code{NULL} until trimming support is made.}
+\item{source}{An attribute identifying the computational
+source of the L-moments: \dQuote{lmomrice}, but the exact contents of the remainder of the string might vary as limiting distributions of Normal and Rayleigh can be involved for \eqn{\nu/\alpha > 52} (super high SNR, Normal) or \eqn{24 < \nu/\alpha \le 52} (high SNR, Normal) or \eqn{\nu/\alpha < 0.08} (very low SNR, Rayleigh).}
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{parrice}}, \code{\link{quarice}}, \code{\link{cdfrice}}, \code{\link{theoLmoms.max.ostat}} }

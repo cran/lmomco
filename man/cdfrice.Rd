@@ -21,7 +21,7 @@ cdfrice(x, para)
   Nonexceedance probability (\eqn{F}) for \eqn{x}.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{quarice}}, \code{\link{parrice}}}
+\seealso{\code{\link{pdfrice}}, \code{\link{quarice}}, \code{\link{parrice}}}
 \examples{
 lmr <- vec2lmom(c(45,0.27), lscale=FALSE)
 cdfrice(35,parrice(lmr))

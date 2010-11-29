@@ -26,7 +26,7 @@ lmomRCmark(x, rcmark=NULL, r=1, sort=TRUE)
   \item{source}{An attribute identifying the computational source of the L-moments: \dQuote{lmomsRCmark}.}
 }
 \references{
-Wang, Dongliang, Hutson, A.D., Miecznikowski, J.C., 2010, L-moment estimation for parametric survival models given censored data: Statistical Methodology, preprint
+Wang, Dongliang, Hutson, A.D., Miecznikowski, J.C., 2010, L-moment estimation for parametric survival models given censored data: Statistical Methodology, v. 7, no. 6, pp. 655--667.
 }
 \author{W.H. Asquith}
 \seealso{ \code{\link{lmomsRCmark}} }

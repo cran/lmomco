@@ -32,7 +32,7 @@ lmomsRCmark(x, rcmark=NULL, nmom=5, sort=TRUE, flip=NA,
   \item{source}{An attribute identifying the computational source of the L-moments: \dQuote{lmomsRCmark}.}
 }
 \references{
-Wang, Dongliang, Hutson, A.D., Miecznikowski, J.C., 2010, L-moment estimation for parametric survival models given censored data: Statistical Methodology, preprint
+Wang, Dongliang, Hutson, A.D., Miecznikowski, J.C., 2010, L-moment estimation for parametric survival models given censored data: Statistical Methodology, v. 7, no. 6, pp. 655--667.
 
 Helsel, D.R., 2005, Nondetects and data analysis---Statistics for censored environmental data: Hoboken, New Jersey, John Wiley, 250 p.
 }

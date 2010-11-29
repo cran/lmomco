@@ -49,5 +49,22 @@ lines(.lmomcohash$RiceTable$TAU3, .lmomcohash$RiceTable$TAU4,
 legend(0.1,0, "RICE DISTRIBUTION", lwd=5, col=8, bty="n")
 text(0.14,-0.04, "Normal distribution limit on left end point")
 text(0.14,-0.055, "Rayleigh distribution limit on right end point")
+
+
+\dontrun{ # check parrice against a Maximum Likelihood method in VGAM
+set.seed(1)
+library(VGAM) # now example from riceff() of VGAM
+vee <- exp(2); sigma <- exp(1); y <- rrice(n <- 1000, vee, sigma) 
+fit <- vglm(y ~ 1, riceff, trace=TRUE, crit="c") 
+Coef(fit) 
+# NOW THE MOMENT OF TRUTH, USING L-MOMENTS
+parrice(lmoms(y))
+# VGAM 0.8-1 reports
+#     vee    sigma 
+# 7.344560 2.805877
+# lmomco 1.2.2 reports
+#      nu    alpha 
+# 7.348784 2.797651 
+}
 }
 \keyword{distribution}

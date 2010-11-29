@@ -17,10 +17,12 @@ function(lmom, checklmom=TRUE) {
    }
    RiceTable <- .lmomcohash$RiceTable
    if(LCV >  max(RiceTable$LCV)) {
-      stop("LCV too big for Rice distribution (greater than Rayleigh)")
+      warning("LCV too big for Rice distribution (greater than Rayleigh)")
+      return()
    }
    if(LCV <  min(RiceTable$LCV)) {
-      stop("LCV too small for Rice distribution as implemented by lmomco")
+      warning("LCV too small for Rice distribution as implemented by lmomco")
+      return()
    }
    SNR  <- approx(RiceTable$LCV, RiceTable$SNR, xout=LCV)$y
    G    <- approx(RiceTable$LCV, RiceTable$G,   xout=LCV, rule=1:2)$y

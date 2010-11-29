@@ -502,4 +502,12 @@ Version 1.2.1--November 20, 2010
      SNR used in place of sqrt(pi/2)*LaguerreHalf(-SNR^2/2) because.
      sqrt(pi/2)*LaguerreHalf(-53^2/2) \approx 52 == 52.00962
      sqrt(pi/2)*LaguerreHalf(-53^2/2) \approx 53 == 53.00943
-     sqrt(pi/2)*LaguerreHalf(-54^2/2) \approx 54 --> Inf (Bessel break down)
+     sqrt(pi/2)*LaguerreHalf(-54^2/2) \approx 54 --> Inf (Bessel breaks down)
+
+
+Version 1.2.2--November 29, 2010
+1. Revisions to lmomrice() to kick over to return of Normal distribution 
+     L-moments for high and very high SNR. Also, kick over to return of
+     Rayleigh distribution L-moments for very low SNR.
+2. Fixed parrice() from stop()ing and switched to warning() if LCV is
+     out of range.
