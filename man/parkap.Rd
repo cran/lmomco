@@ -22,6 +22,9 @@ or \code{\link{pwm2lmom}}.}
   \item{type}{The type of distribution: \code{kap}.}
   \item{para}{The parameters of the distribution.}
   \item{source}{The source of the parameters: \dQuote{parkap}.}
+  \item{support}{The support (or range) of the fitted distribution.}
+  \item{ifail}{A numeric failure code.}
+  \item{ifailtext}{A text message for the failure code.}
 }
 \references{
 Hosking, J.R.M., 1990, L-moments---Analysis and estimation of

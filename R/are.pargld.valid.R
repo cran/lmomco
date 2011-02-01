@@ -16,8 +16,9 @@ function(para,verbose=FALSE,nowarn=FALSE) {
     # the following condition is met--this ensures that Lambda2
     # is suitable for the GLD.
     for(F in seq(0,1,by=0.00001)) {
-      tmp <- La2*(La3*F^(La3-1) + La4*(1-F)^(La4-1))
-      #print(tmp)
+      tmp <- La2 * (La3*F^(La3-1) +
+                    La4*(1-F)^(La4-1))
+      if(is.nan(tmp)) next; # figure that 0^(-1) is seen on end points
       if(tmp < 0) {
         warning("Parameters are invalid by Theorem 1.3.33 of Karian and Dudewicz (2000)")
         options(op)
@@ -39,7 +40,7 @@ function(para,verbose=FALSE,nowarn=FALSE) {
        #return(TRUE) # However the GLD is valid
     }
     else if(La3 >= 0 && La4 >= 0) {      # REGION 3
-       GO <- TRUE 
+       GO <- TRUE
     }
     else if(La3 <= 0 && La4 <= 0) {      # REGION 4
        GO <- TRUE

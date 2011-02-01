@@ -1,5 +1,6 @@
 "pargld" <-
-function(lmom,result='best',verbose=FALSE,extract=0,initkh=NULL) {
+function(lmom, verbose=FALSE, initkh=NULL, eps=1e-3, aux=c("tau5", "tau6")) {
+    aux <- match.arg(aux)
 
     if(length(lmom$source) == 1 && lmom$source == "TLmoms") {
       if(lmom$trim != 0) {
@@ -8,25 +9,30 @@ function(lmom,result='best',verbose=FALSE,extract=0,initkh=NULL) {
       }
     }
 
-    if(length(lmom$L1) == 0) { # convert to named L-moments
+    if(length(lmom$L1) != 0) { # convert to named L-moments
       lmom <- lmorph(lmom)     # nondestructive conversion!
     }
-    
-    LM1 <- lmom$L1
-    LM2 <- lmom$L2
 
-    T3 <- lmom$TAU3
-    T4 <- lmom$TAU4
-    T5 <- lmom$TAU5
+    LM1 <- lmom$lambdas[1]
+    LM2 <- lmom$lambdas[2]
+
+    T3 <- lmom$ratios[3]
+    T4 <- lmom$ratios[4]
+    T5 <- lmom$ratios[5]
+    T6 <- lmom$ratios[6]
 
     # Four parameter distributions do not normally need the
     # fifth L-moment, but for the GLD as implemented here--we do
     # This error message is to help with this fact.
-    if(is.null(T5)) {
+    if(aux == "tau5" && is.na(T5)) {
       warning("The fifth L-moment ratio TAU5 is undefined")
       return()
     }
-    
+    if(aux == "tau6" && is.na(T6)) {
+      warning("The sixth L-moment ratio TAU6 is undefined")
+      return()
+    }
+
     estla1 <- function(La2,La3,La4) {
       La1 <- LM1 - La2*(1/(La3+1) - 1/(La4+1))
     }
@@ -57,9 +63,17 @@ function(lmom,result='best',verbose=FALSE,extract=0,initkh=NULL) {
       D1 <- (La3+5)*(La4+5)*(La3+4)*(La4+4)*(La3+3)*(La4+3)
       D2 <- La3*(La4+1)*(La4+2) + La4*(La3+1)*(La3+2)
       t5 <- (N1 - N2)/(D1*D2)
-      return(t5) 
+      return(t5)
     }
-
+    esttau6 <- function(La3,La4) {
+      N1 <- La3*(La3-4)*(La3-3)*(La3-2)*(La3-1)*(La4+6)*(La4+5)*(La4+4)*(La4+3)*(La4+2)*(La4+1)
+      N2 <- La4*(La4-4)*(La4-3)*(La4-2)*(La4-1)*(La3+6)*(La3+5)*(La3+4)*(La3+3)*(La3+2)*(La3+1)
+      D1 <- (La3+6)*(La4+6)*(La3+5)*(La4+5)*(La3+4)*(La4+4)*(La3+3)*(La4+3)
+      D2 <- La3*(La4+1)*(La4+2) + La4*(La3+1)*(La3+2)
+      t6 <- (N1 + N2)/(D1*D2)
+      return(t6)
+    }
+    
     # Define the objective function
     fn <- function(x) {
       La3 <- x[1]
@@ -75,7 +89,7 @@ function(lmom,result='best',verbose=FALSE,extract=0,initkh=NULL) {
     # L-moment and building the standard parameter object.
     validgld <- function(La2,La3,La4) {
       if(is.na(La2)) return(FALSE)
-      if(La2 == -Inf || La2 == Inf) return(FALSE) 
+      if(La2 == -Inf || La2 == Inf) return(FALSE)
       #if(verbose == TRUE) cat(c("validgld-Checking Theorem 1.3.3: ",La2, La3, La4,"\n"))
       # Test that second L-moment is suitable
       for(F in seq(0,1,by=0.00001)) {
@@ -84,7 +98,7 @@ function(lmom,result='best',verbose=FALSE,extract=0,initkh=NULL) {
         if(tmp < 0) return(FALSE)
       }
 
-      #if(verbose == TRUE) cat(c("validgld-Checking by region: ",La2, La3, La4,"\n"))    
+      #if(verbose == TRUE) cat(c("validgld-Checking by region: ",La2, La3, La4,"\n"))
       # ratios define the curved lines in figure1.3-1 of K&D
       ratio6 <- -1/La3
       ratio5 <-  1/La4
@@ -98,7 +112,7 @@ function(lmom,result='best',verbose=FALSE,extract=0,initkh=NULL) {
         return(TRUE)
       }
       else if(La3 >= 0 && La4 >= 0) {      # REGION 3
-        return(TRUE) 
+        return(TRUE)
       }
       else if(La3 <= 0 && La4 <= 0) {      # REGION 4
         return(TRUE)
@@ -131,7 +145,7 @@ function(lmom,result='best',verbose=FALSE,extract=0,initkh=NULL) {
       if(abs(T5) > 1)  return(FALSE)
       return(TRUE)
     }
-   
+
    if(is.null(initkh)) {
      g <- 14
      M <- matrix(nrow = g, ncol = 2)
@@ -159,28 +173,18 @@ function(lmom,result='best',verbose=FALSE,extract=0,initkh=NULL) {
      M <- matrix(nrow = 1, ncol = 2)
      M[1,] <- initkh
    }
-   each_count            <- 0
-   each_attempt          <- vector(mode = 'numeric', length = 1)
-   each_initialK         <- vector(mode = 'numeric', length = 1)
-   each_initialH         <- vector(mode = 'numeric', length = 1)
-   each_error            <- vector(mode = 'numeric', length = 1)
-   each_interpretederror <- vector(mode = 'numeric', length = 1)
-   each_xi               <- vector(mode = 'numeric', length = 1)
-   each_alpha            <- vector(mode = 'numeric', length = 1)
-   each_kappa            <- vector(mode = 'numeric', length = 1)
-   each_h                <- vector(mode = 'numeric', length = 1)
-   each_t5diff           <- vector(mode = 'numeric', length = 1)
-   
-   WIDTH <- getOption("width")
 
-   if(verbose == TRUE) {
-     cat("SUMMARY OF INCREMENTAL OPTIMIZATIONS\n")
-     cat("  Q(F) = X + A*(F^K + (1-F)^H)\n")
-     cat(c(rep("-",WIDTH),"\n"),sep="")
-     cat("Attempt      X        A        K        H            tau5_diff     SumSqError    Diagnostics\n")
-     cat(c(rep("-",WIDTH),"\n"),sep="")
-   }
+   num_eachs <- length(M[,1])
+
+   each_attempt  <- vector(mode = 'numeric', length = num_eachs)
+   each_initialK <- each_initialH <- each_error <- each_attempt
+   each_interpretederror <- each_xi <- each_alpha <- each_attempt
+   each_kappa <- each_h <- each_tdiff <- each_attempt
+   each_valid_gld <- each_valid_lmom <- each_fine <-
+       vector(mode = 'logical', length = num_eachs)
+
    for(i in seq(1,nrow(M))) {
+     if(verbose) cat("  ",i,"(",num_eachs,")...", sep="")
      # Test for NaN from the KEK guess
      if(is.nan(M[i,1]) || is.nan(M[i,2])) next
 
@@ -188,87 +192,69 @@ function(lmom,result='best',verbose=FALSE,extract=0,initkh=NULL) {
      e      <- r$value # extract error
      K      <- r$par[1] # extract the two solutions
      H      <- r$par[2]
-     T5diff <- abs(T5 - esttau5(K,H)) # compute difference
+     Tdiff  <- ifelse(aux == "tau6", esttau6(K,H) - T6, esttau5(K,H) - T5) # compute difference
      A      <- estla2(LM2,K,H)
      X      <- estla1(A,K,H)
 
-     # BEGIN SECTION FOR DETAILED OUTPUT
-     if(verbose == TRUE) cat(c(" ",i,"  ",
-                                     sprintf("%6.6f",X),", ", 
-                                     sprintf("%6.6f",A),", ",
-			             sprintf("%6.6f",K),", ",
-				     sprintf("%6.6f",H),"   ",
-			             sprintf("%6.6f",T5diff),"  ",
-				     sprintf("%8.10f",e)),sep="")
-     if(validlmom(r,attempt=i) == FALSE) {
-       if(verbose == TRUE) cat(c("       inval:tau_r\n"))
-       next 
-     }
-     if(verbose == TRUE) cat(c("       val:tau_r--"))
-     if(validgld(A,K,H) == FALSE) {
-       if(verbose == TRUE) cat(c("inval:GLD\n"))
-       next
-     }
-     if(verbose == TRUE) cat(c("val:GLD\n"))
-     # END SECTION FOR DETAILED OUTPUT
-     
-     each_count                <- each_count + 1
-     each_attempt[each_count]  <- i
-     each_initialK[each_count] <- M[i,1]
-     each_initialH[each_count] <- M[i,2]
-     each_xi[each_count]       <- X
-     each_alpha[each_count]    <- A
-     each_kappa[each_count]    <- K
-     each_h[each_count]        <- H
-     each_t5diff[each_count]   <- T5diff
-     each_error[each_count]    <- e
-   }
-   if(verbose == TRUE) cat(c(rep("-",WIDTH),"\n"),sep="")
+     valid.lmom  <- ifelse(validlmom(r,attempt=i), TRUE, FALSE)
+     valid.gld   <- ifelse(validgld(A,K,H),        TRUE, FALSE)
+     good.enough <- ifelse(e < eps,                TRUE, FALSE)
 
-   EACH <- data.frame(attempt    = each_attempt,
-                      x          = each_xi,
-		      a          = each_alpha,
-		      k          = each_kappa,
-		      h          = each_h,
-		      absDelTau5 = each_t5diff,
-		      error      = each_error,
-		      initial_k  = each_initialK,
-		      initial_h  = each_initialH)
+     each_attempt[i]    <- i
+     each_initialK[i]   <- M[i,1]
+     each_initialH[i]   <- M[i,2]
+     each_xi[i]         <- X
+     each_alpha[i]      <- A
+     each_kappa[i]      <- K
+     each_h[i]          <- H
+     each_tdiff[i]      <- Tdiff
+     each_error[i]      <- e
+     each_valid_gld[i]  <- valid.gld
+     each_valid_lmom[i] <- valid.lmom
+     each_fine[i]       <- good.enough
+   }
+
+   EACH <- data.frame(xi         = each_xi,
+                      alpha      = each_alpha,
+                      kappa      = each_kappa,
+                      h          = each_h,
+                      attempt    = each_attempt,
+                      delTauHI   = each_tdiff,
+                      error      = each_error,
+                      initial_k  = each_initialK,
+                      initial_h  = each_initialH,
+                      valid.gld  = each_valid_gld,
+                      valid.lmr  = each_valid_lmom,
+                      lowerror   = each_fine)
+   if(verbose) print(EACH)
+
+   EACH <- EACH[EACH$valid.gld == TRUE,]
+   EACH <- EACH[EACH$valid.lmr == TRUE,]
    EACH <- EACH[order(EACH$error),]
-   
+
+   BEST <- EACH[EACH$lowerror == TRUE,]
+   BEST <- BEST[order(abs(BEST$delTauHI), BEST$error),]
+
+   REST <- BEST[-c(1),]
+   rownames(REST) <- NULL
    # Preparing final best guess . . .
    para <- vector(mode="numeric", length=4)
    names(para) <- c("xi","alpha","kappa","h")
-   para[1]  <- EACH$x[1]
-   para[2]  <- EACH$a[1]
-   para[3]  <- EACH$k[1]
-   para[4]  <- EACH$h[1]
-   tau5diff <- EACH$absDelTau5[1]
-   error    <- EACH$error[1]
-   
-   if(result == 'best') {
-     return(list(type       = 'gld',
-                 para       = para,
-                 error      = error,
-                 absDelTau5 = tau5diff,
-                 source     = "pargld")) 
-   }
-   else if(result == 'dataframe') {
-     if(extract > 0) {
-       return(list(type       = 'gld',
-                   para       = c(EACH[extract,]$x,
-                                  EACH[extract,]$a,
-                                  EACH[extract,]$k,
-                                  EACH[extract,]$h),
-                   error      = EACH[extract,]$error,
-                   absDelTau5 = EACH[extract,]$absDelTau5,
-                   source     = "pargld")) 
-     }
-     else {
-       return(EACH)
-     }
-   }
-   else {
-     warning("result argument is not 'best' or 'dataframe'")
-   }
+   para[1]  <- BEST$xi[1]
+   para[2]  <- BEST$alpha[1]
+   para[3]  <- BEST$kappa[1]
+   para[4]  <- BEST$h[1]
+   taudiff  <- BEST$delTauHI[1]
+   error    <- BEST$error[1]
+   #print(REST)
+   n <- length(REST[,1])
+   if(n == 0) REST <- NULL
+   #print(REST)
+   return(list(type     = 'gld',
+               para     = para,
+               delTauHI = taudiff,
+               error    = error,
+               source   = "pargld",
+               rest     = REST))
 }
+

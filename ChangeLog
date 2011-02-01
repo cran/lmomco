@@ -484,9 +484,9 @@ Version 1.2.1--November 20, 2010
 3. Added the LaguerreHalf.R/Rd to support variance estimation of a set of
      Rician parameters so that hand off to Normal distribution functions
      for high SNR can be made.
-4. Revisions in parameterization of the Rice distribution over the confusion
-     caused by having several different definitions of the signal-to-noise
-     ratio SNR in the literature.
+4. Revisions in parameterization of the Rice distribution over the
+     confusion caused by having several different definitions of the
+     signal-to-noise ratio SNR in the literature.
      Also, if nu=0 for the Rice, then behind-the-scenes generation of
      Rayleigh parameters with xi=0 is made and the Rayleigh distribution
      functions are used.
@@ -511,3 +511,20 @@ Version 1.2.2--November 29, 2010
      Rayleigh distribution L-moments for very low SNR.
 2. Fixed parrice() from stop()ing and switched to warning() if LCV is
      out of range.
+
+
+Version 1.2.3--February 1, 2011
+1. Added the return of the support of a fitted Kappa to parkap.R/Rd. This
+     facilitates mimicry of parts of Dupuis and Winchester (2001) in J.
+     Statis Comput. Sim., v.71] easier. (WHA is considering returning the
+     support for other distributions in the parXXX() functions.)
+2. Re-engineered the pargld() and parTLgld() functions to return the best
+     solution based on a good enough minimization of RMSE between Tau3 and
+     Tau4 and then sorting based on difference in Tau5. Other possible
+     solutions are returned in a new entry "$rest".
+3. Added Kumaraswamy, log-Normal3, and Rice to pretty.dist.R.
+4. Added Tau6 to lmomgld() and lmomTLgld() in preparation to adapt pargld()
+     and parTLgld() to returning smallest DeltaTau5 or DeltaTau6.
+5. Major overhaul of lmomTLgld() and lmomgld() to support the generalized
+     equation for arbitrary level of L-moment and TL-moments with arbitrary
+     left and right trimming.

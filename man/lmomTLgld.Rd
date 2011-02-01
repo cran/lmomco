@@ -56,19 +56,25 @@ Finally the TL-moment (\eqn{t=1}) for \eqn{\tau^{(1)}_5} is
 By inspection the \eqn{\tau_r} equations are not applicable for negative integer values \eqn{k=\{-2, -3, -4, \dots \}} and \eqn{h=\{-2, -3, -4, \dots \}} as division by zero will result. There are additional, but difficult to formulate, restrictions on the parameters both to define a valid Generalized Lambda distribution as well as valid L-moments. Verification of the parameters is conducted through \code{\link{are.pargld.valid}}, and verification of the L-moment validity is conducted through \code{\link{are.lmom.valid}}.
 }
 \usage{
-lmomTLgld(gldpara)
+lmomTLgld(para, nmom=6, trim=0, leftrim=NULL, rightrim=NULL)
 }
 \arguments{
-  \item{gldpara}{The parameters of the distribution.}
+  \item{para}{The parameters of the distribution.}
+  \item{nmom}{Number of L-moments to compute.}
+  \item{trim}{Symmetrical trimming level.}
+  \item{leftrim}{Left trimming level, \eqn{t_1}.}
+  \item{rightrim}{Right trimming level, \eqn{t_2}.}
 }
 \value{
   An R \code{list} is returned.
 
   \item{lambdas}{Vector of the TL-moments. First element is
-\eqn{\lambda^{(1)}_1}, second element is \eqn{\lambda^{(1)}_2}, and so on.}
+\eqn{\lambda^{(t_1,t_2)}_1}, second element is \eqn{\lambda^{(t_1,t_2)}_2}, and so on.}
   \item{ratios}{Vector of the TL-moment ratios. Second element is 
 \eqn{\tau^{(1)}}, third element is \eqn{\tau^{(1)}_3} and so on. }
-  \item{trim}{Trim level = 1}
+  \item{trim}{Trim level = left or right values if they are equal}
+  \item{leftrim}{Left trimming level}
+  \item{rightrim}{Right trimming level}
   \item{source}{An attribute identifying the computational source 
 of the TL-moments: \dQuote{lmomTLgld}.}
 }
@@ -89,6 +95,21 @@ CRC Press, Boca Raton, FL, 438 p.
 \author{ W.H. Asquith}
 \seealso{\code{\link{lmomgld}}, \code{\link{pargld}}, \code{\link{cdfgld}}, \code{\link{quagld}}}
 \examples{
-lmomgld(vec2par(c(10,10,0.4,1.3),type='gld'))
+lmomgld(vec2par(c(10,10,0.4,1.3), type='gld'))
+
+\dontrun{
+PARgld <- vec2par(c(15,12,1,.5), type="gld")
+theoTLmoms(PARgld, leftrim=0, rightrim=0, nmom=6)
+lmomTLgld(PARgld, leftrim=0, rightrim=0)
+
+theoTLmoms(PARgld, trim=2, nmom=6)
+lmomTLgld(PARgld, trim=2)
+
+theoTLmoms(PARgld, trim=3, nmom=6)
+lmomTLgld(PARgld, leftrim=3, rightrim=3)
+
+theoTLmoms(PARgld, leftrim=10, rightrim=2, nmom=6)
+lmomTLgld(PARgld, leftrim=10, rightrim=2)
+}
 }
 \keyword{distribution}

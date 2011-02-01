@@ -86,25 +86,23 @@ even \eqn{r \ge 3} addition is seen. For example, the fifth L-moment ratio is
 By inspection the \eqn{\tau_r} equations are not applicable for negative integer values \eqn{k=\{-1, -2, -3, -4, \dots \}} and \eqn{h=\{-1, -2, -3, -4, \dots \}} as division by zero will result. There are additional, but difficult to formulate, restrictions on the parameters both to define a valid Generalized Lambda distribution as well as valid L-moments. Verification of the parameters is conducted through \code{\link{are.pargld.valid}}, and verification of the L-moment validity is conducted through \code{\link{are.lmom.valid}}.
 }
 \usage{
-lmomgld(gldpara)
+lmomgld(para)
 }
 \arguments{
-  \item{gldpara}{The parameters of the distribution.}
+  \item{para}{The parameters of the distribution.}
 }
 \value{
   An R list is returned.
 
-  \item{L1}{Arithmetic mean.}
-  \item{L2}{L-scale---analogous to standard deviation.}
-  \item{LCV}{coefficient of L-variation---analogous to coe. of variation.}
-  \item{TAU3}{The third L-moment ratio or L-skew---analogous to skew.}
-  \item{TAU4}{The fourth L-moment ratio or L-kurtosis---analogous to kurtosis.}
-  \item{TAU5}{The fifth L-moment ratio.}
-  \item{L3}{The third L-moment.}
-  \item{L4}{The fourth L-moment.}
-  \item{L5}{The fifth L-moment.}
-  \item{source}{An attribute identifying the computational 
-source of the L-moments: \dQuote{lmomgld}.}
+  \item{lambdas}{Vector of the TL-moments. First element is
+\eqn{\lambda^{(1)}_1}, second element is \eqn{\lambda^{(1)}_2}, and so on.}
+  \item{ratios}{Vector of the TL-moment ratios. Second element is 
+\eqn{\tau^{(1)}}, third element is \eqn{\tau^{(1)}_3} and so on. }
+  \item{trim}{Trim level = 0}
+  \item{leftrim}{Left trimming level = 0}
+  \item{rightrim}{Right trimming level = 0}
+  \item{source}{An attribute identifying the computational source 
+of the TL-moments: \dQuote{lmomgld}.}
 }
 \source{
 Derivations conducted by W.H. Asquith on February 11 and 12, 2006.
@@ -123,5 +121,9 @@ CRC Press, Boca Raton, FL, 438 p.
 \seealso{\code{\link{pargld}}, \code{\link{cdfgld}}, \code{\link{quagld}}}
 \examples{
 lmomgld(vec2par(c(10,10,0.4,1.3),type='gld'))
+
+PARgld <- vec2par(c(0,1,1,.5), type="gld")
+theoTLmoms(PARgld, nmom=6)
+lmomgld(PARgld)
 }
 \keyword{distribution}

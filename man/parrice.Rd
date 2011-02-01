@@ -29,6 +29,8 @@ or \code{\link{pwm2lmom}}.}
   \item{type}{The type of distribution: \code{rice}.}
   \item{para}{The parameters of the distribution.}
   \item{source}{The source of the parameters: \dQuote{parrice}.}
+  \item{ifail}{A numeric failure mode.}
+  \item{ifailtext}{A helpful message on the failure.}
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{lmom.ub}}, \code{\link{lmomrice}}, \code{\link{cdfrice}}, \code{\link{quarice}}

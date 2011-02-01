@@ -13,7 +13,7 @@ function(para, ...) {
       # Bessels are limited out, must compute remainder at
       # apparent numerical limits
       xbar <- A * SNR # just V no noise
-      xvar <- A^2; # as SNR --> infinity: 2*A^2 + V^2 - A^2 * SNR^2
+      xvar <- A^2 # as SNR --> infinity: 2*A^2 + V^2 - A^2 * SNR^2
       nor  <- vec2par(c(xbar,sqrt(xvar)), type="nor")
       lmr  <- lmorph(lmomnor(para=nor))
       lmr$source <- "lmomrice via lmomnor (super high SNR)"
@@ -44,7 +44,9 @@ function(para, ...) {
     lmr$source <- "lmomrice"
     if(! are.lmom.valid(lmr)) {
       warning("The Rician parameters are producing invalid L-moments or L-moments outside of implementation of Rice distribution in lmomco")
+      warning("Printing the parameters")
       print(para)
+      warning("Printing the Lmoments")
       print(lmr)
       return()
     }

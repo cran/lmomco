@@ -2,20 +2,17 @@
 \alias{parTLgld}
 \title{Estimate the Parameters of the Generalized Lambda Distribution using Trimmed L-moments (t=1)}
 \description{
-This function estimates the parameters of the Generalized Lambda distribution given
-the trimmed L-moments (TL-moments) for \eqn{t=1} of the data in a TL-moment object with a trim
-level of unity (\code{trim=1}). The relation between distribution parameters and TL-moments
-is seen under \code{lmomTLgld}. There are no simple expressions for the parameters in terms of the L-moments. This function is considered EXPERIMENTAL and general details of the algorithm are provided below. Further, consider that multiple parameter solutions are possible with the Generalized Lambda so some expertise in the distribution and other aspects are needed.
+This function estimates the parameters of the Generalized Lambda distribution given the trimmed L-moments (TL-moments) for \eqn{t=1} of the data in a TL-moment object with a trim level of unity (\code{trim=1}). The relation between distribution parameters and TL-moments is seen under \code{lmomTLgld}. There are no simple expressions for the parameters in terms of the L-moments. This function is experimental and general details of the algorithm are provided below. Further, consider that multiple parameter solutions are possible with the Generalized Lambda so some expertise in the distribution and other aspects are needed.
 }
 \usage{
-parTLgld(lmom,result='best',verbose=FALSE,extract=0,initkh=NULL)
+parTLgld(lmom, verbose=FALSE, initkh=NULL, eps=1e-3, aux=c("tau5", "tau6"))
 }
 \arguments{
   \item{lmom}{A TL-moment object created by \code{\link{TLmoms}}.}
-  \item{result}{If \code{best}, then the minimum error solution is returned. If \code{dataframe}, then \code{data.frame} is returned with sequence of valid solutions sorted in ascending error order.}
   \item{verbose}{A logical switch on the verbosity of output.  Default is \code{verbose=FALSE}.}
-  \item{extract}{If \code{result=dataframe} and \code{extract} greater than zero, then the \code{extract=n} returns the \code{n}th element of the \code{data.frame} as if that element was the \code{best} solution.}
   \item{initkh}{A vector of the initial guess of the \eqn{\kappa} and \eqn{h} parameters. No other regions of parameter space are consulted.}
+  \item{eps}{A small term or threshold for which the square root of the sum of square errors in \eqn{\tau_3} and \eqn{\tau_4} is compared to to judge \dQuote{good enough} for the alogrithm to order solutions based on smallest error as explained in next argument.}
+  \item{aux}{Control the algorithm to order solutions based on smallest error in trimmed \eqn{\Delta \tau_5} or \eqn{\Delta \tau_6} .}
 }
 \details{
 Karian and Dudewicz (2000) summarize six regions of the \eqn{\kappa} and \eqn{h} space in
@@ -33,30 +30,33 @@ For each optimization a check on the validity of the parameters so produced is m
 
   \item{type}{The type of distribution: \code{gld}.}
   \item{para}{The parameters of the distribution.}
+  \item{delTau5}{Difference between \eqn{\tilde{\tau}^{(1)}_5} of the fitted distribution and true \eqn{\hat{\tau}^{(1)}_5}.}
   \item{error}{Smallest sum of square error found.}
-  \item{tau5diff}{Difference between true \eqn{\hat{\tau}^{(1)}_5} and the \eqn{\tilde{\tau}^{(1)}_5} of the fitted distribution.}
   \item{source}{The source of the parameters: \dQuote{parTLgld}.}
+  \item{rest}{An R \code{data.frame} of other solutions if found.}
 
-  An R \code{data.frame} is returned if \code{result='dataframe'}, which is sorted by ascending error.
-  
-  \item{attempt}{The attempt number that found valid TL-moments and parameters of GLD.}
-  \item{x}{The location parameter of the distribution.}
-  \item{a}{The scale parameter of the distribution.}
-  \item{k}{The 1st shape parameter of the distribution.}
+The rest of the solutions have the following:
+  \item{xi}{The location parameter of the distribution.}
+  \item{alpha}{The scale parameter of the distribution.}
+  \item{kappa}{The 1st shape parameter of the distribution.}
   \item{h}{The 2nd shape parameter of the distribution.}
-  \item{tau5_diff}{The absolute difference between \eqn{\hat{\tau}^{(1)}_5} of data to \eqn{\tilde{\tau}^{(1)}_5} of the fitted distribution.}  
+  \item{attempt}{The attempt number that found valid TL-moments and parameters of GLD.}
+  \item{delTau5}{The absolute difference between \eqn{\hat{\tau}^{(1)}_5} of data to \eqn{\tilde{\tau}^{(1)}_5} of the fitted distribution.}
   \item{error}{The sum of square error found.}
   \item{initial_k}{The starting point of the \eqn{\kappa} parameter.}
   \item{initial_h}{The starting point of the \eqn{h} parameter.}
+  \item{valid.gld}{Logical on validity of the GLD---\code{TRUE} by this point.}
+  \item{valid.lmr}{Logical on validity of the L-moments---\code{TRUE} by this point.}
+  \item{lowerror}{Logical on whether error was less than \code{eps}---\code{TRUE} by this point.}
 }
 \note{
 Although the underlying derivations of the TL-moments in terms of the parameters are sound and this function uses built-in functions of R for the optimization, this function should be considered experimental until further notice. The \dQuote{preferred} solution might not be appropriate. This function is not for production code. This is a cumbersome method of parameter solution and enhancements or total redesign of the algorithm is expected.
 }
 \source{
-R hacking by W.H. Asquith in February 2006 with copy of Karian and Dudewicz (2000).
+W.H. Asquith in Feb. 2006 with copy of Karian and Dudewicz (2000) and again Feb. 2011.
 }
 \references{
-Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions---The generalized lambda distribution and generalized bootstrap methods: 
+Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions---The generalized lambda distribution and generalized bootstrap methods:
 CRC Press, Boca Raton, FL, 438 p.
 }
 \author{ W.H. Asquith}
@@ -64,8 +64,54 @@ CRC Press, Boca Raton, FL, 438 p.
 \code{\link{pargld}}
 }
 \examples{
-TL1 <- TLmoms(rnorm(200),trim=1)
-p <- parTLgld(TL1)
-TL2 <- lmomTLgld(p)
+X <- rgamma(202,2) # simulate a skewed distribution
+lmr <- TLmoms(X, trim=1) # compute trimmed L-moments
+PARgldTL <- parTLgld(lmr) # fit the GLD
+
+F <- pp(X) # plotting positions for graphing
+plot(F,sort(X), col=8, cex=0.25)
+lines(F, qlmomco(F,PARgldTL)) # show the best estimate
+if(! is.null(PARgldTL$rest)) { #$ 
+  n <- length(PARgldTL$rest$xi)
+  other <- unlist(PARgldTL$rest[n,1:4]) #$ # show alternative
+  lines(F, qlmomco(F,vec2par(other, type="gld")), col=2)
+}
+# Note in the extraction of other solutions that no testing for whether
+# additional solutions were found is made. Also, it is quite possible
+# that the other solutions "[n,1:4]" is effectively another numerical
+# convergence on the primary solution. Some users of this example thus
+# might not see two separate lines. Users are encouraged to inspect the
+# rest of the solutions: print(PARgld$rest); #$
+
+# For one run of the above example, the GLD results follow
+#print(PARgldTL)
+#$type
+#[1] "gld"
+#$para
+#         xi       alpha       kappa           h 
+# 1.02333964 -3.86037875 -0.06696388 -0.22100601 
+#$delTau5
+#[1] -0.02299319
+#$error
+#[1] 7.048409e-08
+#$source
+#[1] "pargld"
+#$rest
+#         xi     alpha       kappa          h attempt     delTau5        error
+#1  1.020725 -3.897500 -0.06606563 -0.2195527       6 -0.02302222 1.333402e-08
+#2  1.021203 -3.895334 -0.06616654 -0.2196020       4 -0.02304333 8.663930e-11
+#3  1.020684 -3.904782 -0.06596204 -0.2192197       5 -0.02306065 3.908918e-09
+#4  1.019795 -3.917609 -0.06565792 -0.2187232       2 -0.02307092 2.968498e-08
+#5  1.023654 -3.883944 -0.06668986 -0.2198679       7 -0.02315035 2.991811e-07
+#6 -4.707935 -5.044057  5.89280906 -0.3261837      13  0.04168800 2.229672e-10
+
+\dontrun{
+F <- seq(.01,.99,.01)
+plot(F,qlmomco(F, vec2par(c( 1.02333964, -3.86037875,
+                            -0.06696388, -0.22100601), type="gld")),
+     type="l")
+lines(F,qlmomco(F, vec2par(c(-4.707935, -5.044057, 
+                              5.89280906, -0.3261837), type="gld")))
+}
 }
 \keyword{distribution}

@@ -1,6 +1,8 @@
 "parkap" <-
 function(lmom,checklmom=TRUE) {
     para <- vector(mode="numeric", length=4)
+    XL <- NA
+    XU <- NA
     names(para) <- c("xi","alpha","kappa","h")
     #  IFAIL  *OUTPUT* FAIL FLAG. ON EXIT, IT IS SET AS FOLLOWS.
     #                  0  SUCCESSFUL EXIT
@@ -27,7 +29,7 @@ function(lmom,checklmom=TRUE) {
     #  FROM THE VALUES SUPPLIED IN ARRAY XMOM.
 
     #
-    #         EPS,MAXIT CONTROL THE TEST FOR CONVERGENCE OF N-R ITERATION 
+    #         EPS,MAXIT CONTROL THE TEST FOR CONVERGENCE OF N-R ITERATION
     #         MAXSR IS THE MAX. NO. OF STEPLENGTH REDUCTIONS PER ITERATION
     #         HSTART IS THE STARTING VALUE FOR H
     #         BIG IS USED TO INITIALIZE THE CRITERION FUNCTION
@@ -50,6 +52,7 @@ function(lmom,checklmom=TRUE) {
       warning("L-moments are invalid")
       IFAIL <- 1
       return(list(type = 'kap', para = para, source="parkap",
+                  support = c(NA,NA),
                   ifail = IFAIL,
                   ifailtext = "L-moments are invalid."))    }
 
@@ -59,11 +62,12 @@ function(lmom,checklmom=TRUE) {
     if(T4 >= (5*T3*T3+1)/6 ) {
       IFAIL <- 2
       return(list(type = 'kap', para = para, source="parkap",
+                  support = c(NA,NA),
                   ifail = IFAIL,
                   ifailtext = "TAU3 and TAU4 are above Generalized Logistic line."))
     }
     #
-    #  SET STARTING VALUES FOR N-R ITERATION: 
+    #  SET STARTING VALUES FOR N-R ITERATION:
     #   G IS CHOSEN TO GIVE THE CORRECT VALUE OF TAU-3 ON THE
     #   ASSUMPTION THAT H=1 (I.E. A GENERALIZED PARETO FIT) -
     #   BUT H IS ACTUALLY SET TO 1.001 TO AVOID NUMERICAL
@@ -84,9 +88,9 @@ function(lmom,checklmom=TRUE) {
       #
       MAXSRLOOPEND <- FALSE
       for(I in seq(1,MAXSR)) {
-        #        
+        #
         # CALCULATE CURRENT TAU-3 AND TAU-4
-        #       
+        #
         #   NOTATION:
         #    U.    - RATIOS OF GAMMA FUNCTIONS WHICH OCCUR IN THE PWM'S
         #            BETA-SUB-R
@@ -96,7 +100,8 @@ function(lmom,checklmom=TRUE) {
         if(G > OFLGAM) {
           IFAIL <- 5
           return(list(type = 'kap', para = para, source="parkap",
-                  ifail = IFAIL,,
+                  support = c(NA,NA),
+                  ifail = IFAIL,
                   ifailtext = "H/K iteration encountered numerical difficulties."))
         }
         if(H > 0) {
@@ -117,6 +122,7 @@ function(lmom,checklmom=TRUE) {
         if(ALAM2 == 0) {
           IFAIL <- 5
           return(list(type = 'kap', para = para, source="parkap",
+                  support = c(NA,NA),
                   ifail = IFAIL,
                   ifailtext = "H/K iteration encountered numerical difficulties."))
         }
@@ -138,7 +144,7 @@ function(lmom,checklmom=TRUE) {
            # IF NEARER THAN BEFORE, EXIT MAXSR LOOP
            break
         }
-        if(I == MAXSR) MAXSRLOOPEND <- TRUE 
+        if(I == MAXSR) MAXSRLOOPEND <- TRUE
       }   # END OF MAXSR LOOP
       if(MAXSRLOOPEND == TRUE) {
         #
@@ -146,6 +152,7 @@ function(lmom,checklmom=TRUE) {
         #
         IFAIL <- 4
         return(list(type = 'kap', para = para, source="parkap",
+                  support = c(NA,NA),
                   ifail = IFAIL,
                   ifailtext = "Unable to make progress from current point in H/K iteration."))
       }
@@ -205,7 +212,7 @@ function(lmom,checklmom=TRUE) {
         H22  <-  D11/DET
         DEL1 <- E1*H11+E2*H12
         DEL2 <- E1*H21+E2*H22
-        # 
+        #
         # TAKE NEXT N-R STEP
         #
         G <- XG-DEL1
@@ -221,14 +228,14 @@ function(lmom,checklmom=TRUE) {
         if(H <= 0 & G*H <= -1) {
           FACTOR <- min(FACTOR,0.8*(XG*XH+1)/(XG*XH-G*H))
         }
-        if(FACTOR != 1) { 
+        if(FACTOR != 1) {
           DEL1 <- DEL1*FACTOR
           DEL2 <- DEL2*FACTOR
           G <- XG-DEL1
           H <- XH-DEL2
           Z <- G+H*0.725
         }
-        if(IT == MAXIT) MAXITLOOPEND <- TRUE 
+        if(IT == MAXIT) MAXITLOOPEND <- TRUE
         next;
       }
       break;
@@ -242,6 +249,7 @@ function(lmom,checklmom=TRUE) {
     if(MAXITLOOPEND == TRUE) {
       IFAIL <- 3
       return(list(type = 'kap', para = para, source="parkap",
+                  support = c(NA,NA),
                   ifail = IFAIL,
                   ifailtext = "Iteration on H and K failed to converge."))
     }
@@ -255,6 +263,7 @@ function(lmom,checklmom=TRUE) {
     if(TEMP > OFLEXP) {
       IFAIL <- 6
       return(list(type = 'kap', para = para, source="parkap",
+                  support = c(NA,NA),
                   ifail = IFAIL,
                   ifailtext = "H and K converged, but overflow on XI and ALPHA."))
     }
@@ -263,13 +272,29 @@ function(lmom,checklmom=TRUE) {
     if(TEMP > OFLEXP) {
       IFAIL <- 6
       return(list(type = 'kap', para = para, source="parkap",
+                  support = c(NA,NA),
                   ifail = IFAIL,
                   ifailtext = "H and K converged, but overflow on XI and ALPHA."))
     }
     HH <- exp(TEMP)
     para[2] <- lmom$L2*G*HH/(ALAM2*GAM)
     para[1] <- lmom$L1-para[2]/G*(1-GAM*U1/HH)
+    if(H > 0) {
+      XL <- para[1]+para[2]*(1-H^-G)/G
+    } else if(H <= 0 & G < 0) {
+      XL <- para[1]+para[2]/G
+    } else {
+      XL <- -Inf
+    }
+    if(G > 0) {
+      XU <- para[1]+para[2]/G
+    } else {
+      XU <- Inf
+    }
+    kapsup <- c(XL,XU)
+    names(kapsup) <- c("lower", "upper")
     return(list(type = 'kap', para = para, source="parkap",
+                support = kapsup,
                 ifail = IFAIL,
                 ifailtext = "Successful parameter estimation."))
 }
