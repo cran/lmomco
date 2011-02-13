@@ -1,5 +1,5 @@
 "pwmRC" <-
-function(x,threshold=NULL,nmom=5,sort=TRUE,checkbetas=FALSE) {
+function(x, threshold=NULL, nmom=5, sort=TRUE, checkbetas=FALSE) {
   if(sort) x <- sort(x)
 
   if(is.null(threshold)) {
@@ -11,10 +11,10 @@ function(x,threshold=NULL,nmom=5,sort=TRUE,checkbetas=FALSE) {
 
   n <- length(x)
   m <- n - length(x[x == T])
-  
+
   observed.sample <- x[x < T]
   #  print(length(observed.sample))
-  z <- pwm(observed.sample,nmom=5,sort=FALSE)
+  z <- pwm(observed.sample,nmom=nmom,sort=FALSE)
   #  print(z)
   Abetas <- z$betas
 
@@ -27,13 +27,11 @@ function(x,threshold=NULL,nmom=5,sort=TRUE,checkbetas=FALSE) {
     i <- r+1
     sumA <- 0
     sumB <- 0
-    for(j in seq(1,m)) {
-      sumA <- sumA + (choose(j-1,r))*x[j]
-    }
+    sumA <- sapply(1:m, function(j) { return(choose(j-1,r)*x[j]) })
+    sumA <- sum(sumA)
     if(m < n) { # seq can return reversed elements, avoid loop if no censored values
-      for(j in seq(m+1,n)) {
-        sumB <- sumB + (choose(j-1,r))*T
-      }
+      sumB <- sapply((m+1):n, function(j) { return(choose(j-1,r)*T) } )
+      sumB <- sum(sumB)
     }
     Bbetas[i] <- (sumA+sumB)/(n*choose(n-1,r))
   }
@@ -49,7 +47,7 @@ function(x,threshold=NULL,nmom=5,sort=TRUE,checkbetas=FALSE) {
     cat(c("Betas:",Bbetas,"\n"))
     cat(c("checkBbetas:",checkBbetas,"\n"))
   }
-  
+
   zeta <- m/n # see section 29.7, p. 552 of Hosking(1995)
 
   z <- list(Abetas=Abetas,
@@ -62,4 +60,4 @@ function(x,threshold=NULL,nmom=5,sort=TRUE,checkbetas=FALSE) {
             samplesize=n)
   return(z)
 
-} 
+}

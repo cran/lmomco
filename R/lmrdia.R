@@ -60,8 +60,10 @@ function() {
    uni[1,] <- c(0,0)
    ray <- matrix(nrow = 1, ncol = 2)
    ray[1,] <- c(0.1139671, 0.1053695)
+   cau <- matrix(nrow = 1, ncol = 2)
+   cau[1,] <- c(0, 1)
 
-   z <- list(limits = lim, exp=exp, gev = gev, glo = glo,
+   z <- list(limits = lim, cau=cau, exp=exp, gev = gev, glo = glo,
              gpa=gpa, gum=gum, gno=ln, nor=nor,
              pe3=pIII, uniform=uni, ray=ray)
    return(z)

@@ -61,7 +61,7 @@ in Recent Advances in Life-Testing and Reliability, edited by N. Balakrishnan,
 chapter 29, CRC Press, Boca Raton, Fla., pp. 546--560.
 }
 \author{ W.H. Asquith}
-\seealso{ \code{\link{lmoms}}, \code{\link{pwm2lmom}}, \code{\link{pwm}} }
+\seealso{ \code{\link{lmoms}}, \code{\link{pwm2lmom}}, \code{\link{pwm}}, \code{\link{pwmLC}}  }
 \examples{
 # Data listed in Hosking (1995, table 29.2, p. 551)
 H <- c(3,4,5,6,6,7,8,8,9,9,9,10,10,11,11,11,13,13,13,13,13,

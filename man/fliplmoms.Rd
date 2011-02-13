@@ -5,13 +5,13 @@
 This function flips the L-moments by a flip attribute in an L-moment object such as that returned by \code{lmomsRCmark}. The function will attempt to identify the L-moment object and \code{lmorph} as necessary, but this support is not guaranteed.  The flipping process is used to support left-tail censoring using the right-tail censoring alogrithms of the package. The odd order (\code{seq(3,n,by2)}) \eqn{\lambda_r} and \eqn{\tau_r} are negated. The mean \eqn{\hat\lambda_1} is computed by subtracting the \eqn{\lambda_1} from the \var{lmom} argument from the flip \var{M}: \eqn{\hat\lambda_1 = M - \lambda_1} and the \eqn{\tau_2} is subsequently adjusted by the new mean. This function is written to provide a convenient method to re-transform or back flip the L-moments computed by \code{lmomsRCmark}. Careful analysis of the example problem listed here should be made.
 }
 \usage{
-fliplmoms(lmom, checklmom=TRUE)
+fliplmoms(lmom, flip=NULL, checklmom=TRUE)
 }
 \arguments{
-  \item{lmom}{A L-moment object created by \code{\link{lmomsRCmark}}.}
+  \item{lmom}{A L-moment object created by \code{\link{lmomsRCmark}} or other vectorize L-moment list.}
+  \item{flip}{\code{\link{lmomsRCmark}} provides the flip, but for other vectorized L-moment list support, the flip can be set by this argument.}
   \item{checklmom}{Should the \var{lmom} be checked for validity using the \code{are.lmom.valid} function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check.}
 }
-
 \value{
   An R \code{list} is returned that matches the structure of the \var{lmom} argument (unless an \code{lmorph} was attempted). The structure is intended to match that coming from \code{lmomsRCmark}.
 }
@@ -56,5 +56,27 @@ lines(F, qlmomco(F, parnor(lmr.usual)), lty=2)
 legend(0,20, c("Uncensored", "Left-tail censored"), pch=c(1,16))
 # The solid line represented the Normal distribution fit by
 # censoring indicator on the multiple left-tail detection limits.
+
+
+\dontrun{
+# see example in pwmRC
+H <- c(3,4,5,6,6,7,8,8,9,9,9,10,10,11,11,11,13,13,13,13,13,
+       17,19,19,25,29,33,42,42,51.9999,52,52,52)
+# 51.9999 was really 52, a real (noncensored) data point.
+flip <- 100
+F <- flip - H # 
+RCpwm <- pwmRC(H, threshold=52)
+lmorph(pwm2lmom(vec2pwm(RCpwm$Bbetas))) # OUTPUT1 STARTS HERE
+
+LCpwm <- pwmLC(F, threshold=(flip - 52))
+LClmr <- pwm2lmom(vec2pwm(LCpwm$Bbetas))
+LClmr <- lmorph(LClmr)
+#LClmr$flip <- 100; fliplmoms(LClmr) # would also work
+fliplmoms(LClmr, flip=flip) # OUTPUT2 STARTS HERE
+
+# The two outputs are the same showing how the flip
+# argument works
+}
+
 }
 \keyword{distribution}

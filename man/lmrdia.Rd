@@ -2,8 +2,8 @@
 \alias{lmrdia}
 \title{L-moment Ratio Diagram Components}
 \description{
-This function returns a list of the L-skew and L-kurtosis (\eqn{\tau_3} and \eqn{\tau_4}, 
-respectively) ordinates for construction of L-moment Ratio (L-moment diagrams) 
+This function returns a list of the L-skew and L-kurtosis (\eqn{\tau_3} and \eqn{\tau_4},
+respectively) ordinates for construction of L-moment Ratio (L-moment diagrams)
 that are useful in selecting a distribution to model the data.
 }
 \usage{
@@ -14,6 +14,7 @@ lmrdia()
 
   \item{limits}{The theoretical limits of \eqn{\tau_3} and \eqn{\tau_4}--below \eqn{\tau_4} are theoretically
   not possible.}
+  \item{cau}{\eqn{\tau_3} and \eqn{\tau_4} (limiting conditions) of the Cauchy distribution.}
   \item{exp}{\eqn{\tau_3} and \eqn{\tau_4} of the Exponential distribution.}
   \item{gev}{\eqn{\tau_3} and \eqn{\tau_4} of the Generalized Extreme Value distribution.}
   \item{glo}{\eqn{\tau_3} and \eqn{\tau_4} of the Generalized Logistic distribution.}
@@ -28,7 +29,6 @@ lmrdia()
 \references{
 Hosking, J.R.M., 1986, The theory of probability weighted moments:
 Research Report RC12210, IBM Research Division, Yorkton Heights, N.Y.
-
 
 Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
 distributions using linear combinations of order statistics: Journal

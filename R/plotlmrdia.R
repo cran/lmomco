@@ -8,6 +8,7 @@ function(lmr,
       nogpa=FALSE,
       nope3=FALSE,
       nogno=FALSE,
+      nocau=FALSE,
       noexp=FALSE,
       nonor=FALSE,
       nogum=FALSE,
@@ -92,6 +93,16 @@ function(lmr,
      }
    }
    if(nopoints == FALSE) {
+     if(noexp == FALSE) {
+        points(lmr$exp,pch=16,col=3,cex=1.5)
+        entryi <- entryi + 1
+        entries[entryi] <- "CAU (limiting)"
+        Elwd[entryi] <- NA
+        Ecol[entryi] <- 2
+        Epch[entryi] <- 16
+        Elty[entryi] <- NA
+        Ecex[entryi] <- 1.5
+     }
      if(noexp == FALSE) {
         points(lmr$exp,pch=16,col=2,cex=1.5)
         entryi <- entryi + 1

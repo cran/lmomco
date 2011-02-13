@@ -4,17 +4,17 @@
 \description{
 Plot the L-moment ratio diagram of L-skew and L-kurtosis from an L-moment ratio
 diagram object returned by \code{lmrdia}.  This diagram is useful for selecting
-a distribution to model the data. The application of L-moment diagrams is well 
+a distribution to model the data. The application of L-moment diagrams is well
 documented in the literature. This function is intended to function as a demonstration
-of L-moment diagram plotting. It is expected that users will \dQuote{roll their own} version 
+of L-moment diagram plotting. It is expected that users will \dQuote{roll their own} version
 of this function for their own specific purposes.
 }
 \usage{
 plotlmrdia(lmr, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
-           nogev=FALSE, noglo=FALSE, nogpa=FALSE, nope3=FALSE, 
-	       nogno=FALSE, noexp=FALSE, nonor=FALSE, nogum=FALSE,
+           nogev=FALSE, noglo=FALSE, nogpa=FALSE, nope3=FALSE,
+           nogno=FALSE, nocau=FALSE, noexp=FALSE, nonor=FALSE, nogum=FALSE,
            noray=FALSE, nouni=FALSE,
-           xlab="L-SKEW", ylab="L-KURTOSIS", 
+           xlab="L-SKEW", ylab="L-KURTOSIS",
            autolegend=FALSE, xleg=NULL, yleg=NULL, ...)
 }
 \arguments{
@@ -27,6 +27,7 @@ plotlmrdia(lmr, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
   \item{nogno}{If \code{TRUE} then line of Generalized Normal (log-Normal) distribution is not drawn.}
   \item{nogpa}{If \code{TRUE} then line of Generalized Pareto distribution is not drawn.}
   \item{nope3}{If \code{TRUE} then line of Pearson Type III distribution is not drawn.}
+  \item{nocau}{If \code{TRUE} then point (limiting) of the Cauchy distribution is not drawn.}
   \item{noexp}{If \code{TRUE} then point of Exponential distribution is not drawn.}
   \item{nonor}{If \code{TRUE} then point of Normal distribution is not drawn.}
   \item{nogum}{If \code{TRUE} then point of Gumbel distribution is not drawn.}
@@ -40,12 +41,12 @@ plotlmrdia(lmr, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
   \item{...}{Additional arguments passed onto the \code{plot} function.}
 }
 \note{
-This function provides hardwired calls to \code{lines} and \code{points} to 
-produce the diagram. The plot symbology for the shown distributions is summarized here. 
-The Kappa (four parameter) and Wakeby (five parameter) distributions are not well 
-represented on the diagram as each constitute an area (Kappa) or hyperplane (Wakeby) and 
-not a line (three-parameter distributions) or a point (two-parameter distributions). However, 
-the Kappa demarks the area bounded by the Generalized Logistic (\code{glo}) on the top and the 
+This function provides hardwired calls to \code{lines} and \code{points} to
+produce the diagram. The plot symbology for the shown distributions is summarized here.
+The Kappa (four parameter) and Wakeby (five parameter) distributions are not well
+represented on the diagram as each constitute an area (Kappa) or hyperplane (Wakeby) and
+not a line (three-parameter distributions) or a point (two-parameter distributions). However,
+the Kappa demarks the area bounded by the Generalized Logistic (\code{glo}) on the top and the
 theoretical L-moment limits on the bottom.
 
 \tabular{cl}{
@@ -115,7 +116,7 @@ plotlmrdia(lmrdia(), autolegend=TRUE, xleg=0.1, yleg=.41,
 points(t3,t4)
 points(mean(t3),mean(t4),pch=16,cex=3)
 
-# A complete the example by plotting crossing dashed lines at the 
+# A complete the example by plotting crossing dashed lines at the
 # population values of L-skew and L-kurtosis
 lines(c(T3,T3),c(-1,1),col=8, lty=2)
 lines(c(-1,1),c(T4,T4),col=8, lty=2)

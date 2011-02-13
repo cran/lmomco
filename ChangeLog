@@ -528,3 +528,17 @@ Version 1.2.3--February 1, 2011
 5. Major overhaul of lmomTLgld() and lmomgld() to support the generalized
      equation for arbitrary level of L-moment and TL-moments with arbitrary
      left and right trimming.
+
+Version 1.2.4--February 13, 2011
+1. Added limiting condition of Cauchy to plotlmrdia() and lmrdia().
+2. Added as.list argument to vec2pwm() so that it can return both PWM data
+     structures support in the package. This was done in preparation of
+     example computations for comparison of pwmLC() (by flipping) to
+     pwmRC() to support left-tail censored PWMs.
+3. BUG FIX for pwmRC(), which previous did not support nmom number of 
+     A-type PWMs as the documentation states and need requires.
+4. Added pwmLC() for support of left-tail censored PWMs. Presently, there
+     are no distributions supporting left-tail directly. It is suggested
+     for now to rely on variable flipping and use the right-tail censoring
+     features.
+
