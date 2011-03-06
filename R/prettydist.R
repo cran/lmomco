@@ -3,6 +3,7 @@ function(x) {
   getdist <- function(x) {
      if(x == "cau") return("Cauchy")
      if(x == "exp") return("Exponential")
+     if(x == "texp") return("Truncated Exponential")
      if(x == "gam") return("Gamma")
      if(x == "gev") return("Generalized Extreme Value")
      if(x == "gld") return("Generalized Lambda")

@@ -7,6 +7,9 @@ function(f,para,...) {
     else if(type == 'exp') {
       return(quaexp(f,para))
     }
+    else if(type == 'texp') {
+      return(quatexp(f,para))
+    }
     else if(type == 'gam') {
       return(quagam(f,para))
     }

@@ -7,6 +7,9 @@ function(para) {
     else if(type == 'exp') {
       return(lmomexp(para))
     }
+    else if(type == 'texp') {
+      return(lmomtexp(para))
+    }
     else if(type == 'gam') {
       return(lmomgam(para))
     }

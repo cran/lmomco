@@ -3,6 +3,9 @@ function(lmom,type,...) {
     if(type == 'exp') {
       return(parexp(lmom))
     }
+    if(type == 'texp') {
+      return(partexp(lmom))
+    }
     else if(type == 'gam') {
       return(pargam(lmom))
     }

@@ -7,6 +7,9 @@ function(f,para,...) {
     else if(type == 'exp') {
       return(pdfexp(f,para))
     }
+    else if(type == 'texp') {
+      return(pdftexp(f,para))
+    }
     else if(type == 'gam') {
       return(pdfgam(f,para))
     }

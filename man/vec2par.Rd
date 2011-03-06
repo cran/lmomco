@@ -2,9 +2,9 @@
 \alias{vec2par}
 \title{Convert a Vector of Parameters to a Parameter Object of a Distribution}
 \description{
-This function converts a vector of parameters to a parameter object of a distribution. The type of distribution is specified in the 
+This function converts a vector of parameters to a parameter object of a distribution. The type of distribution is specified in the
 argument list: \code{cau}, \code{exp}, \code{gam}, \code{gev}, \code{glo}, \code{gno}, \code{gpa},
-\code{gum}, \code{kap}, \code{kur}, \code{ln3}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{wak}, and \code{wei}. If the distribution type is not identified, then the function issues a warning, but goes ahead and creates the parameter list and of course can not check for the validity of the parameters.
+\code{gum}, \code{kap}, \code{kur}, \code{ln3}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{rice}, \code{texp}, \code{wak}, and \code{wei}. If the distribution type is not identified, then the function issues a warning, but goes ahead and creates the parameter list and of course can not check for the validity of the parameters.
 }
 \usage{
 vec2par(vec, type, nowarn=FALSE, ...)

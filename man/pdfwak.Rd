@@ -5,7 +5,7 @@
 This function computes the probability density
 of the Wakeby distribution given parameters (\eqn{\xi}, \eqn{\alpha}, \eqn{\beta}, \eqn{\gamma}, and \eqn{\delta}) of the distribution computed by \code{\link{pargev}}. The probability density function of the distribution is
 
-\deqn{f(x) = [\alpha(1-F)^{\beta - 1} + \gamma(1-F)^{-\delta - 1}]^-1\mbox{,}}
+\deqn{f(x) = [\alpha(1-F)^{\beta - 1} + \gamma(1-F)^{-\delta - 1}]^{-1}\mbox{,}}
 
 where \eqn{f(x)} is the probability density for quantile \eqn{x},\eqn{\xi} is a location parameter, \eqn{\alpha} and \eqn{\beta}
 are scale parameters, and \eqn{\gamma}, and \eqn{\delta} are

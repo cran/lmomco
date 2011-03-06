@@ -5,8 +5,8 @@
 This function estimates the lower and upper limits of a specified confidence interval for a vector of quantile value of a specified parent distribution [quantile function \eqn{Q(F,\theta)} with parameters \eqn{\theta}] using Monte Carlo simulation. The quantile values, actually specified by a vector of nonexceedance probabilities (\eqn{F} for \eqn{0 \le F < 1}) of the values, are specified by the user. The user also provides the parameters of the parent distribution (see \code{\link{lmom2par}}). This function is a wrapper on \code{\link{qua2ci}}; please consult the documentation for that function for further details of the simulation.
 }
 \usage{
-genci(para, n, F=NULL, ci=0.90, edist='nor', nsim=1000, expand=FALSE,
-verbose=FALSE, showpar=FALSE, quiet=FALSE)
+genci(para, n, F=NULL, ci=0.90, edist='nor', nsim=1000,
+      expand=FALSE, verbose=FALSE, showpar=FALSE, quiet=FALSE)
 }
 \arguments{
   \item{para}{The parameters from \code{\link{lmom2par}} or similar.}
@@ -30,8 +30,8 @@ verbose=FALSE, showpar=FALSE, quiet=FALSE)
   \item{lscale}{The second L-moment (L-scale, \eqn{\lambda_2}) of the distribution of quantiles for the corresponding \eqn{F}. This value is included in the primary returned \code{data.frame} because it measures the fundamental sampling variability.}
   \item{lcv}{The ratio of lscale to true. A measure of relative variability}
   \item{parent}{The paraments of the parent distribution if \code{expand=TRUE}.}
-  \item{edist}{The type of error distribution used to model the confidence interval if \code{expand=TRUE}.}
-  \item{elmoms}{The L-moment of the distribution of quantiles for the corresponding \eqn{F} if \code{expand=TRUE}.}
+  \item{edist}{The type of error distribution used to model the confidence interval if the argument \code{expand=TRUE} is set.}
+  \item{elmoms}{The L-moment of the distribution of quantiles for the corresponding \eqn{F} if the argument  \code{expand=TRUE} is set.}
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{lmoms}}, \code{lmom2par}, \code{\link{qua2ci}}, \code{\link{gen.freq.curves}}
@@ -47,14 +47,14 @@ verbose=FALSE, showpar=FALSE, quiet=FALSE)
   plot(CI$nonexceed_prob,CI$true,type='l',lwd=2)
   lines(CI$nonexceed_prob,CI$lower,col=2)
   lines(CI$nonexceed_prob,CI$upper,col=3)
-  
+
   # The qnorm call has been added to produce "normal probability"
   # paper on the horizonal axis. The parent is heavy-tailed.
   GEV <- vec2par(c(3000,1500,-.3),type='gev') # a GEV distribution
   # use 15 simulations of size 20 samples
   # The generalized normal distribution is a general case of lognormal---
   # for illustration, suppose the parent GEV is modeling phenomena that
-  # are strictly positive. So to prevent negative lower limits, use the 
+  # are strictly positive. So to prevent negative lower limits, use the
   # lognormal distribution as the error model.
   CI  <- genci(GEV,n=20,nsim=15,edist='gno')
   ymin <- log10(min(CI$lower[CI$lower > 0])) # > 0 to protect log10() call

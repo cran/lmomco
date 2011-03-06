@@ -5,7 +5,7 @@
 Unbiased sample Probability-Weighted Moments (PWMs) are computed from a sample.
 The first five \eqn{\beta_r}'s are computed by default.
 
-\deqn{\beta_r = n^{-1}\sum^n_{j=1} (j-1 \choose r)x_{j:n}}
+\deqn{\beta_r = n^{-1}\sum^n_{j=1} {j-1 \choose r} x_{j:n}}
 }
 \usage{
 pwm(x,nmom=5,sort=TRUE)
@@ -24,8 +24,7 @@ pwm(x,nmom=5,sort=TRUE)
 \references{
 Greenwood, J.A., Landwehr, J.M., Matalas, N.C., and Wallis, J.R., 1979,
 Probability weighted moments---Definition and relation to parameters of
-several distributions expressable in inverse form: Water Resources Research,
-vol. 15, p. 1,049--1,054.
+several distributions expressable in inverse form: Water Resources Research, vol. 15, p. 1,049--1,054.
 
 Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
 distributions using linear combinations of order statistics: Journal
@@ -51,14 +50,14 @@ pwm2lmom(z$Abetas)
 
 # See p. 553 of Hosking (1995)
 # Data listed in Hosking (1995, table 29.3, p. 553)
-D <- c(-2.982, -2.849, -2.546, -2.350, -1.983, -1.492, -1.443, 
+D <- c(-2.982, -2.849, -2.546, -2.350, -1.983, -1.492, -1.443,
        -1.394, -1.386, -1.269, -1.195, -1.174, -0.854, -0.620,
        -0.576, -0.548, -0.247, -0.195, -0.056, -0.013,  0.006,
         0.033,  0.037,  0.046,  0.084,  0.221, 0.245, 0.296)
 D <- c(D,rep(.2960001,40-28)) # 28 values, but Hosking mentions
                               # 40 values in total
 z <-  pwmRC(D,.2960001)
-# Hosking reports B-type L-moments for this sample are 
+# Hosking reports B-type L-moments for this sample are
 # lamB1 = -.516 and lamB2 = 0.523
 pwm2lmom(z$Bbetas)
 # My version of R reports -.5162 and 0.5218

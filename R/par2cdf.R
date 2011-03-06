@@ -7,6 +7,9 @@ function(x,para,...) {
     else if(type == 'exp') {
       return(cdfexp(x,para))
     }
+    else if(type == 'texp') {
+      return(cdftexp(x,para))
+    }
     else if(type == 'gam') {
       return(cdfgam(x,para))
     }

@@ -15,6 +15,9 @@ function(para,...) {
     else if(type == 'exp') {
       return(are.parexp.valid(para,...))
     }
+    else if(type == 'texp') {
+      return(are.partexp.valid(para,...))
+    }
     else if(type == 'gam') {
       return(are.pargam.valid(para,...))
     }

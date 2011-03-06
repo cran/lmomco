@@ -1,7 +1,8 @@
 "parTLgld" <-
-function(lmom, verbose=FALSE, initkh=NULL, eps=1e-3, aux=c("tau5", "tau6")) {
+function(lmom, verbose=FALSE, initkh=NULL, eps=1e-3,
+         aux=c("tau5", "tau6")) {
     aux <- match.arg(aux)
-    
+
     if(is.null(lmom$trim)) {
       warning("An L-moment object and not a TL-moment object appears to have been passed")
       return()
@@ -30,7 +31,7 @@ function(lmom, verbose=FALSE, initkh=NULL, eps=1e-3, aux=c("tau5", "tau6")) {
       warning("The sixth L-moment ratio TAU6 is undefined")
       return()
     }
-    
+
     # THE TRIMMED L-MOMENTS OF GLD
     estTLla1 <- function(La2,La3,La4) {
       La1 <- LM1 - 6*La2*(1/((La3+3)*(La3+2)) - 1/((La4+3)*(La4+2)))
@@ -69,7 +70,7 @@ function(lmom, verbose=FALSE, initkh=NULL, eps=1e-3, aux=c("tau5", "tau6")) {
       D1 <- (K+8)*(K+7)*(K+6)*(K+5)*(K+4)*(K+3)*(K+2)
       D2 <- (H+8)*(H+7)*(H+6)*(H+5)*(H+4)*(H+3)*(H+2)
       G  <- K*(H+4)*(H+3)*(H+2)+H*(K+4)*(K+3)*(K+2)
-      t6 <- (14/9)*(K*(K-1)*(K-2)*(K-3)*(K-4)*D2 + H*(H-1)*(H-2)*(H-3)*(H-4)*D1) / 
+      t6 <- (14/9)*(K*(K-1)*(K-2)*(K-3)*(K-4)*D2 + H*(H-1)*(H-2)*(H-3)*(H-4)*D1) /
                    ((K+8)*(H+8)*(K+7)*(H+7)*(K+6)*(H+6)*(K+5)*(H+5)*G)
       return(t6)
     }
@@ -223,7 +224,9 @@ function(lmom, verbose=FALSE, initkh=NULL, eps=1e-3, aux=c("tau5", "tau6")) {
      e       <- r$value # extract error
      K       <- r$par[1] # extract the two solutions
      H       <- r$par[2]
-     TLdiff  <- ifelse(aux == "tau6",  estTLtau6(K,H) - T6, estTLtau5(K,H) - T5) # compute difference
+     TLdiff  <- ifelse(aux == "tau6",  estTLtau6(K,H) - T6,
+                                       estTLtau5(K,H) - T5)
+     # compute difference
      A       <- estTLla2(LM2,K,H)
      X       <- estTLla1(A,K,H)
 

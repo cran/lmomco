@@ -38,19 +38,19 @@ data(USGSsta08167000peaks)
 \format{
 A data frame with
 \describe{
-  \item{agency\_cd}{Agency code.}
-  \item{site\_no}{Agency station number.}
-  \item{peak\_dt}{The date of the annual peak streamflow.}
-  \item{peak\_tm}{Time of the peak streamflow.}
-  \item{peak\_va}{Annual peak streamflow data in cubic feet per second.}
-  \item{peak\_cd}{Qualification flags on the streamflow data.}
-  \item{gage\_ht}{Annual peak stage (gage height, river height) in feet.}
-  \item{gage\_ht\_cd}{Qualification flags on the gage height data.}
-  \item{year\_last\_pk}{Peak streamflow reported is the highest since this year.}
-  \item{ag\_dt}{Date of maximum gage-height for water year (if not concurrent with peak).}
-  \item{ag\_tm}{Time of maximum gage-height for water year (if not concurrent with peak).}
-  \item{ag\_gage\_ht}{Maximum gage height for water year in feet (if not concurrent with peak).}
-  \item{ag\_gage\_ht\_cd}{Maximum gage height code.}
+  \item{agency_cd}{Agency code.}
+  \item{site_no}{Agency station number.}
+  \item{peak_dt}{The date of the annual peak streamflow.}
+  \item{peak_tm}{Time of the peak streamflow.}
+  \item{peak_va}{Annual peak streamflow data in cubic feet per second.}
+  \item{peak_cd}{Qualification flags on the streamflow data.}
+  \item{gage_ht}{Annual peak stage (gage height, river height) in feet.}
+  \item{gage_ht_cd}{Qualification flags on the gage height data.}
+  \item{year_last_pk}{Peak streamflow reported is the highest since this year.}
+  \item{ag_dt}{Date of maximum gage-height for water year (if not concurrent with peak).}
+  \item{ag_tm}{Time of maximum gage-height for water year (if not concurrent with peak).}
+  \item{ag_gage_ht}{Maximum gage height for water year in feet (if not concurrent with peak).}
+  \item{ag_gage_ht_cd}{Maximum gage height code.}
 }
 }
 \examples{

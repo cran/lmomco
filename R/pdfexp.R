@@ -8,8 +8,8 @@ function(x,para) {
     for(i in seq(1,length(x))) {
       Y <- (x[i]-U)/A
       if(Y <= 0) {
-      	f[i] <- 0
-      	next
+        f[i] <- 0
+        next
       }
       f[i] <- exp(-Y)/A
     }

@@ -15,11 +15,11 @@ data(USGSsta06766000dvs)
 \format{
 A data frame with
 \describe{
-  \item{agency\_cd}{The agency code \code{USGS}.}
-  \item{site\_no}{The station identification number.}
+  \item{agency_cd}{The agency code \code{USGS}.}
+  \item{site_no}{The station identification number.}
   \item{datetime}{The date and time of the data.}
-  \item{X01\_00060\_00003}{The daily mean streamflow data in cubic feet per second.}
-  \item{X01\_00060\_00003\_cd}{A code on the data value.}
+  \item{X01_00060_00003}{The daily mean streamflow data in cubic feet per second.}
+  \item{X01_00060_00003_cd}{A code on the data value.}
 }
 }
 \examples{

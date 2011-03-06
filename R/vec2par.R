@@ -8,6 +8,10 @@ function(vec,type,nowarn=FALSE,...) {
       z <- list(type = 'exp', para = vec, source = "vec2par")
       names(z$para) <- c("xi","alpha")
     }
+    else if(type == 'texp') {
+      z <- list(type = 'texp', para = vec, source = "vec2par")
+      names(z$para) <- c("xi","alpha")
+    }
     else if(type == 'gam') {
       z <- list(type = 'gam', para = vec, source = "vec2par")
       names(z$para) <- c("alpha","beta")
