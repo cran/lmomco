@@ -1,6 +1,6 @@
 "cdfln3" <-
 function(x,para) {
-    
+
     if(! are.parln3.valid(para)) return()
 
     XI <- para$para[1]
@@ -9,7 +9,7 @@ function(x,para) {
 
     f <- vector(mode="numeric")
     for(i in seq(1,length(x))) {
-      if(x <= 0) {
+      if(x[i] <= 0) {
          f[i] <- NA
          next
       }

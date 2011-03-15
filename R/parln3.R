@@ -7,17 +7,17 @@ function(lmom, zeta=NULL, checklmom=TRUE) {
     if(checklmom & ! are.lmom.valid(lmom)) {
        warning("L-moments are invalid")
        return()
-    } 
+    }
 
     L1 <- lmom$L1
     L2 <- lmom$L2
     T3 <- lmom$TAU3
-    
+
     if(! is.null(zeta) && zeta >= (L1 - L2)) {
        warning("zeta is too large, must be zeta < Lamda1 - Lamda2")
        return()
     }
-    
+
     if(is.null(zeta)) {
         if(is.na(T3)) stop("TAU3 is NA")
         gno   <- pargno(lmom)
@@ -30,7 +30,7 @@ function(lmom, zeta=NULL, checklmom=TRUE) {
        eta   <- L1 - zeta
        tmp   <- (1 + L2/eta)/2
        if(tmp < 0 | tmp > 1) {
-       	  warning("bad zeta specified, inconsistent with L-moments")
+          warning("bad zeta specified, inconsistent with L-moments")
        }
        sigma <- sqrt(2) * qnorm(tmp)
        mu    <- log(eta) - 0.5 * sigma^2

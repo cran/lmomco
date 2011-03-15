@@ -1,7 +1,7 @@
 Package: lmomco
 Title: L-moments, Trimmed L-moments, L-comoments, Censored L-moments,
         and Many Distributions
-Version: 1.3.2
+Version: 1.3.3
 Depends: R (>= 2.7.0), utils
 Date: 2011-03-15
 Author: William H. Asquith
@@ -47,6 +47,6 @@ Description: The package implements the statistical theory of L-moments
         Wakeby (L), and Weibull (L).
 Maintainer: William H. Asquith <william.asquith@ttu.edu>
 License: GPL
-Packaged: 2011-03-15 16:15:42 UTC; wasquith
+Packaged: 2011-04-03 22:47:47 UTC; wasquith
 Repository: CRAN
-Date/Publication: 2011-03-15 16:52:54
+Date/Publication: 2011-04-04 07:39:04

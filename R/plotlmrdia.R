@@ -93,13 +93,13 @@ function(lmr,
      }
    }
    if(nopoints == FALSE) {
-     if(noexp == FALSE) {
-        points(lmr$exp,pch=16,col=3,cex=1.5)
+     if(nocau == FALSE) {
+        points(lmr$cau,pch=14,col=2,cex=1.5)
         entryi <- entryi + 1
         entries[entryi] <- "CAU (limiting)"
         Elwd[entryi] <- NA
         Ecol[entryi] <- 2
-        Epch[entryi] <- 16
+        Epch[entryi] <- 14
         Elty[entryi] <- NA
         Ecex[entryi] <- 1.5
      }
