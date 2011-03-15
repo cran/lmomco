@@ -552,4 +552,13 @@ Version 1.3.1--March 6, 2011
 3. Tweaks to USGS*peaks.Rd and USGSsta06766000dvs.Rd as escaping of
      underscores in items is evidently no longer needed.
 
+
+Version 1.3.2--March 15, 2011
+1. Added the passage of the ... argument in lmom2par() to all the parXXX()
+     functions. In particular, this was needed to permit zeta=?? to be 
+     passed into the parln3() function. It should be quite harmless to now
+     pass ... to the other parXXX().
+2. Added the inst/CITATION and inst/WARRANTY files
+
+
 TODO: Complete documentation for pwmLC.Rd.

@@ -1,61 +1,61 @@
 "lmom2par" <-
 function(lmom,type,...) {
     if(type == 'exp') {
-      return(parexp(lmom))
+      return(parexp(lmom, ...))
     }
     if(type == 'texp') {
-      return(partexp(lmom))
+      return(partexp(lmom, ...))
     }
     else if(type == 'gam') {
-      return(pargam(lmom))
+      return(pargam(lmom, ...))
     }
     else if(type == 'gev') {
-      return(pargev(lmom))
+      return(pargev(lmom, ...))
     }
     else if(type == 'gld') {
       return(pargld(lmom,...))
     }
     else if(type == 'glo') {
-      return(parglo(lmom))
+      return(parglo(lmom, ...))
     }
     else if(type == 'gno') {
-      return(pargno(lmom))
+      return(pargno(lmom, ...))
     }
     else if(type == 'gpa') {
       return(pargpa(lmom,...))
     }
     else if(type == 'gum') {
-      return(pargum(lmom))
+      return(pargum(lmom, ...))
     }
     else if(type == 'kur') {
-      return(parkur(lmom))
+      return(parkur(lmom, ...))
     }
     else if(type == 'ray') {
-      return(parray(lmom))
+      return(parray(lmom, ...))
     }
     else if(type == 'rice') {
-      return(parrice(lmom))
+      return(parrice(lmom, ...))
     }
     else if(type == 'revgum') {
       return(parrevgum(lmom,...))
     }
     else if(type == 'kap') {
-      return(parkap(lmom))
+      return(parkap(lmom, ...))
     }
     else if(type == 'ln3') {
-      return(parln3(lmom))
+      return(parln3(lmom, ...))
     }
     else if(type == 'nor') {
-      return(parnor(lmom))
+      return(parnor(lmom, ...))
     }
     else if(type == 'pe3') {
-      return(parpe3(lmom))
+      return(parpe3(lmom, ...))
     }
     else if(type == 'wak') {
-      return(parwak(lmom))
+      return(parwak(lmom, ...))
     }
     else if(type == 'wei') {
-      return(parwei(lmom))
+      return(parwei(lmom, ...))
     }
     else {
       stop("Do not find a valid distribution type")

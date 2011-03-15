@@ -1,0 +1,19 @@
+citHeader("To cite package 'lmomco' in publications use:")
+
+desc <- packageDescription("lmomco") 
+year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", desc$Date) 
+vers <- paste("R package version", desc$Version) 
+url<-paste("http://www.cran.r-project.org/package=lmomco",sep="")
+title <- "lmomco---L-moments, trimmed L-moments, L-comoments, censored L-moments, and many distributions"
+
+citEntry(entry="Manual", 
+         title = title, 
+         author = personList(as.person("W.H. Asquith")), 
+         year = year, 
+         note = vers,
+         url = url,
+         textVersion =
+         paste("Asquith, W.H., ", year, 
+               ", ", title, ". ",
+               vers, ", ", url, ", Texas Tech University, Lubbock, Texas.",
+               sep=""))

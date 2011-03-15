@@ -3,30 +3,6 @@
 
 ################# RICE DISTRIBUTION ######################
 # START
-"lmomrice2" <-
-function(para, ...) {
-    V   <- para$para[1]
-    A   <- para$para[2]
-    if(V == 0) {
-      ray <- vec2par(c(0,A), type="ray")
-      lmr <- lmomray(para=ray)
-      lmr$source <- "lmomrice"
-      return(lmr)
-    }
-    lmr <- theoLmoms.max.ostat(para=para,
-                cdf=cdfrice, pdf=pdfrice,
-                lower=0,
-                upper=.Machine$double.max, ...)
-    lmr$source <- "lmomrice"
-    if(! are.lmom.valid(lmr)) {
-      warning("The Rician parameters are producing invalid L-moments or L-moments outside of implementation of Rice distribution in lmomco")
-      print(para)
-      print(lmr)
-      return()
-    }
-    return(lmr)
-}
-
 "Lhalf" <- function(x) {
    a <- x/2; I0 <- besselI(-a, n=0); I1 <- besselI(-a, n=1)
    return(exp(x/2)*((1-x)*I0 - x*I1))
@@ -51,7 +27,7 @@ function(para, ...) {
   for(snr in SNR) {
     j <- j + 1
     mypara <- vec2par(c(v,v/snr), type="rice")
-    lmr <- lmomrice2(mypara, nmom=nmom)
+    lmr <- lmomrice(mypara, nmom=nmom)
     if(is.null(lmr)) break
     lcv <- lmr$ratios[2]
     if(lcv <= 0) break
@@ -81,7 +57,7 @@ T3       <- c(try1$t3, try2$t3, try3$t3)
 T4       <- c(try1$t4, try2$t4, try3$t4)
 
 # Now from the simulations, add in the Rayleigh end point
-LCVray <- (.5*(sqrt(2)-1)*sqrt(pi))/(sqrt(pi/2))
+LCVray      <- (.5*(sqrt(2)-1)*sqrt(pi))/(sqrt(pi/2))
 raylmr <- lmomray(vec2par(c(0,1), type="ray"))
 norlmr <- lmomnor(vec2par(c(0,1), type="nor"))
 norT3 <- norlmr$TAU3
