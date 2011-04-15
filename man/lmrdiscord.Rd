@@ -4,43 +4,44 @@
 \description{
 This function computes the Hosking and Wallis discordancy of the first three L-moment ratios (L-CV, L-skew, and L-kurtosis) according to their implementation in Hosking and Wallis (1997) and earlier. Discordancy triplets of these L-moment ratios is heuristically measured by effectively locating the triplet from the mean center of the 3-dimensional cloud of values. The \pkg{lmomRFA} provides for discordancy embedded in the \dQuote{L-moment method} of regional frequency analysis. The author of \pkg{lmomco} chooses to have a separate \dQuote{high level} implementation for emergent ideas of his in evaluating unusual sample distributions outside of the \code{regdata} object class envisioned by Hosking in the \pkg{lmomRFA} package.
 
-Let \eqn{\bm{\mu_i}} be a row vector of the values of \eqn{\tau^{[i]}_2, \tau^{[i]}_3, \tau^{[i]}_4} L-moment ratios for the \eqn{i}th group or site out of \eqn{n} groups. Let \eqn{\bm{\overline\mu}} be a row vector of mean values of all the \eqn{n} groups. Defining a sum of squares and cross products 3-by-3 matrix as
+Let \eqn{\bm{\mu_i}} be a row vector of the values of \eqn{\tau^{[i]}_2, \tau^{[i]}_3, \tau^{[i]}_4} L-moment ratios for the \eqn{i}th group or site out of \eqn{n} sites. Let \eqn{\bm{\overline\mu}} be a row vector of mean values of all the \eqn{n} sites. Defining a sum of squares and cross products 3-by-3 matrix as
 
 \deqn{\bm{S} = \sum_i^n (\bm{\mu} - \bm{\overline\mu})(\bm{\mu} - \bm{\overline\mu})^{T}}
 
-compute the discorancy of the \eqn{i}th group as
+compute the discorancy of the \eqn{i}th site as
 
 \deqn{
 D_i = \frac{n}{3} (\bm{\mu} - \bm{\overline\mu})^T \bm{S}^{-1} (\bm{\mu} - \bm{\overline\mu})
 }
 
-A group is judged to be discordance if \eqn{D_i} exceeds a critical value. The critical value is a function of sample size. Hosking and Wallis (1997, p. 47) provide a table for general application. By about \eqn{n=14}, the critical value is taken as \eqn{D_c = 3}, although the \eqn{D_{max}} increases with sample size. Specifically, the \eqn{D_i} has an upper limit of
+A site is judged to be discordance if \eqn{D_i} exceeds a critical value. The critical value is a function of sample size. Hosking and Wallis (1997, p. 47) provide a table for general application. By about \eqn{n=14}, the critical value is taken as \eqn{D_c = 3}, although the \eqn{D_{max}} increases with sample size. Specifically, the \eqn{D_i} has an upper limit of
 \deqn{D_i \le (n-1)/3}
-However, Hosking and Wallis (1997, p. 47) recommend \dQuote{that any [group] with \eqn{D_i > 3} be regarded as discordant.} A statistical test of \eqn{D_i} can be constructed. Hosking and Wallis (1997, p. 47) report that the \eqn{D_{critical}} is
+However, Hosking and Wallis (1997, p. 47) recommend \dQuote{that any site with \eqn{D_i > 3} be regarded as discordant.} A statistical test of \eqn{D_i} can be constructed. Hosking and Wallis (1997, p. 47) report that the \eqn{D_{critical}} is
 \deqn{D_{critical, n, \alpha} = \frac{(n - 1)Z}{n - 4 + 3Z}}
 where
 \deqn{Z = F(\alpha/n, 3, n - 4)}
 upper-tail quantile of the F distribution with degrees of freedom 3 and \eqn{n - 4}. A table of critical values is preloaded into the \code{lmrdiscord()} function as this mimics the table of Hosking and Wallis (1997, table 3.1) as a means for cross verification. This table corresponds to the \eqn{\alpha = 0.1} significance.
 }
 \usage{
-lmrdiscord(group=NULL, t2=NULL, t3=NULL, t4=NULL,
-           Dcrit=NULL, digits=4, sort=TRUE,
+lmrdiscord(site=NULL, t2=NULL, t3=NULL, t4=NULL,
+           Dcrit=NULL, digits=4, lmrdigits=4, sort=TRUE,
            alpha1=0.10, alpha2=0.01)
 }
 \arguments{
-  \item{group}{An optional group or site identification; it will be sequenced from 1 to \eqn{n} if \code{NULL}.}
+  \item{site}{An optional group or site identification; it will be sequenced from 1 to \eqn{n} if \code{NULL}.}
   \item{t2}{L-CV values; emphasis that L-scale is not used.}
   \item{t3}{L-skew values.}
   \item{t4}{L-kurtosis values.}
   \item{Dcrit}{An optional (user specified) critical value for discordance. This value will override the Hosking and Wallis (1997, table 3.1) critical values.}
   \item{digits}{The number of digits in rounding operations.}
+  \item{lmrdigits}{The numer of digits in rounding operation for the echo of the L-moment ratios.}
   \item{sort}{A logical on the sort status of the returned data frame.}
   \item{alpha1}{A significane level that is greater than \code{alpha2}.}
   \item{alpha2}{A signficance level that is less than \code{alpha1}.}
 }
 \value{
   An R \code{data.frame} is returned.
-  \item{group}{The group or site identification as used by the function.}
+  \item{site}{The group or site identification as used by the function.}
   \item{t2}{L-CV values.}
   \item{t3}{L-skew values.}
   \item{t4}{L-kurtosis.}
@@ -71,7 +72,7 @@ data(Cascades)   # Extract Hosking's data use in his examples
 data <- as.regdata(Cascades) # A "regional" data structure
 Dhosking <- sort(regtst(data)$D, decreasing=TRUE) # Discordancy
 
-Dlmomco <- lmrdiscord(group=data$name,
+Dlmomco <- lmrdiscord(site=data$name,
                        t2=data$t, t3=data$t_3, t4=data$t_4)
 
 Dasquith <- Dlmomco$D
@@ -103,13 +104,13 @@ for(i in 1:3) {
   t4[j + i] <- lmr$ratios[4]
   name[j + i] <- "gev"
 }
-D <- lmrdiscord(group=name, t2=t2, t3=t3, t4=t4)
+D <- lmrdiscord(site=name, t2=t2, t3=t3, t4=t4)
 print(D)
 
 plotlmrdia(lmrdia(), xlim=c(-.2,.6), ylim=c(-.1, .4),
            autolegend=TRUE, xleg=0.1, yleg=.4)
 points(D$t3,D$t4)
-text(D$t3,D$t4,D$group, cex=0.75, pos=3)
+text(D$t3,D$t4,D$site, cex=0.75, pos=3)
 text(D$t3,D$t4,D$D, cex=0.75, pos=1)
 
 }
