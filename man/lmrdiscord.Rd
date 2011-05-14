@@ -25,7 +25,7 @@ upper-tail quantile of the F distribution with degrees of freedom 3 and \eqn{n -
 \usage{
 lmrdiscord(site=NULL, t2=NULL, t3=NULL, t4=NULL,
            Dcrit=NULL, digits=4, lmrdigits=4, sort=TRUE,
-           alpha1=0.10, alpha2=0.01)
+           alpha1=0.10, alpha2=0.01, ...)
 }
 \arguments{
   \item{site}{An optional group or site identification; it will be sequenced from 1 to \eqn{n} if \code{NULL}.}
@@ -38,6 +38,7 @@ lmrdiscord(site=NULL, t2=NULL, t3=NULL, t4=NULL,
   \item{sort}{A logical on the sort status of the returned data frame.}
   \item{alpha1}{A significane level that is greater than \code{alpha2}.}
   \item{alpha2}{A signficance level that is less than \code{alpha1}.}
+  \item{...}{Other arguments that might be used. The author added these because it was found that the function was often called by higher level functions that aggregated much of the discordance computations.}
 }
 \value{
   An R \code{data.frame} is returned.
@@ -54,7 +55,7 @@ lmrdiscord(site=NULL, t2=NULL, t3=NULL, t4=NULL,
   \item{signif}{A hyphen, star, or double star based on the \code{Dalpha1} and \code{Dalpha2} values.}
 }
 \source{
-Consultation of the \code{lmomRFA.f} and \code{regtst()} function of the \pkg{lmomRFA} R package by J.R.M. Hosking.
+Consultation of the \code{lmomRFA.f} and \code{regtst()} function of the \pkg{lmomRFA} R package by J.R.M. Hosking. Thanks Jon and Jim Wallis for such a long advocation of the discordancy issue begin at least as early as the 1993 Water Resources Research Paper (-wha).
 }
 \references{
 Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An

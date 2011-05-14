@@ -1,7 +1,7 @@
 "lmrdiscord" <-
 function(site=NULL, t2=NULL, t3=NULL, t4=NULL,
          Dcrit=NULL, digits=4, lmrdigits=4, sort=TRUE,
-         alpha1=0.10, alpha2=0.01) {
+         alpha1=0.10, alpha2=0.01, ...) {
 
   if(alpha1 < alpha2) {
     warning("Inverted significance levels, flipping for you")

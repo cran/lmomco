@@ -34,7 +34,7 @@ function(x,nmom=5,trim=NULL,leftrim=NULL,rightrim=NULL) {
   R <- vector(mode="numeric",length=nmom)
   for(r in seq(1,nmom)) {
     lambda <- TLmom(x, trim=trim, leftrim=leftrim,
-                    rightrim=rightrim, order=r, sort=FALSE)
+                    rightrim=rightrim, order=r, sortdata=FALSE)
     lr <- lambda$lambda
     L[r] <- lr
   }

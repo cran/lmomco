@@ -575,7 +575,22 @@ Version 1.3.4--April 15, 2011
         examparametersWOlibrary <- lmomco:::vec2par(c(0,1), type="nor")
      for a standard Normal distribution parameter set.
 2. Added lmrdigits argument to lmrdiscord().
-3. Title change of the entire package to a more logical ordering of 
+3. Title change of the entire package to a more logical ordering of
      terms.
+
+
+Version 1.3.5--May 14, 2011
+1. Added tau34=FALSE to lmomTLgld() for certain research applications
+     of the generalized lambda distribution.
+2. BUG FIX in LaguerreHalf() and pdfrice(). Both of these functions called
+     besselI() [built-in to R] using an argument 'n' for 'nu' (a partial
+     argument match). Unreleased versions of R 2.14 on some platforms were
+     showning a warning about partial match. The LaguerreHalf() and
+     pdfrice() are now updated internally (no Rd changes needed).
+3. BUG FIX in TLmoms(). This function was using a partial argument match
+     on a call to TLmom(). The argument was 'sort' but 'sortdata' was
+     needed by TLmom(). Again, this was an unreleased R 2.14 on some
+     platforms reporting the warning.
+
 
 TODO: Complete documentation for pwmLC.Rd.

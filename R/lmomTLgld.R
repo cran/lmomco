@@ -1,7 +1,7 @@
-"lmomTLgld" <- 
-function(para, nmom=6, trim=0, leftrim=NULL, rightrim=NULL) {
+"lmomTLgld" <-
+function(para, nmom=6, trim=0, leftrim=NULL, rightrim=NULL, tau34=FALSE) {
   L <- R <- vector(mode="numeric", length=nmom)
- 
+
   if(nmom < 2) {
     warning("Number of L-moments is less than 2")
     return()
@@ -26,7 +26,7 @@ function(para, nmom=6, trim=0, leftrim=NULL, rightrim=NULL) {
 
   t1 <- leftrim
   t2 <- rightrim
-  
+
   if(! are.pargld.valid(para)) return()
   attributes(para$para) <- NULL
 
@@ -34,7 +34,29 @@ function(para, nmom=6, trim=0, leftrim=NULL, rightrim=NULL) {
   A <- para$para[2]
   K <- para$para[3]
   H <- para$para[4]
-  
+
+  if(tau34) {
+    for(r in 3:4) {
+      the.sum <- 0
+      for(j in 0:(r-1)) {
+        sig  <- (-1)^j
+        tmpA <- choose(r-1, j)*choose(r+t1+t2-1,r+t1-j-1)
+        a <- lgamma(K+r+t1-j)
+        b <- lgamma(t2+j+1)
+        c <- lgamma(K+r+t1+t2+1)
+        d <- lgamma(r+t1-j)
+        e <- lgamma(H+t2+j+1)
+        f <- lgamma(H+r+t1+t2+1)
+        tmpB <- exp(a+b-c) - exp(d+e-f)
+        the.sum <- the.sum + sig*tmpA*tmpB
+      }
+      L[r] <- A * (r+t1+t2) * the.sum / r
+    }
+    R[1] <- NA
+    R[2] <- NA
+    for(r in 3:4) R[r] <- L[r]/L[2]
+    return(R[3], R[4])
+  } else {
   for(r in 1:nmom) {
     if(r > 1) E <- 0
     the.sum <- 0
@@ -50,7 +72,7 @@ function(para, nmom=6, trim=0, leftrim=NULL, rightrim=NULL) {
       tmpB <- exp(a+b-c) - exp(d+e-f)
       the.sum <- the.sum + sig*tmpA*tmpB
     }
-    L[r] <- E + A*(r+t1+t2)*the.sum/r
+    L[r] <- E + A * (r+t1+t2) * the.sum/ r
   }
   R[1] <- NA
   R[2] <- L[2]/L[1]
@@ -64,5 +86,6 @@ function(para, nmom=6, trim=0, leftrim=NULL, rightrim=NULL) {
             trim=trim, leftrim=leftrim, rightrim=rightrim,
             source = "lmomTLgld")
   return(z)
+  }
 }
 
