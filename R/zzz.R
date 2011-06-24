@@ -1,4 +1,4 @@
-".First.lib" <-
+".onAttach" <-
 function(lib, pkg) {
   MSG <- packageStartupMessage # renaming the function
   dsc <- packageDescription(pkg) # function will not be found without

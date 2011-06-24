@@ -1,5 +1,5 @@
 ----------------------------------------------------------
-ChangeLog for R Package LMOMCO by W.H. Asquith
+ChangeLog for R Package "lmomco"
 ----------------------------------------------------------
 
 Version 0.3---January 31, 2006 Initial Release
@@ -592,5 +592,10 @@ Version 1.3.5--May 14, 2011
      needed by TLmom(). Again, this was an unreleased R 2.14 on some
      platforms reporting the warning.
 
+
+Version 1.3.6--June 24, 2011
+1. Slight changes in DESCRIPTION.
+2. Slight changes in Changelog
+3. Changes to zzz.Z after the inclusion of NAMESPACE a few months back.
 
 TODO: Complete documentation for pwmLC.Rd.

@@ -8,24 +8,23 @@ your author operates. L-moments have many properties that make them
 extremely attractive. These properties include unbiasedness, efficiency, 
 consistency, robustness, and others. The R package contained here fully 
 implements L-moments in the context of many probability distributions 
-including the Exponential, Gamma, Gumbel, Normal, Generalized Extreme Value, 
+including the Exponential, Gamma, Gumbel, Generalized Extreme Value, 
 Generalized Lambda, Generalized Logistic, Generalized Normal (log-Normal),
-Generalized Pareto, Pearson Type III, Rayleigh, Kappa, Wakeby, and Weibull.
+Generalized Pareto, Kappa, Kumaraswamy, Normal, Pearson Type III,
+Rayleigh, Rice, Wakeby, and Weibull.
 
 This package provides core functions and numerous ancillary functions to
 help get the user started and to keep the user entertained by building complex
 analysis applications. Very recent and extremely exciting developments have
 extended L-moments to multi-variate analysis---the sample L-comoments are
-implemented here on an experimental basis. The package also implements the trimmed
-L-moments and support for the Cauchy, Generalized Lambda, and Generalized
-Pareto distributions.
-
-Things to do:
-(1) Finish my dissertation that will fully document this package with over
-200 code examples and over 300 equations with a page count approaching 350 in 
-single-space, 10-pt font.
+implemented here on an experimental basis. The package also implements the
+trimmed L-moments and support for the Cauchy, Generalized Lambda, and
+Generalized Pareto distributions.
             
-wha (August 10, 2010)
+See my monograph on L-moments available at zero-royality price at
+http://www.amazon.com/Distributional-Statistics-Environment-Statistical-Computing/dp/1463508417/
+
+wha (June 24, 2011)
 
 See inst/doc/WARRANTY for lack-of-warranty information.
 
@@ -34,4 +33,3 @@ See the excellent R-package lmoms by J.R.M. Hosking.
 
 Note: This is a large package with hundreds of examples. The examples will 
 take considerable time to process on 'R CMD check lmomco'.
-
