@@ -1,7 +1,9 @@
 "quaexp" <-
-function(f,para) {
+function(f,para,paracheck=TRUE) {
     if(! check.fs(f)) return()
-    if(! are.parexp.valid(para)) return()
+    if(paracheck == TRUE) {
+      if(! are.parexp.valid(para)) return()
+    }
     U <- para$para[1]
     A <- para$para[2]
     n <- length(f)

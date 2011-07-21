@@ -9,11 +9,12 @@ The parameters have the following interpretations: \eqn{\xi} is a location param
 \eqn{\kappa} is a shape parameter.
 }
 \usage{
-quagno(f, para)
+quagno(f, para, paracheck=TRUE)
 }
 \arguments{
   \item{f}{Nonexceedance probability (\eqn{0 \le F \le 1}).}
   \item{para}{The parameters from \code{\link{pargno}} or similar.}
+  \item{paracheck}{A logical controlling whether the parameters and checked for validity. Overriding of this check might be extremely important and needed for use of the distribution quantile function in the context of TL-moments with nonzero trimming.}
 }
 \value{
   Quantile value for nonexceedance probability \eqn{F}.

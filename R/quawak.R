@@ -1,12 +1,13 @@
 "quawak" <-
-function(f,wakpara) {
+function(f,wakpara,paracheck=TRUE) {
     #    #   UFL SHOULD BE CHOSEN SO THAT EXP(UFL) JUST DOES NOT CAUSE
     #    UNDERFLOW 
     #
     UFL <- log(.Machine$double.xmin);
     if(! check.fs(f)) return()
-    if(! are.parwak.valid(wakpara)) return()
-
+    if(paracheck == TRUE) {
+      if(! are.parwak.valid(wakpara)) return()
+    }
     XI <- wakpara$para[1]
     A <- wakpara$para[2] # alpha
     B <- wakpara$para[3] # beta

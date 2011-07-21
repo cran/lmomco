@@ -26,11 +26,12 @@ These relations are taken from Hosking and Wallis (1997).
 In R the quantile function of the Weibull distribution is \code{qweibull}. Given a Weibull parameter object \code{p}, the R syntax is \code{qweibull(f, p$para[3], scale=p$para[2]) - p$para[1]}. For the current implementation for this package, the reversed Generalized Extreme Value distribution is used \code{-quagev((1-f),para)}.
 }
 \usage{
-quawei(f, para)
+quawei(f, para, paracheck=TRUE)
 }
 \arguments{
   \item{f}{Nonexceedance probability (\eqn{0 \le F \le 1}).}
   \item{para}{The parameters from \code{\link{parwei}} or similar.}
+  \item{paracheck}{A logical controlling whether the parameters and checked for validity. Overriding of this check might be extremely important and needed for use of the distribution quantile function in the context of TL-moments with nonzero trimming.}
 }
 \value{
   Quantile value for nonexceedance probability \eqn{F}.

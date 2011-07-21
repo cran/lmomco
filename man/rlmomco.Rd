@@ -2,11 +2,9 @@
 \alias{rlmomco}
 \title{Random Deviates of a Distribution}
 \description{
-This function generates random deviates for the specified distribution in the
-parameter object argument. See documentation about the parameter object is
-seen in \code{\link{lmom2par}} or \code{\link{vec2par}}. The prepended
+This function generates random deviates for the specified distribution in the parameter object argument. See documentation about the parameter object is seen in \code{\link{lmom2par}} or \code{\link{vec2par}}. The prepended
 \code{r} in the function name is to parallel the built-in distribution
-syntax of R but of course reflects the \pkg{lmomco} name in the function.
+syntax of R but of course reflects the \pkg{lmomco} name in the function. An assumption is made that the user knows that they are feeding appropirate (valid) parameters for the distribution. This is seen by the \preformatted{paracheck = FALSE} argument passed to the \code{par2qua} function.
 }
 \usage{
 rlmomco(n,para)

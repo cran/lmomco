@@ -598,4 +598,36 @@ Version 1.3.6--June 24, 2011
 2. Slight changes in Changelog
 3. Changes to zzz.Z after the inclusion of NAMESPACE a few months back.
 
+
+Version 1.4.1--July 7, 2011
+1. Added paracheck=TRUE argument to the quaXXX() functions and vec2par().
+     This was added to bypass the validity checks in terms of L-moments so
+     that the quantile functions remain accessible when TL-moment
+     computations are desired. This argument had long existed for the GLD
+     distribution because the parameter range changes depending on the
+     TL-moment trimming level.  These paracheck changes are made now in 
+     preparation for TL-moment computation of trimmed distributions.
+2. Added tlmrcau(), tlmrexp(), tlmrgev(), tlmrglo(), tlmrgno(), tlmrgpa(),
+     tlmrgum(), tlmrln3(), tlmrnor(), tlmrpe3(), and tlmrray().
+     *** TL-moment ratios (tau2, tau3, and tau4) are experimental ***
+     The TL-moment ratios are implemented through use of the theoTLmoms()
+     function that in turn uses numerical integration of the quantile
+     function. The issue in application, which is directly related to
+     paracheck=TRUE, is that the recognized parameter range (validity) of
+     distributions for L-moment computation are expanded during trimming.
+     The tlmrXXX() functions do not currently perform any parameter checking
+     and integration errors might occur, which will require the user to
+     manually control the parameter range through function arguments. Thanks
+     to O.A. Hussien in early July for a TL-moment ratio diagram inquiry.
+     Many of these functions have such diagram construction in their examples.
+
+
+Version 1.4.2--July 21, 2011
+1. BUG FIX: The function pwm.pp() did not function quite right through the
+     various conditionals. In the process the function was extended to handle
+     user supplied nonexceedance probabilities. The function was also optimized
+     a bit.
+2. Extended the tlmrXXX() functions to compute tau5 and tau6.
+
+
 TODO: Complete documentation for pwmLC.Rd.

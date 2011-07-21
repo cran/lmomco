@@ -1,7 +1,9 @@
 "quagpa" <-
-function(f,para) { 
+function(f,para,paracheck=TRUE) { 
     if(! check.fs(f)) return()
-    if(! are.pargpa.valid(para)) return()
+    if(paracheck == TRUE) {
+      if(! are.pargpa.valid(para)) return()
+    }
     XI <- para$para[1] 
     A  <- para$para[2] 
     K  <- para$para[3] 

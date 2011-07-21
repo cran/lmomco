@@ -1,8 +1,10 @@
 "quatexp" <-
-function(f,para) {
+function(f,para,paracheck=TRUE) {
     if(! check.fs(f)) return()
-    if(! are.partexp.valid(para)) return()
-
+    if(paracheck == TRUE) {
+      if(! are.partexp.valid(para)) return()
+    }
+    
     n <- length(f)
     x <- vector(mode="numeric",length=n)
 

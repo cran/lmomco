@@ -16,11 +16,12 @@ where \eqn{x(F)} is the quantile for nonexceedance probability \eqn{F},
 \eqn{\kappa} is a shape parameter.
 }
 \usage{
-quaglo(f, para)
+quaglo(f, para, paracheck=TRUE)
 }
 \arguments{
   \item{f}{Nonexceedance probability (\eqn{0 \le F \le 1}).}
   \item{para}{The parameters from \code{\link{parglo}} or similar.}
+  \item{paracheck}{A logical controlling whether the parameters and checked for validity. Overriding of this check might be extremely important and needed for use of the distribution quantile function in the context of TL-moments with nonzero trimming.}
 }
 \value{
   Quantile value for for nonexceedance probability \eqn{F}.

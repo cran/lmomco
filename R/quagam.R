@@ -1,7 +1,9 @@
 "quagam" <-
-function(f,para) { 
+function(f,para,paracheck=TRUE) { 
     if(! check.fs(f)) return()
-    if(! are.pargam.valid(para)) return()
+    if(paracheck == TRUE) {
+      if(! are.pargam.valid(para)) return()
+    }
     ALPHA <- para$para[1] 
     BETA  <- para$para[2] 
     n <- length(f)

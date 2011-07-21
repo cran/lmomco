@@ -1,8 +1,9 @@
 "quakap" <-
-function(f,para) {
+function(f,para,paracheck=TRUE) {
     if(! check.fs(f)) return()
-    if(! are.parkap.valid(para)) return()
-
+    if(paracheck == TRUE) { 
+      if(! are.parkap.valid(para)) return()
+    }
     U <- para$para[1]
     A <- para$para[2]
     G <- para$para[3]

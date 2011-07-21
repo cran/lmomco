@@ -1,8 +1,9 @@
 "quape3" <-
-function(f,para) { 
+function(f,para,paracheck=TRUE) { 
     if(! check.fs(f)) return()
-    if(! are.parpe3.valid(para)) return()
-
+    if(paracheck == TRUE) {
+      if(! are.parpe3.valid(para)) return()
+    }
     # SMALL IS USED TO TEST WHETHER SKEWNESS IS EFFECTIVELY ZERO
     SMALL <- 1e-6
 

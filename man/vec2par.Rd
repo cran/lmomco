@@ -7,12 +7,13 @@ argument list: \code{cau}, \code{exp}, \code{gam}, \code{gev}, \code{glo}, \code
 \code{gum}, \code{kap}, \code{kur}, \code{ln3}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{rice}, \code{texp}, \code{wak}, and \code{wei}. If the distribution type is not identified, then the function issues a warning, but goes ahead and creates the parameter list and of course can not check for the validity of the parameters.
 }
 \usage{
-vec2par(vec, type, nowarn=FALSE, ...)
+vec2par(vec, type, nowarn=FALSE, paracheck=TRUE, ...)
 }
 \arguments{
   \item{vec}{A vector of parameter values for the distribution specified by type.}
   \item{type}{Three character distribution type (for example, \code{type='gev'}).}
   \item{nowarn}{A logical switch on warning surpression. If \code{TRUE} then \code{options(warn=-1)} is made and restored on return. This switch is to permit calls in which warnings are not desired as the user knows how to handle the returned value---say in an optimization algorithm.}
+  \item{paracheck}{A logical controlling whether the parameters and checked for validity. Overriding of this check might be extremely important and needed for use of the distribution quantile function in the context of TL-moments with nonzero trimming.}
   \item{...}{Additional arguments for the \code{\link{are.par.valid}} call that is made internally.}
 }
 \value{

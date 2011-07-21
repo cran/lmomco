@@ -13,11 +13,12 @@ where \eqn{x(F)} is the quantile for nonexceedance probability \eqn{F},
 \eqn{\xi} is a location parameter, and \eqn{\alpha} is a scale parameter. Notice that the function has some sign differences and uses the complement of \eqn{F} compared to the Gumbel quantile function in \code{\link{quagum}}.
 }
 \usage{
-quarevgum(f, para)
+quarevgum(f, para, paracheck=TRUE)
 }
 \arguments{
   \item{f}{Nonexceedance probability (\eqn{0 \le F \le 1}).}
   \item{para}{The parameters from \code{\link{parrevgum}} or similar.}
+  \item{paracheck}{A logical controlling whether the parameters and checked for validity. Overriding of this check might be extremely important and needed for use of the distribution quantile function in the context of TL-moments with nonzero trimming.}
 }
 \value{
   Quantile value for nonexceedance probability \eqn{F}.

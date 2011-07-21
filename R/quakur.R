@@ -1,7 +1,9 @@
 "quakur" <-
-function(f,para) {
+function(f,para,paracheck=TRUE) {
    if(! check.fs(f)) return()
-   if(! are.parkur.valid(para)) return()
+   if(paracheck == TRUE) {
+     if(! are.parkur.valid(para)) return()
+   }
    A <- para$para[1] 
    B <- para$para[2] 
    n <- length(f)

@@ -1,5 +1,5 @@
 "vec2par" <-
-function(vec,type,nowarn=FALSE,...) {
+function(vec,type,nowarn=FALSE,paracheck=TRUE,...) {
     if(type == 'cau') {
       z <- list(type = 'cau', para = vec, source = "vec2par")
       names(z$para) <- c("xi","alpha")
@@ -86,6 +86,9 @@ function(vec,type,nowarn=FALSE,...) {
       z <- list(type = 'user', para = vec, source = "vec2par")
       return(z)
     }
+    
+    if(! paracheck) return(z)
+    
     if(! are.par.valid(z,nowarn,...)) {
       op <- options()
       if(nowarn == TRUE) options(warn=-1)
