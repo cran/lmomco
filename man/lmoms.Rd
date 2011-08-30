@@ -2,10 +2,10 @@
 \alias{lmoms}
 \title{ The Sample L-moments and L-moment Ratios }
 \description{
-Compute the sample L-moments for a vector. 
+Compute the sample L-moments for a vector.
 }
 \usage{
-lmoms(x,nmom)
+lmoms(x,nmom=5)
 }
 \arguments{
   \item{x}{A vector of data values.}
@@ -16,7 +16,7 @@ lmoms(x,nmom)
 
   \item{lambdas}{Vector of the L-moments. First element is
 \eqn{\hat{\lambda}^{(0,0)}_1}, second element is \eqn{\hat{\lambda}^{(0,0)}_2}, and so on.}
-  \item{ratios}{Vector of the L-moment ratios. Second element is 
+  \item{ratios}{Vector of the L-moment ratios. Second element is
 \eqn{\hat{\tau}^{(0,0)}}, third element is \eqn{\hat{\tau}^{(0,0)}_3} and so on.}
   \item{trim}{Level of symmetrical trimming used in the computation, which will equal \code{NULL} if asymmetrical trimming was used.}
   \item{leftrim}{Level of left-tail trimming used in the computation.}

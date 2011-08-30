@@ -1,5 +1,5 @@
 "pargld" <-
-function(lmom, verbose=FALSE, initkh=NULL, eps=1e-3, aux=c("tau5", "tau6")) {
+function(lmom, verbose=FALSE, initkh=NULL, eps=1e-3, aux=c("tau5", "tau6"), checklmom=TRUE) {
     aux <- match.arg(aux)
 
     if(length(lmom$source) == 1 && lmom$source == "TLmoms") {

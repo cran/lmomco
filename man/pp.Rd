@@ -7,14 +7,21 @@ The plotting positions of a data vector (\code{x}) are returned in ascending ord
 \deqn{pp_i = \frac{i-a}{n+1-2a} \mbox{,}}
 
 where \eqn{pp_i} is the nonexceedance probability \eqn{F} of the \eqn{i}th ascending
-data value. The parameter \eqn{a} specifies the plotting-position type, and \eqn{n} is the sample size (\code{length(x)}).
+data value. The parameter \eqn{a} specifies the plotting-position type, and \eqn{n} is the sample size (\code{length(x)}). Alternatively, the plotting positions can be computed by
+
+
+\deqn{pp_i = \frac{i+A}{n+B} \mbox{,}}
+
+where \eqn{A} and \eqn{B} can obviously be expressed in terms of \eqn{a}. The criteria \eqn{A > B > -1} must be satisfied.
 }
 \usage{
-pp(x, a=0, sort=TRUE)
+pp(x, A=NULL, B=NULL, a=0, sort=TRUE)
 }
 \arguments{
   \item{x}{A vector of data values. The vector is used to get sample size through \code{length()};}
-  \item{a}{A value for the plotting-position formula, default is \code{A=0}, which returns the Weibull plotting positions; and}
+  \item{A}{A value for the plotting-position coefficient \eqn{A};}
+  \item{B}{A value for the plotting-position coefficient \eqn{B};}
+  \item{a}{A value for the plotting-position formula from which \eqn{A} and \eqn{B} are computed, default is \code{a=0}, which returns the Weibull plotting positions; and}
   \item{sort}{A logical whether the ranks of the data are sorted prior to \eqn{F} computation.}
 }  
 \value{

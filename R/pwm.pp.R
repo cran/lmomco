@@ -1,7 +1,22 @@
 "pwm.pp" <-
-function(x, pp=NULL, A=0, B=0, nmom=5, sort=TRUE) {
+function(x, pp=NULL, A=NULL, B=NULL, a=0, nmom=5, sort=TRUE) {
 
   n <- length(x)
+
+  if(sort) {
+    ix <- sort(x, index.return=TRUE)$ix
+     x <-  x[ix]
+    if(! is.null(pp)) pp <- pp[ix]
+  }
+
+  if(! is.null(a)) {
+    if(a < 0 | a > 0.50) {
+      warning("Plotting position parameter a is invalid, not in [0,0.5]")
+      return()
+    }
+    A <- -a
+    B <- 1 - 2*a
+  }
   
   pp.was.null <- FALSE;
   if(is.null(pp)) {
@@ -14,11 +29,11 @@ function(x, pp=NULL, A=0, B=0, nmom=5, sort=TRUE) {
     }
     
     if(A <= -1 | A >= B) {
-      warnings("Plotting position parameters are invalid")
+      warnings("Plotting position parameters A or B are invalid")
       return(NULL)
     }
     
-    pp <- ((1:n) + A/(n + B))
+    pp <- ((1:n + A)/(n + B))
   }
   
   if(length(x) != length(pp)) {
@@ -26,19 +41,13 @@ function(x, pp=NULL, A=0, B=0, nmom=5, sort=TRUE) {
      return(NULL)
   }
   
-  if(sort) {
-    ix <- sort(x, index.return=TRUE)$ix
-     x <- x[ix]
-    pp <- pp[ix]
-  }
   
-  
-  betas <- vector(mode="numeric", length=n)
+  betas <- vector(mode="numeric", length=nmom)
   for(r in seq(0,nmom-1)) {
-    tmp <- sapply(1:n, function(j) { return(pp^r*x[j]) })
+    tmp <- sapply(1:n, function(j) { return( (pp[j]^r) * x[j]) })
     betas[r+1] <- sum(tmp)/n
   }
-  
+
   z <- list(betas=betas, source="pwm.pp")
   if(pp.was.null) {
     z$A <- A

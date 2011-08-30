@@ -5,14 +5,16 @@
 This function estimates the parameters of the Generalized Lambda distribution given the trimmed L-moments (TL-moments) for \eqn{t=1} of the data in a TL-moment object with a trim level of unity (\code{trim=1}). The relation between distribution parameters and TL-moments is seen under \code{lmomTLgld}. There are no simple expressions for the parameters in terms of the L-moments. This function is experimental and general details of the algorithm are provided below. Further, consider that multiple parameter solutions are possible with the Generalized Lambda so some expertise in the distribution and other aspects are needed.
 }
 \usage{
-parTLgld(lmom, verbose=FALSE, initkh=NULL, eps=1e-3, aux=c("tau5", "tau6"))
+parTLgld(lmom, verbose=FALSE, initkh=NULL, eps=1e-3,
+         aux=c("tau5", "tau6"), checklmom=TRUE)
 }
 \arguments{
   \item{lmom}{A TL-moment object created by \code{\link{TLmoms}}.}
   \item{verbose}{A logical switch on the verbosity of output.  Default is \code{verbose=FALSE}.}
   \item{initkh}{A vector of the initial guess of the \eqn{\kappa} and \eqn{h} parameters. No other regions of parameter space are consulted.}
   \item{eps}{A small term or threshold for which the square root of the sum of square errors in \eqn{\tau_3} and \eqn{\tau_4} is compared to to judge \dQuote{good enough} for the alogrithm to order solutions based on smallest error as explained in next argument.}
-  \item{aux}{Control the algorithm to order solutions based on smallest error in trimmed \eqn{\Delta \tau_5} or \eqn{\Delta \tau_6} .}
+  \item{aux}{Control the algorithm to order solutions based on smallest error in trimmed \eqn{\Delta \tau_5} or \eqn{\Delta \tau_6}.}
+  \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{are.lmom.valid} function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check.}
 }
 \details{
 Karian and Dudewicz (2000) summarize six regions of the \eqn{\kappa} and \eqn{h} space in
@@ -71,7 +73,7 @@ PARgldTL <- parTLgld(lmr) # fit the GLD
 F <- pp(X) # plotting positions for graphing
 plot(F,sort(X), col=8, cex=0.25)
 lines(F, qlmomco(F,PARgldTL)) # show the best estimate
-if(! is.null(PARgldTL$rest)) { #$ 
+if(! is.null(PARgldTL$rest)) { #$
   n <- length(PARgldTL$rest$xi)
   other <- unlist(PARgldTL$rest[n,1:4]) #$ # show alternative
   lines(F, qlmomco(F,vec2par(other, type="gld")), col=2)
@@ -88,8 +90,8 @@ if(! is.null(PARgldTL$rest)) { #$
 #$type
 #[1] "gld"
 #$para
-#         xi       alpha       kappa           h 
-# 1.02333964 -3.86037875 -0.06696388 -0.22100601 
+#         xi       alpha       kappa           h
+# 1.02333964 -3.86037875 -0.06696388 -0.22100601
 #$delTau5
 #[1] -0.02299319
 #$error
@@ -110,7 +112,7 @@ F <- seq(.01,.99,.01)
 plot(F,qlmomco(F, vec2par(c( 1.02333964, -3.86037875,
                             -0.06696388, -0.22100601), type="gld")),
      type="l")
-lines(F,qlmomco(F, vec2par(c(-4.707935, -5.044057, 
+lines(F,qlmomco(F, vec2par(c(-4.707935, -5.044057,
                               5.89280906, -0.3261837), type="gld")))
 }
 }

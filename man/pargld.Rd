@@ -6,14 +6,16 @@ This function estimates the parameters of the Generalized Lambda distribution gi
 is seen under \code{lmomgld}. There are no simple expressions for the parameters in terms of the L-moments. This function is experimental and general details of the algorithm are provided below. Further, consider that multiple parameter solutions are possible with the Generalized Lambda so some expertise in the distribution and other aspects are needed.
 }
 \usage{
-pargld(lmom, verbose=FALSE, initkh=NULL, eps=1e-3, aux=c("tau5", "tau6"))
+pargld(lmom, verbose=FALSE, initkh=NULL, eps=1e-3,
+       aux=c("tau5", "tau6"), checklmom=TRUE)
 }
 \arguments{
   \item{lmom}{A L-moment object created by \code{\link{lmom.ub}}, \code{\link{pwm2lmom}}, or \code{\link{TLmoms}} with \code{trim=0}.}
   \item{verbose}{A logical switch on the verbosity of output.  Default is \code{verbose=FALSE}.}
   \item{initkh}{A vector of the initial guess of the \eqn{\kappa} and \eqn{h} parameters. No other regions of parameter space are consulted.}
   \item{eps}{A small term or threshold for which the square root of the sum of square errors in \eqn{\tau_3} and \eqn{\tau_4} is compared to to judge \dQuote{good enough} for the alogrithm to order solutions based on smallest error as explained in next argument.}
-  \item{aux}{Control the algorithm to order solutions based on smallest error in \eqn{\Delta \tau_5} or \eqn{\Delta \tau_6} .}
+  \item{aux}{Control the algorithm to order solutions based on smallest error in \eqn{\Delta \tau_5} or \eqn{\Delta \tau_6}.}
+  \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{are.lmom.valid} function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check.}
 }
 \details{
 Karian and Dudewicz (2000) summarize six regions of the \eqn{\kappa} and \eqn{h} space in which the Generalized Lambda distribution is valid for suitably choosen \eqn{\alpha}. Numerical experimentation suggestions that the L-moments are not valid in Regions 1 and 2. However, initial guesses of the parameters within each region are used for numerous separate \code{optim} (the R function) efforts to perform a least sum-of-square errors on the following objective function.
@@ -88,8 +90,8 @@ if(! is.null(PARgld$rest)) { #$
 #$type
 #[1] "gld"
 #$para
-#      xi    alpha    kappa        h 
-#3.144379 2.943327 7.420334 1.050792 
+#      xi    alpha    kappa        h
+#3.144379 2.943327 7.420334 1.050792
 #$delTau5
 #[1] -0.0367435
 #$error
