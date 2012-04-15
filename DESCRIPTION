@@ -1,9 +1,11 @@
 Package: lmomco
+Type: Package
 Title: L-moments, Censored L-moments, Trimmed L-moments, L-comoments,
         and Many Distributions
-Version: 1.4.5
+Version: 1.5.1
 Depends: R (>= 2.10.0), utils
-Date: 2012-04-30
+Suggests: copBasic, Lmoments
+Date: 2012-04-15
 Author: William H. Asquith
 Description: The package implements the statistical theory of L-moments
         in R including L-moment estimation, probability-weighted moment
@@ -37,21 +39,22 @@ Description: The package implements the statistical theory of L-moments
         and Peng Xiao have extended L-moments into multivariate space;
         the so-called sample L-comoments are implemented here and might
         have considerable application in copula theory because they
-        measure asymmetric correlation and higher co-moments. The
-        supported distributions with moment type shown as "L"
-        (L-moments) or "TL" (trimmed L-moments) and additional support
-        for right-tail censoring ([RC]) include: Cauchy (TL),
-        Exponential (L), Gamma (L), Generalized Extreme Value (L),
-        Generalized Lambda (L & TL), Generalized Logistic (L),
-        Generalized Normal (L), Generalized Pareto (L[RC] & TL), Gumbel
-        (L), Kappa (L), Kumaraswamy (L), Laplace (L), Normal (L),
-        3-parameter log-Normal (L), Pearson Type III (L), Rayleigh (L),
-        Reverse Gumbel (L[RC]), Rice/Rician (L), Truncated Exponential
-        (L), Wakeby (L), and Weibull (L).
+        measure asymmetric correlation and higher co-moments or
+        co-movements of variables. The package supports the following
+        distributions with moment type shown as "L" (L-moments) or "TL"
+        (trimmed L-moments) and additional support for right-tail
+        censoring ([RC]) include: Asymmetric Exponential Power (L),
+        Cauchy (TL), Exponential (L), Gamma (L), Generalized Extreme
+        Value (L), Generalized Lambda (L & TL), Generalized Logistic
+        (L), Generalized Normal (L), Generalized Pareto (L[RC] & TL),
+        Gumbel (L), Kappa (L), Kumaraswamy (L), Laplace (L), Normal
+        (L), 3-parameter log-Normal (L), Pearson Type III (L), Rayleigh
+        (L), Reverse Gumbel (L[RC]), Rice/Rician (L), Truncated
+        Exponential (L), Wakeby (L), and Weibull (L).
 Maintainer: William H. Asquith <william.asquith@ttu.edu>
+Repository: CRAN
 License: GPL
 URL:
         http://www.amazon.com/Distributional-Statistics-Environment-Statistical-Computing/dp/1463508417/
-Packaged: 2012-03-30 16:22:16 UTC; wasquith
-Repository: CRAN
-Date/Publication: 2012-03-30 17:47:15
+Packaged: 2012-04-16 18:33:31 UTC; wasquith
+Date/Publication: 2012-04-16 19:59:37

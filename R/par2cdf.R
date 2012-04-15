@@ -1,7 +1,10 @@
 "par2cdf" <-
 function(x,para,...) {
     type <- para$type
-    if(type == 'cau') {
+    if(type == 'aep') {
+      return(cdfaep(x,para))
+    }
+    else if(type == 'cau') {
       return(cdfcau(x,para))
     }
     else if(type == 'exp') {

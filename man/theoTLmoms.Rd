@@ -24,7 +24,7 @@ the argument list. The function \eqn{X(F)} is computed through the \code{\link{p
 }
 \usage{
 theoTLmoms(para,nmom=5,trim=NULL,leftrim=NULL,
-           rightrim=NULL,verbose=FALSE)
+           rightrim=NULL,verbose=FALSE,minF=0,maxF=1)
 }
 \arguments{
   \item{para}{A distribution parameter object of this package \code{\link{vec2par}}.}
@@ -34,6 +34,8 @@ Although \code{NULL} in the argument list, the default is 0---the usual L-moment
   \item{leftrim}{Level of trimming of the left-tail of the sample.}
   \item{rightrim}{Level of trimming of the right-tail of the sample.}
   \item{verbose}{Toggle verbose output. Because the R function \code{integrate} is used to perform the numerical integration, it might be useful to see selected messages regarding the numerical integration.}
+  \item{minF}{The end point of nonexceedance probability in which to perform the integration. Try setting to non-zero (but small) if you have a divergent integral.}
+  \item{maxF}{The end point of nonexceedance probability in which to perform the integration. Try setting to non-unity (but close) if you have a divergent integral.}
 }
 \value{
   An R \code{list} is returned.

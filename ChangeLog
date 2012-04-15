@@ -605,7 +605,7 @@ Version 1.4.1--July 7, 2011
      that the quantile functions remain accessible when TL-moment
      computations are desired. This argument had long existed for the GLD
      distribution because the parameter range changes depending on the
-     TL-moment trimming level.  These paracheck changes are made now in 
+     TL-moment trimming level.  These paracheck changes are made now in
      preparation for TL-moment computation of trimmed distributions.
 2. Added tlmrcau(), tlmrexp(), tlmrgev(), tlmrglo(), tlmrgno(), tlmrgpa(),
      tlmrgum(), tlmrln3(), tlmrnor(), tlmrpe3(), and tlmrray().
@@ -633,49 +633,79 @@ Version 1.4.2--July 21, 2011
 Version 1.4.3--August 30, 2011
 1. BUG FIX: Added the checklmom argument to parTLgld() and pargld() as part of
      an check on how the functions of lmomco interact.
-2. BUG FIX: pwm.pp() did not fully accommodate user supplied probabilities. 
+2. BUG FIX: pwm.pp() did not fully accommodate user supplied probabilities.
      Removed the feature for now. Further, some a major bug was introduced
      in version 1.4.2. This function now appears through testing as shown
      in the examples for lmomsf01() to now work properly again.
 3. BUG FIX: quagno() did not function properly for k values near zero for which
      the standard normal distribution needed to be triggered.
-4. Added lmomsf01(), which computes L-moments given an irregular spacing of 
+4. Added lmomsf01(), which computes L-moments given an irregular spacing of
      nonexceedance probabilities. The bounds for the probabilities are taken
-     as [0,1] for the integration. Linear interpolation on the empirical 
+     as [0,1] for the integration. Linear interpolation on the empirical
      quantile function is used and extrapolation to [0,1] bounds is made.
      Testing with GNO simulation shows that this function can help interface
      with Kaplan-Meier survival curves from the Survival package. Consider
      the lmomsf01() function experimental.
-5. Change the minimum R version in DESCRIPTION so that the deeper compress of the
-     RData files can be supported. The list of recompressed RData are
-     data/IRSrefunds.by.state.RData,  data/USGSsta01515000peaks.RData
-     data/USGSsta02366500peaks.RData, data/USGSsta05405000peaks.RData
-     data/USGSsta06766000dvs.RData,   data/USGSsta08151500peaks.RData
-     data/USGSsta08167000peaks.RData, data/USGSsta08190000peaks.RData
-     data/USGSsta09442000peaks.RData, data/USGSsta14321000peaks.RData
-     data/amarilloprecip.RData,       data/canyonprecip.RData
-     data/claudeprecip.RData,         data/herefordprecip.RData
-     data/tulia6Eprecip.RData,        data/tuliaprecip.RData
-     data/vegaprecip.RData
+5. Change the minimum R version in DESCRIPTION so that the deeper compress
+     of the RData files can be supported. The recompressed RData files are:
+      data/IRSrefunds.by.state.RData,     data/USGSsta01515000peaks.RData
+      data/USGSsta02366500peaks.RData,    data/USGSsta05405000peaks.RData
+      data/USGSsta06766000dvs.RData,      data/USGSsta08151500peaks.RData
+      data/USGSsta08167000peaks.RData,    data/USGSsta08190000peaks.RData
+      data/USGSsta09442000peaks.RData,    data/USGSsta14321000peaks.RData
+      data/amarilloprecip.RData,          data/canyonprecip.RData
+      data/claudeprecip.RData,            data/herefordprecip.RData
+      data/tulia6Eprecip.RData,           data/tuliaprecip.RData
+      data/vegaprecip.RData
+
 
 Version 1.4.4--April 30, 2012
-1. Added the Laplace distribution.
+1. Added the Laplace distribution ("lap").
+2. BUG FIX: tlmrgpa.R did not declare T5 and T6 vectors.
+3. DOC FIX: theoTLmoms.Rd, tlmrgpa.Rd, USGSstaXXXXXXXXYYYY.Rd,
+            amarilloprecip.Rd, canyonprecip.Rd, claudeprecip.Rd,
+            herefordprecip.Rd, tuliaXXprecip.Rd, vegaprecip.Rd
+            DrillBitLifetime.Rd, pmoms.Rd, plotlmrdia.Rd, pdfgld.Rd,
+            pdfgno.Rd, cdfnor.Rd
 
 
-Version 1.4.5--April 30, 2010
+Version 1.4.5--April 30, 2012
 1. inst/doc/Introduction.Rd permanently removed from package and from
      versioning control system. The *.Rd was interfering with latest
      R versions in the R CMD check, which I could not identify with 
      my installed R versions.
-2. Major revision to inst/doc/references.txt. This file is not a dump
+2. Major revision to inst/doc/references.txt. This file is now a dump
      of references used in my book. I figure that these might be useful
      to someone. The book is available royalty free:
-     Asquith, W.H., 2011, Distributional analysis with L-moment statistics
-     using the R environment for statistical computing: First edition, 
-     CreateSpace, ISBN 978-1463508418, 344~p. http://www.amazon.com/
-     Distributional-Statistics-Environment-Statistical-Computing/dp/
-     1463508417
 
+     Asquith, W.H., 2011, Distributional analysis with L-moment statistics
+       using the R environment for statistical computing: First edition, 
+       CreateSpace, ISBN 978-1463508418, 344 p. http://www.amazon.com/
+       Distributional-Statistics-Environment-Statistical-Computing/dp/
+       1463508417
+
+
+Version 1.5.1--April 15, 2012
+1. Documentation tweaks
+2. Added the Asymmetric Exponential Power distribution ("aep") with 
+     direct use of pgamma() and qgamma() functions of R for CDF and
+     QDF implementation. The parameter estimation routines look ok, 
+     but should be considered experimental. The author needs to work
+     on a table of K,H ---> T3,T4 mappings to add the optimizers in
+     the return direction.
+3. Added the minF and maxF arguments to theoLmoms() and theoTLlmoms()
+     so that one can try to get past divergent integrals should they
+     occur using the defaults. These were added as the far-far tails
+     of the aep distribution do not behave well. Testing against the
+     aep with minF=0.00001 and maxF=0.99999 seems to nearly hit the 
+     true L-moments from lmomaep().
+4. Added the "#" sign in front of Package lmomco (1.5.1) loaded when
+     the library is loaded. This is done so that users running a 
+     standard out redirection are able to embedded "#" as comment 
+     lines in the output and thus ease the burden in post processing
+     by skipping all lines beginning with the prompt or the "#" sign.
+5. Correction to clearforkporosity.Rd.
 
 
 TODO: Complete documentation for pwmLC.Rd.
+

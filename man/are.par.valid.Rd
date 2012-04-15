@@ -3,7 +3,7 @@
 \title{Are the Distribution Parameters Consistent with the Distribution}
 \description{
 This function is a dispatcher on top of the \code{are.parCCC.valid} functions,
-where \code{CCC} represents the distribution type:  \code{exp}, \code{gam}, \code{gev}, \code{glo}, \code{gno},
+where \code{CCC} represents the distribution type:  \code{aep}, \code{cau}, \code{exp}, \code{gam}, \code{gev}, \code{glo}, \code{gno},
 \code{gpa}, \code{gum}, \code{kap}, \code{kur}, \code{lap}, \code{ln3}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{rice}, \code{wak}, or \code{wei}. Internally, this function is called
 only by \code{vec2par} in the process of converting a vector into a proper
 distribution parameter object for this package.

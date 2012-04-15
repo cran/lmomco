@@ -1,7 +1,10 @@
 "par2pdf" <-
 function(f,para,...) {
     type <- para$type
-    if(type == 'cau') {
+    if(type == 'aep') {
+      return(pdfaep(f,para))
+    }
+    else if(type == 'cau') {
       return(pdfcau(f,para))
     }
     else if(type == 'exp') {

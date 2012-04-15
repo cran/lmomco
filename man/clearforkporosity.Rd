@@ -18,10 +18,10 @@ A data frame with
 Although the porosity data was collected at about 1-foot intervals, these
 intervals are not provided in the data frame. Further, the porosity data
 has been sorted to disrupt the specific depth to porosity relation to remove
-the proprietary nature of the original data. 
+the proprietary nature of the original data.
 }
 \examples{
 data(clearforkporosity)
 plot(clearforkporosity)
 }
-\keyword{data}
+\keyword{datasets}

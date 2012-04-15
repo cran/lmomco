@@ -1,6 +1,7 @@
 "prettydist" <-
 function(x) {
   getdist <- function(x) {
+     if(x == "aep") return("Asymmetric Exponential Power")
      if(x == "cau") return("Cauchy")
      if(x == "exp") return("Exponential")
      if(x == "texp") return("Truncated Exponential")
@@ -13,6 +14,7 @@ function(x) {
      if(x == "gum") return("Gumbel")
      if(x == "kap") return("Kappa")
      if(x == "kur") return("Kumaraswamy")
+     if(x == "lap") return("Laplace")
      if(x == "ln3") return("log-Normal3")
      if(x == "nor") return("Normal")
      if(x == "pe3") return("Pearson Type III")

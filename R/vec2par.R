@@ -1,6 +1,10 @@
 "vec2par" <-
 function(vec,type,nowarn=FALSE,paracheck=TRUE,...) {
-    if(type == 'cau') {
+    if(type == 'aep') {
+      z <- list(type = 'aep', para = vec, source = "vec2par")
+      names(z$para) <- c("xi","alpha", "kappa", "h")
+    }
+    else if(type == 'cau') {
       z <- list(type = 'cau', para = vec, source = "vec2par")
       names(z$para) <- c("xi","alpha")
     }

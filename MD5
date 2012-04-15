@@ -1,6 +1,6 @@
-ac6694615574627d083ec231c8fd586d *ChangeLog
-d14321f62129383ccd52322d7fd710bf *DESCRIPTION
-a96227e21820304d9b6b9a116701d01b *NAMESPACE
+16794e7c862338a75a790726aeecc4bd *ChangeLog
+6cd140865236b734bfea664d34256d97 *DESCRIPTION
+4947a1ca325165a48cf2928ae7f55032 *NAMESPACE
 91c377e3d90235733e3fae0ceaa02130 *R/Apwm2BpwmRC.R
 0bea58b114f9545d4e85853f4a1ba91e *R/Bpwm2ApwmRC.R
 cef6d218f1981d1bd4ce72437e1a4ee2 *R/LaguerreHalf.R
@@ -13,7 +13,8 @@ cef6d218f1981d1bd4ce72437e1a4ee2 *R/LaguerreHalf.R
 a02ecf618a657bbad2b7fbd253c4bd49 *R/TLmom.R
 5814ff89bdd93ccecc2767de1faba9e6 *R/TLmoms.R
 d6ca84963aeb0a0e682c4b4d234cebeb *R/are.lmom.valid.R
-183423c1f7a8222a4ad8694680733e0b *R/are.par.valid.R
+f97d69ebd38ea180b0bad9328bec1eb8 *R/are.par.valid.R
+53fbf38683b0ad8db5d8e0892e85b63e *R/are.paraep.valid.R
 ab0d049153f18e6aad22ea4fb36bb088 *R/are.parcau.valid.R
 8430755fb453947d62c8ac6fcd4ef729 *R/are.parexp.valid.R
 3966830730a059b234374a9c84679aad *R/are.pargam.valid.R
@@ -35,6 +36,7 @@ ebbd1554ac9b48c570184fe3b91f9a17 *R/are.parrevgum.valid.R
 84150a16813d0aa0e57ef9e0f4165555 *R/are.partexp.valid.R
 bfd31c9b346b3fe95237d2e5a7e42518 *R/are.parwak.valid.R
 b97fd83c15f84a13378cb4ec2a279392 *R/are.parwei.valid.R
+13634599f1fbd4ba3951402a3972fda4 *R/cdfaep.R
 f04a07de83649450bff68cfac5b66fd8 *R/cdfcau.R
 23802fde5c720d1c781f8046434cfdb1 *R/cdfexp.R
 1b32b7daa12682c4f896e9a0299ec036 *R/cdfgam.R
@@ -57,8 +59,8 @@ f7b62c521582e157d4793a0e21352259 *R/cdftexp.R
 f9f510c8cf54023fce6e31484fd76080 *R/cdfwak.R
 a9a4dff8f2e3c3cc16fca3ee2b58230e *R/cdfwei.R
 7d93d2f14eaf4209e6b7b3d46c2d3be6 *R/check.fs.R
-5733fd214994a9d616c5b7d7661a946d *R/check.pdf.R
-b794c77617605397f1ba6268a6ad2982 *R/dist.list.R
+eb6c714fc609e24a6bca7a03bd63ac45 *R/check.pdf.R
+a1024c7c027304664a3e5f4cdf6e3726 *R/dist.list.R
 b2d59aa4b18f7d30a323d8f62d5c183c *R/dlmomco.R
 d5d4776b21ccad4f24895f1e14a47cf1 *R/expect.max.ostat.R
 211f0811177cc71fc037530c15b4db46 *R/fliplmoms.R
@@ -68,6 +70,7 @@ c4272740f47ffee83a7e70561379aedf *R/gen.freq.curves.R
 8ef1d45f798c430823d9da0bd2cf0117 *R/gini.mean.diff.R
 8f5f93c4b116dd3929711c5ad9058287 *R/harmonic.mean.R
 a28b10e866947a447094cc900b56401f *R/hlmomco.R
+d943021ee4e052f48692f1077cfbd22b *R/is.aep.R
 b72cdaf7697caff2ef3cb91c8a40eee5 *R/is.cau.R
 ce0aa14ebd05f264c50c36516637195f *R/is.exp.R
 84d18a0911aad09ab158428ee974df54 *R/is.gam.R
@@ -97,6 +100,7 @@ d77cf9990077e97c5447366c118bff15 *R/lmom2vec.R
 177f0a317a19f18f0a9f02fdc2f86adc *R/lmomRCmark.R
 ca4b5f5520954fc3190c88ce79fcf9f5 *R/lmomTLgld.R
 263e919b2beb50f9710b94baa9ba36c7 *R/lmomTLgpa.R
+db769fa19df98f7799825dcccc1d6f28 *R/lmomaep.R
 8ae3f14576da1dfa1b40699970aed8d4 *R/lmomcau.R
 4039ac3f12c7068b0bc204bbaf575370 *R/lmomexp.R
 9602f54719b819a04fd4f7b0656a45a4 *R/lmomgam.R
@@ -126,15 +130,16 @@ bae5eacf37827841d69a1211e76e0908 *R/lmorph.R
 e14d139877b296127942d415564bd025 *R/lmrdia.R
 430dc9b5f625ea2939a4e0b2c66a2ea6 *R/lmrdiscord.R
 c0e071e75c68f8136b798534c37f1f8c *R/nonexceeds.R
-a09a7435c064d09b87d9e52de44ec4e2 *R/par2cdf.R
+bcf55bf45dfd0afb50d7d2fee9640bc3 *R/par2cdf.R
 a705d963df897a339d0ed055e21fe98a *R/par2cdf2.R
-8e0949f34d1b4d869359662d0c5742bd *R/par2lmom.R
-b999e8acf4820e270b7e0dd19e9fc3b4 *R/par2pdf.R
-068e9b6a64b2b447e52caf878d22154e *R/par2qua.R
+5d1782545c9b5ff4bc5698e23aa3717a *R/par2lmom.R
+75cbd018ec2bd01fb20d560add076ee0 *R/par2pdf.R
+96807b1ca576c635b09e6ea21cce7a2e *R/par2qua.R
 fd04c5fd1d9bc4012b22d88cb60e4711 *R/par2qua2.R
 19b9baa25366eb1e8359b22ba568fa49 *R/par2vec.R
 b327b21c6714333532565d2a74165f64 *R/parTLgld.R
 3f9394591ae8868d28619522ddb9928d *R/parTLgpa.R
+92af6e9f85c3914dd0b110f15bc5dfc0 *R/paraep.R
 297c9d703907e17207ab3eaca02137b4 *R/parcau.R
 b92e24c64b97b433ab4ca31ed25ba7ea *R/parexp.R
 c0ed326e40628e36d1d205457b63c7c1 *R/pargam.R
@@ -157,6 +162,7 @@ eeb8e8a25fcfb1735d392bcf5132f7c8 *R/parpe3.R
 e21d67f6552788cddea41006472c068e *R/partexp.R
 e49fe63d9f2a3435be4aa25a5c61516d *R/parwak.R
 9621d23674ea042387f5181977fa9d2f *R/parwei.R
+bf4087fe5bb5bdf9d030adc6f8543602 *R/pdfaep.R
 54f550579bfa98933d9d37b884507351 *R/pdfcau.R
 f6c022dbcc3187d16343739ac316394d *R/pdfexp.R
 ff8c7cc58f564c8fb393c09c3ea3511a *R/pdfgam.R
@@ -182,7 +188,7 @@ cc6dc5eb10d320076ffc25411c4774e9 *R/plmomco.R
 ded8592116fccdf528ed5251abe9e053 *R/plotlmrdia.R
 513fdb3e3466125f088d65f8ec7bc85b *R/pmoms.R
 8e5a01e41744f971ec08e7eb92a70e87 *R/pp.R
-91f8494bf84575315f121fe21225c973 *R/prettydist.R
+1771ef1329cc4965eee25bb669ee19e8 *R/prettydist.R
 6188f139a491a111484a3610ffaf7e80 *R/prob2T.R
 1fb795a13b5ae85b4d57049049b0257d *R/pwm.R
 93a8a0111634fbcd2254037618d6fbc0 *R/pwm.gev.R
@@ -195,6 +201,7 @@ b19afe113513d6d8f354997cc84a4327 *R/pwm2vec.R
 692aa1719657f216f7c3f357230e7ecf *R/qlmomco.R
 d707f09d8e8e6ca6d76939dc04a8e431 *R/qua.ostat.R
 ac11e5f7819b35c8ee35ff325fd30f4f *R/qua2ci.R
+19beef3286c0da877c797c0201121962 *R/quaaep.R
 4e1191af29ef6aceefe1f047a29b2856 *R/quacau.R
 1fed2e6d9f409e38b5298dafe963aca7 *R/quaexp.R
 335d506c105b5da7120555f29f50dd72 *R/quagam.R
@@ -219,9 +226,9 @@ edfff3e852f180b04a5dbbbb8cbefb6f *R/quawak.R
 1a129eb5fe7c3e462acb7460137b8f6e *R/rlmomco.R
 741b514279a77240624917f3be54b638 *R/sen.mean.R
 1edff5bdab1990e821f5f2c80e58ba1b *R/sysdata.rda
-99e1df4f5fda7a94688dc03dd7792485 *R/theoLmoms.R
+77d77468f3af26afdbc3a30d1837d7ff *R/theoLmoms.R
 e512dc8022fb70b2b621d663b18ed7af *R/theoLmoms.max.ostat.R
-86b2485e9d92f46e49e3257985c48708 *R/theoTLmoms.R
+3e0f7d59ee64a9f31b211289a6318caf *R/theoTLmoms.R
 073c90d26b80ea042b5b6787de649965 *R/theopwms.R
 134bb0bcbb944982bdb45b76f0f43075 *R/tlmrcau.R
 046f48a6b349c8e734db402bf759da43 *R/tlmrexp.R
@@ -236,12 +243,12 @@ ccb56848ff37fa452b31520d9c43a84c *R/tlmrgno.R
 0fa3fd9233fbf36b3a3a18c0ed020030 *R/tlmrray.R
 c666b485abf7b9332d91415dc381d9f7 *R/vec2TLmom.R
 c2e6fddda5dc8c3a6356f8bf7a71fa70 *R/vec2lmom.R
-c42522b0aae82d2ddd6e930b2fcfa627 *R/vec2par.R
+2dde34cf6c4a2546cd09267f15d76a56 *R/vec2par.R
 4fbc0c26c47e69559101d59834ff240b *R/vec2pwm.R
 16b3d3a5d9cfbb31589495489ebe295e *R/z.par2cdf.R
 454753e0e072d27453b6ab7ee6f04e45 *R/z.par2qua.R
-fb5b91817565f497fa516ebb5444ac06 *R/zzz.R
-667873c110f0a532d82396aeb18bae2a *README
+06554f587b762a81e92ba35673cc1845 *R/zzz.R
+87c670082f32aca085a7aae3222b9f91 *README
 6f4da9bbb094b09dd01c07bb6c97c0df *data/DrillBitLifetime.txt.gz
 0ef25034c1794838f4f93311ef597c73 *data/IRSrefunds.by.state.RData
 a5d6d66b5f297488e4362c8c7f46dc1e *data/USGSsta01515000peaks.RData
@@ -330,7 +337,8 @@ e0427cea6b6c17bcda90d071170f0050 *man/USGSsta06766000dvs.Rd
 8f8adbf94e0737d192b5325d2d3fe7b8 *man/USGSsta14321000peaks.Rd
 c493c23cc5b9abac8c2ce2e75eeffce3 *man/amarilloprecip.Rd
 e16d9522295026b00bc332516698c286 *man/are.lmom.valid.Rd
-e17c76b6b959e166ef5f1de5c502ca7f *man/are.par.valid.Rd
+d69ca093d934dd0bfde26a09e866c09b *man/are.par.valid.Rd
+d20188817f53dbf88921ffcb8ad61d17 *man/are.paraep.valid.Rd
 da3588a47d4872a9886bc305c06ec938 *man/are.parcau.valid.Rd
 9156fde773d6889be15ef1ace679e4a7 *man/are.parexp.valid.Rd
 29f8f86b67b3b95b2694a0950359b8c1 *man/are.pargam.valid.Rd
@@ -353,6 +361,7 @@ e7111921d5412d7bed82634c6275df31 *man/are.parrevgum.valid.Rd
 db1524e0a6be8d556ab0f2f72d7af1d8 *man/are.parwak.valid.Rd
 aa630be6f1c0766b457a072d22ac7fd0 *man/are.parwei.valid.Rd
 e4011c3c530eeabe6b7e49722167d147 *man/canyonprecip.Rd
+901e9022d9bbd6ac0995ac35d2942f27 *man/cdfaep.Rd
 01cadd2f44cedff87775944e9f37aad1 *man/cdfcau.Rd
 a2a827ea8cc1fb347ca5f9f1e58dc52b *man/cdfexp.Rd
 b15e9741f031f23834b0ded538a1db91 *man/cdfgam.Rd
@@ -377,8 +386,8 @@ b8794021f84bda11001575566a2ddd50 *man/cdfwak.Rd
 c24f0416b4de87a0b5224d52d0812476 *man/check.fs.Rd
 cd215e17ea77b1b807fef39dff4f6e5a *man/check.pdf.Rd
 44b4d92f7fb821beae309c8a8f41c218 *man/claudeprecip.Rd
-76d2424409af78363c137d6ec08cd781 *man/clearforkporosity.Rd
-6a0219f63d3487396220b08b06629114 *man/dist.list.Rd
+98be00fca2239a2a2ad29f41e98bfc41 *man/clearforkporosity.Rd
+ee9c165fb5461ef781ca10a71cd1e6bc *man/dist.list.Rd
 84f3c0379fc68db9a629220733ded293 *man/dlmomco.Rd
 80f1f84f11fe50c7f8ca378567e28436 *man/expect.max.ostat.Rd
 528c48fa3cb79badb413a79de2163b2c *man/fliplmoms.Rd
@@ -389,6 +398,7 @@ cef69fa3d413c751e610e60c48fad64e *man/gini.mean.diff.Rd
 041e1e6e0d1003b2d32d205101e50833 *man/harmonic.mean.Rd
 2cec43ccac3293200ebf313a76e2bab0 *man/herefordprecip.Rd
 f1149739f80a6443b8707d78c07bc29a *man/hlmomco.Rd
+76cb36c67892042c40d751008da1ff24 *man/is.aep.Rd
 3851e49f79b8344d09db8366c9cfa960 *man/is.cau.Rd
 9d8723474d6530beb9c28b17a94a3c23 *man/is.exp.Rd
 6e2f0cf558121551fda5e2470adb8ead *man/is.gam.Rd
@@ -418,6 +428,7 @@ bc5bc9b7c4c499ed7dc95e60ddc3c7f9 *man/is.texp.Rd
 9ba3cd7de4f5b1ff841951bb9caf6215 *man/lmomRCmark.Rd
 af592d26af11fd37c8f0b7daf5a9e047 *man/lmomTLgld.Rd
 3c81723394844e144911057def17f6f1 *man/lmomTLgpa.Rd
+b06f804332feb6de246d121c2f8fedfe *man/lmomaep.Rd
 ca24b512b2a2274be62574de316977f8 *man/lmomcau.Rd
 f235d251a15ffbc12bec209f6e6d6403 *man/lmomexp.Rd
 bce13294968d22af843e933543d89bca *man/lmomgam.Rd
@@ -449,13 +460,14 @@ c9a43f189ae73d58a0578bd5c3abe73c *man/lmrdia.Rd
 d10a9e41d0c7e344ef47682ddf360be5 *man/nonexceeds.Rd
 bcf19526842c0e168bbed6b519fea641 *man/par2cdf.Rd
 a1e58fc834846d57e1558d3e2083ba58 *man/par2cdf2.Rd
-8e83d3ca448ca8c2ff83bb943e74ccec *man/par2lmom.Rd
+96d2797b1560a1e4e6eaeb314fb8fb69 *man/par2lmom.Rd
 46a7ccc2d3247a1fc660e286a6b332ae *man/par2pdf.Rd
 c048b8f584b16962b8d6b23fcb7db9d9 *man/par2qua.Rd
 d5fd703659588d73b3a63a7a1d5414ca *man/par2qua2.Rd
 61707c34d7e5d9f8cbd73122074b6465 *man/par2vec.Rd
 b360f47ff22864fd81eafb03f1fbb994 *man/parTLgld.Rd
 fc6d8c895a6e2de63ba84cd902338b9c *man/parTLgpa.Rd
+4bb2ae1d1f98941dba516a855f9a9b0c *man/paraep.Rd
 73a1839e76c3c9bcb0c7f2509dda5843 *man/parcau.Rd
 460b4ecfbdbc7f093d571534c5e71eb7 *man/parexp.Rd
 83a34433ad197482509c580c52e9fb05 *man/pargam.Rd
@@ -478,6 +490,7 @@ aa9bb01406fce05ab1752827c4885fe5 *man/parln3.Rd
 31ca1d456991deb0979ed2af479552e1 *man/partexp.Rd
 57cca31cba53b98d8d5ed69ff5eb45da *man/parwak.Rd
 65a20d116b7acba5c3efdbaaea6fe418 *man/parwei.Rd
+d6dfd65981642234c633727122783d10 *man/pdfaep.Rd
 32e8332e2fa866e58ed3a2585a3420a9 *man/pdfcau.Rd
 5f7b420dd453748ea52013ca1ec75c47 *man/pdfexp.Rd
 4d4e65a3e189c91614eb5f51350755de *man/pdfgam.Rd
@@ -487,7 +500,7 @@ d90fb74d2c3e15c971d3cbf009b4eaae *man/pdfglo.Rd
 63299ea5a3fc4f4b5687f451e366434c *man/pdfgno.Rd
 0d7a3ada71e4502a660a609f1d92ba8b *man/pdfgpa.Rd
 8eb8d400654bf8fdabb222c855116848 *man/pdfgum.Rd
-7b4c08070be5efa4eb8097983aa54437 *man/pdfkap.Rd
+dda90f90946d22f9b4380808bfa2127e *man/pdfkap.Rd
 d45a86abc8e0f47644799bf3e9aa2b0e *man/pdfkur.Rd
 fe5361a3af5aaff93e35eb3303d58586 *man/pdflap.Rd
 57c638676851a10763e1303c9c47f5d7 *man/pdfln3.Rd
@@ -516,6 +529,7 @@ a6cbf2354bd584c8b7f0c9ff70b893a3 *man/pwmLC.Rd
 cd5c6a2b64c4bf912f590c4ffa63098c *man/qlmomco.Rd
 25c6ee984db48d8a89249d3abc1e970b *man/qua.ostat.Rd
 276a6d7ecd2067f9e8bf5964c3c7a28e *man/qua2ci.Rd
+8fcb85d07f5ee4745bf137fc8758d470 *man/quaaep.Rd
 ba00ce9c9ef37bc499f504a86c69879a *man/quacau.Rd
 116d2702df0964a4dd2268a134b0f776 *man/quaexp.Rd
 f24a42ec2ec7ac6e51cc8ab339a0c026 *man/quagam.Rd
@@ -539,9 +553,9 @@ be6699031e647426e552ed3d5ff4b3de *man/quarice.Rd
 49827c7d703a918c9399088cf3e69a71 *man/quawei.Rd
 dc2ccc2dde8f72d69e209d34d04d7c12 *man/rlmomco.Rd
 807dec078e474bb8fb9ff26e366d10db *man/sen.mean.Rd
-c2064b4ce2115e5598c32ed740b52450 *man/theoLmoms.Rd
+9e7843073ada3baf67d984092e80ac52 *man/theoLmoms.Rd
 54a83353525066883bc571f5c9ca3d35 *man/theoLmoms.max.ostat.Rd
-2b70e14725d105351b996eed52d3a27a *man/theoTLmoms.Rd
+108943977f24c5e525d968f8ac2e11a3 *man/theoTLmoms.Rd
 9abcd8b7d06a4634223937174cd562e2 *man/theopwms.Rd
 4402574dafdf75eb392c60af131cb421 *man/tlmrcau.Rd
 cdf9ba377bba6130a02220a3013131f3 *man/tlmrexp.Rd
@@ -558,7 +572,7 @@ e16c5932ebb712f288b37d4dae03bbdc *man/tulia6Eprecip.Rd
 1038033729015dad1b40be163e97a1b7 *man/tuliaprecip.Rd
 36bdb6fead24a0041314fc99bb0fc916 *man/vec2TLmom.Rd
 448513520b2c24cf016469dd3854bd9e *man/vec2lmom.Rd
-45a3e30e07f6eb8dc4fef23ba9972985 *man/vec2par.Rd
+eae415c8d9cfd449626f31db8c652c27 *man/vec2par.Rd
 66c57275abece420007d20d25cb3ced5 *man/vec2pwm.Rd
 cc49721390858e56bec752c189b32fce *man/vegaprecip.Rd
 de0a4e56e43a019b6a2011509bc9066b *man/z.par2cdf.Rd

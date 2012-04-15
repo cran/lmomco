@@ -1,5 +1,5 @@
-"theoTLmoms" <- 
-function(para,nmom=5,trim=NULL,leftrim=NULL,rightrim=NULL,verbose=FALSE) {
+"theoTLmoms" <-
+function(para,nmom=5,trim=NULL,leftrim=NULL,rightrim=NULL,verbose=FALSE, minF=0, maxF=1) {
   if(nmom < 1) {
     warning("Number of TL-moments requested is less than 1")
     return()
@@ -56,7 +56,7 @@ function(para,nmom=5,trim=NULL,leftrim=NULL,rightrim=NULL,verbose=FALSE) {
         par2qua(F,para,paracheck=FALSE)*F^(r+t1-k-1)*(1-F)^(t2+k)
       }
       # Perform the numerical integration
-      int <- integrate(XofF,0,1)
+      int <- integrate(XofF,minF,maxF)
       # Sum up
       sum <- sum + tmp*int$value
       if(verbose == TRUE) { # Handy messages

@@ -4,12 +4,12 @@
 \description{
 This function computes the probability density
 of the Kappa distribution given parameters (\eqn{\xi},
-\eqn{\alpha}, \eqn{\kappa}, and \eqn{h}) of the distribution computed by \code{\link{pargev}}. The
+\eqn{\alpha}, \eqn{\kappa}, and \eqn{h}) of the distribution computed by \code{\link{parkap}}. The
 probability density function of the distribution is
 
 \deqn{f(x) = \alpha^{-1} [1-\kappa(x - \xi)/\alpha]^{1/k-1} \times [F(x)]^{1-h}}
 
-where \eqn{f(x)} is the probability density for quantile \eqn{x}, \eqn{F(x)} is the cumulative distribution function of the distribution (\code{cdfkap})), 
+where \eqn{f(x)} is the probability density for quantile \eqn{x}, \eqn{F(x)} is the cumulative distribution function of the distribution (\code{cdfkap})),
 \eqn{\xi} is a location parameter, \eqn{\alpha} is a scale parameter, and
 \eqn{\kappa} is a shape parameter.
 }

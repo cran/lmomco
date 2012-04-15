@@ -6,10 +6,10 @@
     upperF <- tmp
     warning("End points appear backwards, swapping for you")
   }
-  
+
   if(lowerF == upperF) {
-  	warning("End points are same")
-  	return(NULL)
+    warning("End points are same")
+    return(NULL)
   }
 
   min <- par2qua(lowerF,para)
@@ -17,7 +17,7 @@
 
   if(max < min) {
     warning("quantile function max < min")
-    return(NULL)	
+    return(NULL)
   }
 
   # Perform the integration using defaults
@@ -29,7 +29,7 @@
   }
 
   unity <- FALSE
-  
+
   if(abs(pdfgral$value-1) < eps) {
      print("pdf function appears to integrate to unity")
      unity <- TRUE
@@ -40,28 +40,27 @@
 
   if(plot) {
     subs <- (plotupperF - plotlowerF)/1000
-  	F <- seq(plotlowerF,plotupperF,by=subs)
-  	F <- F[F >= 0]
-  	F <- F[F <= 1]
-  	x <- par2qua(F,para)
-  	y <- pdfunc(x,para)
-  	plot(x,y,type='l',ylab="probability density")
-  	
-  	min1 <- min(y)
-  	
-    subs <- (upperF - lowerF)/1000	
-  	F <- seq(lowerF,upperF,by=subs)
-  	F <- F[F >= 0]
-  	F <- F[F <= 1]
-  	x <- par2qua(F,para)
-  	y <- pdfunc(x,para)
-  	
-  	min2 <- min(y)
-  	min <- min(min1,min2)
-  	
-  	polygon(c(x[1],x,max(x)),c(min,y,min),col=rgb(.5,.5,.5))
-  }
-  
-  return(list(isunity=unity,F=pdfgral$value))
+  F <- seq(plotlowerF,plotupperF,by=subs)
+  F <- F[F >= 0]
+  F <- F[F <= 1]
+  x <- par2qua(F,para)
+  y <- pdfunc(x,para)
+  plot(x,y,type='l',ylab="probability density")
 
+  min1 <- min(y)
+
+    subs <- (upperF - lowerF)/1000
+  F <- seq(lowerF,upperF,by=subs)
+  F <- F[F >= 0]
+  F <- F[F <= 1]
+  x <- par2qua(F,para)
+  y <- pdfunc(x,para)
+
+  min2 <- min(y)
+  min <- min(min1,min2)
+
+  polygon(c(x[1],x,max(x)),c(min,y,min),col=rgb(.5,.5,.5))
+  }
+
+  return(list(isunity=unity,F=pdfgral$value))
 }

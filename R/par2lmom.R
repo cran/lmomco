@@ -1,7 +1,10 @@
 "par2lmom" <-
 function(para) {
     type <- para$type
-    if(type == 'cau')  {
+    if(type == 'aep')  {
+      return(lmomaep(para))
+    }
+    else if(type == 'cau')  {
       return(lmomcau(para))
     }
     else if(type == 'exp') {
