@@ -43,7 +43,7 @@ tlmrglo(leftrim=1, rightrim=3, xi=32, alpha=83)
   # with exclusive focus on the GLO distribution.
   plotlmrdia(lmrdia(), autolegend=TRUE, xleg=-.1, yleg=.6,
              xlim=c(-.8, .7), ylim=c(-.1, .8),
-             nolimits=TRUE, nogev=TRUE, nogpa=TRUE, noglo=TRUE,
+             nolimits=TRUE, nogev=TRUE, nogpa=TRUE, nope3=TRUE,
              nogno=TRUE, nocau=TRUE, noexp=TRUE, nonor=TRUE,
              nogum=TRUE, noray=TRUE, nouni=TRUE)
 

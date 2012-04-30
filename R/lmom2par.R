@@ -27,6 +27,9 @@ function(lmom,type,...) {
     else if(type == 'gum') {
       return(pargum(lmom, ...))
     }
+    else if(type == 'kap') {
+      return(parkap(lmom, ...))
+    }
     else if(type == 'kur') {
       return(parkur(lmom, ...))
     }
@@ -39,8 +42,8 @@ function(lmom,type,...) {
     else if(type == 'revgum') {
       return(parrevgum(lmom,...))
     }
-    else if(type == 'kap') {
-      return(parkap(lmom, ...))
+    else if(type == 'lap') {
+      return(parlap(lmom, ...))
     }
     else if(type == 'ln3') {
       return(parln3(lmom, ...))

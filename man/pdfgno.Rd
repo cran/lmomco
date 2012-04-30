@@ -7,8 +7,8 @@ of the Generalized Normal distribution given parameters (\eqn{\xi}, \eqn{\alpha}
 and \eqn{\kappa}) of the distribution computed by \code{\link{pargno}}.
 The probability density function function of the distribution is
 
-\deqn{f(x) = \frac{exp{\kappa y - y^2/2}}{\alpha \sqrt{2\pi}} \mbox{,} }
-where \eqn{\Phi} is the cumulative ditribution function of the
+\deqn{f(x) = \frac{\exp(\kappa y - y^2/2)}{\alpha \sqrt{2\pi}} \mbox{,} }
+where \eqn{\Phi} is the cumulative distribution function of the
 standard normal distribution and \eqn{y} is
 
 \deqn{y = -\kappa^{-1} \log\left(1 - \frac{\kappa(x-\xi)}{\alpha}\right) \mbox { for } \kappa \ne 0 \mbox{, and}}

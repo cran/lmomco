@@ -4,9 +4,9 @@
 \description{
 This function computes the probability density function of the Generalized Lambda distribution given parameters (\eqn{\xi}, \eqn{\alpha}, \eqn{\kappa}, and \eqn{h}) of the distribution computed by \code{\link{pargld}} or similar. The probability density function is
 
-\deqn{f(x) = {[(\kappa(F)^{\kappa-1} + h(F)^{h-1})*\alpha]}^-1 \mbox{at\ } x = Q(F) }
+\deqn{f(x) = {[(\kappa(F^{\kappa-1}) + h(1-F)^{h-1})\times\alpha]}^{-1} \mbox{at\ } x = Q(F) }
 
-where \eqn{f(x)} is the probability density function at \eqn{x}, \eqn{Q(F} is the quantile function for nonexceedance probability \eqn{F}.
+where \eqn{f(x)} is the probability density function at \eqn{x}, \eqn{Q(F)} is the quantile function for nonexceedance probability \eqn{F}.
 }
 \usage{
 pdfgld(x, gldpara, paracheck)
@@ -20,8 +20,7 @@ pdfgld(x, gldpara, paracheck)
   Probability density (\eqn{f}) for \eqn{x}.
 }
 \references{
-Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions---The generalized lambda distribution and generalized bootstrap methods: 
-CRC Press, Boca Raton, FL, 438 p.
+Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions---The generalized lambda distribution and generalized bootstrap methods: CRC Press, Boca Raton, FL, 438 p.
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{cdfgld}}, \code{\link{quagld}}, \code{\link{lmomgld}}, \code{\link{pargld}}}

@@ -31,6 +31,9 @@ function(para) {
     else if(type == 'gum') {
       return(lmomgum(para))
     }
+    else if(type == 'lap') {
+      return(lmomlap(para))
+    }
     else if(type == 'ln3') {
       return(lmomln3(para))
     }

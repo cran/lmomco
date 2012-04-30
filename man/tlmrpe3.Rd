@@ -52,13 +52,13 @@ tlmrpe3(leftrim=2, rightrim=4, xi=100, beta=20)
   # value on the left and four on the right. Notice the
   # expansion of the alpha parameter space from
   # -1 < a < -1 to something larger based on manual
-  # adjustents until blue curve encompassed the plot.
+  # adjustments until blue curve encompassed the plot.
   J <- tlmrpe3(abeg=-15, aend=6, leftrim=1, rightrim=4)
   lines(J$tau3, J$tau4, lwd=2, col=2) # RED CURVE
 
   # Compute the TL-moment ratios for trimming of four
   # values on the left and one on the right.
-  J <- tlmrpe3(aeg=-6, aend=10, leftrim=4, rightrim=1)
+  J <- tlmrpe3(abeg=-6, aend=10, leftrim=4, rightrim=1)
   lines(J$tau3, J$tau4, lwd=2, col=4) # BLUE CURVE
 
   # The abeg and aend can be manually changed to see how

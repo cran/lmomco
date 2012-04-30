@@ -34,6 +34,9 @@ function(x,para,...) {
     else if(type == 'kur') {
       return(cdfkur(x,para))
     }
+    else if(type == 'lap') {
+      return(cdflap(x,para))
+    }
     else if(type == 'ln3') {
       return(cdfln3(x,para))
     }

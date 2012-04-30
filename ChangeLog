@@ -658,4 +658,24 @@ Version 1.4.3--August 30, 2011
      data/tulia6Eprecip.RData,        data/tuliaprecip.RData
      data/vegaprecip.RData
 
+Version 1.4.4--April 30, 2012
+1. Added the Laplace distribution.
+
+
+Version 1.4.5--April 30, 2010
+1. inst/doc/Introduction.Rd permanently removed from package and from
+     versioning control system. The *.Rd was interfering with latest
+     R versions in the R CMD check, which I could not identify with 
+     my installed R versions.
+2. Major revision to inst/doc/references.txt. This file is not a dump
+     of references used in my book. I figure that these might be useful
+     to someone. The book is available royalty free:
+     Asquith, W.H., 2011, Distributional analysis with L-moment statistics
+     using the R environment for statistical computing: First edition, 
+     CreateSpace, ISBN 978-1463508418, 344~p. http://www.amazon.com/
+     Distributional-Statistics-Environment-Statistical-Computing/dp/
+     1463508417
+
+
+
 TODO: Complete documentation for pwmLC.Rd.

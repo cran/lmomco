@@ -6,7 +6,7 @@ This function computes the cumulative probability or nonexceedance probability
 of the Normal distribution given parameters of the distribution computed
 by \code{\link{parnor}}.  The cumulative distribution function of the distribution is
 
-\deqn{F(x) = \Phi(x-\mu/\sigma) \mbox{,}}
+\deqn{F(x) = \Phi((x-\mu)/\sigma) \mbox{,}}
 
 where \eqn{F(x)} is the nonexceedance probability for quantile \eqn{x},
 \eqn{\mu} is the arithmetic mean, and \eqn{\sigma} is the standard deviation, and
@@ -27,7 +27,7 @@ cdfnor(x, para)
 \references{
 Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
 distributions using linear combinations of order statistics: Journal
-of the Royal Statistical Society, Series B, vol. 52, p. 105--124.
+of the Royal Statistical Society, Series B, vol. 52, pp. 105--124.
 
 Hosking, J.R.M., 1996, FORTRAN routines for use with the method of L-moments:
 Version 3, IBM Research Report RC20525, T.J. Watson Research Center,

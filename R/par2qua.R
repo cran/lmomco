@@ -34,6 +34,9 @@ function(f,para,...) {
     else if(type == 'kur') {
       return(quakur(f,para,...))
     }
+    else if(type == 'lap') {
+      return(qualap(f,para,...))
+    }
     else if(type == 'ln3') {
       return(qualn3(f,para,...))
     }

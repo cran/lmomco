@@ -1,9 +1,9 @@
 \name{USGSsta06766000dvs}
 \docType{data}
 \alias{USGSsta06766000dvs}
-\title{Daily Mean Streamflow Data for U.S.~Geological Survey Streamflow-Gaging Station 06766000}
+\title{Daily Mean Streamflow Data for U.S. Geological Survey Streamflow-Gaging Station 06766000}
 \description{
-Daily mean streamflow data for U.S.~Geological Survey streamflow-gaging station 06766000 PLATTE RIVER AT BRADY, NE. The qualification code \code{X01_00060_00003_cd} values are:
+Daily mean streamflow data for U.S. Geological Survey streamflow-gaging station 06766000 PLATTE RIVER AT BRADY, NE. The qualification code \code{X01_00060_00003_cd} values are:
 \describe{
 \item{A}{Approved for publication -- Processing and review completed.}
 \item{1}{Daily value is write protected without any remark code to be printed.}

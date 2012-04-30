@@ -1,9 +1,9 @@
 \name{USGSsta14321000peaks}
 \docType{data}
 \alias{USGSsta14321000peaks}
-\title{Annual Peak Streamflow Data for U.S.~Geological Survey Streamflow-Gaging Station 14321000}
+\title{Annual Peak Streamflow Data for U.S. Geological Survey Streamflow-Gaging Station 14321000}
 \description{
-Annual peak streamflow data for U.S.~Geological Survey streamflow-gaging station 14321000. The peak streamflow-qualification codes \code{Flag} are:
+Annual peak streamflow data for U.S. Geological Survey streamflow-gaging station 14321000. The peak streamflow-qualification codes \code{Flag} are:
 \describe{
 \item{1}{Discharge is a Maximum Daily Average}
   \item{2}{Discharge is an Estimate}

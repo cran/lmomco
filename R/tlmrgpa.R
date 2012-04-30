@@ -3,7 +3,7 @@ function(trim=NULL, leftrim=NULL, rightrim=NULL, xi=0, alpha=1,
          kbeg=-.99, kend=10, by=.1) {
   ks <- seq(kbeg, kend, by=by)
   n <- length(ks)
-  T2 <- T3 <- T4 <- vector(mode="numeric", length=n)
+  T2 <- T3 <- T4 <- T5 <- T6 <- vector(mode="numeric", length=n)
   i <- 0
   for(k in ks) {
     tmp.para <- vec2par(c(xi,alpha,k), type="gpa", paracheck=FALSE)

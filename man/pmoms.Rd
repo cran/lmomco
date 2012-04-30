@@ -2,7 +2,7 @@
 \alias{pmoms}
 \title{ The Sample Product Moments: Mean, Standard Deviation, Skew, and Excess Kurtosis}
 \description{
-Compute the four sample product moments for a vector. 
+Compute the four sample product moments for a vector.
 }
 \usage{
 pmoms(x)
@@ -32,7 +32,7 @@ The \code{umvu.sd} is computed by
 \deqn{\hat\sigma' = \frac{\Gamma[(n-1)/2]}{\Gamma(n/2)\sqrt{2}}\sqrt{\sum_{i=1}^{n} (x_i - \hat\mu)^2}}
 }
 \references{
-Dingman, S.L., 2002, Physical hydrology, 2nd ed: Prentice Hall, Upper Saddle River, NJ, appendix C.
+Dingman, S.L., 2002, Physical hydrology, 2nd ed: Prentice Hall, Upper Saddle River, N.J., appendix C.
 
 Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
 approach based on L-moments: Cambridge University Press.
@@ -50,7 +50,7 @@ cat(c(PM$moments[1],PM$moments[2],PM$ratios[3],PM$ratios[4],"\n"))
 # A more complex example
 para <- vec2par(c(100,500,3),type='pe3') # mean=100, sd=500, skew=3
 # The Pearson type III distribution is implemented here such that
-# the "parameters" are equal to the mean, standard deviation, and skew.  
+# the "parameters" are equal to the mean, standard deviation, and skew.
 simDATA <- rlmomco(100,para) # simulate 100 observations
 PM <- pmoms(simDATA) # compute the product moments
 
@@ -67,7 +67,7 @@ epara <- parpe3(lmr) # estimate the Pearson III parameters. This is a
 # can only be done because we know that the parent distribution is a
 # Pearson Type III
 
-l.tmp <- c(epara$para[1],epara$para[2],epara$para[3]) 
+l.tmp <- c(epara$para[1],epara$para[2],epara$para[3])
 cat(c("PearsonIII by L-moments:",l.tmp,"\n"))
 # The first values are the means and will be identical and close to 100.
 # The second values are the standard deviations and the L-moment to

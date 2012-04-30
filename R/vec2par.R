@@ -45,6 +45,10 @@ function(vec,type,nowarn=FALSE,paracheck=TRUE,...) {
       z <- list(type = 'kur', para = vec, source = "vec2par")
       names(z$para) <- c("alpha","beta")
     }
+    else if(type == 'lap') {
+      z <- list(type = 'lap', para = vec, source = "vec2par")
+      names(z$para) <- c("xi","alpha")
+    }
     else if(type == 'ln3') {
       z <- list(type = 'ln3', para = vec, source = "vec2par")
       names(z$para) <- c("zeta","mu","sigma")
@@ -86,9 +90,9 @@ function(vec,type,nowarn=FALSE,paracheck=TRUE,...) {
       z <- list(type = 'user', para = vec, source = "vec2par")
       return(z)
     }
-    
+
     if(! paracheck) return(z)
-    
+
     if(! are.par.valid(z,nowarn,...)) {
       op <- options()
       if(nowarn == TRUE) options(warn=-1)

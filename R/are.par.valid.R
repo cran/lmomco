@@ -42,6 +42,9 @@ function(para,...) {
     else if(type == 'kur') {
       return(are.parkur.valid(para,...))
     }
+    else if(type == 'lap') {
+      return(are.parlap.valid(para,...))
+    }
     else if(type == 'ln3') {
       return(are.parln3.valid(para,...))
     }

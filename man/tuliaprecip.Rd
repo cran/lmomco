@@ -17,8 +17,8 @@ A data frame with
 }
 \references{
 Asquith, W.H., 1998, Depth-duration frequency of precipitation for
-Texas: U.S.~Geological Survey Water-Resources Investigations Report
-98--4044, 107~p.
+Texas: U.S. Geological Survey Water-Resources Investigations Report
+98--4044, 107 p.
 }
 \examples{
 data(tuliaprecip)

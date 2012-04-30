@@ -73,13 +73,13 @@ Research Report RC12210, IBM Research Division, Yorkton Heights, N.Y.
 
 Hosking, J.R.M., 1990, L-moments--Analysis and estimation of
 distributions using linear combinations of order statistics: Journal
-of the Royal Statistical Society, Series B, vol. 52, p. 105-124.
+of the Royal Statistical Society, Series B, vol. 52, pp. 105--124.
 
 Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis--An
 approach based on L-moments: Cambridge University Press.
 
 Vogel, R.M., and Fennessey, N.M., 1993, L moment diagrams should replace
-product moment diagrams: Water Resources Research, vol. 29, no. 6, pp. 1745-1752.
+product moment diagrams: Water Resources Research, vol. 29, no. 6, pp. 1745--1752.
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{lmrdia}}}

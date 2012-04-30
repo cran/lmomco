@@ -34,6 +34,9 @@ function(f,para,...) {
     else if(type == 'kur') {
       return(pdfkur(f,para))
     }
+    else if(type == 'lap') {
+      return(pdflap(f,para))
+    }
     else if(type == 'ln3') {
       return(pdfln3(f,para))
     }
