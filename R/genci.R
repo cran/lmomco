@@ -33,7 +33,7 @@ function(para,n,F=NULL,ci=0.90,edist='nor',
        ci_t3[i]  <- NA
        ci_t4[i]  <- NA
        ci_t5[i]  <- NA
-       next 
+       next
     }
     ci_low[i] <- CI$lower
     ci_tru[i] <- CI$true
@@ -55,12 +55,14 @@ function(para,n,F=NULL,ci=0.90,edist='nor',
                     lcv=ci_l2/ci_tru)
 
   lmr <- data.frame(lambda1=ci_l1,
-                    lambda2=ci_l2, 
+                    lambda2=ci_l2,
                     tau3=ci_t3,
                     tau4=ci_t4,
                     tau5=ci_t5)
   if(expand == TRUE) {
-    return(list(limits=cis,parent=para,edist=edist,elmoms=lmr))
+    return(list(limits=cis, parent=para,
+                edist=edist, elmoms=lmr, epara=CI$epara,
+                ifail=CI$ifail, ifailtext=CI$ifailtext))
   }
   else {
     return(cis)

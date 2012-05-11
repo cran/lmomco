@@ -5,7 +5,8 @@ function(lmom) {
   if((length(lmom$trim)     == 1 && lmom$trim     > 0 ) ||
      (length(lmom$leftrim)  == 1 && lmom$leftrim  > 0 ) ||
      (length(lmom$rightrim) == 1 && lmom$rightrim > 0 ) ) {
-    stop("L-moment argument appears to contain non zero trimming. I can not morph to alternative L-moment object")
+    warning("L-moment argument appears to contain non zero trimming. I can not morph to alternative L-moment object")
+    return(lmom)
   }
 
 
@@ -17,7 +18,7 @@ function(lmom) {
               trim=0, leftrim=NULL, rightrim=NULL, source="lmorph")
   }
   else {
-    # note that higher L-moments than order 5 are thrown away 
+    # note that higher L-moments than order 5 are thrown away
     z <- list(L1   = lmom$lambdas[1],
               L2   = lmom$lambdas[2],
               TAU3 = lmom$ratios[3],

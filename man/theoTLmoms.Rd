@@ -7,20 +7,19 @@ specified. A theoretrical TL-moment in integral form is
 
 \deqn{ \lambda^{(t_1,t_2)}_r = \underbrace{\frac{1}{r}}_{\stackrel{\mbox{average}}{\mbox{of terms}}}
                                \sum^{r-1}_{k=0} \overbrace{(-1)^k}^{\mbox{differences}}
-			          \underbrace{ r-1 \choose k }_{\mbox{combinations}}
-			        \frac{\overbrace{(r+t_1+t_2)!}^{\mbox{sample size}}\: I^{(t_1,t_2)}_r}
-				     {\underbrace{(r+t_1-k-1)!}_{\mbox{left tail}}
-				      \underbrace{(t_2+k)!}_{\mbox{right tail}}} \mbox{, in which }}
+          \underbrace{ r-1 \choose k }_{\mbox{combinations}}
+        \frac{\overbrace{(r+t_1+t_2)!}^{\mbox{sample size}}\: I^{(t_1,t_2)}_r}
+     {\underbrace{(r+t_1-k-1)!}_{\mbox{left tail}}
+      \underbrace{(t_2+k)!}_{\mbox{right tail}}} \mbox{, in which }}
 
 \deqn{ I^{(t_1,t_2)}_r = \int^1_0
                               \underbrace{X(F)}_{\stackrel{\mbox{quantile}}{\mbox{function}}} \times
                               \overbrace{F^{r+t_1-k-1}}^{\mbox{left tail}}
-			      \overbrace{(1-F)^{t_2+k}}^{\mbox{right tail}} \,\mathrm{d}F \mbox{,}}
+      \overbrace{(1-F)^{t_2+k}}^{\mbox{right tail}} \,\mathrm{d}F \mbox{,}}
 
-where \eqn{X(F)} is the quantile function of the random variable \eqn{X} for nonexceedance probability \eqn{F},
-\eqn{t_1} represents the trimming level of the \eqn{t_1}-smallest, \eqn{t_2} represents the trimming level of the \eqn{t_2}-largest
-values, \eqn{r} represents the order of the L-moments. This function loops across the above equation for each \code{nmom} set in
-the argument list. The function \eqn{X(F)} is computed through the \code{\link{par2qua}} function. The distribution type is determined using the \code{type} attribute of the \code{para} argument---the parameter object.
+where \eqn{X(F)} is the quantile function of the random variable \eqn{X} for nonexceedance probability \eqn{F}, \eqn{t_1} represents the trimming level of the \eqn{t_1}-smallest, \eqn{t_2} represents the trimming level of the \eqn{t_2}-largest values, \eqn{r} represents the order of the L-moments. This function loops across the above equation for each \code{nmom} set in the argument list. The function \eqn{X(F)} is computed through the \code{\link{par2qua}} function. The distribution type is determined using the \code{type} attribute of the \code{para} argument---the parameter object.
+
+As of version 1.5.2 of \pkg{lmomco}, there exists enhanced error trapping on integration failures in \code{theoTLmoms}. The function now abandons operations should any of the integrations for the \eqn{r}th L-moment fail for reasons such as divergent integral or round off problems. The function returns NAs for all L-moments in \code{lambdas} and \code{ratios}.
 }
 \usage{
 theoTLmoms(para,nmom=5,trim=NULL,leftrim=NULL,

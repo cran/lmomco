@@ -1,7 +1,7 @@
 "prettydist" <-
 function(x) {
   getdist <- function(x) {
-     if(x == "aep") return("Asymmetric Exponential Power")
+     if(x == "aep4") return("4-p Asymmetric Exponential Power")
      if(x == "cau") return("Cauchy")
      if(x == "exp") return("Exponential")
      if(x == "texp") return("Truncated Exponential")

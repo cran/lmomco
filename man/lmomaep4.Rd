@@ -1,8 +1,8 @@
-\name{lmomaep}
-\alias{lmomaep}
-\title{L-moments of the Asymmetric Exponential Power Distribution}
+\name{lmomaep4}
+\alias{lmomaep4}
+\title{L-moments of the 4-p Asymmetric Exponential Power Distribution}
 \description{
-This function computes the L-moments of the Asymmetric Exponential Power distribution given the parameters (\eqn{\xi}, \eqn{\alpha}, \eqn{\kappa}, and \eqn{h}) from \code{\link{paraep}}. The first four L-moments of the distribution are complex.
+This function computes the L-moments of the 4-parameter Asymmetric Exponential Power distribution given the parameters (\eqn{\xi}, \eqn{\alpha}, \eqn{\kappa}, and \eqn{h}) from \code{\link{paraep4}}. The first four L-moments of the distribution are complex.
 
 The mean \eqn{\lambda_1} is
 
@@ -70,11 +70,11 @@ and where \eqn{\Delta_1} is
 for which \eqn{I' = I_{(1-z)(1-y)/(1+(1-z)(1-y))}(1/h, 2/h)} is the cumulative distribution function of the beta distribution (\eqn{I_x(a,b)}) or \code{pbeta((1-z)(1-y)/(1+(1-z)(1-y)), shape1=1/h, shape2=2/h)} in \R.
 }
 \usage{
-lmomaep(para, paracheck=TRUE, t3t4only=FALSE)
+lmomaep4(para, paracheck=TRUE, t3t4only=FALSE)
 }
 \arguments{
   \item{para}{The parameters of the distribution.}
-  \item{paracheck}{Should the parameters be checked for validity by the \code{\link{are.paraep.valid}} function.}
+  \item{paracheck}{Should the parameters be checked for validity by the \code{\link{are.paraep4.valid}} function.}
   \item{t3t4only}{Return only the \eqn{\tau_3} and \eqn{\tau_4} for the parameters \eqn{\kappa} and \eqn{h}. The \eqn{\lambda_1} and \eqn{\lambda_2} are not explicitly used although numerical values for these two L-moments are required only to avoid computational errors. Care is made so that the \eqn{\alpha} parameter that is in numerator of \eqn{\lambda_{2,3,4}} is not used in the computation of \eqn{\tau_3} and \eqn{\tau_4}. Hence, this option permits the computation of \eqn{\tau_3} and \eqn{\tau_4} when \eqn{\alpha} is unknown or potentially known with great uncertainty.}
 }
 \value{
@@ -88,7 +88,7 @@ lmomaep(para, paracheck=TRUE, t3t4only=FALSE)
   \item{leftrim}{Left trimming level = 0}
   \item{rightrim}{Right trimming level = 0}
   \item{source}{An attribute identifying the computational
-source of the L-moments: \dQuote{lmomaep}.}
+source of the L-moments: \dQuote{lmomaep4}.}
 
    or an alternative \R list is returned if \code{t3t4only=TRUE}
 
@@ -99,11 +99,11 @@ source of the L-moments: \dQuote{lmomaep}.}
 Delicado, P., and Goria, M.N., 2008, A small sample comparison of maximum likelihood, moments and L-moments methods for the asymmetric exponential power distribution: Computational Statistics and Data Analysis, v. 52, no. 3, pp. 1661-1673.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{paraep}}, \code{\link{quaaep}}, \code{\link{cdfaep}} }
+\seealso{\code{\link{paraep4}}, \code{\link{quaaep4}}, \code{\link{cdfaep4}} }
 \examples{
 \dontrun{
-para <- vec2par(c(0, 1, 0.5, 4), type="aep")
-lmomaep(para)
+para <- vec2par(c(0, 1, 0.5, 4), type="aep4")
+lmomaep4(para)
 }
 }
 \keyword{distribution}

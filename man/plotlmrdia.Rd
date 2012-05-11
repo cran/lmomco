@@ -11,9 +11,9 @@ of this function for their own specific purposes.
 }
 \usage{
 plotlmrdia(lmr, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
-           nogev=FALSE, noglo=FALSE, nogpa=FALSE, nope3=FALSE,
-           nogno=FALSE, nocau=FALSE, noexp=FALSE, nonor=FALSE,
-           nogum=FALSE, noray=FALSE, nouni=FALSE,
+           noaep4=FALSE, nogev=FALSE, noglo=FALSE, nogpa=FALSE,
+           nope3=FALSE,  nogno=FALSE, nocau=FALSE, noexp=FALSE,
+           nonor=FALSE,  nogum=FALSE, noray=FALSE, nouni=FALSE,
            xlab="L-SKEW", ylab="L-KURTOSIS",
            autolegend=FALSE, xleg=NULL, yleg=NULL, ...)
 }
@@ -22,6 +22,7 @@ plotlmrdia(lmr, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
   \item{nopoints}{If \code{TRUE} then point distributions are not drawn.}
   \item{nolines}{If \code{TRUE} then line distributions are not drawn.}
   \item{nolimits}{If \code{TRUE} then theoretical limits of L-moments are not drawn.}
+  \item{noaep4}{If \code{TRUE} then line of Asymmetric Exponential Power distribution is not drawn.}
   \item{nogev}{If \code{TRUE} then line of Generalized Extreme Value distribution is not drawn.}
   \item{noglo}{If \code{TRUE} then line of Generalized Logistic distribution is not drawn.}
   \item{nogno}{If \code{TRUE} then line of Generalized Normal (log-Normal) distribution is not drawn.}
@@ -122,3 +123,4 @@ lines(c(T3,T3),c(-1,1),col=8, lty=2)
 lines(c(-1,1),c(T4,T4),col=8, lty=2)
 }
 \keyword{distribution}
+\keyword{L-moment ratio diagram}

@@ -4,7 +4,7 @@
 \description{
 This function converts the parameters of a distribution to the L-moment as
 represented in an L-moment object. This function dispatches to \code{lmomCCC}
-where CCC represents the three character distribution identifier: \code{aep}, \code{cau},
+where CCC represents the three character distribution identifier: \code{aep4}, \code{cau},
 \code{exp}, \code{gam}, \code{gev}, \code{gld}, \code{glo}, \code{gno}, \code{gpa}, \code{gum}, \code{kap}, \code{kur}, \code{lap}, \code{ln3}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{rice}, \code{texp}, \code{wak}, and \code{wei}. The conversion of parameters to TL-moments (\code{\link{TLmoms}}) is not supported. Specific use of functions such as \code{lmomTLgld} or \code{lmomTLgpa} for the TL-moments of the Generalized Lambda and Generalized Pareto distributions is required.
 }
 \usage{

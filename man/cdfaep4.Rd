@@ -1,9 +1,9 @@
-\name{cdfaep}
-\alias{cdfaep}
-\title{Cumulative Distribution Function of the Asymmetric Exponential Power Distribution}
+\name{cdfaep4}
+\alias{cdfaep4}
+\title{Cumulative Distribution Function of the 4-p Asymmetric Exponential Power Distribution}
 \description{
 This function computes the cumulative probability or nonexceedance probability
-of the Asymmetric Exponential Power distribution given parameters (\eqn{\xi}, \eqn{\alpha}, \eqn{\kappa}, and \eqn{h}) of the distribution computed by \code{\link{paraep}}. The cumulative distribution function of the distribution is
+of the 4-parameter Asymmetric Exponential Power distribution given parameters (\eqn{\xi}, \eqn{\alpha}, \eqn{\kappa}, and \eqn{h}) of the distribution computed by \code{\link{paraep4}}. The cumulative distribution function of the distribution is
 
 For \eqn{x < \xi},
 
@@ -21,12 +21,12 @@ where \eqn{F(x)} is the nonexceedance probability for quantile \eqn{x},
 
 }
 \usage{
-cdfaep(x, para, paracheck=TRUE)
+cdfaep4(x, para, paracheck=TRUE)
 }
 \arguments{
   \item{x}{A real value.}
-  \item{para}{The parameters from \code{\link{paraep}} or similar.}
-  \item{paracheck}{A logical controlling whether the parameters and checked for validity. Overriding of this check might be extremely important and needed for use of the distribution quantile function in the context of TL-moments with nonzero trimming.}
+  \item{para}{The parameters from \code{\link{paraep4}} or similar.}
+  \item{paracheck}{A logical controlling whether the parameters and checked for validity.}
 }
 
 \value{
@@ -41,12 +41,12 @@ moments and L-moments methods for the asymmetric exponential power distribution:
 Computational Statistics and Data Analysis, v. 52, no. 3, pp. 1661-1673.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{cdfaep}}, \code{\link{quaaep}}, \code{\link{paraep}}}
+\seealso{\code{\link{cdfaep4}}, \code{\link{quaaep4}}, \code{\link{paraep4}}}
 \examples{
 x <- -0.1
-para <- vec2par(c(0, 100, 0.5, 4), type="aep")
-F <- cdfaep(-.1,para)
-estx <- quaaep(F, para)
+para <- vec2par(c(0, 100, 0.5, 4), type="aep4")
+F <- cdfaep4(-.1,para)
+estx <- quaaep4(F, para)
 cat(c("F=",F,"  and estx=",estx,"\n"))
 
 \dontrun{
@@ -54,24 +54,24 @@ delx <- .1
 x <- seq(-20,20, by=delx);
 K <- 1;
 
-PAR <- list(para=c(0,1, K, 0.5), type="aep");
-plot(x,cdfaep(x, PAR), type="n",
+PAR <- list(para=c(0,1, K, 0.5), type="aep4");
+plot(x,cdfaep4(x, PAR), type="n",
      ylab="NONEXCEEDANCE PROBABILITY",
      ylim=c(0,1), xlim=range(x));
-lines(x,cdfaep(x,PAR), lwd=4);
-lines(quaaep(cdfaep(x,PAR),PAR), cdfaep(x,PAR), col=2)
+lines(x,cdfaep4(x,PAR), lwd=4);
+lines(quaaep4(cdfaep4(x,PAR),PAR), cdfaep4(x,PAR), col=2)
 
-PAR <- list(para=c(0,1, K, 1), type="aep");
-lines(x,cdfaep(x, PAR), lty=2, lwd=4);
-lines(quaaep(cdfaep(x,PAR),PAR), cdfaep(x,PAR), col=2)
+PAR <- list(para=c(0,1, K, 1), type="aep4");
+lines(x,cdfaep4(x, PAR), lty=2, lwd=4);
+lines(quaaep4(cdfaep4(x,PAR),PAR), cdfaep4(x,PAR), col=2)
 
-PAR <- list(para=c(0,1, K, 2), type="aep");
-lines(x,cdfaep(x, PAR), lty=3, lwd=4);
-lines(quaaep(cdfaep(x,PAR),PAR), cdfaep(x,PAR), col=2)
+PAR <- list(para=c(0,1, K, 2), type="aep4");
+lines(x,cdfaep4(x, PAR), lty=3, lwd=4);
+lines(quaaep4(cdfaep4(x,PAR),PAR), cdfaep4(x,PAR), col=2)
 
-PAR <- list(para=c(0,1, K, 4), type="aep");
-lines(x,cdfaep(x, PAR), lty=4, lwd=4);
-lines(quaaep(cdfaep(x,PAR),PAR), cdfaep(x,PAR), col=2)
+PAR <- list(para=c(0,1, K, 4), type="aep4");
+lines(x,cdfaep4(x, PAR), lty=4, lwd=4);
+lines(quaaep4(cdfaep4(x,PAR),PAR), cdfaep4(x,PAR), col=2)
 }
 
 }

@@ -1,32 +1,24 @@
 "vec2lmom" <-
-function(vec,lscale=TRUE) {
-    z <- list(L1   = NULL,
-              L2   = NULL,
-              TAU3 = NULL,
-              TAU4 = NULL,
-              TAU5 = NULL,
-              LCV  = NULL,
-              L3   = NULL,
-              L4   = NULL,
-              L5   = NULL
+function(vec, lscale=TRUE, trim=NULL, leftrim=NULL, rightrim=NULL, checklmom=TRUE) {
+    z <- list(lambdas=vector(mode="numeric", length=length(vec)),
+              ratios=vector(mode="numeric", length=length(vec)),
+              trim=trim,
+              leftrim=leftrim,
+              rightrim=rightrim,
+              source="vec2lmom"
              )
     n <- length(vec)
-    z$L1 <- vec[1]
-    if(lscale == TRUE) {
-      if(n > 1) { z$L2   <- vec[2]; z$LCV  <- z$L2/z$L1   }
-      if(n > 2) { z$TAU3 <- vec[3]; z$L3   <- z$TAU3*z$L2 }
-      if(n > 3) { z$TAU4 <- vec[4]; z$L4   <- z$TAU4*z$L2 }
-      if(n > 4) { z$TAU5 <- vec[5]; z$L5   <- z$TAU5*z$L2 }
-    }
-    else {
-      if(n > 1) { z$LCV  <- vec[2]; z$L2   <- z$LCV*z$L1  }
-      if(n > 2) { z$TAU3 <- vec[3]; z$L3   <- z$TAU3*z$L2 }
-      if(n > 3) { z$TAU4 <- vec[4]; z$L4   <- z$TAU4*z$L2 }
-      if(n > 4) { z$TAU5 <- vec[5]; z$L5   <- z$TAU5*z$L2 }
-    }
+    z$lambdas[1]   <- vec[1]   # the mean
+    z$ratios[3:n]  <- vec[3:n] # ratios mandated
+    z$lambdas[2]   <- ifelse(lscale == TRUE, vec[2], vec[2]*z$lambdas[1])
+    z$lambdas[3:n] <- z$ratios[3:n]*z$lambdas[2]
+    z$ratios[1]    <- NA
+    z$ratios[2]    <- z$lambdas[2]/z$lambdas[1]
 
-    if(! are.lmom.valid(z)) {
-      warning("L-moments are invalid, but still returning the values")
+    if(checklmom) {
+      if(! are.lmom.valid(z)) {
+        warning("L-moments are invalid, but still returning the values")
+      }
     }
-    return(z) 
+    return(z)
 }

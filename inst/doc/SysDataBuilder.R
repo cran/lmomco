@@ -150,6 +150,58 @@ assign("RiceTable.maxLCV", max(RiceNomoEst$LCV), .lmomcohash)
 # END
 ################# RICE DISTRIBUTION ######################
 
+save(.lmomcohash, file="sysdata.rda");
+
+
+################# AEP DISTRIBUTION #######################
+load(file.choose()) # go find the sysdata.rda
+
+library(lmomco);
+
+L1 <- L2 <- T3 <- T4 <- T5 <- vector(mode="numeric");
+L1t <- L2t <- T3t <- T4t <- T5t <- L1;
+Ur <- Ar <- Kr <- Hr <- L1;
+
+i <- 0; step <- 0.05;
+the.Kseq <- c(seq(-3,   0,   by=step),
+              seq(step, 3.0, by=step));
+the.Hseq <- c(seq(-3,   0,   by=step),
+              seq(step, 3.0, by=step));
+for(K in the.Kseq) { # outer loop on kappa parameter
+   for(H in the.Hseq) { # inner loop on h parameter
+      theK <- exp(K); theH <- exp(H);
+      i <- i + 1
+      cat("# K=",round(theK, digits=4),"  H=",round(theH, digits=4), "\n");
+      PAR <- vec2par(c(0,1,theK,theH), type="aep4");
+
+      lmr1 <- lmomaep4(PAR); # Delicado and Goria (2008)
+
+      # numerical integration
+      lmr2 <- theoLmoms(PAR, minF=1e-6, maxF=1-1e-6);
+
+      if(! are.lmom.valid(lmr1)) next;
+      if(! are.lmom.valid(lmr2)) next;
+
+      T3[i]  <- lmr1$ratios[3];
+      T4[i]  <- lmr1$ratios[4];
+      T3t[i] <- lmr2$ratios[3];
+      T4t[i] <- lmr2$ratios[4];
+      T5t[i] <- lmr2$ratios[5];
+      Kr[i]   <-    PAR$para[3];
+      Hr[i]   <-    PAR$para[4];
+  }
+}
+
+AEPD_kh2lmrTheo <- data.frame(K=Kr, H=Hr, T3=T3,  T4=T4,
+                              T3t=T3t, T4t=T4t, T5t=T5t);
+
+write.table(AEPD_kh2lmrTheo, file="AEPD_kh2lmrTheo.txt",
+            quote=FALSE, row.names=FALSE);
+
+save(AEPD_kh2lmrTheo, file="AEPD_kh2lmrTheo.RData");
+
+assign("AEPkh2lmrTable", AEPD_kh2lmrTheo, .lmomcohash)
+################# AEP DISTRIBUTION #######################
 
 save(.lmomcohash, file="sysdata.rda");
 

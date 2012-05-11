@@ -14,6 +14,7 @@ lmrdia()
 
   \item{limits}{The theoretical limits of \eqn{\tau_3} and \eqn{\tau_4}--below \eqn{\tau_4} are theoretically
   not possible.}
+  \item{aep4}{\eqn{\tau_3} and \eqn{\tau_4} lower limits of the Asymmetric Exponential Power distribution.}
   \item{cau}{\eqn{\tau_3} and \eqn{\tau_4} (limiting conditions) of the Cauchy distribution.}
   \item{exp}{\eqn{\tau_3} and \eqn{\tau_4} of the Exponential distribution.}
   \item{gev}{\eqn{\tau_3} and \eqn{\tau_4} of the Generalized Extreme Value distribution.}
@@ -47,3 +48,4 @@ approach based on L-moments: Cambridge University Press.
 lratios <- lmrdia()
 }
 \keyword{distribution}
+\keyword{L-moment ratio diagram}

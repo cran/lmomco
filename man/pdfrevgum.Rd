@@ -57,6 +57,8 @@ rg.pars <- parrevgum(btypelmoms,z$zeta)
 str(rg.pars)
 # Hosking reports xi=0.1636 and alpha=0.9252 for the sample
 # My version of R reports xi = 0.1635 and alpha = 0.9254
+# Now one can continue one with a plotting example.
+\dontrun{
 F  <- nonexceeds()
 PP <- pp(D) # plotting positions of the data
 D  <- sort(D)
@@ -66,5 +68,6 @@ lines(D,cdfrevgum(D,rg.pars))
 F <- seq(0.01,0.99,by=.01)
 x <- quarevgum(F,rg.pars)
 plot(x,pdfrevgum(x,rg.pars),type='l')
+}
 }
 \keyword{distribution}

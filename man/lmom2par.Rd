@@ -3,10 +3,10 @@
 \title{Convert L-moments to the the Parameters of a Distribution}
 \description{
 This function converts the L-moments of the data to the parameters of a
-distribution. The type of distribution is specified in the 
-argument list: \code{exp}, \code{gam}, \code{gev}, \code{gld}, \code{glo}, \code{gno},
+distribution. The type of distribution is specified in the
+argument list: \code{aep4}, \code{exp}, \code{gam}, \code{gev}, \code{gld}, \code{glo}, \code{gno},
 \code{gpa}, \code{gum}, \code{kap}, \code{kur}, \code{ln3}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{wak}, or \code{wei}. There
-is no Cauchy distribution support by the \code{lmom2par} function because Cauchy uses TL-moments and not the ordinary L-moments. For Cauchy functions such as \code{\link{parcau}} and \code{\link{lmomcau}} should be used in accordance with their documentation. 
+is no Cauchy distribution support by the \code{lmom2par} function because Cauchy uses TL-moments and not the ordinary L-moments. For Cauchy functions such as \code{\link{parcau}} and \code{\link{lmomcau}} should be used in accordance with their documentation.
 }
 \usage{
 lmom2par(lmom, type, ...)

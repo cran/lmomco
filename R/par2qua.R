@@ -1,8 +1,8 @@
 "par2qua" <-
 function(f,para,...) {
     type <- para$type
-    if(type == 'aep') {
-      return(quaaep(f,para,...))
+    if(type == 'aep4') {
+      return(quaaep4(f,para,...))
     }
     else if(type == 'cau') {
       return(quacau(f,para,...))

@@ -32,6 +32,9 @@ genci(para, n, F=NULL, ci=0.90, edist='nor', nsim=1000,
   \item{parent}{The paraments of the parent distribution if \code{expand=TRUE}.}
   \item{edist}{The type of error distribution used to model the confidence interval if the argument \code{expand=TRUE} is set.}
   \item{elmoms}{The L-moment of the distribution of quantiles for the corresponding \eqn{F} if the argument  \code{expand=TRUE} is set.}
+  \item{epara}{The parameter list of the error distribution fit to the \code{elmoms} if the argument \code{expand=TRUE} is set.}
+  \item{ifail}{A failure integer.}
+  \item{ifailtext}{Text message associated with \code{ifail}.}
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{lmoms}}, \code{lmom2par}, \code{\link{qua2ci}}, \code{\link{gen.freq.curves}}
@@ -41,27 +44,31 @@ genci(para, n, F=NULL, ci=0.90, edist='nor', nsim=1000,
   MEAN  <- 0    # mean of zero
   SIGMA <- 100  # standard deviation of 100
   PAR   <- vec2par(c(MEAN,SIGMA),type='nor') # make parameter object
-  F     <- nonexceeds() # list of useful nonexceedance probabilities
+  F     <- c(0.5, 0.8, 0.9, 0.96, 0.98, 0.99) # nonexceed probabilities
   # nsim is small for speed of example not accuracy.
   CI    <- genci(PAR,n=10,F=F,nsim=20)
   plot(CI$nonexceed_prob,CI$true,type='l',lwd=2)
   lines(CI$nonexceed_prob,CI$lower,col=2)
   lines(CI$nonexceed_prob,CI$upper,col=3)
 
+\dontrun{
+  pdf("twoCIplots.pdf")
   # The qnorm call has been added to produce "normal probability"
   # paper on the horizonal axis. The parent is heavy-tailed.
-  GEV <- vec2par(c(3000,1500,-.3),type='gev') # a GEV distribution
-  # use 15 simulations of size 20 samples
-  # The generalized normal distribution is a general case of lognormal---
-  # for illustration, suppose the parent GEV is modeling phenomena that
-  # are strictly positive. So to prevent negative lower limits, use the
-  # lognormal distribution as the error model.
-  CI  <- genci(GEV,n=20,nsim=15,edist='gno')
-  ymin <- log10(min(CI$lower[CI$lower > 0])) # > 0 to protect log10() call
-  ymax <- log10(max(CI$upper[CI$upper > 0])) #    .. ditto ..
+  GEV <- vec2par(c(10000,1500,-.3),type='gev') # a GEV distribution
+  CI  <- genci(GEV,n=20,nsim=200,edist='gno')
+  ymin <- log10(min(CI$lower[! is.na(CI$lower)]))
+  ymax <- log10(max(CI$upper[! is.na(CI$upper)]))
   plot( qnorm(CI$nonexceed_prob),log10(CI$true),type='l',
                  ylim=c(ymin,ymax),lwd=2)
   lines(qnorm(CI$nonexceed_prob),log10(CI$lower),col=2)
   lines(qnorm(CI$nonexceed_prob),log10(CI$upper),col=3)
+  # another error distribution model
+  CI  <- genci(GEV,n=20,nsim=200,edist='aep4')
+  lines(qnorm(CI$nonexceed_prob),log10(CI$lower),col=2, lty=2)
+  lines(qnorm(CI$nonexceed_prob),log10(CI$upper),col=3, lty=2)
+  dev.off()
+}
+
 }
 \keyword{distribution}

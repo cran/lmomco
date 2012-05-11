@@ -1,6 +1,6 @@
-"are.paraep.valid" <-
+"are.paraep4.valid" <-
 function(para,nowarn=FALSE) {
-    if(! is.aep(para)) return(FALSE)
+    if(! is.aep4(para)) return(FALSE)
 
     A <- para$para[2]
     K <- para$para[3]

@@ -3,6 +3,7 @@ function(lmr,
       nopoints=FALSE,
       nolines=FALSE,
       nolimits=FALSE,
+      noaep4=FALSE,
       nogev=FALSE,
       noglo=FALSE,
       nogpa=FALSE,
@@ -41,6 +42,16 @@ function(lmr,
      Ecex[entryi] <- 1
    }
    if(nolines == FALSE) {
+     if(noaep4 == FALSE) {
+        lines(lmr$aep4, col=2, lty=3)
+        entryi <- entryi + 1
+        entries[entryi] <- "AEP4"
+        Elwd[entryi] <- 1
+        Ecol[entryi] <- 2
+        Epch[entryi] <- NA
+        Elty[entryi] <- 4
+        Ecex[entryi] <- 1
+     }
      if(nogev == FALSE) {
         lines(lmr$gev, col=2,lty=2)
         entryi <- entryi + 1

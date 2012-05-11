@@ -1,6 +1,9 @@
 "lmom2par" <-
 function(lmom,type,...) {
-    if(type == 'exp') {
+    if(type == 'aep4') {
+      return(paraep4(lmom, ...))
+    }
+    else if(type == 'exp') {
       return(parexp(lmom, ...))
     }
     if(type == 'texp') {

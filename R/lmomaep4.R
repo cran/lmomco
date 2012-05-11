@@ -1,7 +1,7 @@
-"lmomaep" <-
+"lmomaep4" <-
 function(para, paracheck=TRUE, t3t4only=FALSE) {
 
-    if(paracheck && ! are.paraep.valid(para)) {
+    if(paracheck && ! are.paraep4.valid(para)) {
        warning("Parameters are invalid")
        return()
     }
@@ -14,7 +14,7 @@ function(para, paracheck=TRUE, t3t4only=FALSE) {
               trim     = 0,
               leftrim  = 0,
               rightrim = 0,
-              source = "lmomaep"
+              source = "lmomaep4"
              )
 
 

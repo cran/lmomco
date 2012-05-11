@@ -2,10 +2,10 @@ Package: lmomco
 Type: Package
 Title: L-moments, Censored L-moments, Trimmed L-moments, L-comoments,
         and Many Distributions
-Version: 1.5.1
+Version: 1.6.1
 Depends: R (>= 2.10.0), utils
 Suggests: copBasic, Lmoments
-Date: 2012-04-15
+Date: 2012-05-11
 Author: William H. Asquith
 Description: The package implements the statistical theory of L-moments
         in R including L-moment estimation, probability-weighted moment
@@ -56,5 +56,5 @@ Repository: CRAN
 License: GPL
 URL:
         http://www.amazon.com/Distributional-Statistics-Environment-Statistical-Computing/dp/1463508417/
-Packaged: 2012-04-16 18:33:31 UTC; wasquith
-Date/Publication: 2012-04-16 19:59:37
+Packaged: 2012-05-11 14:04:52 UTC; wasquith
+Date/Publication: 2012-05-11 15:26:01

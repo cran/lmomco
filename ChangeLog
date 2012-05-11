@@ -672,14 +672,14 @@ Version 1.4.4--April 30, 2012
 Version 1.4.5--April 30, 2012
 1. inst/doc/Introduction.Rd permanently removed from package and from
      versioning control system. The *.Rd was interfering with latest
-     R versions in the R CMD check, which I could not identify with 
+     R versions in the R CMD check, which I could not identify with
      my installed R versions.
 2. Major revision to inst/doc/references.txt. This file is now a dump
      of references used in my book. I figure that these might be useful
      to someone. The book is available royalty free:
 
      Asquith, W.H., 2011, Distributional analysis with L-moment statistics
-       using the R environment for statistical computing: First edition, 
+       using the R environment for statistical computing: First edition,
        CreateSpace, ISBN 978-1463508418, 344 p. http://www.amazon.com/
        Distributional-Statistics-Environment-Statistical-Computing/dp/
        1463508417
@@ -687,9 +687,9 @@ Version 1.4.5--April 30, 2012
 
 Version 1.5.1--April 15, 2012
 1. Documentation tweaks
-2. Added the Asymmetric Exponential Power distribution ("aep") with 
+2. Added the Asymmetric Exponential Power distribution ("aep") with
      direct use of pgamma() and qgamma() functions of R for CDF and
-     QDF implementation. The parameter estimation routines look ok, 
+     QDF implementation. The parameter estimation routines look ok,
      but should be considered experimental. The author needs to work
      on a table of K,H ---> T3,T4 mappings to add the optimizers in
      the return direction.
@@ -697,14 +697,52 @@ Version 1.5.1--April 15, 2012
      so that one can try to get past divergent integrals should they
      occur using the defaults. These were added as the far-far tails
      of the aep distribution do not behave well. Testing against the
-     aep with minF=0.00001 and maxF=0.99999 seems to nearly hit the 
+     aep with minF=0.00001 and maxF=0.99999 seems to nearly hit the
      true L-moments from lmomaep().
 4. Added the "#" sign in front of Package lmomco (1.5.1) loaded when
-     the library is loaded. This is done so that users running a 
-     standard out redirection are able to embedded "#" as comment 
+     the library is loaded. This is done so that users running a
+     standard out redirection are able to embedded "#" as comment
      lines in the output and thus ease the burden in post processing
      by skipping all lines beginning with the prompt or the "#" sign.
 5. Correction to clearforkporosity.Rd.
+
+
+Version 1.6.1--May 10, 2012
+1.  Enhanced error trapping on integration failures in theoTLmoms().
+      The function now abandons operation should any of the integrations
+      for the rth L-moment fail for reasons such as divergent integral or
+      round off problems. The function returns NAs for all L-moments.
+2.  Added the tabulated lookup of initial guesses for K and H of AEP
+      distribution in the .lmomcohash in sysdata.rda.
+3.  BUGFIX: lmom2par() did not route the AEP correctly.
+4.  Renamed AEP to AEP4 throughout code to make syntactic room for a
+      5-parameter AEP should it ever be implemented.
+5.  Enhancement: paraep() now returns NA for the parameters should the
+      sample L-kurtosis violate the lower bounds of the L-skew and
+      L-kurtosis relation as defined by a polynomial approximation.
+      This polynomial has not previously been published.
+6.  File renaming. All *aep* files renamed to *aep4* to make eventual
+      room for 5-parameter Asymmetric Exponential Power distribution.
+7.  Overhaul of vec2lmom() and vec2TLmom() to support arbitrary lengths
+      of input L-moments or L-moment ratios (or TL versions) in the
+      input vector. In fact, vec2TLmom() now dispatches to vec2lmom(),
+      which has become more generalized. lmorph() required some
+      adjustments as well.
+8.  Overhauls in step 7 required removal of a stop() in vec2TLmom(),
+      which likely should note have been in there anyway.
+9.  Added the PDF of the Weibull in pdfwei.Rd.
+10. Documentation tweaks to pdfgld.Rd and pdfrevgum.Rd including
+      addition or changes to the dontrun{} directives.
+11. Enhanced genci.R/Rd to return more details about the fitted 
+      error model as well as returning NA for the lower and upper 
+      limits if failure in fitting of the error distribution occurs.
+      Documentation tweaks to primarily enhance the example including
+      the GNO and now the new AEP4 distributions and wrapping all in
+      dontrun{} directive.
+12. Enhanced qua2ci() to return NA for failure on the upper and lower
+      limits and trapped a return of NA for the parameters from the
+      fitted error distribution.
+
 
 
 TODO: Complete documentation for pwmLC.Rd.

@@ -9,8 +9,8 @@ function(para,...) {
       return()
     }
     type <- para$type
-    if(type == 'aep') {
-      return(are.paraep.valid(para,...))
+    if(type == 'aep4') {
+      return(are.paraep4.valid(para,...))
     } else if(type == 'cau') {
       return(are.parcau.valid(para,...))
     }

@@ -14,7 +14,7 @@ lmorph(lmom)
 A two different R \code{list}s (L-moment objects), which are the opposite of the argument type---see the documentation for \code{\link{lmom.ub}} and \code{\link{lmoms}}.
 }
 \note{
-If any of the trimming characteristics of the second type of L-moment object (\code{trim}, \code{leftrim}, or \code{rightrim}) have a greater than zero value, then conversion to the L-moment object with named values will not be performed. A message will be provided that the conversion was not performed is provided with a \code{stop()}. To clarify, the L-moment object as returned by \code{lmom.ub} is not compatible with the concept of trimmed L-moments.
+If any of the trimming characteristics of the second type of L-moment object (\code{trim}, \code{leftrim}, or \code{rightrim}) have a greater than zero value, then conversion to the L-moment object with named values will not be performed. A message will be provided that the conversion was not performed.
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{lmom.ub}}, \code{\link{lmoms}}, \code{\link{TLmoms}}}

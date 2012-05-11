@@ -56,17 +56,25 @@ function(f,para,n,ci=0.90,edist='nor',nsim=1000,
   if(! are.lmom.valid(ciLMR)) {
     ifail <- 1
     ifailtext <- "L-moments are invalid, poorly distributed simulated values, sample size too small for the complexity of the parent distribution"
-    ciPAR <- 0
-    upper <- 0
-    lower <- 0
+    ciPAR <- NA
+    upper <- NA
+    lower <- NA
     if(verbose == TRUE) {
        cat(c("qua2ci:",ifailtext,"\n"),sep="")
     }
   }
   else {
     ciPAR <- lmom2par(ciLMR,type=edist)
-    upper <- par2qua(1-(1-ci)/2,ciPAR)
-    lower <- par2qua((1-ci)/2,ciPAR)
+    if(is.na(ciPAR$para[1])) {
+      ifail <- 2
+      ifailtext <- "L-moments are seemingly incompatable with choosen error distribution"
+      ciPAR <- NA
+      upper <- NA
+      lower <- NA
+    } else {
+      upper <- par2qua(1-(1-ci)/2,ciPAR)
+      lower <- par2qua((1-ci)/2,ciPAR)
+    }
     if(verbose == TRUE) {
       pci <- 100*ci
       cat(c(pci,"-percent Confidence Interval\n"),sep="")

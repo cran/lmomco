@@ -43,6 +43,9 @@ function(para,nmom=5,trim=NULL,leftrim=NULL,rightrim=NULL,verbose=FALSE, minF=0,
     return()
   }
 
+  z <- list(lambdas = rep(NA, nmom), ratios = rep(NA, nmom), trim=trim,
+            leftrim=leftrim, rightrim=rightrim, source="theoTLmoms")
+
   L <- vector(mode="numeric",length=nmom)
   R <- vector(mode="numeric",length=nmom)
   for(r in seq(1,nmom)) { # for each  order of moment
@@ -56,7 +59,12 @@ function(para,nmom=5,trim=NULL,leftrim=NULL,rightrim=NULL,verbose=FALSE, minF=0,
         par2qua(F,para,paracheck=FALSE)*F^(r+t1-k-1)*(1-F)^(t2+k)
       }
       # Perform the numerical integration
-      int <- integrate(XofF,minF,maxF)
+      int <- NULL
+      try( int <- integrate(XofF,minF,maxF) )
+      if(is.null(int)) {
+         warning("some type of error detected in integration on the r=",r,"L-moment, abandoning and returning all NA")
+         return(z)
+      }
       # Sum up
       sum <- sum + tmp*int$value
       if(verbose == TRUE) { # Handy messages

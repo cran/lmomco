@@ -29,8 +29,10 @@ Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions---The 
 gld <- vec2par(c(0.0305,1/1.3673,0.004581,0.01020),type='gld')
 quagld(0.25,gld) # which equals about 0.028013 as reported by K&D
 pdfgld(0.028013,gld) # which equals about 43.04 as reported by K&D
+\dontrun{
 F <- seq(.001,.999,by=.001)
 x <- quagld(F,gld)
-#plot(x,pdfgld(x,gld),type='l',xlim=c(0,.1))
+plot(x, pdfgld(x,gld), type='l', xlim=c(0,.1))
+}
 }
 \keyword{distribution}

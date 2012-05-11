@@ -1,10 +1,10 @@
-\name{pdfaep}
-\alias{pdfaep}
-\title{Probability Density Function of the Asymmetric Exponential Power Distribution}
+\name{pdfaep4}
+\alias{pdfaep4}
+\title{Probability Density Function of the 4-p Asymmetric Exponential Power Distribution}
 \description{
 This function computes the probability density
-of the Asymmetric Exponential Power distribution given parameters (\eqn{\xi},
-\eqn{\alpha}, \eqn{\kappa}, and \eqn{h}) of the distribution computed by \code{\link{paraep}}. The
+of the 4-parameter Asymmetric Exponential Power distribution given parameters (\eqn{\xi},
+\eqn{\alpha}, \eqn{\kappa}, and \eqn{h}) of the distribution computed by \code{\link{paraep4}}. The
 probability density function of the distribution is
 
 \deqn{f(x) = \frac{\kappa\,h}{\alpha(1+\kappa^2)\,\Gamma(1/h)}
@@ -15,12 +15,12 @@ where \eqn{f(x)} is the probability density for quantile \eqn{x},
 \eqn{\kappa} is a shape parameter, and \eqn{h} is another shape parameter. The range of the distribution is \eqn{-\infty < x < \infty}.
 }
 \usage{
-pdfaep(x, para, paracheck=TRUE)
+pdfaep4(x, para, paracheck=TRUE)
 }
 \arguments{
   \item{x}{A real value.}
-  \item{para}{The parameters from \code{\link{paraep}} or similar.}
-  \item{paracheck}{A logical controlling whether the parameters and checked for validity. Overriding of this check might be extremely important and needed for use of the distribution quantile function in the context of TL-moments with nonzero trimming.}
+  \item{para}{The parameters from \code{\link{paraep4}} or similar.}
+  \item{paracheck}{A logical controlling whether the parameters and checked for validity.}
 }
 
 \value{
@@ -34,31 +34,31 @@ moments and L-moments methods for the asymmetric exponential power distribution:
 Computational Statistics and Data Analysis, v. 52, no. 3, pp. 1661-1673.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{cdfaep}}, \code{\link{quaaep}}, \code{\link{paraep}}}
+\seealso{\code{\link{cdfaep4}}, \code{\link{quaaep4}}, \code{\link{paraep4}}}
 \examples{
-aep <- vec2par(c(1000,15000,0.5,0.4), type='aep');
+aep4 <- vec2par(c(1000,15000,0.5,0.4), type='aep4');
 F <- nonexceeds();
-x <- quaaep(F,aep);
-check.pdf(pdfaep,aep,plot=TRUE);
+x <- quaaep4(F,aep4);
+check.pdf(pdfaep4,aep4,plot=TRUE);
 
 \dontrun{
 delx <- .01;
 x <- seq(-10,10, by=delx);
 K <- 3;
-PAR <- list(para=c(0,1, K, 0.5), type="aep");
-plot(x,pdfaep(x, PAR), type="n",
+PAR <- list(para=c(0,1, K, 0.5), type="aep4");
+plot(x,pdfaep4(x, PAR), type="n",
      ylab="PROBABILITY DENSITY",
      ylim=c(0,0.6), xlim=range(x));
-lines(x,pdfaep(x,PAR), lwd=2);
+lines(x,pdfaep4(x,PAR), lwd=2);
 
-PAR <- list(para=c(0,1, K, 1), type="aep");
-lines(x,pdfaep(x, PAR), lty=2, lwd=2);
+PAR <- list(para=c(0,1, K, 1), type="aep4");
+lines(x,pdfaep4(x, PAR), lty=2, lwd=2);
 
-PAR <- list(para=c(0,1, K, 2), type="aep");
-lines(x,pdfaep(x, PAR), lty=3, lwd=2);
+PAR <- list(para=c(0,1, K, 2), type="aep4");
+lines(x,pdfaep4(x, PAR), lty=3, lwd=2);
 
-PAR <- list(para=c(0,1, K, 4), type="aep");
-lines(x,pdfaep(x, PAR), lty=4, lwd=2);
+PAR <- list(para=c(0,1, K, 4), type="aep4");
+lines(x,pdfaep4(x, PAR), lty=4, lwd=2);
 }
 
 }
