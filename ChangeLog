@@ -744,6 +744,33 @@ Version 1.6.1--May 10, 2012
       fitted error distribution.
 
 
+Version 1.6.2--July 16, 2012
+1. Included strategic downturn{} directives in the examples of
+      lmomgld.Rd, paraep4.Rd, parTLgld.Rd, pargld.Rd, and qua.ostat.Rd,
+      which resulted in a 60-percent reduction in elapsed time of 
+      R CMD check --timings on one of my platforms. (Trying to help out
+      the CRAN check timings facility.)
+2. Revisions to cdfgum.Rd, cdfrevgum.Rd, pdfgum.Rd, and pdfrevgum.Rd to
+      make equations more consistent with code as well as my book. The
+      book had some errors (see inst/ERRATA*.txt of this package).
+3. Code cleaning in pdfgum.R and pdfrevgum.R for more consistency with
+      documentation---note a bug fix.
+4. Added return of the product moments for the distribution of the
+      quantile for qua2ci() so that a simple squaring of the
+      returned standard deviation could return the variation of the 
+      prediction.
+5. Added passage of . . . (three dots) argument to plot() within
+      gen.freq.curves().
+6. Added better handling of the estimated parameters for the error
+      distribution in genci(), which now places them as individual
+      lists within an environment that is returned.
+7. Code cleaning on genci.R and documentation clarification in genci.Rd.
+8. Enhancement to gen.freq.curves() so that, if one has a priori estimates
+      of the confidence limits, one can computed discrete counts of
+      simulated frequency curves (at a given nonexceedance probability)
+      inside and outside the estimated limits. This feature could be used
+      in the evaluation of the choose error distribution (edist) in the
+      function genci().
 
 TODO: Complete documentation for pwmLC.Rd.
 

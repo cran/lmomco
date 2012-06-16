@@ -11,7 +11,7 @@ To estimate the confidence interval, the L-moments of the vector simulated quant
 Finally, it is often useful to have vectors of lower and upper limits for confidence intervals for a vector of \eqn{F} values. The function \code{\link{genci}} does just that and uses the \code{qua2ci} function as the computational engine.
 }
 \usage{
-qua2ci(f, para, n, ci=0.90, edist='nor', nsim=1000, 
+qua2ci(f, para, n, ci=0.90, edist='nor', nsim=1000,
 verbose=FALSE, showpar=FALSE, maxlogdiff=6)
 }
 \arguments{
@@ -31,7 +31,8 @@ verbose=FALSE, showpar=FALSE, maxlogdiff=6)
   \item{lower}{The lower value of the confidence interval having nonexceedance probability equal to (1-\code{ci})/2.}
   \item{true}{The value returned by \code{par2qua(f,para)}.}
   \item{upper}{The upper  value of the confidence interval having nonexceedance probability equal to 1-(1-\code{ci})/2.}
-  \item{elmoms}{The L-moments of the distribution of simulated of quantiles.}
+  \item{elmoms}{The L-moments from \code{\link{lmoms}} of the distribution of simulated of quantiles.}
+  \item{epmoms}{The product moments from \code{\link{pmoms}} of the distribution of simulated quantiles.}
   \item{epara}{The parameters of the error distribution fit using the \code{elmoms}.}
   \item{ifail}{A diagnostic value. A value of zero means that successful exit was made.}
   \item{ifailtext}{A descriptive message related to the ifail value.}
@@ -58,7 +59,7 @@ verbose=FALSE, showpar=FALSE, maxlogdiff=6)
   lmr <- lmoms(D)    # compute the lmoments of the data
   WEI <- parwei(lmr) # estimate parameters of the weibull
   CI  <- qua2ci(0.75,WEI,20,nsim=20,ci=0.95)
-  # CI contains the estimate 95-percent 
+  # CI contains the estimate 95-percent
   # confidence interval for the 75th-percent of the parent
   # weibull distribution for size 20 samples from the parent
 }

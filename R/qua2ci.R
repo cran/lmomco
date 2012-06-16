@@ -27,7 +27,7 @@ function(f,para,n,ci=0.90,edist='nor',nsim=1000,
     sPAR <- lmom2par(sLMR,type=type)
     if(showpar == TRUE) print(sPAR)
     if(is.null(sPAR) || ( length(sPAR$ifail) == 1
-                                   && 
+                                   &&
                             sPAR$ifail  != 0 ) ) {
       # The ifail is suitable for kappa (kap) and wakeby (wak)
       # distributions.
@@ -41,7 +41,7 @@ function(f,para,n,ci=0.90,edist='nor',nsim=1000,
       if(verbose == TRUE) {
         cat("qua2ci: Large difference between simulated quantile and the true seen. Skipping this simulation run.\n")
       }
-      next 
+      next
     }
     count     <- count + 1
     sQ[count] <- tmpQ
@@ -53,6 +53,7 @@ function(f,para,n,ci=0.90,edist='nor',nsim=1000,
     cat("\n")
   }
   ciLMR <- lmoms(sQ)
+  ciPMR <- pmoms(sQ)
   if(! are.lmom.valid(ciLMR)) {
     ifail <- 1
     ifailtext <- "L-moments are invalid, poorly distributed simulated values, sample size too small for the complexity of the parent distribution"
@@ -83,6 +84,6 @@ function(f,para,n,ci=0.90,edist='nor',nsim=1000,
     }
   }
   return(list(lower=lower, true=Xtrue, upper=upper,
-              elmoms=ciLMR, epara=ciPAR,
+              elmoms=ciLMR, epmoms=ciPMR, epara=ciPAR,
               ifail=ifail, ifailtext=ifailtext))
 }

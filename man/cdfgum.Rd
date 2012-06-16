@@ -6,7 +6,11 @@ This function computes the cumulative probability or nonexceedance probability
 of the Gumbel distribution given parameters (\eqn{\xi} and \eqn{\alpha}) of the distribution computed
 by \code{\link{pargum}}. The cumulative distribution function of the distribution is
 
-\deqn{F(x) = e^{-e^{\left(-\frac{(x-\xi)}{\alpha}\right)}} \mbox{,}}
+\deqn{F(x) = e^{-e^{y}} \mbox{,}}
+
+where
+
+\deqn{y = -\frac{x - \xi}{\alpha} \mbox{,}}
 
 where \eqn{F(x)} is the nonexceedance probability for quantile \eqn{x},
 \eqn{\xi} is a location parameter, and \eqn{\alpha} is a scale parameter.

@@ -1,13 +1,13 @@
 "pdfrevgum" <-
-function(x,para) { 
+function(x,para) {
    if(! are.parrevgum.valid(para)) return()
-   U <- para$para[1] 
-   A <- para$para[2] 
-
+   U <- para$para[1]
+   A <- para$para[2]
+   IA <- 1/A
    f <- vector(mode="numeric")
    for(i in seq(1,length(x))) {
-     Y <- (x[i]-U)/A 
-     f[i] = A^(-1)*(-exp(Y))*(-exp(-exp(Y))) 
+     Y <- (x[i]-U)*IA
+     f[i] = IA * exp(Y) * ( exp( -exp(Y) ) )
    }
    return(f)
 }

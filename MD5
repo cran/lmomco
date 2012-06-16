@@ -1,5 +1,5 @@
-5ad8c23f7505b1fab6495cb437dea3e4 *ChangeLog
-5928c22c99a739070196d873874b17d3 *DESCRIPTION
+ca40132b99931199989e34f84bf4aac5 *ChangeLog
+ba9446e9f8b3ceb1b88d816f53b87c7f *DESCRIPTION
 ea907a7ac3016588de92faf66a650bbb *NAMESPACE
 91c377e3d90235733e3fae0ceaa02130 *R/Apwm2BpwmRC.R
 0bea58b114f9545d4e85853f4a1ba91e *R/Bpwm2ApwmRC.R
@@ -45,7 +45,7 @@ d01e188e0bcfdfb7f9aab8707e3b60f8 *R/cdfgev.R
 af707b97e1bf352359f14f8ba1c97411 *R/cdfglo.R
 7f8f8480e47302584c60c7f0a83b8d68 *R/cdfgno.R
 dce0ca4307fa79fda319563ffc9c5c8c *R/cdfgpa.R
-dddc975b9d72c71aa10f11821548671e *R/cdfgum.R
+a18f4a576a8299309159e736fa2348d4 *R/cdfgum.R
 d2cea592922fc3358180682526ddb18d *R/cdfkap.R
 0d431420f17bd3dfd4f2c8453aafca53 *R/cdfkur.R
 350d4ced5291bf1017352690bed114c4 *R/cdflap.R
@@ -65,8 +65,8 @@ b2d59aa4b18f7d30a323d8f62d5c183c *R/dlmomco.R
 d5d4776b21ccad4f24895f1e14a47cf1 *R/expect.max.ostat.R
 211f0811177cc71fc037530c15b4db46 *R/fliplmoms.R
 f0662144fd9e2f33f257a3c9abd38abc *R/freq.curve.all.R
-c4272740f47ffee83a7e70561379aedf *R/gen.freq.curves.R
-e32c3177744fcacbdb9f500ab01c2383 *R/genci.R
+bc55ab36f6802f1aa3d4bd0d2d1628de *R/gen.freq.curves.R
+81b74bacea88e0baa2dc600d2a1220fe *R/genci.R
 8ef1d45f798c430823d9da0bd2cf0117 *R/gini.mean.diff.R
 8f5f93c4b116dd3929711c5ad9058287 *R/harmonic.mean.R
 a28b10e866947a447094cc900b56401f *R/hlmomco.R
@@ -179,7 +179,7 @@ cf34d48e6a181ecbc60bb7e2d009771b *R/pdfkur.R
 74cd2d67bbe5984e8f28cecd5c1f904d *R/pdfnor.R
 69fd7da351adf7c24ee7d8f93ede67c6 *R/pdfpe3.R
 58d92d611e249a9c3f1e2213e7696ddf *R/pdfray.R
-d52c79fdbb2bfc614ca3e46c90d6b389 *R/pdfrevgum.R
+3e8448e4d7220de34b929e2a986f8061 *R/pdfrevgum.R
 e57c466770fc81000a46e738aa9d91da *R/pdfrice.R
 2458e831156ee14e367518a02649be9c *R/pdftexp.R
 954745524d7a4f5a25c2485bfa251abb *R/pdfwak.R
@@ -200,7 +200,7 @@ b19afe113513d6d8f354997cc84a4327 *R/pwm2vec.R
 609a1946a502a172fb2a6ea717fa3b29 *R/pwmRC.R
 692aa1719657f216f7c3f357230e7ecf *R/qlmomco.R
 d707f09d8e8e6ca6d76939dc04a8e431 *R/qua.ostat.R
-3ae6b1190a122c9b4009b71a536b702a *R/qua2ci.R
+7b0f61def5f760cbc42f4548685d6976 *R/qua2ci.R
 ba61712ee0ba7295ba48f7f9c17c0860 *R/quaaep4.R
 4e1191af29ef6aceefe1f047a29b2856 *R/quacau.R
 1fed2e6d9f409e38b5298dafe963aca7 *R/quaexp.R
@@ -269,6 +269,7 @@ ef515c05e116d7cdc90dd5e59c1e73bb *data/tulia6Eprecip.RData
 a573e026593eac1f8e7d9d207007f302 *data/tuliaprecip.RData
 5049ee6161ebd75373280c998dfe01f0 *data/vegaprecip.RData
 3340a4a216bf5f196670755d28377cf1 *inst/CITATION
+d86e7fe5d8b305d4861ffa729b536954 *inst/ERRATA_FOR_ISBN9781463508418.txt
 bab06eade86220b365cd40766b86e73f *inst/READMEinst
 161d1e65c6d4fddabb7f765d523433f6 *inst/WARRANTY
 f009bcfa178c85ee8440c2b11e14713e *inst/doc/SysDataBuilder.R
@@ -370,7 +371,7 @@ b15e9741f031f23834b0ded538a1db91 *man/cdfgam.Rd
 f043c8b4927cb2ef59e8c76d15085027 *man/cdfglo.Rd
 d2af01803f819396858aae2e9ed7898e *man/cdfgno.Rd
 539f5f047095fd16cbb838e9fdbdb075 *man/cdfgpa.Rd
-d3efb7adc3eb62c7f44171bd071179a1 *man/cdfgum.Rd
+eeaf70c318be449259c7ab8f54bb5c2b *man/cdfgum.Rd
 917a0d69e23d73f95a1f06b547dd5df3 *man/cdfkap.Rd
 7bf3067bf22de09e4bfaf716b66d884b *man/cdfkur.Rd
 a0bb04095632bb5180e7d5061e4779b7 *man/cdflap.Rd
@@ -378,7 +379,7 @@ f8c07f4e564b0d749204d8881974149d *man/cdfln3.Rd
 069488a1a1aeb9304f9673c95f6351ff *man/cdfnor.Rd
 c8a55fe2d9159157ce58a2c52205a313 *man/cdfpe3.Rd
 5d4311e57b5ee1d367a31fe27f871d2f *man/cdfray.Rd
-f866f11625de5f37d23e2f4e710ee8e4 *man/cdfrevgum.Rd
+9b35f40e6f1963356a9570132249250a *man/cdfrevgum.Rd
 f28176a62f7eaf90be32f40492b0263e *man/cdfrice.Rd
 718ae4c4278b19e91dfcf3a855fead3e *man/cdftexp.Rd
 b8794021f84bda11001575566a2ddd50 *man/cdfwak.Rd
@@ -392,8 +393,8 @@ ee9c165fb5461ef781ca10a71cd1e6bc *man/dist.list.Rd
 80f1f84f11fe50c7f8ca378567e28436 *man/expect.max.ostat.Rd
 528c48fa3cb79badb413a79de2163b2c *man/fliplmoms.Rd
 ba693ece45a411c9c27c96a3feceacd5 *man/freq.curve.all.Rd
-6e2aaec8a1d859b5946d078b35e82c3c *man/gen.freq.curves.Rd
-ae7c4173785761d23bb6ed04157415b3 *man/genci.Rd
+52029b7cbedf3b1e51b21d81247bc2b8 *man/gen.freq.curves.Rd
+b6fb06ce62b772673f5f70a1227a9e37 *man/genci.Rd
 cef69fa3d413c751e610e60c48fad64e *man/gini.mean.diff.Rd
 041e1e6e0d1003b2d32d205101e50833 *man/harmonic.mean.Rd
 2cec43ccac3293200ebf313a76e2bab0 *man/herefordprecip.Rd
@@ -433,7 +434,7 @@ ca24b512b2a2274be62574de316977f8 *man/lmomcau.Rd
 f235d251a15ffbc12bec209f6e6d6403 *man/lmomexp.Rd
 bce13294968d22af843e933543d89bca *man/lmomgam.Rd
 5d3ead7432bb8d23079c6f25780ae981 *man/lmomgev.Rd
-e7aa2badf82af72133d8513577d3b5ec *man/lmomgld.Rd
+06291b40306ab8a87d1b7827e748915f *man/lmomgld.Rd
 494d4f8df6ce7da3817e416376d25777 *man/lmomglo.Rd
 a5b9cec95097c9819c35e1b7d76a3710 *man/lmomgno.Rd
 6f61b3c45d5ae5a698fa4bff006ece09 *man/lmomgpa.Rd
@@ -465,9 +466,9 @@ b67b00fdbb2dd74d55dda9f75d848c1c *man/par2lmom.Rd
 c048b8f584b16962b8d6b23fcb7db9d9 *man/par2qua.Rd
 d5fd703659588d73b3a63a7a1d5414ca *man/par2qua2.Rd
 61707c34d7e5d9f8cbd73122074b6465 *man/par2vec.Rd
-b360f47ff22864fd81eafb03f1fbb994 *man/parTLgld.Rd
+7bb9d4af6992405d82b57c249495061f *man/parTLgld.Rd
 fc6d8c895a6e2de63ba84cd902338b9c *man/parTLgpa.Rd
-8ad1b71f122e9a64ebfa23802a5bc382 *man/paraep4.Rd
+a139a1d33283bcef255f2e6c085f1235 *man/paraep4.Rd
 73a1839e76c3c9bcb0c7f2509dda5843 *man/parcau.Rd
 460b4ecfbdbc7f093d571534c5e71eb7 *man/parexp.Rd
 83a34433ad197482509c580c52e9fb05 *man/pargam.Rd
@@ -499,7 +500,7 @@ dabe780f28026e9edadde670a877aa34 *man/pdfgev.Rd
 d90fb74d2c3e15c971d3cbf009b4eaae *man/pdfglo.Rd
 63299ea5a3fc4f4b5687f451e366434c *man/pdfgno.Rd
 0d7a3ada71e4502a660a609f1d92ba8b *man/pdfgpa.Rd
-8eb8d400654bf8fdabb222c855116848 *man/pdfgum.Rd
+f6fd557ddc9954cf42d3d910883b4243 *man/pdfgum.Rd
 dda90f90946d22f9b4380808bfa2127e *man/pdfkap.Rd
 d45a86abc8e0f47644799bf3e9aa2b0e *man/pdfkur.Rd
 fe5361a3af5aaff93e35eb3303d58586 *man/pdflap.Rd
@@ -507,7 +508,7 @@ fe5361a3af5aaff93e35eb3303d58586 *man/pdflap.Rd
 5d81f619a52b4588a33d8916fe82a8dd *man/pdfnor.Rd
 ef6bb1e1fdee6c85f5847d325798f8a0 *man/pdfpe3.Rd
 a883a9d2086dfdc11023c96c7e0d6b9a *man/pdfray.Rd
-7247b8c2e808381ad41ad3289f2b95d5 *man/pdfrevgum.Rd
+247e6353103c235999d3c7e3e2787bae *man/pdfrevgum.Rd
 cc48d43649a19a64e0b784819ab9a098 *man/pdfrice.Rd
 b332dc430ac9070324c41dcba4db8cf0 *man/pdftexp.Rd
 633017549cac56da1d7886b469fe02b8 *man/pdfwak.Rd
@@ -527,8 +528,8 @@ feddaecc4658618a44057ff146bd77ac *man/pwm2lmom.Rd
 a6cbf2354bd584c8b7f0c9ff70b893a3 *man/pwmLC.Rd
 46fb9e852c81bc4e96f9ba336f5d615f *man/pwmRC.Rd
 cd5c6a2b64c4bf912f590c4ffa63098c *man/qlmomco.Rd
-25c6ee984db48d8a89249d3abc1e970b *man/qua.ostat.Rd
-276a6d7ecd2067f9e8bf5964c3c7a28e *man/qua2ci.Rd
+57104477e8fe9d2dd4717a22c3810781 *man/qua.ostat.Rd
+7e381a9e01bfa7c59496f9fc714e3d44 *man/qua2ci.Rd
 0d7143841aba8ba1ab82f5493882aae1 *man/quaaep4.Rd
 ba00ce9c9ef37bc499f504a86c69879a *man/quacau.Rd
 116d2702df0964a4dd2268a134b0f776 *man/quaexp.Rd

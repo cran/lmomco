@@ -32,7 +32,7 @@ genci(para, n, F=NULL, ci=0.90, edist='nor', nsim=1000,
   \item{parent}{The paraments of the parent distribution if \code{expand=TRUE}.}
   \item{edist}{The type of error distribution used to model the confidence interval if the argument \code{expand=TRUE} is set.}
   \item{elmoms}{The L-moment of the distribution of quantiles for the corresponding \eqn{F} if the argument  \code{expand=TRUE} is set.}
-  \item{epara}{The parameter list of the error distribution fit to the \code{elmoms} if the argument \code{expand=TRUE} is set.}
+  \item{epara}{An environment containing the parameter lists of the error distribution fit to the \code{elmoms} for each of the \code{F} if the argument \code{expand=TRUE} is set.}
   \item{ifail}{A failure integer.}
   \item{ifailtext}{Text message associated with \code{ifail}.}
 }

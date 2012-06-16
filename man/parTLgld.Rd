@@ -66,6 +66,11 @@ CRC Press, Boca Raton, FL, 438 p.
 \code{\link{pargld}}
 }
 \examples{
+# As of version 1.6.2, it is felt that in spirit of CRAN CPU
+# reduction that the intensive operations of parTLgld() should
+# be kept a bay.
+
+\dontrun{
 X <- rgamma(202,2) # simulate a skewed distribution
 lmr <- TLmoms(X, trim=1) # compute trimmed L-moments
 PARgldTL <- parTLgld(lmr) # fit the GLD
@@ -106,6 +111,7 @@ if(! is.null(PARgldTL$rest)) { #$
 #4  1.019795 -3.917609 -0.06565792 -0.2187232       2 -0.02307092 2.968498e-08
 #5  1.023654 -3.883944 -0.06668986 -0.2198679       7 -0.02315035 2.991811e-07
 #6 -4.707935 -5.044057  5.89280906 -0.3261837      13  0.04168800 2.229672e-10
+}
 
 \dontrun{
 F <- seq(.01,.99,.01)

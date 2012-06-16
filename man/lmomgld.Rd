@@ -122,8 +122,13 @@ CRC Press, Boca Raton, FL, 438 p.
 \examples{
 lmomgld(vec2par(c(10,10,0.4,1.3),type='gld'))
 
+# As of version 1.6.2, it is felt that in spirit of CRAN CPU
+# reduction that the intensive operations of this example should
+# be kept a bay.
+\dontrun{
 PARgld <- vec2par(c(0,1,1,.5), type="gld")
 theoTLmoms(PARgld, nmom=6)
 lmomgld(PARgld)
+}
 }
 \keyword{distribution}

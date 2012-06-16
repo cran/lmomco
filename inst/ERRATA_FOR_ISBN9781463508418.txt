@@ -1,0 +1,37 @@
+ERRATA FOR FIRST EDITION OF THE FOLLOWING BOOK
+
+     Asquith, W.H., 2011, Distributional analysis with L-moment statistics
+       using the R environment for statistical computing: First edition,
+       CreateSpace, ISBN 978-1463508418, 344 p. http://www.amazon.com/
+       Distributional-Statistics-Environment-Statistical-Computing/dp/
+       1463508417
+
+p.3: accesssible --> accessible (09/03/2011)
+
+From Jason Giovannettone (05/22/2012)
+p.140: eq.7.25  drop the '/\beta' from (x/\beta)^{\alpha-1} verified correct
+                against seven other references
+
+From Jason Giovannettone (05/21/2012)
+p.146: eq.7.43  Y = -(x - \xi)/\alpha
+p.149: eq.7.57  f(x) = \alpha^{-1}exp(Y){exp[-exp(Y)]}
+# WHA---confirm lmomco is ok
+
+p.153: scale --> shape1 and scale --> shape2 above eq. 7.68
+p.153: (\tau_3 - \hat\tau_3)^2 --> (\lambda_1 - \hat\lambda_1)^2
+p.153: (\tau_4 - \hat\tau_4)^2 --> (\lambda_2 - \hat\lambda_2)^2
+# WHA---confirm lmomco is ok. Bad cut/paste from GLD during writing.
+
+p.154: spare ; deleted in 7-29
+
+p.204: plural "constraints" needed above eq. 9.1 (04/12/2012)
+
+p.209: 1/f(x) = a[k(F^(k-1) PLUS h(1-F)^(h-1)] (09/04/2011)
+# WHA---confirm lmomco is ok and Karian and Dudewicz (2000, p.9)
+
+p.209: dissertation --> monograph
+
+p.330: fixed small copula indexing order in late June 2011
+
+backcover: fixed misspelling of Wakeby in late June 2011
+

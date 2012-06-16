@@ -2,7 +2,7 @@
 function(para,n,F=NULL,ci=0.90,edist='nor',
          nsim=1000,expand=FALSE,
          verbose=FALSE,showpar=FALSE,quiet=FALSE) {
-  if(is.null(F) == TRUE) F <- nonexceeds()
+  if(is.null(F)) F <- nonexceeds()
   if(! check.fs(F)) return()
   if(! are.par.valid(para)) return()
   if(ci < 0.5 || ci >= 1) {
@@ -17,6 +17,9 @@ function(para,n,F=NULL,ci=0.90,edist='nor',
   ci_t3  <- vector(mode = 'numeric')
   ci_t4  <- vector(mode = 'numeric')
   ci_t5  <- vector(mode = 'numeric')
+  ci_mu  <- vector(mode = 'numeric')
+  ci_var <- vector(mode = 'numeric')
+  ci_skw <- vector(mode = 'numeric')
   num.Fs <- length(F)
   if(! quiet) cat(c(num.Fs,"-"),sep="")
   for(i in seq(1,num.Fs)) {
@@ -33,6 +36,9 @@ function(para,n,F=NULL,ci=0.90,edist='nor',
        ci_t3[i]  <- NA
        ci_t4[i]  <- NA
        ci_t5[i]  <- NA
+       ci_mu[i]  <- NA
+       ci_var[i] <- NA
+       ci_skw[i] <- NA
        next
     }
     ci_low[i] <- CI$lower
@@ -43,6 +49,9 @@ function(para,n,F=NULL,ci=0.90,edist='nor',
     ci_t3[i]  <- CI$elmoms$ratios[3]
     ci_t4[i]  <- CI$elmoms$ratios[4]
     ci_t5[i]  <- CI$elmoms$ratios[5]
+    ci_mu[i]  <- CI$epmoms$moments[1]
+    ci_var[i] <- CI$epmoms$moments[2]^2 # notice that a variance is computed
+    ci_skw[i] <- CI$epmoms$ratios[3]
     if(! quiet) cat(c(num.Fs-i,"-"),sep="")
   }
   if(! quiet) cat("\n")
@@ -52,16 +61,19 @@ function(para,n,F=NULL,ci=0.90,edist='nor',
                     true=ci_tru,
                     upper=ci_hi,
                     lscale=ci_l2,
-                    lcv=ci_l2/ci_tru)
+                    lcv=ci_l2/ci_tru,
+                    mu=ci_mu,
+                    var=ci_var)
 
   lmr <- data.frame(lambda1=ci_l1,
                     lambda2=ci_l2,
                     tau3=ci_t3,
                     tau4=ci_t4,
                     tau5=ci_t5)
+  pmr <- data.frame(mu=ci_mu, var=ci_var, skw=ci_skw)
   if(expand == TRUE) {
     return(list(limits=cis, parent=para,
-                edist=edist, elmoms=lmr, epara=CI$epara,
+                edist=edist, elmoms=lmr, epmoms=pmr, epara=CI$epara,
                 ifail=CI$ifail, ifailtext=CI$ifailtext))
   }
   else {

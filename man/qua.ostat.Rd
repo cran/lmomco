@@ -34,6 +34,11 @@ j <- 15   # the 15th order statistic
 F <- 0.99 # the 99th percentile
 theoOstat <- qua.ostat(F,j,n,gpa)
 
+# As of version 1.6.2, it is felt that in spirit of CRAN CPU
+# reduction that the intensive operations of this example should
+# be kept a bay.
+
+\dontrun{
 # Let us test this value against a brute force estimate.
 Jth <- vector(mode = "numeric")
 for(i in seq(1,10000)) {
@@ -44,5 +49,6 @@ bruteOstat <- quantile(Jth,F) # estimate by built-in function
 theoOstat <- signif(theoOstat,digits=5)
 bruteOstat <- signif(bruteOstat,digits=5)
 cat(c("Theoretical=",theoOstat,"  Simulated=",bruteOstat,"\n"))
+}
 }
 \keyword{distribution}

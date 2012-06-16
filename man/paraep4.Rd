@@ -80,13 +80,25 @@ Asquith, W.H., 2012, Parameter Estimation for the 4-Parameter Asymmetric Exponen
 \seealso{\code{\link{lmomaep4}}, \code{\link{cdfaep4}}, \code{\link{quaaep4}}
 }
 \examples{
+
+# As of version 1.6.2, it is felt that in spirit of CRAN CPU
+# reduction that the intensive operations of paraep4() should
+# be kept a bay. However, the following examples are useful.
+# WHA would like these to be turned on, but this Rd file consumes
+# about 50 percent of the CPU cycles of R CMD check.
+\dontrun{
 PAR <- list(para=c(100, 1000, 1.7, 1.4), type="aep4");
 lmr <- lmomaep4(PAR)
+aep4 <- paraep4(lmr, method="ADG")
+print(aep4)
+}
 
+\dontrun{
 PARdg  <- paraep4(lmr, method="DG")
 PARasq <- paraep4(lmr, method="A")
 
-# print(PARdg); print(PARasq)
+print(PARdg)
+print(PARasq)
 
 F <- c(0.001, 0.005, seq(0.01,0.99, by=0.01), 0.995, 0.999)
 qF <- qnorm(F)
@@ -126,6 +138,6 @@ print(MADasq)
 # PAR <- list(para=c(100, 1000, .7, 1.4), type="aep4")
 # and the user will see that all three methods converged on the
 # correct values.
-
+}
 }
 \keyword{distribution}
