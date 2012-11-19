@@ -3,6 +3,7 @@ function(x) {
   getdist <- function(x) {
      if(x == "aep4") return("4-p Asymmetric Exponential Power")
      if(x == "cau") return("Cauchy")
+     if(x == "emu") return("Eta minus Mu")
      if(x == "exp") return("Exponential")
      if(x == "texp") return("Truncated Exponential")
      if(x == "gam") return("Gamma")
@@ -13,6 +14,7 @@ function(x) {
      if(x == "gpa") return("Generalized Pareto")
      if(x == "gum") return("Gumbel")
      if(x == "kap") return("Kappa")
+     if(x == "kmu") return("Kappa minus Mu")
      if(x == "kur") return("Kumaraswamy")
      if(x == "lap") return("Laplace")
      if(x == "ln3") return("log-Normal3")

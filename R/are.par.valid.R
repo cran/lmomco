@@ -14,6 +14,9 @@ function(para,...) {
     } else if(type == 'cau') {
       return(are.parcau.valid(para,...))
     }
+    else if(type == 'emu') {
+      return(are.paremu.valid(para,...))
+    }
     else if(type == 'exp') {
       return(are.parexp.valid(para,...))
     }
@@ -43,6 +46,9 @@ function(para,...) {
     }
     else if(type == 'kur') {
       return(are.parkur.valid(para,...))
+    }
+    else if(type == 'kmu') {
+      return(are.parkmu.valid(para,...))
     }
     else if(type == 'lap') {
       return(are.parlap.valid(para,...))

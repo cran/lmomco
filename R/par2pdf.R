@@ -7,6 +7,9 @@ function(f,para,...) {
     else if(type == 'cau') {
       return(pdfcau(f,para))
     }
+    else if(type == 'emu') {
+      return(pdfemu(f,para))
+    }
     else if(type == 'exp') {
       return(pdfexp(f,para))
     }
@@ -33,6 +36,9 @@ function(f,para,...) {
     }
     else if(type == 'gum') {
       return(pdfgum(f,para))
+    }
+    else if(type == 'kmu') {
+      return(pdfkmu(f,para))
     }
     else if(type == 'kur') {
       return(pdfkur(f,para))

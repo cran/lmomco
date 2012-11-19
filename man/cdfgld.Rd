@@ -16,13 +16,13 @@ cdfgld(x, gldpara, paracheck)
   Nonexceedance probability (\eqn{F}) for \eqn{x}.
 }
 \references{
-Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions---The generalized lambda distribution and generalized bootstrap methods: 
+Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions---The generalized lambda distribution and generalized bootstrap methods:
 CRC Press, Boca Raton, FL, 438 p.
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{quagld}}, \code{\link{lmomgld}}, \code{\link{pargld}}}
 \examples{
   P <- vec2par(c(123,340,0.4,0.654),type='gld')
-  cdfgld(300,P)
+  cdfgld(300,P, paracheck=FALSE)
 }
 \keyword{distribution}

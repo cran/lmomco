@@ -733,8 +733,8 @@ Version 1.6.1--May 10, 2012
 9.  Added the PDF of the Weibull in pdfwei.Rd.
 10. Documentation tweaks to pdfgld.Rd and pdfrevgum.Rd including
       addition or changes to the dontrun{} directives.
-11. Enhanced genci.R/Rd to return more details about the fitted 
-      error model as well as returning NA for the lower and upper 
+11. Enhanced genci.R/Rd to return more details about the fitted
+      error model as well as returning NA for the lower and upper
       limits if failure in fitting of the error distribution occurs.
       Documentation tweaks to primarily enhance the example including
       the GNO and now the new AEP4 distributions and wrapping all in
@@ -747,7 +747,7 @@ Version 1.6.1--May 10, 2012
 Version 1.6.2--July 16, 2012
 1. Included strategic downturn{} directives in the examples of
       lmomgld.Rd, paraep4.Rd, parTLgld.Rd, pargld.Rd, and qua.ostat.Rd,
-      which resulted in a 60-percent reduction in elapsed time of 
+      which resulted in a 60-percent reduction in elapsed time of
       R CMD check --timings on one of my platforms. (Trying to help out
       the CRAN check timings facility.)
 2. Revisions to cdfgum.Rd, cdfrevgum.Rd, pdfgum.Rd, and pdfrevgum.Rd to
@@ -757,7 +757,7 @@ Version 1.6.2--July 16, 2012
       documentation---note a bug fix.
 4. Added return of the product moments for the distribution of the
       quantile for qua2ci() so that a simple squaring of the
-      returned standard deviation could return the variation of the 
+      returned standard deviation could return the variation of the
       prediction.
 5. Added passage of . . . (three dots) argument to plot() within
       gen.freq.curves().
@@ -772,5 +772,60 @@ Version 1.6.2--July 16, 2012
       in the evaluation of the choose error distribution (edist) in the
       function genci().
 
+Version 1.7.1--October 30, 2012
+1. Added lmoms.bootbarvar() for computation of the exact bootstrap mean
+      and variances of L-moments (noncensored or trimmed).
+2. Added the "Kappa-Mu" distribution with the abbreviation "kmu".
+3. Added the "Eta-Mu" distribution with the abbreviation "emu".
+      Yacoub, M.D., 2007, The kappa-mu distribution and the eta-mu distribution:
+        IEEE Antennas and Propagation Magazine, v. 49, no. 1, pp. 68--81.
+4. Added aliases to expect.min.ostat and theoLmoms.min.ostat respectively
+      in expect.max.ostat.Rd and theoLmoms.max.ostat.Rd to support inclusion
+      for functional dispatchers for expectations of minimum order statistics
+      and theoretical L-moment computation using such expectations. Support
+      for these computations using maximums of order statistics were already
+      present and generalized enough for easy extension to left-hand side
+      of distribution-based computations. These changes were necessary to
+      support L-moment computation for the bounded-below-by-zero, 2-parameter
+      distributions of the Kappa-Mu and Eta-Mu (see 2 and 3 above).
+5. Minor refinements to error trapping to NA values for L-moments in
+      theoLmoms.max.ostat.R following extensive testing of computations using
+      minimum order statistic expectations compared to maximum order statistic
+      expectations using the Kappa-Mu distribution.
+6. Added the cdf2lmom() and cdf2lmoms() functions for computation of L-moments
+      from numerical integration of the cumulative distribution function.
+      cdf2lmoms() has a special enhancement (flexibility) that permits the user
+      to specify the r-th order L-moment starting point. Mainly this has been
+      added so that integration of the quantile function for the mean can be
+      bypassed. The cumulative distribution function is used for r > 1. It is
+      often the case the quantile function results from integration of
+      cumulative distribution function and there can be some difficulties with
+      numerical limits. Frequently, experts in particular distributions publish
+      closed form for semiclosed form equations for estimation of the mean. The
+      users are then free to use these instead and save computational time.
+7. BUG FIX: pargev.R has an error for L-skew < -0.97, the Newton-Raphson method
+      was being short circuited by an if-statement. Bug discovered by Ross Woods
+      when comparing lmomco sources to Hosking FORTRAN. Correction verified by
+      Hosking's FORTRAN as well as sources of lmom package and numerical tests.
+8. Added KMU_lmompara_bykappa and EMU_lmompara_byeta dataframes to the
+      .lmomcohash to facilitate operations with the Kappa-Mu and Eta-Mu
+      distributions. These tables were double checked through some careful
+      reanalysis following further improvements to CDFs of each distribution.
+9. Added an example to derive a polynomial approximation for the L-skew and
+      L-kurtosis relation of the Rice distribution within the Examples section
+      of lmomrice.Rd.
+10. Added pwm.beta2alpha() and pwm.alpha2beta() functions to faciliate
+       potential alpha-pwm derivations involving the Marcum Q-function or
+       Yacoub integral for the Kappa-Mu and Eta-Mu distributions.
+
+
+Version 1.7.2--November 16, 2012
+1. Documentations to speed-up overall examples for the CRAN:
+       are.pargld.valid.Rd, cdfgld.Rd, man/lmomgld.Rd, man/pargld.Rd,
+       man/pdfgld.Rd, man/pdfkmu.Rd, man/pdfwak.Rd, and man/quagld.Rd.
+       And DESRIPTION reworked modestly.
+
+
 TODO: Complete documentation for pwmLC.Rd.
+
 

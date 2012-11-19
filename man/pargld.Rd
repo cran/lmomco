@@ -66,6 +66,8 @@ CRC Press, Boca Raton, FL, 438 p.
 \seealso{\code{\link{lmom.ub}}, \code{\link{lmomgld}}, \code{\link{cdfgld}}, \code{\link{quagld}}, \code{\link{parTLgld}}
 }
 \examples{
+
+\dontrun{
 X <- rgamma(202,2) # simulate a skewed distribution
 lmr <- lmoms(X) # compute trimmed L-moments
 PARgld <- pargld(lmr) # fit the GLD
@@ -102,7 +104,7 @@ if(! is.null(PARgld$rest)) { #$
 #         xi    alpha       kappa         h attempt     delTau5        error
 #1 3.1446434 2.943469 7.421131671 1.0505370      14 -0.03675376 6.394270e-10
 #2 0.4962471 8.794038 0.008295796 0.2283519       4 -0.04602541 8.921139e-10
-
+}
 
 \dontrun{
 F <- seq(.01,.99,.01)

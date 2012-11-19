@@ -30,6 +30,6 @@ Although \code{NULL} in the argument list, the default is 0---the usual L-moment
 \seealso{\code{\link{quaexp}}, \code{\link{theoTLmoms}}}
 \examples{
 tlmrexp(trim=2)
-tlmrexp(trim=2, xi=2)
+tlmrexp(trim=2, xi=2) # another slow example
 }
 \keyword{distribution}

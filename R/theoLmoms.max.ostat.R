@@ -1,5 +1,5 @@
 "theoLmoms.max.ostat" <-
-function(para=NULL, cdf=NULL, pdf=NULL, nmom=4, ...) {
+function(para=NULL, cdf=NULL, pdf=NULL, nmom=4, switch2minostat=FALSE, ...) {
 
    if(is.null(para)) stop("parameter list of lmomco not specified")
    if(is.null(cdf))  stop("cdf function of lmomco not specified")
@@ -8,25 +8,45 @@ function(para=NULL, cdf=NULL, pdf=NULL, nmom=4, ...) {
    enn <- vector(mode="numeric", length=nmom)
    lms <- lmr <- enn
    for(r in 1:nmom) {
-     enn[r] <- expect.max.ostat(r, para=para, cdf=cdf, pdf=pdf, ...)
+     mo <- ifelse(switch2minostat,
+                  expect.min.ostat(r, para=para, cdf=cdf, pdf=pdf, ...),
+                  expect.max.ostat(r, para=para, cdf=cdf, pdf=pdf, ...))
+     enn[r] <- mo
+     if(is.na(mo)) next
      series <- 0
      for(k in r:1) {
        term <- (-1)^(r-k)*k^(-1)*choose(r-1,k-1)*choose(r+k-2,k-1)
        series <- series + term*enn[k]
      }
-     lms[r] <- sum(series)
+     lms[r] <- ifelse(switch2minostat,
+                      (-1)^(r-1)*sum(series),
+                                 sum(series))
    }
    if(nmom >= 1) lmr[1] <- NA
-   if(nmom >= 2) lmr[2] <- lms[2]/lms[1]
+   if(nmom >= 2) {
+      lmr[2] <- lms[2]/lms[1]
+      lmr[! is.finite(lmr[2])]  <- NA
+      if(is.nan(lmr[2])) lmr[2] <- NA
+   }
    if(nmom >= 3) {
       lmr[3:nmom] <- lms[3:nmom]/lms[2]
+      lmr[! is.finite(lmr[3:nmom])] <- NA
+      lmr[is.nan(lmr[3:nmom])] <- NA
    }
+   src <- ifelse(switch2minostat, "theoLmoms.min.ostat",
+                                  "theoLmoms.max.ostat")
    z <- list(lambdas=lms,
              ratios=lmr,
              trim=NULL,
              lefttrim=NULL,
              righttrim=NULL,
-             source="theoLmoms.max.ostat")
+             source=src)
+   return(z)
+}
+
+"theoLmoms.min.ostat" <-
+function(...) {
+   z <- theoLmoms.max.ostat(switch2minostat=TRUE, ...)
    return(z)
 }
 

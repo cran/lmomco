@@ -8,6 +8,10 @@ function(vec,type,nowarn=FALSE,paracheck=TRUE,...) {
       z <- list(type = 'cau', para = vec, source = "vec2par")
       names(z$para) <- c("xi","alpha")
     }
+    else if(type == 'emu') {
+      z <- list(type = 'emu', para = vec, source = "vec2par")
+      names(z$para) <- c("eta","mu")
+    }
     else if(type == 'exp') {
       z <- list(type = 'exp', para = vec, source = "vec2par")
       names(z$para) <- c("xi","alpha")
@@ -74,6 +78,10 @@ function(vec,type,nowarn=FALSE,paracheck=TRUE,...) {
       z <- list(type = 'kap', para = vec, source = "vec2par")
       names(z$para) <- c("xi","alpha","kappa","h")
     }
+    else if(type == 'kmu') {
+      z <- list(type = 'kmu', para = vec, diracdelta=NA, source = "vec2par")
+      names(z$para) <- c("kappa","mu")
+    }
     else if(type == 'nor') {
       z <- list(type = 'nor', para = vec, source = "vec2par")
       names(z$para) <- c("mu","sigma")
@@ -103,6 +111,12 @@ function(vec,type,nowarn=FALSE,paracheck=TRUE,...) {
       warning("The parameters are invalid for the distribution")
       options(op)
       return()
+    }
+    if(type == "kmu") {
+       if(! is.finite(vec[1])) {
+          names(z$para) <- c("kappa", "M")
+          z$diracdelta <- pdfkmu(0, z)
+       }
     }
     return(z)
 }

@@ -7,6 +7,9 @@ function(x,para,...) {
     else if(type == 'cau') {
       return(cdfcau(x,para))
     }
+    else if(type == 'emu') {
+      return(cdfemu(x,para))
+    }
     else if(type == 'exp') {
       return(cdfexp(x,para))
     }
@@ -36,6 +39,9 @@ function(x,para,...) {
     }
     else if(type == 'kur') {
       return(cdfkur(x,para))
+    }
+    else if(type == 'kmu') {
+      return(cdfkmu(x,para))
     }
     else if(type == 'lap') {
       return(cdflap(x,para))

@@ -1,12 +1,13 @@
 \name{expect.max.ostat}
 \alias{expect.max.ostat}
+\alias{expect.min.ostat}
 \title{Compute the Expection of a Maximum Order Statistic (or others)}
 \description{
 This function computes
 }
 \usage{
 expect.max.ostat(n, para=NULL, cdf=NULL, pdf=NULL,
-                 j=NULL, lower=-Inf, upper=Inf)
+                 j=NULL, lower=-Inf, upper=Inf, ...)
 }
 \arguments{
   \item{n}{The sample size.}
@@ -16,6 +17,7 @@ expect.max.ostat(n, para=NULL, cdf=NULL, pdf=NULL,
   \item{j}{The \eqn{j}th value of the order statistic, which defaults to \var{n=j} if \code{j=NULL}.}
   \item{lower}{The lower limit of the distribution for integration.}
   \item{upper}{The upper limit of the distribution for integration.}
+  \item{...}{Additional arguments to pass to the cumulative distribution function.}
 }
 \value{
   The expectation of the maximum order statistic, unless \eqn{j} is specified and then the expectation of that order statistic is returned.

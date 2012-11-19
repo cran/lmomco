@@ -32,10 +32,12 @@ Sourced from written communication with Dr. Hosking in October 2007.
 \author{ W.H. Asquith}
 \seealso{\code{\link{cdfwak}}, \code{\link{quawak}}, \code{\link{parwak}}}
 \examples{
+\dontrun{
 lmr <- vec2lmom(c(1,0.5,.4,.3,.15))
 wak <- parwak(lmr)
 F <- nonexceeds()
 x <- quawak(F,wak)
 check.pdf(pdfwak,wak,plot=TRUE)
+}
 }
 \keyword{distribution}

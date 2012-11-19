@@ -3,6 +3,9 @@ function(lmom,type,...) {
     if(type == 'aep4') {
       return(paraep4(lmom, ...))
     }
+    else if(type == 'emu') {
+      return(paremu(lmom, ...))
+    }
     else if(type == 'exp') {
       return(parexp(lmom, ...))
     }
@@ -32,6 +35,9 @@ function(lmom,type,...) {
     }
     else if(type == 'kap') {
       return(parkap(lmom, ...))
+    }
+    else if(type == 'kmu') {
+      return(parkmu(lmom, ...))
     }
     else if(type == 'kur') {
       return(parkur(lmom, ...))

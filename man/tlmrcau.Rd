@@ -30,6 +30,6 @@ Although \code{NULL} in the argument list, the default is 0---the usual L-moment
 \seealso{\code{\link{quacau}}, \code{\link{theoTLmoms}}}
 \examples{
 tlmrcau(trim=2)
-tlmrcau(trim=2, xi=2)
+tlmrcau(trim=2, xi=2) # another slow example
 }
 \keyword{distribution}

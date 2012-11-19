@@ -27,7 +27,7 @@ function(lmom,checklmom=TRUE) {
     if(checklmom & ! are.lmom.valid(lmom)) {
       warning("L-moments are invalid")
       return()
-    } 
+    }
 
     T3 <- lmom$TAU3
 
@@ -53,28 +53,22 @@ function(lmom,checklmom=TRUE) {
       else {
         #  NEWTON-RAPHSON ITERATION FOR TAU3 LESS THAN -0.8
         #
-        if(T3 <= -0.97) {
-          G <- 1-log(1+T3)/DL2
+        if(T3 <= -0.97) G <- 1-log(1+T3)/DL2
+        T0 <- (T3+3)*0.5
+        CONVERGE <- FALSE
+        for(it in seq(1,MAXIT)) {
+           X2  <- 2^-G
+           X3  <- 3^-G
+           XX2 <- 1-X2
+           XX3 <- 1-X3
+           T   <- XX3/XX2
+           DERIV <- (XX2*X3*DL3-XX3*X2*DL2)/(XX2*XX2)
+           GOLD <- G
+           G <- G-(T-T0)/DERIV
+           if(abs(G-GOLD) <= EPS*G) CONVERGE <- TRUE
         }
-        else {
-          T0 <- (T3+3)*0.5
-          CONVERGE = FALSE
-          for(it in seq(1,MAXIT)) {
-            X2  <- 2^-G
-            X3  <- 3^-G
-            XX2 <- 1-X2
-            XX3 <- 1-X3
-            T   <- XX3/XX2
-            DERIV <- (XX2*X3*DL3-XX3*X2*DL2)/(XX2*XX2)
-            GOLD <- G
-            G <- G-(T-T0)/DERIV
-            if(abs(G-GOLD) <= EPS*G) {
-              CONVERGE = TRUE
-            }
-          }
-          if(CONVERGE == FALSE) {
-             warning("Noconvergence---results might be unreliable")
-          }
+        if(CONVERGE == FALSE) {
+           warning("Noconvergence---results might be unreliable")
         }
       }
     }

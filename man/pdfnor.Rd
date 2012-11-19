@@ -6,7 +6,7 @@ This function computes the probability density function
 of the Normal distribution given parameters of the distribution computed
 by \code{\link{parnor}}.  The probability density function of the distribution is
 
-\deqn{f(x) = \frac{1}{\sigma sqrt{2\pi}} e^{-(x-\mu)^2/(2\sigma^2)} \mbox{,}}
+\deqn{f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-(x-\mu)^2/(2\sigma^2)} \mbox{,}}
 
 where \eqn{f(x)} is the probability density for quantile \eqn{x},
 \eqn{\mu} is the arithmetic mean, and \eqn{\sigma} is the standard deviation, and

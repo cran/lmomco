@@ -58,5 +58,38 @@ lmomrice(rice)
   text(0.15,1.5, "More signal than noise")
 }
 
+
+\dontrun{
+# A polynomial expression for the relation between
+# L-skew and L-kurtosis for the Rice distribution can
+# be readily constructed.
+T3 <- .lmomcohash$RiceTable$TAU3
+T4 <- .lmomcohash$RiceTable$TAU4
+LM <- lm(T4~T3+I(T3^2)+I(T3^3)+I(T3^4)+
+               I(T3^5)+I(T3^6)+I(T3^7)+I(T3^8))
+summary(LM)
+Residuals:
+       Min         1Q     Median         3Q        Max
+-4.585e-05 -1.936e-05  6.640e-07  1.905e-05  1.221e-04
+
+Coefficients:
+              Estimate Std. Error   t value Pr(>|t|)
+(Intercept)  1.226e-01  7.997e-07 153348.44   <2e-16
+T3          -1.782e-01  6.447e-04   -276.45   <2e-16
+I(T3^2)     -3.005e+01  1.174e-01   -255.95   <2e-16
+I(T3^3)      1.512e+03  8.536e+00    177.18   <2e-16
+I(T3^4)     -4.017e+04  3.089e+02   -130.03   <2e-16
+I(T3^5)      6.365e+05  6.097e+03    104.38   <2e-16
+I(T3^6)     -5.885e+06  6.672e+04    -88.21   <2e-16
+I(T3^7)      2.925e+07  3.799e+05     76.98   <2e-16
+I(T3^8)     -6.020e+07  8.778e+05    -68.58   <2e-16
+---
+Residual standard error: 2.009e-05 on 2685 degrees
+of freedom. Multiple R-squared: 1,
+Adjusted R-squared: 1 F-statistic: 5.37e+07 on 8
+and 2685 DF, p-value: < 2.2e-16
+
+}
+
 }
 \keyword{distribution}

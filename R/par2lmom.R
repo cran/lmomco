@@ -7,6 +7,9 @@ function(para) {
     else if(type == 'cau')  {
       return(lmomcau(para))
     }
+    else if(type == 'emu') {
+      return(lmomemu(para))
+    }
     else if(type == 'exp') {
       return(lmomexp(para))
     }
@@ -51,6 +54,9 @@ function(para) {
     }
     else if(type == 'kap') {
       return(lmomkap(para))
+    }
+    else if(type == 'kmu') {
+      return(lmomkmu(para))
     }
     else if(type == 'kur') {
       return(lmomkur(para))

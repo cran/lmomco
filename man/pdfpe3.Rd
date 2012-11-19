@@ -7,7 +7,7 @@ of the Pearson Type III distribution given parameters (\eqn{\mu}, \eqn{\sigma},
 and \eqn{\gamma}) of the distribution computed
 by \code{\link{parpe3}}. These parameters are equal to the product moments: mean, standard deviation, and skew (see \code{\link{pmoms}}). The probability density function of the distribution for \eqn{\gamma \ne 0} is
 
-\deqn{f(x) = \frac{Y^{\alpha -1} exp{-Y/\beta}}
+\deqn{f(x) = \frac{Y^{\alpha -1} \mathrm{exp}({-Y/\beta})}
                   {\beta^\alpha \Gamma(\alpha)} \mbox{,}}
 
 where \eqn{f(x)} is the probability density for quantile \eqn{x},

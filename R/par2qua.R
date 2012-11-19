@@ -7,6 +7,9 @@ function(f,para,...) {
     else if(type == 'cau') {
       return(quacau(f,para,...))
     }
+    else if(type == 'emu') {
+      return(quaemu(f,para,...))
+    }
     else if(type == 'exp') {
       return(quaexp(f,para,...))
     }
@@ -33,6 +36,9 @@ function(f,para,...) {
     }
     else if(type == 'gum') {
       return(quagum(f,para,...))
+    }
+    else if(type == 'kmu') {
+      return(quakmu(f,para,...))
     }
     else if(type == 'kur') {
       return(quakur(f,para,...))

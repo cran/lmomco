@@ -14,7 +14,7 @@ where \eqn{x(F)} is the quantile for nonexceedance probability \eqn{F},
 \eqn{\xi} is a location parameter, \eqn{\alpha} is a scale
 parameter, and \eqn{\kappa}, and \eqn{h} are
 shape parameters. Note that in this parameterization the scale term is shown
-in the numerator and not the denominator. This is done in this package as 
+in the numerator and not the denominator. This is done in this package as
 part of the parallel nature between distributions. The scale parameter is often
 shown have same units and the location parameter.
 }
@@ -30,7 +30,7 @@ quagld(f, gldpara, paracheck=TRUE)
   Quantile value for nonexceedance probability \eqn{F}.
 }
 \references{
-Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions---The generalized lambda distribution and generalized bootstrap methods: 
+Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions---The generalized lambda distribution and generalized bootstrap methods:
 CRC Press, Boca Raton, FL, 438 p.
 }
 \author{ W.H. Asquith}
@@ -39,6 +39,6 @@ CRC Press, Boca Raton, FL, 438 p.
 }
 \examples{
   para <- vec2par(c(123,34,4,3),type="gld")
-  quagld(0.5,para)
+  quagld(0.5,para, paracheck=FALSE)
 }
 \keyword{distribution}

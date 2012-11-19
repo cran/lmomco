@@ -49,3 +49,7 @@ See the excellent R-package lmoms by J.R.M. Hosking.
 
 Note: This is a large package with hundreds of examples. The examples will 
 take considerable time to process on 'R CMD check lmomco'.
+
+Note: Building binaries on MacOSX or the *.tgz files is accomplished by
+R CMD install --build lmomco
+
