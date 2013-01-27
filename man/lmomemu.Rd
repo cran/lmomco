@@ -127,7 +127,5 @@ lines(t3, KMUdnC(t3), lwd=4, col=4, lty=4)
 lines(t3, EMUup(t3),  lwd=4, col=5, lty=4)
 lines(t3, KMUup(t3),  lwd=4, col=6, lty=4)
 }
-
-
 }
-\keyword{distribution}
+\keyword{L-moment (distribution)}

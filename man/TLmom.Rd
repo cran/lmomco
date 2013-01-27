@@ -3,17 +3,17 @@
 \title{ A Sample Trimmed L-moment }
 \description{
 A sample trimmed L-moment (TL-moment) is computed for a vector. The \eqn{r \ge 1} order of the L-moment is specified
-as well as the level of symmetrical trimming.  A trimmed TL-moment is 
+as well as the level of symmetrical trimming.  A trimmed TL-moment is
 
 \deqn{ \hat{\lambda}^{(t)}_r = \frac{1}{r}\sum^{n-t}_{i=t+1}
            \left[ \frac{\sum\limits^{r-1}_{k=0}{ (-1)^k {r-1 \choose k}
                                                  {i-1 \choose r+t-1-k}
                                                  {n-i \choose t+k}
                                          }}{{n \choose r+2t}}
-           \right] x_{i:n} \mbox{,}} 
+           \right] x_{i:n} \mbox{,}}
 
-where \eqn{t} represents the trimming level of the \eqn{t}-largest or \eqn{t}-smallest 
-values, \eqn{r} represents the order of the L-moments, \eqn{n} represents the 
+where \eqn{t} represents the trimming level of the \eqn{t}-largest or \eqn{t}-smallest
+values, \eqn{r} represents the order of the L-moments, \eqn{n} represents the
 sample size, and \eqn{x_{i:n}} represents the \eqn{i}th sample order statistic (\eqn{x_{1:n} \le x_{2:n} \le \dots \le x_{n:n}}).
 }
 \usage{
@@ -21,9 +21,9 @@ TLmom(x,order,trim=NULL,leftrim=NULL,rightrim=NULL,sortdata)
 }
 \arguments{
   \item{x}{A vector of data values.}
-  \item{order}{L-moment order to use in the computations. 
+  \item{order}{L-moment order to use in the computations.
 Default is 1 (the mean).}
-  \item{trim}{Level of symmetrical trimming to use in the computations. 
+  \item{trim}{Level of symmetrical trimming to use in the computations.
 Although \code{NULL} in the argument list, the default is 0---the usual L-moment is returned.}
   \item{leftrim}{Level of trimming of the left-tail of the sample.}
   \item{rightrim}{Level of trimming of the right-tail of the sample.}
@@ -40,7 +40,7 @@ The default is TRUE.}
   \item{rightrim}{Level of right-tail trimming used in the computation.}
 }
 \note{
-The presence of the \code{sortdata} switch can be dangerous. L-moment 
+The presence of the \code{sortdata} switch can be dangerous. L-moment
 computation requires that the data be sorted into the \dQuote{order statistics}.
 Thus the default behavior of \code{sortdata=TRUE} is required when the
 function is called on its own. In practice, this function would
@@ -62,5 +62,5 @@ and data analysis, vol. 43, pp. 299-314.
 X1 <- rcauchy(30)
 TL <- TLmom(X1,order=2,trim=1)
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{L-moment (sample)}
+\keyword{L-moment (trimmed sample)}

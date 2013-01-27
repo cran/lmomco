@@ -77,5 +77,5 @@ cat(c("PearsonIII by L-moments:",l.tmp,"\n"))
 # The third values are the skew. Almost certainly the L-moment estimate
 #   of skew will be closer to 3 than the product moment.
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{product moment}
+

@@ -34,4 +34,4 @@ tlmrray(leftrim=2, rightrim=1, xi=0, alpha=2)
 tlmrray(leftrim=2, rightrim=1, xi=10, alpha=2) # another slow example
 }
 }
-\keyword{distribution}
+\keyword{L-moment (trimmed, distribution)}

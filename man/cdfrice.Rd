@@ -27,3 +27,4 @@ lmr <- vec2lmom(c(45,0.27), lscale=FALSE)
 cdfrice(35,parrice(lmr))
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

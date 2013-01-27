@@ -29,3 +29,4 @@ Hosking, J.R.M., 1986, The theory of probability weighted moments: IBM Research 
   pdflap(x,lap)
 }
 \keyword{distribution}
+\keyword{probability density function}

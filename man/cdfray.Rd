@@ -33,3 +33,4 @@ Research Report RC12210, IBM Research Division, Yorkton Heights, N.Y.
   cdfray(50,parray(lmr))
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

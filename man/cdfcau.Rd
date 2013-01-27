@@ -27,7 +27,7 @@ cdfcau(x, para)
 Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational Statistics
 and Data Analysis, vol. 43, pp. 299--314.
 
-Gilchrist, W.G., 2000, Statistical modeling with quantile functions: 
+Gilchrist, W.G., 2000, Statistical modeling with quantile functions:
 Chapman and Hall/CRC, Boca Raton, FL.
 }
 \author{ W.H. Asquith}
@@ -37,3 +37,4 @@ Chapman and Hall/CRC, Boca Raton, FL.
   cdfcau(50,vec2par(para,type='cau'))
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

@@ -22,9 +22,7 @@ the distribution parameter object and the intent of the user.
 \author{ W.H. Asquith}
 \seealso{ \code{\link{is.emu}} }
 \examples{
-
 para <- vec2par(c(0.4, .04), type="emu")
 if(are.paremu.valid(para)) Q <- quaemu(0.5,para)
-
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

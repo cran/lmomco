@@ -48,6 +48,4 @@ print(z$T3) # the L-skew values of the margins
 z <- lcomoms2(data.frame(X=X, Y=Y), opdiag=TRUE)
 print(z$T3) # the L-coskew values
 }
-\keyword{univar}
-\keyword{distribution}
 \keyword{multivariate}

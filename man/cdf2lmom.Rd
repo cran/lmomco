@@ -42,5 +42,4 @@ para <- vec2par(c(.9,.4), type="nor")
 cdf2lmom(4, para)
 
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{L-moment (theoretical)}

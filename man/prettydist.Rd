@@ -19,4 +19,4 @@ A vector of distribution identifiers.
 the.lst <- dist.list() # the authoritative list of abbreviations
 prettydist(the.lst)
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

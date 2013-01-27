@@ -20,4 +20,4 @@ T2prob(T)
 T <- c(1, 2, 5, 10, 25, 50, 100, 250, 500)
 F <- T2prob(T)
 }
-\keyword{distribution}
+\keyword{utility (probability)}

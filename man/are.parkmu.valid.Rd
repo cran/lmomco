@@ -22,9 +22,7 @@ the distribution parameter object and the intent of the user.
 \author{ W.H. Asquith}
 \seealso{ \code{\link{is.kmu}} }
 \examples{
-
 para <- vec2par(c(0.5, 1.5), type="kmu")
 if(are.parkmu.valid(para)) Q <- quakmu(0.5,para)
-
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

@@ -50,4 +50,3 @@ LkLCV  <- Lcomoment.coefficients(L1,L2)
 LkTAU3 <- Lcomoment.coefficients(L3,L2)
 }
 \keyword{multivariate}
-\keyword{distribution}

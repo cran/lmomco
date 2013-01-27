@@ -39,4 +39,4 @@ Research Report RC12210, IBM Research Division, Yorkton Heights, N.Y.
 lmr <- lmom.ub(rnorm(20))
 parray(lmr)
 }
-\keyword{distribution}
+\keyword{distribution (parameters)}

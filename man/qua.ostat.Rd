@@ -42,7 +42,7 @@ theoOstat <- qua.ostat(F,j,n,gpa)
 # Let us test this value against a brute force estimate.
 Jth <- vector(mode = "numeric")
 for(i in seq(1,10000)) {
-  Q <- sort(rlmomco(n,gpa))	
+  Q <- sort(rlmomco(n,gpa))
   Jth[i] <- Q[j]
 }
 bruteOstat <- quantile(Jth,F) # estimate by built-in function
@@ -51,4 +51,5 @@ bruteOstat <- signif(bruteOstat,digits=5)
 cat(c("Theoretical=",theoOstat,"  Simulated=",bruteOstat,"\n"))
 }
 }
-\keyword{distribution}
+\keyword{order statistics}
+\keyword{order statistics (quantile function of)}

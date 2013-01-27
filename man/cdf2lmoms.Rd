@@ -40,5 +40,4 @@ vec2par(c(.9,.4), type="emu"); cdf2lmoms(para, nmom=4, fdepth=0)
 }
 
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{L-moment (theoretical)}

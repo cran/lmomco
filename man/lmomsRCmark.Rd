@@ -74,5 +74,5 @@ legend(0,1000,c("uncensored L-moments by indicator (Kappa distribution)",
            "right-censored L-moments by indicator (Kappa distribution)"),
                 lwd=c(3,1,2), col=c(8,1,2))
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{L-moment (sample)}
+\keyword{data censoring}

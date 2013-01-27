@@ -29,4 +29,4 @@ lmr <- lmom.ub(rnorm(20))
 para <- parnor(lmr)
 quanor(nonexceeds(),para)
 }
-\keyword{distribution}
+\keyword{misc}

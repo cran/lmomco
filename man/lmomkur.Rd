@@ -32,7 +32,7 @@ lmomkur(para)
   \item{L3}{The third L-moment.}
   \item{L4}{The fourth L-moment.}
   \item{L5}{The fifth L-moment.}
-  \item{source}{An attribute identifying the computational 
+  \item{source}{An attribute identifying the computational
 source of the L-moments: \dQuote{lmomkur}.}
 }
 \references{
@@ -53,7 +53,7 @@ for(a in A) {
   for(b in B) {
     i <- i + 1
     parkur <- list(para=c(a,b), type="kur");
-    lmr <- lmomkur(parkur) 
+    lmr <- lmomkur(parkur)
     logA[i] <- log(a); logB[i] <- log(b)
     T3[i] <- lmr$TAU3; T4[i] <- lmr$TAU4
   }
@@ -68,6 +68,5 @@ contourplot(T4~logA+logB, cuts=10, lwd=0.5, label.style="align",
             xlim=c(-3,5), ylim=c(-3,5),
             main="L-KURTOSIS FOR KUMARASWAMY DISTRIBUTION")
 }
-
 }
-\keyword{distribution}
+\keyword{L-moment (distribution)}

@@ -3,7 +3,7 @@
 \title{L-moments to Probability-Weighted Moments}
 \description{
 Converts the L-moments to the Probability-Weighted Moments (PWMs)
-given the L-moments. The conversion is linear so procedures based on 
+given the L-moments. The conversion is linear so procedures based on
 L-moments are identical to those based on PWMs. The relation between L-moments
 and PWMs is shown with \code{\link{pwm2lmom}}.
 }
@@ -22,11 +22,11 @@ use with the majority of the other functions implementing the various probabilit
 distributions. The relation between L-moments (\eqn{\lambda_r}) and PWMs (\eqn{\beta_{r-1}}) for \eqn{1 \le r \le 5} order is
 
  \deqn{\lambda_1 = \beta_0 \mbox{,}}
- 
+
  \deqn{\lambda_2 = 2\beta_1 - \beta_0 \mbox{,}}
- 
+
  \deqn{\lambda_3 = 6\beta_2 - 6\beta_1 + \beta_0 \mbox{,}}
- 
+
  \deqn{\lambda_4 = 20\beta_3 - 30\beta_2 + 12\beta_1 - \beta_0\mbox{, and}}
 
  \deqn{\lambda_5 = 70\beta_4  - 140\beta_3 + 90\beta_2 - 20\beta_1 + \beta_0\mbox{.}}
@@ -86,5 +86,5 @@ print(lmomvec2)
 
 pwm2lmom(lmom2pwm(list(L1=25,L2=20,TAU3=.45,TAU4=0.2,TAU5=0.1)))
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{L-moment (theoretical)}
+\keyword{probability-weighted moment (theoretical)}

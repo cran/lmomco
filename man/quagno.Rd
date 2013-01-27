@@ -38,3 +38,4 @@ approach based on L-moments: Cambridge University Press.
   quagno(0.5,pargno(lmr))
 }
 \keyword{distribution}
+\keyword{quantile function}

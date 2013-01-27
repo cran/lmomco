@@ -72,3 +72,4 @@ lines(quaaep4(F, PAR), F, col=4, lty=4);
 }
 }
 \keyword{distribution}
+\keyword{quantile function}

@@ -49,4 +49,5 @@ sen <- sen.mean(fake.dat, k=2)
 
 print(abs(lmr$lambdas[1] - sen$sen)) # zero is returned
 }
-\keyword{univar}
+\keyword{special function}
+

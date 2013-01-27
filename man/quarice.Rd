@@ -51,3 +51,4 @@ lmoms(rlmomco(n, vec2par(c(nu,alpha), type='rice')))
 
 }
 \keyword{distribution}
+\keyword{quantile function}

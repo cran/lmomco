@@ -7,15 +7,15 @@ functions that compute frequency curves for the L-moments. Frequency curves in h
 }
 \usage{
 freq.curve.all(lmom,aslog10=FALSE,asprob=TRUE,
-                    no2para=FALSE,no3para=FALSE, 
-		    no4para=FALSE,no5para=FALSE,
+                    no2para=FALSE,no3para=FALSE,
+                    no4para=FALSE,no5para=FALSE,
                     step=FALSE,show=FALSE,
                     xmin=NULL,xmax=NULL,xlim=NULL,
                     ymin=NULL,ymax=NULL,ylim=NULL,
                     exp=TRUE,gam=TRUE,gev=TRUE,gld=FALSE,
-		    glo=TRUE,gno=TRUE,gpa=TRUE,gum=TRUE,
-		    kap=TRUE,nor=TRUE,pe3=TRUE,wak=TRUE,
-		    wei=TRUE,...)
+                    glo=TRUE,gno=TRUE,gpa=TRUE,gum=TRUE,
+                    kap=TRUE,nor=TRUE,pe3=TRUE,wak=TRUE,
+                    wei=TRUE,...)
 }
 \arguments{
   \item{lmom}{A L-moment object from \code{lmom.ub} or similar.}
@@ -33,19 +33,19 @@ freq.curve.all(lmom,aslog10=FALSE,asprob=TRUE,
   \item{ymin}{Minimum y-axis value to use instead of the automatic value determined from the nonexceedance probabilities. This argument is only used is \code{show=TRUE}.}
   \item{ymax}{Maximum y-axis value to use instead of the automatic value determined from the nonexceedance probabilities. This argument is only used is \code{show=TRUE}.}
   \item{ylim}{Both limits of the y-axis. This argument is only used is \code{show=TRUE}.}
-  \item{exp}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
-  \item{gam}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
-  \item{gev}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
-  \item{gld}{A logical switch on computation of corresponding distribution---default is \code{FALSE}.} 
-  \item{glo}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
-  \item{gno}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
-  \item{gpa}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
-  \item{gum}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
-  \item{kap}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
-  \item{nor}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
-  \item{pe3}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
-  \item{wak}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
-  \item{wei}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.} 
+  \item{exp}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.}
+  \item{gam}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.}
+  \item{gev}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.}
+  \item{gld}{A logical switch on computation of corresponding distribution---default is \code{FALSE}.}
+  \item{glo}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.}
+  \item{gno}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.}
+  \item{gpa}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.}
+  \item{gum}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.}
+  \item{kap}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.}
+  \item{nor}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.}
+  \item{pe3}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.}
+  \item{wak}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.}
+  \item{wei}{A logical switch on computation of corresponding distribution---default is \code{TRUE}.}
   \item{...}{Additional parameters are passed to the parameter estimation routines such as \code{parexp}.}
 }
 \value{
@@ -53,17 +53,17 @@ freq.curve.all(lmom,aslog10=FALSE,asprob=TRUE,
 }
 \author{ W.H. Asquith}
 \seealso{
-\code{\link{quaexp}}, 
-\code{\link{quagam}}, 
-\code{\link{quagev}}, 
+\code{\link{quaexp}},
+\code{\link{quagam}},
+\code{\link{quagev}},
 \code{\link{quagld}}, \cr
-\code{\link{quaglo}}, 
-\code{\link{quagno}}, 
-\code{\link{quagpa}}, 
+\code{\link{quaglo}},
+\code{\link{quagno}},
+\code{\link{quagpa}},
 \code{\link{quagum}}, \cr
-\code{\link{quakap}}, 
+\code{\link{quakap}},
 \code{\link{quanor}},
-\code{\link{quape3}},   
+\code{\link{quape3}},
 \code{\link{quawak}}, and \cr
 \code{\link{quawei}}.
 }
@@ -72,5 +72,4 @@ L <- vec2lmom(c(35612,23593,0.48,0.21,0.11))
 freq.curve.all(L,gld=FALSE)
 freq.curve.all(L,step=TRUE,no2para=TRUE,no4para=TRUE)
 }
-
-\keyword{distribution}
+\keyword{misc}

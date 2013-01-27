@@ -18,4 +18,4 @@ The value for the Laguerre polynomial is returned.
 \examples{
 LaguerreHalf(-100^2/(2*10^2))
 }
-\keyword{distribution}
+\keyword{special function}

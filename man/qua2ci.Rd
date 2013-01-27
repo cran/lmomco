@@ -63,4 +63,4 @@ verbose=FALSE, showpar=FALSE, maxlogdiff=6)
   # confidence interval for the 75th-percent of the parent
   # weibull distribution for size 20 samples from the parent
 }
-\keyword{distribution}
+\keyword{quantile function (confidence limit)}

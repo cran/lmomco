@@ -50,3 +50,4 @@ approach based on L-moments: Cambridge University Press.
   pdfgpa(x,gpa)
 }
 \keyword{distribution}
+\keyword{probability density function}

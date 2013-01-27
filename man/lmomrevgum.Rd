@@ -12,7 +12,7 @@ The type-B L-moments in terms of the parameters are
 \deqn{\tau_4 =  \mbox{, and}}
 \deqn{\tau_5 = \mbox{.}}
 
-where \eqn{\zeta} is the right-tail censoring fraction of the sample or the nonexceedance probability of the right-tail censoring threshold, and \eqn{\mathrm{Ei}(x)} is the exponential integral defined as 
+where \eqn{\zeta} is the right-tail censoring fraction of the sample or the nonexceedance probability of the right-tail censoring threshold, and \eqn{\mathrm{Ei}(x)} is the exponential integral defined as
 
 \deqn{ \mathrm{Ei}(X) = \int_X^{\infty} x^{-1}e^{-x}\mathrm{d}x \mbox{,}}
 
@@ -37,7 +37,7 @@ lmomrevgum(para)
   \item{L4}{The fourth L-moment.}
   \item{L5}{The fifth L-moment.}
   \item{zeta}{Number of samples observed (noncensored) divided by the total number of samples.}
-  \item{source}{An attribute identifying the computational 
+  \item{source}{An attribute identifying the computational
 source of the L-moments: \dQuote{lmomrevgum}.}
 }
 \references{
@@ -56,4 +56,4 @@ lmr <- lmom.ub(c(123,34,4,654,37,78))
 rev.para <- lmom2par(lmr,type='revgum')
 lmomrevgum(rev.para)
 }
-\keyword{distribution}
+\keyword{L-moment (distribution)}

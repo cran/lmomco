@@ -4,7 +4,7 @@
 \description{
 This function computes the nonexceedance probability of a given quantile from the weighted combination of two quantile functions. The distributions are specified by the two parameter object arguments. The left-tail parameter object is the distribution governing the left tail; the right-tail parameter object is the distribution governing the right tail. The quantile function algebra is
 
-\deqn{ Q(F) = (1-F) \times Q_{lefttail}(F) + F \times Q_{righttail}(F)} 
+\deqn{ Q(F) = (1-F) \times Q_{lefttail}(F) + F \times Q_{righttail}(F)}
 
 where \eqn{Q(F)} is the equivalent quantile for nonexceedance probability \eqn{F} computed by the tail weigthing. \eqn{Q_{lefttail}(F)} is the left-tail quantile function; \eqn{Q_{righttail}} is the right-tail quantile function. The \code{par2cdf2} function inverses the above equation for \eqn{F}. Parameter objects are discussed in \code{\link{vec2par}} and \code{\link{lmom2par}} functions. If the optional \code{weight} argument is provided, then the multiplication of \code{1-F} or \code{F} is replaced by \code{1-weight} or \code{weight}, respectively. If \code{weight=0}, then the quantiles for the right tail are returned, and if \code{weight=1}, then the quantiles for the left tail are returned.
 
@@ -34,4 +34,4 @@ rightpara <- pargev(lmr)
 combined.median <- par2qua2(0.5,leftpara,rightpara)
 combined.nonexceed <- par2cdf2(combined.median,leftpara,rightpara)
 }
-\keyword{distribution}
+\keyword{distribution (mixture)}

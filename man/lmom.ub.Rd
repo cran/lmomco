@@ -3,10 +3,10 @@
 \title{ Unbiased Sample L-moments by Direct Sample Estimators }
 \description{
 Unbiased sample L-moments are computed for a vector using the direct sample estimation
-method as opposed to the use of sample probability-weighted moments. The L-moments are the ordinary L-moments and not the trimmed L-moments (see 
-\code{\link{TLmoms}}). The mean, 
+method as opposed to the use of sample probability-weighted moments. The L-moments are the ordinary L-moments and not the trimmed L-moments (see
+\code{\link{TLmoms}}). The mean,
 L-scale, coefficient of L-variation (\eqn{\tau}, LCV, L-scale/mean),
-L-skew (\eqn{\tau_3}, TAU3, L3/L2), 
+L-skew (\eqn{\tau_3}, TAU3, L3/L2),
 L-kurtosis (\eqn{\tau_4}, TAU4, L4/L2), and \eqn{\tau_5} (TAU5, L4/L2) are computed.
 In conventional nomenclature, the L-moments are
 
@@ -72,5 +72,5 @@ lmr <- lmom.ub(c(123,34,4,654,37,78))
 lmorph(lmr)
 lmom.ub(rnorm(100))
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{L-moment (sample)}
+

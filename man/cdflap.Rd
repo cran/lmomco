@@ -32,3 +32,4 @@ Hosking, J.R.M., 1986, The theory of probability weighted moments: IBM Research 
   cdflap(50,parlap(lmr))
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

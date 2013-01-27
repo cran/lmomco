@@ -25,4 +25,4 @@ if(is.rice(para)) {
   Q <- quarice(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

@@ -26,4 +26,4 @@ Stedinger, J.R., Vogel, R.M., Foufoula-Georgiou, E., 1993, Frequency analysis of
 \examples{
 # See examples for fpds2f().
 }
-\keyword{misc}
+\keyword{utility (probability)}

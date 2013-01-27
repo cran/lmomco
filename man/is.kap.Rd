@@ -14,7 +14,7 @@ is.kap(para)
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{kap}.}
-  
+
   \item{FALSE}{If the \code{type} is not \code{kap}.}
 }
 \author{ W.H. Asquith}
@@ -25,4 +25,4 @@ if(is.kap(para) == TRUE) {
   Q <- quakap(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

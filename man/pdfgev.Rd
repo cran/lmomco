@@ -48,3 +48,4 @@ approach based on L-moments: Cambridge University Press.
   pdfgev(x,gev)
 }
 \keyword{distribution}
+\keyword{probability density function}

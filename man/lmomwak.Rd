@@ -25,7 +25,7 @@ lmomwak(wakpara)
   \item{L3}{The third L-moment.}
   \item{L4}{The fourth L-moment.}
   \item{L5}{The fifth L-moment.}
-  \item{source}{An attribute identifying the computational 
+  \item{source}{An attribute identifying the computational
 source of the L-moments: \dQuote{lmomwak}.}
 }
 \references{
@@ -47,4 +47,4 @@ lmr <- lmom.ub(c(123,34,4,654,37,78))
 lmr
 lmomwak(parwak(lmr))
 }
-\keyword{distribution}
+\keyword{L-moment (distribution)}

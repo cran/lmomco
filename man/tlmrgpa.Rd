@@ -79,4 +79,4 @@ tlmrgpa(leftrim=7, rightrim=2, xi=143, alpha=98) # another slow example
   # near limits of the GPA.
 }
 }
-\keyword{distribution}
+\keyword{L-moment (trimmed, distribution)}

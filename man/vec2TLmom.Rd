@@ -28,4 +28,4 @@ vec2TLmom(vec, ...)
 \examples{
 TL <- vec2TLmom(c(12,0.6,0.34,0.20,0.05),lscale=FALSE,trim=1)
 }
-\keyword{distribution}
+\keyword{utility}

@@ -11,16 +11,12 @@ where \eqn{F(x)} is the nonexceedance probability for quantile \eqn{x},
 \eqn{\delta} is a shape parameter.
 
 The Weibull distribution is a reverse Generalized Extreme Value distribution.  As result, the Generalized Extreme Value algorithms are used for implementation of the Weibull in this package. The relation between the Generalized Extreme Value parameters (\eqn{\xi}, \eqn{\alpha}, and \eqn{\kappa}) is
-
 \deqn{\kappa = 1/\delta \mbox{,}}
-
 \deqn{\alpha = \beta/\delta \mbox{, and}}
-
 \deqn{\xi = \zeta - \beta \mbox{.}}
-
 These relations are taken from Hosking and Wallis (1997).
 
-In R the cumulative distribution function of the Weibull distribution is \code{pweibull}. Given a Weibull parameter object \code{para}, the R syntax is \code{pweibull(x+para$para[1], para$para[3], scale=para$para[2])}. For the current implementation for this package, the reversed Generalized Extreme Value distribution is used \code{1-cdfgev(-x,para)}.
+In R the cumulative distribution function of the Weibull distribution is \code{pweibull}. Given a Weibull parameter object \code{para}, the R syntax is \code{pweibull(x+para$para[1], para$para[3],} \cr \code{scale=para$para[2])}. For the current implementation for this package, the reversed Generalized Extreme Value distribution is used \code{1-cdfgev(-x,para)}.
 }
 \usage{
 cdfwei(x, para)
@@ -54,8 +50,9 @@ approach based on L-moments: Cambridge University Press.
   WEI <- parwei(lm1) # parameters of Weibull
   GEV <- pargev(lm2) # parameters of GEV
   F <- nonexceeds()  # Get a vector of nonexceedance probs
-  plot(pp(Q),Q) 
+  plot(pp(Q),Q)
   lines(cdfwei(Q,WEI),Q,lwd=5,col=8)
   lines(1-cdfgev(-Q,GEV),Q,col=2) # line over laps previous
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

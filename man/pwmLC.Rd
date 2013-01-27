@@ -36,5 +36,5 @@ Zafirakou-Koulouris, A., Vogel, R.M., Craig, S.M., and Habermeier, J., 1998, L-m
 \examples{
 #
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{probability-weighted moment (sample)}
+\keyword{data censoring}

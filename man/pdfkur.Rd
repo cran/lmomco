@@ -35,3 +35,4 @@ some tractability advantages: Statistical Methodology, v.6, pp. 70--81.
   pdfkur(x,kur)
 }
 \keyword{distribution}
+\keyword{probability density function}

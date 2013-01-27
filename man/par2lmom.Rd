@@ -23,4 +23,4 @@ lmr      <- lmom.ub(rnorm(20))
 para     <- parnor(lmr)
 frompara <- par2lmom(para)
 }
-\keyword{distribution}
+\keyword{L-moment (by distribution)}

@@ -25,4 +25,4 @@ if(is.lap(para) == TRUE) {
   Q <- qualap(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

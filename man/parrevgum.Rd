@@ -10,7 +10,7 @@ is
 \deqn{\alpha = \lambda^B_2/\lbrace\log(2) + \mathrm{Ei}(-2\log(1-\zeta)) - \mathrm{Ei}(-\log(1-\zeta))\rbrace\mbox{\ and}}
 \deqn{\xi = \lambda^B_1 + \alpha\lbrace\mathrm{Ei}(-\log(1-\zeta))\rbrace\mbox{,}}
 
-where \eqn{\zeta} is the right-tail censoring fraction of the sample o the nonexceedance probability of the right-tail censoring threshold, and \eqn{\mathrm{Ei}(x)} is the exponential integral defined as 
+where \eqn{\zeta} is the right-tail censoring fraction of the sample o the nonexceedance probability of the right-tail censoring threshold, and \eqn{\mathrm{Ei}(x)} is the exponential integral defined as
 
 \deqn{ \mathrm{Ei}(X) = \int_X^{\infty} x^{-1}e^{-x}\mathrm{d}x \mbox{,}}
 
@@ -50,7 +50,7 @@ chapter 29, CRC Press, Boca Raton, Fla., pp. 546--560.
 \examples{
 # See p. 553 of Hosking (1995)
 # Data listed in Hosking (1995, table 29.3, p. 553)
-D <- c(-2.982, -2.849, -2.546, -2.350, -1.983, -1.492, -1.443, 
+D <- c(-2.982, -2.849, -2.546, -2.350, -1.983, -1.492, -1.443,
        -1.394, -1.386, -1.269, -1.195, -1.174, -0.854, -0.620,
        -0.576, -0.548, -0.247, -0.195, -0.056, -0.013,  0.006,
         0.033,  0.037,  0.046,  0.084,  0.221,  0.245,  0.296)
@@ -58,7 +58,7 @@ D <- c(D,rep(.2960001,40-28)) # 28 values, but Hosking mentions
                               # 40 values in total
 z <-  pwmRC(D,threshold=.2960001)
 str(z)
-# Hosking reports B-type L-moments for this sample are 
+# Hosking reports B-type L-moments for this sample are
 # lamB1 = -.516 and lamB2 = 0.523
 btypelmoms <- pwm2lmom(z$Bbetas)
 # My version of R reports lamB1 = -0.5162 and lamB2 = 0.5218
@@ -68,4 +68,4 @@ str(rg.pars)
 # Hosking reports xi = 0.1636 and alpha = 0.9252 for the sample
 # My version of R reports xi = 0.1635 and alpha = 0.9254
 }
-\keyword{distribution}
+\keyword{distribution (parameters)}

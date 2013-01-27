@@ -7,7 +7,7 @@ distribution given parameters (\eqn{\xi}, \eqn{\alpha}, and \eqn{\kappa}) of the
 distribution computed by \code{\link{pargev}}. The quantile function of the
 distribution is
 
-\deqn{x(F) = \xi + \frac{\alpha}{\kappa} \left( 1-(-\log(F))^\kappa \right) 
+\deqn{x(F) = \xi + \frac{\alpha}{\kappa} \left( 1-(-\log(F))^\kappa \right)
   \mbox{ for } \kappa \ne 0 \mbox{ and }}
 
 \deqn{x(F) = \xi - \alpha \log(-\log(F))
@@ -47,3 +47,4 @@ approach based on L-moments: Cambridge University Press.
   quagev(0.5,pargev(lmr))
 }
 \keyword{distribution}
+\keyword{quantile function}

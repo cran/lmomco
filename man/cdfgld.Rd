@@ -29,3 +29,4 @@ CRC Press, Boca Raton, FL, 438 p.
 }
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

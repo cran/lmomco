@@ -23,4 +23,4 @@ if(is.kmu(para)) {
   Q <- quakmu(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

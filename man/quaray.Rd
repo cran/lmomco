@@ -34,3 +34,4 @@ Research Report RC12210, IBM Research Division, Yorkton Heights, N.Y.
   quaray(0.5,parray(lmr))
 }
 \keyword{distribution}
+\keyword{quantile function}

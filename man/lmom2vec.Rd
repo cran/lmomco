@@ -25,4 +25,4 @@ A vector of the first five L-moments (\eqn{\lambda_1}, \eqn{\lambda_2}, \eqn{\ta
   lmr <- vec2lmom(c(140,150,.3,.2,-.1))
   lmom2vec(lmr)
 }
-\keyword{distribution}
+\keyword{L-moment (utility)}

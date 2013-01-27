@@ -38,3 +38,4 @@ plot(x, pdfgld(x,gld), type='l', xlim=c(0,.1))
 
 }
 \keyword{distribution}
+\keyword{probability density function}

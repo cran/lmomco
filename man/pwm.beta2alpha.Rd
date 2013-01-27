@@ -35,4 +35,4 @@ pwm(X)$betas
 pwm.beta2alpha(pwm(X)$betas)
 pwm.alpha2beta(pwm.beta2alpha(pwm(X)$betas))
 }
-\keyword{univar}
+\keyword{probability-weighted moment (theoretical)}

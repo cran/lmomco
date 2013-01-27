@@ -46,4 +46,4 @@ lines(z.par2cdf(x,p,gpa),x,lwd=3) # fitted model with zero conditional
 
 # now repeat the above code over and over again and watch the results
 }
-\keyword{distribution}
+\keyword{cumulative distribution function}

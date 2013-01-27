@@ -19,7 +19,7 @@ par2vec(para, ...)
 \examples{
 para <- vec2par(c(12,123,0.5), type="gev")
 par2vec(para)
-#   xi alpha kappa 
-# 12.0 123.0   0.5 
+#   xi alpha kappa
+# 12.0 123.0   0.5
 }
-\keyword{distribution}
+\keyword{utility}

@@ -43,4 +43,4 @@ approach based on L-moments: Cambridge University Press.
 TL <- TLmoms(rnorm(20),trim=1)
 parTLgpa(TL)
 }
-\keyword{distribution}
+\keyword{distribution (parameters)}

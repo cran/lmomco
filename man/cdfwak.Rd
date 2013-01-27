@@ -38,3 +38,4 @@ approach based on L-moments: Cambridge University Press.
   cdfwak(50,parwak(lmr))
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

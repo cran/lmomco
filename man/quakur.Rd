@@ -34,3 +34,4 @@ some tractability advantages: Statistical Methodology, v.6, pp. 70--81.
   quakur(0.5,parkur(lmr))
 }
 \keyword{distribution}
+\keyword{quantile function}

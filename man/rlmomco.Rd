@@ -1,6 +1,6 @@
 \name{rlmomco}
 \alias{rlmomco}
-\title{Random Deviates of a Distribution}
+\title{Random Variates of a Distribution}
 \description{
 This function generates random deviates for the specified distribution in the parameter object argument. See documentation about the parameter object is seen in \code{\link{lmom2par}} or \code{\link{vec2par}}. The prepended
 \code{r} in the function name is to parallel the built-in distribution
@@ -30,4 +30,5 @@ Q    <- rlmomco(45,para) # simulate 45 samples
 PP   <- pp(Q)            # compute the plotting positions
 plot(PP,sort(Q))         # plot the data up
 }
-\keyword{distribution}
+\keyword{random variate}
+\keyword{quantile function}

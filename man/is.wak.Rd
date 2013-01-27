@@ -14,7 +14,7 @@ is.wak(para)
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{wak}.}
-  
+
   \item{FALSE}{If the \code{type} is not \code{wak}.}
 }
 \author{ W.H. Asquith}
@@ -25,4 +25,4 @@ if(is.wak(para) == TRUE) {
   Q <- quawak(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

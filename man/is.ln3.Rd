@@ -14,7 +14,7 @@ is.ln3(para)
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{ln3}.}
-  
+
   \item{FALSE}{If the \code{type} is not \code{ln3}.}
 }
 \author{ W.H. Asquith}
@@ -25,4 +25,4 @@ if(is.ln3(para)) {
   Q <- qualn3(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

@@ -108,4 +108,4 @@ para <- vec2par(c(0, 1, 0.5, 4), type="aep4")
 lmomaep4(para)
 }
 }
-\keyword{distribution}
+\keyword{L-moment (distribution)}

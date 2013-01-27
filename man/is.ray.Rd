@@ -14,7 +14,7 @@ is.ray(para)
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{ray}.}
-  
+
   \item{FALSE}{If the \code{type} is not \code{ray}.}
 }
 \author{ W.H. Asquith}
@@ -25,4 +25,4 @@ if(is.ray(para)) {
   Q <- quaray(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

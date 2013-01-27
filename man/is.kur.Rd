@@ -14,7 +14,7 @@ is.kur(para)
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{kur}.}
-  
+
   \item{FALSE}{If the \code{type} is not \code{kur}.}
 }
 \author{ W.H. Asquith}
@@ -25,4 +25,4 @@ if(is.kur(para) == TRUE) {
   Q <- quakur(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

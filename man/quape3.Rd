@@ -40,3 +40,4 @@ approach based on L-moments: Cambridge University Press.
   quape3(0.5,parpe3(lmr))
 }
 \keyword{distribution}
+\keyword{quantile function}

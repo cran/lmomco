@@ -31,3 +31,4 @@ Hosking, J.R.M., 1986, The theory of probability weighted moments: IBM Research 
   qualap(0.5,parlap(lmr))
 }
 \keyword{distribution}
+\keyword{quantile function}

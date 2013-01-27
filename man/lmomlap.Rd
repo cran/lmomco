@@ -42,4 +42,4 @@ lmr <- lmom.ub(c(123,34,4,654,37,78))
 lmr
 lmomlap(parlap(lmr))
 }
-\keyword{distribution}
+\keyword{L-moment (distribution)}

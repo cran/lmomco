@@ -23,4 +23,4 @@ This function calls \code{is.texp} to verify consistency between the distributio
 \examples{
 #
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

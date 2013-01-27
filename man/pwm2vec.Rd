@@ -25,4 +25,4 @@ A vector of the first five Probability-Weighted Moments if available. The \code{
   pmr <- vec2pwm(c(140,150,45,21))
   pwm2vec(pmr)
 }
-\keyword{distribution}
+\keyword{utility}

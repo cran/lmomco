@@ -104,4 +104,4 @@ legend(.4,.2, c("Simulated random variates",
        lty=c(0,0,0,2,1,1))
 }
 }
-\keyword{misc}
+\keyword{utility (probability)}

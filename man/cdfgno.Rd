@@ -48,3 +48,4 @@ approach based on L-moments: Cambridge University Press.
   cdfgno(50,pargno(lmr))
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

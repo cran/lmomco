@@ -4,6 +4,25 @@ NEWS for R Package "lmomco"
 
 TODO: Complete documentation for pwmLC.Rd.
 
+Version 1.8.1---January 27, 2014
+1. Added extensions to dat2bernqua() to use alternative support of the
+      distribution based on the extreme order statistics and two references
+      added. Numerical exploration of this new feature is needed. Expanded
+      the function to handle the Kantorovich and Bernstein polynomial methods.
+      Extended the documentation.
+2. Added lmoms.bernstein() and started a paper involving it.
+3. Added a cross link to lmoms.berstein in lmoms.Rd.
+4. Added pfactor.bernstein() for a smoothed but not regressed estimate of the
+      optimal p-factor with various controls by the function arguments. This
+      is a complementary function to the Berstein-like smoothing. An example
+      shows how to potentially use pfactor.bernstein() using uniroot() for
+      direct estimation of the p-factor by optimization.
+5. **Major** topical indexing initiated by request of Amaranthe R. Biessen.
+      All Rd files modified slightly, sorry, but the results are nice.
+6. Slight shortening of DESCRIPTION.
+7. Fixed a misspelling of a list attribution in lmoms.bootbarvar.Rd.
+
+
 Version 1.7.9--December 3, 2013
 1. BUG FIX: Problems with L-skew <= 0 for parln3(). The 3-parameter log-
       normal distribution is not valid. A warning is now triggered and
@@ -13,12 +32,12 @@ Version 1.7.9--December 3, 2013
       Special thanks to Daniel Eilertz for discovering the problem.
 2. New Data Added: The TX38lgtrmFlow.RData was added to the package. These
       L-moments and estimated variances of annual mean streamflow for
-      35 long-term streamgages in Texas discussion in a cited USGS SIR. 
+      35 long-term streamgages in Texas discussion in a cited USGS SIR.
 3. Added pp.f() and pp.median(), which support median rankit estimation of
       the probability distribution of an order statistic. These are included
       to round out plotting position operations, although the median is
       arguably already available using the pp(..., a=0.3175).
-4. BUG FIX: Another return() was needed for paraep4() in order to properly 
+4. BUG FIX: Another return() was needed for paraep4() in order to properly
       fall back to pure Kappa distribution if below the lower bounds of the
       AEP4. Thanks to Amaranthe R. Biessen for the discovery. In turn, this
       prompted me to make changes in 5 and 6 described below.

@@ -23,7 +23,7 @@ pp(x, A=NULL, B=NULL, a=0, sort=TRUE)
   \item{B}{A value for the plotting-position coefficient \eqn{B};}
   \item{a}{A value for the plotting-position formula from which \eqn{A} and \eqn{B} are computed, default is \code{a=0}, which returns the Weibull plotting positions; and}
   \item{sort}{A logical whether the ranks of the data are sorted prior to \eqn{F} computation.}
-}  
+}
 \value{
   An R \code{vector} is returned.
 }
@@ -67,5 +67,4 @@ plot(pp(Q,sort=FALSE), Q)
 lines(pp(Q,sort=FALSE), Q, col=2)
 
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{plotting position}

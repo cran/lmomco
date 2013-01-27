@@ -25,9 +25,9 @@ lmomgpaRC(para)
 
   \item{lambdas}{Vector of the L-moments. First element is
 \eqn{\lambda_1}, second element is \eqn{\lambda_2}, and so on.}
-  \item{ratios}{Vector of the L-moment ratios. Second element is 
+  \item{ratios}{Vector of the L-moment ratios. Second element is
 \eqn{\tau}, third element is \eqn{\tau_3} and so on.}
-  \item{source}{An attribute identifying the computational 
+  \item{source}{An attribute identifying the computational
 source of the L-moments: \dQuote{lmomgpa2}.}
   \item{message}{For clarity, this function adds the unusual message to an L-moment object that the \code{lambdas} and \code{ratios} are B-type L-moments.}
   \item{zeta}{The censoring fraction. Assumed equal to unity if not present in the \code{gpa} parameter object.}
@@ -54,4 +54,4 @@ lmomgpaRC(para) # zeta = 1 is internally assumed if not available
 para$zeta = .8
 lmomgpaRC(para) # The B-type L-moments.
 }
-\keyword{distribution}
+\keyword{L-moment (distribution)}

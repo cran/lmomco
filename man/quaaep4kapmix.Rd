@@ -71,5 +71,8 @@ for(t3 in t3s) {
 dev.off()
 }
 }
+\keyword{quantile function}
+\keyword{quantile mixture function}
+\keyword{distribution (mixture)}
 
 

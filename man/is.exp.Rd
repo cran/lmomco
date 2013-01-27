@@ -14,7 +14,7 @@ is.exp(para)
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{exp}.}
-  
+
   \item{FALSE}{If the \code{type} is not \code{exp}.}
 }
 \author{ W.H. Asquith}
@@ -25,4 +25,4 @@ if(is.exp(para) == TRUE) {
   Q <- quaexp(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

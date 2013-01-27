@@ -47,3 +47,4 @@ for(lcv in lcvs) {
 }
 }
 \keyword{distribution}
+\keyword{probability density function}

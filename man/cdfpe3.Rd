@@ -52,3 +52,4 @@ approach based on L-moments: Cambridge University Press.
   cdfpe3(50,parpe3(lmr))
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

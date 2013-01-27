@@ -4,7 +4,7 @@
 \description{
 This function combines two distributions into one by weighting of the two quantile functions by the nonexceedance probability. The distributions are specified by the parameter arguments. The left-tail parameter object is the distribution governing the left tail; the right-tail parameter object is the distribution governing the right tail. The quantile function algebra is
 
-\deqn{ Q(F) = (1-F) \times Q_{lefttail}(F) + F \times Q_{righttail}(F)} 
+\deqn{ Q(F) = (1-F) \times Q_{lefttail}(F) + F \times Q_{righttail}(F)}
 
 where \eqn{Q(F)} is the equivalent quantile for nonexceedance probability \eqn{F} computed by the tail weigthing. \eqn{Q_{lefttail}(F)} is the left-tail quantile function; \eqn{Q_{righttail}} is the right-tail quantile function.  Parameter objects are discussed in \code{\link{vec2par}} and \code{\link{lmom2par}} functions. If the optional \code{weight} argument is provided, then the multiplication of \code{1-F} or \code{F} is replaced by \code{1-weight} or \code{weight}, respectively. If \code{weight=0}, then the quantiles for the right tail are returned, and if \code{weight=1}, then the quantiles for the left tail are returned.
 
@@ -18,7 +18,7 @@ par2qua2(f,leftpara,rightpara,weight=NULL,...)
   \item{leftpara}{The left-tail parameters from \code{\link{lmom2par}} or similar.}
   \item{rightpara}{The right-tail parameters from \code{\link{lmom2par}} or similar.}
   \item{weight}{An optional weighting argument to use in lieu of \code{F}.}
-  \item{...}{The additional arguments are passed to the quantile function such as \code{paracheck = FALSE} for the generalized Lambda distribution (\code{\link{quagld}}).}
+  \item{...}{The additional arguments are passed to the quantile function such as \cr \code{paracheck = FALSE} for the generalized Lambda distribution (\code{\link{quagld}}).}
 }
 \value{
   Quantile value for \eqn{F} from the two distributions.
@@ -46,4 +46,5 @@ lines(PP,par2qua(PP,KAP),col=2)
 lines(PP,par2qua(PP,NOR),col=3)
 lines(PP,par2qua2(PP,NOR,KAP))
 }
-\keyword{distribution}
+\keyword{quantile mixture function}
+\keyword{distribution (mixture)}

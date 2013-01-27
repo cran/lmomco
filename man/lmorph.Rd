@@ -23,5 +23,4 @@ lmr <- lmom.ub(c(123,34,4,654,37,78))
 lmorph(lmr)
 lmorph(lmorph(lmr))
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{L-moment (utility)}

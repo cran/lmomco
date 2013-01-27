@@ -46,3 +46,4 @@ approach based on L-moments: Cambridge University Press.
   cdfgev(50,pargev(lmr))
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

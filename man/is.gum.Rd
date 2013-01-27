@@ -14,7 +14,7 @@ is.gum(para)
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{gum}.}
-  
+
   \item{FALSE}{If the \code{type} is not \code{gum}.}
 }
 \author{ W.H. Asquith}
@@ -25,4 +25,4 @@ if(is.gum(para) == TRUE) {
   Q <- quagum(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

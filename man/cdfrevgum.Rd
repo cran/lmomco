@@ -64,3 +64,4 @@ plot(D,PP)
 lines(D,cdfrevgum(D,rg.pars))
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

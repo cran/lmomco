@@ -33,3 +33,4 @@ quaemu(0.75,vec2par(c(0.9, 1.5), type="emu"))
 
 }
 \keyword{distribution}
+\keyword{quantile function}

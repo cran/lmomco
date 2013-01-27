@@ -64,7 +64,7 @@ H <- c(3,4,5,6,6,7,8,8,9,9,9,10,10,11,11,11,13,13,13,13,13,
        17,19,19,25,29,33,42,42,51.9999,52,52,52)
 # 51.9999 was really 52, a real (noncensored) data point.
 flip <- 100
-F <- flip - H # 
+F <- flip - H #
 RCpwm <- pwmRC(H, threshold=52)
 lmorph(pwm2lmom(vec2pwm(RCpwm$Bbetas))) # OUTPUT1 STARTS HERE
 
@@ -77,6 +77,5 @@ fliplmoms(LClmr, flip=flip) # OUTPUT2 STARTS HERE
 # The two outputs are the same showing how the flip
 # argument works
 }
-
 }
-\keyword{distribution}
+\keyword{data censoring}

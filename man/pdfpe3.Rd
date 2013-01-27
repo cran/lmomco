@@ -55,3 +55,4 @@ approach based on L-moments: Cambridge University Press.
   pdfpe3(x,pe3)
 }
 \keyword{distribution}
+\keyword{probability density function}

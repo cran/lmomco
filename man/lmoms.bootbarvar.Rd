@@ -24,7 +24,7 @@ lmoms.bootbarvar(x, nmom=6, covarinverse=TRUE, verbose=TRUE)
 \eqn{\hat{\lambda}_1}, second element is \eqn{\hat{\lambda}_2}, and so on. This vector is from equation 1.3 and 2.4 of Hutson and Ernst (2000).}
   \item{ratios}{Vector of the exact bootstrap L-moment ratios. Second element is
 \eqn{\hat{\tau}}, third element is \eqn{\hat{\tau}_3} and so on.}
-  \item{lamdavars}{The exact bootstrap variances of the L-moments from equation 1.4 of Hutson and Ernst (2000) via \code{crossprod} matrix operations.}
+  \item{lambdavars}{The exact bootstrap variances of the L-moments from equation 1.4 of Hutson and Ernst (2000) via \code{crossprod} matrix operations.}
   \item{ratiovars}{The exact bootstrap variances of the L-moment ratios with \code{NA} inserted for \eqn{r=1,2} because \eqn{r=1} is the mean and \eqn{r=2} for L-CV is unknown to this author.}
   \item{varcovar.lambdas}{The variance-covariance matrix of the L-moments from which the diagonal are the values \code{lambdavars}.}
   \item{varcovar.lambdas.and.ratios}{The variance-covariance matrix of the first two L-moments and for the L-moment ratios (if \code{nmom}\eqn{>=3}) from which select diagonal are the values \code{ratiovars}.}
@@ -137,5 +137,5 @@ message("Empirical Coverage Probability with Alpha=0.05 is ",
 # lmoms.bootbarvar() appear to be verified.
 }
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{L-moment (sample)}
+\keyword{L-moment (variation)}

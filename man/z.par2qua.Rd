@@ -42,4 +42,4 @@ lines(F,z.par2qua(F,p,gpa),lwd=3) # fitted model with zero conditional
 
 # now repeat the above code over and over again and watch the results
 }
-\keyword{distribution}
+\keyword{quantile function}

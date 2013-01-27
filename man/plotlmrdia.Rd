@@ -122,5 +122,4 @@ points(mean(t3),mean(t4),pch=16,cex=3)
 lines(c(T3,T3),c(-1,1),col=8, lty=2)
 lines(c(-1,1),c(T4,T4),col=8, lty=2)
 }
-\keyword{distribution}
 \keyword{L-moment ratio diagram}

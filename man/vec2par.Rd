@@ -34,4 +34,4 @@ Q <- quagev(0.5,para)
 
 my.custom <- vec2par(c(2,2),'myowndist') # Rice distribution
 }
-\keyword{distribution}
+\keyword{utility}

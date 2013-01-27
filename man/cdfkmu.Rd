@@ -144,9 +144,7 @@ for(mu in mus) {
 }
 mtext("Yacoub (2007, figure 4)")
 
-
 }
-
-
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

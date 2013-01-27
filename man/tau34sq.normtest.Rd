@@ -76,7 +76,5 @@ p <- length(sims[sims <= a])
 print("RESULTS(Alpha, SampleSize, EmpiricalAlpha)")
 print(c(a, n, p/s))
 }
-
 }
-\keyword{misc}
-
+\keyword{L-moment (hypothesis)}

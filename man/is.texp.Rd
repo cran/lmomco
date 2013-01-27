@@ -21,4 +21,4 @@ is.texp(para)
 \examples{
 #
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

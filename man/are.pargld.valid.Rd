@@ -47,11 +47,9 @@ the distribution parameter object and the intent of the user.
 \author{ W.H. Asquith}
 \seealso{ \code{\link{is.gld}} }
 \examples{
-
 \dontrun{ # cpu expensive
 para <- vec2par(c(123,34,4,3),type='gld')
 if(are.pargld.valid(para)) Q <- quagld(0.5,para)
 }
-
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

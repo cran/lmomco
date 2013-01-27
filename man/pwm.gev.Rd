@@ -14,7 +14,7 @@ where \eqn{p_i} is the nonexceedance probability \eqn{F} of the \eqn{i}th ascend
 
 where \eqn{x_{j:n}} is the \eqn{j}th order statistic
 \eqn{x_{1:n} \le x_{2:n} \le x_{j:n} \dots \le x_{n:n}} of random variable X, and
-\eqn{r} is \eqn{0, 1, 2, \dots}. Finally, \code{pwm.gev} dispatches to \code{pwm.pp(data,A=-0.35,B=0)} and does not 
+\eqn{r} is \eqn{0, 1, 2, \dots}. Finally, \code{pwm.gev} dispatches to \code{pwm.pp(data,A=-0.35,B=0)} and does not
 have its own logic.
 }
 \usage{
@@ -49,5 +49,4 @@ approach based on L-moments: Cambridge University Press.
 \examples{
 pwm <- pwm.gev(rnorm(20))
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{probability-weighted moment (sample)}

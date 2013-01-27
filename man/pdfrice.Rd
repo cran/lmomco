@@ -74,3 +74,4 @@ lines(x, pdfrice(x, rice2), lwd=1, col=3) # NORMAl code triggered
 
 }
 \keyword{distribution}
+\keyword{probability density function}

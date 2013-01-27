@@ -40,5 +40,4 @@ approach based on L-moments: Cambridge University Press.
 \examples{
 pwm <- pwm.ub(rnorm(20))
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{probability-weighted moment (sample)}

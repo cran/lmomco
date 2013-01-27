@@ -114,4 +114,4 @@ theoTLmoms(PARgld, leftrim=10, rightrim=2, nmom=6)
 lmomTLgld(PARgld, leftrim=10, rightrim=2)
 }
 }
-\keyword{distribution}
+\keyword{L-moment (distribution)}

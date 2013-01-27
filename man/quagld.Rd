@@ -46,3 +46,4 @@ CRC Press, Boca Raton, FL, 438 p.
 
 }
 \keyword{distribution}
+\keyword{quantile function}

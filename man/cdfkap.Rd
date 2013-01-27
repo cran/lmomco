@@ -42,3 +42,4 @@ approach based on L-moments: Cambridge University Press.
   cdfkap(50,parkap(lmr))
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

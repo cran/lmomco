@@ -115,4 +115,4 @@ lines(F,qlmomco(F, vec2par(c(0.4962471, 8.794038,
                              0.0082958, 0.228352), type="gld")))
 }
 }
-\keyword{distribution}
+\keyword{distribution (parameters)}

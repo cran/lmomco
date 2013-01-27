@@ -3,7 +3,7 @@
 \title{Are the Distribution Parameters Consistent with the Reverse Gumbel Distribution}
 \description{
 The distribution parameter object returned by functions of this package such as by
-\code{parrevgum} are consistent with the corresponding distribution, 
+\code{parrevgum} are consistent with the corresponding distribution,
 otherwise a list would not have been returned.  However, other
 functions (\code{cdfrevgum}, \code{quarevgum}, and
 \code{lmomrevgum} require consistent parameters to return the cumulative
@@ -28,7 +28,7 @@ in Recent Advances in Life-Testing and Reliability, edited by N. Balakrishnan,
 chapter 29, CRC Press, Boca Raton, Fla., pp. 546--560.
 }
 \note{
-This function calls \code{is.revgum} to verify consistency between 
+This function calls \code{is.revgum} to verify consistency between
 the distribution parameter object and the intent of the user.
 }
 \author{ W.H. Asquith}
@@ -37,4 +37,4 @@ the distribution parameter object and the intent of the user.
 para <- vec2par(c(.9252, .1636, .7),type='revgum')
 if(are.parrevgum.valid(para)) Q <- quarevgum(0.5,para)
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

@@ -113,7 +113,6 @@ plotlmrdia(lmrdia(), xlim=c(-.2,.6), ylim=c(-.1, .4),
 points(D$t3,D$t4)
 text(D$t3,D$t4,D$site, cex=0.75, pos=3)
 text(D$t3,D$t4,D$D, cex=0.75, pos=1)
-
 }
-\keyword{misc}
+\keyword{L-moment (hypothesis)}
 

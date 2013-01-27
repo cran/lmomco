@@ -40,6 +40,5 @@ points(supposed.median, X, pch=16, col=2, cex=0.5)
 # quantile function of the beta distribution.
 }
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{plotting position}
 \keyword{rankit}

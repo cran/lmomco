@@ -38,4 +38,4 @@ Yorktown Heights, New York.
 lmr <- lmom.ub(rnorm(20))
 parlap(lmr)
 }
-\keyword{distribution}
+\keyword{distribution (parameters)}

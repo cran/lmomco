@@ -2,7 +2,7 @@
 \alias{pdfgam}
 \title{Probability Density Function of the Gamma Distribution}
 \description{
-This function computes the probability density function 
+This function computes the probability density function
 of the Gamma distribution given parameters (\eqn{\alpha}, shape, and \eqn{\beta}, scale) of the
 distribution computed by \code{\link{pargam}}.  The probability density
 function of the distribution has no explicit form, but is expressed as an integral.
@@ -42,3 +42,4 @@ approach based on L-moments: Cambridge University Press.
   pdfgam(x,gam)
 }
 \keyword{distribution}
+\keyword{probability density function}

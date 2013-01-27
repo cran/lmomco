@@ -29,3 +29,4 @@ NEED
   qualn3(0.5,parln3(lmr))
 }
 \keyword{distribution}
+\keyword{quantile function}

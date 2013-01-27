@@ -52,4 +52,4 @@ print(lmomtexp(partexp(lmr))$lambdas)
 print(lmr$ratios)
 print(lmomtexp(partexp(lmr))$ratios)
 }
-\keyword{distribution}
+\keyword{L-moment (distribution)}

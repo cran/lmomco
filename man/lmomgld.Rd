@@ -130,4 +130,4 @@ theoTLmoms(PARgld, nmom=6)
 lmomgld(PARgld)
 }
 }
-\keyword{distribution}
+\keyword{L-moment (distribution)}

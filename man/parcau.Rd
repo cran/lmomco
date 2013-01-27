@@ -3,7 +3,7 @@
 \title{Estimate the Parameters of the Cauchy Distribution}
 \description{
 This function estimates the parameters of the Cauchy distribution from the
-trimmed L-moments (TL-moments) having trim level 1. 
+trimmed L-moments (TL-moments) having trim level 1.
 }
 \usage{
 parcau(lmom)
@@ -40,7 +40,7 @@ The relation between the parameters and the trimmed L-moments is
 Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational Statistics
 and Data Analysis, vol. 43, pp. 299--314.
 
-Gilchrist, W.G., 2000, Statistical modeling with quantile functions: 
+Gilchrist, W.G., 2000, Statistical modeling with quantile functions:
 Chapman and Hall/CRC, Boca Raton, FL.
 }
 \author{ W.H. Asquith}
@@ -50,4 +50,4 @@ Chapman and Hall/CRC, Boca Raton, FL.
 X1 <- rcauchy(20)
 parcau(TLmoms(X1,trim=1))
 }
-\keyword{distribution}
+\keyword{distribution (parameters)}

@@ -62,5 +62,4 @@ z <-  pwmRC(D,.2960001)
 pwm2lmom(z$Bbetas)
 # My version of R reports -.5162 and 0.5218
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{probability-weighted moment (sample)}

@@ -36,9 +36,9 @@ Although \code{NULL} in the argument list, the default is 0---the usual L-moment
 \seealso{\code{\link{qualn3}}, \code{\link{theoTLmoms}}}
 \examples{
 \dontrun{
-  # Recalling that generalized Normal and log-Normal3 are 
+  # Recalling that generalized Normal and log-Normal3 are
   # the same with the GNO being the more general.
-  
+
   # Plot and L-moment ratio diagram of Tau3 and Tau4
   # with exclusive focus on the GNO distribution.
   plotlmrdia(lmrdia(), autolegend=TRUE, xleg=-.1, yleg=.6,
@@ -61,4 +61,4 @@ Although \code{NULL} in the argument list, the default is 0---the usual L-moment
   # only part of the GNO
 }
 }
-\keyword{distribution}
+\keyword{L-moment (trimmed, distribution)}

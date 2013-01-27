@@ -102,4 +102,4 @@ legend(-2.4,400, c("True annual series (with one zero year)",
        lty=c(0,0,0,0,2,1,1))
 }
 }
-\keyword{misc}
+\keyword{utility (probability)}

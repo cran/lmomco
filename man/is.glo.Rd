@@ -14,7 +14,7 @@ is.glo(para)
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{glo}.}
-  
+
   \item{FALSE}{If the \code{type} is not \code{glo}.}
 }
 \author{ W.H. Asquith}
@@ -25,4 +25,4 @@ if(is.glo(para) == TRUE) {
   Q <- quaglo(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

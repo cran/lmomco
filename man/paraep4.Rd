@@ -140,4 +140,4 @@ print(MADasq)
 # correct values.
 }
 }
-\keyword{distribution}
+\keyword{distribution (parameters)}

@@ -34,3 +34,4 @@ NEED
   pdfgno(x,ln3)
 }
 \keyword{distribution}
+\keyword{probability density function}

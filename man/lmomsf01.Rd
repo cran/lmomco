@@ -73,5 +73,4 @@ Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the 
   lines(qnorm(Fs), qlmomco(Fs, parnor(lmr2)), col=3)
 }
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{L-moment (sample)}

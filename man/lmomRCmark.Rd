@@ -18,7 +18,7 @@ lmomRCmark(x, rcmark=NULL, r=1, sort=TRUE)
 
   \item{lambdas}{Vector of the L-moments. First element is
 \eqn{\hat{\lambda}^{(0,0)}_1}, second element is \eqn{\hat{\lambda}^{(0,0)}_2}, and so on.}
-  \item{ratios}{Vector of the L-moment ratios. Second element is 
+  \item{ratios}{Vector of the L-moment ratios. Second element is
 \eqn{\hat{\tau}^{(0,0)}}, third element is \eqn{\hat{\tau}^{(0,0)}_3} and so on.}
   \item{trim}{Level of symmetrical trimming used in the computation, which will equal \code{NULL} if asymmetrical trimming was used.}
   \item{leftrim}{Level of left-tail trimming used in the computation.}
@@ -33,5 +33,5 @@ Wang, Dongliang, Hutson, A.D., Miecznikowski, J.C., 2010, L-moment estimation fo
 \examples{
 # See example under lmomsRCmark
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{L-moment (sample)}
+\keyword{data censoring}

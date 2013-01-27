@@ -33,3 +33,4 @@ some tractability advantages: Statistical Methodology, v.6, pp. 70--81.
   cdfkur(0.5,parkur(lmr))
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

@@ -48,5 +48,5 @@ of the Royal Statistical Society, Series B, vol. 52, p. 105--124.
 para <- vec2par(c(0,1),type='nor') # standard normal
 TL00 <- theoLmoms(para) # compute ordinary L-moments
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{L-moment (theoretical)}
+

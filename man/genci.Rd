@@ -69,6 +69,5 @@ genci(para, n, F=NULL, ci=0.90, edist='nor', nsim=1000,
   lines(qnorm(CI$nonexceed_prob),log10(CI$upper),col=3, lty=2)
   dev.off()
 }
-
 }
-\keyword{distribution}
+\keyword{distribution (utility)}

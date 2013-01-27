@@ -3,7 +3,7 @@
 \title{Are the Distribution Parameters Consistent with the Kumaraswamy Distribution}
 \description{
 The distribution parameter object returned by functions of this package such as by
-\code{parkur} are consistent with the corresponding distribution, 
+\code{parkur} are consistent with the corresponding distribution,
 otherwise a list would not have been returned.  However, other
 functions (\code{cdfkur}, \code{quakur}, and
 \code{lmomkur} require consistent parameters to return the cumulative
@@ -27,7 +27,7 @@ Jones, M.C., 2009, Kumaraswamy's distribution---A beta-type distribution with
 some tractability advantages: Statistical Methodology, v.6, pp. 70--81.
 }
 \note{
-This function calls \code{is.kur} to verify consistency between 
+This function calls \code{is.kur} to verify consistency between
 the distribution parameter object and the intent of the user.
 }
 \author{ W.H. Asquith}
@@ -35,6 +35,5 @@ the distribution parameter object and the intent of the user.
 \examples{
 para <- parkur(lmom.ub(c(0.25, 0.4, 0.6, 0.65, 0.67, 0.9)))
 if(are.parkur.valid(para)) Q <- quakur(0.5,para)
-
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

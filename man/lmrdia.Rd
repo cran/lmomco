@@ -47,5 +47,4 @@ approach based on L-moments: Cambridge University Press.
 \examples{
 lratios <- lmrdia()
 }
-\keyword{distribution}
 \keyword{L-moment ratio diagram}

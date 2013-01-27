@@ -56,4 +56,4 @@ BB <- partexp(vec2lmom(c(100, 0.45),  lscale=FALSE)) # truncated exponential
 C  <- partexp(vec2lmom(c(100, 1/3),  lscale=FALSE))  # stationary poisson process
 D  <- partexp(vec2lmom(c(100, 40))) # truncated exponential
 }
-\keyword{distribution}
+\keyword{distribution (parameters)}

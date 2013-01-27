@@ -43,3 +43,4 @@ approach based on L-moments: Cambridge University Press.
   quakap(0.5,parkap(lmr))
 }
 \keyword{distribution}
+\keyword{quantile function}

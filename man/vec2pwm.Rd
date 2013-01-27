@@ -35,4 +35,4 @@ vec2pwm(vec, as.list=FALSE)
 \examples{
 pwm <- vec2pwm(c(12,123,12,12,54))
 }
-\keyword{distribution}
+\keyword{utility}

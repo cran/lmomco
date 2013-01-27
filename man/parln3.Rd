@@ -50,4 +50,4 @@ plot(F, -qualn3(1-F, parln3(lmr.neg)), type="l", lwd=3, col=2) # red line
 lines(F, quagno(F, pargno(lmr.pos))) # black line
 }
 }
-\keyword{distribution}
+\keyword{distribution (parameters)}

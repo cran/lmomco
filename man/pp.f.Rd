@@ -25,6 +25,5 @@ Karian, Z.A., and Dudewicz, E.J., 2011, Handbook of fitting statistical distribu
 \examples{
 #
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{plotting position}
 \keyword{rankit}

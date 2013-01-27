@@ -7,7 +7,7 @@ of the Gamma distribution given parameters (\eqn{\alpha} and \eqn{\beta}) of the
 distribution computed by \code{\link{pargam}}.  The cumulative distribution
 function of the distribution has no explicit form, but is expressed as an integral.
 
-\deqn{F(x) = \frac{\beta^{-\alpha}}{\Gamma(\alpha)}\int_0^x t^{\alpha - 1} 
+\deqn{F(x) = \frac{\beta^{-\alpha}}{\Gamma(\alpha)}\int_0^x t^{\alpha - 1}
 e^{-t/\beta} \mbox{d}F \mbox{,}}
 
 where \eqn{F(x)} is the nonexceedance probability for the quantile \eqn{x}. The parameters have the following interpretation in the \pkg{R} syntax; \eqn{\alpha} is a shape parameter and \eqn{\beta} is a scale parameter.
@@ -55,3 +55,4 @@ approach based on L-moments: Cambridge University Press.
   if(abs(F1-F2) < 1e-8) print("yes")
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

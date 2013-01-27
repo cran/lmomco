@@ -30,14 +30,11 @@ Yacoub, M.D., 2007, The kappa-mu distribution and the eta-mu distribution: IEEE 
 \author{ W.H. Asquith}
 \seealso{\code{\link{pdfemu}}, \code{\link{quaemu}}, \code{\link{paremu}}}
 \examples{
-
 para <- vec2par(c(0.5, 1.4), type="emu")
 cdfemu(1.2, para, yacoubsintegral=TRUE)
 cdfemu(1.2, para, yacoubsintegral=FALSE)
 
 \dontrun{
-
-
 delx <- 0.01
 x <- seq(0,3, by=delx)
 nx <- 20*log10(x)
@@ -62,7 +59,6 @@ lines(nx, cdfemu(x, vec2par(c(eta, mu), type="emu")),
 }
 
 \dontrun{
-
 delx <- 0.01
 x <- seq(0,3, by=delx)
 nx <- 20*log10(x)
@@ -75,8 +71,7 @@ for(mu in c(m/2,seq(m/2+0.01,m,by=0.01), m-0.001, m)) {
    lines(nx, cdfemu(x, vec2par(c(eta, mu), type="emu")),
          col=col, lwd=.75, lty=lty)
 }
-
 }
-
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

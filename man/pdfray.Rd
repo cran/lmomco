@@ -35,3 +35,4 @@ Research Report RC12210, IBM Research Division, Yorkton Heights, N.Y.
   pdfray(x,ray)
 }
 \keyword{distribution}
+\keyword{probability density function}

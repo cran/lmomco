@@ -81,5 +81,4 @@ del    <- samTL$ratios[3] - theoTL$ratios[3] # if n is large difference
                                              # is small
 str(del)
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{L-moment (theoretical)}

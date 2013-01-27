@@ -52,6 +52,5 @@ parkur(lmr)
 kurpar <- list(para=c(0.1,0.1), type="kur");
 lmr <- lmomkur(kurpar)
 parkur(lmr)
-
 }
-\keyword{distribution}
+\keyword{distribution (parameters)}

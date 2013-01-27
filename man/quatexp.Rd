@@ -46,3 +46,4 @@ for(lcv in lcvs) {
 
 }
 \keyword{distribution}
+\keyword{quantile function}

@@ -5,8 +5,8 @@
 This convenience function checks that a given probability density function from \pkg{lmomco} appears to workout as mathematically valid. Basically a pdf function must integrate to unity. The \code{check.fs} function permits some flexibility in the limits of integration and provides a high-level interface from graphical display of the pdf.
 }
 \usage{
-check.pdf(pdfunc,  para, lowerF=0.001, upperF=0.999, 
-eps=0.02, verbose=FALSE, plot=FALSE, plotlowerF=0.001, 
+check.pdf(pdfunc,  para, lowerF=0.001, upperF=0.999,
+eps=0.02, verbose=FALSE, plot=FALSE, plotlowerF=0.001,
 plotupperF=0.999, ...)
 }
 \arguments{
@@ -45,4 +45,4 @@ check.pdf(pdfwei,wei,plot=TRUE)
 check.pdf(pdfgev,upperF=0.5,gev,plot=TRUE)
 check.pdf(pdfwei,upperF=0.5,wei,plot=TRUE)
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

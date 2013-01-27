@@ -45,3 +45,4 @@ approach based on L-moments: Cambridge University Press.
   quagpa(0.5,pargpa(lmr))
 }
 \keyword{distribution}
+\keyword{quantile function}

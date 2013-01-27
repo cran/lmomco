@@ -6,7 +6,7 @@ This function computes the quantiles of the Normal distribution given
 parameters (\eqn{mean} and \eqn{sd}) of the distribution computed by
 \code{\link{parnor}}.
 The quantile function of the distribution has no explicit form
-(see \code{cdfnor} and \code{qnorm}). The parameters have the following 
+(see \code{cdfnor} and \code{qnorm}). The parameters have the following
 interpretations: \eqn{mean} is the arithmetic
 mean and \eqn{sd} is the standard deviation. The R-function \code{qnorm} is used.
 }
@@ -40,3 +40,4 @@ approach based on L-moments: Cambridge University Press.
   quanor(0.5,parnor(lmr))
 }
 \keyword{distribution}
+\keyword{quantile function}

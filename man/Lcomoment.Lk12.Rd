@@ -60,4 +60,3 @@ X2   <- rnorm(20)
 Lk12 <- Lcomoment.Lk12(X1,X2,k=1)
 }
 \keyword{multivariate}
-\keyword{distribution}

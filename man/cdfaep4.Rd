@@ -78,3 +78,4 @@ lines(quaaep4(cdfaep4(x,PAR),PAR), cdfaep4(x,PAR), col=2)
 
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

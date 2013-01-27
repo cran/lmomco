@@ -15,7 +15,7 @@ is.gno(para)
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{gno}.}
-  
+
   \item{FALSE}{If the \code{type} is not \code{gno}.}
 }
 \author{ W.H. Asquith}
@@ -26,4 +26,4 @@ if(is.gno(para) == TRUE) {
   Q <- quagno(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

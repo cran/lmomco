@@ -3,7 +3,7 @@
 \title{Are the Distribution Parameters Consistent with the 3-Parameter Log-Normal Distribution}
 \description{
 The distribution parameter object returned by functions of this package such as by
-\code{pargum} are consistent with the corresponding distribution, 
+\code{pargum} are consistent with the corresponding distribution,
 otherwise a list would not have been returned.  However, other
 functions (\code{cdfln3}, \code{qualn3}, and
 \code{lmomln3} require consistent parameters to return the cumulative
@@ -26,7 +26,7 @@ are.parln3.valid(para,nowarn=FALSE)
 NEED
 }
 \note{
-This function calls \code{is.ln3} to verify consistency between 
+This function calls \code{is.ln3} to verify consistency between
 the distribution parameter object and the intent of the user.
 }
 \author{ W.H. Asquith}
@@ -35,4 +35,4 @@ the distribution parameter object and the intent of the user.
 para <- parln3(lmom.ub(c(123,34,4,654,37,78)))
 if(are.parln3.valid(para)) Q <- qualn3(0.5,para)
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

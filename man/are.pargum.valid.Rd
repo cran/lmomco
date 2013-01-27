@@ -3,7 +3,7 @@
 \title{Are the Distribution Parameters Consistent with the Gumbel Distribution}
 \description{
 The distribution parameter object returned by functions of this package such as by
-\code{pargum} are consistent with the corresponding distribution, 
+\code{pargum} are consistent with the corresponding distribution,
 otherwise a list would not have been returned.  However, other
 functions (\code{cdfgum}, \code{quagum}, and
 \code{lmomgum} require consistent parameters to return the cumulative
@@ -32,7 +32,7 @@ Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
 approach based on L-moments: Cambridge University Press.
 }
 \note{
-This function calls \code{is.gum} to verify consistency between 
+This function calls \code{is.gum} to verify consistency between
 the distribution parameter object and the intent of the user.
 }
 \author{ W.H. Asquith}
@@ -40,6 +40,5 @@ the distribution parameter object and the intent of the user.
 \examples{
 para <- pargum(lmom.ub(c(123,34,4,654,37,78)))
 if(are.pargum.valid(para)) Q <- quagum(0.5,para)
-
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

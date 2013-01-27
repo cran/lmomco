@@ -3,7 +3,7 @@
 \title{ The Harmonic Mean with Zero-Value Correction }
 \description{
 Compute the harmonic mean of a vector with a zero-value correction.
-\deqn{\check{\mu} = 
+\deqn{\check{\mu} =
            \biggl(\frac{\sum^{N_T - N_0}_{i=1} 1/X_i}
                        {N_T - N_0}\biggr)^{-1} \times \frac{N_T - N_0}
                  {N_T} \mbox{,}}
@@ -37,5 +37,5 @@ Texas Commission on Environmental Quality, 2003, Procedures to implement the Tex
 Q <- c(0,0,5,6,7)
 harmonic.mean(Q)
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{special function}
+

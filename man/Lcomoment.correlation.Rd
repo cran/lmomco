@@ -37,4 +37,3 @@ L2  <- Lcomoment.matrix(D,k=2)
 RHO <- Lcomoment.correlation(L2)
 }
 \keyword{multivariate}
-\keyword{distribution}

@@ -42,4 +42,4 @@ the distribution parameter object and the intent of the user.
 para <- vec2par(c(0,1, 0.5, 4), type="aep4")
 if(are.paraep4.valid(para)) Q <- quaaep4(0.5,para)
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

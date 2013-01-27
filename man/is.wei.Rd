@@ -12,7 +12,7 @@ is.wei(para)
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{wei}.}
-  
+
   \item{FALSE}{If the \code{type} is not \code{wei}.}
 }
 \author{ W.H. Asquith}
@@ -23,4 +23,4 @@ if(is.wei(para) == TRUE) {
   Q <- quawei(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

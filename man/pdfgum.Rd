@@ -46,3 +46,4 @@ approach based on L-moments: Cambridge University Press.
   pdfgum(x,gum)
 }
 \keyword{distribution}
+\keyword{probability density function}

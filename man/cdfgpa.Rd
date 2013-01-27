@@ -48,3 +48,4 @@ approach based on L-moments: Cambridge University Press.
   cdfgpa(50,pargpa(lmr))
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

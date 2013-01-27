@@ -14,7 +14,7 @@ is.cau(para)
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{cau}.}
-  
+
   \item{FALSE}{If the \code{type} is not \code{cau}.}
 }
 \author{ W.H. Asquith}
@@ -25,4 +25,4 @@ if(is.cau(para) == TRUE) {
   Q <- quacau(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

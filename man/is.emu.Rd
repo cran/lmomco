@@ -24,4 +24,4 @@ if(is.emu(para)) {
   Q <- quaemu(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

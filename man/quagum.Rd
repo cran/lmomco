@@ -42,3 +42,4 @@ approach based on L-moments: Cambridge University Press.
   quagum(0.5,pargum(lmr))
 }
 \keyword{distribution}
+\keyword{quantile function}

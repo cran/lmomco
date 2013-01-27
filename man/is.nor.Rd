@@ -14,7 +14,7 @@ is.nor(para)
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{nor}.}
-  
+
   \item{FALSE}{If the \code{type} is not \code{nor}.}
 }
 \author{ W.H. Asquith}
@@ -25,4 +25,4 @@ if(is.nor(para) == TRUE) {
   Q <- quanor(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

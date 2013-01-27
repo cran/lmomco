@@ -14,7 +14,7 @@ is.gpa(para)
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{gpa}.}
-  
+
   \item{FALSE}{If the \code{type} is not \code{gpa}.}
 }
 \author{ W.H. Asquith}
@@ -25,4 +25,4 @@ if(is.gpa(para) == TRUE) {
   Q <- quagpa(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

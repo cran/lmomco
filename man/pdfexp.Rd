@@ -4,7 +4,7 @@
 \description{
 This function computes the probability density
 of the Exponential distribution given parameters (\eqn{\xi} and \eqn{\alpha}) of the
-distribution computed by \code{\link{parexp}}. The probability density 
+distribution computed by \code{\link{parexp}}. The probability density
 function of the distribution is
 
 \deqn{f(x) = \alpha^{-1} e^{\left(\frac{-(x - \xi)}{\alpha}\right)}}
@@ -44,3 +44,4 @@ approach based on L-moments: Cambridge University Press.
   pdfexp(x,expp)
 }
 \keyword{distribution}
+\keyword{probability density function}

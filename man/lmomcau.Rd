@@ -22,9 +22,9 @@ lmomcau(para)
 
   \item{lambdas}{Vector of the trimmed L-moments. First element is
 \eqn{\lambda^{(1)}_1}, second element is \eqn{\lambda^{(1)}_2}, and so on.}
-  \item{ratios}{Vector of the L-moment ratios. Second element is 
+  \item{ratios}{Vector of the L-moment ratios. Second element is
 \eqn{\tau^{(1)}}, third element is \eqn{\tau^{(1)}_3} and so on. }
-  \item{source}{An attribute identifying the computational source 
+  \item{source}{An attribute identifying the computational source
 of the L-moments: \dQuote{lmomcau}}
   \item{trim}{Level of symmetrical trimming used---\code{trim=1}.}
 }
@@ -32,7 +32,7 @@ of the L-moments: \dQuote{lmomcau}}
 Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational Statistics
 and Data Analysis, vol. 43, pp. 299--314.
 
-Gilchrist, W.G., 2000, Statistical modeling with quantile functions: 
+Gilchrist, W.G., 2000, Statistical modeling with quantile functions:
 Chapman and Hall/CRC, Boca Raton, FL.
 }
 \author{ W.H. Asquith}
@@ -41,4 +41,4 @@ Chapman and Hall/CRC, Boca Raton, FL.
 X1 <- rcauchy(20)
 lmomcau(parcau(TLmoms(X1,trim=1)))
 }
-\keyword{distribution}
+\keyword{L-moment (distribution)}

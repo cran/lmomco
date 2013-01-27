@@ -53,3 +53,4 @@ approach based on L-moments: Cambridge University Press.
 }
 }
 \keyword{distribution}
+\keyword{probability density function}

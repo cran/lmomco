@@ -36,11 +36,10 @@ of the Royal Statistical Society, Series B, vol. 52, p. 105--124.
 }
 \author{ W.H. Asquith}
 
-\seealso{\code{\link{lmom.ub}}, \code{\link{TLmoms}}, and \code{\link{lmorph}}}
+\seealso{\code{\link{lmom.ub}}, \code{\link{TLmoms}}, \code{\link{lmorph}}, and \code{\link{lmoms.bernstein}}}
 \examples{
 X1 <- rnorm(30)
 L5 <- lmoms(X1)
 L4 <- lmoms(X1,nmom=4)
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{L-moment (sample)}

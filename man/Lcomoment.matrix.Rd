@@ -52,4 +52,3 @@ L1 <- Lcomoment.matrix(D,k=1)
 L2 <- Lcomoment.matrix(D,k=2)
 }
 \keyword{multivariate}
-\keyword{distribution}

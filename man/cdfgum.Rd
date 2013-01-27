@@ -45,3 +45,4 @@ approach based on L-moments: Cambridge University Press.
   cdfgum(50,pargum(lmr))
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

@@ -2,7 +2,7 @@
 \alias{pdfnor}
 \title{Probability Density Function of the Normal Distribution}
 \description{
-This function computes the probability density function 
+This function computes the probability density function
 of the Normal distribution given parameters of the distribution computed
 by \code{\link{parnor}}.  The probability density function of the distribution is
 
@@ -43,3 +43,4 @@ approach based on L-moments: Cambridge University Press.
   pdfnor(50,parnor(lmr))
 }
 \keyword{distribution}
+\keyword{probability density function}

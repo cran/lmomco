@@ -39,3 +39,4 @@ x <- quakap(F,kap)
 check.pdf(pdfkap,kap,plot=TRUE)
 }
 \keyword{distribution}
+\keyword{probability density function}

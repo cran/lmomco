@@ -88,8 +88,6 @@ Residual standard error: 2.009e-05 on 2685 degrees
 of freedom. Multiple R-squared: 1,
 Adjusted R-squared: 1 F-statistic: 5.37e+07 on 8
 and 2685 DF, p-value: < 2.2e-16
-
 }
-
 }
-\keyword{distribution}
+\keyword{L-moment (distribution)}

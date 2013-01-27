@@ -46,3 +46,4 @@ approach based on L-moments: Cambridge University Press.
   quawak(0.5,parwak(lmr))
 }
 \keyword{distribution}
+\keyword{quantile function}

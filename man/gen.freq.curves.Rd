@@ -133,8 +133,6 @@ points(c(qF,qF), c(lo.vargev,hi.vargev), pch=2, lwd=2, col=2)
 message("NORMAL ERROR DIST: ",percent.nor)
 message("  AEP4 ERROR DIST: ",percent.aep4)
 message("VARGEV ERROR DIST: ",percent.vargev)
-
 }
-
 }
-\keyword{distribution}
+\keyword{misc}

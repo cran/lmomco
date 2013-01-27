@@ -55,12 +55,12 @@ n         <- 60 # samplesize
 para      <- vec2par(c(1500,160,.3),type="gpa") # build a GPA parameter set
 fakedata  <- quagpa(runif(n),para) # generate n simulated values
 threshold <- 1700 # a threshold to apply the simulated censoring
-fakedata  <- sapply(fakedata,function(x) { if(x > threshold) 
+fakedata  <- sapply(fakedata,function(x) { if(x > threshold)
                                            return(threshold) else return(x)
                                          })
 lmr       <- lmoms(fakedata) # Ordinary L-moments without considering
                              # that the data is censored
-estpara   <- pargpa(lmr) # Estimated parameters of parent 
+estpara   <- pargpa(lmr) # Estimated parameters of parent
 
 pwm2     <- pwmRC(fakedata,threshold=threshold) # compute censored PWMs
 typeBpwm <- pwm2$Bbetas # the B-type PWMs
@@ -98,4 +98,4 @@ para2 <- pargpaRC(pwm2lmom(typeBpwm), xi=para1$para[1], zeta=zeta)
 str(para1)
 str(para2)
 }
-\keyword{distribution}
+\keyword{distribution (parameters)}

@@ -33,7 +33,6 @@ where \eqn{{}_1F_1(a;b;z)} is the confluent hypergeometric function of Abramowit
 {}_1F_1(a;b;z) = \sum_{i=0}^\infty \frac{a^{(i)}}{b^{(i)}}\frac{z^i}{n!}
 }
 where the notation \eqn{a^{(n)}} represents \dQuote{rising factorials} that are defined as \eqn{a^{(0)} = 1} and \eqn{a^{(n)} = a(a+1)(a+2)\ldots(a+n-1)}. The rising factorials are readily computed by \eqn{ a^{(n)} = \Gamma(n+1)/\Gamma(n)} without resorting to a series computation. Yacoub (2007, eq. 5) is used to compute the mean.
-
 }
 \usage{
 lmomkmu(para, nmom=5, paracheck=TRUE, tol=1E-6, maxn=100)
@@ -79,10 +78,7 @@ system.time(lmomkmu(par))
 system.time(cdf2lmoms(par, nmom=4))
 
 }
-
-
-
 # See the examples under lmomemu() so visualize L-moment
 # relations on the L-skew and L-kurtosis diagram
 }
-\keyword{distribution}
+\keyword{L-moment (distribution)}

@@ -28,4 +28,4 @@ if(is.gld(para) == TRUE) {
 }
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

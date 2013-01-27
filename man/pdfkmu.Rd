@@ -77,3 +77,4 @@ mtext("Yacoub (2007, figure 3)")
 
 }
 \keyword{distribution}
+\keyword{probability density function}

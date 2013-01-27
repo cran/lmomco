@@ -45,4 +45,4 @@ lmr <- parwei(lmom.ub(rweibull(3000,1.3,scale=340)-1200))
 str(lmr)
 
 }
-\keyword{distribution}
+\keyword{distribution (parameters)}

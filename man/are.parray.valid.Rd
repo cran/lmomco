@@ -35,6 +35,5 @@ the distribution parameter object and the intent of the user.
 \examples{
 para <- parray(lmom.ub(c(123,34,4,654,37,78)))
 if(are.parray.valid(para)) Q <- quaray(0.5,para)
-
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

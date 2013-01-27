@@ -14,7 +14,7 @@ is.gev(para)
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{gev}.}
-  
+
   \item{FALSE}{If the \code{type} is not \code{gev}.}
 }
 \author{ W.H. Asquith}
@@ -25,4 +25,4 @@ if(is.gev(para) == TRUE) {
   Q <- quagev(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

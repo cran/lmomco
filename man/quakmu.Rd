@@ -33,3 +33,4 @@ quakmu(0.75,vec2par(c(0.9, 1.5), type="kmu"))
 
 }
 \keyword{distribution}
+\keyword{quantile function}

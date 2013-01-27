@@ -79,4 +79,4 @@ tlmrglo(leftrim=1, rightrim=3, xi=32, alpha=83) # another slow example
   # near limits of the GLO.
 }
 }
-\keyword{distribution}
+\keyword{L-moment (trimmed, distribution)}

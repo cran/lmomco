@@ -39,4 +39,4 @@ if(are.par.valid(para))    Q <- quaexp(0.5,para)
 if(are.parexp.valid(para)) Q <- quaexp(0.5,para)
 
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

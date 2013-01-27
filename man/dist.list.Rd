@@ -40,4 +40,4 @@ for(i in seq(1,length(dist))) {
 }
 
 }
-\keyword{distribution}
+\keyword{distribution (utility)}

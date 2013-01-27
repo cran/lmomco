@@ -14,7 +14,7 @@ is.revgum(para)
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{revgum}.}
-  
+
   \item{FALSE}{If the \code{type} is not \code{revgum}.}
 }
 \author{ W.H. Asquith}
@@ -25,4 +25,4 @@ if(is.revgum(para)) {
   Q <- quarevgum(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

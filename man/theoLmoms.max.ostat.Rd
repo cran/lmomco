@@ -71,4 +71,5 @@ theoLmoms.max.ostat(para=para, cdf=cdfrice, pdf=pdfrice,
                     lower=0, upper=.Machine$double.max)
 }
 }
-\keyword{distribution}
+\keyword{L-moment (theoretical)}
+\keyword{order statistics}

@@ -3,7 +3,7 @@
 \title{Are the Distribution Parameters Consistent with the Generalized Extreme Value Distribution}
 \description{
 The distribution parameter object returned by functions of this package such as by
-\code{pargev} are consistent with the corresponding distribution, 
+\code{pargev} are consistent with the corresponding distribution,
 otherwise a list would not have been returned.  However, other
 functions (\code{cdfgev}, \code{quagev}, and
 \code{lmomgev} require consistent parameters to return the cumulative
@@ -32,7 +32,7 @@ Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
 approach based on L-moments: Cambridge University Press.
 }
 \note{
-This function calls \code{is.gev} to verify consistency between 
+This function calls \code{is.gev} to verify consistency between
 the distribution parameter object and the intent of the user.
 }
 \author{ W.H. Asquith}
@@ -40,6 +40,5 @@ the distribution parameter object and the intent of the user.
 \examples{
 para <- pargev(lmom.ub(c(123,34,4,654,37,78)))
 if(are.pargev.valid(para)) Q <- quagev(0.5,para)
-
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

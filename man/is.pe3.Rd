@@ -14,7 +14,7 @@ is.pe3(para)
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{pe3}.}
-  
+
   \item{FALSE}{If the \code{type} is not \code{pe3}.}
 }
 \author{ W.H. Asquith}
@@ -25,4 +25,4 @@ if(is.pe3(para) == TRUE) {
   Q <- quape3(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

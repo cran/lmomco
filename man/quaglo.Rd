@@ -45,3 +45,4 @@ approach based on L-moments: Cambridge University Press.
   quaglo(0.5,parglo(lmr))
 }
 \keyword{distribution}
+\keyword{quantile function}

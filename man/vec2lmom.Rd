@@ -40,4 +40,4 @@ vec2lmom(vec, lscale=TRUE,
 \examples{
 lmr <- vec2lmom(c(12,0.6,0.34,0.20,0.05),lscale=FALSE)
 }
-\keyword{distribution}
+\keyword{utility}

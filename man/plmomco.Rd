@@ -3,7 +3,7 @@
 \title{Cumulative Distribution Function of the Distributions}
 \description{
 This function acts as an alternative front end to \code{\link{par2cdf}}.
-The nomenclature of the \code{plmomco} function is to mimic that of 
+The nomenclature of the \code{plmomco} function is to mimic that of
 built-in \pkg{R} functions.
 }
 \usage{
@@ -22,4 +22,4 @@ plmomco(x,para)
 para <- vec2par(c(0,1),type='nor') # standard normal parameters
 nonexceed <- plmomco(1,para) # percentile of one standard deviation
 }
-\keyword{distribution}
+\keyword{cumulative distribution function}

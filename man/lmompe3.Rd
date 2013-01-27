@@ -3,7 +3,7 @@
 \title{L-moments of the Pearson Type III Distribution}
 \description{
 This function estimates the L-moments of the Pearson Type III distribution
-given the parameters (\eqn{\mu}, \eqn{\sigma}, and \eqn{\gamma}) from 
+given the parameters (\eqn{\mu}, \eqn{\sigma}, and \eqn{\gamma}) from
 \code{\link{parpe3}}. The L-moments in terms of the parameters are
 complicated and solved numerically.
 
@@ -27,7 +27,7 @@ lmompe3(para)
   \item{L3}{The third L-moment.}
   \item{L4}{The fourth L-moment.}
   \item{L5}{The fifth L-moment.}
-  \item{source}{An attribute identifying the computational 
+  \item{source}{An attribute identifying the computational
 source of the L-moments: \dQuote{lmompe3}.}
 }
 \references{
@@ -49,4 +49,4 @@ lmr <- lmom.ub(c(123,34,4,654,37,78))
 lmr
 lmompe3(parpe3(lmr))
 }
-\keyword{distribution}
+\keyword{L-moment (distribution)}

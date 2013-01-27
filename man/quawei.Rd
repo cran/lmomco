@@ -57,8 +57,9 @@ approach based on L-moments: Cambridge University Press.
   WEI <- parwei(lm1) # parameters of Weibull
   GEV <- pargev(lm2) # parameters of GEV
   F <- nonexceeds()  # Get a vector of nonexceedance probs
-  plot(pp(Q),Q) 
+  plot(pp(Q),Q)
   lines(F,quawei(F,WEI))
   lines(F,-quagev(1-F,GEV),col=2) # line over laps previous
 }
 \keyword{distribution}
+\keyword{quantile function}

@@ -46,4 +46,4 @@ approach based on L-moments: Cambridge University Press.
 lmr <- lmom.ub(rnorm(20))
 parkap(lmr)
 }
-\keyword{distribution}
+\keyword{distribution (parameters)}

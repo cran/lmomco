@@ -66,6 +66,5 @@ std.by.lmom      <- sqrt(pi)*std.by.lmom
 std.bias         <- true.std - mean(std)
 std.by.lmom.bias <- true.std - mean(std.by.lmom)
 cat(c(std.bias,std.by.lmom.bias,"\n"))
-
 }
-\keyword{distribution}
+\keyword{distribution (parameters)}

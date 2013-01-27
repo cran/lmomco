@@ -3,7 +3,7 @@
 \title{Probability Density Function of the Distributions}
 \description{
 This function acts as an alternative front end to \code{\link{par2pdf}}.
-The nomenclature of the \code{dlmomco} function is to mimic that of 
+The nomenclature of the \code{dlmomco} function is to mimic that of
 built-in \pkg{R} functions.
 }
 \usage{
@@ -22,4 +22,5 @@ dlmomco(x,para)
 para <- vec2par(c(0,1),type='nor') # standard normal parameters
 nonexceed <- dlmomco(1,para) # percentile of one standard deviation
 }
-\keyword{distribution}
+\keyword{probability density function}
+

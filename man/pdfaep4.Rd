@@ -65,3 +65,4 @@ lines(x,pdfaep4(x, PAR), lty=4, lwd=2);
 
 }
 \keyword{distribution}
+\keyword{probability density function}

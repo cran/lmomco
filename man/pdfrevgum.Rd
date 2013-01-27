@@ -71,3 +71,4 @@ plot(x,pdfrevgum(x,rg.pars),type='l')
 }
 }
 \keyword{distribution}
+\keyword{probability density function}

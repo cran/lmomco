@@ -20,4 +20,4 @@ prob2T(F)
 F <- nonexceeds()
 T <- prob2T(F)
 }
-\keyword{distribution}
+\keyword{utility (probability)}

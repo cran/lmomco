@@ -40,4 +40,4 @@ lmr <- lmoms(fake.dat)
 str(gini)
 print(abs(gini$L2 - lmr$lambdas[2]))
 }
-\keyword{univar}
+\keyword{special function}

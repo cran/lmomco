@@ -42,3 +42,4 @@ approach based on L-moments: Cambridge University Press.
   cdfexp(50,parexp(lmr))
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

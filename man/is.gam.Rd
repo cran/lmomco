@@ -14,7 +14,7 @@ is.gam(para)
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{gam}.}
-  
+
   \item{FALSE}{If the \code{type} is not \code{gam}.}
 }
 \author{ W.H. Asquith}
@@ -25,4 +25,4 @@ if(is.gam(para) == TRUE) {
   Q <- quagam(0.5,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

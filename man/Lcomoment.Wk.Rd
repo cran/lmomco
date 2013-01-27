@@ -76,4 +76,3 @@ cat(c("lmomco L-moments:", lmoms(fakedat, nmom=4)$lambdas,"\n"))
 # does not utilize Lcomoment.Wk(). So a double check is provided.
 }
 \keyword{multivariate}
-\keyword{distribution}

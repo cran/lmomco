@@ -2,7 +2,7 @@
 \alias{theopwms}
 \title{ The Theoretical Probability-Weighted Moments using Integration of the Quantile Function }
 \description{
-Compute the theoretrical probability-weighted moments (PWMs) for a distribution. A theoretrical PWM in integral form is 
+Compute the theoretrical probability-weighted moments (PWMs) for a distribution. A theoretrical PWM in integral form is
 
 \deqn{ \beta_r = \int^1_0 X(F)\,F^r\,\mathrm{d}F \mbox{,}}
 
@@ -35,4 +35,4 @@ para     <- vec2par(c(0,1),type='nor') # standard normal
 the.pwms <- theopwms(para) # compute PWMs
 str(the.pwms)
 }
-\keyword{univar}
+\keyword{probability-weighted moment (theoretical)}

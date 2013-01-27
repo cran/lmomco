@@ -72,3 +72,4 @@ for(lcv in lcvs) {
 }
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

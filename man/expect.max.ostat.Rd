@@ -32,5 +32,5 @@ para <- vec2par(c(10,100), type="nor")
 expect.max.ostat(10, para=para, cdf=cdfnor, pdf=pdfnor)
 mean(sapply(1:1000, function(x) { max(rlmomco(10,para))}))
 }
-\keyword{distribution}
+\keyword{order statistics}
 

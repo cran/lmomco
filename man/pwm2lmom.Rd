@@ -3,7 +3,7 @@
 \title{Probability-Weighted Moments to L-moments}
 \description{
 Converts the Probability-Weighted Moments (PWM) to the L-moments given the
-PWM. The conversion is linear so procedures based on PWMs and identical to 
+PWM. The conversion is linear so procedures based on PWMs and identical to
 those based on L-moments.
 
 \deqn{\lambda_1 = \beta_0 \mbox{,}}
@@ -72,5 +72,5 @@ pwm2lmom(pwm(D))
 
 pwm2lmom(pwm(rnorm(100)))
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{L-moment (theoretical)}
+\keyword{probability-weighted moment (theoretical)}

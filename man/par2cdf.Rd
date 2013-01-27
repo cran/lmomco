@@ -23,4 +23,4 @@ lmr       <- lmom.ub(rnorm(20))
 para      <- parnor(lmr)
 nonexceed <- par2cdf(0,para)
 }
-\keyword{distribution}
+\keyword{cumulative distribution function}

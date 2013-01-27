@@ -7,10 +7,10 @@ This function estimates the L-moments of the Log-Normal3 distribution given the 
 The L-moments in terms of the parameters are
 
 \deqn{\lambda_1 = \xi + \frac{\alpha}{\kappa}(1-e^{\kappa^2/2}) \mbox{ and}}
-\deqn{\lambda_2 = \frac{\alpha}{\kappa}(e^{\kappa^2/2})(1-2\Phi(-\kappa/\sqrt{2})) \mbox{,}} 
+\deqn{\lambda_2 = \frac{\alpha}{\kappa}(e^{\kappa^2/2})(1-2\Phi(-\kappa/\sqrt{2})) \mbox{,}}
 
 where \eqn{\Phi} is the cumulative distribution of the standard normal distribution.
-There are no simple expressions for \eqn{\tau_3}, \eqn{\tau_4}, and \eqn{\tau_5}. Log transformation of the data prior to fitting of the 
+There are no simple expressions for \eqn{\tau_3}, \eqn{\tau_4}, and \eqn{\tau_5}. Log transformation of the data prior to fitting of the
 Generalized Normal distribution is not required.
 }
 \usage{
@@ -31,7 +31,7 @@ lmomln3(para)
   \item{L3}{The third L-moment.}
   \item{L4}{The fourth L-moment.}
   \item{L5}{The fifth L-moment.}
-  \item{source}{An attribute identifying the computational 
+  \item{source}{An attribute identifying the computational
 source of the L-moments: \dQuote{lmomln3}.}
 }
 \references{
@@ -44,4 +44,4 @@ lmr <- lmom.ub(c(123,34,4,654,37,78))
 lmr
 lmomln3(parln3(lmr))
 }
-\keyword{distribution}
+\keyword{L-moment (distribution)}

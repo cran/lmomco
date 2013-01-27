@@ -43,3 +43,4 @@ approach based on L-moments: Cambridge University Press.
   cdfnor(50,parnor(lmr))
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

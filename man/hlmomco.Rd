@@ -32,8 +32,8 @@ my.lambda <- 100
 para <- vec2par(c(0,my.lambda), type="exp")
 
 x <- seq(40:60)
-hlmomco(x,para) # returns vector of 0.01 
-# because the exponential distribution has a constant 
+hlmomco(x,para) # returns vector of 0.01
+# because the exponential distribution has a constant
 # failure rate equal to 1/scale or 1/100 as in this example.
 }
-\keyword{distribution}
+\keyword{hazard function}

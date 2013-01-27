@@ -25,4 +25,4 @@ flo2f(f, pp=NA)
 \examples{
 # See examples for x2xlo().
 }
-\keyword{misc}
+\keyword{utility (probability)}

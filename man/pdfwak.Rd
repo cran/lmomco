@@ -41,3 +41,4 @@ check.pdf(pdfwak,wak,plot=TRUE)
 }
 }
 \keyword{distribution}
+\keyword{probability density function}

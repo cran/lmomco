@@ -29,7 +29,7 @@ pwm.pp(x, pp=NULL, A=NULL, B=NULL, a=0, nmom=5, sort=TRUE)
   \item{a}{A single plotting position coefficient from which, if not \code{NULL}, \eqn{A} and \eqn{B} will be internally computed;}
   \item{nmom}{Number of PWMs to return;}
   \item{sort}{Does the data need sorting? The computations require sorted data. This option is provided to optimize processing speed if presorted data already exists.}
-}  
+}
 \value{
   An R \code{list} is returned.
 
@@ -61,5 +61,4 @@ pwm <- pwm.pp(rnorm(20), A=-0.35, B=0)
 X <- rnorm(20)
 pwm <- pwm.pp(X, pp=pp(X)) # weibull plotting positions
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{probability-weighted moment (sample)}

@@ -6,7 +6,7 @@ This function estimates the L-moments of the Generalized Logistic distribution g
 (\eqn{\xi}, \eqn{\alpha}, and \eqn{\kappa}) from \code{\link{parglo}}.
 The L-moments in terms of the parameters are
 
-\deqn{\lambda_1 = \xi + \alpha \left(\frac{1}{\kappa} - \frac{\pi}{\sin(\kappa\pi)}\right) \mbox{,}}    
+\deqn{\lambda_1 = \xi + \alpha \left(\frac{1}{\kappa} - \frac{\pi}{\sin(\kappa\pi)}\right) \mbox{,}}
 \deqn{\lambda_2 = \frac{\alpha \kappa \pi}{\sin(\kappa\pi)} \mbox{,}}
 \deqn{\tau_3 = -\kappa \mbox{, and}}
 \deqn{\tau_4 = \frac{(1+5\kappa^2)}{6} \mbox{.}}
@@ -29,7 +29,7 @@ lmomglo(para)
   \item{L3}{The third L-moment.}
   \item{L4}{The fourth L-moment.}
   \item{L5}{The fifth L-moment.}
-  \item{source}{An attribute identifying the computational 
+  \item{source}{An attribute identifying the computational
 source of the L-moments: \dQuote{lmomglo}.}
 }
 \references{
@@ -51,4 +51,4 @@ lmr <- lmom.ub(c(123,34,4,654,37,78))
 lmr
 lmomglo(parglo(lmr))
 }
-\keyword{distribution}
+\keyword{L-moment (distribution)}

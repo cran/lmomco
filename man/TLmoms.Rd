@@ -3,7 +3,7 @@
 \title{ The Sample Trimmed L-moments and L-moment Ratios }
 \description{
 Compute the sample trimmed L-moments (TL-moments) for a vector. The level of symmetrical trimming is
-specified. A TL-moment is 
+specified. A TL-moment is
 
 \deqn{ \hat{\lambda}^{(t_1,t_2)}_r = \frac{1}{r}\sum^{n-t_2}_{i=t_1+1}
            \left[ \frac{\sum\limits^{r-1}_{k=0}{ (-1)^k {r-1 \choose k}
@@ -12,9 +12,9 @@ specified. A TL-moment is
                                          }}{{n \choose r+t_1+t_2}}
            \right] x_{i:n} \mbox{,}}
 
-where \eqn{t_a} represents the trimming level of the \eqn{t_2}-largest or \eqn{t_1}-smallest 
-values, \eqn{r} represents the order of the L-moments, \eqn{n} represents the 
-sample size, and \eqn{x_{i:n}} represents the \eqn{i}th sample order statistic (\eqn{x_{1:n} \le x_{2:n} \le \dots \le x_{n:n}}). This function loops across the above equation for each \code{nmom} set in 
+where \eqn{t_a} represents the trimming level of the \eqn{t_2}-largest or \eqn{t_1}-smallest
+values, \eqn{r} represents the order of the L-moments, \eqn{n} represents the
+sample size, and \eqn{x_{i:n}} represents the \eqn{i}th sample order statistic (\eqn{x_{1:n} \le x_{2:n} \le \dots \le x_{n:n}}). This function loops across the above equation for each \code{nmom} set in
 the argument list.
 }
 \usage{
@@ -32,7 +32,7 @@ TLmoms(x,nmom,trim=NULL,leftrim=NULL,rightrim=NULL)
 
   \item{lambdas}{Vector of the TL-moments. First element is
 \eqn{\hat{\lambda}^{(t_1,t_2)}_1}, second element is \eqn{\hat{\lambda}^{(t_1,t_2)}_2}, and so on.}
-  \item{ratios}{Vector of the L-moment ratios. Second element is 
+  \item{ratios}{Vector of the L-moment ratios. Second element is
 \eqn{\hat{\tau}^{(t_1,t_2)}}, third element is \eqn{\hat{\tau}^{(t_1,t_2)}_3} and so on.}
   \item{trim}{Level of symmetrical trimming used in the computation, which will equal \code{NULL} if asymmetrical trimming was used.}
   \item{leftrim}{Level of left-tail trimming used in the computation.}
@@ -53,5 +53,5 @@ and data analysis, vol. 43, pp. 299-314.
 X1 <- rcauchy(30)
 TL <- TLmoms(X1,nmom=6,trim=1)
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{L-moment (sample)}
+\keyword{L-moment (trimmed sample)}

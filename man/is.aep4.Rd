@@ -25,4 +25,4 @@ if(is.aep4(para) == TRUE) {
   Q <- quaaep4(0.55,para)
 }
 }
-\keyword{distribution}
+\keyword{utility (distribution)}

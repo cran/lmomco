@@ -32,3 +32,4 @@ NEED
   cdfln3(50,parln3(lmr))
 }
 \keyword{distribution}
+\keyword{cumulative distribution function}

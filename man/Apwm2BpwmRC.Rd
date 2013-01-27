@@ -41,8 +41,8 @@ para <- parrevgum(pwm2lmom(z$Bbetas),z$zeta) # parameter object
 Bbetas <- Apwm2BpwmRC(z$Abetas,para)
 Abetas <- Bpwm2ApwmRC(Bbetas$betas,para)
 # Assertion that both of the vectors of B-type PWMs should be the same.
-str(Abetas) # A-type PWMs of the distribution
+str(Abetas)   # A-type PWMs of the distribution
 str(z$Abetas) # A-type PWMs of the original data
 }
-\keyword{univar}
-\keyword{distribution}
+\keyword{probability-weighted moment (theoretical)}
+\keyword{data censoring}
