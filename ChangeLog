@@ -801,7 +801,7 @@ Version 1.7.1--October 30, 2012
       often the case the quantile function results from integration of
       cumulative distribution function and there can be some difficulties with
       numerical limits. Frequently, experts in particular distributions publish
-      closed form for semiclosed form equations for estimation of the mean. The
+      closed-form or semiclosed-form equations for estimation of the mean. The
       users are then free to use these instead and save computational time.
 7. BUG FIX: pargev.R has an error for L-skew < -0.97, the Newton-Raphson method
       was being short circuited by an if-statement. Bug discovered by Ross Woods
@@ -823,7 +823,27 @@ Version 1.7.2--November 16, 2012
 1. Documentations to speed-up overall examples for the CRAN:
        are.pargld.valid.Rd, cdfgld.Rd, man/lmomgld.Rd, man/pargld.Rd,
        man/pdfgld.Rd, man/pdfkmu.Rd, man/pdfwak.Rd, and man/quagld.Rd.
-       And DESRIPTION reworked modestly.
+       And DESCRIPTION reworked modestly.
+
+
+Version 1.7.3--January 28, 2013
+1. BUG FIX: Improper use of print() instead of warning() in check.fs.R.
+2. Added f2flo(), flo2f(), and x2xlo() to support conditional
+       probability conversions when a fraction of the left end of the
+       distribution is removed as in the treatment of zero values when
+       analyzing the distribution of the logarithms of a random variable.
+3. Added f2fpds() and fpds2f() to support partial duration series
+       analysis.
+4. Added the Tau34-squared test for Normality by Harri and Coble (2011).
+       Email communication during the last week of January 2013
+       with Dr. Adrian Harri re-inforces the preference of
+       Harri and Coble (2013) recommended that the "T34-squared" test be
+       preferred for general application. WHA agrees. The general example
+       code for tau34sq.normtest() is capable of reproducing, within
+       expected rounding tolerances, Harri and Coble (2011, table 1).
+       As a result, it appears as though general validation of
+       tau34sq.normtest() has been made. Let us name the test the
+       "Harri-Coble Tau34-squared Test for Normality." 
 
 
 TODO: Complete documentation for pwmLC.Rd.

@@ -1,6 +1,6 @@
-772b4567a697ce6e40196eea308fd8b9 *ChangeLog
-fdcbaddf288c8205bdcd05ed4715bb38 *DESCRIPTION
-f4f4d2efe5c191dab05c04b85fd69ee1 *NAMESPACE
+24d769c646b3a538c5fbbaba1db3d7c0 *ChangeLog
+11731584a8fc34c928056ea3fa997c24 *DESCRIPTION
+1df2522c8ae488da6c83286a33df8094 *NAMESPACE
 91c377e3d90235733e3fae0ceaa02130 *R/Apwm2BpwmRC.R
 0bea58b114f9545d4e85853f4a1ba91e *R/Bpwm2ApwmRC.R
 cef6d218f1981d1bd4ce72437e1a4ee2 *R/LaguerreHalf.R
@@ -64,12 +64,16 @@ bf832237bf238f0af29279993cbda4d1 *R/cdfrevgum.R
 f7b62c521582e157d4793a0e21352259 *R/cdftexp.R
 f9f510c8cf54023fce6e31484fd76080 *R/cdfwak.R
 a9a4dff8f2e3c3cc16fca3ee2b58230e *R/cdfwei.R
-7d93d2f14eaf4209e6b7b3d46c2d3be6 *R/check.fs.R
+e647eb5b3dc7343e11de29e17a2d14a2 *R/check.fs.R
 eb6c714fc609e24a6bca7a03bd63ac45 *R/check.pdf.R
 a59297d6f96b6812dd78eb4b2b21c9e8 *R/dist.list.R
 b2d59aa4b18f7d30a323d8f62d5c183c *R/dlmomco.R
 657d5950072c2344da68124bdafe8cb6 *R/expect.max.ostat.R
+9b75df47d8bbaf7eaf40633f3d06febc *R/f2flo.R
+cc311c072ef9e329862a2200018865d9 *R/f2fpds.R
 211f0811177cc71fc037530c15b4db46 *R/fliplmoms.R
+2e16fb247dbbe7e2778a502743cb26b7 *R/flo2f.R
+9ae324e023da4e8a6a37175479030bfc *R/fpds2f.R
 f0662144fd9e2f33f257a3c9abd38abc *R/freq.curve.all.R
 bc55ab36f6802f1aa3d4bd0d2d1628de *R/gen.freq.curves.R
 81b74bacea88e0baa2dc600d2a1220fe *R/genci.R
@@ -244,6 +248,7 @@ edfff3e852f180b04a5dbbbb8cbefb6f *R/quawak.R
 1a129eb5fe7c3e462acb7460137b8f6e *R/rlmomco.R
 741b514279a77240624917f3be54b638 *R/sen.mean.R
 d71c6fc129c8bd17a45fc118868f4683 *R/sysdata.rda
+a68e1a7d57a019937dd6f43165fd950b *R/tau34sq.normtest.R
 77d77468f3af26afdbc3a30d1837d7ff *R/theoLmoms.R
 9ad438b2560fdc2b785b70f49d191812 *R/theoLmoms.max.ostat.R
 d363a4164e8c41b56d723e7d69c7705b *R/theoTLmoms.R
@@ -263,6 +268,7 @@ ccb56848ff37fa452b31520d9c43a84c *R/tlmrgno.R
 f3a3f5d380b42d80a8335c089b62795e *R/vec2lmom.R
 039097e725b91178c36e9d73a402bd50 *R/vec2par.R
 4fbc0c26c47e69559101d59834ff240b *R/vec2pwm.R
+3294606a5b4fa60ba68681b17a9ff865 *R/x2xlo.R
 16b3d3a5d9cfbb31589495489ebe295e *R/z.par2cdf.R
 454753e0e072d27453b6ab7ee6f04e45 *R/z.par2qua.R
 06554f587b762a81e92ba35673cc1845 *R/zzz.R
@@ -415,7 +421,11 @@ cd215e17ea77b1b807fef39dff4f6e5a *man/check.pdf.Rd
 511ce4549a77227f1bc3a070bca545c5 *man/dist.list.Rd
 84f3c0379fc68db9a629220733ded293 *man/dlmomco.Rd
 efa60909c0346fe96fcf6a10c0124fc5 *man/expect.max.ostat.Rd
+bcb20b0007f6188ff64b37d1b239f560 *man/f2flo.Rd
+975bf6eb37d4570743c45bb1a1d5d53e *man/f2fpds.Rd
 528c48fa3cb79badb413a79de2163b2c *man/fliplmoms.Rd
+f51f78c0609cbcd1ef6ea7f56871fc91 *man/flo2f.Rd
+bfd781c07a9a230a48134cf69e79ad8f *man/fpds2f.Rd
 ba693ece45a411c9c27c96a3feceacd5 *man/freq.curve.all.Rd
 52029b7cbedf3b1e51b21d81247bc2b8 *man/gen.freq.curves.Rd
 b6fb06ce62b772673f5f70a1227a9e37 *man/genci.Rd
@@ -590,6 +600,7 @@ be6699031e647426e552ed3d5ff4b3de *man/quarice.Rd
 49827c7d703a918c9399088cf3e69a71 *man/quawei.Rd
 dc2ccc2dde8f72d69e209d34d04d7c12 *man/rlmomco.Rd
 807dec078e474bb8fb9ff26e366d10db *man/sen.mean.Rd
+2e6c6e7f7c888626b0bfe7bb15e19a0a *man/tau34sq.normtest.Rd
 9e7843073ada3baf67d984092e80ac52 *man/theoLmoms.Rd
 5bc71afa442b137b791a0c361ad9a61a *man/theoLmoms.max.ostat.Rd
 7b78c5959ec77f17b89c2b80710c9491 *man/theoTLmoms.Rd
@@ -612,5 +623,6 @@ a66bebb0f75b2d147ad0820981255d99 *man/vec2TLmom.Rd
 919f9ce7fdbba12a0c0bc3b7eb990b08 *man/vec2par.Rd
 66c57275abece420007d20d25cb3ced5 *man/vec2pwm.Rd
 cc49721390858e56bec752c189b32fce *man/vegaprecip.Rd
+0754a5e714755dd5e9d314b6787b4ba2 *man/x2xlo.Rd
 de0a4e56e43a019b6a2011509bc9066b *man/z.par2cdf.Rd
 d06aecc0fa50203518b3ef0029acee7d *man/z.par2qua.Rd

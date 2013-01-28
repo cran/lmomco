@@ -2,10 +2,10 @@ Package: lmomco
 Type: Package
 Title: L-moments, Censored L-moments, Trimmed L-moments, L-comoments,
         and Many Distributions
-Version: 1.7.2
+Version: 1.7.3
 Depends: R (>= 2.10.0), utils
 Suggests: copBasic, Lmoments
-Date: 2012-11-19
+Date: 2013-01-28
 Author: William H. Asquith
 Description: The package implements the statistical theory of L-moments
         in R including L-moment estimation, probability-weighted moment
@@ -42,7 +42,9 @@ Description: The package implements the statistical theory of L-moments
         correlation and higher comoments or comovements of variables.
         The package supports exact analytical boot strap estimates of
         order statistics, L-moments, and variances-covariances of
-        L-moments. The package supports the following distributions
+        L-moments. The package provides the Harri-Coble Tau34-squared
+        Test for Normality that uses only the sample L-skew and
+        L-kurtosis. The package supports the following distributions
         with moment type shown as "L" (L-moments) or "TL" (trimmed
         L-moments) and additional support for right-tail censoring
         ([RC]) include: Asymmetric Exponential Power (L), Cauchy (TL),
@@ -58,5 +60,5 @@ Repository: CRAN
 License: GPL
 URL:
         http://www.amazon.com/Distributional-Statistics-Environment-Statistical-Computing/dp/1463508417/
-Packaged: 2012-11-20 13:40:40 UTC; wasquith
-Date/Publication: 2012-11-20 14:41:21
+Packaged: 2013-01-28 20:27:38 UTC; wasquith
+Date/Publication: 2013-01-29 07:15:42
