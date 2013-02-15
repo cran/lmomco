@@ -845,6 +845,12 @@ Version 1.7.3--January 28, 2013
        tau34sq.normtest() has been made. Let us name the test the
        "Harri-Coble Tau34-squared Test for Normality." 
 
+Version 1.7.4--February 15, 2013
+1. Added .Rbuildignore in top level directory so that the directory
+       containing legacy .R and .Rd files for deprecated functions is
+       ignored. Prof. Brian Ripley sent a request to do this so that the
+       legacy *.Rd file are not "seen" by the R building process. So WHA
+       responded accordingly.
 
 TODO: Complete documentation for pwmLC.Rd.
 
