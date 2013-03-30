@@ -9,11 +9,12 @@ This function provides a uniquely independent method to compute the L-moments of
  The example section of this function contains the verification of the implementation as well as provides to additional computations of variance through resampling with replacement and simulation from the parent distribution that generated the sample vector shown in the example.
 }
 \usage{
-lmoms.bootbarvar(x, nmom=6, verbose=TRUE)
+lmoms.bootbarvar(x, nmom=6, covarinverse=TRUE, verbose=TRUE)
 }
 \arguments{
   \item{x}{A vector of data values.}
   \item{nmom}{The number of moments to compute. Default is 6 and can not be less than 3.}
+  \item{covarinverse}{Logical on computation of the matrix inversions: \code{inverse.varcovar.tau23}, \code{inverse.varcovar.tau34}, \code{inverse.varcovar.tau46}.}
   \item{verbose}{A logical switch on the verbosity of the construction of the variance-covariance matrix of the order statisitics. This operation is the most time consuming of those inside the function and is provided at default of \code{verbose=TRUE} to make a general user comfortable.}
 }
 \value{
@@ -47,7 +48,7 @@ where \eqn{\hat{\bm P}_{(3,4)}} is the variance-covariance matrix of these L-mom
 Hutson, A.D., and Ernst, M.D., 2000, The exact bootstrap mean and variance
 of an L-estimator: Journal Royal Statistical Society B, v. 62, part 1, pp. 89--94.
 
-Wang, D., and Hutson, A.D., 2013, Joint confidence region estimation of L-moments with an extension to survival data: Journal of Applied Statistics, in press
+Wang, D., and Hutson, A.D., 2013, Joint confidence region estimation of L-moments with an extension to right censored data: Journal of Applied Statistics, v. 40, no. 2, pp. 368--379.
 }
 \author{ W.H. Asquith}
 \seealso{ \code{\link{lmoms}} }

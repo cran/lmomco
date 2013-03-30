@@ -1,5 +1,5 @@
 "lmoms.bootbarvar" <-
-function(x, nmom=6, verbose=TRUE) {
+function(x, nmom=6, covarinverse=TRUE, verbose=TRUE) {
    # Begin with the definition of several helper functions
    # that follow the nomenclature of Hutson and Ernst (2000)
    # [ Journal Royal Statistical Society B, 62(1), pp. 89-94 ]
@@ -155,31 +155,43 @@ function(x, nmom=6, verbose=TRUE) {
     varcovartau[2,] <- varcovartau[,2]
     W <- diag(varcovartau)
     W[1:2] <- rep(NA, 2)
+    if(covarinverse) {
+       inv23 <- "L-CV and L-skew inversion not yet derived for same reason varcovar.lambdas.and.ratios[2]=NA"
 
-    inv23 <- "L-CV and L-skew inversion not yet derived for same reason varcovar.lambdas.and.ratios[2]=NA"
+       if(nmom < 4) {
+          inv34 <- "too few L-moments requested in nmom (r < 4) for L-skew and L-kurtosis inversion"
+       } else {
+          tmp <- varcovartau[c(3,4), c(3,4)]
+          inv34 <- chol2inv(chol(tmp))
+       }
+       if(nmom < 6) {
+          inv46 <- "too few L-moments requested in nmom (r < 6) for L-kurtosis and Tau6 inversion"
+       } else {
+          tmp <- varcovartau[c(4,6), c(4,6)]
+          inv46 <- chol2inv(chol(tmp))
+       }
 
-    if(nmom < 4) {
-       inv34 <- "too few L-moments requested in nmom (r < 4) for L-skew and L-kurtosis inversion"
+       z <- list(lambdas=L,    ratios=R,
+                 lambdavars=V, ratiovars=W,
+                 varcovar.lambdas=varcovarlam,
+                 varcovar.lambdas.and.ratios=varcovartau,
+                 bootstrap.orderstatistics=bootstrap.ostats,
+                 varcovar.orderstatistics=hatsigma,
+                 inverse.varcovar.tau23=inv23,
+                 inverse.varcovar.tau34=inv34,
+                 inverse.varcovar.tau46=inv46,
+                 source="lmoms.bootbarvar")
     } else {
-       tmp <- varcovartau[c(3,4), c(3,4)]
-       inv34 <- chol2inv(chol(tmp))
+       z <- list(lambdas=L,    ratios=R,
+                 lambdavars=V, ratiovars=W,
+                 varcovar.lambdas=varcovarlam,
+                 varcovar.lambdas.and.ratios=varcovartau,
+                 bootstrap.orderstatistics=bootstrap.ostats,
+                 varcovar.orderstatistics=hatsigma,
+                 inverse.varcovar.tau23=NA,
+                 inverse.varcovar.tau34=NA,
+                 inverse.varcovar.tau46=NA,
+                 source="lmoms.bootbarvar")
     }
-    if(nmom < 6) {
-       inv46 <- "too few L-moments requested in nmom (r < 6) for L-kurtosis and Tau6 inversion"
-    } else {
-       tmp <- varcovartau[c(4,6), c(4,6)]
-       inv46 <- chol2inv(chol(tmp))
-    }
-
-    z <- list(lambdas=L,    ratios=R,
-              lambdavars=V, ratiovars=W,
-              varcovar.lambdas=varcovarlam,
-              varcovar.lambdas.and.ratios=varcovartau,
-              bootstrap.orderstatistics=bootstrap.ostats,
-              varcovar.orderstatistics=hatsigma,
-              inverse.varcovar.tau23=inv23,
-              inverse.varcovar.tau34=inv34,
-              inverse.varcovar.tau46=inv46,
-              source="lmoms.bootbarvar")
     return(z)
 }

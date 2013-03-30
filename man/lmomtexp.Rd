@@ -2,15 +2,20 @@
 \alias{lmomtexp}
 \title{L-moments of the Truncated Exponential Distribution}
 \description{
-This function estimates the L-moments of the Truncated Exponential distribution given
-the parameters (\eqn{\xi} and \eqn{\alpha}) from \code{\link{partexp}}. The
-L-moments in terms of the parameters are
+This function estimates the L-moments of the Truncated Exponential distribution. The parameter \eqn{\psi} is the right truncation of the distribution, and \eqn{\alpha} is a scale parameter, letting \eqn{\beta = 1/\alpha} to match nomenclature of Vogel and others (2008), the L-moments in terms of the parameters, letting \eqn{\eta = \mathrm{exp}(-\alpha\psi)}, are
+\deqn{\lambda_1 = \frac{1}{\beta} - \frac{\psi\eta}{1-\eta} \mbox{,}}
+\deqn{\lambda_2 = \frac{1}{1-\eta}\biggl[\frac{1+\eta}{2\beta} -
+                                         \frac{\psi\eta}{1-\eta}\biggr] \mbox{,}}
+\deqn{\lambda_3 = \frac{1}{(1-\eta)^2}\biggl[\frac{1+10\eta+\eta^2}{6\alpha} -
+                                         \frac{\psi\eta(1+\eta)}{1-\eta}\biggr] \mbox{, and}}
+\deqn{\lambda_4 = \frac{1}{(1-\eta)^3}\biggl[\frac{1+29\eta+29\eta^2+\eta^3}{12\alpha} -
+                                         \frac{\psi\eta(1+3\eta+\eta^2)}{1-\eta}\biggr] \mbox{.}}
 
-\deqn{\lambda_1 = \xi + \alpha \mbox{,}}
-\deqn{\lambda_2 = \alpha/2 \mbox{,}}
-\deqn{\tau_3 = 1/3 \mbox{,}}
-\deqn{\tau_4 = 1/6 \mbox{, and}}
-\deqn{\tau_5 = 1/10 \mbox{.}}
+The distribution is restricted to a narrow range of L-CV (\eqn{\tau_2 = \lambda_2/\lambda_1}). If \eqn{\tau_2 = 1/3}, the process represented is a stationary Poisson for which the probability density function is simply the uniform distribution and \eqn{f(x) = 1/\psi}. If \eqn{\tau_2 = 1/2}, then the distribution is represented as the usual exponential distribution with a location parameter of zero and a rate parameter \eqn{\beta}. Both of these limiting conditions are supported.
+
+If the distribution shows to be uniform (\eqn{\tau_2 = 1/3}), then \eqn{\lambda_1 = \psi/2}, \eqn{\lambda_2 = \psi/6}, \eqn{\tau_3 = 0}, and \eqn{\tau_4 = 0}.
+
+If the distribution shows to be exponential (\eqn{\tau_2 = 1/2}), then \eqn{\lambda_1 = \alpha}, \eqn{\lambda_2 = \alpha/2}, \eqn{\tau_3 = 1/3} and \eqn{\tau_4 = 1/6}.
 }
 \usage{
 lmomtexp(para)
@@ -20,36 +25,31 @@ lmomtexp(para)
 }
 \value{
   An R \code{list} is returned.
-
-  \item{L1}{Arithmetic mean.}
-  \item{L2}{L-scale---analogous to standard deviation.}
-  \item{LCV}{coefficient of L-variation--analogous to coe. of variation.}
-  \item{TAU3}{The third L-moment ratio or L-skew--analogous to skew.}
-  \item{TAU4}{The fourth L-moment ratio or L-kurtosis--analogous to kurtosis.}
-  \item{TAU5}{The fifth L-moment ratio.}
-  \item{L3}{The third L-moment.}
-  \item{L4}{The fourth L-moment.}
-  \item{L5}{The fifth L-moment.}
-  \item{source}{An attribute identifying the computational
+  \item{lambdas}{Vector of the L-moments. First element is
+\eqn{\lambda_1}, second element is \eqn{\lambda_2}, and so on.}
+  \item{ratios}{Vector of the L-moment ratios. Second element is
+\eqn{\tau}, third element is \eqn{\tau_3} and so on.}
+  \item{trim}{Level of symmetrical trimming used in the computation, which will equal \code{NULL} until trimming support is made.}
+  \item{leftrim}{Level of left-tail trimming used in the computation, which will equal \code{NULL} until trimming support is made.}
+  \item{rightrim}{Level of right-tail trimming used in the computation, which will equal \code{NULL} until trimming support is made.}
+\item{source}{An attribute identifying the computational
 source of the L-moments: \dQuote{lmomtexp}.}
 }
 \references{
-Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
-distributions using linear combinations of order statistics: Journal
-of the Royal Statistical Society, Series B, vol. 52, p. 105--124.
-
-Hosking, J.R.M., 1996, FORTRAN routines for use with the method of L-moments:
-Version 3, IBM Research Report RC20525, T.J. Watson Research Center,
-Yorktown Heights, New York.
-
-Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
-approach based on L-moments: Cambridge University Press.
+Vogel, R.M., Hosking, J.R.M., Elphick, C.S., Roberts, D.L., and Reed, J.M., 2008, Goodness of fit of probability distributions for sightings as species approach extinction: Bulletin of Mathematical Biology, DOI 10.1007/s11538-008-9377-3, 19 p.
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{partexp}}, \code{\link{quatexp}}, \code{\link{cdftexp}} }
 \examples{
-lmr <- lmom.ub(c(123,34,4,654,37,78))
-lmr
-lmomexp(parexp(lmr))
+set.seed(1) # to get a suitable L-CV
+X <- rexp(1000, rate=.001) + 100
+Y <- X[X <= 2000]
+lmr <- lmoms(Y)
+
+print(lmr$lambdas)
+print(lmomtexp(partexp(lmr))$lambdas)
+
+print(lmr$ratios)
+print(lmomtexp(partexp(lmr))$ratios)
 }
 \keyword{distribution}

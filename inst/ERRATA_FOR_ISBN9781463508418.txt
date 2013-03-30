@@ -1,12 +1,27 @@
 ERRATA FOR FIRST EDITION OF THE FOLLOWING BOOK
 
      Asquith, W.H., 2011, Distributional analysis with L-moment statistics
-       using the R environment for statistical computing: First edition,
-       CreateSpace, ISBN 978-1463508418, 344 p. http://www.amazon.com/
-       Distributional-Statistics-Environment-Statistical-Computing/dp/
-       1463508417
+       using the R environment for statistical computing: CreateSpace
+       Independent Publishing Platform, 2nd printing, ISBN 978-1463508418.
+       http://www.amazon.com/Distributional-Statistics-Environment-
+       Statistical-Computing/dp/1463508417
+
+==========  START ERRATA FOR FIRST PRINTING (post June 2011) ==========
+
+backcover: fixed misspelling of Wakeby in late June 2011
 
 p.3: accesssible --> accessible (09/03/2011)
+
+p.49: Added the incomplete beta function for contrast against the complete
+               beta function in eq. 3.10. Sorry, but equation numbers in 
+               the remainder of the chapter change by one. Minor changes
+               in indexing beta function related topics. (2/18/2013)
+
+p.95: eq. 6.39 shows L-moments in terms of E[X_{1:k}], added another eq.
+               for L-moments in terms of E[X_{k:k}] so that the definitions
+               by the two types of extrema are shown in parallel. Sorry,
+               but equation numbers in remainder of the chapter change by
+               one. Minor tweaks of p.95 to reflect "minima or maxima" terms.
 
 From Jason Giovannettone (05/22/2012)
 p.140: eq.7.25  drop the '/\beta' from (x/\beta)^{\alpha-1} verified correct
@@ -24,6 +39,13 @@ p.153: (\tau_4 - \hat\tau_4)^2 --> (\lambda_2 - \hat\lambda_2)^2
 
 p.154: spare ; deleted in 7-29
 
+p.160: Added "modified" in front of two Modified Bessels (9/21/2012)
+           Bold faced modified and adjusted indexing.
+
+p.190: removed ()'s around "a-1" in eq. 8.84 and 8.85 (5/22/2012)
+
+p.191: lower case "beta" instead of "Beta" in three locations (9/18/2013)
+
 p.204: plural "constraints" needed above eq. 9.1 (04/12/2012)
 
 p.209: 1/f(x) = a[k(F^(k-1) PLUS h(1-F)^(h-1)] (09/04/2011)
@@ -31,7 +53,13 @@ p.209: 1/f(x) = a[k(F^(k-1) PLUS h(1-F)^(h-1)] (09/04/2011)
 
 p.209: dissertation --> monograph
 
+p.326: order statistcs --> order statistics (in Sillitto reference)
+
 p.330: fixed small copula indexing order in late June 2011
 
-backcover: fixed misspelling of Wakeby in late June 2011
+p.332: incomplete Beta function ratio --> incomplete beta function ratio
+            (9/18/2013)
+
+==========  END OF ERRATA FOR FIRST PRINTING (post Febuary 2013) ==========
+
 

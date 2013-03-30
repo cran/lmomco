@@ -4,25 +4,28 @@ function(f,para,paracheck=TRUE) {
     if(paracheck == TRUE) {
       if(! are.partexp.valid(para)) return()
     }
-    
+
     n <- length(f)
     x <- vector(mode="numeric",length=n)
 
-    if(para$is.uni) {
-      A <- para$para[1]
-      B <- para$para[2]
-      D <- (B-A)
-      for(i in seq(1,n)) {
-        x[i] <- A + D*f[i]
-      }
-      return(x)
-    }
-
     U <- para$para[1]
-    A <- 1/para$para[2]
-    for(i in seq(1,n)) {
-      x[i] <- - log(1 - f[i]*(1-exp(-A*U))) / A
+    B <- 1/para$para[2]
+    S <- para$para[3]
+
+    if(S) { # stationary
+       for(i in seq(1,n)) {
+         x[i] <- S*f[i]
+       }
+       return(x)
+    } else if(is.na(U)) {
+       return(qexp(f, rate=B))
+    } else {
+       BU <- 1 - exp(-B*U)
+       for(i in seq(1,n)) {
+         x[i] <- - log(1 - f[i]*BU) / B
+       }
+       x[! is.finite(x)] <- - log(.Machine$double.eps) / B
+       return(x)
     }
-    return(x)
 }
 

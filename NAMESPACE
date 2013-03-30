@@ -271,3 +271,6 @@ export(vec2pwm)
 export(z.par2cdf)
 export(z.par2qua)
 export(.lmomcohash)
+export(lmomcoBook)
+export(lmomcoNews)
+
