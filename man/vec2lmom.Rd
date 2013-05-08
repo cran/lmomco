@@ -16,7 +16,8 @@ Therefore, this function takes an \code{lscale} optional logical
 \eqn{\lambda_2} is computed by the function.
 }
 \usage{
-vec2lmom(vec, lscale=TRUE, trim=NULL, leftrim=NULL, rightrim=NULL, checklmom=TRUE)
+vec2lmom(vec, lscale=TRUE,
+         trim=NULL, leftrim=NULL, rightrim=NULL, checklmom=TRUE)
 }
 \arguments{
   \item{vec}{A vector of L-moment values in \eqn{\lambda_1}, \eqn{\lambda_2} or \eqn{\tau}, \eqn{\tau_3}, \eqn{\tau_4}, and \eqn{\tau_5} order.}

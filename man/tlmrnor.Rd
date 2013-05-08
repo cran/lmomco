@@ -29,7 +29,9 @@ Although \code{NULL} in the argument list, the default is 0---the usual L-moment
 \author{ W.H. Asquith }
 \seealso{\code{\link{quanor}}, \code{\link{theoTLmoms}}}
 \examples{
+\dontrun{
 tlmrnor(leftrim=2, rightrim=1)
 tlmrnor(leftrim=2, rightrim=1, mu=100, sigma=1000) # another slow example
+}
 }
 \keyword{distribution}

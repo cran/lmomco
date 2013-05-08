@@ -36,8 +36,10 @@ Although \code{NULL} in the argument list, the default is 0---the usual L-moment
 \seealso{\code{\link{quagno}}, \code{\link{theoTLmoms}}}
 \examples{
 
+\dontrun{
 tlmrgno(leftrim=3, rightrim=2, xi=0, alpha=2)
-# tlmrgno(leftrim=3, rightrim=2, xi=120, alpha=55) # another slow example
+tlmrgno(leftrim=3, rightrim=2, xi=120, alpha=55) # another slow example
+}
 
 \dontrun{
   # Plot and L-moment ratio diagram of Tau3 and Tau4

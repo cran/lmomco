@@ -36,8 +36,10 @@ Although \code{NULL} in the argument list, the default is 0---the usual L-moment
 \seealso{\code{\link{quagpa}}, \code{\link{theoTLmoms}}}
 \examples{
 
+\dontrun{
 tlmrgpa(leftrim=7, rightrim=2, xi=0, alpha=31)
-#tlmrgpa(leftrim=7, rightrim=2, xi=143, alpha=98) # another slow example
+tlmrgpa(leftrim=7, rightrim=2, xi=143, alpha=98) # another slow example
+}
 
 \dontrun{
   # Plot and L-moment ratio diagram of Tau3 and Tau4

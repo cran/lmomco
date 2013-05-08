@@ -60,10 +60,11 @@ function(lmom, checklmom=TRUE,
              z$ifailtextkap <- z$ifailtext
              z$ifailtext <- "TAU4 is estimated as below limits of AEP4, Kappa fit instead"
              z$source <- "paraep4 --> parkap"
+          } else {
+             z$ifail     <- 4
+             z$ifailtext <- "TAU4 is estimated as below limits of AEP4, Kappa not fit instead"
+             return(z)
           }
-          z$ifail     <- 4
-          z$ifailtext <- "TAU4 is estimated as below limits of AEP4, Kappa not fit instead"
-          return(z)
        }
     }
 

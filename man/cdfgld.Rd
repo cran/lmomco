@@ -22,7 +22,10 @@ CRC Press, Boca Raton, FL, 438 p.
 \author{ W.H. Asquith}
 \seealso{\code{\link{quagld}}, \code{\link{lmomgld}}, \code{\link{pargld}}}
 \examples{
+
+\dontrun{
   P <- vec2par(c(123,340,0.4,0.654),type='gld')
   cdfgld(300,P, paracheck=FALSE)
+}
 }
 \keyword{distribution}

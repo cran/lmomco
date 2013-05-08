@@ -36,9 +36,10 @@ Although \code{NULL} in the argument list, the default is 0---the usual L-moment
 \seealso{\code{\link{quagev}}, \code{\link{theoTLmoms}}}
 \examples{
 
-
+\dontrun{
 tlmrgev(leftrim=12, rightrim=1, xi=0, alpha=2)
-# tlmrgev(leftrim=12, rightrim=1, xi=100, alpha=20) # another slow example
+tlmrgev(leftrim=12, rightrim=1, xi=100, alpha=20) # another slow example
+}
 
 \dontrun{
   # Plot and L-moment ratio diagram of Tau3 and Tau4

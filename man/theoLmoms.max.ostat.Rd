@@ -32,6 +32,7 @@ theoLmoms.max.ostat(para=NULL, cdf=NULL, pdf=NULL, nmom=4,
 \author{ W.H. Asquith}
 \seealso{\code{\link{theoLmoms}}, \code{\link{expect.max.ostat}}}
 \examples{
+\dontrun{
 para <- vec2par(c(40,20), type='nor')
 theoLmoms.max.ostat(para=para, cdf=cdfnor, pdf=pdfnor)
 
@@ -41,6 +42,7 @@ theoLmoms.max.ostat(para=para, cdf=cdfnor, pdf=pdfnor)
 para <- vec2par(c(30,10), type="rice")
 theoLmoms.max.ostat(para=para, cdf=cdfrice, pdf=pdfrice,
                     lower=0, upper=.Machine$double.max)
+}
 
 \dontrun{
 para <- vec2par(c(0.6, 1.5), type="emu")

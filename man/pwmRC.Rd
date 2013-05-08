@@ -8,7 +8,7 @@ Compute the sample Probability-Weighted Moments (PWMs) for right-tail censored d
 
 which are the PWMs of the uncensored sample of \eqn{m} observed values. The B-type PWMs are computed from the \dQuote{complete} sample, in which the \eqn{n-m} censored values are replaced by the censoring threshold \eqn{T}. The B-type PWMs are defined by
 
-\deqn{\beta^B_r = n^{-1} \biggl( \sum^m_{j=1} {j-1 \choose r} x_{[j:n]} + 
+\deqn{\beta^B_r = n^{-1} \biggl( \sum^m_{j=1} {j-1 \choose r} x_{[j:n]} +
                                 \sum^n_{j=m+1} {j-1 \choose r} T \biggr) \mbox{.}}
 
 The two previous expressions are used in the function. These PWMs are readily converted to L-moments by the usual methods (\code{\link{pwm2lmom}}). When there are more than a few censored values, the PWMs are readily computed by computing \eqn{\beta^A_r} and using the expression
@@ -44,7 +44,7 @@ pwmRC(x,threshold=NULL,nmom=5,sort=TRUE,checkbetas=FALSE)
   \item{samplesize}{Number of actual sample values.}
 }
 \details{
-There is some ambiguity if the threshold also numerically equals valid data in the data set. In the data for the examples below, which are taken from elsewhere, there are real observations at the censoring level. One can see how a hack is made to marginally decrease or increase the data or the threshold for the computations. This is needed because the code uses \code{sapply(x,function(v) { if(v >= T) return(T); return(v)})} to reset the data vector \code{x}. By operating on the data in this fashion one can toy with various levels of the threshold for experimental purposes; this seemed a more natural way for general implementation. The code sets \eqn{n}=\code{length(x)} and \eqn{m}=\code{n - length(x[x == T])}, which also seems natural. The \eqn{\beta^A_r} are computed by dispatching to \code{\link{pwm}}.
+There is some ambiguity if the threshold also numerically equals valid data in the data set. In the data for the examples below, which are taken from elsewhere, there are real observations at the censoring level. One can see how a hack is made to marginally decrease or increase the data or the threshold for the computations. This is needed because the code uses \code{sapply(x, function(v) } \cr \code{aleftbrace if(v >= T) return(T); return(v) arightbrace )} to reset the data vector \code{x}. The \code{aleftbrace} or \code{arightbrace} is to be interpreted as meaning a brace as used in a programming syntax. By operating on the data in this fashion one can toy with various levels of the threshold for experimental purposes; this seemed a more natural way for general implementation. The code sets \eqn{n}=\code{length(x)} and \eqn{m}=\code{n - length(x[x == T])}, which also seems natural. The \eqn{\beta^A_r} are computed by dispatching to \code{\link{pwm}}.
 }
 \references{
 Greenwood, J.A., Landwehr, J.M., Matalas, N.C., and Wallis, J.R., 1979,
@@ -77,14 +77,14 @@ pwm2lmom(z$Abetas)
 
 # See p. 553 of Hosking (1995)
 # Data listed in Hosking (1995, table 29.3, p. 553)
-D <- c(-2.982, -2.849, -2.546, -2.350, -1.983, -1.492, -1.443, 
+D <- c(-2.982, -2.849, -2.546, -2.350, -1.983, -1.492, -1.443,
        -1.394, -1.386, -1.269, -1.195, -1.174, -0.854, -0.620,
        -0.576, -0.548, -0.247, -0.195, -0.056, -0.013,  0.006,
         0.033,  0.037,  0.046,  0.084,  0.221,  0.245,  0.296)
 D <- c(D,rep(.2960001,40-28)) # 28 values, but Hosking mentions
                               # 40 values in total
 z <-  pwmRC(D,.2960001)
-# Hosking reports B-type L-moments for this sample are 
+# Hosking reports B-type L-moments for this sample are
 # lamB1 = -.516 and lamB2 = 0.523
 pwm2lmom(z$Bbetas)
 # My version of R reports -.5162 and 0.5218

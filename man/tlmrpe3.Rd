@@ -36,10 +36,10 @@ Although \code{NULL} in the argument list, the default is 0---the usual L-moment
 \seealso{\code{\link{quape3}}, \code{\link{theoTLmoms}}}
 \examples{
 
+\dontrun{
 tlmrpe3(leftrim=2, rightrim=4, xi=0, beta=2)
 tlmrpe3(leftrim=2, rightrim=4, xi=100, beta=20) # another slow example
 
-\dontrun{
   # Plot and L-moment ratio diagram of Tau3 and Tau4
   # with exclusive focus on the PE3 distribution.
   plotlmrdia(lmrdia(), autolegend=TRUE, xleg=-.1, yleg=.6,

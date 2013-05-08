@@ -29,7 +29,9 @@ Although \code{NULL} in the argument list, the default is 0---the usual L-moment
 \author{ W.H. Asquith }
 \seealso{\code{\link{quaray}}, \code{\link{theoTLmoms}}}
 \examples{
+\dontrun{
 tlmrray(leftrim=2, rightrim=1, xi=0, alpha=2)
 tlmrray(leftrim=2, rightrim=1, xi=10, alpha=2) # another slow example
+}
 }
 \keyword{distribution}

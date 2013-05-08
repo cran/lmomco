@@ -4,6 +4,34 @@ NEWS for R Package "lmomco"
 
 TODO: Complete documentation for pwmLC.Rd.
 
+Version 1.7.6--May 13, 2013
+1. Spelling corrections to DESCRIPTION that were not passing CRAN checks.
+
+
+Version 1.7.5--May 10, 2013 (never leased, see version 1.7.6)
+1. BUG FIX: Revision to unbiased correction on product moment kurtosis.
+      An incorrect formula exists in a source originally used to build
+      the function. This has been corrected and numerous comments
+      in the source code point to several sources and shows consistent
+      results now. Much thanks to Sergio Gomez for discovering the
+      bug and assisting in reference track down. Also, added the
+      "excess" kurtosis outputs as apparently Sergio Gomez and other
+      practioners in his discipline have interest in kurtosis as it
+      differs from the Normal distribution. The two references in the
+      pmoms.Rd are correct and match each other computationally.
+2. Further reductions in R CMD check --timings in the following Rd files:
+      cdfgld.Rd is.gld.Rd lmomTLgld.Rd lmomsf01.Rd quagam.Rd quagld.Rd
+      tlmrcau.Rd tlmrexp.Rd tlmrgev.Rd tlmrglo.Rd tlmrgno.Rd tlmrgpa.Rd
+      tlmrgum.Rd tlmrnor.Rd tlmrpe3.Rd tlmrray.Rd theoLmoms.max.ostat.Rd
+      dist.list.Rd.
+3. Clarified some messaging associated with an error trap for Tau4 plot-
+      ting above AEP4-max(Tau4) and Kappa distribution NOT fit instead.
+4. Documentation tweaks to keep right margin incursion of the PDF manual.
+      gen.freq.curves.Rd pdfwei.Rd pwmLC.Rd pwmRC.Rd vec2lmom.Rd z.par2qua
+5. Prof. Ripley remarked that the DESCRIPTION of copBasic was too long.
+      So following that critique, DESCRIPTION of lmomco has been contracted.
+
+
 Version 1.7.5---March 30, 2013
 1. Revisions to truncated exponential distribution both to methods of
        computation as well as documentation. Actually, a major rebuilding

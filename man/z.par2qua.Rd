@@ -2,7 +2,7 @@
 \alias{z.par2qua}
 \title{Quantile Function of the Blipped Distributions}
 \description{
-This function acts as a front end or dispatcher to the distribution-specific quantile functions. 
+This function acts as a front end or dispatcher to the distribution-specific quantile functions.
 \deqn{F(x) = 0}
 for \eqn{x \le 0} and
 \deqn{F(x) = p + (1-p)G(x)}
@@ -16,7 +16,7 @@ z.par2qua(f,p,para,z=0,...)
   \item{p}{Nonexceedance probability of \code{z} value.}
   \item{para}{The parameters from \code{\link{lmom2par}} or similar.}
   \item{z}{Threshold value.}
-  \item{...}{The additional arguments are passed to the quantile function such as \code{paracheck = FALSE} for the Generalized Lambda distribution (\code{\link{quagld}}).}
+  \item{...}{The additional arguments are passed to the quantile function such as \cr  \code{paracheck = FALSE} for the Generalized Lambda distribution (\code{\link{quagld}}).}
 }
 \value{
   Quantile value for \eqn{f}.

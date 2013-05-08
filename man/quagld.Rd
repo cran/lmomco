@@ -38,7 +38,11 @@ CRC Press, Boca Raton, FL, 438 p.
 \code{\link{pargld}}, \code{\link{parTLgld}}
 }
 \examples{
+
+\dontrun{
   para <- vec2par(c(123,34,4,3),type="gld")
   quagld(0.5,para, paracheck=FALSE)
+}
+
 }
 \keyword{distribution}

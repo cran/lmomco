@@ -5,8 +5,9 @@
 This function generates random samples of specified size from a specified parent distribution. Subsequently, the type of parent distribution is fit to the L-moments of the generated sample. The fitted distribution is then plotted with the built-in function \code{lines}. It is the user's responsibility to have an active \code{plot} already drawn; unless the \code{callplot} option is \code{TRUE}. This function is useful to demonstration of sample size on the uncertainty of a fitted distribution---a motivation for this function is for class room exercise.
 }
 \usage{
-gen.freq.curves(n, para, F=NULL, nsim=10, callplot=TRUE, aslog=FALSE, asprob=FALSE,
-                showsample=FALSE, showparent=FALSE, lowerCI=NA, upperCI=NA, FCI=NA, ...)
+gen.freq.curves(n, para, F=NULL, nsim=10, callplot=TRUE, aslog=FALSE,
+                asprob=FALSE, showsample=FALSE, showparent=FALSE,
+                lowerCI=NA, upperCI=NA, FCI=NA, ...)
 }
 \arguments{
   \item{n}{Sample size to draw from parent as specified by \code{para}.}

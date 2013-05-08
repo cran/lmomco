@@ -2,7 +2,7 @@
 \alias{pmoms}
 \title{ The Sample Product Moments: Mean, Standard Deviation, Skew, and Excess Kurtosis}
 \description{
-Compute the four sample product moments for a vector.
+Compute the four sample product moments for a vector. Both classical (theoretical and biased) versions and unbiased (nearly) versions are produces. Readers are directed to the References and the source code for implementation details.
 }
 \usage{
 pmoms(x)
@@ -13,16 +13,18 @@ pmoms(x)
 \value{
   An R \code{list} is returned.
 
-  \item{moments}{Vector of the product moments. First element is the mean (\code{mean()}), second is standard deviation, and the higher values typically are not used, but the ratios[3] and ratios[4] are.}
-  \item{ratios}{Vector of the product moment ratios. Second element is the coefficient of variation, ratios[3] is skew, and ratios[4] is excess kurtosis.}
+  \item{moments}{Vector of the product moments. First element is the mean (\code{mean()}), second is standard deviation, and the higher values typically are not used as these are not unbiased moments, but the ratios[3] and ratios[4] are nearly unbiased.}
+  \item{ratios}{Vector of the product moment ratios. Second element is the coefficient of variation, ratios[3] is skew, and ratios[4] is kurtosis.}
   \item{sd}{Nearly unbiased standard deviation [well at least unbiased variance \cr (\code{unbiased.sd^2})] computed by \R \code{sd()}. }
   \item{umvu.sd}{Uniformly-minimum variance unbiased estimator of standard deviation.}
   \item{skew}{Nearly unbiased skew, same as ratios[3].}
-  \item{kurt}{Nearly nbiased excess kurtosis, same as ratios[4].}
+  \item{kurt}{Nearly unbiased kurtosis, same as ratios[4].}
+  \item{excesskurt}{Excess kurtosis from the Normal distribution: \code{kurt - 3}.}
   \item{classic.sd}{Classical (theoretical) definition of standard deviation.}
   \item{classic.skew}{Classical (theoretical) definition of skew.}
-  \item{classic.kurtosis}{Classical (theoretical) definition of excess kurtosis}
-  \item{message}{The product moments are confusing in terms of definition because they are not naturally unbiased. Your author thinks that it is informative to show the biased versions on the output from the \code{pmoms} function. Therefore, this \code{message} includes several clarifications of the output.}
+  \item{classic.kurt}{Classical (theoretical) definition of kurtosis}
+  \item{classic.excesskurt}{Excess classical (theoretical) kurtosis from \cr Normal distribution: \code{classic.kurt - 3}.}
+  \item{message}{The product moments are confusing in terms of definition because they are not naturally unbiased.  This characteristic is different from the L-moments. The author thinks that it is informative to show the biased versions within the \dQuote{classic} designations. Therefore, this \code{message} includes several clarifications of the output.}
   \item{source}{An attribute identifying the computational source (the function name) of the product moments: \dQuote{pmoms}.}
 }
 \note{
@@ -32,13 +34,12 @@ The \code{umvu.sd} is computed by
 \deqn{\hat\sigma' = \frac{\Gamma[(n-1)/2]}{\Gamma(n/2)\sqrt{2}}\sqrt{\sum_{i=1}^{n} (x_i - \hat\mu)^2}}
 }
 \references{
-Dingman, S.L., 2002, Physical hydrology, 2nd ed: Prentice Hall, Upper Saddle River, N.J., appendix C.
-
 Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
 approach based on L-moments: Cambridge University Press.
+
+Joanes, D.N., Gill, C.A., 1998, Comparing measures of sample skewness and kurtosis: The Statistician, v. 47, no. 1, pp. 183--189.
 }
 \author{ W.H. Asquith}
-
 \seealso{\code{\link{lmoms}}}
 \examples{
 # A simple example

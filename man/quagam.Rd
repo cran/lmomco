@@ -37,10 +37,12 @@ approach based on L-moments: Cambridge University Press.
   lmr <- lmom.ub(c(123,34,4,654,37,78))
   g <- pargam(lmr)
   quagam(0.5,g)
- 
+
+\dontrun{
   # generate 50 random samples from this fitted parent
   Qsim <- rlmomco(5000,g)
   # compute the apparent gamma parameter for this parent
   gsim <- pargam(lmoms(Qsim))
+}
 }
 \keyword{distribution}

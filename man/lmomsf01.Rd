@@ -47,16 +47,17 @@ Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the 
 \author{ W.H. Asquith }
 \seealso{ \code{\link{lmoms}} }
 \examples{
-set.seed(11)
-x <- rnorm(35)
-lmomsf01(x)$lambdas # linear approx via weibull
-lmomsf01(sort(x), f=pp(x))$lambdas # same
-lmomsf01(x, f=pp(x, sort=FALSE))$lambdas # same
-pwm2lmom(pwm.pp(x, pp=pp(x, sort=FALSE)))$lambdas # directly by weibull
-pwm2lmom(pwm.pp(x, B=1))$lambdas # same
-lmoms(x)$lambdas # unbiased estimates
 
 \dontrun{
+   set.seed(11)
+   x <- rnorm(35)
+   lmomsf01(x)$lambdas # linear approx via weibull
+   lmomsf01(sort(x), f=pp(x))$lambdas # same
+   lmomsf01(x, f=pp(x, sort=FALSE))$lambdas # same
+   pwm2lmom(pwm.pp(x, pp=pp(x, sort=FALSE)))$lambdas # directly by weibull
+   pwm2lmom(pwm.pp(x, B=1))$lambdas # same
+   lmoms(x)$lambdas # unbiased estimates
+
   lmr0 <- lmoms(x)
   lmr1 <- lmomsf01(sort(x), f=pp(x))
   lmr2 <- pwm2lmom(pwm.pp(x, B=1))

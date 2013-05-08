@@ -15,15 +15,17 @@ is.gld(para)
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{gld}.}
-  
+
   \item{FALSE}{If the \code{type} is not \code{gld}.}
 }
 \author{ W.H. Asquith}
 \seealso{ \code{\link{cdfgld}}, \code{\link{quagld}} }
 \examples{
+\dontrun{
 para <- vec2par(c(123,120,3,2),type="gld")
 if(is.gld(para) == TRUE) {
   Q <- quagld(0.5,para)
+}
 }
 }
 \keyword{distribution}

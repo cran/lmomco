@@ -29,7 +29,9 @@ Although \code{NULL} in the argument list, the default is 0---the usual L-moment
 \author{ W.H. Asquith }
 \seealso{\code{\link{quagum}}, \code{\link{theoTLmoms}}}
 \examples{
+\dontrun{
 tlmrgum(trim=2)
 tlmrgum(trim=2, xi=2) # another slow example
+}
 }
 \keyword{distribution}

@@ -15,6 +15,10 @@ A vector of distribution identifiers.
 }
 \author{ W.H. Asquith}
 \examples{
+
+
+\dontrun{
+
 # Build an L-moment object
 LM <- vec2lmom(c(10000,1500,0.3,0.1,0.04))
 lm2 <- lmorph(LM)  # convert to vectored format
@@ -32,6 +36,7 @@ for(i in seq(1,length(dist))) {
      dist[i] == 'kur' | dist[i] == 'rice' | dist[i] == 'texp') next
   print(lmom2par(lm1,type=dist[i]))
   print(lmom2par(lm2,type=dist[i]))
+}
 }
 
 }
