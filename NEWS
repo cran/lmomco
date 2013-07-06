@@ -4,6 +4,21 @@ NEWS for R Package "lmomco"
 
 TODO: Complete documentation for pwmLC.Rd.
 
+Version 1.7.8--July 5, 2013
+1. BUG FIX: Problems with kappa == 0 condition for quagpa() and pdfgpa()
+      resolved. Special thanks to Jona Lilienthal for discovering the bug
+      in pdfgpa().
+
+
+Version 1.7.7--May 13, 2013
+1. Added dat2bernqua(): The empirical quantiles through Bernstein polynomial.
+2. Stripped tildes for nonbreaking spaces in LaTeX, which are not used in
+      the Rd format: IRSrefunds.by.state.Rd Lcomoment.Lk12.Rd
+      Lcomoment.Wk.Rd Lcomoment.coefficients.Rd Lcomoment.correlation.Rd
+      Lcomoment.matrix.Rd cdf2lmom.Rd gini.mean.diff.Rd lcomoms2.Rd
+      sen.mean.Rd.
+
+
 Version 1.7.6--May 13, 2013
 1. Spelling corrections to DESCRIPTION that were not passing CRAN checks.
 

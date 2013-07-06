@@ -14,7 +14,7 @@ Lcomoment.matrix(DATAFRAME,k=1)
 }
 \details{
 L-comoments are computed for each item in the \code{data.frame}. L-comoments
-of order \eqn{k = 1} are means and comeans. L-coments of order \eqn{k = 2} are L-scale and 
+of order \eqn{k = 1} are means and comeans. L-coments of order \eqn{k = 2} are L-scale and
 L-coscale values. L-comoments of order \eqn{k = 3} are L-skew and L-coskews.
 L-comoments of order \eqn{k = 4} are L-kurtosis and L-cokurtosis, and so on. The
 usual univariate L-moments of order \eqn{k} as seen from \code{lmom.ub} are
@@ -35,13 +35,13 @@ computed over the pairs (\eqn{X^{(i)},X^{(j)}}) where \eqn{1 \le i \le j \le d}.
   \item{matrix}{A kth order L-comoment matrix.}
 }
 \note{
-The function begins with a capital letter. This is intentionally done so that lower case 
-namespace is preserved. L-comoments are new in the literature and experimental in this package. 
-By using a capital letter now, then \code{lcomoment.matrix} remains an available name in future 
+The function begins with a capital letter. This is intentionally done so that lower case
+namespace is preserved. L-comoments are new in the literature and experimental in this package.
+By using a capital letter now, then \code{lcomoment.matrix} remains an available name in future
 releases.
 }
 \references{
-Serfling, R., and Xiao, P., 2007, A contribution to multivariate L-moments---L-comoment matrices: Journal of Multivariate Analysis, v.~98, pp.~1765--1781.
+Serfling, R., and Xiao, P., 2007, A contribution to multivariate L-moments---L-comoment matrices: Journal of Multivariate Analysis, v. 98, pp. 1765--1781.
 }
 \author{ W.H. Asquith}
 

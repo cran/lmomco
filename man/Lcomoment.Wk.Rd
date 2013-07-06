@@ -22,8 +22,8 @@ and Wallis (1997).
 
  \deqn{ w^{(k)}_{r:n} = \sum_{j=0}^{min\{r-1,k-1\}} (-1)^{k-1-j}
                                     \frac{{k-1 \choose j}{k-1+j \choose j}
-				          {r-1 \choose j}}
-				         {{n-1 \choose j}}
+          {r-1 \choose j}}
+         {{n-1 \choose j}}
       \mbox{.}}
 }
 \value{A single L-comoment weight factor.}
@@ -37,7 +37,7 @@ releases.
 Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
 approach based on L-moments: Cambridge University Press.
 
-Serfling, R., and Xiao, P., 2007, A contribution to multivariate L-moments---L-comoment matrices: Journal of Multivariate Analysis, v.~98, pp.~1765--1781.
+Serfling, R., and Xiao, P., 2007, A contribution to multivariate L-moments---L-comoment matrices: Journal of Multivariate Analysis, v. 98, pp. 1765--1781.
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{Lcomoment.Lk12}}}

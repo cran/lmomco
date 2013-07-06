@@ -26,11 +26,10 @@ sen.mean(x,k=0)
 }
 \references{
 \enc{Jurečková}{Jureckova}, J., and Picek, J., 2006, Robust statistical methods
-with R: Boca Raton, Fla., Chapman and Hall/CRC, ISBN 1--58488--454--1,
-197~p.
+with R: Boca Raton, Fla., Chapman and Hall/CRC, ISBN 1--58488--454--1, 197 p.
 
 Sen, P.K., 1964, On some properties of the rank-weighted means: Journal
-Indian Society of Agricultural Statistics: vol.~16, pp.~51--61.
+Indian Society of Agricultural Statistics: vol. 16, pp. 51--61.
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{TLmoms}}, \code{\link{gini.mean.diff}}}

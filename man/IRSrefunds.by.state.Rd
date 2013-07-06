@@ -1,9 +1,9 @@
 \name{IRSrefunds.by.state}
 \docType{data}
 \alias{IRSrefunds.by.state}
-\title{U.S.~Internal Revenue Service Refunds by State for Fiscal Year 2006}
+\title{U.S. Internal Revenue Service Refunds by State for Fiscal Year 2006}
 \description{
-U.S.~Internal Revenue Service refunds by state for fiscal year 2006.
+U.S. Internal Revenue Service refunds by state for fiscal year 2006.
 }
 \usage{
 data(IRSrefunds.by.state)

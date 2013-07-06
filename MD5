@@ -1,6 +1,6 @@
-f33972f1b996acf191a002a095571991 *DESCRIPTION
-bfecc4e0fe0c1f1e2469cb2793016bce *NAMESPACE
-40520adbe0e409cd9db1a2c473171743 *NEWS
+b118d639774834c422c1bc8350ae8f85 *DESCRIPTION
+3208107972285f9aa12472d2c5cf3890 *NAMESPACE
+657e9197893a0696c3655a99e1e187a5 *NEWS
 91c377e3d90235733e3fae0ceaa02130 *R/Apwm2BpwmRC.R
 0bea58b114f9545d4e85853f4a1ba91e *R/Bpwm2ApwmRC.R
 cef6d218f1981d1bd4ce72437e1a4ee2 *R/LaguerreHalf.R
@@ -66,6 +66,7 @@ f9f510c8cf54023fce6e31484fd76080 *R/cdfwak.R
 a9a4dff8f2e3c3cc16fca3ee2b58230e *R/cdfwei.R
 e647eb5b3dc7343e11de29e17a2d14a2 *R/check.fs.R
 eb6c714fc609e24a6bca7a03bd63ac45 *R/check.pdf.R
+02b0b1cd7c6c353b308be44715c5f557 *R/dat2bernqua.R
 a59297d6f96b6812dd78eb4b2b21c9e8 *R/dist.list.R
 b2d59aa4b18f7d30a323d8f62d5c183c *R/dlmomco.R
 657d5950072c2344da68124bdafe8cb6 *R/expect.max.ostat.R
@@ -189,7 +190,7 @@ bbe0a4b04bd91efe52894a1fd660ed06 *R/pdfgev.R
 809ff8d021be4b9d96c2ba864ac200f1 *R/pdfgld.R
 a1245169855370d8e0d21d041fca8295 *R/pdfglo.R
 322b1623fb8690e302a17ecd836edf00 *R/pdfgno.R
-3c2bd1e1dc2325c0960ec101acfacf1f *R/pdfgpa.R
+4a09ca3f198aa860db592a6fd21935f2 *R/pdfgpa.R
 ea397d3ae01e4ee54c2c3155b07af78f *R/pdfgum.R
 819c51e39d56c802d8cd0306ccfc9d3d *R/pdfkap.R
 e0e6868ba0efff4e601685c7499ef22b *R/pdfkmu.R
@@ -231,7 +232,7 @@ ba61712ee0ba7295ba48f7f9c17c0860 *R/quaaep4.R
 c52bece91dc18584f8a1846e9f1036c2 *R/quagld.R
 3a1876119e65c5e20dd86caf56935bca *R/quaglo.R
 4734d854e1e3739a834d3b2e478b2816 *R/quagno.R
-fe2aefec33befbf27e4b41180494bad2 *R/quagpa.R
+e3625de11097f70d96f7c4aa81fd0ffe *R/quagpa.R
 77389309dd5a9d08f61b731655fde4a0 *R/quagum.R
 883a1d90491f4186876f3bb59491ffb0 *R/quakap.R
 690fb7f521a8db24e5f3d7458746d762 *R/quakmu.R
@@ -304,13 +305,13 @@ f009bcfa178c85ee8440c2b11e14713e *inst/doc/SysDataBuilder.R
 9a0ed0390c93e4f2cc4ef1e70ae968a0 *man/Apwm2BpwmRC.Rd
 417024a0eec8b33dd967b2bbf9e49e6c *man/Bpwm2ApwmRC.Rd
 f1eb6dfba156f4731c4fa0ffb948da39 *man/DrillBitLifetime.Rd
-2405cbeeb00112dca399ebda87665a69 *man/IRSrefunds.by.state.Rd
+98ccd86adc4aa451616f7d8fb441ab1c *man/IRSrefunds.by.state.Rd
 328e1633ec449b1617d269e9ff254b69 *man/LaguerreHalf.Rd
-aca844fb5845131ba18d91574cb3c313 *man/Lcomoment.Lk12.Rd
-e88ac18ca169e559754b29f8e1e853d0 *man/Lcomoment.Wk.Rd
-28594a3cac4d274ac19a03dc0a619082 *man/Lcomoment.coefficients.Rd
-4b3306e0e9364c6c5944f6fdb5edf18a *man/Lcomoment.correlation.Rd
-e90d81501c7cf42d967f7880f92c3bbb *man/Lcomoment.matrix.Rd
+e46ec7025d60faea5c66699ab636a9a6 *man/Lcomoment.Lk12.Rd
+737a0ca95cfee8661dfd5c9931b7b9ac *man/Lcomoment.Wk.Rd
+4273ab1124df3551e98157d9fa6141cf *man/Lcomoment.coefficients.Rd
+050028e3b62e7564d292e40c4374e4cb *man/Lcomoment.correlation.Rd
+a0cc30f70c56f435c7037c80e69a2560 *man/Lcomoment.matrix.Rd
 b4cf089de5f9b904b29ec08e21f82df1 *man/T2prob.Rd
 d233378d7d87d06f1eecc0f728b3b691 *man/TLmom.Rd
 021b0bcfce705d92823c2faae98deaa8 *man/TLmoms.Rd
@@ -351,7 +352,7 @@ e7111921d5412d7bed82634c6275df31 *man/are.parrevgum.valid.Rd
 db1524e0a6be8d556ab0f2f72d7af1d8 *man/are.parwak.valid.Rd
 aa630be6f1c0766b457a072d22ac7fd0 *man/are.parwei.valid.Rd
 e4011c3c530eeabe6b7e49722167d147 *man/canyonprecip.Rd
-351e7d1d8e8503d9ef3a171279de91fb *man/cdf2lmom.Rd
+b7f8e304a9c0b3e97a7dcc4c6efbfecb *man/cdf2lmom.Rd
 04894179207bdaef7445a04caacbcaad *man/cdf2lmoms.Rd
 7364fcf862c3e9fd8bc1053a45b8398b *man/cdfaep4.Rd
 01cadd2f44cedff87775944e9f37aad1 *man/cdfcau.Rd
@@ -381,6 +382,7 @@ c24f0416b4de87a0b5224d52d0812476 *man/check.fs.Rd
 cd215e17ea77b1b807fef39dff4f6e5a *man/check.pdf.Rd
 44b4d92f7fb821beae309c8a8f41c218 *man/claudeprecip.Rd
 98be00fca2239a2a2ad29f41e98bfc41 *man/clearforkporosity.Rd
+1d8224be12282c1084f51ae0b86fa2af *man/dat2bernqua.Rd
 13ac376f1c5c840db5492e2ad461e8cd *man/dist.list.Rd
 84f3c0379fc68db9a629220733ded293 *man/dlmomco.Rd
 efa60909c0346fe96fcf6a10c0124fc5 *man/expect.max.ostat.Rd
@@ -392,7 +394,7 @@ bfd781c07a9a230a48134cf69e79ad8f *man/fpds2f.Rd
 ba693ece45a411c9c27c96a3feceacd5 *man/freq.curve.all.Rd
 4a8b02290e78650c80652a36ae1e5e37 *man/gen.freq.curves.Rd
 b6fb06ce62b772673f5f70a1227a9e37 *man/genci.Rd
-cef69fa3d413c751e610e60c48fad64e *man/gini.mean.diff.Rd
+fff27cfcd32f46260764d2c27836b9c8 *man/gini.mean.diff.Rd
 041e1e6e0d1003b2d32d205101e50833 *man/harmonic.mean.Rd
 2cec43ccac3293200ebf313a76e2bab0 *man/herefordprecip.Rd
 f1149739f80a6443b8707d78c07bc29a *man/hlmomco.Rd
@@ -420,7 +422,7 @@ df2b1386b919a4b40857cafafc2e2f2f *man/is.pe3.Rd
 8887b44e3cd0e143ae310ab126674b17 *man/is.texp.Rd
 2a891dea6cb09a0b5698ecbe16df63fe *man/is.wak.Rd
 591e548bf9ae5063eb8093bb3179617a *man/is.wei.Rd
-181fa1e9590cd3cd5f116c593ff398af *man/lcomoms2.Rd
+75ac17c6b59a635b3a32db1e8f1b1e6d *man/lcomoms2.Rd
 953978b922b783ac76c0fb86b2d909e6 *man/lmom.ub.Rd
 a02b0eab7010f7793903cb5f313b2b4c *man/lmom2par.Rd
 6d0311bdd5d0cd3f2ff772dcc845b8af *man/lmom2pwm.Rd
@@ -564,7 +566,7 @@ be6699031e647426e552ed3d5ff4b3de *man/quarice.Rd
 2f044e8c3a04ca1a5716b74bc45c9d2e *man/quawak.Rd
 49827c7d703a918c9399088cf3e69a71 *man/quawei.Rd
 dc2ccc2dde8f72d69e209d34d04d7c12 *man/rlmomco.Rd
-807dec078e474bb8fb9ff26e366d10db *man/sen.mean.Rd
+da25c9f7418aa292dcc8b0acbf062b9d *man/sen.mean.Rd
 2e6c6e7f7c888626b0bfe7bb15e19a0a *man/tau34sq.normtest.Rd
 9e7843073ada3baf67d984092e80ac52 *man/theoLmoms.Rd
 fd9c20b0e3c238c1866bdfcb571960f7 *man/theoLmoms.max.ostat.Rd

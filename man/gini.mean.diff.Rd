@@ -8,7 +8,7 @@ and is closely related to the second L-moment \eqn{\lambda_2 = \mathcal{G}/2}.
 
 \deqn{\mathcal{G} = \frac{2}{n(n-1)}\sum_{i=1}^n (2i - n - 1) X_{i:n}}
 
-where \eqn{X_{i:n}} are the order statistics. 
+where \eqn{X_{i:n}} are the order statistics.
 }
 \usage{
 gini.mean.diff(x)
@@ -28,8 +28,7 @@ distributions using linear combinations of order statistics: Journal
 of the Royal Statistical Society, Series B, vol. 52, p. 105--124.
 
 \enc{Jurečková}{Jureckova}, J., and Picek, J., 2006, Robust statistical methods
-with R: Boca Raton, Fla., Chapman and Hall/CRC, ISBN 1--58488--454--1,
-197~p.
+with R: Boca Raton, Fla., Chapman and Hall/CRC, ISBN 1--58488--454--1, 197 p.
 }
 \author{ W.H. Asquith}
 
