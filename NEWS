@@ -4,6 +4,37 @@ NEWS for R Package "lmomco"
 
 TODO: Complete documentation for pwmLC.Rd.
 
+Version 1.7.9--December 3, 2013
+1. BUG FIX: Problems with L-skew <= 0 for parln3(). The 3-parameter log-
+      normal distribution is not valid. A warning is now triggered and
+      suggestion to reverse the data, Y <- -X, so as to get L-skew > 0. Then
+      re-reversing would be needed: e.g., -qualn3(1-nonexceeds(), LN3) for
+      parameters parln3(lmoms(Y)) instead of parln3(lmoms(X)) [failure].
+      Special thanks to Daniel Eilertz for discovering the problem.
+2. New Data Added: The TX38lgtrmFlow.RData was added to the package. These
+      L-moments and estimated variances of annual mean streamflow for
+      35 long-term streamgages in Texas discussion in a cited USGS SIR. 
+3. Added pp.f() and pp.median(), which support median rankit estimation of
+      the probability distribution of an order statistic. These are included
+      to round out plotting position operations, although the median is
+      arguably already available using the pp(..., a=0.3175).
+4. BUG FIX: Another return() was needed for paraep4() in order to properly 
+      fall back to pure Kappa distribution if below the lower bounds of the
+      AEP4. Thanks to Amaranthe R. Biessen for the discovery. In turn, this
+      prompted me to make changes in 5 and 6 described below.
+5. Updated the citation to my CSDA paper on AEP4 in all the *aep4*.Rd files.
+6. Added quaaep4kapmix(): A continuous mixture between the AEP4 and the Kappa
+      distributions. The AEP4 is exclusive if Tau4 above GLO line (upper
+      bounds of the Kappa), and the Kappa is exclusive if Tau4 below the
+      lower bounds of the AEP4. A prorated mixture based on Tau4 in the over-
+      lapping parameter space of the two distributions is used. This idea was
+      in the cover letter on my CSDA paper submission but was outside the scope
+      of it (Asquith, W.H., 2013, Parameter Estimation for the 4-Parameter
+      Asymmetric Exponential Power Distribution by the Method of L-moments
+      using R, Computational Statistics and Data Analysis,
+      http://dx.doi.org/10.1016/j.csda.2012.12.013).
+
+
 Version 1.7.8--July 5, 2013
 1. BUG FIX: Problems with kappa == 0 condition for quagpa() and pdfgpa()
       resolved. Special thanks to Jona Lilienthal for discovering the bug
@@ -23,7 +54,7 @@ Version 1.7.6--May 13, 2013
 1. Spelling corrections to DESCRIPTION that were not passing CRAN checks.
 
 
-Version 1.7.5--May 10, 2013 (never leased, see version 1.7.6)
+Version 1.7.5--May 10, 2013 (never released, see version 1.7.6)
 1. BUG FIX: Revision to unbiased correction on product moment kurtosis.
       An incorrect formula exists in a source originally used to build
       the function. This has been corrected and numerous comments
@@ -293,6 +324,7 @@ Version 1.4.2---July 21, 2011
      user supplied nonexceedance probabilities. The function was also optimized
      a bit.
 2. Extended the tlmrXXX() functions to compute tau5 and tau6.
+
 
 Version 1.4.1--July 7, 2011
 1. Added paracheck=TRUE argument to the quaXXX() functions and vec2par().

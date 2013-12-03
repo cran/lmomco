@@ -30,7 +30,7 @@ and
 
 \deqn{-3 \le \log(h) \le 3, \Delta=0.05}
 
-The function will not return parameters if the following lower bounds of \eqn{\tau_4} is not met: \cr \eqn{\tau_4 \ge 0.77555(|\tau_3|) - 3.3355(|\tau_3|)^2 + 14.196(|\tau_3|)^3 - 29.909(|\tau_3|)^4 + 37.214(|\tau_3|)^5 - 24.741(|\tau_3|)^6 + 6.7998(|\tau_3|)^7}. For this polynomial, the residual standard error is RSE = 0.0003125 and the maximum absolute error for \eqn{\tau_3{:}[0,1] < 0.0015}. The actual coefficients in \code{\link{paraep4}} have additional significant figures.
+The function will not return parameters if the following lower bounds of \eqn{\tau_4} are not met: \cr \eqn{\tau_4 \ge 0.77555(|\tau_3|) - 3.3355(|\tau_3|)^2 + 14.196(|\tau_3|)^3 - 29.909(|\tau_3|)^4 + 37.214(|\tau_3|)^5 - 24.741(|\tau_3|)^6 + 6.7998(|\tau_3|)^7}. For this polynomial, the residual standard error is RSE = 0.0003125 and the maximum absolute error for \eqn{\tau_3{:}[0,1] < 0.0015}. The actual coefficients in \code{\link{paraep4}} have additional significant figures.
 
 }
 \usage{
@@ -74,7 +74,7 @@ Delicado, P., and Goria, M.N., 2008, A small sample comparison of maximum likeli
 moments and L-moments methods for the asymmetric exponential power distribution:
 Computational Statistics and Data Analysis, v. 52, no. 3, pp. 1661-1673.
 
-Asquith, W.H., 2012, Parameter Estimation for the 4-Parameter Asymmetric Exponential Power Distribution by the Method of L-moments using R, A Journal Article in Progress.
+Asquith, W.H., 2013, Parameter Estimation for the 4-Parameter Asymmetric Exponential Power Distribution by the Method of L-moments using R, Computational Statistics and Data Analysis, http://dx.doi.org/10.1016/j.csda.2012.12.013
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{lmomaep4}}, \code{\link{cdfaep4}}, \code{\link{quaaep4}}

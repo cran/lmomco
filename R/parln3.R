@@ -14,12 +14,20 @@ function(lmom, zeta=NULL, checklmom=TRUE) {
     T3 <- lmom$TAU3
 
     if(! is.null(zeta) && zeta >= (L1 - L2)) {
-       warning("zeta is too large, must be zeta < Lamda1 - Lamda2")
+       warning("zeta is too large, must be zeta < Lambda1 - Lambda2")
        return()
     }
 
     if(is.null(zeta)) {
         if(is.na(T3)) stop("TAU3 is NA")
+        if(T3 < 0) {
+           warning("L-skew is negative, try reversing the data Y <- -X, to avoid a log(<0) error");
+           return()
+        }
+        if(T3 == 0) {
+           warning("L-skew is zero, try using the Generalized Normal distribution, gno, instead");
+           return()
+        }
         gno   <- pargno(lmom)
         sigma <-  -gno$para[3]
         expmu <-   gno$para[2]/sigma

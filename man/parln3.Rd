@@ -5,7 +5,9 @@
 This function estimates the parameters of the Log-Normal3 distribution given
 the L-moments of the data in an L-moment object such as that returned by
 \code{lmom.ub}. The relation between distribution parameters and L-moments
-is seen under \code{lmomln3}.
+is seen under \code{lmomln3}. The function uses algorithms of the Generalized
+Normal for core computations. Also, if \eqn{\tau_3 \le 0}, then the Log-Normal3
+distribution can not be fit, however reversing the data alleviates this problem.
 }
 \usage{
 parln3(lmom, zeta=NULL, checklmom=TRUE)
@@ -34,5 +36,18 @@ NEED
 \examples{
 lmr <- lmom.ub(rnorm(20))
 parln3(lmr)
+
+\dontrun{
+# Handling condition of negative L-skew
+# Data reversal looks like: Y <- -X, but let us use an example
+# on the L-moments themselves.
+lmr.pos <- vec2lmom(c(100, 45, -0.1)) # parln3(lmr.pos) fails
+lmr.neg <- lmr.pos
+lmr.neg$lambdas[1] <- -lmr.neg$lambdas[1]
+lmr.neg$ratios[3]  <- -lmr.neg$ratios[3]
+F <- nonexceeds()
+plot(F, -qualn3(1-F, parln3(lmr.neg)), type="l", lwd=3, col=2) # red line
+lines(F, quagno(F, pargno(lmr.pos))) # black line
+}
 }
 \keyword{distribution}

@@ -50,8 +50,8 @@ function(lmom, checklmom=TRUE,
        a <- abs(T3)
        co <- c(0.7755464,  -3.3354852,  14.1955782, -29.9090294,
                37.2141451, -24.7411869,   6.7997646)
-       T4.lowerbounds <-             co[1]*a   + co[2]*a^2 + co[3]*a^3 +
-                  co[4]*a^4 + co[5]*a^5 + co[6]*a^6 + co[7]*a^7
+       T4.lowerbounds <-  co[1]*a   + co[2]*a^2 + co[3]*a^3 +
+                          co[4]*a^4 + co[5]*a^5 + co[6]*a^6 + co[7]*a^7
 
        if(T4 < T4.lowerbounds) {
           if(kapapproved) {
@@ -60,6 +60,7 @@ function(lmom, checklmom=TRUE,
              z$ifailtextkap <- z$ifailtext
              z$ifailtext <- "TAU4 is estimated as below limits of AEP4, Kappa fit instead"
              z$source <- "paraep4 --> parkap"
+             return(z)
           } else {
              z$ifail     <- 4
              z$ifailtext <- "TAU4 is estimated as below limits of AEP4, Kappa not fit instead"

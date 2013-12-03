@@ -34,6 +34,8 @@ Ayebo, A., and Kozubowski, T.J., 2003, An asymmetric generalization of Gaussian 
 Delicado, P., and Goria, M.N., 2008, A small sample comparison of maximum likelihood,
 moments and L-moments methods for the asymmetric exponential power distribution:
 Computational Statistics and Data Analysis, v. 52, no. 3, pp. 1661-1673.
+
+Asquith, W.H., 2013, Parameter Estimation for the 4-Parameter Asymmetric Exponential Power Distribution by the Method of L-moments using R, Computational Statistics and Data Analysis, http://dx.doi.org/10.1016/j.csda.2012.12.013
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{pdfaep4}}, \code{\link{cdfaep4}}, \code{\link{paraep4}}}
