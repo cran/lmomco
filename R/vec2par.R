@@ -40,6 +40,10 @@ function(vec,type,nowarn=FALSE,paracheck=TRUE,...) {
       z <- list(type = 'gno', para = vec, source = "vec2par")
       names(z$para) <- c("xi","alpha","kappa")
     }
+    else if(type == 'gov') {
+      z <- list(type = 'gov', para = vec, source = "vec2par")
+      names(z$para) <- c("xi","alpha","beta")
+    }
     else if(type == 'gpa') {
       z <- list(type = 'gpa',  para = c(vec[1],vec[2],vec[3]),
                 zeta=vec[4], source = "vec2par")
@@ -89,6 +93,14 @@ function(vec,type,nowarn=FALSE,paracheck=TRUE,...) {
     else if(type == 'pe3') {
       z <- list(type = 'pe3', para = vec, source = "vec2par")
       names(z$para) <- c("mu","sigma","gamma")
+    }
+    else if(type == 'sla') {
+      z <- list(type = 'sla', para = vec, source = "vec2par")
+      names(z$para) <- c("xi","alpha")
+    }
+    else if(type == 'st3') {
+      z <- list(type = 'st3', para = vec, source = "vec2par")
+      names(z$para) <- c("xi","alpha","nu")
     }
     else if(type == 'wak') {
       z <- list(type = 'wak', para = vec, source = "vec2par")

@@ -51,9 +51,8 @@ function(para,nmom=5,trim=NULL,leftrim=NULL,rightrim=NULL,verbose=FALSE, minF=0,
   for(r in seq(1,nmom)) { # for each  order of moment
     sum <- 0
     for(k in seq(0,r-1)) {
-      tmp <- (-1)^k*choose(r-1,k)*factorial(r+t1+t2)/
-                                 (factorial(r+t1-k-1)*
-                                  factorial(t2+k))
+      tmp <- (-1)^k*choose(r-1,k)
+      tmp <- tmp*exp(lgamma(r+t1+t2+1) - lgamma(r+t1-k-1+1) - lgamma(t2+k+1))
       # Quantile function X(F), which will require numerical integration
       XofF <- function(F) {
         par2qua(F,para,paracheck=FALSE)*F^(r+t1-k-1)*(1-F)^(t2+k)

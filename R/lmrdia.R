@@ -61,6 +61,15 @@ function() {
      n <- n + 1
    }
 
+   n <- 1
+   t3s <- seq(-.5,1,0.005)
+   gov <- matrix(nrow = length(t3s), ncol = 2)
+   for(t3 in t3s) {
+     gov[n,1] <- t3
+     gov[n,2] <- -0.071430227 - 0.153032772*t3^1 + 1.049617013*t3^2 + 0.149620402*t3^3 + 0.021311828*t3^4 + 0.003912343*t3^5
+     n <- n + 1
+   }
+
 
    exp <- matrix(nrow = 1, ncol = 2)
    exp[1,] <- c(1/3,1/6)
@@ -77,7 +86,7 @@ function() {
 
    z <- list(limits = lim, aep4=aep4, cau=cau, exp=exp,
              gev = gev, glo = glo,
-             gpa=gpa, gum=gum, gno=ln, nor=nor,
+             gpa=gpa, gum=gum, gno=ln, gov=gov, nor=nor,
              pe3=pIII, uniform=uni, ray=ray)
    return(z)
 }

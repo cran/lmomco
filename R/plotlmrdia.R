@@ -9,6 +9,7 @@ function(lmr,
       nogpa=FALSE,
       nope3=FALSE,
       nogno=FALSE,
+      nogov=FALSE,
       nocau=FALSE,
       noexp=FALSE,
       nonor=FALSE,
@@ -78,6 +79,16 @@ function(lmr,
         entries[entryi] <- "GNO"
         Elwd[entryi] <- 1
         Ecol[entryi] <- 4
+        Epch[entryi] <- NA
+        Elty[entryi] <- 2
+        Ecex[entryi] <- 1
+     }
+     if(nogov == FALSE) {
+        lines(lmr$gov, col=6, lty=2)
+        entryi <- entryi + 1
+        entries[entryi] <- "GOV"
+        Elwd[entryi] <- 1
+        Ecol[entryi] <- 6
         Epch[entryi] <- NA
         Elty[entryi] <- 2
         Ecex[entryi] <- 1

@@ -2,7 +2,7 @@
 \alias{dist.list}
 \title{ List of Distribution Names }
 \description{
-Return a list of the three character syntax identifying distributions supported within the \pkg{lmomco} package. The distributions are \code{aep}, \code{cau}, \code{emu}, \code{exp}, \code{gam}, \code{gev}, \code{gld}, \code{glo}, \code{gno}, \code{gpa}, \code{gum}, \code{kap}, \code{kur}, \code{lap}, \code{ln3}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{rice}, \code{texp}, \code{wak}, and \code{wei}.
+Return a list of the three character syntax identifying distributions supported within the \pkg{lmomco} package. The distributions are \code{aep}, \code{cau}, \code{emu}, \code{exp}, \code{gam}, \code{gev}, \code{gld}, \code{glo}, \code{gno}, \code{gov}, \code{gpa}, \code{gum}, \code{kap}, \code{kur}, \code{lap}, \code{ln3}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{rice}, \code{sla}, \code{st3}, \code{texp}, \code{wak}, and \code{wei}.
 }
 \usage{
 dist.list()
@@ -31,9 +31,10 @@ dist <- dist.list()
 for(i in seq(1,length(dist))) {
   # skip Cauchy (needs TL-moments) and GLD (speed)
   # Reverse Gumbel needs censoring . . .
-  if(dist[i] == 'cau' | dist[i] == 'gld' | dist[i] == 'aep' |
-     dist[i] == 'emu' | dist[i] == 'kmu' | dist[i] == 'revgum' |
-     dist[i] == 'kur' | dist[i] == 'rice' | dist[i] == 'texp') next
+  if(dist[i] == 'cau' | dist[i] == 'gld'  | dist[i] == 'aep'    |
+     dist[i] == 'emu' | dist[i] == 'kmu'  | dist[i] == 'revgum' |
+     dist[i] == 'kur' | dist[i] == 'rice' | dist[i] == 'st3'    |
+     dist[i] == 'gov' | dist[i] == 'sla' | dist[i] == 'texp') next
   print(lmom2par(lm1,type=dist[i]))
   print(lmom2par(lm2,type=dist[i]))
 }

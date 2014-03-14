@@ -1,4 +1,6 @@
-"check.pdf" <- function(pdfunc, para, lowerF=0.001, upperF=0.999, eps=0.02, verbose=FALSE, plot=FALSE, plotlowerF=0.001, plotupperF=0.999, ...) {
+"check.pdf" <-
+function(pdfunc, para, lowerF=0.001, upperF=0.999, eps=0.02, verbose=FALSE,
+         plot=FALSE, plotlowerF=0.001, plotupperF=0.999, ...) {
 
   if(lowerF > upperF) {
     tmp <- lowerF

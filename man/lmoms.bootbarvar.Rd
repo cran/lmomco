@@ -9,13 +9,16 @@ This function provides a uniquely independent method to compute the L-moments of
  The example section of this function contains the verification of the implementation as well as provides to additional computations of variance through resampling with replacement and simulation from the parent distribution that generated the sample vector shown in the example.
 }
 \usage{
-lmoms.bootbarvar(x, nmom=6, covarinverse=TRUE, verbose=TRUE)
+lmoms.bootbarvar(x, nmom=6, covarinverse=TRUE, verbose=TRUE,
+                    force.exact=FALSE, nsim=500)
 }
 \arguments{
   \item{x}{A vector of data values.}
   \item{nmom}{The number of moments to compute. Default is 6 and can not be less than 3.}
   \item{covarinverse}{Logical on computation of the matrix inversions: \code{inverse.varcovar.tau23}, \code{inverse.varcovar.tau34}, \code{inverse.varcovar.tau46}.}
   \item{verbose}{A logical switch on the verbosity of the construction of the variance-covariance matrix of the order statisitics. This operation is the most time consuming of those inside the function and is provided at default of \code{verbose=TRUE} to make a general user comfortable.}
+  \item{force.exact}{A logical switch to attempt a forced exact bootstrap computation if the sample size is too large for anticipated numerical reliability. See messages during the execution for guidance.}
+  \item{nsim}{Simulation size in case simulations and not the exact bootstrap are used.}
 }
 \value{
   An R \code{list} is returned.

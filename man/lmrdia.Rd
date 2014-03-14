@@ -21,6 +21,8 @@ lmrdia()
   \item{glo}{\eqn{\tau_3} and \eqn{\tau_4} of the Generalized Logistic distribution.}
   \item{gpa}{\eqn{\tau_3} and \eqn{\tau_4} of the Generalized Pareto distribution.}
   \item{gum}{\eqn{\tau_3} and \eqn{\tau_4} of the Gumbel distribution.}
+  \item{gno}{\eqn{\tau_3} and \eqn{\tau_4} of the Generalized Normal distribution.}
+  \item{gov}{\eqn{\tau_3} and \eqn{\tau_4} of the Govindarajulu distribution.}
   \item{ray}{\eqn{\tau_3} and \eqn{\tau_4} of the Rayleigh distribution.}
   \item{lognormal}{\eqn{\tau_3} and \eqn{\tau_4} of the Lognormal distribution.}
   \item{nor}{\eqn{\tau_3} and \eqn{\tau_4} of the Normal distribution.}
@@ -28,6 +30,10 @@ lmrdia()
   \item{uniform}{\eqn{\tau_3} and \eqn{\tau_4} of the uniform distribution.}
 }
 \references{
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: First edition, CreateSpace Independent Publishing Platform, ISBN 978-1463508418, 2nd printing, 348 p.
+
+Asquith, W.H., 2014, Parameter Estimation for the 4-Parameter Asymmetric Exponential Power Distribution by the Method of L-moments using R: Computational Statistics and Data Analysis, v. 71, pp. 955-970.
+
 Hosking, J.R.M., 1986, The theory of probability weighted moments:
 Research Report RC12210, IBM Research Division, Yorkton Heights, N.Y.
 

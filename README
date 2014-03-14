@@ -18,12 +18,15 @@ Generalized Extreme Value distribution,
 Generalized Lambda distribution,
 Generalized Logistic distribution,
 Generalized Normal (log-Normal) distribution,
+Govindarajulu distribution,
 Generalized Pareto distribution,
 Kappa distribution,
 Kumaraswamy distribution,
 Laplace distribution,
 3-parameter log-Normal distribution,
 Normal, Pearson Type III distribution,
+Slash distribution,
+3-parameter Student T distribution,
 Rayleigh distribution,
 Rice distribution,
 Wakeby distribution, and
@@ -40,7 +43,7 @@ Generalized Pareto distributions.
 See my monograph on L-moments available at zero-royalty price at
 http://www.amazon.com/Distributional-Statistics-Environment-Statistical-Computing/dp/1463508417/
 
-wha (April 5, 2012)
+wha (March 5, 2014)
 
 See inst/doc/WARRANTY for lack-of-warranty information.
 

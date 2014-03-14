@@ -12,8 +12,8 @@ of this function for their own specific purposes.
 \usage{
 plotlmrdia(lmr, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
            noaep4=FALSE, nogev=FALSE, noglo=FALSE, nogpa=FALSE,
-           nope3=FALSE,  nogno=FALSE, nocau=FALSE, noexp=FALSE,
-           nonor=FALSE,  nogum=FALSE, noray=FALSE, nouni=FALSE,
+           nope3=FALSE,  nogno=FALSE, nogov=FALSE, nocau=FALSE,
+           noexp=FALSE,  nonor=FALSE,  nogum=FALSE, noray=FALSE, nouni=FALSE,
            xlab="L-SKEW", ylab="L-KURTOSIS",
            autolegend=FALSE, xleg=NULL, yleg=NULL, ...)
 }
@@ -26,6 +26,7 @@ plotlmrdia(lmr, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
   \item{nogev}{If \code{TRUE} then line of Generalized Extreme Value distribution is not drawn.}
   \item{noglo}{If \code{TRUE} then line of Generalized Logistic distribution is not drawn.}
   \item{nogno}{If \code{TRUE} then line of Generalized Normal (log-Normal) distribution is not drawn.}
+  \item{nogov}{If \code{TRUE} then line of Govindarajulu distribution is not drawn.}
   \item{nogpa}{If \code{TRUE} then line of Generalized Pareto distribution is not drawn.}
   \item{nope3}{If \code{TRUE} then line of Pearson Type III distribution is not drawn.}
   \item{nocau}{If \code{TRUE} then point (limiting) of the Cauchy distribution is not drawn.}
@@ -53,9 +54,11 @@ theoretical L-moment limits on the bottom.
 \tabular{cl}{
   \bold{GRAPHIC TYPE} \tab \bold{GRAPHIC NATURE} \cr
   L-moment Limits \tab line width 2 and color 8 (grey) \cr
+  Asymmetric Exponential Power (4-p) \tab line width 1, line type 4 (dot), and color 2 (red) \cr
   Generalized Extreme Value \tab line width 1, line type 2 (dash), and color 2 (red) \cr
   Generalized Logistic \tab line width 1 and color 3 (green) \cr
   Generalized Normal \tab line width 1, line type 2 (dash), and color 4 (blue) \cr
+  Govindarajulu \tab line width 1, line type 2 (dash), and color 6 (purple) \cr
   Generalized Pareto \tab line width 1 and color 4 (blue) \cr
   Pearson Type III \tab line width 1 and color 6 (purple) \cr
   Exponential \tab symbol 16 (filled circle) and color 2 (red) \cr
@@ -66,8 +69,9 @@ theoretical L-moment limits on the bottom.
 }
 }
 \references{
-Asquith, W.H., 1998, Depth-duration frequency of precipitation for Texas: U.S.
-Geological Survey Water-Resources Investigations Report 98-4044, 107 p.
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: First edition, CreateSpace Independent Publishing Platform, ISBN 978-1463508418, 2nd printing, 348 p.
+
+Asquith, W.H., 2014, Parameter Estimation for the 4-Parameter Asymmetric Exponential Power Distribution by the Method of L-moments using R: Computational Statistics and Data Analysis, v. 71, pp. 955-970.
 
 Hosking, J.R.M., 1986, The theory of probability weighted moments:
 Research Report RC12210, IBM Research Division, Yorkton Heights, N.Y.

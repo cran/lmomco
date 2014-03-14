@@ -64,6 +64,9 @@ function(para) {
     else if(type == 'pe3') {
       return(lmompe3(para))
     }
+    else if(type == 'st3') {
+      return(lmomst3(para))
+    }
     else if(type == 'revgum') {
       return(lmomrevgum(para))
     }

@@ -36,8 +36,8 @@ Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
 approach based on L-moments: Cambridge University Press.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{lmom.ub}}, \code{\link{lmomglo}},
-\code{\link{cdfglo}}, \code{\link{quaglo}}
+\seealso{\code{\link{lmom.ub}}, \code{\link{lmomglo}}, 
+\code{\link{cdfglo}},  \code{\link{pdfglo}}, \code{\link{quaglo}}
 }
 \examples{
 lmr <- lmom.ub(rnorm(20))

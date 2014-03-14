@@ -31,6 +31,9 @@ function(f,para,...) {
     else if(type == 'gno') {
       return(quagno(f,para,...))
     }
+    else if(type == 'gov') {
+      return(quagov(f,para,...))
+    }
     else if(type == 'gpa') {
       return(quagpa(f,para,...))
     }
@@ -57,6 +60,12 @@ function(f,para,...) {
     }
     else if(type == 'revgum') {
       return(quarevgum(f,para,...))
+    }
+    else if(type == 'sla') {
+      return(quasla(f,para,...))
+    }
+    else if(type == 'st3') {
+      return(quast3(f,para,...))
     }
     else if(type == 'kap') {
       return(quakap(f,para,...))

@@ -3,8 +3,65 @@ NEWS for R Package "lmomco"
 ----------------------------------------------------------
 
 TODO: Complete documentation for pwmLC.Rd.
+TODO: Audit cross links for pdf, cdf, and qua in Rd files for distributions
+      in early release(s).
 
-Version 1.8.1---January 27, 2014
+Version 2.0.1--March 14, 2014
+1. BUG FIX: quakap() hit an incorrect stop() because of the absence of
+      a "next" associated with the conditional: H <= 0 & G >= 0 when
+      nonexceedance probability was F=0.
+2. Added the force.exact (default TRUE) and nsim arguments to
+      lmoms.bootbarvar().  It seems that numerical problems are firmly
+      occuring in matrices at about a sample size of 50. So a hardwired
+      threshold hold between the exact analytical and simulation-only
+      estimates of the variances is set at 40.  This can be overrided by
+      force.exact---when simulation is used only the observed L-moments and
+      the variances via simulation are reported. The much lengthier output
+      results when the exact method is used are set to NA.
+3. According to Daniel Wollschlaeger, the Marcum Q function can be computed
+      by marcumQ <- function(a, b, nu=1) { pchisq(b^2, df=2*nu, ncp=a^2,
+                                                  lower.tail=FALSE) } where
+      the nu=1 makes it the MarcumQ1 function associated with the Rice
+      and the Kappa-Mu distributions. Use of this function would simplify
+      some code and might have numerical advantages---or might not, testing
+      is needed.
+4. BUX FIX (mostly enhancement): x2xlo() needed some conditioning to handle the
+      logical situation of a lower threshold for which there are not data below
+      that threshold and also the opposite condition of no data above the
+      threshold. Added an echoing of the threshold to the returned listed as in
+      application, this is useful.
+5. Added the Student T (3-parameter) distribution ("st3") by request from
+      Amaranthe R. Biessen. This distribution made an appearance in my book but
+      had not actually been implemented. Amaranthe is credited for providing the
+      polynomial approximation of Tau4 as a function of Nu and Tau6 as a function
+      of Tau4. A suggested research topic would be the comparison of the ST3 to
+      the AEP4 as these both handle symmetry and Tau4 > Kappa dist.
+6. Extended documentation and utility functions to support the st3 distribution.
+      These are: are.par.valid.R, check.pdf.R, dist.list.R, par2cdf.R,
+      par2lmom.R, par2pdf.R, par2qua.R, prettydist.R, vec2par.R,
+      are.par.valid.Rd, dist.list.Rd, par2lmom.Rd, vec2par.Rd.
+7. Slight adjustments to lmoms.bootbarvar.Rd to eliminate margin protrusion.
+8. Added the ghosting variable to x2xlo(). The feature became evident when WHA
+      was experimenting with trying to track a third variable, such as the year
+      of data collection, as the sample is split between those "in" and those
+      "out." This is for convenience only but enormously useful to have.
+9. Minor revision to parcau.Rd.
+10. Added the Slash distribution, which uses trim=1 TL-moments.
+11. Added the Govindarajulu distribution and included a polynomial to approxi-
+      mate the relation betwen tau4 and tau3 (see examples in lmomgov.Rd).
+12. Added the Govindarajulu to plotlmrdia() and lmrdia() and updated references
+      in both of those functions.
+13. Documentation tweak in lmomgld.Rd.
+14. Updated references in all of the AEP4 Rd files.
+15. Cleaned up spurious (inapplicable) \details{} in parcau.Rd.
+16. Removed the use of factorial() in theoTLmoms() and replaced with a combin-
+      ation of exp(lgamma()) with the proper +1 to the argument.
+17. Cleaned up Rd cross links for GLO distribution---a TODO is to do similar
+      and audit the cross links for all of the distributions in the very early
+      release(s). Some consistency is missing.
+
+
+Version 1.8.1--January 27, 2014
 1. Added extensions to dat2bernqua() to use alternative support of the
       distribution based on the extreme order statistics and two references
       added. Numerical exploration of this new feature is needed. Expanded

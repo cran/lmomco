@@ -1,5 +1,5 @@
 "lmoms.bootbarvar" <-
-function(x, nmom=6, covarinverse=TRUE, verbose=TRUE) {
+function(x, nmom=6, covarinverse=TRUE, verbose=TRUE, force.exact=FALSE, nsim=500) {
    # Begin with the definition of several helper functions
    # that follow the nomenclature of Hutson and Ernst (2000)
    # [ Journal Royal Statistical Society B, 62(1), pp. 89-94 ]
@@ -114,6 +114,35 @@ function(x, nmom=6, covarinverse=TRUE, verbose=TRUE) {
     if(length(unique(x)) == 1) stop("all values are equal--Lmoments can not be computed")
     lmr <- lmoms(x, nmom=nmom) # regular sample L-moments
 
+    if(! force.exact & n > 40) {
+       warning("Sample size is >40, testing with highly non-normal data suggests this as an ",
+               "upper limit for numerical stability, will proceed with simulations (nsim) and ",
+               "estimated variances only, unless force.exact=TRUE, the return L-moments and ratios ",
+               "simply come from lmoms(), a hint of numerical problems with the exact are negative variances")
+       LA <- LB <- vector(mode="numeric", length=nmom)
+       LA[3:nmom] <- NA; LB[1:2] <- NA
+       for(i in 1:2) {
+          LA[i] <- var(replicate(nsim,
+                       lmoms(sample(x, n, replace=TRUE), nmom=nmom)$lambdas[i]))
+       }
+       for(i in 3:length(LB)) {
+          LB[i] <- var(replicate(nsim,
+                       lmoms(sample(x, n, replace=TRUE), nmom=nmom)$ratios[i]))
+       }
+       z <- list(lambdas=lmr$lambdas, ratios=lmr$ratios,
+                 lambdavars=LA,       ratiovars=LB,
+                 varcovar.lambdas=NA,
+                 varcovar.lambdas.and.ratios=NA,
+                 bootstrap.orderstatistics=NA,
+                 varcovar.orderstatistics=NA,
+                 inverse.varcovar.tau23=NA,
+                 inverse.varcovar.tau34=NA,
+                 inverse.varcovar.tau46=NA,
+                 message="used simulation and not exact boot strap because of large sample size (n > 40)",
+                 source="lmoms.bootbarvar")
+        return(z)
+    }
+
     L <- R <- V <- W <- vector(mode="numeric",length=nmom)
     weight.matrix <- matrix(nrow=nmom, ncol=n)
     hatsigma <- hatSIGMA(x) # a CPU hog
@@ -180,6 +209,7 @@ function(x, nmom=6, covarinverse=TRUE, verbose=TRUE) {
                  inverse.varcovar.tau23=inv23,
                  inverse.varcovar.tau34=inv34,
                  inverse.varcovar.tau46=inv46,
+                 message="exact boot strap formula used",
                  source="lmoms.bootbarvar")
     } else {
        z <- list(lambdas=L,    ratios=R,
@@ -191,6 +221,7 @@ function(x, nmom=6, covarinverse=TRUE, verbose=TRUE) {
                  inverse.varcovar.tau23=NA,
                  inverse.varcovar.tau34=NA,
                  inverse.varcovar.tau46=NA,
+                 message="exact boot strap formula used",
                  source="lmoms.bootbarvar")
     }
     return(z)

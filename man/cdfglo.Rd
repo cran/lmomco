@@ -42,7 +42,7 @@ Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
 approach based on L-moments: Cambridge University Press.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{quaglo}}, \code{\link{parglo}}}
+\seealso{ \code{\link{pdfglo}}, \code{\link{quaglo}}, \code{\link{parglo}}}
 \examples{
   lmr <- lmom.ub(c(123,34,4,654,37,78))
   cdfglo(50,parglo(lmr))

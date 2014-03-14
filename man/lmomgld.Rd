@@ -94,15 +94,15 @@ lmomgld(para)
 \value{
   An R list is returned.
 
-  \item{lambdas}{Vector of the TL-moments. First element is
-\eqn{\lambda^{(1)}_1}, second element is \eqn{\lambda^{(1)}_2}, and so on.}
-  \item{ratios}{Vector of the TL-moment ratios. Second element is
-\eqn{\tau^{(1)}}, third element is \eqn{\tau^{(1)}_3} and so on. }
+  \item{lambdas}{Vector of the L-moments. First element is
+\eqn{\lambda_1}, second element is \eqn{\lambda_2}, and so on.}
+  \item{ratios}{Vector of the L-moment ratios. Second element is
+\eqn{\tau}, third element is \eqn{\tau_3} and so on. }
   \item{trim}{Trim level = 0}
   \item{leftrim}{Left trimming level = 0}
   \item{rightrim}{Right trimming level = 0}
   \item{source}{An attribute identifying the computational source
-of the TL-moments: \dQuote{lmomgld}.}
+of the L-moments: \dQuote{lmomgld}.}
 }
 \source{
 Derivations conducted by W.H. Asquith on February 11 and 12, 2006.

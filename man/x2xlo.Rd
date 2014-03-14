@@ -5,12 +5,13 @@
 This function takes a vector of numerical values and subselects the values above and those equal to or less than the \code{leftout} argument and assigns plodding positions based on the \code{a} argument (passed into the \code{\link{pp}} function) and returns a list providing helpful as well as necessary results needed for conditional probability adjustment for general magnitude and frequency analysis. This function only performs very simple vector of selection of patient. The real features for conditional probability application are found in the \code{\link{f2flo}} and \code{\link{f2flo}} functions.
 }
 \usage{
-x2xlo(x, leftout=0, a=0)
+x2xlo(x, leftout=0, a=0, ghost=NULL)
 }
 \arguments{
   \item{x}{A vector of values.}
-  \item{leftout}{The lower threshold for which to leave out. The default of zero sets up for conditional probability adjustments for values equal (or less than) zero.}
+  \item{leftout}{The lower threshold for which to leave out. The default of zero sets up for conditional probability adjustments for values equal (or less than) zero. This argument is called \dQuote{leftout} so as to reinforce the idea that it is a lower threshold hold on which to \dQuote{leave out} data.}
   \item{a}{The plotting position coefficient passed to the \code{\link{pp}} function.}
+  \item{ghost}{A ghosting or shadowing variable to be dragged along and split up according to the lower threshold. If not \code{NULL}, then the output also contains \code{ghostin} and \code{ghostout}. This is a useful feature say if the year of data collection is associated with \code{x} and the user wants a convenient way to keep the proper association with the year. This feature is only for the convenience of the user and does not represent some special adjustment to the underlying concepts. A warning is issued if the lengths of \code{x} and \code{ghost} are not the same, but the function continues proceeding.}
 }
 \value{
   An R \code{list} is returned.
@@ -20,6 +21,7 @@ x2xlo(x, leftout=0, a=0)
   \item{xout}{The subselection of values less than or equal to the \code{leftout} threshold.}
   \item{ppout}{The plotting positions of the subselected values  less than or equal to the \code{leftout} threshold. These plotting positions correspond to those data values in \code{xout}.}
   \item{pp}{The plotting position of the largest value left out of \code{xin}.}
+  \item{thres}{The threshold value provided by the argument \code{leftout}.}
   \item{source}{The source of the parameters: \dQuote{x2xlo}.}
 }
 \author{ W.H. Asquith}

@@ -31,6 +31,9 @@ function(x,para,...) {
     else if(type == 'gno') {
       return(cdfgno(x,para))
     }
+    else if(type == 'gov') {
+      return(cdfgov(x,para))
+    }
     else if(type == 'gpa') {
       return(cdfgpa(x,para))
     }
@@ -66,6 +69,12 @@ function(x,para,...) {
     }
     else if(type == 'pe3') {
       return(cdfpe3(x,para))
+    }
+    else if(type == 'sla') {
+      return(cdfsla(x,para))
+    }
+    else if(type == 'st3') {
+      return(cdfst3(x,para))
     }
     else if(type == 'wak') {
       return(cdfwak(x,para))

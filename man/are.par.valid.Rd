@@ -3,9 +3,8 @@
 \title{Are the Distribution Parameters Consistent with the Distribution}
 \description{
 This function is a dispatcher on top of the \code{are.parCCC.valid} functions,
-where \code{CCC} represents the distribution type:  \code{aep4}, \code{cau}, \code{exp}, \code{gam}, \code{gev}, \code{glo}, \code{gno},
-\code{gpa}, \code{gum}, \code{kap}, \code{kur}, \code{lap}, \code{ln3}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{rice}, \code{wak}, or \code{wei}. Internally, this function is called
-only by \code{vec2par} in the process of converting a vector into a proper
+where \code{CCC} represents the distribution type:  \code{aep4}, \code{cau}, \code{exp}, \code{gam}, \code{gev}, \code{glo}, \code{gno}, \code{gov},
+\code{gpa}, \code{gum}, \code{kap}, \code{kur}, \code{lap}, \code{ln3}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{rice}, \code{sla}, \code{st3}, \code{wak}, or \code{wei}. Internally, this function is called only by \code{vec2par} in the process of converting a vector into a proper
 distribution parameter object for this package.
 }
 \usage{
@@ -20,12 +19,7 @@ are.par.valid(para,...)
   \item{FALSE}{If the parameters are not consistent with the distribution specified by the \code{type} attribute of the parameter object.}
 }
 \references{
-Hosking, J.R.M., 1996, FORTRAN routines for use with the method of L-moments:
-Version 3, IBM Research Report RC20525, T.J. Watson Research Center,
-Yorktown Heights, New York.
-
-Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
-approach based on L-moments: Cambridge University Press.
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: CreateSpace Independent Publishing Platform, 2nd printing, ISBN 978-1463508418.
 }
 \author{ W.H. Asquith}
 \seealso{ \code{\link{vec2par}} }

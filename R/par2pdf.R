@@ -31,6 +31,9 @@ function(f,para,...) {
     else if(type == 'gno') {
       return(pdfgno(f,para))
     }
+    else if(type == 'gov') {
+      return(pdfgov(f,para))
+    }
     else if(type == 'gpa') {
       return(pdfgpa(f,para))
     }
@@ -66,6 +69,12 @@ function(f,para,...) {
     }
     else if(type == 'pe3') {
       return(pdfpe3(f,para))
+    }
+    else if(type == 'sla') {
+      return(pdfsla(f,para))
+    }
+    else if(type == 'st3') {
+      return(pdfst3(f,para))
     }
     else if(type == 'wak') {
       return(pdfwak(f,para))

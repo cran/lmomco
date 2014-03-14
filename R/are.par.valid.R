@@ -38,6 +38,9 @@ function(para,...) {
     else if(type == 'gno') {
       return(are.pargno.valid(para,...))
     }
+    else if(type == 'gov') {
+      return(are.pargov.valid(para,...))
+    }
     else if(type == 'gpa') {
       return(are.pargpa.valid(para,...))
     }
@@ -56,6 +59,15 @@ function(para,...) {
     else if(type == 'ln3') {
       return(are.parln3.valid(para,...))
     }
+    else if(type == 'kap') {
+      return(are.parkap.valid(para,...))
+    }
+    else if(type == 'nor') {
+      return(are.parnor.valid(para,...))
+    }
+    else if(type == 'pe3') {
+      return(are.parpe3.valid(para,...))
+    }
     else if(type == 'ray') {
       return(are.parray.valid(para,...))
     }
@@ -65,14 +77,11 @@ function(para,...) {
     else if(type == 'revgum') {
       return(are.parrevgum.valid(para,...))
     }
-    else if(type == 'kap') {
-      return(are.parkap.valid(para,...))
+    else if(type == 'sla') {
+      return(are.parsla.valid(para,...))
     }
-    else if(type == 'nor') {
-      return(are.parnor.valid(para,...))
-    }
-    else if(type == 'pe3') {
-      return(are.parpe3.valid(para,...))
+    else if(type == 'st3') {
+      return(are.parst3.valid(para,...))
     }
     else if(type == 'wak') {
       return(are.parwak.valid(para,...))

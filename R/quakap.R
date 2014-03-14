@@ -15,9 +15,7 @@ function(f,para,paracheck=TRUE) {
         if(H <= 0 & G  < 0) { x[i] <- U+A/G; next }
         if(H >  0 & G != 0) { x[i] <- U+A/G*(1-H^-G); next }
         if(H >  0 & G == 0) { x[i] <- U+A*log(H); next }
-        if(H <= 0 & G >= 0) {
-          x[i] <- -Inf
-        }
+        if(H <= 0 & G >= 0) { x[i] <- -Inf; next }
         stop("f is fine: should not be here in code execution.")
       }
       else  if(f[i] == 1) {

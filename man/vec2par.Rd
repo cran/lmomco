@@ -4,7 +4,7 @@
 \description{
 This function converts a vector of parameters to a parameter object of a distribution. The type of distribution is specified in the
 argument list: \code{aep4}, \code{cau}, \code{exp}, \code{gam}, \code{gev}, \code{glo}, \code{gno}, \code{gpa},
-\code{gum}, \code{kap}, \code{kur}, \code{lap}, \code{ln3}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{rice}, \code{texp}, \code{wak}, and \code{wei}. If the distribution type is not identified, then the function issues a warning, but goes ahead and creates the parameter list and of course can not check for the validity of the parameters.
+\code{gum}, \code{kap}, \code{kur}, \code{lap}, \code{ln3}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{rice}, \code{st3}, \code{texp}, \code{wak}, and \code{wei}. If the distribution type is not identified, then the function issues a warning, but goes ahead and creates the parameter list and of course can not check for the validity of the parameters.
 }
 \usage{
 vec2par(vec, type, nowarn=FALSE, paracheck=TRUE, ...)
@@ -24,7 +24,7 @@ vec2par(vec, type, nowarn=FALSE, paracheck=TRUE, ...)
   \item{source}{Attribute specifying source of the parameters---\dQuote{vec2par}.}
 }
 \details{
-If the distribution is a Reverse Gumbel (\code{type=revgum})) or Generalized Pareto (\code{type=gpa}) , which are two-parameter or three-parameter distributions, the third or fourth value in the vector is the \eqn{\zeta} of the distribution. \eqn{\zeta} represents the fraction of the sample that is noncensored, or number of observed (noncensored) values divided by the sample size. The \eqn{\zeta} represents censoring on the right, that is there are unknown observations above a threshold or the largest observed sample. Consultation of \code{\link{parrevgum}} or \code{\link{pargpaRC}} should elucidate the censoring discussion.
+If the distribution is a Reverse Gumbel (\code{type=revgum})) or Generalized Pareto (\code{type=gpa}), which are two-parameter or three-parameter distributions, the third or fourth value in the vector is the \eqn{\zeta} of the distribution. \eqn{\zeta} represents the fraction of the sample that is noncensored, or number of observed (noncensored) values divided by the sample size. The \eqn{\zeta} represents censoring on the right, that is there are unknown observations above a threshold or the largest observed sample. Consultation of \code{\link{parrevgum}} or \code{\link{pargpaRC}} should elucidate the censoring discussion.
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{lmom2par}}}
@@ -32,6 +32,6 @@ If the distribution is a Reverse Gumbel (\code{type=revgum})) or Generalized Par
 para <- vec2par(c(12,123,0.5),'gev')
 Q <- quagev(0.5,para)
 
-my.custom <- vec2par(c(2,2),'myowndist') # Rice distribution
+my.custom <- vec2par(c(2,2),'myowndist') # Think about making your own
 }
 \keyword{utility}

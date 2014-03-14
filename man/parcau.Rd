@@ -18,24 +18,6 @@ parcau(lmom)
   \item{para}{The parameters of the distribution.}
   \item{source}{The source of the parameters: \dQuote{parcau}.}
 }
-\details{
-Unlike many of the other distributions in this package,
-the parameter estimation occurs by passing the data into the function
-and not from passing of an L-moment object (see \code{\link{lmom.ub}}).
-Contrast this practice with \code{\link{pargum}}
-for example.) The reason this is so is because the usual L-moments are
-undefined for the Cauchy distribution, but the trimmed L-moments with
-a symmetrical trimming parameter are defined. Specifically, the L-moments by
-trimming the smallest and largest order statistic expections of the Cauchy are
-defined by Elamir and Seheult (2003). The function \code{parcau} calls
-\code{TLlmoms(x,trim=1)}) internally to compute the trimmed L-moments.
-The relation between the parameters and the trimmed L-moments is
-
-\deqn{\xi = \lambda^{(1)}_1 \mbox{and}}
-
-\deqn{\alpha = \frac{\lambda^{(1)}_2}{0.698} \mbox{.}}
-
-}
 \references{
 Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational Statistics
 and Data Analysis, vol. 43, pp. 299--314.
