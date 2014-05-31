@@ -5,7 +5,7 @@
 \description{
 Compute the optimal p-factor through numerical integration of the smoothed empirical quantile function to estimate the L-moments of the distribution. This function attempts to report an optimal \dQuote{p-factor}  (author's term) for the given parent distribution in \code{para} based on estimating the crossing of the origin of an error between the given L-moment ratio \eqn{\tau_r} for 3, 4, and 5 that will come from either the distribution parameter object or given as an argument in \code{lmr.dist}.  The estimated support of the distribution is that shown by  Turnbull and Ghosh (2014) and is computed as follows
 \deqn{\biggl(x_{0:n},\: x_{n+1:n}\biggr) = \biggl(x_{1:n} - \frac{(x_{2:n} - x_{1:n})}{(1 - p)^{-2} - 1},\: x_{n:n} + \frac{(x_{n:n} - x_{n-1:n})}{(1 - p)^{-2} - 1}\biggr)\mbox{,}}
-where \eqn{p} is the p-factor. The support will honor natural bounds if given by either \code{fix.lower} or \code{fix.upper}. The polynomial type for smooth is provided in \code{poly.type}. These three arguments are the same as those for \code{\link{dat2bernqua}} and \code{\link{lmoms.bernstein}}. The statistic type used to measure central tendency of the errors for the \code{nsim} simulations per \eqn{p}. The function has its own hardwired p-factors to compute but these can be superseded by the \code{pfactors} argument. The \code{p.lo} and \code{p.hi} are the lower and upper bounds to truncate on immediately after the p-factors to use are assembled. These are made for three purposes: (1) protection against numerical problems for mathematical upper limits (unity), (2) to potentially provide for much faster execution if the user already knows the approximate optimal value for the p-factor, and (3) to potentially use this function in a direct optimization framework using \code{optim} or \code{uniroot}. It is strongly suggested to keep \code{plot.em} set so the user can inspect the computations.
+where \eqn{p} is the p-factor. The support will honor natural bounds if given by either \code{fix.lower} or \code{fix.upper}. The polynomial type for smooth is provided in \code{poly.type}. These three arguments are the same as those for \code{\link{dat2bernqua}} and \code{\link{lmoms.bernstein}}. The statistic type used to measure central tendency of the errors for the \code{nsim} simulations per \eqn{p}. The function has its own hardwired p-factors to compute but these can be superseded by the \code{pfactors} argument. The \code{p.lo} and \code{p.hi} are the lower and upper bounds to truncate on immediately after the p-factors to use are assembled. These are made for three purposes: (1) protection against numerical problems for mathematical upper limits (unity), (2) to potentially provide for much faster execution if the user already knows the approximate optimal value for the p-factor, and (3) to potentially use this function in a direct optimization framework using the \R functions \code{optim} or \code{uniroot}. It is strongly suggested to keep \code{plot.em} set so the user can inspect the computations.
 }
 \usage{
 pfactor.bernstein(para, x=NULL, n=NULL,
@@ -36,7 +36,7 @@ values provided as separate arguments. There is an implicit \code{bound.type} of
   \item{p.hi}{An computational upper boundary for which the \code{pfactors} by argument or default are truncated to. The default for \code{hi} is unity, which is the true upper limit that results in a 0 slope between the \eqn{x_{0:n}} to \eqn{x_{1:n}} or \eqn{x_{n:n}} to \eqn{x_{n+1:n}} order statistics.}
 }
 \value{
-  An R \code{list} or \code{real} is returned.  If \code{pfactors} is a single value, then the single value for the error statistic is returned, otherwise the list described will be. If the returned \code{pfactor} is \code{NA}, then likely the smooth line did not cross zero and the reason the user should keep \code{plot.em=TRUE} and inspect the plot. Perhaps revisions to the arguments will become evident. The contents of the list are
+  An \R \code{list} or \code{real} is returned.  If \code{pfactors} is a single value, then the single value for the error statistic is returned, otherwise the list described will be. If the returned \code{pfactor} is \code{NA}, then likely the smooth line did not cross zero and the reason the user should keep \code{plot.em=TRUE} and inspect the plot. Perhaps revisions to the arguments will become evident. The contents of the list are
   \item{pfactor}{The estimated value of \eqn{p} smoothed by \code{lowess} that has an error of zero, see \code{err.stat} as a function of \code{ps}.}
   \item{bounds.type}{\code{Carv}, which is the same bound type as needed by \code{\link{dat2bernqua}} and \cr \code{\link{lmoms.bernstein}}.}
   \item{poly.type}{The given \code{poly.type}.}
@@ -54,13 +54,12 @@ Repeated application of this function for various \code{n} would result in the a
 
 Also, symmetrical data likely see little benefit from optimizing on the symmetry-measuring L-moments Tau3 and Tau5; the analyst might prefer to optimize on peakedness measured by Tau4.
 }
+\note{
+This function is highly experimental and subject to extremely overhaul. Please contact the author if you are an interested party in Bernstein and Kantorovich polynomials.
+}
 \author{W.H. Asquith}
 \references{
-Asquith, W.H., 201X. Empirical quantile function smoothing and distal-tail estimation by Bernstein and Kantorovich polynomials incorporating regional L-moment information. [in review].
-
-
-Turnbull, B.C., Ghosh, S.K., 2014. Unimodal density estimation using Bernstein polynomials.
-Computational Statistics and Data Analysis, v. 72, 13--29.
+Turnbull, B.C., and Ghosh, S.K., 2014, Unimodal density estimation using Bernstein polynomials. Computational Statistics and Data Analysis, v. 72, pp. 13--29.
 }
 \seealso{ \code{\link{lmoms.bernstein}}, \code{\link{dat2bernqua}}, \code{\link{lmoms}} }
 \examples{

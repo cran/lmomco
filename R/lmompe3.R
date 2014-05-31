@@ -90,6 +90,7 @@ function(para) {
       }
     }
     z$LCV <- z$L2/z$L1
+    z <- lmorph(z)
     return(z)
 }
 

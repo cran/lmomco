@@ -2,9 +2,58 @@
 NEWS for R Package "lmomco"
 ----------------------------------------------------------
 
-TODO: Complete documentation for pwmLC.Rd.
-TODO: Audit cross links for pdf, cdf, and qua in Rd files for distributions
-      in early release(s).
+Version 2.1.1--May 31, 2014 (The Concordance Release and Residual Life Release)
+1. Enormous effort in indexing consistency and new keywords for most of the
+      Rd files (see no. 4).  George R. Herrmann provided a correction to lmom.ub.Rd.
+2. Added another reference to the Govindarajulu distribution documentation:
+      Nair et al. (2012).
+3. Enhanced expect.max.ostat() and theoLmom.max.ostat() to use a quantile function.
+4. COMPREHENSIVE AUDIT of Rd files and adjustments in many fewer R files as needed
+      for sweeping consistency changes in a rigorous effort to make documentation
+      in concordance with Asquith (2011), approximately 200 hours of effort from
+      hand edits on the then 428p+ hardcopy of the manual. One effect is that the
+      named format for an L-moment object is finally deprecated in favor of the list]
+      format (lmoms()).
+5. BUG FIX: parln3() had an incorrect subtraction when attempting to fit with
+      a known lower bounds. WHA has never used this feature and no users have
+      commented on it---the audit bore fruit. Documentation of LN3 completed.
+6. Added to lmrdia() and plotlmrdia() the Slash distribution and other adjustments.
+7. Added the Linear Mean Residual Quantile distribution: "lmrq". This is a
+      special distribution that exhibits a mean residual quantile function
+      in the the form of Y = mX + b.
+8. Added reslife.lmoms() and rreslife.lmoms(), which respectively are the L-moments
+      of residual life and reversed residual life for a quantile function.
+9. Added cmlmomco(), rmlmomco(), rrmlmomco(), rmvarlmomco(), rrmvarlmomco(),
+      ralmomco(), rralmomco(), tttlmomco(), stttlmomco(), brflmomco(), lrzlmomco(),
+      lkhlmomco(), and riglmomco(), which are a suite of quantile function operators
+      on a distribution using the quantile basis comprehensively outlined by
+      Nair et al. (2013). These functions are all tabulated, referenced, and other
+      details given in rmlmomco.Rd. These functions and the <r>reslife.lmoms() are
+      substantial extensions of the package in the field of reliability analysis.
+10. Added the Generalized Exponential Poisson distribution (gep). The L-moments but
+      more importantly, the parameter computations are difficult using derivations
+      in the literature. Consider this distribution semi-experimental. 
+11. Added the Barnes Extended Hypergeometric function with exploration of
+      the numerical limits in the context of GEP implementation.
+12. BUG FIX: quakap(), for f=1 and "next" command was missing in a conditional tree.
+13. Removed lmomsf01() never could quite get the intended features to work,
+      and it seems no longer appropriate to leave this experiment in place. It is
+      archived in inst/legacy.
+14. Reduced the DESCRIPTION by 24 percent yet added more details.
+15. Added add.lmomco.axis() to enhance plots with a normal probability axis.
+16. Added slmomco() to provide a survival function now that reliability/lifetime
+      features are present.
+17. Added to pwm.ub.Rd additional proof of sample PWM computation reliability after
+      an inquiry by a J.M. Miller found inconsistencies in other literature.
+      I.E. DOI = 10.1002/joc.3887 (Beguer\'{i}a1 et. al, ... SPEI ..., eq. 3)
+      and an error on the SPEI website (May 2014). Well done J.M. Miller!
+18. Added plotradarlmr() to make radar plots of L-moment ratios. Occasionally
+      in past 5 years some users have asked (not for radars) but for ways to "see"
+      higher into L-moment dimension that provided by plotlmrdia().
+19. Added Gumbel reduced variates (prob2grv(), grv2prob()) and logistic reduced
+      variates (prob2lrv(), lrv2prob()).
+20. Added sentiv.curve() for construction of sensitivity curves.
+
 
 Version 2.0.1--March 14, 2014
 1. BUG FIX: quakap() hit an incorrect stop() because of the absence of
@@ -12,7 +61,7 @@ Version 2.0.1--March 14, 2014
       nonexceedance probability was F=0.
 2. Added the force.exact (default TRUE) and nsim arguments to
       lmoms.bootbarvar().  It seems that numerical problems are firmly
-      occuring in matrices at about a sample size of 50. So a hardwired
+      occurring in matrices at about a sample size of 50. So a hardwired
       threshold hold between the exact analytical and simulation-only
       estimates of the variances is set at 40.  This can be overrided by
       force.exact---when simulation is used only the observed L-moments and
@@ -30,12 +79,12 @@ Version 2.0.1--March 14, 2014
       that threshold and also the opposite condition of no data above the
       threshold. Added an echoing of the threshold to the returned listed as in
       application, this is useful.
-5. Added the Student T (3-parameter) distribution ("st3") by request from
+5. Added the Student t (3-parameter) distribution ("st3") by request from
       Amaranthe R. Biessen. This distribution made an appearance in my book but
       had not actually been implemented. Amaranthe is credited for providing the
       polynomial approximation of Tau4 as a function of Nu and Tau6 as a function
-      of Tau4. A suggested research topic would be the comparison of the ST3 to
-      the AEP4 as these both handle symmetry and Tau4 > Kappa dist.
+      of Tau4. A suggested research topic would be the comparison of the
+      ST3 to the AEP4 as these both handle symmetry and Tau4 > Kappa dist.
 6. Extended documentation and utility functions to support the st3 distribution.
       These are: are.par.valid.R, check.pdf.R, dist.list.R, par2cdf.R,
       par2lmom.R, par2pdf.R, par2qua.R, prettydist.R, vec2par.R,
@@ -138,7 +187,7 @@ Version 1.7.5--May 10, 2013 (never released, see version 1.7.6)
       results now. Much thanks to Sergio Gomez for discovering the
       bug and assisting in reference track down. Also, added the
       "excess" kurtosis outputs as apparently Sergio Gomez and other
-      practioners in his discipline have interest in kurtosis as it
+      practitioners in his discipline have interest in kurtosis as it
       differs from the Normal distribution. The two references in the
       pmoms.Rd are correct and match each other computationally.
 2. Further reductions in R CMD check --timings in the following Rd files:
@@ -187,7 +236,7 @@ Version 1.7.3---January 28, 2013
        analysis.
 4. Added the Tau34-squared test for Normality by Harri and Coble (2011).
        Email communication during the last week of January 2013
-       with Dr. Adrian Harri re-inforces the preference of
+       with Dr. Adrian Harri reinforces the preference of
        Harri and Coble (2013) recommended that the "T34-squared" test be
        preferred for general application. WHA agrees. The general example
        code for tau34sq.normtest() is capable of reproducing, within
@@ -206,7 +255,7 @@ Version 1.7.2---November 16, 2012
 
 Version 1.7.1---October 30, 2012
 1. Added lmoms.bootbarvar() for computation of the exact bootstrap mean
-      and variances of L-moments (noncensored or trimmed).
+      and variances of L-moments (uncensored or trimmed).
 2. Added the "Kappa-Mu" distribution with the abbreviation "kmu".
 3. Added the "Eta-Mu" distribution with the abbreviation "emu".
       Yacoub, M.D., 2007, The kappa-mu distribution and the eta-mu distribution:
@@ -637,7 +686,7 @@ Version 0.96.2---November 17, 2008
 1. Tweak to quawak() for condition of F=1.
 2. Added the sort=TRUE argument to pp() so that sorted (default and historical)
      and unsorted plotting positions could be returned. An appropriate example
-     was added. Also strengthed the condition of the plotting-position
+     was added. Also strengthened the condition of the plotting-position
      coefficient range---have restricted the coefficient between Weibull (a=0)
      and Hazen (a=0.50) so "a \in [0,0.5]." The pp() function uses the rank()
      function, which has specific settings to handle tied data. For the pp()

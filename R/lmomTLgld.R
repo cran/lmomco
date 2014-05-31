@@ -1,5 +1,5 @@
 "lmomTLgld" <-
-function(para, nmom=6, trim=0, leftrim=NULL, rightrim=NULL, tau34=FALSE) {
+function(para, nmom=6, trim=1, leftrim=NULL, rightrim=NULL, tau34=FALSE) {
   L <- R <- vector(mode="numeric", length=nmom)
 
   if(nmom < 2) {
@@ -27,13 +27,26 @@ function(para, nmom=6, trim=0, leftrim=NULL, rightrim=NULL, tau34=FALSE) {
   t1 <- leftrim
   t2 <- rightrim
 
-  if(! are.pargld.valid(para)) return()
-  attributes(para$para) <- NULL
-
   E <- para$para[1]
   A <- para$para[2]
   K <- para$para[3]
   H <- para$para[4]
+
+  if(K <= -(1+leftrim)) {
+     warning("Parameter k is too small for the leftrim level: k > -(1+leftrim), still yet to check the other three")
+     return()
+  }
+  if(H <= -(1+rightrim)) {
+     warning("Parameter h is too small for the rightrim level: k > -(1+rightrim), still yet to check the other three")
+     return()
+  }
+
+
+  #if((t1 + t2) == 0) {
+     if(! are.pargld.valid(para)) return()
+     attributes(para$para) <- NULL
+  #}
+
 
   if(tau34) {
     for(r in 3:4) {

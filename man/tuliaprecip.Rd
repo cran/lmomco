@@ -9,7 +9,7 @@ Annual maximum precipitation data for Tulia, Texas
 data(tuliaprecip)
 }
 \format{
-A data frame with
+An \R \code{data.frame} with
 \describe{
   \item{YEAR}{The calendar year of the annual maxima.}
   \item{DEPTH}{The depth of 7-day annual maxima rainfall in inches.}

@@ -1,5 +1,5 @@
 "check.pdf" <-
-function(pdfunc, para, lowerF=0.001, upperF=0.999, eps=0.02, verbose=FALSE,
+function(pdf, para, lowerF=0.001, upperF=0.999, eps=0.02, verbose=FALSE,
          plot=FALSE, plotlowerF=0.001, plotupperF=0.999, ...) {
 
   if(lowerF > upperF) {
@@ -23,7 +23,7 @@ function(pdfunc, para, lowerF=0.001, upperF=0.999, eps=0.02, verbose=FALSE,
   }
 
   # Perform the integration using defaults
-  pdfgral <- integrate(pdfunc,min,max,para=para,...)
+  pdfgral <- integrate(pdf,min,max,para=para,...)
 
   if(verbose) {
     cat(c("STATUS: integrated to ", pdfgral$value,
@@ -46,7 +46,7 @@ function(pdfunc, para, lowerF=0.001, upperF=0.999, eps=0.02, verbose=FALSE,
   F <- F[F >= 0]
   F <- F[F <= 1]
   x <- par2qua(F,para)
-  y <- pdfunc(x,para)
+  y <- pdf(x,para)
   plot(x,y,type='l',ylab="probability density")
 
   min1 <- min(y)
@@ -56,7 +56,7 @@ function(pdfunc, para, lowerF=0.001, upperF=0.999, eps=0.02, verbose=FALSE,
   F <- F[F >= 0]
   F <- F[F <= 1]
   x <- par2qua(F,para)
-  y <- pdfunc(x,para)
+  y <- pdf(x,para)
 
   min2 <- min(y)
   min <- min(min1,min2)

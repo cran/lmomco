@@ -21,8 +21,9 @@ function(lmom, checklmom=TRUE,
     para <- c(NA, NA, NA, NA);
 
 
-    z <- list(type = 'aep4', para = para, ifail=0,
-              source="paraep4", method = method, ifailtext="")
+    z <- list(type   = 'aep4',    para   = para,
+              source = "paraep4", method = method,
+              ifail  = 0, ifailtext="")
 
     L234 <- list(para_L234 = para,
                  ifail_L234=NA,

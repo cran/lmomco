@@ -2,10 +2,7 @@
 \alias{pwm2lmom}
 \title{Probability-Weighted Moments to L-moments}
 \description{
-Converts the Probability-Weighted Moments (PWM) to the L-moments given the
-PWM. The conversion is linear so procedures based on PWMs and identical to
-those based on L-moments.
-
+Converts the probability-weighted moments (PWM) to the L-moments. The conversion is linear so procedures based on PWMs and identical to those based on L-moments through a system of linear equations
 \deqn{\lambda_1 = \beta_0 \mbox{,}}
 \deqn{\lambda_2 = 2\beta_1 - \beta_0 \mbox{,}}
 \deqn{\lambda_3 = 6\beta_2 - 6\beta_1 + \beta_0 \mbox{,}}
@@ -17,8 +14,7 @@ those based on L-moments.
 \deqn{\tau_5 = \lambda_5/\lambda_2 \mbox{.}}
 
 The general expression and the expression used for computation if the argument is a vector of PWMs is
-
-\deqn{\lambda_{r+1} = \sum^r_{k=0} (-1)^{r-k}{r \choose k}{r+k \choose k} \beta_{k+1}}
+\deqn{\lambda_{r+1} = \sum^r_{k=0} (-1)^{r-k}{r \choose k}{r+k \choose k} \beta_{k+1}\mbox{.}}
 }
 \usage{
 pwm2lmom(pwm)
@@ -27,12 +23,12 @@ pwm2lmom(pwm)
   \item{pwm}{ A PWM object created by \code{\link{pwm.ub}} or similar. }
 }
 \details{
-The Probability Weighted Moments (PWMs) are linear combinations of the L-moments and therefore contain the same statistical information of the data as the L-moments. However, the PWMs are harder to interpret as measures of probability distributions. The linearity between L-moments and PWMs means that procedures base on one are equivalent to the other.
+The probability-weighted moments (PWMs) are linear combinations of the L-moments and therefore contain the same statistical information of the data as the L-moments. However, the PWMs are harder to interpret as measures of probability distributions. The linearity between L-moments and PWMs means that procedures base on one are equivalent to the other.
 
-The function can take a variety of PWM argument types in \code{pwm}. The function checks whether the argument is a list and if so attempts to extract the \eqn{\beta_r}'s from \code{list} names such as \code{BETA0}, \code{BETA1}, and so on. If the extraction is successful, then a list of L-moments similar to \code{lmom.ub} is returned. If the extraction was not successful, then a \code{list} name \code{betas} is checked; if \code{betas} is found then this vector of PWMs is used to compute the L-moments. If \code{pwm} is a \code{list} but can not be routed in the function, a \code{warnings} is made and \code{NULL} returned. If the \code{pwm} argument is a \code{vector}, then this vector of PWMs is used to compute the L-moments are returned.
+The function can take a variety of PWM argument types in \code{\link{pwm}}. The function checks whether the argument is a list and if so attempts to extract the \eqn{\beta_r}'s from \code{list} names such as \code{BETA0}, \code{BETA1}, and so on. If the extraction is successful, then a list of L-moments similar to \code{\link{lmom.ub}} is returned. If the extraction was not successful, then an \R \code{list} name \code{betas} is checked; if \code{betas} is found then this vector of PWMs is used to compute the L-moments. If \code{pwm} is a \code{list} but can not be routed in the function, a \code{warnings} is made and \code{NULL} returned. If the \code{pwm} argument is a \code{vector}, then this vector of PWMs is used to compute the L-moments are returned.
 }
 \value{
-  One of two R \code{list} are returned.
+  One of two \R \code{list}s are returned.
   \item{Version I}{\describe{
   \item{L1}{Arithmetic mean}
   \item{L2}{L-scale---analogous to standard deviation}
@@ -51,17 +47,9 @@ The function can take a variety of PWM argument types in \code{pwm}. The functio
 }}
 }
 \references{
-Greenwood, J.A., Landwehr, J.M., Matalas, N.C., and Wallis, J.R., 1979,
-Probability weighted moments---Definition and relation to parameters of
-several distributions expressable in inverse form: Water Resources Research,
-vol. 15, p. 1,049--1,054.
+Greenwood, J.A., Landwehr, J.M., Matalas, N.C., and Wallis, J.R., 1979, Probability weighted moments---Definition and relation to parameters of several distributions expressable in inverse form: Water Resources Research, v. 15, pp. 1,049--1,054.
 
-Hosking, J.R.M., 1990, L-moments--Analysis and estimation of
-distributions using linear combinations of order statistics: Journal
-of the Royal Statistical Society, Series B, vol. 52, p. 105--124.
-
-Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
-approach based on L-moments: Cambridge University Press.
+Hosking, J.R.M., 1990, L-moments--Analysis and estimation of distributions using linear combinations of order statistics: Journal of the Royal Statistical Society, Series B, v. 52, pp. 105--124.
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{lmom.ub}}, \code{\link{pwm.ub}}, \code{\link{pwm}}, \code{\link{lmom2pwm}}}
@@ -69,7 +57,6 @@ approach based on L-moments: Cambridge University Press.
 D <- c(123,34,4,654,37,78)
 pwm2lmom(pwm.ub(D))
 pwm2lmom(pwm(D))
-
 pwm2lmom(pwm(rnorm(100)))
 }
 \keyword{L-moment (theoretical)}

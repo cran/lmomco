@@ -1,32 +1,26 @@
 \name{nonexceeds}
 \alias{nonexceeds}
-\title{ Common Nonexceedance Probabilities }
+\title{ Some Common or Useful Nonexceedance Probabilities }
 \description{
 This function returns a vector nonexceedance probabilities.
 }
 \usage{
-nonexceeds()
+nonexceeds(f01=FALSE, less=FALSE)
+}
+\arguments{
+  \item{f01}{A logical and if \code{TRUE} then 0 and 1 are included in the returned vector.}
+  \item{less}{A logical and if \code{TRUE} the default values are trimmed back.}
 }
 \value{
-  A vector of selected nonexceedance probabilities useful in assessing the \dQuote{frequency
-  curve} in hydrologic applications (noninclusive). The nonexceedance probabilities
-  extend further into the right-hand tail of the \dQuote{distribution} to the 0.996 and 0.998
-  nonexceedance probability values as these are equivalent to the 250- and 500-year events
-  respectively. The relation between annual recurrence interval and nonexceedance
-  probability (when annual data are analyzed) is
-
-  \deqn{ F = 1 - \frac{1}{T} \mbox{,}}
-
-where T is the \eqn{T}-year event.
+  A vector of selected nonexceedance probabilities \eqn{F} useful in assessing the \dQuote{frequency curve} in hydrologic applications (noninclusive). This vector is intended to be helpful and self-documenting when common \eqn{F} values are desired to explore deep into both distribution tails.
 }
-\author{ W.H. Asquith}
-\seealso{ \code{\link{quaexp}}, \code{\link{quagam}}, \code{\link{quagev}},
-\code{\link{quaglo}}, \code{\link{quagno}}, \code{\link{quagpa}},
-\code{\link{quagum}}, \code{\link{quakap}}, \code{\link{quanor}},
-\code{\link{quape3}}, \code{\link{quawak}}, and \code{\link{check.fs}} }
+\author{ W.H. Asquith }
+\seealso{ \code{\link{check.fs}}, \code{\link{prob2T}}, \code{\link{T2prob}} }
 \examples{
-lmr <- lmom.ub(rnorm(20))
+lmr <- lmoms(rnorm(20))
 para <- parnor(lmr)
-quanor(nonexceeds(),para)
+quanor(nonexceeds(), para)
 }
 \keyword{misc}
+\keyword{utility (probability)}
+

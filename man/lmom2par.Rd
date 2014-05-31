@@ -2,43 +2,46 @@
 \alias{lmom2par}
 \title{Convert L-moments to the the Parameters of a Distribution}
 \description{
-This function converts the L-moments of the data to the parameters of a
-distribution. The type of distribution is specified in the
-argument list: \code{aep4}, \code{exp}, \code{gam}, \code{gev}, \code{gld}, \code{glo}, \code{gno},
-\code{gpa}, \code{gum}, \code{kap}, \code{kur}, \code{ln3}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{wak}, or \code{wei}. There
-is no Cauchy distribution support by the \code{lmom2par} function because Cauchy uses TL-moments and not the ordinary L-moments. For Cauchy functions such as \code{\link{parcau}} and \code{\link{lmomcau}} should be used in accordance with their documentation.
+This function converts L-moments to the parameters of a distribution. The type of distribution is specified in the argument list:
+\code{aep4}, \code{cau}, \code{emu}, \code{exp}, \code{gam}, \code{gep}, 
+\code{gev}, \code{gld}, \code{glo}, \code{gno}, \code{gov},
+\code{gpa}, \code{gum}, \code{kap}, \code{kmu}, \code{kur}, 
+\code{lap}, \code{lmrq}, \code{ln3}, \code{nor}, \code{pe3},
+\code{ray}, \code{revgum}, \code{rice}, \code{sla}, \code{st3},
+\code{texp}, \code{wak}, or \code{wei}.
 }
 \usage{
 lmom2par(lmom, type, ...)
 }
 \arguments{
-  \item{lmom}{An L-moment object such as that returned by \code{lmom.ub} or \code{pwm2lmom}.}
-  \item{type}{Three character distribution type (for example, \code{type='gev'}).}
+  \item{lmom}{An L-moment object such as that returned by \code{\link{lmoms}} or \code{\link{pwm2lmom}}.}
+  \item{type}{Three character (minimum) distribution type (for example, \code{type="gev"}).}
   \item{\ldots}{Additional arguments for the \code{parCCC} functions.}
 }
 \value{
-  An R \code{list} is returned.  This list should contain at least the following items, but some distributions such as the \code{revgum} have extra.
+  An \R \code{list} is returned.  This list should contain at least the following items, but some distributions such as the \code{revgum} have extra.
 
-  \item{type}{The type of distribution in three character format.}
+  \item{type}{The type of distribution in three character (minimum) format.}
   \item{para}{The parameters of the distribution.}
   \item{source}{Attribute specifying source of the parameters.}
 }
-\references{
-Hosking, J.R.M., 1990, L-moments--Analysis and estimation of
-distributions using linear combinations of order statistics: Journal
-of the Royal Statistical Society, Series B, vol. 52, p. 105-124.
-
-Hosking, J.R.M., 1996, FORTRAN routines for use with the method of L-moments:
-Version 3, IBM Research Report RC20525, T.J. Watson Research Center,
-Yorktown Heights, New York.
-
-Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis--An
-approach based on L-moments: Cambridge University Press.
-}
 \author{ W.H. Asquith}
-\seealso{\code{\link{lmom2par}}}
+\seealso{\code{\link{par2lmom}}}
 \examples{
-lmr      <- lmom.ub(rnorm(20))
-para     <- lmom2par(lmr,type='nor')
+lmr  <- lmoms(rnorm(20))
+para <- lmom2par(lmr,type='nor')
+
+# The lmom2par() calls will error if trim != 1.
+X <- rcauchy(20)
+cauchy <- lmom2par(TLmoms(X, trim=1), type="cau")
+slash  <- lmom2par(TLmoms(X, trim=1), type="sla")
+\dontrun{
+plot(pp(X), sort(X), xlab="PROBABILITY", ylab="CAUCHY")
+lines(nonexceeds(), par2qua(nonexceeds(), cauchy))
+lines(nonexceeds(), par2qua(nonexceeds(), slash), col=2)
+}
 }
 \keyword{distribution (parameters)}
+\keyword{parameter (L-moments to)}
+\keyword{distribution (utility)}
+

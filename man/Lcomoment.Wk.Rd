@@ -2,24 +2,18 @@
 \alias{Lcomoment.Wk}
 \title{ Weighting Coefficient for Sample L-comoment }
 \description{
-Compute the weight factors for computation of an L-comoment for order \code{k},
-order statistic \code{r}, and sample size \code{n}.
+Compute the weight factors for computation of an L-comoment for order \code{k}, order statistic \code{r}, and sample size \code{n}.
 }
 \usage{
 Lcomoment.Wk(k,r,n)
 }
 \arguments{
-  \item{k}{Order of L-comoment being computed by parent calls to \code{Lcomoment.Wk}.}
+  \item{k}{Order of L-comoment being computed by parent calls to \code{\link{Lcomoment.Wk}}.}
   \item{r}{Order statistic index involved.}
   \item{n}{Sample size.}
 }
 \details{
-This function computes the weight factors needed to calculation L-comoments
-and is interfaced or used by \code{Lcomoment.Lk12}. This function is not
-necessarily for end users. The weight factor \eqn{w^{(k)}_{r:n}} is the discrete Legendre
-polynomial. The weight factors are well illustrated in figure 2.6 of Hosking
-and Wallis (1997).
-
+This function computes the weight factors needed to calculation L-comoments and is interfaced or used by \code{\link{Lcomoment.Lk12}}. This function is not intended for end users. The weight factor \eqn{w^{(k)}_{r:n}} is the discrete Legendre polynomial. The weight factors are well illustrated in figure 6.1 of Asquith (2011). The weight factors are
  \deqn{ w^{(k)}_{r:n} = \sum_{j=0}^{min\{r-1,k-1\}} (-1)^{k-1-j}
                                     \frac{{k-1 \choose j}{k-1+j \choose j}
           {r-1 \choose j}}
@@ -28,18 +22,14 @@ and Wallis (1997).
 }
 \value{A single L-comoment weight factor.}
 \note{
-The function begins with a capital letter. This is intentionally done so that lower case
-namespace is preserved. L-comoments are new in the literature and experimental in this package.
-By using a capital letter now, then \code{lcomoment.Wk} remains an available name in future
-releases.
+The function begins with a capital letter. This is intentionally done so that lower case namespace is preserved.  By using a capital letter now, then \code{lcomoment.Wk} remains an available name in future releases.
 }
+\author{ W.H. Asquith}
 \references{
-Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
-approach based on L-moments: Cambridge University Press.
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: CreateSpace Independent Publishing Platform, 2nd printing, ISBN 978--146350841--8.
 
 Serfling, R., and Xiao, P., 2007, A contribution to multivariate L-moments---L-comoment matrices: Journal of Multivariate Analysis, v. 98, pp. 1765--1781.
 }
-\author{ W.H. Asquith}
 \seealso{\code{\link{Lcomoment.Lk12}}}
 \examples{
 Wk <- Lcomoment.Wk(2,3,5)
@@ -73,6 +63,7 @@ my.lams <- c(sum(fakedat*Wk1), sum(fakedat*Wk2),
 cat(c("Manual L-moments:", my.lams, "\n"))
 cat(c("lmomco L-moments:", lmoms(fakedat, nmom=4)$lambdas,"\n"))
 # The last two lines of output should be the same---note that lmoms()
-# does not utilize Lcomoment.Wk(). So a double check is provided.
+# does not utilize Lcomoment.Wk(). So a double check is made.
 }
 \keyword{multivariate}
+\keyword{L-comoment}

@@ -13,11 +13,11 @@ function(x,para,...) {
     else if(type == 'exp') {
       return(cdfexp(x,para))
     }
-    else if(type == 'texp') {
-      return(cdftexp(x,para))
-    }
     else if(type == 'gam') {
       return(cdfgam(x,para))
+    }
+    else if(type == 'gep') {
+      return(cdfgep(x,para))
     }
     else if(type == 'gev') {
       return(cdfgev(x,para))
@@ -40,6 +40,9 @@ function(x,para,...) {
     else if(type == 'gum') {
       return(cdfgum(x,para))
     }
+    else if(type == 'kap') {
+      return(cdfkap(x,para))
+    }
     else if(type == 'kur') {
       return(cdfkur(x,para))
     }
@@ -49,20 +52,11 @@ function(x,para,...) {
     else if(type == 'lap') {
       return(cdflap(x,para))
     }
+    else if(type == 'lmrq') {
+      return(cdflmrq(x,para))
+    }
     else if(type == 'ln3') {
       return(cdfln3(x,para))
-    }
-    else if(type == 'ray') {
-      return(cdfray(x,para))
-    }
-    else if(type == 'rice') {
-      return(cdfrice(x,para))
-    }
-    else if(type == 'revgum') {
-      return(cdfrevgum(x,para))
-    }
-    else if(type == 'kap') {
-      return(cdfkap(x,para))
     }
     else if(type == 'nor') {
       return(cdfnor(x,para))
@@ -70,11 +64,23 @@ function(x,para,...) {
     else if(type == 'pe3') {
       return(cdfpe3(x,para))
     }
+    else if(type == 'ray') {
+      return(cdfray(x,para))
+    }
+    else if(type == 'revgum') {
+      return(cdfrevgum(x,para))
+    }
+    else if(type == 'rice') {
+      return(cdfrice(x,para))
+    }
     else if(type == 'sla') {
       return(cdfsla(x,para))
     }
     else if(type == 'st3') {
       return(cdfst3(x,para))
+    }
+    else if(type == 'texp') {
+      return(cdftexp(x,para))
     }
     else if(type == 'wak') {
       return(cdfwak(x,para))

@@ -1,16 +1,26 @@
 "theoLmoms.max.ostat" <-
-function(para=NULL, cdf=NULL, pdf=NULL, nmom=4, switch2minostat=FALSE, ...) {
+function(para=NULL, cdf=NULL, pdf=NULL, qua=NULL, nmom=4, switch2minostat=FALSE, ...) {
 
-   if(is.null(para)) stop("parameter list of lmomco not specified")
-   if(is.null(cdf))  stop("cdf function of lmomco not specified")
-   if(is.null(pdf))  stop("pdf function of lmomco not specified")
+   if(is.null(para)) stop("parameter list not specified and it needs to be in lmomco style")
+
+   if(is.null(qua)) {
+   	  if(is.null(cdf)) stop("cdf function using lmomco parameter style not specified")
+      if(is.null(pdf)) stop("pdf function using lmomco parameter style not specified")
+   }
 
    enn <- vector(mode="numeric", length=nmom)
    lms <- lmr <- enn
    for(r in 1:nmom) {
-     mo <- ifelse(switch2minostat,
-                  expect.min.ostat(r, para=para, cdf=cdf, pdf=pdf, ...),
-                  expect.max.ostat(r, para=para, cdf=cdf, pdf=pdf, ...))
+     mo <- NA
+     if(is.null(qua)) {
+        mo <- ifelse(switch2minostat,
+                     expect.min.ostat(r, para=para, cdf=cdf, pdf=pdf, ...),
+                     expect.max.ostat(r, para=para, cdf=cdf, pdf=pdf, ...))
+     } else {
+        mo <- ifelse(switch2minostat,
+                     expect.min.ostat(r, para=para, qua=qua, ...),
+                     expect.max.ostat(r, para=para, qua=qua, ...))
+     }
      enn[r] <- mo
      if(is.na(mo)) next
      series <- 0

@@ -83,11 +83,12 @@ function() {
    ray[1,] <- c(0.1139671, 0.1053695)
    cau <- matrix(nrow = 1, ncol = 2)
    cau[1,] <- c(0, 1)
-
+   sla <- matrix(nrow = 1, ncol = 2)
+   sla[1,] <- c(0, 0.3042045)
    z <- list(limits = lim, aep4=aep4, cau=cau, exp=exp,
              gev = gev, glo = glo,
              gpa=gpa, gum=gum, gno=ln, gov=gov, nor=nor,
-             pe3=pIII, uniform=uni, ray=ray)
+             pe3=pIII, ray=ray, slash=sla, uniform=uni)
    return(z)
 }
 

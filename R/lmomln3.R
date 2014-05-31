@@ -22,5 +22,7 @@ function(para) {
     gnopara <- vec2par(c(ZETA + U, U*A, -A), type="gno")
     z <- lmomgno(gnopara)
     z$source <- "lmomln3"
+    # Morphing is not needed because lmomgno already handles
+    # the conversion of the L-moment object to a lambdas/ratios vector format
     return(z)
 }

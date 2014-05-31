@@ -1,7 +1,8 @@
 "are.partexp.valid" <-
 function(para,nowarn=FALSE) {
     if(! is.texp(para)) return(FALSE)
-    if(para$ifail != 0) return(FALSE)
+    # The length test traps parameters coming from vec2par
+    if(length(para$ifail) > 0 && para$ifail != 0) return(FALSE)
     U <- para$para[1]
     A <- para$para[2]
     S <- para$para[3]

@@ -2,11 +2,7 @@
 \alias{tlmrln3}
 \title{ Compute Select TL-moment ratios of the 3-Parameter Log-Normal Distribution }
 \description{
-This function computes select TL-moment ratios of the Log-Normal3 distribution for defaults of \eqn{\zeta = 0} and \eqn{\mu_\mathrm{log} = 0}. This function can be useful for plotting the trajectory of the distribution on TL-moment ratio diagrams of \eqn{\tau^{(t_1,t_2)}_2}, \eqn{\tau^{(t_1,t_2)}_3}, \eqn{\tau^{(t_1,t_2)}_4}, , \eqn{\tau^{(t_1,t_2)}_5}, and \eqn{\tau^{(t_1,t_2)}_6}. In reality, \eqn{\tau^{(t_1,t_2)}_2} is a dependent on the values for \eqn{\zeta} and \eqn{\mu_\mathrm{log}}.
-
-If the message \preformatted{Error in integrate(XofF, 0, 1) : the integral is probably divergent} occurs then careful adjustment of the shape parameter \eqn{\sigma_\mathrm{log}} parameter range is very likely required. Remember that TL-moments with nonzero trimming permit computation of TL-moments into parameter ranges beyond those recognized for the usual L-moments.
-
-The function uses numerical integration of the quantile function of the distribution through the \code{\link{theoTLmoms}} function.
+This function computes select TL-moment ratios of the Log-Normal3 distribution for defaults of \eqn{\zeta = 0} and \eqn{\mu_\mathrm{log} = 0}. This function can be useful for plotting the trajectory of the distribution on TL-moment ratio diagrams of \eqn{\tau^{(t_1,t_2)}_2}, \eqn{\tau^{(t_1,t_2)}_3}, \eqn{\tau^{(t_1,t_2)}_4}, , \eqn{\tau^{(t_1,t_2)}_5}, and \eqn{\tau^{(t_1,t_2)}_6}. In reality, \eqn{\tau^{(t_1,t_2)}_2} is dependent on the values for \eqn{\zeta} and \eqn{\mu_\mathrm{log}}. If the message \preformatted{Error in integrate(XofF, 0, 1) : the integral is probably divergent} occurs then careful adjustment of the shape parameter \eqn{\sigma_\mathrm{log}} parameter range is very likely required. Remember that TL-moments with nonzero trimming permit computation of TL-moments into parameter ranges beyond those recognized for the usual (untrimmed) L-moments.
 }
 \usage{
 tlmrln3(trim=NULL, leftrim=NULL, rightrim=NULL,
@@ -24,13 +20,16 @@ Although \code{NULL} in the argument list, the default is 0---the usual L-moment
   \item{by}{The increment for the \code{seq()} between \code{sbeg} and \code{send}.}
 }
 \value{
-  An R \code{list} is returned.
+  An \R \code{list} is returned.
 
   \item{tau2}{A vector of the \eqn{\tau^{(t_1,t_2)}_2} values.}
   \item{tau3}{A vector of the \eqn{\tau^{(t_1,t_2)}_3} values.}
   \item{tau4}{A vector of the \eqn{\tau^{(t_1,t_2)}_4} values.}
   \item{tau5}{A vector of the \eqn{\tau^{(t_1,t_2)}_5} values.}
   \item{tau6}{A vector of the \eqn{\tau^{(t_1,t_2)}_6} values.}
+}
+\note{
+The function uses numerical integration of the quantile function of the distribution through the \code{\link{theoTLmoms}} function.
 }
 \author{ W.H. Asquith }
 \seealso{\code{\link{qualn3}}, \code{\link{theoTLmoms}}}
@@ -62,3 +61,4 @@ Although \code{NULL} in the argument list, the default is 0---the usual L-moment
 }
 }
 \keyword{L-moment (trimmed, distribution)}
+\keyword{Distribution: Log-Normal (3-parameter)}

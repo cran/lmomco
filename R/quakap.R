@@ -21,6 +21,7 @@ function(f,para,paracheck=TRUE) {
       else  if(f[i] == 1) {
         if(G <= 0) {
           x[i] <- Inf
+          next
         }
         else {
           x[i] <- U+A/G

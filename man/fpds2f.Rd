@@ -2,11 +2,11 @@
 \alias{fpds2f}
 \title{Conversion of Partial-Duration Nonexceedance Probability to Annual Nonexceedance Probability}
 \description{
-This function takes partial duration series nonexceedance probability and converts it to a  an annual exceedance probability through a simple assumption that the Poisson  distribution is appropriate. The relation between the cumulative distribution function \eqn{F(x)} for the annual series is related to the cumulative distribution function \eqn{G(x)} of the partial duration series by
+This function takes partial duration series nonexceedance probability and converts it to a  an annual exceedance probability through a simple assumption that the Poisson  distribution is appropriate. The relation between the cumulative distribution function \eqn{F(x)} for the annual series is related to the cumulative distribution function \eqn{G(x)} of the partial-duration series by
 \deqn{F(x) = \mathrm{exp}(-\eta[1 - G(x)])\mathrm{.}}
 The core assumption is that successive events in the partial duration series can be considered as \emph{independent}. The \eqn{\eta} term is the arrival rate of the events. For example, suppose that 21 events have occurred in 15 years, then \eqn{\eta = 21/15 = 1.4} events per year.
 
-The example documented here provides a comprehensive demonstration of the function along with a partnering function \code{\link{f2fpds}}. That function performs the opposite conversion. Lastly, the cross reference to \code{\link{x2xlo}} is made because the example contained therein provides another example of partial duration and annual series frequency analysis.
+The example documented here provides a comprehensive demonstration of the function along with a partnering function \code{\link{f2fpds}}. That function performs the opposite conversion. Lastly, the cross reference to \code{\link{x2xlo}} is made because the example contained therein provides another demonstration of partial-duration and annual series frequency analysis.
 }
 \usage{
 fpds2f(fpds, rate=NA)
@@ -55,10 +55,8 @@ parlo <- lmom2par(lmoms(Qlo$xin), type=type) # parameter estimation for the
 # partial duration series values that are greater than the threshold, which
 # defaults to zero.
 
-plot(PPpdsplot, Qpds, type="n",
-     ylim=c(0,400),xlim=qnorm(c(.01,.99)),
-     xlab="STANDARD NORMAL VARIATE",
-     ylab="DISCHARGE, IN CUBIC FEET PER SECOND")
+plot(PPpdsplot, Qpds, type="n", ylim=c(0,400), xlim=qnorm(c(.01,.99)),
+     xlab="STANDARD NORMAL VARIATE", ylab="DISCHARGE, IN CUBIC FEET PER SECOND")
 mtext(stream)
 points(PPannplot, Qann, col=3, cex=2, lwd=2, pch=0)
 points(qnorm(fpds2f(PPpds, rate=rate)), Qpds, pch=16, cex=0.5 )
@@ -96,10 +94,8 @@ legend(-2.4,400, c("True annual series (with one zero year)",
        bty="n", cex=.75,
        pch=c(0,  16, 1, 4, NA, NA, NA, 16, 16),
        col=c(3,  1, 2,  4,  1,  3,  2,  3, 2),
-       pt.lwd=c(2,1,2,1),
-       pt.cex=c(2, 0.5, 1.5, 1, NA, NA, NA, 1, 1),
-       lwd=c(0,0,0,0,1,2,3),
-       lty=c(0,0,0,0,2,1,1))
+       pt.lwd=c(2,1,2,1), pt.cex=c(2, 0.5, 1.5, 1, NA, NA, NA, 1, 1),
+       lwd=c(0,0,0,0,1,2,3), lty=c(0,0,0,0,2,1,1))
 }
 }
 \keyword{utility (probability)}

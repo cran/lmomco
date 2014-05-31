@@ -2,9 +2,9 @@
 \alias{f2flo}
 \title{Conversion of Annual Nonexceedance Probability to Conditional Probability Nonexceedance Probabilities}
 \description{
-This function converts  the cumulative distribution function of \eqn{F(x)} to a conditional  cumulative distribution function \eqn{P(x)} based on the probability level of the left-hand threshold. It is recommended that this threshold (as expressed as a probability) be that value returned from \code{\link{x2xlo}} in attribute \code{pp}. The conversion is simple
+This function converts  the cumulative distribution function of \eqn{F(x)} to a conditional  cumulative distribution function \eqn{P(x)} based on the probability level of the left-hand threshold. It is recommended that this threshold (as expressed as a probability) be that value returned from \code{\link{x2xlo}} in element \code{pp}. The conversion is simple
 \deqn{
-P(x) <- (F(x) - \mathrm{pp})/(1-\mathrm{pp})\mathrm{,}
+P(x) <- (F(x) - pp)/(1-pp)\mathrm{,}
 }
 where the term \eqn{\mathrm{pp}} corresponds to the estimated probability or plotting position of the left-hand threshold.
 

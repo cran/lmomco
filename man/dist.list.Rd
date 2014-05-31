@@ -2,43 +2,47 @@
 \alias{dist.list}
 \title{ List of Distribution Names }
 \description{
-Return a list of the three character syntax identifying distributions supported within the \pkg{lmomco} package. The distributions are \code{aep}, \code{cau}, \code{emu}, \code{exp}, \code{gam}, \code{gev}, \code{gld}, \code{glo}, \code{gno}, \code{gov}, \code{gpa}, \code{gum}, \code{kap}, \code{kur}, \code{lap}, \code{ln3}, \code{nor}, \code{pe3}, \code{ray}, \code{revgum}, \code{rice}, \code{sla}, \code{st3}, \code{texp}, \code{wak}, and \code{wei}.
+Return a list of the three character syntax identifying distributions supported within the \pkg{lmomco} package. The distributions are
+\code{aep4}, \code{cau}, \code{emu}, \code{exp}, \code{gam}, \code{gep},
+\code{gev}, \code{gld}, \code{glo}, \code{gno}, \code{gov},
+\code{gpa}, \code{gum}, \code{kap}, \code{kmu}, \code{kur},
+\code{lap}, \code{lmrq}, \code{ln3}, \code{nor}, \code{pe3},
+\code{ray}, \code{revgum}, \code{rice}, \code{sla}, \code{st3},
+\code{texp}, \code{wak}, and \code{wei}. These abbreviations and only these are used in routing logic within \pkg{lmomco}. There is no provision for fuzzy matching.
 }
 \usage{
-dist.list()
+dist.list(type=NULL)
 }
 \arguments{
-No arguments are needed.
+\item{type}{If \code{type} is not \code{NULL} and is one of the abbreviations shown above, then the number of parameters of that distribution are returned or a warning message is issued. This subtle feature might be useful for developers.}
 }
 \value{
-A vector of distribution identifiers.
+A vector of distribution identifiers as listed above or the number of parameters for a given distribution type.
 }
 \author{ W.H. Asquith}
 \examples{
-
-
+dist.list("gpa")
 \dontrun{
-
 # Build an L-moment object
 LM <- vec2lmom(c(10000,1500,0.3,0.1,0.04))
 lm2 <- lmorph(LM)  # convert to vectored format
 lm1 <- lmorph(lm2) # and back to named format
-
 dist <- dist.list()
-
 # demonstrate that lmom2par internally converts
 # to needed L-moment object
 for(i in seq(1,length(dist))) {
-  # skip Cauchy (needs TL-moments) and GLD (speed)
-  # Reverse Gumbel needs censoring . . .
-  if(dist[i] == 'cau' | dist[i] == 'gld'  | dist[i] == 'aep'    |
-     dist[i] == 'emu' | dist[i] == 'kmu'  | dist[i] == 'revgum' |
-     dist[i] == 'kur' | dist[i] == 'rice' | dist[i] == 'st3'    |
-     dist[i] == 'gov' | dist[i] == 'sla' | dist[i] == 'texp') next
+  # Skip Cauchy and Slash (need TL-moments).
+  # The AEP4 is skipped because inapplicable to the L-moments.
+  # The Eta-Mu and Kappa-Mu are skipped for speed.
+  # The Kumaraswamy and LMRQ are skipped because inapplicable to the L-moments.
+  # The Student t (3-parameter) is skipped because inapplicable to the L-moments.
+  # The Truncated Exponential also is skipped for the same reason.
+  if(dist[i] == 'aep4' | dist[i] == 'cau' | dist[i] == 'emu'  | dist[i] == 'gep' |
+     dist[i] == 'kmu'  | dist[i] == 'kur' | dist[i] == 'lmrq' |
+     dist[i] == 'sla'  | dist[i] == 'st3' | dist[i] == 'texp') next
   print(lmom2par(lm1,type=dist[i]))
   print(lmom2par(lm2,type=dist[i]))
 }
 }
-
 }
 \keyword{distribution (utility)}

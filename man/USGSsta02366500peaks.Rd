@@ -35,7 +35,7 @@ The gage height qualification codes \code{Flag.1} are:
 data(USGSsta02366500peaks)
 }
 \format{
-A data frame with
+An \R \code{data.frame} with
 \describe{
   \item{Date}{The date of the annual peak streamflow.}
   \item{Streamflow}{Annual peak streamflow data in cubic feet per second.}

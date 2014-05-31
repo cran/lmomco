@@ -1,5 +1,5 @@
 "TLmom" <-
-function(x,order=1,trim=NULL,leftrim=NULL,rightrim=NULL,sortdata=TRUE) {
+function(x, order=1, trim=NULL, leftrim=NULL, rightrim=NULL, sortdata=TRUE) {
   r <- order
   n <- length(x)
 

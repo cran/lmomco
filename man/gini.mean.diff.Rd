@@ -3,12 +3,9 @@
 \alias{gini.mean.diff}
 \title{ Gini Mean Difference Statistic }
 \description{
-The Gini mean difference statistic \eqn{\mathcal{G}} is a robust estimator of distribution scale
-and is closely related to the second L-moment \eqn{\lambda_2 = \mathcal{G}/2}.
-
-\deqn{\mathcal{G} = \frac{2}{n(n-1)}\sum_{i=1}^n (2i - n - 1) X_{i:n}}
-
-where \eqn{X_{i:n}} are the order statistics.
+The Gini mean difference statistic \eqn{\mathcal{G}} is a robust estimator of distribution scale and is closely related to the second L-moment \eqn{\lambda_2 = \mathcal{G}/2}.
+\deqn{\mathcal{G} = \frac{2}{n(n-1)}\sum_{i=1}^n (2i - n - 1) x_{i:n}}
+where \eqn{x_{i:n}} are the sample order statistics.
 }
 \usage{
 gini.mean.diff(x)
@@ -17,18 +14,16 @@ gini.mean.diff(x)
   \item{x}{A vector of data values that will be reduced to non-missing values.}
 }
 \value{
-  An R \code{list} is returned.
-  \item{gini}{The gini mean difference \eqn{\mathcal{G}}}
-  \item{L2}{The L-scale (second L-moment) via \eqn{0.5*\mathcal{G}}}
+  An \R \code{list} is returned.
+  \item{gini}{The gini mean difference \eqn{\mathcal{G}}.}
+  \item{L2}{The L-scale (second L-moment) because \eqn{\lambda_2 = 0.5\times\mathcal{G}} (see \code{\link{lmom.ub}}).}
   \item{source}{An attribute identifying the computational source of the Gini's Mean Difference: \dQuote{gini.mean.diff}.}
 }
 \references{
 Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
-distributions using linear combinations of order statistics: Journal
-of the Royal Statistical Society, Series B, vol. 52, p. 105--124.
+distributions using linear combinations of order statistics: Journal of the Royal Statistical Society, Series B, v. 52, pp. 105--124.
 
-\enc{Jurečková}{Jureckova}, J., and Picek, J., 2006, Robust statistical methods
-with R: Boca Raton, Fla., Chapman and Hall/CRC, ISBN 1--58488--454--1, 197 p.
+\enc{Jurečková}{Jureckova}, J., and Picek, J., 2006, Robust statistical methods with R: Boca Raton, Fla., Chapman and Hall/CRC, ISBN 1--58488--454--1.
 }
 \author{ W.H. Asquith}
 

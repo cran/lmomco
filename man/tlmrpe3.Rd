@@ -2,11 +2,7 @@
 \alias{tlmrpe3}
 \title{ Compute Select TL-moment ratios of the Pearson Type III }
 \description{
-This function computes select TL-moment ratios of the Pearson Type III distribution for defaults of \eqn{\xi = 0} and \eqn{\beta = 1}. This function can be useful for plotting the trajectory of the distribution on TL-moment ratio diagrams of \eqn{\tau^{(t_1,t_2)}_2}, \eqn{\tau^{(t_1,t_2)}_3}, \eqn{\tau^{(t_1,t_2)}_4}, \eqn{\tau^{(t_1,t_2)}_5}, and \eqn{\tau^{(t_1,t_2)}_6}. In reality, \eqn{\tau^{(t_1,t_2)}_2} is a dependent on the values for \eqn{\xi} and \eqn{\alpha}.
-
-If the message \preformatted{Error in integrate(XofF, 0, 1) : the integral is probably divergent} occurs then careful adjustment of the shape parameter \eqn{\beta} parameter range is very likely required. Remember that TL-moments with nonzero trimming permit computation of TL-moments into parameter ranges beyond those recognized for the usual L-moments.
-
-The function uses numerical integration of the quantile function of the distribution through the \code{\link{theoTLmoms}} function.
+This function computes select TL-moment ratios of the Pearson Type III distribution for defaults of \eqn{\xi = 0} and \eqn{\beta = 1}. This function can be useful for plotting the trajectory of the distribution on TL-moment ratio diagrams of \eqn{\tau^{(t_1,t_2)}_2}, \eqn{\tau^{(t_1,t_2)}_3}, \eqn{\tau^{(t_1,t_2)}_4}, \eqn{\tau^{(t_1,t_2)}_5}, and \eqn{\tau^{(t_1,t_2)}_6}. In reality, \eqn{\tau^{(t_1,t_2)}_2} is  dependent on the values for \eqn{\xi} and \eqn{\alpha}. If the message \preformatted{Error in integrate(XofF, 0, 1) : the integral is probably divergent} occurs then careful adjustment of the shape parameter \eqn{\beta} parameter range is very likely required. Remember that TL-moments with nonzero trimming permit computation of TL-moments into parameter ranges beyond those recognized for the usual (untrimmed) L-moments. The function uses numerical integration of the quantile function of the distribution through the \code{\link{theoTLmoms}} function.
 }
 \usage{
 tlmrpe3(trim=NULL, leftrim=NULL, rightrim=NULL,
@@ -24,7 +20,7 @@ Although \code{NULL} in the argument list, the default is 0---the usual L-moment
   \item{by}{The increment for the \code{seq()} between \code{abeg} and \code{aend}.}
 }
 \value{
-  An R \code{list} is returned.
+  An \R \code{list} is returned.
 
   \item{tau2}{A vector of the \eqn{\tau^{(t_1,t_2)}_2} values.}
   \item{tau3}{A vector of the \eqn{\tau^{(t_1,t_2)}_3} values.}
@@ -32,14 +28,15 @@ Although \code{NULL} in the argument list, the default is 0---the usual L-moment
   \item{tau5}{A vector of the \eqn{\tau^{(t_1,t_2)}_5} values.}
   \item{tau6}{A vector of the \eqn{\tau^{(t_1,t_2)}_6} values.}
 }
+\note{
+The function uses numerical integration of the quantile function of the distribution through the \code{\link{theoTLmoms}} function.
+}
 \author{ W.H. Asquith }
 \seealso{\code{\link{quape3}}, \code{\link{theoTLmoms}}}
 \examples{
-
 \dontrun{
 tlmrpe3(leftrim=2, rightrim=4, xi=0, beta=2)
 tlmrpe3(leftrim=2, rightrim=4, xi=100, beta=20) # another slow example
-
   # Plot and L-moment ratio diagram of Tau3 and Tau4
   # with exclusive focus on the PE3 distribution.
   plotlmrdia(lmrdia(), autolegend=TRUE, xleg=-.1, yleg=.6,
@@ -66,7 +63,6 @@ tlmrpe3(leftrim=2, rightrim=4, xi=100, beta=20) # another slow example
   # extent of the L-moment ratio diagram.
 }
 \dontrun{
-
   # Following up, let us plot the two quantile functions
   LM  <- vec2par(c(0,1,0.99), type='pe3', paracheck=FALSE)
   TLM <- vec2par(c(0,1,3.00), type='pe3', paracheck=FALSE)
@@ -79,3 +75,4 @@ tlmrpe3(leftrim=2, rightrim=4, xi=100, beta=20) # another slow example
 }
 }
 \keyword{L-moment (trimmed, distribution)}
+\keyword{Distribution: Pearson Type III}

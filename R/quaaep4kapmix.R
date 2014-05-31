@@ -22,8 +22,18 @@ function(f, lmom, checklmom=TRUE) {
        W <- (T4.kapup - T4) / (T4.kapup - T4.aep4low)
        aep4 <- paraep4(lmom, method="A",
                        kapapproved=FALSE, checklmom=docheck)
-       kap  <- parkap(lmom, checklmom=docheck)
-       return(par2qua2(f, aep4, kap, weight=W))
+       if(aep4$ifail > 0) {
+          warning("It seems a mixture should be ok, but failure by the aep4 algorithms reporting invalid parameters, reverting to kappa only if possible")
+          kap  <- parkap(lmom, checklmom=docheck)
+          if(kap$ifail > 0) {
+             return(rep(NA, length(f)))
+          } else {
+             return(par2qua(f, kap))
+          }
+       } else {
+          kap  <- parkap(lmom, checklmom=docheck)
+          return(par2qua2(f, aep4, kap, weight=W))
+       }
     } else {
       aep4.or.kap <- paraep4(lmom, method="A",
                              kapapproved=TRUE, checklmom=docheck)

@@ -2,11 +2,10 @@
 \alias{par2pdf}
 \title{Probability Density Function of the Distributions}
 \description{
-This function acts as a front end or dispatcher to the distribution-specific
-probability density functions.
+This function acts as a frontend or dispatcher to the distribution-specific probability density functions.
 }
 \usage{
-par2pdf(f,para,...)
+par2pdf(f, para, ...)
 }
 \arguments{
   \item{f}{Nonexceedance probability (\eqn{0 \le F \le 1}).}
@@ -17,9 +16,9 @@ par2pdf(f,para,...)
   Quantile value for \eqn{F}.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{par2pdf}}, \code{\link{par2cdf}}, \code{\link{lmom2par}}}
+\seealso{\code{\link{par2cdf}}, \code{\link{par2qua}} }
 \examples{
-lmr     <- lmom.ub(rnorm(20))
+lmr     <- lmoms(rnorm(20))
 para    <- parnor(lmr)
 median  <- par2qua(0.5,para)
 }

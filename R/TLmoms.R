@@ -1,5 +1,5 @@
 "TLmoms" <-
-function(x,nmom=5,trim=NULL,leftrim=NULL,rightrim=NULL) {
+function(x, nmom=5, trim=NULL, leftrim=NULL, rightrim=NULL) {
   if(nmom < 1) {
     warning("Number of L-moments is less than 1")
     return()

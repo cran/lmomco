@@ -2,39 +2,36 @@
 \alias{pargld}
 \title{Estimate the Parameters of the Generalized Lambda Distribution}
 \description{
-This function estimates the parameters of the Generalized Lambda distribution given the L-moments of the data in an ordinary L-moment object (\code{\link{lmom.ub}} or a trimmed L-moment object (\code{\link{TLmoms}} for \code{t=1}. The relation between distribution parameters and L-moments
-is seen under \code{lmomgld}. There are no simple expressions for the parameters in terms of the L-moments. This function is experimental and general details of the algorithm are provided below. Further, consider that multiple parameter solutions are possible with the Generalized Lambda so some expertise in the distribution and other aspects are needed.
+This function estimates the parameters of the Generalized Lambda distribution given the L-moments of the data in an ordinary L-moment object (\code{\link{lmoms}}) or a trimmed L-moment object (\code{\link{TLmoms}} for \code{t=1}). The relations between distribution parameters and L-moments are seen under \code{\link{lmomgld}}. There are no simple expressions for the parameters in terms of the L-moments. This function is experimental and general details of the algorithm are provided below. Further, consider that multiple parameter solutions are possible with the Generalized Lambda so some expertise in the distribution and other aspects are needed.
 }
 \usage{
 pargld(lmom, verbose=FALSE, initkh=NULL, eps=1e-3,
        aux=c("tau5", "tau6"), checklmom=TRUE)
 }
 \arguments{
-  \item{lmom}{A L-moment object created by \code{\link{lmom.ub}}, \code{\link{pwm2lmom}}, or \code{\link{TLmoms}} with \code{trim=0}.}
+  \item{lmom}{An L-moment object created by \code{\link{lmoms}}, \code{\link{vec2lmom}}, or \code{\link{TLmoms}} with \code{trim=0}.}
   \item{verbose}{A logical switch on the verbosity of output.  Default is \code{verbose=FALSE}.}
   \item{initkh}{A vector of the initial guess of the \eqn{\kappa} and \eqn{h} parameters. No other regions of parameter space are consulted.}
   \item{eps}{A small term or threshold for which the square root of the sum of square errors in \eqn{\tau_3} and \eqn{\tau_4} is compared to to judge \dQuote{good enough} for the alogrithm to order solutions based on smallest error as explained in next argument.}
   \item{aux}{Control the algorithm to order solutions based on smallest error in \eqn{\Delta \tau_5} or \eqn{\Delta \tau_6}.}
-  \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{are.lmom.valid} function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check.}
+  \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{\link{are.lmom.valid}} function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check.}
 }
 \details{
-Karian and Dudewicz (2000) summarize six regions of the \eqn{\kappa} and \eqn{h} space in which the Generalized Lambda distribution is valid for suitably choosen \eqn{\alpha}. Numerical experimentation suggestions that the L-moments are not valid in Regions 1 and 2. However, initial guesses of the parameters within each region are used for numerous separate \code{optim} (the R function) efforts to perform a least sum-of-square errors on the following objective function.
-
+Karian and Dudewicz (2000) summarize six regions of the \eqn{\kappa} and \eqn{h} space in which the Generalized Lambda distribution is valid for suitably choosen \eqn{\alpha}. Numerical experimentation suggestions that the L-moments are not valid in Regions 1 and 2. However, initial guesses of the parameters within each region are used for numerous separate \code{optim} (the \R function) efforts to perform a least sum-of-square errors on the following objective function
  \deqn{(\hat{\tau}_3 - \tilde{\tau}_3)^2 + (\hat{\tau}_4 - \tilde{\tau}_4)^2 \mbox{, }}
-
 where \eqn{\hat{\tau}_r} is the L-moment ratio of the data, \eqn{\tilde{\tau}_r} is the estimated value of the L-moment ratio for the fitted distribution \eqn{\kappa} and \eqn{h} and \eqn{\tau_r} is the actual value of the L-moment ratio.
 
 For each optimization a check on the validity of the parameters so produced is made--are the parameters consistent with the Generalized Lambda distribution and a second check is made on the validity of \eqn{\tau_3} and \eqn{\tau_4}. If both validity checks return \code{TRUE} then the optimization is retained if its sum-of-square error is less than the previous optimum value. It is possible for a given solution to be found outside the starting region of the initial guesses. The surface generated by the \eqn{\tau_3} and \eqn{\tau_4} equations seen in \code{\link{lmomgld}} is complex--different initial guesses within a given region can yield what appear to be radically different \eqn{\kappa} and \eqn{h}. Users are encouraged to \dQuote{play} with alternative solutions (see the \code{verbose} argument). A quick double check on the L-moments from the solved parameters using \code{\link{lmomgld}} is encouraged as well. Karvanen and others (2002, eq. 25) provide an equation expressing \eqn{\kappa} and \eqn{h} as equal (a symmetrical Generalized Lambda distribution) in terms of \eqn{\tau_4} and suggest that the equation be used to determine initial values for the parameters. This equation is used on an experimental basis for the final optimization attempt by this function.
 }
 \value{
-  An R \code{list} is returned if \code{result='best'}.
+  An \R \code{list} is returned if \code{result='best'}.
 
   \item{type}{The type of distribution: \code{gld}.}
   \item{para}{The parameters of the distribution.}
   \item{delTau5}{Difference between the \eqn{\tilde{\tau}_5} of the fitted distribution and true \eqn{\hat{\tau}_5}.}
   \item{error}{Smallest sum of square error found.}
   \item{source}{The source of the parameters: \dQuote{pargld}.}
-  \item{rest}{An R \code{data.frame} of other solutions if found.}
+  \item{rest}{An \R \code{data.frame} of other solutions if found.}
 
 The rest of the solutions have the following:
   \item{xi}{The location parameter of the distribution.}
@@ -51,27 +48,26 @@ The rest of the solutions have the following:
   \item{lowerror}{Logical on whether error was less than \code{eps}---\code{TRUE} by this point.}
 }
 \note{
-Although the underlying derivations of the L-moments in terms of the parameters are sound and this function uses built-in functions of R for the optimization, this function should be considered experimental until further notice. The \dQuote{preferred} solution might not be appropriate. This function is not for production code. This is a cumbersome method of parameter solution and enhancements or total redesign of the algorithm is expected.
+This function is a cumbersome method of parameter solution, but years of testing suggest that with supervision and the available options regarding the optimization that reliable parameter estimations result.
 }
 \source{
-W.H. Asquith in Feb. 2006 with copy of Karian and Dudewicz (2000) and again Feb. 2011.
+W.H. Asquith in Feb. 2006 with a copy of Karian and Dudewicz (2000) and again Feb. 2011.
 }
 \references{
-Karvanen, J., Eriksson, J., and Koivunen, V., 2002, Adaptive score functions for maximum likelihood ICA: Journal of VLSI Signal Processing, vol. 32, p. 82--92.
+Asquith, W.H., 2007, L-moments and TL-moments of the generalized lambda distribution: Computational Statistics and Data Analysis, v. 51, no. 9, pp. 4484--4496.
 
-Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions---The generalized lambda distribution and generalized bootstrap methods:
-CRC Press, Boca Raton, FL, 438 p.
+Karvanen, J., Eriksson, J., and Koivunen, V., 2002, Adaptive score functions for maximum likelihood ICA: Journal of VLSI Signal Processing, v. 32, pp. 82--92.
+
+Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions---The generalized lambda distribution and generalized bootstrap methods: CRC Press, Boca Raton, FL, 438 p.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{lmom.ub}}, \code{\link{lmomgld}}, \code{\link{cdfgld}}, \code{\link{quagld}}, \code{\link{parTLgld}}
+\seealso{\code{\link{lmomgld}}, \code{\link{cdfgld}}, \code{\link{pdfgld}},  \code{\link{quagld}}, \code{\link{parTLgld}}
 }
 \examples{
-
 \dontrun{
 X <- rgamma(202,2) # simulate a skewed distribution
 lmr <- lmoms(X) # compute trimmed L-moments
 PARgld <- pargld(lmr) # fit the GLD
-
 F <- pp(X)
 plot(F,sort(X), col=8, cex=0.25)
 lines(F, qlmomco(F,PARgld)) # show the best estimate
@@ -105,14 +101,12 @@ if(! is.null(PARgld$rest)) { #$
 #1 3.1446434 2.943469 7.421131671 1.0505370      14 -0.03675376 6.394270e-10
 #2 0.4962471 8.794038 0.008295796 0.2283519       4 -0.04602541 8.921139e-10
 }
-
 \dontrun{
 F <- seq(.01,.99,.01)
-plot(F,qlmomco(F, vec2par(c(3.1446434, 2.943469,
-                            7.4211316, 1.050537), type="gld")),
+plot(F, qlmomco(F, vec2par(c(3.1446434, 2.943469, 7.4211316, 1.050537), type="gld")),
      type="l")
-lines(F,qlmomco(F, vec2par(c(0.4962471, 8.794038,
-                             0.0082958, 0.228352), type="gld")))
+lines(F,qlmomco(F, vec2par(c(0.4962471, 8.794038, 0.0082958, 0.228352), type="gld")))
 }
 }
 \keyword{distribution (parameters)}
+\keyword{Distribution: Generalized Lambda}

@@ -1,5 +1,5 @@
 "par2cdf2" <-
-function(x,leftpara,rightpara,weight=NULL,...) {
+function(x, leftpara, rightpara, weight=NULL, ...) {
     end.min <-   .Machine$double.eps
     end.max <- 1-.Machine$double.eps
     qua.min <- par2qua2(end.min,leftpara,rightpara,...)
@@ -10,8 +10,8 @@ function(x,leftpara,rightpara,weight=NULL,...) {
       if(QUAx <= qua.min) { f[i] <- end.min; next }
       if(QUAx >= qua.max) { f[i] <- end.max; next }
       
-      fn <- function(F) {
-        qua <- par2qua2(F,leftpara,rightpara,weight,...)
+      "fn" <- function(F) {
+        qua <- par2qua2(F, leftpara, rightpara, weight, ...)
         val <- QUAx - qua
         return(val)
       }

@@ -2,12 +2,10 @@
 \alias{rlmomco}
 \title{Random Variates of a Distribution}
 \description{
-This function generates random deviates for the specified distribution in the parameter object argument. See documentation about the parameter object is seen in \code{\link{lmom2par}} or \code{\link{vec2par}}. The prepended
-\code{r} in the function name is to parallel the built-in distribution
-syntax of R but of course reflects the \pkg{lmomco} name in the function. An assumption is made that the user knows that they are feeding appropirate (valid) parameters for the distribution. This is seen by the \preformatted{paracheck = FALSE} argument passed to the \code{par2qua} function.
+This function generates random variates for the specified distribution in the parameter object argument. See documentation about the parameter object is seen in \code{\link{lmom2par}} or \code{\link{vec2par}}. The prepended \code{r} in the function name is to parallel the built-in distribution syntax of \R but of course reflects the \pkg{lmomco} name in the function. An assumption is made that the user knows that they are providing appropirate (that is valid) distribution parameters. This is evident by the \preformatted{paracheck = FALSE} argument passed to the \code{\link{par2qua}} function.
 }
 \usage{
-rlmomco(n,para)
+rlmomco(n, para)
 }
 \arguments{
   \item{n}{Number of samples to generate}
@@ -16,11 +14,13 @@ rlmomco(n,para)
 \value{
   Vector of quantile values.
 }
+\note{
+The action of this function in \R idiom is \code{par2qua(runif(n), para)} for the distribution parameters \code{para}, the \R function \code{runif} is the Uniform distribution, and \code{n} being the simulation size. 
+}
 \author{ W.H. Asquith}
-\seealso{\code{\link{dlmomco}}, \code{\link{plmomco}}, \code{\link{qlmomco}},
-\code{\link{lmom2par}}, \code{\link{vec2par}}}
+\seealso{\code{\link{dlmomco}}, \code{\link{plmomco}}, \code{\link{qlmomco}}, \code{\link{slmomco}} }
 \examples{
-lmr      <- lmom.ub(rnorm(20)) # generate 20 standard normal deviates
+lmr      <- lmoms(rnorm(20)) # generate 20 standard normal variates
 para     <- parnor(lmr) # estimate parameters of the normal
 simulate <- rlmomco(20,para) # simulate 20 samples using lmomco package
 
@@ -32,3 +32,6 @@ plot(PP,sort(Q))         # plot the data up
 }
 \keyword{random variate}
 \keyword{quantile function}
+\concept{random variate}
+\keyword{The lmomco functions}
+\keyword{The lmomco function mimics of R nomenclature}

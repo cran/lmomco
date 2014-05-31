@@ -3,20 +3,16 @@
 \title{Probability Density Function of the Cauchy Distribution}
 \description{
 This function computes the probability density
-of the Cauchy distribution given parameters (\eqn{\xi} and \eqn{\alpha}) of the
-distribution provided by \code{\link{parcau}} or \code{\link{vec2par}}.  The probability density
-function of the distribution is
-
-\deqn{f(x) = \left(\pi \alpha [1 + \left({\frac{x-\xi}{\alpha}}\right)^2] \right)^{-1} \mbox{,}}
-
+of the Cauchy distribution given parameters (\eqn{\xi} and \eqn{\alpha})  provided by \code{\link{parcau}}.  The probability density function is
+\deqn{f(x) = \left(\pi \alpha \left[1 + \left({\frac{x-\xi}{\alpha}}\right)^2\right] \right)^{-1}\mbox{,}}
 where \eqn{f(x)} is the probability density for quantile \eqn{x},
-\eqn{\xi} is a location parameter and \eqn{\alpha} is a scale parameter.
+\eqn{\xi} is a location parameter ,and \eqn{\alpha} is a scale parameter.
 }
 \usage{
 pdfcau(x, para)
 }
 \arguments{
-  \item{x}{A real value.}
+  \item{x}{A real value vector.}
   \item{para}{The parameters from \code{\link{parcau}} or \code{\link{vec2par}}.}
 }
 
@@ -33,7 +29,7 @@ Gilchrist, W.G., 2000, Statistical modeling with quantile functions:
 Chapman and Hall/CRC, Boca Raton, FL.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{cdfcau}}, \code{\link{quacau}}, \code{\link{parcau}}, \code{\link{vec2par}}}
+\seealso{\code{\link{cdfcau}}, \code{\link{quacau}}, \code{\link{lmomcau}}, \code{\link{parcau}}, \code{\link{vec2par}}}
 \examples{
   cau <- vec2par(c(12,12),type='cau')
   x <- quacau(0.5,cau)
@@ -41,3 +37,4 @@ Chapman and Hall/CRC, Boca Raton, FL.
 }
 \keyword{distribution}
 \keyword{probability density function}
+\keyword{Distribution: Cauchy}

@@ -5,7 +5,7 @@
 \description{
 Daily mean streamflow data for U.S. Geological Survey streamflow-gaging station 06766000 PLATTE RIVER AT BRADY, NE. The qualification code \code{X01_00060_00003_cd} values are:
 \describe{
-\item{A}{Approved for publication -- Processing and review completed.}
+\item{A}{Approved for publication --- Processing and review completed.}
 \item{1}{Daily value is write protected without any remark code to be printed.}
 }
 }
@@ -13,7 +13,7 @@ Daily mean streamflow data for U.S. Geological Survey streamflow-gaging station 
 data(USGSsta06766000dvs)
 }
 \format{
-A data frame with
+An \R \code{data.frame} with
 \describe{
   \item{agency_cd}{The agency code \code{USGS}.}
   \item{site_no}{The station identification number.}

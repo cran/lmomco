@@ -11,10 +11,10 @@ lmomRCmark(x, rcmark=NULL, r=1, sort=TRUE)
   \item{x}{A vector of data values.}
   \item{rcmark}{The right-tail censoring (upper) marking variable for unknown threshold: 1 is uncensored, 0 is censored.}
   \item{r}{The L-moment order to return, default is the mean.}
-  \item{sort}{Does the data need sorting?}
+  \item{sort}{Do the data need sorting? The availability of this option is to avoid unnecessary overhead of sorting on each call to this function by the primary higher-level function \code{\link{lmomsRCmark}}.}
 }
 \value{
-  An R \code{list} is returned.
+  An \R \code{list} is returned.
 
   \item{lambdas}{Vector of the L-moments. First element is
 \eqn{\hat{\lambda}^{(0,0)}_1}, second element is \eqn{\hat{\lambda}^{(0,0)}_2}, and so on.}

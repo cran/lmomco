@@ -27,6 +27,6 @@ function(para) {
     z$LCV  <- z$L2/z$L1
     z$L3   <- z$TAU3*z$L2
     z$L4   <- z$TAU4*z$L2
-
+    z <- lmorph(z)
     return(z)
 }

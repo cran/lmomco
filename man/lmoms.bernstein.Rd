@@ -27,13 +27,11 @@ values provided as separate arguments.}
   \item{p}{The \dQuote{p-factor} that is the same argument as for \code{\link{dat2bernqua}}.}
 }
 \value{
-  An R \code{vector} is returned.
+  An \R \code{vector} is returned.
 }
 \author{ W.H. Asquith}
 \references{
-Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: First edition, CreateSpace Independent Publishing Platform, ISBN 978--1463508418, 2nd printing, 348 p.
-
-Asquith, W.H., 201X. Empirical quantile function smoothing and distal-tail estimation by Bernstein and Kantorovich polynomials incorporating regional L-moment information. [in review].
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: First edition, CreateSpace Independent Publishing Platform, 2nd printing, ISBN 978--146350841-8.
 }
 \seealso{ \code{\link{dat2bernqua}}, \code{\link{pfactor.bernstein}}, \code{\link{lmoms}} }
 \examples{
@@ -82,7 +80,6 @@ for(n in 1:ns) {
 }
 sink()
 }
-
 }
 \keyword{L-moment (theoretical)}
 \keyword{smoothing (Bernstein-Kantorovich)}

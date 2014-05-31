@@ -3,6 +3,9 @@ function(para) {
 
     z <- list(lambdas = c(NA),
               ratios  = c(0),
+              trim = 1,
+              leftrim = NULL,
+              rightrim = NULL,
               source = "lmomlap"
              )
 

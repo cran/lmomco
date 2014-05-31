@@ -22,7 +22,7 @@ where
 The two expressions above are consulted when the \code{checkbetas=TRUE} argument is present. Both sequences of B-type are \code{cat}ed to the terminal. This provides a check on the implementation of the algorithm. The functions \code{\link{Apwm2BpwmRC}} and \code{\link{Bpwm2ApwmRC}} can be used to switch back and forth between the two PWM types given fitted parameters for a distribution in the \pkg{lmomco} package that supports right-tail censoring. Finally, the \code{RC} in the function name is to denote \code{R}ight-tail \code{C}ensoring.
 }
 \usage{
-pwmRC(x,threshold=NULL,nmom=5,sort=TRUE,checkbetas=FALSE)
+pwmRC(x, threshold=NULL, nmom=5, sort=TRUE, checkbetas=FALSE)
 }
 \arguments{
   \item{x}{A vector of data values.}
@@ -32,33 +32,30 @@ pwmRC(x,threshold=NULL,nmom=5,sort=TRUE,checkbetas=FALSE)
   \item{checkbetas}{A cross relation between \eqn{\beta^A_r} and \eqn{\beta^B_r} exists---display the results of the secondary computation of the \eqn{\beta^B_r}. The two displayed vectors should be numerically equal.}
 }
 \value{
-  An R \code{list} is returned.
+  An \R \code{list} is returned.
 
   \item{Abetas}{The A-type PWMs. These should be same as \code{pwm()} returns if there is no censoring. Note that convention is the have a \eqn{\beta_0}, but this is placed in the first index \code{i=1} of the \code{betas} vector.}
   \item{Bbetas}{The B-type PWMs. These should be \code{NA} if there is no censoring. Note that convention is the have a \eqn{\beta_0}, but this is placed in the first index \code{i=1} of the \code{betas} vector.}
-  \item{source}{Source of the PWMs: \dQuote{pwmRC}}
+  \item{source}{Source of the PWMs: \dQuote{pwmRC}.}
   \item{threshold}{The upper censoring threshold.}
-  \item{zeta}{The right censoring fraction: \code{numabovethreshold/samplesize}}
+  \item{zeta}{The right censoring fraction: \code{numabovethreshold/samplesize}.}
   \item{numabovethreshold}{Number of data points equal to or above the threshold.}
   \item{observedsize}{Number of real data points in the sample (below the threshold).}
   \item{samplesize}{Number of actual sample values.}
 }
 \details{
-There is some ambiguity if the threshold also numerically equals valid data in the data set. In the data for the examples below, which are taken from elsewhere, there are real observations at the censoring level. One can see how a hack is made to marginally decrease or increase the data or the threshold for the computations. This is needed because the code uses \code{sapply(x, function(v) } \cr \code{aleftbrace if(v >= T) return(T); return(v) arightbrace )} to reset the data vector \code{x}. The \code{aleftbrace} or \code{arightbrace} is to be interpreted as meaning a brace as used in a programming syntax. By operating on the data in this fashion one can toy with various levels of the threshold for experimental purposes; this seemed a more natural way for general implementation. The code sets \eqn{n}=\code{length(x)} and \eqn{m}=\code{n - length(x[x == T])}, which also seems natural. The \eqn{\beta^A_r} are computed by dispatching to \code{\link{pwm}}.
+There is some ambiguity if the threshold also numerically equals valid data in the data set. In the data for the examples below, which are taken from elsewhere, there are real observations at the censoring level. One can see how a hack is made to marginally decrease or increase the data or the threshold for the computations. This is needed because the code uses
+\preformatted{
+sapply(x, function(v) { if(v >= T) return(T); return(v) } )
+}
+to reset the data vector \code{x}. The \code{aleftbrace} or \code{arightbrace} is to be interpreted as meaning a brace as used in a programming syntax. By operating on the data in this fashion one can toy with various levels of the threshold for experimental purposes; this seemed a more natural way for general implementation. The code sets \eqn{n} = \code{length(x)} and \eqn{m} = \code{n - length(x[x == T])}, which also seems natural. The \eqn{\beta^A_r} are computed by dispatching to \code{\link{pwm}}.
 }
 \references{
-Greenwood, J.A., Landwehr, J.M., Matalas, N.C., and Wallis, J.R., 1979,
-Probability weighted moments---Definition and relation to parameters of
-several distributions expressable in inverse form: Water Resources Research,
-vol. 15, p. 1,049--1,054.
+Greenwood, J.A., Landwehr, J.M., Matalas, N.C., and Wallis, J.R., 1979, Probability weighted moments---Definition and relation to parameters of several distributions expressable in inverse form: Water Resources Research, v. 15, pp. 1,049--1,054.
 
-Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
-distributions using linear combinations of order statistics: Journal
-of the Royal Statistical Society, Series B, vol. 52, p. 105--124.
+Hosking, J.R.M., 1990, L-moments---Analysis and estimation of distributions using linear combinations of order statistics: Journal of the Royal Statistical Society, Series B, v. 52, pp. 105--124.
 
-Hosking, J.R.M., 1995, The use of L-moments in the analysis of censored data,
-in Recent Advances in Life-Testing and Reliability, edited by N. Balakrishnan,
-chapter 29, CRC Press, Boca Raton, Fla., pp. 546--560.
+Hosking, J.R.M., 1995, The use of L-moments in the analysis of censored data, in Recent Advances in Life-Testing and Reliability, edited by N. Balakrishnan, chapter 29, CRC Press, Boca Raton, Fla., pp. 546--560.
 }
 \author{ W.H. Asquith}
 \seealso{ \code{\link{lmoms}}, \code{\link{pwm2lmom}}, \code{\link{pwm}}, \code{\link{pwmLC}}  }

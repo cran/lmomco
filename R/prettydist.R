@@ -7,6 +7,7 @@ function(x) {
      if(x == "exp") return("Exponential")
      if(x == "texp") return("Truncated Exponential")
      if(x == "gam") return("Gamma")
+     if(x == "gep") return("Generalized Exponential Poisson")
      if(x == "gev") return("Generalized Extreme Value")
      if(x == "gld") return("Generalized Lambda")
      if(x == "glo") return("Generalized Logistic")

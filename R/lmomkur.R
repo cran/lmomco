@@ -11,7 +11,7 @@ function(para) {
               L5   = NULL,
               source = "lmomkur"
              )
-
+    if(! are.parkur.valid(para)) return(NULL)
     attributes(para$para) <- NULL
     A <- para$para[1]
     B <- para$para[2]
@@ -33,5 +33,6 @@ function(para) {
     z$L3 <- z$TAU3*z$L2
     z$L4 <- z$TAU4*z$L2
     z$L5 <- z$TAU5*z$L2
+    z <- lmorph(z)
     return(z)
 }

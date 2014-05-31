@@ -48,7 +48,7 @@ function(para) {
     z$L2 <- alpha * ( log(2) + z2$value - z1$value )
  
     z$LCV  <- z$L2/z$L1
-    
+    z <- lmorph(z)
     return(z)
 }
 

@@ -8,7 +8,7 @@ F(x) = \mathrm{pp} + (1-\mathrm{pp})P(x)\mathrm{,}
 }
 where the term \eqn{\mathrm{pp}} corresponds to the estimated probability or plotting position of the left-hand threshold.
 
-This function is particularly useful for applications in which zero values in the data set require truncation so that logarithms of the data may be used. But also this function  contributes to the isolation of the right-hand tail of the distribution for analysis.
+This function is particularly useful for applications in which zero values in the data set require truncation so that logarithms of the data may be used. But also this function  contributes to the isolation of the right-hand tail of the distribution for analysis by conditionally trimming out the left-hand tail at the analyst's discretion.
 }
 \usage{
 flo2f(f, pp=NA)

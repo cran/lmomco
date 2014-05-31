@@ -2,13 +2,11 @@
 \alias{pwm}
 \title{ Unbiased Sample Probability-Weighted Moments }
 \description{
-Unbiased sample Probability-Weighted Moments (PWMs) are computed from a sample.
-The first five \eqn{\beta_r}'s are computed by default.
-
-\deqn{\beta_r = n^{-1}\sum^n_{j=1} {j-1 \choose r} x_{j:n}}
+Unbiased sample probability-weighted moments (PWMs) are computed from a sample. The first five \eqn{\beta_r}'s are computed by default using
+\deqn{\beta_r = n^{-1}\sum^n_{j=1} {j-1 \choose r} x_{j:n}\mbox{.}}
 }
 \usage{
-pwm(x,nmom=5,sort=TRUE)
+pwm(x, nmom=5, sort=TRUE)
 }
 \arguments{
   \item{x}{A vector of data values.}
@@ -16,22 +14,17 @@ pwm(x,nmom=5,sort=TRUE)
   \item{sort}{Does the data need sorting? The computations require sorted data. This option is provided to optimize processing speed if presorted data already exists.}
 }
 \value{
-  An R \code{list} is returned.
+  An \R \code{list} is returned.
 
   \item{betas}{The PWMs. Note that convention is the have a \eqn{\beta_0}, but this is placed in the first index \code{i=1} of the \code{betas} vector.}
-  \item{source}{Source of the PWMs: \dQuote{pwm}}
+  \item{source}{Source of the PWMs: \dQuote{pwm}.}
 }
 \references{
-Greenwood, J.A., Landwehr, J.M., Matalas, N.C., and Wallis, J.R., 1979,
-Probability weighted moments---Definition and relation to parameters of
-several distributions expressable in inverse form: Water Resources Research, vol. 15, p. 1,049--1,054.
+Greenwood, J.A., Landwehr, J.M., Matalas, N.C., and Wallis, J.R., 1979, Probability weighted moments---Definition and relation to parameters of several distributions expressable in inverse form: Water Resources Research, v. 15, pp. 1,049--1,054.
 
 Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
 distributions using linear combinations of order statistics: Journal
-of the Royal Statistical Society, Series B, vol. 52, p. 105--124.
-
-Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
-approach based on L-moments: Cambridge University Press.
+of the Royal Statistical Society, Series B, v. 52, pp. 105--124.
 }
 \author{ W.H. Asquith}
 \seealso{ \code{\link{lmoms}}, \code{\link{pwm2lmom}}, \code{\link{pwm}} }
@@ -45,8 +38,7 @@ str(z)
 # Hosking(1995) reports that A-type L-moments for this sample are
 # lamA1=15.7 and lamAL-CV=.389, and lamAL-skew=.393
 pwm2lmom(z$Abetas)
-# My version of R reports 15.666, 0.3959, and 0.4030
-
+# WHA gets 15.666, 0.3959, and 0.4030
 
 # See p. 553 of Hosking (1995)
 # Data listed in Hosking (1995, table 29.3, p. 553)
@@ -60,6 +52,6 @@ z <-  pwmRC(D,.2960001)
 # Hosking reports B-type L-moments for this sample are
 # lamB1 = -.516 and lamB2 = 0.523
 pwm2lmom(z$Bbetas)
-# My version of R reports -.5162 and 0.5218
+# WHA gets -.5162 and 0.5218
 }
 \keyword{probability-weighted moment (sample)}

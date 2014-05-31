@@ -2,8 +2,7 @@
 \alias{is.sla}
 \title{Is a Distribution Parameter Object Typed as Slash}
 \description{
-The distribution parameter object returned by functions of this module such as by
-\code{vec2par} are typed by an attribute \code{type}. This function checks that \code{type} is \code{sla} for the Slash distribution.
+The distribution parameter object returned by functions of \pkg{lmomco} such as by \code{\link{parst3}} are typed by an attribute \code{type}. This function checks that \code{type} is \code{sla} for the Slash distribution.
 }
 \usage{
 is.sla(para)
@@ -17,11 +16,12 @@ is.sla(para)
   \item{FALSE}{If the \code{type} is not \code{sla}.}
 }
 \author{ W.H. Asquith}
-\seealso{ \code{\link{vec2par}} }
+\seealso{ \code{\link{parsla}} }
 \examples{
-para <- vec2par(c(12,1.2),type='sla')
+para <- vec2par(c(12,1.2), type='sla')
 if(is.sla(para) == TRUE) {
   Q <- quasla(0.5,para)
 }
 }
-\keyword{utility (distribution)}
+\keyword{utility (distribution, type check)}
+\keyword{Distribution: Slash}

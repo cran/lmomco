@@ -2,22 +2,20 @@
 \alias{lmomsRCmark}
 \title{ Sample L-moments Moments for Right-Tail Censoring by a Marking Variable }
 \description{
-Compute the sample L-moments for right-tail censored data set in which censored data values are identified by a marking variable. Extension of left-tail censoring can be made using \code{fliplmoms} and the example therein.
+Compute the sample L-moments for right-tail censored data set in which censored data values are identified by a marking variable. Extension of left-tail censoring can be made using \code{\link{fliplmoms}} and the example therein.
 }
 \usage{
-lmomsRCmark(x, rcmark=NULL, nmom=5, sort=TRUE, flip=NA,
-               flipfactor=1.1)
+lmomsRCmark(x, rcmark=NULL, nmom=5, flip=NA, flipfactor=1.1)
 }
 \arguments{
   \item{x}{A vector of data values.}
   \item{rcmark}{The right-tail censoring (upper) marking variable for unknown threshold: 0 is uncensored, 1 is censored.}
   \item{nmom}{Number of L-moments to return.}
-  \item{sort}{Does the data need sorting?}
-  \item{flip}{Does the data require flipping so that left-censored data can be processed as such. If the flip is a logical and TRUE, then flipfactor times the maximum of \var{x} is used. If the flip is a numeric, then it is used as the flip. The mean is NOT unflipped during the population of this statistics.}
-  \item{flipfactor}{The value that is greater than 1, which is multiplied on the maximum of \var{x} to determine the flip, if the flip is not otherwise provided.}
+  \item{flip}{Do the data require flipping so that left-censored data can be processed as such. If the flip is a logical and \code{TRUE}, then flipfactor times the maximum of \code{x} is used. If the flip is a numeric, then it is used as the flip. The mean is NOT unflipped during the population of this statistics.}
+  \item{flipfactor}{The value that is greater than 1, which is multiplied on the maximum of \code{x} to determine the flip, if the flip is not otherwise provided.}
 }
 \value{
-  An R \code{list} is returned.
+  An \R \code{list} is returned.
 
   \item{lambdas}{Vector of the L-moments. First element is
 \eqn{\hat{\lambda}^{(0,0)}_1}, second element is \eqn{\hat{\lambda}^{(0,0)}_2}, and so on.}
@@ -42,7 +40,7 @@ Helsel, D.R., 2005, Nondetects and data analysis---Statistics for censored envir
 
 # Efron, B., 1988, Logistic regression, survival analysis, and the
 # Kaplan-Meier curve: Journal of the American Statistical Association,
-# v.83, no.402, pp.414--425
+# v. 83, no. 402, pp.414--425
 # Survival time measured in days for 51 patients with a marking
 # variable in the "time,mark" ensemble. If marking variable is 1,
 # then the time is right-censored by an unknown censoring threshold.

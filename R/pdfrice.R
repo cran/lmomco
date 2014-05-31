@@ -27,9 +27,9 @@ function(x,para) {
      xi  <- x[i]
      tmp <- xi/Asq * exp( -(xi^2 + Vsq) / (2*Asq) )
      toIo <- xi*B
-     Bo  <- besselI(toIo, nu=0)
+     Bo  <- besselI(toIo, nu=0, expon.scaled = TRUE)
      if(is.finite(Bo)) {
-       f[i] <- tmp*Bo
+       f[i] <- exp(log(tmp) + (log(Bo) + toIo))
      } else {
        f[i] <- 0
      }

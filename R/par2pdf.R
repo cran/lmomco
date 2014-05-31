@@ -13,11 +13,11 @@ function(f,para,...) {
     else if(type == 'exp') {
       return(pdfexp(f,para))
     }
-    else if(type == 'texp') {
-      return(pdftexp(f,para))
-    }
     else if(type == 'gam') {
       return(pdfgam(f,para))
+    }
+    else if(type == 'gep') {
+      return(pdfgep(f,para))
     }
     else if(type == 'gev') {
       return(pdfgev(f,para))
@@ -40,6 +40,9 @@ function(f,para,...) {
     else if(type == 'gum') {
       return(pdfgum(f,para))
     }
+    else if(type == 'kap') {
+      return(pdfkap(f,para))
+    }
     else if(type == 'kmu') {
       return(pdfkmu(f,para))
     }
@@ -49,20 +52,11 @@ function(f,para,...) {
     else if(type == 'lap') {
       return(pdflap(f,para))
     }
+    else if(type == 'lmrq') {
+      return(pdflmrq(f,para))
+    }
     else if(type == 'ln3') {
       return(pdfln3(f,para))
-    }
-    else if(type == 'ray') {
-      return(pdfray(f,para))
-    }
-    else if(type == 'rice') {
-      return(pdfrice(f,para))
-    }
-    else if(type == 'revgum') {
-      return(pdfrevgum(f,para))
-    }
-    else if(type == 'kap') {
-      return(pdfkap(f,para))
     }
     else if(type == 'nor') {
       return(pdfnor(f,para))
@@ -70,11 +64,23 @@ function(f,para,...) {
     else if(type == 'pe3') {
       return(pdfpe3(f,para))
     }
+    else if(type == 'ray') {
+      return(pdfray(f,para))
+    }
+    else if(type == 'revgum') {
+      return(pdfrevgum(f,para))
+    }
+    else if(type == 'rice') {
+      return(pdfrice(f,para))
+    }
     else if(type == 'sla') {
       return(pdfsla(f,para))
     }
     else if(type == 'st3') {
       return(pdfst3(f,para))
+    }
+    else if(type == 'texp') {
+      return(pdftexp(f,para))
     }
     else if(type == 'wak') {
       return(pdfwak(f,para))

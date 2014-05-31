@@ -1,5 +1,6 @@
 "lmoms.bootbarvar" <-
-function(x, nmom=6, covarinverse=TRUE, verbose=TRUE, force.exact=FALSE, nsim=500) {
+function(x, nmom=6, covarinverse=TRUE, verbose=TRUE,
+            force.exact=FALSE, nohatSIGMA=FALSE, nsim=500, bign=40, ...) {
    # Begin with the definition of several helper functions
    # that follow the nomenclature of Hutson and Ernst (2000)
    # [ Journal Royal Statistical Society B, 62(1), pp. 89-94 ]
@@ -114,8 +115,8 @@ function(x, nmom=6, covarinverse=TRUE, verbose=TRUE, force.exact=FALSE, nsim=500
     if(length(unique(x)) == 1) stop("all values are equal--Lmoments can not be computed")
     lmr <- lmoms(x, nmom=nmom) # regular sample L-moments
 
-    if(! force.exact & n > 40) {
-       warning("Sample size is >40, testing with highly non-normal data suggests this as an ",
+    if(! force.exact & n > bign) {
+       warning("Sample size is >bign, testing with highly non-normal data suggests this as an ",
                "upper limit for numerical stability, will proceed with simulations (nsim) and ",
                "estimated variances only, unless force.exact=TRUE, the return L-moments and ratios ",
                "simply come from lmoms(), a hint of numerical problems with the exact are negative variances")
@@ -138,14 +139,19 @@ function(x, nmom=6, covarinverse=TRUE, verbose=TRUE, force.exact=FALSE, nsim=500
                  inverse.varcovar.tau23=NA,
                  inverse.varcovar.tau34=NA,
                  inverse.varcovar.tau46=NA,
-                 message="used simulation and not exact boot strap because of large sample size (n > 40)",
+                 message="used simulation and not exact boot strap because of large sample size (n > bign)",
                  source="lmoms.bootbarvar")
         return(z)
     }
 
     L <- R <- V <- W <- vector(mode="numeric",length=nmom)
     weight.matrix <- matrix(nrow=nmom, ncol=n)
-    hatsigma <- hatSIGMA(x) # a CPU hog
+    if(nohatSIGMA) {
+       hatsigma <- matrix(nrow=length(x), ncol=length(x))
+    } else {
+       hatsigma <- hatSIGMA(x) # a CPU hog
+    }
+
     bootstrap.ostats <- hatMUk(x) #  the bootstrap estimates of the order statistics
     for(r in 1:nmom) {
        lmom.weights <- sapply(1:n, function(i) { Lcomoment.Wk(r, i, n)/n })

@@ -8,8 +8,7 @@ function(para) {
               LCV  = NULL,
               L3   = NULL,
               L4   = NULL,
-              L5   = NULL,
-              source = "lmomexp"
+              L5   = NULL
              )
     if(! are.parexp.valid(para)) return()
     attributes(para$para) <- NULL
@@ -24,6 +23,7 @@ function(para) {
     z$L3   <- z$TAU3*z$L2
     z$L4   <- z$TAU4*z$L2
     z$L5   <- z$TAU5*z$L2
+    z <- lmorph(z)
     return(z)
 }
 

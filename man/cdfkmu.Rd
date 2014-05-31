@@ -2,25 +2,28 @@
 \alias{cdfkmu}
 \title{Cumulative Distribution Function of the Kappa-Mu Distribution}
 \description{
-This function computes the cumulative probability or nonexceedance probability of the Kappa-Mu (\eqn{\kappa:\mu})  distribution given parameters (\eqn{\kappa} and \eqn{\mu}) of the distribution computed by \code{\link{parkmu}}. The cumulative distribution function of the distribution is complex and numerical integration of the probability density function is used.Alternatively, the cumulative distribution function may be defined in terms of the Marcum Q function or
+This function computes the cumulative probability or nonexceedance probability of the Kappa-Mu (\eqn{\kappa:\mu})  distribution given parameters (\eqn{\kappa} and \eqn{\mu}) computed by \code{\link{parkmu}}. The cumulative distribution function is complex and numerical integration of the probability density function \code{\link{pdfkmu}} is used. Alternatively, the cumulative distribution function may be defined in terms of the Marcum Q function
 \deqn{
-F(x) = 1 - Q_\nu\biggl(\sqrt{2\kappa\mu}, x\sqrt{2(1+\kappa)\mu}\biggr)
+F(x) = 1 - Q_\nu\biggl(\sqrt{2\kappa\mu},\, x\sqrt{2(1+\kappa)\mu}\biggr)\mbox{,}
 }
 where \eqn{F(x)} is the nonexceedance probability for quantile \eqn{x} and \eqn{Q_v(a,b)} is the Marcum Q function defined by
 \deqn{
-Q_\nu(a,b) = \frac{1}{\alpha^{\nu-1}}\int_b^\infty t^\nu \times \mathrm{exp}(-(t^2 + a^2)/2) \times \mathrm{I}_{\nu-1}(at)\; \mathrm{d}t
+Q_\nu(a,b) = \frac{1}{\alpha^{\nu-1}}\int_b^\infty t^\nu \, \exp(-(t^2 + a^2)/2) \, I_{\nu-1}(at)\; \mathrm{d}t\mbox{,}
 }
-which can be numerically difficult to work with and particularly so with real number values for \eqn{\nu}. Following an apparent breakthrough(?) by Shi (2012), \eqn{\nu} can be written as \eqn{\nu = n + \Delta} where \eqn{n} is an integer and \eqn{0 < \Delta \le 1}. The author of \pkg{lmomco} refers to this alternative formulation as the \dQuote{delta nu method}. The Marcum Q function for \eqn{\nu > 0} (\eqn{n = 1,2,3, \cdots)} is
+which can be numerically difficult to work with and particularly so with real number values for \eqn{\nu}. \eqn{I_\nu(a)} is defined as
+\deqn{I_\nu(a) = \mbox{.}}
+
+Following an apparent breakthrough(?) by Shi (2012), \eqn{\nu} can be written as \eqn{\nu = n + \Delta} where \eqn{n} is an integer and \eqn{0 < \Delta \le 1}. The author of \pkg{lmomco} refers to this alternative formulation as the \dQuote{delta nu method}. The Marcum Q function for \eqn{\nu > 0} (\eqn{n = 1,2,3, \cdots)} is
 \deqn{
-Q_\nu(a,b) = Q_\Delta(a,b) + \mathrm{exp}(-(a^2 + b^2)/2) \times \sum_{i=0}^{n-1}\biggl(\frac{b}{a}\biggr)^{i+\Delta} \mathrm{I}_{i+\Delta}(ab)
+Q_\nu(a,b) = Q_\Delta(a,b) + \exp(-(a^2 + b^2)/2) \, \sum_{i=0}^{n-1}\biggl(\frac{b}{a}\biggr)^{i+\Delta} \, I_{i+\Delta}(ab)\mbox{,}
 }
 and the function for \eqn{\nu \le 0} (\eqn{n=-1,-2,-3,\cdots}) is
 \deqn{
-Q_\nu(a,b) = Q_\Delta(a,b) - \mathrm{exp}(-(a^2 + b^2)/2) \times \sum_{i=n}^{-1}\biggl(\frac{b}{a}\biggr)^{i+\Delta} \mathrm{I}_{i+\Delta}(ab)
+Q_\nu(a,b) = Q_\Delta(a,b) - \mathrm{exp}(-(a^2 + b^2)/2) \times \sum_{i=n}^{-1}\biggl(\frac{b}{a}\biggr)^{i+\Delta} \mathrm{I}_{i+\Delta}(ab)\mbox{,}
 }
 and the function for \eqn{\nu = 0} is
 \deqn{
-Q_\nu(a,b) = Q_\Delta(a,b) + \mathrm{exp}(-(a^2 + b^2)/2)
+Q_\nu(a,b) = Q_\Delta(a,b) + \mathrm{exp}(-(a^2 + b^2)/2)\mbox{.}
 }
 
 Shi (2012) concludes that the \dQuote{merit} of these two expressions is that the evaulation of the Marcum Q function is reduced to the numerical evaluation of \eqn{Q_\Delta(a,b)}. This difference can result in measurably faster computation times (confirmed by limited analysis by the author of \pkg{lmomco}) and possibly better numerical performance.
@@ -35,8 +38,8 @@ This result produces incompatible cumulative distribution functions of the distr
 cdfkmu(x, para, paracheck=TRUE, marcumQ=TRUE)
 }
 \arguments{
-  \item{x}{A real value.}
-  \item{para}{The parameters from \code{\link{parkmu}} or similar.}
+  \item{x}{A real value vector.}
+  \item{para}{The parameters from \code{\link{parkmu}} or  \code{\link{vec2par}}.}
   \item{paracheck}{A logical controlling whether the parameters and checked for validity.}
   \item{marcumQ}{A logical controlling whether the Marcum Q function is used instead of numerical integration of \code{\link{pdfkmu}}.}
 }
@@ -44,27 +47,31 @@ cdfkmu(x, para, paracheck=TRUE, marcumQ=TRUE)
   Nonexceedance probability (\eqn{F}) for \eqn{x}.
 }
 \note{
-
 \preformatted{
 
-Code developed from Weinberg, G.V., 2006, Poisson representation and Monte Carlo
-estimation of generalized Marcum Q-function: IEEE Transactions on Aerospace and
-Electronic Systems, vol. 42, no. 4, pp. 1520--1531.
+Code developed from Weinberg, G.V., 2006, Poisson representation and Monte
+Carlo estimation of generalized Marcum Q-function: IEEE Transactions on
+Aerospace and Electronic Systems, v. 42, no. 4, pp. 1520--1531.
 
-The biascor feature is of my own devise and this poisson method does not seem
-to accommodate nu < 1 although Chornoboy claims valid for non-negative integer.
-My example implementation here will continue to use real values of nu.
+The biascor feature is of my own devise and this Poisson method does not
+seem to accommodate nu < 1 although Chornoboy claims valid for non-negative
+integer. The example implementation here will continue to use real values
+of nu.
 
-"marcumq.poissons" <- # see internals for marcumq()
-   function(a,b, nu=NULL, nsim=10000, biascor=0.5, MQbyint=TRUE) {
+See NEWS file and entries for version 2.0.1 for this "R Marcum"
+"marcumq" <- function(a, b, nu=1) {
+	      pchisq(b^2, df=2*nu, ncp=a^2, lower.tail=FALSE) }
+
+"marcumq.poissons" <-
+   function(a,b, nu=NULL, nsim=10000, biascor=0.5) {
    asint <- as.logical(nu %% as.integer(nu))
    biascor <- ifelse(! asint, 0, biascor)
-   ifelse(MQbyint, marcumQint <- marcumq(a, b, nu=nu), marcumQint <- NA)
+   marcumQint <- marcumq(a, b, nu=nu)
    B <- rpois(nsim, b^2/2)
    A <- nu - 1 + biascor + rpois(nsim, a^2/2)
    L <- B <= A
    marcumQppois <- length(L[L == TRUE])/nsim
-   z <- list(MarcumQ.by.integration = marcumQint,
+   z <- list(MarcumQ.by.usingR = marcumQint,
              MarcumQ.by.poisson = marcumQppois)
    return(z)
 }
@@ -72,32 +79,28 @@ x <- y <- vector()
 for(i in 1:10000) {
    nu <- i/100
    z <- marcumq.poissons(12.4, 12.5, nu=nu)
-   x[i] <- z$MarcumQ.by.integration
+   x[i] <- z$MarcumQ.by.usingR
    y[i] <- z$MarcumQ.by.poisson
 }
 plot(x,y, pch=16, col=rgb(x,0,0,.2),
-     xlab="Marcum Q-function by integration",
+     xlab="Marcum Q-function using R (ChiSq distribution)",
      ylab="Marcum Q-function by two Poisson random variables")
 abline(0,1, lty=2)
-
 }
 }
 \references{
-Shi, Q., 2012, Semi-infinite Gauss-Hermite quadrature based approximations to the generalized Marcum and Nuttall Q-functions and further applications: First IEEE International Conference on Communications in China---Communications Theory and Security (CTS), pp. 268--273, ISBN 978-1-4673-2815-9,12.
+Shi, Q., 2012, Semi-infinite Gauss-Hermite quadrature based approximations to the generalized Marcum and Nuttall Q-functions and further applications: First IEEE International Conference on Communications in China---Communications Theory and Security (CTS), pp. 268--273, ISBN 978--1--4673--2815--9,12.
 
 Yacoub, M.D., 2007, The kappa-mu distribution and the eta-mu distribution: IEEE Antennas and Propagation Magazine, v. 49, no. 1, pp. 68--81.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{pdfkmu}}, \code{\link{quakmu}}, \code{\link{parkmu}}}
+\seealso{\code{\link{pdfkmu}}, \code{\link{quakmu}}, \code{\link{lmomkmu}}, \code{\link{parkmu}}}
 \examples{
-
 x <- seq(0,3, by=0.5)
 para <- vec2par(c(0.69, 0.625), type="kmu")
 cdfkmu(x, para, marcumQ=TRUE)
 cdfkmu(x, para, marcumQ=FALSE)
-
 \dontrun{
-
 delx <- 0.01
 x <- seq(0,3, by=delx)
 
@@ -118,13 +121,8 @@ for(i in 1:length(kappas)) {
    cdf <- cdfkmu(x, para)
    lines(x, cdf, col=i)
 }
-
 }
-
-
 \dontrun{
-
-
 delx <- 0.0005
 x <- seq(0,3, by=delx)
 nx <- 20*log10(x)
@@ -143,8 +141,8 @@ for(mu in mus) {
    lines(nx, cdfkmu(x, para), col=col)
 }
 mtext("Yacoub (2007, figure 4)")
-
 }
 }
 \keyword{distribution}
 \keyword{cumulative distribution function}
+\keyword{Distribution: Kappa-Mu}

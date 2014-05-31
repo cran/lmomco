@@ -15,7 +15,7 @@ function(para, ...) {
       xbar <- A * SNR # just V no noise
       xvar <- A^2 # as SNR --> infinity: 2*A^2 + V^2 - A^2 * SNR^2
       nor  <- vec2par(c(xbar,sqrt(xvar)), type="nor")
-      lmr  <- lmorph(lmomnor(para=nor))
+      lmr  <- lmomnor(para=nor)
       lmr$source <- "lmomrice via lmomnor (super high SNR)"
       return(lmr)
     } else if(SNR > 24) {
@@ -26,7 +26,7 @@ function(para, ...) {
       xbar <- A * sqrt(pi/2) * L05
       xvar <- 2*A^2 + V^2 - A^2 * (pi/2) * L05^2
       nor  <- vec2par(c(xbar,sqrt(xvar)), type="nor")
-      lmr  <- lmorph(lmomnor(para=nor))
+      lmr  <- lmomnor(para=nor)
       lmr$source <- "lmomrice via lmomnor (high SNR)"
       return(lmr)
     }
@@ -34,7 +34,7 @@ function(para, ...) {
       # theoLmoms.max.ostat() can no longer integrate correctly
       # have numerically approached the Rayleigh
       ray <- vec2par(c(0,A), type="ray")
-      lmr <- lmorph(lmomray(para=ray))
+      lmr <- lmomray(para=ray)
       lmr$source <- "lmomrice via lmomray (very low SNR)"
       return(lmr)
     }

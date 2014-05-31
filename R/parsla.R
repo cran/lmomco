@@ -4,6 +4,7 @@ function(lmom) {
     names(para) <- c("xi", "alpha")
     if(lmom$trim != 1) {
        warning("The trimming of the L-moments is not unity")
+       return(NULL)
     }
     # if a symmetrical trimmed L-moment, then that mean is XI
     para[1] <- lmom$lambdas[1]

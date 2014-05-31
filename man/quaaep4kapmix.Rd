@@ -1,22 +1,18 @@
 \name{quaaep4kapmix}
 \alias{quaaep4kapmix}
-\title{Quantile Function Mixture Between the 4-p Asymmetric Exponential Power and Kappa Distributions}
+\title{Quantile Function Mixture Between the 4-Parameter Asymmetric Exponential Power and Kappa Distributions}
 \description{
-This function computes the quantiles of a potential mixture between the 4-parameter Asymmetric Exponential Power (AEP4) and Kappa distributions given L-moments (\code{\link{lmoms}}). The quantile function of a two-distribution mixture is supported by \code{\link{par2qua2}} and is
-
-\deqn{x(F) = (1-w) \times A(F) + w \times K(F) }
-
-where \eqn{A(F)} is the AEP4 quantile function (\code{\link{quaaep4}}), \eqn{K(F)} is the Kappa quantile function (\code{\link{quakap}}), and \eqn{w} is a weight factor.
+This function computes the quantiles of a mixture as needed between the 4-parameter Asymmetric Exponential Power (AEP4) and Kappa distributions given L-moments (\code{\link{lmoms}}). The quantile function of a two-distribution mixture is supported by \code{\link{par2qua2}} and is
+\deqn{x(F) = (1-w) \times A(F) + w \times K(F)\mbox{,} }
+where \eqn{x(F)} is the mixture for nonexceedance probability \eqn{F}, \eqn{A(F)} is the AEP4 quantile function (\code{\link{quaaep4}}), \eqn{K(F)} is the Kappa quantile function (\code{\link{quakap}}), and \eqn{w} is a weight factor.
 
 Now, the above mixture is only applied if the \eqn{\tau_4} for the given \eqn{\tau_3} is within the overlapping region of the AEP4 and Kappa distributions. For this condition, the \eqn{w} is computed by proration between the upper Kappa distribution bound (same as the \eqn{\tau_3} and \eqn{\tau_4} of the Generalized Logistic distribution, see \code{\link{lmrdia}}) and the lower bounds of the AEP4. For \eqn{\tau_4} above the Kappa, then the AEP4 is exclusive and conversely, for \eqn{\tau_4} below the AEP4, then the Kappa is exclusive.
 
 The \eqn{w} therefore is the proration
-
-\deqn{w = [\tau^{K}_4(\hat\tau_3) - \hat\tau_4] / [\tau^{K}_4(\hat\tau_3) - \tau^{A}_4(\hat\tau_3)]}
-
+\deqn{w = [\tau^{K}_4(\hat\tau_3) - \hat\tau_4] / [\tau^{K}_4(\hat\tau_3) - \tau^{A}_4(\hat\tau_3)]\mbox{,}}
 where \eqn{\hat\tau_4} is the sample L-kurtosis, \eqn{\tau^{K}_4} is the upper bounds of the Kappa and \eqn{\tau^{A}_4} is the lower bounds of the AEP4 for the sample L-skew (\eqn{\hat\tau_3}).
 
-The parameter estimation for the AEP4 by \code{\link{paraep4}} can fall back to pure Kappa if argument \code{kapapproved=TRUE} is thus set (see internals of \code{quaaep4kapmix()}).
+The parameter estimation for the AEP4 by \code{\link{paraep4}} can fall back to pure Kappa if argument \code{kapapproved=TRUE} is set. Such a fall back is unrelated to the mixture described here.
 }
 \usage{
 quaaep4kapmix(f, lmom, checklmom=TRUE)
@@ -29,10 +25,10 @@ quaaep4kapmix(f, lmom, checklmom=TRUE)
 \value{
   Quantile value for nonexceedance probability \eqn{F}.
 }
-\references{
-Asquith, W.H., 2014, Parameter Estimation for the 4-Parameter Asymmetric Exponential Power Distribution by the Method of L-moments using R: Computational Statistics and Data Analysis, v. 71, pp. 955-970.
-}
 \author{ W.H. Asquith}
+\references{
+Asquith, W.H., 2014, Parameter estimation for the 4-parameter asymmetric exponential power distribution by the method of L-moments using R: Computational Statistics and Data Analysis, v. 71, pp. 955--970.
+}
 \seealso{\code{\link{par2qua2}}, \code{\link{quaaep4}}, \code{\link{quakap}}, \code{\link{paraep4}}, \code{\link{parkap}}}
 \examples{
 \dontrun{
@@ -74,5 +70,9 @@ dev.off()
 \keyword{quantile function}
 \keyword{quantile mixture function}
 \keyword{distribution (mixture)}
+\keyword{Distribution: Kappa}
+\keyword{Distribution: Asymmetric Exponential Power}
+
+
 
 

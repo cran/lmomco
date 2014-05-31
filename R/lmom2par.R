@@ -3,6 +3,9 @@ function(lmom,type,...) {
     if(type == 'aep4') {
       return(paraep4(lmom, ...))
     }
+    else if(type == 'cau') {
+      return(parcau(lmom, ...))
+    }
     else if(type == 'emu') {
       return(paremu(lmom, ...))
     }
@@ -14,6 +17,9 @@ function(lmom,type,...) {
     }
     else if(type == 'gam') {
       return(pargam(lmom, ...))
+    }
+    else if(type == 'gep') {
+      return(pargep(lmom, ...))
     }
     else if(type == 'gev') {
       return(pargev(lmom, ...))
@@ -27,6 +33,9 @@ function(lmom,type,...) {
     else if(type == 'gno') {
       return(pargno(lmom, ...))
     }
+    else if(type == 'gov') {
+      return(pargov(lmom, ...))
+    }    
     else if(type == 'gpa') {
       return(pargpa(lmom,...))
     }
@@ -57,12 +66,21 @@ function(lmom,type,...) {
     else if(type == 'ln3') {
       return(parln3(lmom, ...))
     }
+    else if(type == 'lmrq') {
+      return(parlmrq(lmom, ...))	
+    }
     else if(type == 'nor') {
       return(parnor(lmom, ...))
     }
     else if(type == 'pe3') {
       return(parpe3(lmom, ...))
     }
+    else if(type == 'sla') {
+      return(parsla(lmom, ...))
+    }
+    else if(type == 'st3') {
+      return(parst3(lmom, ...))
+    }    
     else if(type == 'wak') {
       return(parwak(lmom, ...))
     }

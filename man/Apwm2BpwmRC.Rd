@@ -2,24 +2,21 @@
 \alias{Apwm2BpwmRC}
 \title{ Conversion between A- and B-Type Probability-Weighted Moments for Right-Tail Censoring of An Appropriate Distribution}
 \description{
-This function converts \dQuote{A}-type Probability-Weighted Moments (PWMs, \eqn{\beta^A_r}) to the \dQuote{B}-type \eqn{\beta^B_r}. The \eqn{\beta^A_r} are the ordinary PWMs for the \eqn{m} left noncensored or observed values. The \eqn{\beta^B_r} are more complex and use the \eqn{m} observed values and the \eqn{m-n} right-tailed censored values for which the censoring threshold is known. These PWMs are described in the documenation for \code{\link{pwmRC}}.
+This function converts \dQuote{A}-type probability-weighted moments (PWMs, \eqn{\beta^A_r}) to the \dQuote{B}-type \eqn{\beta^B_r}. The \eqn{\beta^A_r} are the ordinary PWMs for the \eqn{m} left noncensored or observed values. The \eqn{\beta^B_r} are more complex and use the \eqn{m} observed values and the \eqn{m-n} right-tailed censored values for which the censoring threshold is known. The \dQuote{A}- and \dQuote{B}-type PWMs are described in the documentation for \code{\link{pwmRC}}.
 
 This function uses the defined relation between to two PWM types when the \eqn{\beta^A_r} are known along with the parameters (\code{para}) of a right-tail censored distribution inclusive of the censoring fraction \eqn{\zeta=m/n}. The value \eqn{\zeta} is the right-tail censor fraction or the probability \eqn{\mathrm{Pr}\lbrace \rbrace} that \eqn{x} is less than the quantile at \eqn{\zeta} nonexceedance probability: (\eqn{\mathrm{Pr}\lbrace x < X(\zeta) \rbrace}).
-
 \deqn{\beta^B_{r-1} = r^{-1}\lbrace\zeta^r r \beta^A_{r-1} + (1-\zeta^r)X(\zeta)\rbrace \mbox{,}}
-
 where \eqn{1 \le r \le n} and \eqn{n} is the number of moments, and \eqn{X(\zeta)} is the value of the quantile function at nonexceedance probability \eqn{\zeta}. Finally, the \code{RC} in the function name is to denote \code{R}ight-tail \code{C}ensoring.
 }
 \usage{
 Apwm2BpwmRC(Apwm,para)
 }
 \arguments{
-  \item{Apwm}{A vector of A-type PWMs: \eqn{\beta^A_r}}
-  \item{para}{The parameters of the distribution from a function such as \code{pargpaRC} in which the \eqn{\beta^A_r} are contained in a \code{list} element titled \code{betas} and the right-tail censoring fraction \eqn{\zeta} is contained in an element titled \code{zeta}.}
+  \item{Apwm}{A vector of A-type PWMs: \eqn{\beta^A_r}.}
+  \item{para}{The parameters of the distribution from a function such as \code{\link{pargpaRC}} in which the \eqn{\beta^A_r} are contained in a \code{list} element titled \code{betas} and the right-tail censoring fraction \eqn{\zeta} is contained in an element titled \code{zeta}.}
 }
 \value{
-  An R \code{list} is returned.
-
+  An \R \code{list} is returned.
 }
 \references{
 Hosking, J.R.M., 1995, The use of L-moments in the analysis of censored data,
@@ -27,7 +24,7 @@ in Recent Advances in Life-Testing and Reliability, edited by N. Balakrishnan,
 chapter 29, CRC Press, Boca Raton, Fla., pp. 546--560.
 }
 \author{ W.H. Asquith}
-\seealso{ \code{\link{Bpwm2ApwmRC}} and \code{\link{pwmRC}} }
+\seealso{ \code{\link{Bpwm2ApwmRC}}, \code{\link{pwmRC}} }
 \examples{
 # Data listed in Hosking (1995, table 29.2, p. 551)
 H <- c(3,4,5,6,6,7,8,8,9,9,9,10,10,11,11,11,13,13,13,13,13,

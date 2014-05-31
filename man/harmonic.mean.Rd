@@ -4,11 +4,10 @@
 \description{
 Compute the harmonic mean of a vector with a zero-value correction.
 \deqn{\check{\mu} =
-           \biggl(\frac{\sum^{N_T - N_0}_{i=1} 1/X_i}
+           \biggl(\frac{\sum^{N_T - N_0}_{i=1} 1/x_i}
                        {N_T - N_0}\biggr)^{-1} \times \frac{N_T - N_0}
                  {N_T} \mbox{,}}
-
-where \eqn{\check{\mu}} is harmonic mean, \eqn{X_i} is a nonzero value of the vector, \eqn{N_T} is the (total) sample size, \eqn{N_0} is the number of zero values.
+where \eqn{\check{\mu}} is harmonic mean, \eqn{x_i} is a nonzero value of the data vector, \eqn{N_T} is the (total) sample size, \eqn{N_0} is the number of zero values.
 
 }
 \usage{
@@ -18,7 +17,7 @@ harmonic.mean(x)
   \item{x}{A vector of data values that will be reduced to non-missing values.}
 }
 \value{
-  An R \code{list} is returned.
+  An \R \code{list} is returned.
 
   \item{harmean}{The harmonic mean with zero-value correction, \eqn{\check{\mu}}.}
   \item{correction}{The zero-value correction, \eqn{(N_T - N_0)/N_T}.}

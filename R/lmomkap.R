@@ -173,6 +173,7 @@ function(U,A,G,H) {
     z$L3   <- z$TAU3*z$LCV
     z$L4   <- z$TAU4*z$LCV
     z$L5   <- z$TAU5*z$LCV
+    z <- lmorph(z)
     return(z)
 }
 

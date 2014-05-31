@@ -1,10 +1,15 @@
 "genci" <-
-function(para,n,F=NULL,ci=0.90,edist='nor',
-         nsim=1000,expand=FALSE,
-         verbose=FALSE,showpar=FALSE,quiet=FALSE) {
+function(para,n, F=NULL, ci=0.90, edist="gno",
+         nsim=1000, expand=FALSE, verbose=FALSE, showpar=FALSE, quiet=FALSE) {
   if(is.null(F)) F <- nonexceeds()
-  if(! check.fs(F)) return()
-  if(! are.par.valid(para)) return()
+  if(! check.fs(F)) {
+     warning("The provided nonexceedance probabilities are invalid")
+     return()
+  }
+  if(! are.par.valid(para)) {
+     warning("The distribution parameters are invalid")
+     return()
+  }
   if(ci < 0.5 || ci >= 1) {
     warning("Confidence limit is specified by nonexceedance probability 0.5 <= ci < 1")
     return()
@@ -23,10 +28,8 @@ function(para,n,F=NULL,ci=0.90,edist='nor',
   num.Fs <- length(F)
   if(! quiet) cat(c(num.Fs,"-"),sep="")
   for(i in seq(1,num.Fs)) {
-    CI <- qua2ci(F[i], para, n,
-                 ci=ci, edist=edist, nsim=nsim,
-                 verbose=verbose,
-                 showpar=showpar)
+    CI <- qua2ci(F[i], para, n, ci=ci, edist=edist, nsim=nsim,
+                 verbose=verbose, showpar=showpar, empdist=TRUE)
     if(CI$ifail > 0) {
        ci_low[i] <- NA
        ci_tru[i] <- NA
@@ -49,9 +52,9 @@ function(para,n,F=NULL,ci=0.90,edist='nor',
     ci_t3[i]  <- CI$elmoms$ratios[3]
     ci_t4[i]  <- CI$elmoms$ratios[4]
     ci_t5[i]  <- CI$elmoms$ratios[5]
-    ci_mu[i]  <- CI$epmoms$moments[1]
-    ci_var[i] <- CI$epmoms$moments[2]^2 # notice that a variance is computed
-    ci_skw[i] <- CI$epmoms$ratios[3]
+    ci_mu[i]  <- CI$empdist$epmoms$moments[1]
+    ci_var[i] <- CI$empdist$epmoms$moments[2]^2 # notice that a variance is computed
+    ci_skw[i] <- CI$empdist$epmoms$ratios[3]
     if(! quiet) cat(c(num.Fs-i,"-"),sep="")
   }
   if(! quiet) cat("\n")

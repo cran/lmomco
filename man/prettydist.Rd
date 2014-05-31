@@ -3,7 +3,7 @@
 \title{ A Pretty List of Distribution Names }
 \description{
 Return a full name of one or more distributions from
-the abbreviation for the distribution.
+the abbreviation for the distribution. The official list of abbreviations is seen under \code{\link{dist.list}}.
 }
 \usage{
 prettydist(x)

@@ -2,13 +2,13 @@
 \alias{is.kmu}
 \title{Is a Distribution Parameter Object Typed as Kappa-Mu}
 \description{
-The distribution parameter object returned by functions of this module such as by \code{parkmu} are typed by an attribute \code{type}. This function checks that \code{type} is \code{kmu} for the Kappa-Mu (\eqn{\kappa:\mu}) distribution.
+The distribution parameter object returned by functions of \pkg{lmomco} such as by \code{\link{parkmu}} are typed by an attribute \code{type}. This function checks that \code{type} is \code{kmu} for the Kappa-Mu (\eqn{\kappa:\mu}) distribution.
 }
 \usage{
 is.kmu(para)
 }
 \arguments{
-  \item{para}{A parameter \code{list} returned from \code{parkmu}.}
+  \item{para}{A parameter \code{list} returned from \code{\link{parkmu}} or \code{\link{vec2par}}.}
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{kmu}.}
@@ -23,4 +23,5 @@ if(is.kmu(para)) {
   Q <- quakmu(0.5,para)
 }
 }
-\keyword{utility (distribution)}
+\keyword{utility (distribution, type check)}
+\keyword{Distribution: Kappa-Mu}

@@ -1,8 +1,5 @@
 "prob2T" <-
-function(F) {
-    if(any(F < 0) || any(F > 1)) {
-      warning("Invalid nonexceedance probability")
-      return(NULL)
-    }
-    return(1/(1-F))
+function(f) {
+    if(! check.fs(f)) return()
+    return(1/(1-f))
 }

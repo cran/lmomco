@@ -1,15 +1,14 @@
 \name{is.st3}
 \alias{is.st3}
-\title{Is a Distribution Parameter Object Typed as 3-Parameter Student T Distribution}
+\title{Is a Distribution Parameter Object Typed as 3-Parameter Student t Distribution}
 \description{
-The distribution parameter object returned by functions of this module such as by
-\code{parst3} are typed by an attribute \code{type}. This function checks that \code{type} is \code{st3} for the 3-parameter Student T distribution.
+The distribution parameter object returned by functions of \pkg{lmomco} such as by \code{\link{parst3}} are typed by an attribute \code{type}. This function checks that \code{type} is \code{st3} for the 3-parameter Student t distribution.
 }
 \usage{
 is.st3(para)
 }
 \arguments{
-  \item{para}{A parameter \code{list} returned from \code{parst3}.}
+  \item{para}{A parameter \code{list} returned from \code{\link{parst3}} or \code{\link{vec2par}}.}
 }
 \value{
   \item{TRUE}{If the \code{type} attribute is \code{st3}.}
@@ -23,4 +22,5 @@ if(is.st3(para)) {
   Q <- quast3(0.25,para)
 }
 }
-\keyword{utility (distribution)}
+\keyword{utility (distribution, type check)}
+\keyword{Distribution: Student t (3-parameter)}

@@ -13,7 +13,6 @@ function(wakpara) {
              )
 
     if(! are.parwak.valid(wakpara)) return()
-
     attributes(wakpara$para) <- NULL
 
     XI <- wakpara$para[1]
@@ -50,6 +49,7 @@ function(wakpara) {
     z$L3   <- z$TAU3*z$L2
     z$L4   <- z$TAU4*z$L2
     z$L5   <- z$TAU5*z$L2
+    z <- lmorph(z)
     return(z)
 }
 

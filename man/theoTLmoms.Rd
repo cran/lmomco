@@ -13,31 +13,31 @@ specified. A theoretrical TL-moment in integral form is
       \underbrace{(t_2+k)!}_{\mbox{right tail}}} \mbox{, in which }}
 
 \deqn{ I^{(t_1,t_2)}_r = \int^1_0
-                              \underbrace{X(F)}_{\stackrel{\mbox{quantile}}{\mbox{function}}} \times
+                              \underbrace{x(F)}_{\stackrel{\mbox{quantile}}{\mbox{function}}} \times
                               \overbrace{F^{r+t_1-k-1}}^{\mbox{left tail}}
       \overbrace{(1-F)^{t_2+k}}^{\mbox{right tail}} \,\mathrm{d}F \mbox{,}}
 
-where \eqn{X(F)} is the quantile function of the random variable \eqn{X} for nonexceedance probability \eqn{F}, \eqn{t_1} represents the trimming level of the \eqn{t_1}-smallest, \eqn{t_2} represents the trimming level of the \eqn{t_2}-largest values, \eqn{r} represents the order of the L-moments. This function loops across the above equation for each \code{nmom} set in the argument list. The function \eqn{X(F)} is computed through the \code{\link{par2qua}} function. The distribution type is determined using the \code{type} attribute of the \code{para} argument---the parameter object.
+where \eqn{x(F)} is the quantile function of the random variable \eqn{X} for nonexceedance probability \eqn{F}, \eqn{t_1} represents the trimming level of the \eqn{t_1}-smallest, \eqn{t_2} represents the trimming level of the \eqn{t_2}-largest values, \eqn{r} represents the order of the L-moments. This function loops across the above equation for each \code{nmom} set in the argument list. The function \eqn{x(F)} is computed through the \code{\link{par2qua}} function. The distribution type is determined using the \code{type} attribute of the \code{para} argument---the parameter object.
 
-As of version 1.5.2 of \pkg{lmomco}, there exists enhanced error trapping on integration failures in \code{theoTLmoms}. The function now abandons operations should any of the integrations for the \eqn{r}th L-moment fail for reasons such as divergent integral or round off problems. The function returns NAs for all L-moments in \code{lambdas} and \code{ratios}.
+As of version 1.5.2 of \pkg{lmomco}, there exists enhanced error trapping on integration failures in \code{\link{theoTLmoms}}. The function now abandons operations should any of the integrations for the \eqn{r}th L-moment fail for reasons such as divergent integral or round off problems. The function returns NAs for all L-moments in \code{lambdas} and \code{ratios}.
 }
 \usage{
-theoTLmoms(para,nmom=5,trim=NULL,leftrim=NULL,
-           rightrim=NULL,verbose=FALSE,minF=0,maxF=1)
+theoTLmoms(para, nmom=5, trim=NULL, leftrim=NULL,
+           rightrim=NULL, verbose=FALSE, minF=0, maxF=1)
 }
 \arguments{
-  \item{para}{A distribution parameter object of this package \code{\link{vec2par}}.}
+  \item{para}{A distribution parameter object of this package such as by \code{\link{vec2par}}.}
   \item{nmom}{The number of moments to compute. Default is 5.}
   \item{trim}{Level of symmetrical trimming to use in the computations.
 Although \code{NULL} in the argument list, the default is 0---the usual L-moment is returned.}
   \item{leftrim}{Level of trimming of the left-tail of the sample.}
   \item{rightrim}{Level of trimming of the right-tail of the sample.}
-  \item{verbose}{Toggle verbose output. Because the R function \code{integrate} is used to perform the numerical integration, it might be useful to see selected messages regarding the numerical integration.}
+  \item{verbose}{Toggle verbose output. Because the \R function \code{integrate} is used to perform the numerical integration, it might be useful to see selected messages regarding the numerical integration.}
   \item{minF}{The end point of nonexceedance probability in which to perform the integration. Try setting to non-zero (but small) if you have a divergent integral.}
   \item{maxF}{The end point of nonexceedance probability in which to perform the integration. Try setting to non-unity (but close) if you have a divergent integral.}
 }
 \value{
-  An R \code{list} is returned.
+  An \R \code{list} is returned.
 
   \item{lambdas}{Vector of the TL-moments. First element is
 \eqn{\lambda^{(t_1,t_2)}_1}, second element is \eqn{\lambda^{(t_1,t_2)}_2}, and so on.}
@@ -49,15 +49,12 @@ Although \code{NULL} in the argument list, the default is 0---the usual L-moment
   \item{source}{An attribute identifying the computational source of the L-moments: \dQuote{theoTLmoms}.}
 }
 \references{
-Hosking, J.R.M., 1990, L-moments--Analysis and estimation of
-distributions using linear combinations of order statistics: Journal
-of the Royal Statistical Society, Series B, vol. 52, p. 105-124.
+Hosking, J.R.M., 1990, L-moments--Analysis and estimation of distributions using linear combinations of order statistics: Journal of the Royal Statistical Society, Series B, v. 52, pp. 105--124.
 
-Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational Statistics and Data Analysis, vol. 43, pp. 299--314.
+Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational Statistics and Data Analysis, v. 43, pp. 299--314.
 }
 \author{ W.H. Asquith}
-
-\seealso{\code{\link{theoLmoms}}, \code{\link{par2qua}}, \code{\link{TLmoms}}, \code{\link{lmom.ub}}}
+\seealso{\code{\link{theoLmoms}}, \code{\link{TLmoms}}}
 \examples{
 para <- vec2par(c(0,1),type='nor') # standard normal
 TL00 <- theoTLmoms(para) # compute ordinary L-moments
@@ -82,3 +79,4 @@ del    <- samTL$ratios[3] - theoTL$ratios[3] # if n is large difference
 str(del)
 }
 \keyword{L-moment (theoretical)}
+\keyword{L-moment (trimmed theoretical)}

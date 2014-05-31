@@ -2,25 +2,18 @@
 \alias{cdfrevgum}
 \title{Cumulative Distribution Function of the Reverse Gumbel Distribution}
 \description{
-This function computes the cumulative probability or nonexceedance probability
-of the Reverse Gumbel distribution given parameters (\eqn{\xi} and \eqn{\alpha}) of the distribution computed
-by \code{\link{parrevgum}}. The cumulative distribution function of the distribution is
-
-\deqn{F(x) = 1 - e^{-e^{y}} \mbox{,}}
-
+This function computes the cumulative probability or nonexceedance probability of the Reverse Gumbel distribution given parameters (\eqn{\xi} and \eqn{\alpha}) computed by \code{\link{parrevgum}}. The cumulative distribution function is
+\deqn{F(x) = 1 - \mathrm{exp}(-\mathrm{exp}(Y)) \mbox{,}}
 where
-
-\deqn{y = -\frac{x - \xi}{\alpha} \mbox{,}}
-
-where \eqn{F(x)} is the nonexceedance probability for quantile \eqn{x},
-\eqn{\xi} is a location parameter, and \eqn{\alpha} is a scale parameter. Notice that the function has some sign differences and uses the complement of \eqn{F} compared to the cumulative distribution function of the Gumbel distribution in \code{\link{cdfgum}}.
+\deqn{Y = -\frac{x - \xi}{\alpha} \mbox{,}}
+where \eqn{F(x)} is the nonexceedance probability for quantile \eqn{x}, \eqn{\xi} is a location parameter, and \eqn{\alpha} is a scale parameter. Notice that the function has some sign differences and uses the complement of \eqn{F} compared to the cumulative distribution function of the Gumbel distribution in \code{\link{cdfgum}}.
 }
 \usage{
 cdfrevgum(x, para)
 }
 \arguments{
-  \item{x}{A real value.}
-  \item{para}{The parameters from \code{\link{parrevgum}} or similar.}
+  \item{x}{A real value vector.}
+  \item{para}{The parameters from \code{\link{parrevgum}} or  \code{\link{vec2par}}.}
 }
 
 \value{
@@ -29,14 +22,14 @@ cdfrevgum(x, para)
 \references{
 Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
 distributions using linear combinations of order statistics: Journal
-of the Royal Statistical Society, Series B, vol. 52, p. 105--124.
+of the Royal Statistical Society, Series B, v. 52, pp. 105--124.
 
 Hosking, J.R.M., 1995, The use of L-moments in the analysis of censored data,
 in Recent Advances in Life-Testing and Reliability, edited by N. Balakrishnan,
 chapter 29, CRC Press, Boca Raton, Fla., pp. 546--560.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{quarevgum}}, \code{\link{parrevgum}}}
+\seealso{\code{\link{pdfrevgum}}, \code{\link{quarevgum}}, \code{\link{lmomrevgum}}, \code{\link{parrevgum}}}
 \examples{
 # See p. 553 of Hosking (1995)
 # Data listed in Hosking (1995, table 29.3, p. 553)
@@ -65,3 +58,4 @@ lines(D,cdfrevgum(D,rg.pars))
 }
 \keyword{distribution}
 \keyword{cumulative distribution function}
+\keyword{Distribution: Gumbel (reversed)}

@@ -15,6 +15,6 @@ function(para) {
     R[4] <- 0.343
     L[4] <- L[2]*R[4]
  
-    z <- list(lambdas = L, ratios = R, trim=1, source = "lmomcau")
+    z <- list(lambdas = L, ratios = R, trim=1, leftrim=1, rightrim=1, source = "lmomcau")
     return(z)
 }

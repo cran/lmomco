@@ -3,15 +3,15 @@
 \alias{TX38lgtrmFlow}
 \title{First six L-moments of logarithms of annual mean streamflow and variances for 35 selected long-term U.S. Geological Survey streamflow-gaging stations in Texas}
 \description{
-L-moments of annual mean streamflow for 35 long-term U.S. Geological Survey (USGS) streamflow-gaging stations (streamgages) with at least 49 years of natural and unregulated record through water year 2012. Logarithmic transformations of annual mean streamflow at each of the 35 streamgages were done. For example, logarithmic transformation of strictly positive hydrologic data is done to avoid conditional probability adjustment for the zero values; values equal to zero must be offset to avoid using a logarithm of zero. A mathematical benefit of using logarithmic transformation is that probability distributions with infinite lower and upper limits become applicable. An arbitrary value of 10 cubic feet per second was added to the streamflows for each of the 35 streamgages prior to logarithmic transformation to accommodate mean annual streamflows equal to zero (no flow). These data should be referred to as the offset-annual mean streamflow. The offsetting along the real-number line permits direct use of logarithmic transformations without the added complexity of conditional probability adjustment for zero values in magnitude and frequency analyses.
+L-moments of annual mean streamflow for 35 long-term U.S. Geological Survey (USGS) streamflow-gaging stations (streamgages) with at least 49 years of natural and unregulated record through water year 2012 (Asquith and Barbie, 2013. Logarithmic transformations of annual mean streamflow at each of the 35 streamgages were done. For example, logarithmic transformation of strictly positive hydrologic data is done to avoid conditional probability adjustment for the zero values; values equal to zero must be offset to avoid using a logarithm of zero. A mathematical benefit of using logarithmic transformation is that probability distributions with infinite lower and upper limits become applicable. An arbitrary value of 10 cubic feet per second was added to the streamflows for each of the 35 streamgages prior to logarithmic transformation to accommodate mean annual streamflows equal to zero (no flow). These data should be referred to as the offset-annual mean streamflow. The offsetting along the real-number line permits direct use of logarithmic transformations without the added complexity of conditional probability adjustment for zero values in magnitude and frequency analyses.
 
-The first six sample L-moments of the base-10 logarithms of the offset-annual mean streamflow were computed using the \code{lmoms(..., nmom=6)}. The sampling variances of each corresponding L-moment are used to compute regional or study-area values for the L-moments through weighted-mean computation.  The available years of record for each of 35 stations is so large as to produce severe numerical problems in matrices needed for sampling variances using the recently developed the exact-analytical bootstrap for L-moments method (Wang and Hutson, 2013). In order to compute sampling variances for each of the sample L-moments for each streamgage, replacement-bootstrap simulation using the \code{sample(..., replace=TRUE)} function with 10,000 replications with replacement.
+The first six sample L-moments of the base-10 logarithms of the offset-annual mean streamflow were computed using the \code{lmoms(..., nmom=6)}. The sampling variances of each corresponding L-moment are used to compute regional or study-area values for the L-moments through weighted-mean computation.  The available years of record for each of 35 stations is so large as to produce severe numerical problems in matrices needed for sampling variances using the recently developed the exact-analytical bootstrap for L-moments method (Wang and Hutson, 2013) (\code{\link{lmoms.bootbarvar}}). In order to compute sampling variances for each of the sample L-moments for each streamgage, replacement-bootstrap simulation using the \code{sample(..., replace=TRUE)} function with 10,000 replications with replacement.
 }
 \usage{
 data(TX38lgtrmFlow)
 }
 \format{
-A data frame with
+An \R \code{data.frame} with
 \describe{
   \item{STATION}{The USGS streamgage number.}
   \item{YEARS}{The number of years of data record.}
@@ -31,15 +31,17 @@ A data frame with
   \item{VarTau6}{The estimated sampling variance for \eqn{\tau_6} multiplied by 1000.}
 }
 }
+\note{
+The title of this dataset indicates 35 stations, and 35 stations is the length of the data. The name of the dataset \code{TX38lgtrmFlow} and the source of the data (Asquith and Barbie, 2013) reflects 38 stations. It was decided to not show the data for 3 of the stations because a trend was detected but the dataset had already been named. The inconsistency will have to stand.
+}
 \references{
-Asquith, W.H., and Barbie, D.L., 2013, Trend analysis and selected summary statistics of annual mean streamflow for 38 selected long-term U.S. Geological Survey streamflow-gaging stations in Texas, water years 1916-2012: U.S. Geological Survey Scientific Investigations Report 2013-XXXX, XX p.
+Asquith, W.H., and Barbie, D.L., 2013, Trend analysis and selected summary statistics of annual mean streamflow for 38 selected long-term U.S. Geological Survey streamflow-gaging stations in Texas, water years 1916--2012: U.S. Geological Survey Scientific Investigations Report 2013--5230, 16 p.
 
-Wang, D., and Hutson, A.D., 2013, Joint confidence region estimation of L-moments with an extension to right censored data: Journal of Applied Statistics, v. 40, no. 2, pp. 368-379.
+Wang, D., and Hutson, A.D., 2013, Joint confidence region estimation of L-moments with an extension to right censored data: Journal of Applied Statistics, v. 40, no. 2, pp. 368--379.
 }
 \examples{
 data(TX38lgtrmFlow)
 summary(TX38lgtrmFlow)
-
 \dontrun{
 # Need to load libraries in this order
 library(lmomco); library(lmomRFA)
@@ -59,7 +61,7 @@ summary(regtst(TxDat2))
 S <- summary(regtst(TxDat2))
 # The results suggest that none of the three parameter distributions are suitable.
 # The bail out solution using the Wakeby distribution is accepted. Our example
-# will continue on by consideration of the two for parameter distributions
+# will continue on by consideration of the two four parameter distributions
 # available. A graphical comparison between three frequency curves will be made.
 kap <- S$rpara
 rmom <- S$rmom

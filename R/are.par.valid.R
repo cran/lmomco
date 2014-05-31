@@ -26,6 +26,9 @@ function(para,...) {
     else if(type == 'gam') {
       return(are.pargam.valid(para,...))
     }
+    else if(type == 'gep') {
+      return(are.pargep.valid(para,...))
+    }
     else if(type == 'gev') {
       return(are.pargev.valid(para,...))
     }
@@ -55,6 +58,9 @@ function(para,...) {
     }
     else if(type == 'lap') {
       return(are.parlap.valid(para,...))
+    }
+    else if(type == 'lmrq') {
+      return(are.parlmrq.valid(para,...))
     }
     else if(type == 'ln3') {
       return(are.parln3.valid(para,...))

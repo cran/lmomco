@@ -59,7 +59,9 @@ function(para, bypoly=TRUE) {
     rat <- c(NA, L2/L1, TAU3, TAU4, TAU5, TAU6)
     names(rat) <- NULL
     names(lam) <- NULL
-    zz <- list(lambdas=lam, ratios=rat, source="lmomst3")
+    zz <- list(lambdas=lam, ratios=rat,
+               trim=0, leftrim=NULL, rightrim=NULL,
+               source="lmomst3")
     return(zz)
 }
 

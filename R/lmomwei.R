@@ -12,7 +12,6 @@ function(para) {
               source = "lmomwei"
              )
     if(! are.parwei.valid(para)) return()
-
     attributes(para$para) <- NULL
 
     ZETA <- para$para[1]
@@ -25,7 +24,7 @@ function(para) {
     gev.para <- list(type = 'gev', para = c(XI,A,K))
 
     z <- lmomgev(gev.para)
-
+    z <- lmorph(z)
     z$L1   <- -z$L1
     z$LCV  <- -z$LCV
     z$TAU3 <- -z$TAU3
@@ -34,7 +33,7 @@ function(para) {
     z$L5   <- -z$L5
 
     z$source <- "lmomwei"
-
+    z <- lmorph(z)
     return(z)
 }
 

@@ -12,7 +12,7 @@ par2vec(para, ...)
   \item{...}{Additional arguments should they even be needed.}
 }
 \value{
-  An R \code{vector} is returned in moment order.
+  An \R \code{vector} is returned in moment order.
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{vec2par}}}
@@ -22,4 +22,4 @@ par2vec(para)
 #   xi alpha kappa
 # 12.0 123.0   0.5
 }
-\keyword{utility}
+\keyword{utility (vector)}

@@ -2,34 +2,28 @@
 \alias{quarice}
 \title{Quantile Function of the Rice Distribution}
 \description{
-This function computes the quantiles of the Rice distribution given
-parameters (\eqn{\nu} and \eqn{\alpha}) of the distribution computed
-by \code{\link{parrice}}. The quantile function of the distribution is complex and numerical rooting of the cumulative distribution function is used.
-\deqn{
-x(F,\nu,\alpha)
-}
-where \eqn{x(F)} is the quantile for nonexceedance probability \eqn{F},
-\eqn{\nu} is a parameter, and \eqn{\nu/\alpha} is a form of signal-to-noise ratio \eqn{\mathrm{SNR}}. If \eqn{\nu=0}, then the Rayleigh distribution results and \code{\link{quaray}} is used.
+This function computes the quantiles of the Rice distribution given parameters (\eqn{\nu} and \eqn{\alpha})  computed by \code{\link{parrice}}. The quantile function  is complex and numerical rooting of the cumulative distribution function \code{\link{cdfrice}} is used.
 }
 \usage{
 quarice(f, para, xmax=NULL, paracheck=TRUE)
 }
 \arguments{
   \item{f}{Nonexceedance probability (\eqn{0 \le F \le 1}).}
-  \item{para}{The parameters from \code{\link{parrice}} or similar.}
+  \item{para}{The parameters from \code{\link{parrice}} or \code{\link{vec2par}}.}
   \item{xmax}{The maximum x value used for integeration.}
-  \item{paracheck}{A logical controlling whether the parameters and checked for validity. Overriding of this check might be extremely important and needed for use of the distribution quantile function in the context of TL-moments with nonzero trimming.}
+  \item{paracheck}{A logical controlling whether the parameters are checked for validity. Overriding of this check might be extremely important and needed for use of the quantile function in the context of TL-moments with nonzero trimming.}
 }
 \value{
   Quantile value for nonexceedance probability \eqn{F}.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{cdfrice}}, \code{\link{parrice}}}
+\references{
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: CreateSpace Independent Publishing Platform, 2nd printing, ISBN 978--146350841--8.
+}
+\seealso{\code{\link{cdfrice}}, \code{\link{pdfrice}}, \code{\link{lmomrice}}, \code{\link{parrice}}}
 \examples{
 lmr <- vec2lmom(c(125,0.20), lscale=FALSE)
 quarice(0.75,parrice(lmr))
-
-
 # The quantile function of the Rice as implemented in lmomco
 # is slow because of rooting the CDF, which is created by
 # integration of the PDF. Rician random variates are easily created.
@@ -47,8 +41,7 @@ nu <- 100; alpha <- 10
 lmoms(rrice(n, nu, alpha))
 lmoms(rlmomco(n, vec2par(c(nu,alpha), type='rice')))
 }
-
-
 }
 \keyword{distribution}
 \keyword{quantile function}
+\keyword{Distribution: Rice}

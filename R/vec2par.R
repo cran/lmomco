@@ -16,13 +16,13 @@ function(vec,type,nowarn=FALSE,paracheck=TRUE,...) {
       z <- list(type = 'exp', para = vec, source = "vec2par")
       names(z$para) <- c("xi","alpha")
     }
-    else if(type == 'texp') {
-      z <- list(type = 'texp', para = vec, source = "vec2par")
-      names(z$para) <- c("xi","alpha")
-    }
     else if(type == 'gam') {
       z <- list(type = 'gam', para = vec, source = "vec2par")
       names(z$para) <- c("alpha","beta")
+    }
+    else if(type == 'gep') {
+      z <- list(type = 'gep', para = vec, source = "vec2par")
+      names(z$para) <- c("beta","kappa","h")
     }
     else if(type == 'gev') {
       z <- list(type = 'gev', para = vec, source = "vec2par")
@@ -53,6 +53,14 @@ function(vec,type,nowarn=FALSE,paracheck=TRUE,...) {
       z <- list(type = 'gum', para = vec, source = "vec2par")
       names(z$para) <- c("xi","alpha")
     }
+    else if(type == 'kap') {
+      z <- list(type = 'kap', para = vec, source = "vec2par")
+      names(z$para) <- c("xi","alpha","kappa","h")
+    }
+    else if(type == 'kmu') {
+      z <- list(type = 'kmu', para = vec, diracdelta=NA, source = "vec2par")
+      names(z$para) <- c("kappa","mu")
+    }
     else if(type == 'kur') {
       z <- list(type = 'kur', para = vec, source = "vec2par")
       names(z$para) <- c("alpha","beta")
@@ -61,30 +69,13 @@ function(vec,type,nowarn=FALSE,paracheck=TRUE,...) {
       z <- list(type = 'lap', para = vec, source = "vec2par")
       names(z$para) <- c("xi","alpha")
     }
+    else if(type == 'lmrq') {
+      z <- list(type = 'lmrq', para = vec, source = "vec2par")
+      names(z$para) <- c("mu", "alpha")
+    }
     else if(type == 'ln3') {
       z <- list(type = 'ln3', para = vec, source = "vec2par")
       names(z$para) <- c("zeta","mu","sigma")
-    }
-    else if(type == 'ray') {
-      z <- list(type = 'ray', para = vec, source = "vec2par")
-      names(z$para) <- c("xi","alpha")
-    }
-    else if(type == 'rice') {
-      z <- list(type = 'rice', para = vec, source = "vec2par")
-      names(z$para) <- c("nu", "alpha")
-    }
-    else if(type == 'revgum') {
-      z <- list(type = 'revgum', para = c(vec[1],vec[2]),
-                zeta=vec[3], source = "vec2par")
-      names(z$para) <- c("xi","alpha")
-    }
-    else if(type == 'kap') {
-      z <- list(type = 'kap', para = vec, source = "vec2par")
-      names(z$para) <- c("xi","alpha","kappa","h")
-    }
-    else if(type == 'kmu') {
-      z <- list(type = 'kmu', para = vec, diracdelta=NA, source = "vec2par")
-      names(z$para) <- c("kappa","mu")
     }
     else if(type == 'nor') {
       z <- list(type = 'nor', para = vec, source = "vec2par")
@@ -94,6 +85,19 @@ function(vec,type,nowarn=FALSE,paracheck=TRUE,...) {
       z <- list(type = 'pe3', para = vec, source = "vec2par")
       names(z$para) <- c("mu","sigma","gamma")
     }
+    else if(type == 'ray') {
+      z <- list(type = 'ray', para = vec, source = "vec2par")
+      names(z$para) <- c("xi","alpha")
+    }
+    else if(type == 'revgum') {
+      z <- list(type = 'revgum', para = c(vec[1],vec[2]),
+                zeta=vec[3], source = "vec2par")
+      names(z$para) <- c("xi","alpha")
+    }
+    else if(type == 'rice') {
+      z <- list(type = 'rice', para = vec, source = "vec2par")
+      names(z$para) <- c("nu", "alpha")
+    }
     else if(type == 'sla') {
       z <- list(type = 'sla', para = vec, source = "vec2par")
       names(z$para) <- c("xi","alpha")
@@ -101,6 +105,10 @@ function(vec,type,nowarn=FALSE,paracheck=TRUE,...) {
     else if(type == 'st3') {
       z <- list(type = 'st3', para = vec, source = "vec2par")
       names(z$para) <- c("xi","alpha","nu")
+    }
+    else if(type == 'texp') {
+      z <- list(type = 'texp', para = vec, source = "vec2par")
+      names(z$para) <- c("xi","alpha","is.stationary")
     }
     else if(type == 'wak') {
       z <- list(type = 'wak', para = vec, source = "vec2par")
@@ -111,7 +119,7 @@ function(vec,type,nowarn=FALSE,paracheck=TRUE,...) {
       names(z$para) <- c("zeta","beta","delta")
     }
     else {
-      z <- list(type = 'user', para = vec, source = "vec2par")
+      z <- list(type = type, para = vec, source = "vec2par", byuser=TRUE)
       return(z)
     }
 

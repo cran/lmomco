@@ -2,7 +2,7 @@
 \alias{gen.freq.curves}
 \title{Plot Randomly Generated Frequency Curves from a Parent Distribution}
 \description{
-This function generates random samples of specified size from a specified parent distribution. Subsequently, the type of parent distribution is fit to the L-moments of the generated sample. The fitted distribution is then plotted with the built-in function \code{lines}. It is the user's responsibility to have an active \code{plot} already drawn; unless the \code{callplot} option is \code{TRUE}. This function is useful to demonstration of sample size on the uncertainty of a fitted distribution---a motivation for this function is for class room exercise.
+This function generates random samples of specified size from a specified parent distribution. Subsequently, the type of parent distribution is fit to the L-moments of the generated sample. The fitted distribution is then plotted. It is the user's responsibility to have an active \code{plot} already drawn; unless the \code{callplot} option is \code{TRUE}. This function is useful to demonstration of sample size on the uncertainty of a fitted distribution---a motivation for this function as a class room exercise.
 }
 \usage{
 gen.freq.curves(n, para, F=NULL, nsim=10, callplot=TRUE, aslog=FALSE,
@@ -11,18 +11,18 @@ gen.freq.curves(n, para, F=NULL, nsim=10, callplot=TRUE, aslog=FALSE,
 }
 \arguments{
   \item{n}{Sample size to draw from parent as specified by \code{para}.}
-  \item{para}{The parameters from \code{\link{lmom2par}} or similar.}
+  \item{para}{The parameters from \code{\link{lmom2par}} or \code{\link{vec2par}}.}
   \item{F}{The nonexceedance probabilities for horizontal axis---defaults to \code{\link{nonexceeds}} when the argument is \code{NULL}.}
   \item{nsim}{The number of simulations to perform (frequency curves to draw)---the default is 10.}
   \item{callplot}{Calls \code{plot} to acquire a graphics device---default is \code{TRUE}, but the called \code{plot} is left empty.}
   \item{aslog}{Compute \code{log10} of quantiles---note that \preformatted{NaNs produced in: log(x, base)} will be produced for less than zero values. Otherwise this is a harmless message.}
-  \item{asprob}{The \code{qnorm} function is used to convert nonexceedance probabilities, which are produced by \code{\link{nonexceeds}}, to standard normal deviates. The normal distribution will plot as straight line when this argument is \code{TRUE} and \code{aslog=FALSE}.}
+  \item{asprob}{The \code{qnorm} function is used to convert nonexceedance probabilities, which are produced by \code{\link{nonexceeds}}, to Standard Normal variates. The Normal distribution will be a straight line when this argument is \code{TRUE} and \code{aslog=FALSE}.}
   \item{showsample}{Each simulated sample is drawn through plotting positions (\code{\link{pp}}).}
   \item{showparent}{The curve for the parent distribution is plotted on exit from the function if \code{TRUE}. Further plotting options can not be controlled---unlike the situation with the drawing of the simulated frequency curves.}
   \item{lowerCI}{An optional a priori estimate of the lower confidence limit for the \code{FCI} nonexceedance probability.}
   \item{upperCI}{An optional a priori estimate of the upper confidence limit for the \code{FCI} nonexceedance probability.}
   \item{FCI}{The nonexeedance probability of interest for the a priori confidence limits provided in \code{lowerCI} and \code{upperCI}.}
-  \item{...}{Additional parameters are passed to the \code{lines} call within the function---except for the drawing of the parent distribution (see argument \code{showparent}.}
+  \item{...}{Additional parameters are passed to the \code{lines} call within the function---except for the drawing of the parent distribution (see argument \code{showparent}).}
 }
 \value{
   This function is largely used for its graphical side effects, but if a priori esitmates of the confidence limits are known (say from \code{\link{genci}}) then this function can be used to evalute the counts of simulations at nonexceedance probability \code{FCI} outside the limits provided in \code{lowerCI} and \code{upperCI}.
@@ -41,22 +41,17 @@ n <- 46 # sample size derived from 75th percentile of record length distribution
 # in that report represent a regionalization of the parameters and hence
 # record lengths such as the median or smaller for the region seem too small
 # for reasonable exploration of confidence limits of precipitation.
-
 nsim <- 5000 # simulation size
 seed <- runif(1, min=1, max=10000)
 set.seed(seed)
 CI <- genci(para, n, F=F, nsim=nsim, edist='nor')
-lo.nor <- CI$lower
-hi.nor <- CI$upper
+lo.nor <- CI$lower; hi.nor <- CI$upper
 
 set.seed(seed)
 CI <- genci(para, n, F=F, nsim=nsim, edist='aep4')
-lo.aep4 <- CI$lower
-hi.aep4 <- CI$upper
-
+lo.aep4 <- CI$lower; hi.aep4 <- CI$upper
 message("NORMAL ERROR DIST: lowerCI = ",lo.nor, " and upperCI = ",hi.nor)
 message("  AEP4 ERROR DIST: lowerCI = ",lo.aep4," and upperCI = ",hi.aep4)
-
 qF <- qnorm(F)
 # simulated are grey, parent is black
 set.seed(seed)
@@ -71,7 +66,6 @@ lines( c(qF,qF), c(lo.nor, hi.nor),  lwd=2, col=2)
 points(c(qF,qF), c(lo.nor, hi.nor),  pch=1, lwd=2, col=2)
 lines( c(qF,qF), c(lo.aep4,hi.aep4), lwd=2, col=2)
 points(c(qF,qF), c(lo.aep4,hi.aep4), pch=2, lwd=2, col=2)
-
 percent.nor  <- (counts.nor$count.above.upperCI +
                  counts.nor$count.below.lowerCI) /
                  counts.nor$count.valid.simulations
@@ -80,11 +74,8 @@ percent.aep4 <- (counts.aep4$count.above.upperCI +
                  counts.aep4$count.valid.simulations
 percent.nor  <- 100 * percent.nor
 percent.aep4 <- 100 * percent.aep4
-
 message("NORMAL ERROR DIST: ",percent.nor)
 message("  AEP4 ERROR DIST: ",percent.aep4)
-
-
 # Continuing on, we are strictly focused on F being equal to 0.99
 # Also we are no restricted to the example using the GEV distribution
 # The vargev() function is from Handbook of Hydrology
@@ -102,13 +93,11 @@ function(para, n, F=c("F080", "F090", "F095", "F099", "F998", "F999")) {
               F099=c(-4.147,  8.216, -0.2033, 4.780),
               F998=c(-5.336, 10.711, -1.1930, 5.300),
               F999=c(-5.943, 11.815, -0.6300, 6.262))
-   AS <- as.environment(AS)
-   CO <- get(F, AS)
+   AS <- as.environment(AS); CO <- get(F, AS)
    varx <- A^2 * exp( CO[1] + CO[2]*exp(-K) + CO[3]*K^2 + CO[4]*K^3 ) / n
    names(varx) <- NULL
    return(varx)
 }
-
 sdx <- sqrt(vargev(para, n, F="F099"))
 VAL  <- qlmomco(F, para)
 lo.vargev <- VAL + qt(0.05, df=n) * sdx # minus covered by return of qt()
@@ -129,10 +118,10 @@ lines(c(qF,qF),  range(c(lo.nor,   hi.nor,
 points(c(qF,qF), c(lo.nor,      hi.nor), pch=1, lwd=2, col=2)
 points(c(qF,qF), c(lo.aep4,    hi.aep4), pch=3, lwd=2, col=2)
 points(c(qF,qF), c(lo.vargev,hi.vargev), pch=2, lwd=2, col=2)
-
 message("NORMAL ERROR DIST: ",percent.nor)
 message("  AEP4 ERROR DIST: ",percent.aep4)
 message("VARGEV ERROR DIST: ",percent.vargev)
 }
 }
 \keyword{misc}
+\keyword{Graphics}

@@ -18,7 +18,8 @@ function(lmom, zeta=NULL, checklmom=TRUE) {
        return()
     }
 
-    if(is.null(zeta)) {
+    # zeta is the lower bounds
+    if(is.null(zeta)) { # zeta is unknown, three moments needed
         if(is.na(T3)) stop("TAU3 is NA")
         if(T3 < 0) {
            warning("L-skew is negative, try reversing the data Y <- -X, to avoid a log(<0) error");
@@ -30,15 +31,16 @@ function(lmom, zeta=NULL, checklmom=TRUE) {
         }
         gno   <- pargno(lmom)
         sigma <-  -gno$para[3]
-        expmu <-   gno$para[2]/sigma
-        para  <- c(gno$para[1] - expmu, log(expmu), sigma)
+        eta   <- gno$para[2]/sigma
+        mu    <- log(eta)
+        para  <- c(gno$para[1] - eta, mu, sigma)
     }
-    else {
+    else { # zeta is known, only two moments needed
        if(is.na(L2)) stop("L2 is NA")
        eta   <- L1 - zeta
        tmp   <- (1 + L2/eta)/2
        if(tmp < 0 | tmp > 1) {
-          warning("bad zeta specified, inconsistent with L-moments")
+          warning("Specified zeta is inconsistent with provided mean and L-scale")
        }
        sigma <- sqrt(2) * qnorm(tmp)
        mu    <- log(eta) - 0.5 * sigma^2

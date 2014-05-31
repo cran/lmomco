@@ -4,24 +4,20 @@
 \description{
 This function computes the probability density
 of the Generalized Extreme Value distribution given parameters (\eqn{\xi},
-\eqn{\alpha}, and \eqn{\kappa}) of the distribution computed by \code{\link{pargev}}. The
-probability density function of the distribution is
-
-\deqn{f(x) = \alpha^{-1} e^{-(1-\kappa)y - e^{-y}} \mbox{,}}
-
-\deqn{y = -\kappa^{-1} \log\left(1 - \frac{\kappa(x-\xi)}{\alpha}\right) \mbox{ for } \kappa \ne 0 \mbox{, and}}
-
-\deqn{y = (x-\xi)/\alpha \mbox{ for } \kappa = 0 \mbox{,} }
-where \eqn{f(x)} is the probability density for quantile \eqn{x},
-\eqn{\xi} is a location parameter, \eqn{\alpha} is a scale parameter, and
-\eqn{\kappa} is a shape parameter.
+\eqn{\alpha}, and \eqn{\kappa})  computed by \code{\link{pargev}}. The probability density function is
+\deqn{f(x) = \alpha^{-1} \exp[-(1-\kappa)Y - \exp(-Y)] \mbox{,}}
+where \eqn{Y} is 
+\deqn{Y = -\kappa^{-1} \log\!\left(1 - \frac{\kappa(x-\xi)}{\alpha}\right)\mbox{,}}
+for \eqn{\kappa \ne 0}, and
+\deqn{Y = (x-\xi)/\alpha\mbox{,}}
+for \eqn{\kappa = 0}, where \eqn{f(x)} is the probability density for quantile \eqn{x}, \eqn{\xi} is a location parameter, \eqn{\alpha} is a scale parameter, and \eqn{\kappa} is a shape parameter.
 }
 \usage{
 pdfgev(x, para)
 }
 \arguments{
-  \item{x}{A real value.}
-  \item{para}{The parameters from \code{\link{pargev}} or similar.}
+  \item{x}{A real value vector.}
+  \item{para}{The parameters from \code{\link{pargev}} or \code{\link{vec2par}}.}
 }
 
 \value{
@@ -30,7 +26,7 @@ pdfgev(x, para)
 \references{
 Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
 distributions using linear combinations of order statistics: Journal
-of the Royal Statistical Society, Series B, vol. 52, p. 105--124.
+of the Royal Statistical Society, Series B, v. 52, pp. 105--124.
 
 Hosking, J.R.M., 1996, FORTRAN routines for use with the method of L-moments:
 Version 3, IBM Research Report RC20525, T.J. Watson Research Center,
@@ -40,12 +36,13 @@ Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An
 approach based on L-moments: Cambridge University Press.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{pdfgev}}, \code{\link{quagev}}, \code{\link{pargev}}}
+\seealso{\code{\link{pdfgev}}, \code{\link{quagev}}, \code{\link{lmomgev}}, \code{\link{pargev}}}
 \examples{
-  lmr <- lmom.ub(c(123,34,4,654,37,78))
+  lmr <- lmoms(c(123,34,4,654,37,78))
   gev <- pargev(lmr)
   x <- quagev(0.5,gev)
   pdfgev(x,gev)
 }
 \keyword{distribution}
 \keyword{probability density function}
+\keyword{Distribution: Generalized Extreme Value}

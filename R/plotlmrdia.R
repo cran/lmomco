@@ -10,11 +10,12 @@ function(lmr,
       nope3=FALSE,
       nogno=FALSE,
       nogov=FALSE,
-      nocau=FALSE,
+      nocau=TRUE,
       noexp=FALSE,
       nonor=FALSE,
       nogum=FALSE,
       noray=FALSE,
+      nosla=TRUE,
       nouni=FALSE,
          xlab="L-SKEW",
          ylab="L-KURTOSIS",
@@ -116,14 +117,14 @@ function(lmr,
    }
    if(nopoints == FALSE) {
      if(nocau == FALSE) {
-        points(lmr$cau,pch=14,col=2,cex=1.5)
+        points(lmr$cau,pch=13,col=3,cex=1.25)
         entryi <- entryi + 1
-        entries[entryi] <- "CAU (limiting)"
+        entries[entryi] <- "CAU (limiting TL1)"
         Elwd[entryi] <- NA
-        Ecol[entryi] <- 2
-        Epch[entryi] <- 14
+        Ecol[entryi] <- 3
+        Epch[entryi] <- 13
         Elty[entryi] <- NA
-        Ecex[entryi] <- 1.5
+        Ecex[entryi] <- 1.25
      }
      if(noexp == FALSE) {
         points(lmr$exp,pch=16,col=2,cex=1.5)
@@ -164,6 +165,16 @@ function(lmr,
         Epch[entryi] <- 18
         Elty[entryi] <- NA
         Ecex[entryi] <- 1.5
+     }
+     if(nosla == FALSE) {
+        points(lmr$sla,pch=10,cex=1.25,col=3)
+        entryi <- entryi + 1
+        entries[entryi] <- "SLA (TL1)"
+        Elwd[entryi] <- NA
+        Ecol[entryi] <- 3
+        Epch[entryi] <- 10
+        Elty[entryi] <- NA
+        Ecex[entryi] <- 1.25
      }
      if(nouni == FALSE) {
         points(lmr$uniform,pch=12,cex=1.25,col=2)

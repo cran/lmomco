@@ -1,6 +1,5 @@
 "lmomsRCmark" <-
-function(x, rcmark=NULL, nmom=5, sort=TRUE, flip=NA,
-            flipfactor=1.1) {
+function(x, rcmark=NULL, nmom=5, flip=NA, flipfactor=1.1) {
     n <- length(x);
     if(nmom > n)
         stop("More L-moments requested by parameter 'nmom' than data points available in 'x'");
@@ -26,10 +25,10 @@ function(x, rcmark=NULL, nmom=5, sort=TRUE, flip=NA,
        }
     }
 
-    if(sort) {
-       ix <- sort(x, index.return=TRUE)$ix;
-        x <- x[ix]; rcmark <- rcmark[ix];
-    }
+    
+    ix <- sort(x, index.return=TRUE)$ix;
+     x <- x[ix]; rcmark <- rcmark[ix];
+
     L <- R <- rep(NA, nmom);
     for(i in 1:nmom) {
        L[i] <- lmomRCmark(x, rcmark=rcmark, r=i, sort=FALSE);

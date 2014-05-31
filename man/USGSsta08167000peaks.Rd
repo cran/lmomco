@@ -36,7 +36,7 @@ The gage height qualification codes \code{Flag.1} are:
 data(USGSsta08167000peaks)
 }
 \format{
-A data frame with
+An \R \code{data.frame} with
 \describe{
   \item{agency_cd}{Agency code.}
   \item{site_no}{Agency station number.}

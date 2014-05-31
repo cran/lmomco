@@ -2,38 +2,28 @@
 \alias{quarevgum}
 \title{Quantile Function of the Reverse Gumbel Distribution}
 \description{
-This function computes the quantiles of the Reverse Gumbel distribution given
-parameters (\eqn{\xi} and \eqn{\alpha}) of the distribution computed by
-\code{\link{parrevgum}}.
-The quantile function of the distribution is
-
+This function computes the quantiles of the Reverse Gumbel distribution given parameters (\eqn{\xi} and \eqn{\alpha}) computed by \code{\link{parrevgum}}. The quantile function  is
 \deqn{x(F) = \xi + \alpha\log(-\log(1-F)) \mbox{,}}
-
-where \eqn{x(F)} is the quantile for nonexceedance probability \eqn{F},
-\eqn{\xi} is a location parameter, and \eqn{\alpha} is a scale parameter. Notice that the function has some sign differences and uses the complement of \eqn{F} compared to the Gumbel quantile function in \code{\link{quagum}}.
+where \eqn{x(F)} is the quantile for nonexceedance probability \eqn{F}, \eqn{\xi} is a location parameter, and \eqn{\alpha} is a scale parameter. Notice that the function has some sign differences and uses the complement of \eqn{F} compared to the Gumbel quantile function in \code{\link{quagum}}.
 }
 \usage{
 quarevgum(f, para, paracheck=TRUE)
 }
 \arguments{
   \item{f}{Nonexceedance probability (\eqn{0 \le F \le 1}).}
-  \item{para}{The parameters from \code{\link{parrevgum}} or similar.}
-  \item{paracheck}{A logical controlling whether the parameters and checked for validity. Overriding of this check might be extremely important and needed for use of the distribution quantile function in the context of TL-moments with nonzero trimming.}
+  \item{para}{The parameters from \code{\link{parrevgum}} or \code{\link{vec2par}}.}
+  \item{paracheck}{A logical controlling whether the parameters are checked for validity. Overriding of this check might be extremely important and needed for use of the quantile function in the context of TL-moments with nonzero trimming.}
 }
 \value{
   Quantile value for nonexceedance probability \eqn{F}.
 }
 \references{
-Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
-distributions using linear combinations of order statistics: Journal
-of the Royal Statistical Society, Series B, vol. 52, p. 105--124.
-
 Hosking, J.R.M., 1995, The use of L-moments in the analysis of censored data,
 in Recent Advances in Life-Testing and Reliability, edited by N. Balakrishnan,
 chapter 29, CRC Press, Boca Raton, Fla., pp. 546--560.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{cdfrevgum}}, \code{\link{parrevgum}}}
+\seealso{\code{\link{cdfrevgum}}, \code{\link{pdfrevgum}}, \code{\link{lmomrevgum}}, \code{\link{parrevgum}}}
 \examples{
 # See p. 553 of Hosking (1995)
 # Data listed in Hosking (1995, table 29.3, p. 553)
@@ -63,3 +53,5 @@ lines(F,quarevgum(F,rg.pars))
 }
 \keyword{distribution}
 \keyword{quantile function}
+\keyword{Distribution: Gumbel (reversed)}
+
