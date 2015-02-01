@@ -6,7 +6,7 @@ This function computes the probability density of the Generalized Pareto distrib
  computed by \code{\link{pargpa}}. The probability density function is
 \deqn{f(x) = \alpha^{-1} \exp(-(1-\kappa)Y) \mbox{,}}
 where \eqn{Y} is
-\deqn{y = -\kappa^{-1} \log\left(1 - \frac{\kappa(x-\xi)}{\alpha}\right)\mbox{,}}
+\deqn{Y = -\kappa^{-1} \log\left(1 - \frac{\kappa(x-\xi)}{\alpha}\right)\mbox{,}}
 for \eqn{\kappa \ne 0}, and
 \deqn{Y = (x-\xi)/\alpha\mbox{,}}
 for \eqn{\kappa = 0}, where \eqn{f(x)} is the probability density for quantile \eqn{x}, \eqn{\xi} is a location parameter, \eqn{\alpha} is a scale parameter, and \eqn{\kappa} is a shape parameter.

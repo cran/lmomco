@@ -2,7 +2,7 @@
 \alias{are.paraep4.valid}
 \title{Are the Distribution Parameters Consistent with the 4-Parameter Asymmetric Exponential Power Distribution}
 \description{
-Is the distribution parameter object consistent with the corresponding distribution?  The functions  (\code{\link{cdfaep4}}, \code{\link{pdfaep4}}, \code{\link{quaaep4}}, and
+Is the distribution parameter object consistent with the corresponding distribution?  The distribution functions  (\code{\link{cdfaep4}}, \code{\link{pdfaep4}}, \code{\link{quaaep4}}, and
 \code{\link{lmomaep4}}) require consistent parameters to return the cumulative
 probability (nonexceedance), density, quantile, and L-moments of the distribution,
 respectively.  These functions internally use the \code{\link{are.paraep4.valid}}

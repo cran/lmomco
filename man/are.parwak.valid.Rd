@@ -2,7 +2,7 @@
 \alias{are.parwak.valid}
 \title{Are the Distribution Parameters Consistent with the Wakeby Distribution}
 \description{
-Is the distribution parameter object consistent with the corresponding distribution?  The functions  (\code{\link{cdfwak}}, \code{\link{pdfwak}}, \code{\link{quawak}}, and
+Is the distribution parameter object consistent with the corresponding distribution?  The distribution functions  (\code{\link{cdfwak}}, \code{\link{pdfwak}}, \code{\link{quawak}}, and
 \code{\link{lmomwak}}) require consistent parameters to return the cumulative
 probability (nonexceedance), density, quantile, and L-moments of the distribution,
 respectively.  These functions internally use the \code{\link{are.parwak.valid}}

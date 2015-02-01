@@ -27,6 +27,8 @@ function(x) {
      if(x == "ray") return("Rayleigh")
      if(x == "rice") return("Rice")
      if(x == "revgum") return("Reverse Gumbel")
+     if(x == "texp") return("Truncated Exponential")
+     if(x == "tri") return("Triangular")
      if(x == "wak") return("Wakeby")
      if(x == "wei") return("Weibull")
   }

@@ -5,7 +5,7 @@
 This function computes the cumulative probability or nonexceedance probability of the Weibull distribution given parameters (\eqn{\zeta}, \eqn{\beta}, and \eqn{\delta}) of the distribution computed by \code{\link{parwei}}. The cumulative distribution function is
 \deqn{F(x) = 1 - \exp(Y^\delta) \mbox{,}}
 where \eqn{Y} is
-\deqn{Y = -\frac{x+\zeta}{\beta}\mbox{, and}}
+\deqn{Y = -\frac{x+\zeta}{\beta}\mbox{,}}
 where \eqn{F(x)} is the nonexceedance probability for quantile \eqn{x},
 \eqn{\zeta} is a location parameter, \eqn{\beta} is a scale parameter, and
 \eqn{\delta} is a shape parameter.

@@ -6,7 +6,7 @@ This function estimates the parameters (\eqn{\nu} and \eqn{\alpha}) of the Kappa
 
 The basic approach for parameter optimization is to extract initial guesses for the parameters from the table \code{KMU_lmompara_bykappa} in the \code{.lmomcohash} environment. The parameters having a minimum Euclidean error as controlled by three arguments are used for initial guesses in a Nelder-Mead simplex multidimensional optimization using the \R function \code{optim} and default arguments.
 
-Limited testing indicates that of the \dQuote{error term controlling options} that the default values as shown in the Usage section seem to provide superior performance in terms of recovering the \emph{a priori known} parameters in experiments. It seems that only Euclidean optimization using L-skew and L-kurtosis is preferred, but experiments show the general algorithm to be slow.
+Limited testing indicates that of the \dQuote{error term controlling options} that the default values as shown in the Usage section seem to provide superior performance in terms of recovering the \emph{a priori known} parameters in experiments. It seems that only Euclidean optimization using L-skew and L-kurtosis is preferable, but experiments show the general algorithm to be slow.
 }
 \usage{
 parkmu(lmom, checklmom=TRUE, checkbounds=TRUE,

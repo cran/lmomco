@@ -2,7 +2,7 @@
 \alias{are.paremu.valid}
 \title{Are the Distribution Parameters Consistent with the Eta-Mu Distribution}
 \description{
-Is the distribution parameter object consistent with the corresponding distribution?  The functions  (\code{\link{cdfemu}}, \code{\link{pdfemu}}, \code{\link{quaemu}}, \code{\link{lmomemu}}), and \code{\link{lmomemu}} require consistent parameters to return the cumulative probability (nonexceedance), density, quantile, and L-moments of the distribution, respectively.  These functions internally use the \code{\link{are.paremu.valid}} function. The documentation for \code{\link{pdfemu}} provides the conditions for valid parameters.
+Is the distribution parameter object consistent with the corresponding distribution?  The distribution functions  (\code{\link{cdfemu}}, \code{\link{pdfemu}}, \code{\link{quaemu}}, \code{\link{lmomemu}}), and \code{\link{lmomemu}} require consistent parameters to return the cumulative probability (nonexceedance), density, quantile, and L-moments of the distribution, respectively.  These functions internally use the \code{\link{are.paremu.valid}} function. The documentation for \code{\link{pdfemu}} provides the conditions for valid parameters.
 }
 \usage{
 are.paremu.valid(para, nowarn=FALSE)

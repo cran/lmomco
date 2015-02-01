@@ -23,7 +23,7 @@ z.par2cdf(x, p, para, z=0, ...)
 }
 \author{ W.H. Asquith}
 \references{
-Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: CreateSpace Independent Publishing Platform, 2nd printing, ISBN 978--146350841--8.
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
 }
 \seealso{\code{\link{z.par2qua}}, \code{\link{par2cdf}}}
 \examples{

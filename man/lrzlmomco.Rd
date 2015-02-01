@@ -41,6 +41,6 @@ LCV <- lmomgov(A)$ratios[2]                                     # 0.41291585
 \keyword{Lorenz curve}
 \keyword{lifetime/reliability analysis}
 \concept{lifetime}
-\concept{life time}
+\concept{lifetime}
 \concept{reliability}
 \keyword{The lmomco functions}

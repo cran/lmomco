@@ -26,7 +26,7 @@ function(side=1, twoside=FALSE,
       NPP.control <- list(label="NONEXCEEDANCE PROBABILITY",
                           probs=my.nonexceeds(minors=TRUE),
                           probs.label=my.nonexceeds(minors=FALSE),
-                          digits=3, line=3, as.exceed=TRUE)
+                          digits=3, line=3, as.exceed=FALSE)
    }
    if(is.null(RI.control)) {
       RI.control <- list(label="RECURRENCE INTERVAL, YEARS",

@@ -110,6 +110,10 @@ function(vec,type,nowarn=FALSE,paracheck=TRUE,...) {
       z <- list(type = 'texp', para = vec, source = "vec2par")
       names(z$para) <- c("xi","alpha","is.stationary")
     }
+    else if(type == 'tri') {
+      z <- list(type = 'tri', para = vec, source = "vec2par")
+      names(z$para) <- c("min","mode","max")
+    }
     else if(type == 'wak') {
       z <- list(type = 'wak', para = vec, source = "vec2par")
       names(z$para) <- c("xi","alpha","beta","gamma","delta")

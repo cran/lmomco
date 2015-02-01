@@ -2,7 +2,7 @@
 \alias{gen.freq.curves}
 \title{Plot Randomly Generated Frequency Curves from a Parent Distribution}
 \description{
-This function generates random samples of specified size from a specified parent distribution. Subsequently, the type of parent distribution is fit to the L-moments of the generated sample. The fitted distribution is then plotted. It is the user's responsibility to have an active \code{plot} already drawn; unless the \code{callplot} option is \code{TRUE}. This function is useful to demonstration of sample size on the uncertainty of a fitted distribution---a motivation for this function as a class room exercise.
+This function generates random samples of specified size from a specified parent distribution. Subsequently, the type of parent distribution is fit to the L-moments of the generated sample. The fitted distribution is then plotted. It is the user's responsibility to have an active \code{plot} already drawn; unless the \code{callplot} option is \code{TRUE}. This function is useful to demonstration of sample size on the uncertainty of a fitted distribution---a motivation for this function is as a classroom exercise.
 }
 \usage{
 gen.freq.curves(n, para, F=NULL, nsim=10, callplot=TRUE, aslog=FALSE,
@@ -19,13 +19,13 @@ gen.freq.curves(n, para, F=NULL, nsim=10, callplot=TRUE, aslog=FALSE,
   \item{asprob}{The \code{qnorm} function is used to convert nonexceedance probabilities, which are produced by \code{\link{nonexceeds}}, to Standard Normal variates. The Normal distribution will be a straight line when this argument is \code{TRUE} and \code{aslog=FALSE}.}
   \item{showsample}{Each simulated sample is drawn through plotting positions (\code{\link{pp}}).}
   \item{showparent}{The curve for the parent distribution is plotted on exit from the function if \code{TRUE}. Further plotting options can not be controlled---unlike the situation with the drawing of the simulated frequency curves.}
-  \item{lowerCI}{An optional a priori estimate of the lower confidence limit for the \code{FCI} nonexceedance probability.}
-  \item{upperCI}{An optional a priori estimate of the upper confidence limit for the \code{FCI} nonexceedance probability.}
-  \item{FCI}{The nonexeedance probability of interest for the a priori confidence limits provided in \code{lowerCI} and \code{upperCI}.}
+  \item{lowerCI}{An optional estimate of the lower confidence limit for the \code{FCI} nonexceedance probability.}
+  \item{upperCI}{An optional estimate of the upper confidence limit for the \code{FCI} nonexceedance probability.}
+  \item{FCI}{The nonexeedance probability of interest for the confidence limits provided in \code{lowerCI} and \code{upperCI}.}
   \item{...}{Additional parameters are passed to the \code{lines} call within the function---except for the drawing of the parent distribution (see argument \code{showparent}).}
 }
 \value{
-  This function is largely used for its graphical side effects, but if a priori esitmates of the confidence limits are known (say from \code{\link{genci}}) then this function can be used to evalute the counts of simulations at nonexceedance probability \code{FCI} outside the limits provided in \code{lowerCI} and \code{upperCI}.
+  This function is largely used for its graphical side effects, but if estimates of the lower and upper confidence limits are known (say from \code{\link{genci}}) then this function can be used to evaluate the counts of simulations at nonexceedance probability \code{FCI} outside the limits provided in \code{lowerCI} and \code{upperCI}.
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{lmom2par}}, \code{\link{nonexceeds}}, \code{\link{rlmomco}}, \code{\link{lmoms}}
@@ -33,7 +33,7 @@ gen.freq.curves(n, para, F=NULL, nsim=10, callplot=TRUE, aslog=FALSE,
 \examples{
 \dontrun{
 # 1-day rainfall Travis county, Texas
-para <- vec2par(c(3.00, 1.20, -.0954), type='gev')
+para <- vec2par(c(3.00, 1.20, -.0954), type="gev")
 F <- .99 # the 100-year event
 n <- 46 # sample size derived from 75th percentile of record length distribution
 # for Edwards Plateau from Figure 3 of USGS WRIR98-4044 (Asquith, 1998)
@@ -44,11 +44,11 @@ n <- 46 # sample size derived from 75th percentile of record length distribution
 nsim <- 5000 # simulation size
 seed <- runif(1, min=1, max=10000)
 set.seed(seed)
-CI <- genci(para, n, F=F, nsim=nsim, edist='nor')
+CI <- genci(para, n, F=F, nsim=nsim, edist="nor")
 lo.nor <- CI$lower; hi.nor <- CI$upper
 
 set.seed(seed)
-CI <- genci(para, n, F=F, nsim=nsim, edist='aep4')
+CI <- genci(para, n, F=F, nsim=nsim, edist="aep4")
 lo.aep4 <- CI$lower; hi.aep4 <- CI$upper
 message("NORMAL ERROR DIST: lowerCI = ",lo.nor, " and upperCI = ",hi.nor)
 message("  AEP4 ERROR DIST: lowerCI = ",lo.aep4," and upperCI = ",hi.aep4)

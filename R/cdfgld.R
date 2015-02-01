@@ -22,7 +22,7 @@ function(x,gldpara,paracheck=TRUE) {
     qua.min <- quagld(end.min,gldpara,paracheck=FALSE)
     qua.max <- quagld(end.max,gldpara,paracheck=FALSE)
 
-    f <- vector(mode="numeric")
+    f <- vector(mode="numeric", length=length(x))
     for(i in seq(1,length(x))) {
       #cat(c("Working on i=",i," and x[i]=",x[i],"\n"),sep="")
       QUAx <- x[i]

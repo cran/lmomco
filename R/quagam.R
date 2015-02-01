@@ -6,9 +6,8 @@ function(f,para,paracheck=TRUE) {
     }
     ALPHA <- para$para[1] 
     BETA  <- para$para[2] 
-    n <- length(f)
-    x <- vector(mode="numeric",length=n)
-    for(i in seq(1,n)) {
+    x <- vector(mode="numeric", length=length(f))
+    for(i in seq(1,length(f))) {
       if(f[i] == 0) { x[i] <- 0; next }
       x[i] <- qgamma(f[i],ALPHA,scale=BETA)
     }

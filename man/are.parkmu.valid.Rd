@@ -2,7 +2,7 @@
 \alias{are.parkmu.valid}
 \title{Are the Distribution Parameters Consistent with the Kappa-Mu Distribution}
 \description{
-Is the distribution parameter object consistent with the corresponding distribution?  The functions  (\code{\link{pdfkmu}}, \code{\link{cdfkmu}}, \code{\link{quakmu}}, and \code{\link{lmomkmu}}) require consistent parameters to return the cumulative probability (nonexceedance), density, quantile, and L-moments of the distribution, respectively.  These functions internally use the \code{\link{are.parkmu.valid}} function. The documentation for \code{\link{pdfkmu}} provides the conditions for valid parameters.
+Is the distribution parameter object consistent with the corresponding distribution?  The distribution functions  (\code{\link{pdfkmu}}, \code{\link{cdfkmu}}, \code{\link{quakmu}}, and \code{\link{lmomkmu}}) require consistent parameters to return the cumulative probability (nonexceedance), density, quantile, and L-moments of the distribution, respectively.  These functions internally use the \code{\link{are.parkmu.valid}} function. The documentation for \code{\link{pdfkmu}} provides the conditions for valid parameters.
 }
 \usage{
 are.parkmu.valid(para, nowarn=FALSE)

@@ -2,7 +2,7 @@
 \alias{parTLgld}
 \title{Estimate the Parameters of the Generalized Lambda Distribution using Trimmed L-moments (t=1)}
 \description{
-This function estimates the parameters of the Generalized Lambda distribution given the trimmed L-moments (TL-moments) for \eqn{t=1} of the data in a TL-moment object with a trim level of unity (\code{trim=1}). The relations between distribution parameters and TL-moments are seen under \code{\link{lmomTLgld}}. There are no simple expressions for the parameters in terms of the L-moments. This function is experimental and general details of the algorithm are provided below. Further, consider that multiple parameter solutions are possible with the Generalized Lambda distribution so some expertise with this distribution and other aspects is advised.
+This function estimates the parameters of the Generalized Lambda distribution given the trimmed L-moments (TL-moments) for \eqn{t=1} of the data in a TL-moment object with a trim level of unity (\code{trim=1}). The relations between distribution parameters and TL-moments are seen under \code{\link{lmomTLgld}}. There are no simple expressions for the parameters in terms of the L-moments. Consider that multiple parameter solutions are possible with the Generalized Lambda distribution so some expertise with this distribution and other aspects is advised.
 }
 \usage{
 parTLgld(lmom, verbose=FALSE, initkh=NULL, eps=1e-3,
@@ -17,7 +17,7 @@ parTLgld(lmom, verbose=FALSE, initkh=NULL, eps=1e-3,
   \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{\link{are.lmom.valid}} function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check.}
 }
 \details{
-Karian and Dudewicz (2000) summarize six regions of the \eqn{\kappa} and \eqn{h} space in which the Generalized Lambda distribution is valid for suitably choosen \eqn{\alpha}. Numerical experimentation suggestions that the L-moments are not valid in Regions 1 and 2. However, initial guesses of the parameters within each region are used numerous separate \code{optim} (the \R function) efforts to perform a least sum-of-square errors on the following objective function.
+Karian and Dudewicz (2000) summarize six regions of the \eqn{\kappa} and \eqn{h} space in which the Generalized Lambda distribution is valid for suitably choosen \eqn{\alpha}. Numerical experimentation suggestions that the L-moments are not valid in Regions 1 and 2. However, initial guesses of the parameters within each region are used with numerous separate \code{optim} (the \R function) efforts to perform a least sum-of-square errors on the following objective function.
  \deqn{(\hat{\tau}^{(1)}_3 - \tilde{\tau}^{(1)}_3)^2 + (\hat{\tau}^{(1)}_4 - \tilde{\tau}^{(1)}_4)^2 \mbox{, }}
 where \eqn{\tilde{\tau}^{(1)}_r} is the L-moment ratio of the data, \eqn{\hat{\tau}^{(1)}_r} is the estimated value of the TL-moment ratio for the current pairing of \eqn{\kappa} and \eqn{h} and \eqn{\tau^{(1)}_r} is the actual value of the L-moment ratio.
 

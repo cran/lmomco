@@ -13,7 +13,7 @@ pmoms(x)
 \value{
   An \R \code{list} is returned.
 
-  \item{moments}{Vector of the product moments. First element is the mean (\code{mean} in \R), second is standard deviation, and the higher values typically are not used as these are not unbiased moments, but the ratios[3] and ratios[4] are nearly unbiased.}
+  \item{moments}{Vector of the product moments: first element is the mean (\code{mean} in \R), second is standard deviation, and the higher values typically are not used as these are not unbiased moments, but the ratios[3] and ratios[4] are nearly unbiased.}
   \item{ratios}{Vector of the product moment ratios. Second element is the coefficient of variation, ratios[3] is skew, and ratios[4] is kurtosis.}
   \item{sd}{Nearly unbiased standard deviation [well at least unbiased variance \cr (\code{unbiased.sd^2})] computed by \R function \code{sd}. }
   \item{umvu.sd}{Uniformly-minimum variance unbiased estimator of standard deviation.}
@@ -28,7 +28,7 @@ pmoms(x)
   \item{source}{An attribute identifying the computational source (the function name) of the product moments: \dQuote{pmoms}.}
 }
 \note{
-This function is primarily available for gamesmanship playing with the Pearson Type III distribution as its parameterization in \pkg{lmomco} returns the product moments as the very parameter of the distribution. This of course is like the Normal distribution in which the first two parameters are the first two product moments; the Pearson Type III just adds skew.  See the example below. Another reason for having this function in \pkg{lmomco} is that it demonstrates application of unbiased product moments and permits comparisons to the L-moments (see Asquith, 2011; figs. 12.13--12.16).
+This function is primarily available for gamesmanship with the Pearson Type III distribution as its parameterization in \pkg{lmomco} returns the product moments as the very parameters of that distribution. This of course is like the Normal distribution in which the first two parameters are the first two product moments; the Pearson Type III just adds skew.  See the example below. Another reason for having this function in \pkg{lmomco} is that it demonstrates application of unbiased product moments and permits comparisons to the L-moments (see Asquith, 2011; figs. 12.13--12.16).
 
 The \code{umvu.sd} is computed by
 \deqn{\hat\sigma' = \frac{\Gamma[(n-1)/2]}{\Gamma(n/2)\sqrt{2}}\sqrt{\sum_{i=1}^{n} (x_i - \hat\mu)^2}\mbox{.}}
@@ -36,7 +36,7 @@ The \code{umvu.sd} is computed by
 This function also is used by \code{\link{qua2ci}} in support of tabular results shown by \code{\link{genci}}.
 }
 \references{
-Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: CreateSpace Independent Publishing Platform, 2nd printing, ISBN 978--146350841--8.
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
 
 Hosking, J.R.M., and Wallis, J.R., 1997, Regional frequency analysis---An approach based on L-moments: Cambridge University Press.
 

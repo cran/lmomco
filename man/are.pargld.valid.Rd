@@ -2,7 +2,7 @@
 \alias{are.pargld.valid}
 \title{Are the Distribution Parameters Consistent with the Generalized Lambda Distribution}
 \description{
-Is the distribution parameter object consistent with the corresponding distribution?  The functions  (\code{\link{cdfgld}}, \code{\link{pdfgld}}, \code{quagld}, and \code{\link{lmomgld}}) require consistent parameters to return the cumulative probability (nonexceedance), density, quantile, and L-moments of the distribution, respectively.  These functions internally use the \code{\link{are.pargld.valid}} function.
+Is the distribution parameter object consistent with the corresponding distribution?  The distribution functions  (\code{\link{cdfgld}}, \code{\link{pdfgld}}, \code{quagld}, and \code{\link{lmomgld}}) require consistent parameters to return the cumulative probability (nonexceedance), density, quantile, and L-moments of the distribution, respectively.  These functions internally use the \code{\link{are.pargld.valid}} function.
 }
 \usage{
 are.pargld.valid(para, verbose=FALSE, nowarn=FALSE)
@@ -23,7 +23,6 @@ for all \eqn{F \in [0,1]}. The \code{are.pargld.valid} function tests against th
 \deqn{\mbox{Region 4:  } \kappa \le 0 \mbox{ and } h \le 0 \mbox{,}}
 \deqn{\mbox{Region 5:  } h \ge (-1/\kappa) \mbox{ and } -1 \ge \kappa \le 0 \mbox{, and}}
 \deqn{\mbox{Region 6:  } h \le (-1/\kappa) \mbox{ and } h \ge -1 \mbox{ and } \kappa \ge 1 \mbox{.}}
-
 }
 \value{
   \item{TRUE}{If the parameters are \code{gld} consistent.}
@@ -40,9 +39,14 @@ This function calls \code{\link{is.gld}} to verify consistency between the distr
 \author{ W.H. Asquith}
 \seealso{ \code{\link{is.gld}}, \code{\link{pargld}} }
 \examples{
-\dontrun{ # cpu expensive
+\dontrun{
 para <- vec2par(c(123,34,4,3),type='gld')
 if(are.pargld.valid(para)) Q <- quagld(0.5,para)
+
+# The following is an example of inconsistent L-moments for fitting but
+# prior to lmomco version 2.1.2 and untrapped error was occurring.
+lmr <- lmoms(c(33, 37, 41, 54, 78, 91, 100, 120, 124))
+para <- pargld(lmr); are.pargld.valid(para)
 }
 }
 \keyword{utility (distribution)}

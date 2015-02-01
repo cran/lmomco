@@ -2,7 +2,7 @@
 \alias{are.parkur.valid}
 \title{Are the Distribution Parameters Consistent with the Kumaraswamy Distribution}
 \description{
-Is the distribution parameter object consistent with the corresponding distribution?  The functions  (\code{\link{cdfkur}}, \code{\link{pdfkur}}, \code{quakur}, and
+Is the distribution parameter object consistent with the corresponding distribution?  The distribution functions  (\code{\link{cdfkur}}, \code{\link{pdfkur}}, \code{quakur}, and
 \code{\link{lmomkur}}) require consistent parameters to return the cumulative
 probability (nonexceedance), density, quantile, and L-moments of the distribution,
 respectively.  These functions internally use the \code{\link{are.parkur.valid}}

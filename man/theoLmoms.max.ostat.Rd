@@ -17,7 +17,7 @@ If \code{qua != NULL}, then the first expectation equation shown under \code{\li
 }
 \usage{
 theoLmoms.max.ostat(para=NULL, cdf=NULL, pdf=NULL, qua=NULL,
-                    nmom=4, switch2minostat=FALSE, ...)
+                    nmom=4, switch2minostat=FALSE, showterms=FALSE, ...)
 }
 \arguments{
   \item{para}{A distribution parameter list from a function such as \code{lmom2par} or \code{\link{vec2par}}.}
@@ -25,13 +25,14 @@ theoLmoms.max.ostat(para=NULL, cdf=NULL, pdf=NULL, qua=NULL,
   \item{pdf}{PDF of the distribution for the parameters.}
   \item{qua}{Quantile function for the parameters.}
   \item{nmom}{The number of L-moments to compute.}
-  \item{switch2minostat}{A logical in which a switch to the expectations of minimum order statistics will be used and \code{\link{expect.min.ostat}} instead of \code{\link{expect.max.ostat}} will be used with tiny change in overall numerics. The function \code{\link{theoLmoms.min.ostat}} provides a direct interface for L-moment computation by minimum order statistics.}
-  \item{...}{Optional, but likely, arguments to pass to \code{\link{expect.min.ostat}} or \code{\link{expect.max.ostat}}. Such arguments will likely tailor the integration limits that can be specific for the distribution in question. Further these arguments might be needed for the cumulative distribution function.}
+  \item{switch2minostat}{A logical in which a switch to the expectations of minimum order statistics will be used and \code{\link{expect.min.ostat}} instead of \code{\link{expect.max.ostat}} will be used with expected small change in overall numerics. The function \cr \code{\link{theoLmoms.min.ostat}} provides a direct interface for L-moment computation by minimum order statistics.}
+  \item{showterms}{A logical controlling just a reference message that will show the multipliers on each of the order statistic minima or maxima that comprise the terms within the summations in the above formulae (see Asquith, 2011, p. 95).}
+  \item{...}{Optional, but likely, arguments to pass to \code{\link{expect.min.ostat}} or \cr\code{\link{expect.max.ostat}}. Such arguments will likely tailor the integration limits that can be specific for the distribution in question. Further these arguments might be needed for the cumulative distribution function.}
 }
 \value{
   An \R \code{list} is returned.
 
-  \item{lambdas}{Vector of the L-moments. First element is
+  \item{lambdas}{Vector of the L-moments: first element is
 \eqn{\lambda_1}, second element is \eqn{\lambda_2}, and so on.}
   \item{ratios}{Vector of the L-moment ratios. Second element is
 \eqn{\tau}, third element is \eqn{\tau_3} and so on.}
@@ -41,7 +42,10 @@ theoLmoms.max.ostat(para=NULL, cdf=NULL, pdf=NULL, qua=NULL,
   \item{source}{An attribute identifying the computational source of the L-moments: \dQuote{theoLmoms.max.ostat}.}
 }
 \note{
-Perhaps one of the neater capabilities that these functions provide is for computing L-moments that are not analytically available from other authors or have no analytical solution.
+Perhaps one of the neater capabilities that the \code{theoLmoms.max.ostat} and \code{theoLmoms.min.ostat} functions provide is for computing L-moments that are not analytically available from other authors or have no analytical solution.
+}
+\references{
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{theoLmoms}}, \code{\link{expect.min.ostat}}, \code{\link{expect.max.ostat}}}

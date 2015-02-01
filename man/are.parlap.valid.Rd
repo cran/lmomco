@@ -2,7 +2,7 @@
 \alias{are.parlap.valid}
 \title{Are the Distribution Parameters Consistent with the Laplace Distribution}
 \description{
-Is the distribution parameter object consistent with the corresponding distribution?  The functions  (\code{\link{cdflap}}, \code{\link{pdflap}}, \code{\link{qualap}}, and \code{\link{lmomlap}}) require consistent parameters to return the cumulative probability (nonexceedance), density, quantile, and L-moments of the distribution, respectively.  These functions internally use the \code{\link{are.parlap.valid}} function.
+Is the distribution parameter object consistent with the corresponding distribution?  The distribution functions  (\code{\link{cdflap}}, \code{\link{pdflap}}, \code{\link{qualap}}, and \code{\link{lmomlap}}) require consistent parameters to return the cumulative probability (nonexceedance), density, quantile, and L-moments of the distribution, respectively.  These functions internally use the \code{\link{are.parlap.valid}} function.
 }
 \usage{
 are.parlap.valid(para, nowarn=FALSE)

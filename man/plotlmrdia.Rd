@@ -2,7 +2,7 @@
 \alias{plotlmrdia}
 \title{Plot L-moment Ratio Diagram}
 \description{
-Plot the L-moment ratio diagram of L-skew and L-kurtosis from an L-moment ratio diagram object returned by \code{\link{lmrdia}}.  This diagram is useful for selecting a distribution to model the data. The application of L-moment diagrams is well documented in the literature. This function is intended to function as a demonstration of L-moment diagram plotting.
+Plot the L-moment ratio diagram of L-skew and L-kurtosis from an L-moment ratio diagram object returned by \code{\link{lmrdia}}.  This diagram is useful for selecting a distribution to model the data. The application of L-moment diagrams is well documented in the literature. This function is intended to function as a demonstration of L-moment ratio diagram plotting.
 }
 \usage{
 plotlmrdia(lmr, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
@@ -21,7 +21,7 @@ plotlmrdia(lmr, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
   \item{noaep4}{If \code{TRUE} then line of Asymmetric Exponential Power distribution is not drawn.}
   \item{nogev}{If \code{TRUE} then line of Generalized Extreme Value distribution is not drawn.}
   \item{noglo}{If \code{TRUE} then line of Generalized Logistic distribution is not drawn.}
-  \item{nogno}{If \code{TRUE} then line of Generalized Normal (log-Normal) distribution is not drawn.}
+  \item{nogno}{If \code{TRUE} then line of Generalized Normal (Log-Normal3) distribution is not drawn.}
   \item{nogov}{If \code{TRUE} then line of Govindarajulu distribution is not drawn.}
   \item{nogpa}{If \code{TRUE} then line of Generalized Pareto distribution is not drawn.}
   \item{nope3}{If \code{TRUE} then line of Pearson Type III distribution is not drawn.}
@@ -40,7 +40,7 @@ plotlmrdia(lmr, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
   \item{...}{Additional arguments passed onto the \code{plot} function.}
 }
 \note{
-This function provides hardwired calls to \code{lines} and \code{points} to produce the diagram. The plot symbology for the shown distributions is summarized here. The Asymmetric Exponential Power and Kappa (four parameter) and Wakeby (five parameter) distributions are not well represented on the diagram as each constitute an area (Kappa) or hyperplane (Wakeby) and not a line (three-parameter distributions) or a point (two-parameter distributions). However, the Kappa demarks the area bounded by the Generalized Logistic (\code{glo}) on the top and the
+This function provides hardwired calls to \code{lines} and \code{points} to produce the diagram. The plot symbology for the shown distributions is summarized here. The Asymmetric Exponential Power and Kappa (four parameter) and Wakeby (five parameter) distributions are not well represented on the diagram as each constitute an area (Kappa) or hyperplane (Wakeby) and not a line (3-parameter distributions) or a point (2-parameter distributions). However, the Kappa demarks the area bounded by the Generalized Logistic (\code{glo}) on the top and the
 theoretical L-moment limits on the bottom. The Asymmetric Exponential Power demarks its own unique lower boundary and extends up in the \eqn{\tau_4} direction to \eqn{\tau_4 = 1}. However, parameter estimation with L-moments has lost considerable accuracy for \eqn{\tau_4} that large (see Asquith, 2014).
 
 \tabular{cl}{
@@ -63,7 +63,7 @@ theoretical L-moment limits on the bottom. The Asymmetric Exponential Power dema
 }
 }
 \references{
-Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: First edition, CreateSpace Independent Publishing Platform, ISBN 978-1463508418, 2nd printing, 348 p.
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
 
 Asquith, W.H., 2014, Parameter estimation for the 4-parameter asymmetric exponential power distribution by the method of L-moments using R: Computational Statistics and Data Analysis, v. 71, pp. 955--970.
 

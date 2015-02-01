@@ -4,7 +4,7 @@
 \title{ Gini Mean Difference Statistic }
 \description{
 The Gini mean difference statistic \eqn{\mathcal{G}} is a robust estimator of distribution scale and is closely related to the second L-moment \eqn{\lambda_2 = \mathcal{G}/2}.
-\deqn{\mathcal{G} = \frac{2}{n(n-1)}\sum_{i=1}^n (2i - n - 1) x_{i:n}}
+\deqn{\mathcal{G} = \frac{2}{n(n-1)}\sum_{i=1}^n (2i - n - 1) x_{i:n}\mbox{,}}
 where \eqn{x_{i:n}} are the sample order statistics.
 }
 \usage{

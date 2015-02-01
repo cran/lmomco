@@ -55,7 +55,7 @@ Repeated application of this function for various \code{n} would result in the a
 Also, symmetrical data likely see little benefit from optimizing on the symmetry-measuring L-moments Tau3 and Tau5; the analyst might prefer to optimize on peakedness measured by Tau4.
 }
 \note{
-This function is highly experimental and subject to extremely overhaul. Please contact the author if you are an interested party in Bernstein and Kantorovich polynomials.
+This function is highly experimental and subject to extreme overhaul. Please contact the author if you are an interested party in Bernstein and Kantorovich polynomials.
 }
 \author{W.H. Asquith}
 \references{

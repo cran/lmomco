@@ -4,9 +4,9 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
               step=FALSE,show=FALSE,
               xmin=NULL,xmax=NULL,xlim=NULL,
               ymin=NULL,ymax=NULL,ylim=NULL,
-              exp=TRUE,gam=TRUE,gev=TRUE,gld=FALSE,glo=TRUE,
-              gno=TRUE,gpa=TRUE,gum=TRUE,kap=TRUE,nor=TRUE,
-              pe3=TRUE,wak=TRUE,wei=TRUE,...) {
+              aep4=FALSE,exp=TRUE,gam=TRUE,gev=TRUE,gld=FALSE,
+              glo=TRUE,gno=TRUE,gpa=TRUE,gum=TRUE,kap=TRUE,
+              nor=TRUE,pe3=TRUE,wak=TRUE,wei=TRUE,...) {
 
     if(! are.lmom.valid(lmom)) {
       warning("L-moments are invalid")
@@ -28,8 +28,9 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
      wei <- FALSE
     }
     if(no4para) {
-     gld <- FALSE
-     kap <- FALSE
+     aep4 <- FALSE
+     gld  <- FALSE
+     kap  <- FALSE
     }
     if(no5para) {
      wak <- FALSE
@@ -37,20 +38,21 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
 
     F <- nonexceeds()
     n <- length(F)
-    EXP <- vector(mode="numeric",length=n)
-    GAM <- vector(mode="numeric",length=n)
-    GEV <- vector(mode="numeric",length=n)
-    GLD <- vector(mode="numeric",length=n)
-    GLO <- vector(mode="numeric",length=n)
-    GNO <- vector(mode="numeric",length=n)
-    GPA <- vector(mode="numeric",length=n)
-    GUM <- vector(mode="numeric",length=n)
-    KAP <- vector(mode="numeric",length=n)
-    NOR <- vector(mode="numeric",length=n)
-    PE3 <- vector(mode="numeric",length=n)
-    WAK <- vector(mode="numeric",length=n)
-    WEI <- vector(mode="numeric",length=n)
+    AEP4 <- EXP <- GAM <- GEV <- GLD <- GLO <- GNO <- vector(mode="numeric",length=n)
+    GPA  <- GUM <- KAP <- NOR <- PE3 <- WAK <- WEI <- vector(mode="numeric",length=n)
 
+    if(aep4 == TRUE) {
+      if(show == TRUE) cat("4-p Asymmetric Exponential Power distribution (takes awhile)--")
+      P <- paraep4(lmom,...)
+      if(show == TRUE) cat("parameters--")
+      if(P$type == "kap") {
+         message("   For AEP4 logic and AEP4 solution does not exist, no quantiles will be computed")
+      } else {
+         AEP4 <- quaaep4(F,P)
+         if(aslog10 == TRUE) AEP4 <- log10(AEP4)
+         if(show == TRUE) cat("quantiles\n")
+      }
+    }
     if(exp == TRUE) {
       if(show == TRUE) cat("Exponential distribution--")
       P <- parexp(lmom)
@@ -143,9 +145,13 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
       if(show == TRUE) cat("Wakeby distribution--")
       P <- parwak(lmom)
       if(show == TRUE) cat("parameters--")
-      WAK <- quawak(F,P)
-      if(aslog10 == TRUE) WAK <- log10(WAK)
-      if(show == TRUE) cat("quantiles\n")
+      if(P$ifail == 2) { # GPA instead but likely GPA is triggered elsewhere
+         message("   For WAK logic a WAK solution does not exist, no quantiles will be computed")     
+      } else {
+         WAK <- quawak(F,P)
+         if(aslog10 == TRUE) WAK <- log10(WAK)
+         if(show == TRUE) cat("quantiles\n")
+      }
     }
     if(wei == TRUE) {
       if(show == TRUE) cat("Weibull distribution--")
@@ -155,16 +161,31 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
       if(aslog10 == TRUE) WEI <- log10(WEI)
       if(show == TRUE) cat("quantiles\n")
     }
-    
-    Q <- data.frame(nonexceeds = F,exp = EXP, gam = GAM, gev = GEV, glo = GLO,
-                                   gld = GLD, gno = GNO, gpa = GPA, gum = GUM,
-		                   kap = KAP, nor = NOR, pe3 = PE3, wak = WAK,
-                                   wei = WEI)
+
+    if(all(AEP4 == 0)) AEP4 <- rep(NA, n)
+    if(all(EXP ==  0))  EXP <- rep(NA, n)
+    if(all(GAM ==  0))  GAM <- rep(NA, n)
+    if(all(GEV ==  0))  GEV <- rep(NA, n)
+    if(all(GLD ==  0))  GLD <- rep(NA, n)
+    if(all(GLO ==  0))  GLO <- rep(NA, n)
+    if(all(GNO ==  0))  GNO <- rep(NA, n)
+    if(all(GPA ==  0))  GPA <- rep(NA, n)
+    if(all(GUM ==  0))  GUM <- rep(NA, n)
+    if(all(KAP ==  0))  KAP <- rep(NA, n)
+    if(all(NOR ==  0))  NOR <- rep(NA, n)
+    if(all(PE3 ==  0))  PE3 <- rep(NA, n)
+    if(all(WAK ==  0))  WAK <- rep(NA, n)
+    if(all(WEI ==  0))  WEI <- rep(NA, n)
+
+    Q <- data.frame(nonexceeds = F,
+                    aep4 = AEP4, exp = EXP, gam = GAM, gev = GEV, glo = GLO,
+                    gld = GLD, gno = GNO, gpa = GPA, gum = GUM,
+		            kap = KAP, nor = NOR, pe3 = PE3, wak = WAK, wei = WEI)
     if(show == TRUE) {
       xlab <- "NONEXCEEDANCE PROBABILITY"
       if(asprob == TRUE) {
         F <- qnorm(F)
-        xlab <- "STANDARD NORMAL DEVIATE"     
+        xlab <- "STANDARD NORMAL VARIATE"
       }
 
       limx <- range(F,finite=TRUE)
@@ -172,27 +193,27 @@ function(lmom,aslog10=FALSE,asprob=TRUE,
       if(length(xmax) == 1) limx[2] <- xmin
       if(length(xlim) == 2) limx    <- xlim
 
-      limy <- range(EXP,GAM,GEV,GLO,GLD,GNO,GPA,GUM,KAP,NOR,PE3,WAK,WEI,finite=TRUE)
+      limy <- range(AEP4,EXP,GAM,GEV,GLO,GLD,GNO,GPA,GUM,KAP,NOR,PE3,WAK,WEI,finite=TRUE)
       if(length(ymin) == 1) limy[1] <- ymin
       if(length(ymax) == 1) limy[2] <- ymin
       if(length(ylim) == 2) limy    <- ylim
-      plot(F,F,type='n',xlim=c(limx[1],limx[2]),
-                        ylim=c(limy[1],limy[2]),ylab="QUANTILES",xlab=xlab)
-      lines(F,Q$exp,col=2)
-      lines(F,Q$gam,col=2)
-      lines(F,Q$gev,col=3)
-      lines(F,Q$glo,col=3)
-      lines(F,Q$gld,col=4,lty=2,lwd=2)
-      lines(F,Q$gno,col=3)
-      lines(F,Q$gpa,col=3)
-      lines(F,Q$gum,col=2)
-      lines(F,Q$kap,col=4,lwd=2)
-      lines(F,Q$nor,col=1)
-      lines(F,Q$pe3,col=3)
-      lines(F,Q$wak,col=6)
-      lines(F,Q$wei,col=3,lty=2) # same color as GEV
+      plot(F,F,type='n',xlim=c(limx[1],limx[2]), ylim=c(limy[1],limy[2]),
+                        xlab=xlab, ylab="QUANTILES")
+      lines(F,Q$aep4,col=6,lty=2, lwd=2) # mimic of GLD
+      lines(F,Q$exp, col=2)
+      lines(F,Q$gam, col=2)
+      lines(F,Q$gev, col=3)
+      lines(F,Q$glo, col=3)
+      lines(F,Q$gld, col=4, lty=2, lwd=2) # mimic of AEP4
+      lines(F,Q$gno, col=3)
+      lines(F,Q$gpa, col=3)
+      lines(F,Q$gum, col=2)
+      lines(F,Q$kap, col=4, lwd=2)
+      lines(F,Q$nor, col=1)
+      lines(F,Q$pe3, col=3)
+      lines(F,Q$wak, col=6)
+      lines(F,Q$wei, col=3, lty=2) # same color as GEV
     }
-
     return(Q)
 }
 

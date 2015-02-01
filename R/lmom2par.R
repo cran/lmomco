@@ -12,9 +12,6 @@ function(lmom,type,...) {
     else if(type == 'exp') {
       return(parexp(lmom, ...))
     }
-    if(type == 'texp') {
-      return(partexp(lmom, ...))
-    }
     else if(type == 'gam') {
       return(pargam(lmom, ...))
     }
@@ -67,7 +64,7 @@ function(lmom,type,...) {
       return(parln3(lmom, ...))
     }
     else if(type == 'lmrq') {
-      return(parlmrq(lmom, ...))	
+      return(parlmrq(lmom, ...))
     }
     else if(type == 'nor') {
       return(parnor(lmom, ...))
@@ -80,7 +77,13 @@ function(lmom,type,...) {
     }
     else if(type == 'st3') {
       return(parst3(lmom, ...))
-    }    
+    }
+    else if(type == 'texp') {
+      return(partexp(lmom, ...))
+    }
+    else if(type == 'tri') {
+      return(partri(lmom, ...))
+    }
     else if(type == 'wak') {
       return(parwak(lmom, ...))
     }

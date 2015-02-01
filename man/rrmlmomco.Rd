@@ -4,7 +4,7 @@
 \description{
 This function computes the Reversed Mean Residual Quantile Function for quantile function \eqn{x(F)} (\code{\link{par2qua}}, \code{\link{qlmomco}}). The function is defined by Nair et al. (2013, p.57) as
 \deqn{R(u) = x(u) - \frac{1}{u}\int_0^u x(p)\; \mathrm{d}p\mbox{,}}
-where \eqn{R(u)} is the reversed mean residual for nonexceedance probability \eqn{u} and \eqn{x(u)} (a constant) is the quantile for \eqn{u}.
+where \eqn{R(u)} is the reversed mean residual for nonexceedance probability \eqn{u} and \eqn{x(u)} is a constant for \eqn{x(F = u)}.
 }
 \usage{
 rrmlmomco(f, para)
@@ -25,7 +25,7 @@ Nair, N.U., Sankaran, P.G., and Balakrishnan, N., 2013, Quantile-based reliabili
 \examples{
 # It is easiest to think about residual life as starting at the origin, units in days.
 A <- vec2par(c(0.0, 2649, 2.6), type="gov") # so set lower bounds = 0.0
-qlmomco(0.5, A)  # The median life time = 1005 days
+qlmomco(0.5, A)  # The median lifetime = 1005 days
 rrmlmomco(0.5, A) # The reversed mean remaining life given median survival = 691 days
 
 \dontrun{
@@ -40,6 +40,6 @@ lines(F, rrmlmomco(F, A), col=2, lwd=4) # thick red, reversed mean residual life
 \keyword{reversed mean residual quantile function}
 \keyword{lifetime/reliability analysis}
 \concept{lifetime}
-\concept{life time}
+\concept{lifetime}
 \concept{reliability}
 \keyword{The lmomco functions}

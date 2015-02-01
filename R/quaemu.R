@@ -25,7 +25,7 @@ function(f, para, paracheck=TRUE, yacoubsintegral=TRUE, eps=1e-7) {
       }
    }
 
-   x <- vector(mode="numeric")
+   x <- vector(mode="numeric", length=length(f))
    for(i in 1:length(f)) {
      Fx <- f[i]
      if(Fx == 0) {

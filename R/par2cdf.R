@@ -82,6 +82,9 @@ function(x,para,...) {
     else if(type == 'texp') {
       return(cdftexp(x,para))
     }
+    else if(type == 'tri') {
+      return(cdftri(x,para))
+    }
     else if(type == 'wak') {
       return(cdfwak(x,para))
     }

@@ -2,7 +2,7 @@
 \alias{pargno}
 \title{Estimate the Parameters of the Generalized Normal Distribution}
 \description{
-This function estimates the parameters of the Generalized Normal (log-Normal) distribution given the L-moments of the data in an L-moment object such as that returned by \code{\link{lmoms}}. The relations between distribution parameters and L-moments are seen under \code{\link{lmomgno}}.
+This function estimates the parameters of the Generalized Normal (Log-Normal3) distribution given the L-moments of the data in an L-moment object such as that returned by \code{\link{lmoms}}. The relations between distribution parameters and L-moments are seen under \code{\link{lmomgno}}.
 }
 \usage{
 pargno(lmom, checklmom=TRUE)
@@ -28,7 +28,7 @@ Hosking, J.R.M., and Wallis, J.R., 1997, Regional frequency analysis---An approa
 }
 \author{ W.H. Asquith}
 \seealso{
-\code{\link{lmomgno}}, \code{\link{cdfgno}}, \code{\link{pdfgno}}, \code{\link{quagno}}
+\code{\link{lmomgno}}, \code{\link{cdfgno}}, \code{\link{pdfgno}}, \code{\link{quagno}}, \code{\link{parln3}}
 }
 \examples{
 lmr <- lmoms(rnorm(20))

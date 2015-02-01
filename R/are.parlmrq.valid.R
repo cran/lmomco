@@ -1,6 +1,8 @@
 "are.parlmrq.valid" <-
 function(para,nowarn=FALSE) {
     if(! is.lmrq(para)) return(FALSE)
+    if(any(is.na(para$para))) return(FALSE)
+
     U <- para$para[1]
     A <- para$para[2]
     op <- options()

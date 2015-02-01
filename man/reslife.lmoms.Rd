@@ -26,7 +26,7 @@ reslife.lmoms(f, para, nmom=5)
   \item{trim}{Level of symmetrical trimming used in the computation, which is \code{NULL} because no trimming theory for L-moments of residual life have been developed or researched.}
   \item{leftrim}{Level of left-tail trimming used in the computation, which is \code{NULL} because no trimming theory for L-moments of residual life have been developed or researched.}
   \item{rightrim}{Level of right-tail trimming used in the computation, which is \code{NULL} because no trimming theory for L-moments of residual life have been developed or researched.}
-  \item{source}{An attribute identifying the computational source of the \cr L-moments: \dQuote{reslife.lmoms}.}
+  \item{source}{An attribute identifying the computational source of the L-moments: \cr \dQuote{reslife.lmoms}.}
 }
 \author{ W.H. Asquith}
 \references{
@@ -62,5 +62,5 @@ L2u2 <- reslife.lmoms(F,A)$lambdas[2]
 \keyword{L-moment (theoretical)}
 \concept{residual life}
 \concept{lifetime}
-\concept{life time}
+\concept{lifetime}
 \concept{reliability}

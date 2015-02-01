@@ -19,7 +19,7 @@ function(f, para, paracheck=TRUE, marcumQ=TRUE, ...) {
    #   xmax <- 10^order
    #}
 
-   x <- vector(mode="numeric")
+   x <- vector(mode="numeric", length=length(f))
    for(i in 1:length(f)) {
      Fx   <- f[i]
      x[i] <- NA

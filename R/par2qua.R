@@ -82,6 +82,9 @@ function(f,para,...) {
     else if(type == 'texp') {
       return(quatexp(f,para,...))
     }
+    else if(type == 'tri') {
+      return(quatri(f,para,...))
+    }
     else if(type == 'wak') {
       return(quawak(f,para,...))
     }

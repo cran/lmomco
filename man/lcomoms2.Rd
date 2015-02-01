@@ -9,7 +9,7 @@ lcomoms2(DATAFRAME, nmom=3, asdiag=FALSE, opdiag=FALSE, ...)
 }
 \arguments{
   \item{DATAFRAME}{An \R \code{data.frame} housing column vectors of data values.}
-  \item{nmom}{The number of moments to compute. Default is 3.}
+  \item{nmom}{The number of L-comoments to compute. Default is 3.}
   \item{asdiag}{Return the \code{diag}onal of the matrices. Default is \code{FALSE}.}
   \item{opdiag}{Return the opposing diagonal of the matrices. Default is \code{FALSE}. This function returns the opposing diagonal from first two to second.}
   \item{...}{Additional arguments to pass.}
@@ -30,7 +30,7 @@ This function computes the L-comoments through the generalization of the \code{\
 }
 \author{ W.H. Asquith}
 \references{
-Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: CreateSpace Independent Publishing Platform, 2nd printing, ISBN 978--146350841--8.
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
 }
 \seealso{\code{\link{Lcomoment.matrix}} and \code{\link{Lcomoment.coefficients}}}
 \examples{

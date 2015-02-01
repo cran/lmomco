@@ -15,7 +15,7 @@ pwm.gev(x, nmom=5, sort=TRUE)
 \arguments{
   \item{x}{A vector of data values.}
   \item{nmom}{Number of PWMs to return.}
-  \item{sort}{Does the data need sorting? The computations require sorted data. This option is provided to optimize processing speed if presorted data already exists.}
+  \item{sort}{Do the data need sorting? The computations require sorted data. This option is provided to optimize processing speed if presorted data already exists.}
 }
 \value{
   An \R \code{list} is returned.

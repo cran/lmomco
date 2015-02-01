@@ -2,7 +2,7 @@
 \alias{are.parpe3.valid}
 \title{Are the Distribution Parameters Consistent with the Pearson Type III Distribution}
 \description{
-Is the distribution parameter object consistent with the corresponding distribution?  The functions  (\code{\link{cdfpe3}}, \code{\link{pdfpe3}}, \code{\link{quape3}}, and
+Is the distribution parameter object consistent with the corresponding distribution?  The distribution functions  (\code{\link{cdfpe3}}, \code{\link{pdfpe3}}, \code{\link{quape3}}, and
 \code{\link{lmompe3}}) require consistent parameters to return the cumulative
 probability (nonexceedance), density, quantile, and L-moments of the distribution,
 respectively.  These functions internally use the \code{\link{are.parpe3.valid}}

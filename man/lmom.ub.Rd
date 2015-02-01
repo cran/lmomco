@@ -43,13 +43,13 @@ The L-moment ratios (\eqn{\tau}, \eqn{\tau_3}, \eqn{\tau_4}, and \eqn{\tau_5}) a
   \item{source}{An attribute identifying the computational source of the L-moments: \dQuote{lmom.ub}.}
 }
 \note{
-The \code{\link{lmom.ub}} function was amonst the first functions written for \pkg{lmomco} and actually written before \pkg{lmomco} was envisioned. The \code{ub} was to be contrasted with plotting-position-based estimation methods: \code{\link{pwm.pp}} \eqn{\rightarrow} \code{\link{pwm2lmom}}. Further, at the time of development the radical expansion of \pkg{lmomco} beyond the Hosking (1996) FORTRAN libraries was not anticipated.  The author now exclusively uses \code{\link{lmoms}} but the numerical results should be identical. The direct sample estimator algorithm by Wang (1996) is used in \code{\link{lmom.ub}} and a more generalized algorithm is associated with \code{\link{lmoms}}.
+The \code{\link{lmom.ub}} function was among the first functions written for \pkg{lmomco} and actually written before \pkg{lmomco} was initiated. The \code{ub} was to be contrasted with plotting-position-based estimation methods: \code{\link{pwm.pp}} \eqn{\rightarrow} \code{\link{pwm2lmom}}. Further, at the time of development the radical expansion of \pkg{lmomco} beyond the Hosking (1996) FORTRAN libraries was not anticipated.  The author now exclusively uses \code{\link{lmoms}} but the numerical results should be identical. The direct sample estimator algorithm by Wang (1996) is used in \code{\link{lmom.ub}} and a more generalized algorithm is associated with \code{\link{lmoms}}.
 }
 \source{
 The Perl code base of W.H. Asquith
 }
 \references{
-Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: CreateSpace Independent Publishing Platform, 2nd printing, ISBN 978--146350841--8.
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
 
 Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
 distributions using linear combinations of order statistics: Journal of the Royal Statistical Society, Series B, v. 52, pp. 105--124.

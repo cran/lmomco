@@ -35,7 +35,7 @@ The function uses numerical integration of the quantile function of the distribu
 \seealso{\code{\link{quagev}}, \code{\link{theoTLmoms}}}
 \examples{
 \dontrun{
-tlmrgev(leftrim=12, rightrim=1, xi=0, alpha=2)
+tlmrgev(leftrim=12, rightrim=1, xi=0,   alpha=2 )
 tlmrgev(leftrim=12, rightrim=1, xi=100, alpha=20) # another slow example
 }
 \dontrun{

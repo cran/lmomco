@@ -9,7 +9,7 @@ This function estimates the trimmed L-moments of the Slash distribution given th
 \eqn{\tau^{(1)}_4 = 0.3042045}, 
 \eqn{\tau^{(1)}_5 = 0}, and 
 \eqn{\tau^{(1)}_6 = 0.1890072}.
-These TL-moments (trim=1) are symmetrical for the first L-moments defined because \eqn{\mathrm{E}[X_{1:n}]} and \eqn{\mathrm{E}[X_{n:n}]} undefined expectations for the Slash.
+These TL-moments (trim=1) are symmetrical for the first L-moments defined because \eqn{\mathrm{E}[X_{1:n}]} and \eqn{\mathrm{E}[X_{n:n}]} are undefined expectations for the Slash.
 }
 \usage{
 lmomsla(para)

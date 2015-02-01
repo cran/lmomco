@@ -3,7 +3,7 @@
 \title{Quantile Function of the Gamma Distribution}
 \description{
 This function computes the quantiles of the Gamma distribution given
-parameters (\eqn{\alpha} and \eqn{\beta}) computed by \code{\link{pargam}}.  The quantile function has no explicit form. See the \code{qgamma} function and \code{\link{cdfgam}}. The parameters have the following interpretations: \eqn{\alpha} is a shape parameter and \eqn{\beta} is a scale parameter in the \R syntax.
+parameters (\eqn{\alpha} and \eqn{\beta}) computed by \code{\link{pargam}}.  The quantile function has no explicit form. See the \code{qgamma} function of \R and \code{\link{cdfgam}}. The parameters have the following interpretations: \eqn{\alpha} is a shape parameter and \eqn{\beta} is a scale parameter in the \R syntax of the \code{qgamma} function.
 }
 \usage{
 quagam(f, para, paracheck=TRUE)

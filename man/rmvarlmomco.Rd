@@ -25,7 +25,7 @@ Nair, N.U., Sankaran, P.G., and Balakrishnan, N., 2013, Quantile-based reliabili
 \examples{
 # It is easiest to think about residual life as starting at the origin, units in days.
 A <- vec2par(c(0.0, 2649, 2.11), type="gov") # so set lower bounds = 0.0
-qlmomco(0.5, A)  # The median life time = 1261 days
+qlmomco(0.5, A)  # The median lifetime = 1261 days
 rmlmomco(0.5, A) # The average remaining life given survival to the median = 861 days
 rmvarlmomco(0.5, A) # and the variance of that value.
 \dontrun{
@@ -43,6 +43,6 @@ lines(F,  tttmlmomco(F,A), col=3, lty=2); lines(F, cmlmomco(F,A), col=3)
 \keyword{variance residual quantile function}
 \keyword{lifetime/reliability analysis}
 \concept{lifetime}
-\concept{life time}
+\concept{lifetime}
 \concept{reliability}
 \keyword{The lmomco functions}

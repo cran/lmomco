@@ -2,7 +2,7 @@
 \alias{grv2prob}
 \title{Convert a Vector of Gumbel Reduced Variates to Annual Nonexceedance Probabilities}
 \description{
-This function converts a vector of Gumbel reducted variates (\eqn{grv}) to annual nonexceedance probabilities \eqn{F}
+This function converts a vector of Gumbel reduced variates (\eqn{grv}) to annual nonexceedance probabilities \eqn{F}
 \deqn{F = \exp(-\exp(-grv))\mbox{,}}
 where \eqn{0 \le F \le 1}.
 }

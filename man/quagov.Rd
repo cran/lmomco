@@ -46,7 +46,7 @@ cmlmomco(0,par)           # 1.307143 # expected life given birth only
 lmomgov(par)$lambdas[1]   # 1.307143 # expected life of the parent distribution
 rmlmomco(0, par)          # 1.288989 # residual life given birth only
 qlmomco(0, par)           # 0.018153 # instantaneous life given birth
-# Note: qlmomco(0,par) + rmlmomco(0,par) is the E[life time], but rmlmomco()
+# Note: qlmomco(0,par) + rmlmomco(0,par) is the E[lifetime], but rmlmomco()
 # is the RESIDUAL MEAN LIFE.
 }
 }

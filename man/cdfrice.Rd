@@ -28,7 +28,7 @@ See NEWS file and entries for version 2.0.1 for this "R Marcum"
 }
 \author{ W.H. Asquith}
 \references{
-Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: CreateSpace Independent Publishing Platform, 2nd printing, ISBN 978--146350841--8.
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
 }
 \seealso{\code{\link{pdfrice}}, \code{\link{quarice}}, \code{\link{lmomrice}}, \code{\link{parrice}}}
 \examples{

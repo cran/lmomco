@@ -12,7 +12,7 @@ function(x,para) {
    UpA  <- U + A
    tmp1  <- 1 / (A*B*Bp1)
 
-   f <- vector(mode="numeric")
+   f <- vector(mode="numeric", length=length(x))
    for(i in seq(1,length(x))) {
       X <- x[i]
       Fx <- cdfgov(X, para) # cdfgov traps the end points

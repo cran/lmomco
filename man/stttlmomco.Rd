@@ -4,7 +4,7 @@
 \description{
 This function computes the Scaled Total Time on Test Transform Quantile Function for a quantile function \eqn{x(F)} (\code{\link{par2qua}}, \code{\link{qlmomco}}).  The TTT is defined by Nair et al. (2013, p. 173) as
 \deqn{\phi(u) = \frac{1}{\mu}\left[(1-u)x(u) + \int_0^u x(p)\; \mathrm{d}p \right]\mbox{,}}
-where \eqn{\phi(u)} is the scaled  total time on test and \eqn{x(u)} (a constant) is the quantile for nonexceedance probability \eqn{u}. The \eqn{\phi(u)} is also expressible in terms of total time on test transform quantile function (\eqn{T(u)}, \code{\link{tttlmomco}}) as
+where \eqn{\phi(u)} is the scaled  total time on test for nonexceedance probability \eqn{u}, and \eqn{x(u)} is a constant  for \eqn{x(F = u)}. The \eqn{\phi(u)} is also expressible in terms of total time on test transform quantile function (\eqn{T(u)}, \code{\link{tttlmomco}}) as
 \deqn{\phi(u) = \frac{T(u)}{\mu}\mbox{,}}
 where \eqn{\mu} is the conditional mean (\code{\link{cmlmomco}}) at \eqn{u = 0} and the later definition is the basis for implementation in \pkg{lmomco}. The integral in the first definition is closely related to the structure of the reversed residual mean quantile function (\eqn{R(u)}, \code{\link{rrmlmomco}}).
 }
@@ -45,7 +45,7 @@ n <- 30; X <- sort(rlmomco(n, A)); lmr <- lmoms(X)  # simulated lives and their 
                                          return((n-j+1)*(X[j] - Xlo)) })
    return(sum(Tau.rOFn))
 }
-Xbar <- mean(X); rOFn <- (1:n)/n # Nair et al. (2013) are clear r/n used  in the Phi(u)
+Xbar <- mean(X); rOFn <- (1:n)/n # Nair et al. (2013) are clear r/n used in the Phi(u)
 Phi <- sapply(1:n, function(r) { return(Phir(r,X, sort=FALSE)) }) / (n*Xbar)
 layout(matrix(1:3, ncol=1))
 plot(rOFn, Phi, type="b",
@@ -58,7 +58,7 @@ F <- nonexceeds(f01=TRUE)
 plot(pp(X), sort(X), xlab="NONEXCEEDANCE PROBABILITY", ylab="TOTAL TIME ON TEST (DAYS)")
 lines(F, qlmomco(F, A), lwd=2, col=8) # the parent again
 lines(F, qlmomco(F, par1), lty=1); lines(F, qlmomco(F, par2), lty=2) # two estimated fits
-plot(F,  lrzlmomco(F, par2), col=2, type="l") # Lorenz curve from L-moment fit (red)
+plot(F,  lrzlmomco(F, par2), col=2, type="l")  # Lorenz curve from L-moment fit (red)
 lines(F, bfrlmomco(F, par2), col=3, lty=2) # Bonferroni curve from L-moment fit (green)
 lines(F, lkhlmomco(F, par2), col=4, lty=4) # Leimkuhler curve from L-moment fit (blue)
 lines(rOFn, Phi) # Scaled Total Time on Test
@@ -69,7 +69,7 @@ lines(rOFn, Phi) # Scaled Total Time on Test
 \keyword{total time on test transform}
 \keyword{lifetime/reliability analysis}
 \concept{lifetime}
-\concept{life time}
+\concept{lifetime}
 \concept{reliability}
 \concept{ttt transform}
 \keyword{The lmomco functions}

@@ -1,6 +1,7 @@
 "are.pargld.valid" <-
 function(para,verbose=FALSE,nowarn=FALSE) {
     if(! is.gld(para)) return(FALSE)
+    if(any(is.na(para$para))) return(FALSE)
 
     La2 <- para$para[2]
     La3 <- para$para[3]

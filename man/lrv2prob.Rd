@@ -2,8 +2,8 @@
 \alias{lrv2prob}
 \title{Convert a Vector of Logistic Reduced Variates to Annual Nonexceedance Probabilities}
 \description{
-This function converts a vector of logistic reducted variates (\eqn{lrv}) to annual nonexceedance probabilities \eqn{F}
-\deqn{F = -\log((1-F)/F)\mbox{,}}
+This function converts a vector of logistic reduced variates (\eqn{lrv}) to annual nonexceedance probabilities \eqn{F}
+\deqn{F = -\log((1-lrv)/lrv)\mbox{,}}
 where \eqn{0 \le F \le 1}.
 }
 \usage{

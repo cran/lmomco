@@ -22,7 +22,7 @@ function(x,para) {
    }
    B   <- V/A^2
    Asq <- A^2; Vsq <- V^2
-   f   <- vector(mode="numeric")
+   f   <- vector(mode="numeric", length=length(x))
    for(i in seq(1,length(x))) {
      xi  <- x[i]
      tmp <- xi/Asq * exp( -(xi^2 + Vsq) / (2*Asq) )

@@ -4,9 +4,9 @@
 \description{
 This function computes the probability density
 of the Gumbel distribution given parameters (\eqn{\xi} and \eqn{\alpha})  computed by \code{\link{pargum}}. The probability density function is
-\deqn{f(x) = \alpha^{-1} \exp(y)\,\exp[-\exp(y)]\mbox{,}}
+\deqn{f(x) = \alpha^{-1} \exp(Y)\,\exp[-\exp(Y)]\mbox{,}}
 where
-\deqn{y = -\frac{x - \xi}{\alpha} \mbox{,}}
+\deqn{Y = -\frac{x - \xi}{\alpha} \mbox{,}}
 where \eqn{f(x)} is the nonexceedance probability for quantile \eqn{x},
 \eqn{\xi} is a location parameter, and \eqn{\alpha} is a scale parameter.
 }

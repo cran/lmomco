@@ -2,7 +2,7 @@
 \alias{are.pargno.valid}
 \title{Are the Distribution Parameters Consistent with the Generalized Normal Distribution}
 \description{
-Is the distribution parameter object consistent with the corresponding distribution?  The functions  (\code{\link{cdfgno}}, \code{\link{pdfgno}}, \code{\link{quagno}}, and
+Is the distribution parameter object consistent with the corresponding distribution?  The distribution functions  (\code{\link{cdfgno}}, \code{\link{pdfgno}}, \code{\link{quagno}}, and
 \code{\link{lmomgno}}) require consistent parameters to return the cumulative
 probability (nonexceedance), density, quantile, and L-moments of the distribution,
 respectively.  These functions internally use the \code{\link{are.pargno.valid}}

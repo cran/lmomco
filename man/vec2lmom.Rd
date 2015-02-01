@@ -2,9 +2,9 @@
 \alias{vec2lmom}
 \title{Convert a Vector of L-moments to a L-moment Object}
 \description{
-This function converts a vector of L-moments to a L-moment object of \pkg{lmomco}. The object is an \R \code{list}. This function is intended to facilitate the use of L-moments (and Tl-moments) that the user might have from other sources. L-moments and L-moment ratios of arbitrary length are supported.
+This function converts a vector of L-moments to a L-moment object of \pkg{lmomco}. The object is an \R \code{list}. This function is intended to facilitate the use of L-moments (and TL-moments) that the user might have from other sources. L-moments and L-moment ratios of arbitrary length are supported.
 
-Because in typical practice, the \eqn{k \ge 3} order L-moments are dimensionless ratios (\eqn{\tau_3}, \eqn{\tau_4}, and \eqn{\tau_5}), this function computes \eqn{\lambda_3}, \eqn{\lambda_4}, \eqn{\lambda_5} from \eqn{\lambda_2} from the ratios. However, typical practice is not set on the use of \eqn{\lambda_2} or \eqn{\tau} as measure of dispersion. Therefore, this function takes an \code{lscale} optional logical (\code{TRUE|FALSE}) argument--if \eqn{\lambda_2} is provided and \code{lscale=TRUE}, then \eqn{\tau} is computed by the function and if \eqn{\tau} is provided, then \eqn{\lambda_2} is computed by the function.
+Because in typical practice, the \eqn{k \ge 3} order L-moments are dimensionless ratios (\eqn{\tau_3}, \eqn{\tau_4}, and \eqn{\tau_5}), this function computes \eqn{\lambda_3}, \eqn{\lambda_4}, \eqn{\lambda_5} from \eqn{\lambda_2} from the ratios. However, typical practice is not set on the use of \eqn{\lambda_2} or \eqn{\tau} as measure of dispersion. Therefore, this function takes an \code{lscale} optional logical (\code{TRUE|FALSE}) argument---if \eqn{\lambda_2} is provided and \code{lscale=TRUE}, then \eqn{\tau} is computed by the function and if \eqn{\tau} is provided, then \eqn{\lambda_2} is computed by the function.
 }
 \usage{
 vec2lmom(vec, lscale=TRUE,

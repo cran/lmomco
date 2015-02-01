@@ -28,7 +28,7 @@ cdf2lmom(r, para, fdepth=0, silent=TRUE, ...)
   The value for the requested L-moment is returned (\eqn{\lambda_r}).
 }
 \references{
-Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: First edition, CreateSpace Independent Publishing Platform, ISBN 978--146350841-8, 344 p.
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
 
 Hosking, J.R.M., 1996, Some theoretical results concerning L-moments: Research Report RC14492, IBM Research Division, T.J. Watson Research Center, Yorktown Heights, New York.
 

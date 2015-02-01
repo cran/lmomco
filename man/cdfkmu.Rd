@@ -10,8 +10,7 @@ where \eqn{F(x)} is the nonexceedance probability for quantile \eqn{x} and \eqn{
 \deqn{
 Q_\nu(a,b) = \frac{1}{\alpha^{\nu-1}}\int_b^\infty t^\nu \, \exp(-(t^2 + a^2)/2) \, I_{\nu-1}(at)\; \mathrm{d}t\mbox{,}
 }
-which can be numerically difficult to work with and particularly so with real number values for \eqn{\nu}. \eqn{I_\nu(a)} is defined as
-\deqn{I_\nu(a) = \mbox{.}}
+which can be numerically difficult to work with and particularly so with real number values for \eqn{\nu}. \eqn{I_\nu(a)}  is the ``\eqn{\nu}th-order modified Bessel function of the first kind.''
 
 Following an apparent breakthrough(?) by Shi (2012), \eqn{\nu} can be written as \eqn{\nu = n + \Delta} where \eqn{n} is an integer and \eqn{0 < \Delta \le 1}. The author of \pkg{lmomco} refers to this alternative formulation as the \dQuote{delta nu method}. The Marcum Q function for \eqn{\nu > 0} (\eqn{n = 1,2,3, \cdots)} is
 \deqn{
@@ -47,17 +46,10 @@ cdfkmu(x, para, paracheck=TRUE, marcumQ=TRUE)
   Nonexceedance probability (\eqn{F}) for \eqn{x}.
 }
 \note{
-\preformatted{
-
-Code developed from Weinberg, G.V., 2006, Poisson representation and Monte
-Carlo estimation of generalized Marcum Q-function: IEEE Transactions on
-Aerospace and Electronic Systems, v. 42, no. 4, pp. 1520--1531.
-
-The biascor feature is of my own devise and this Poisson method does not
-seem to accommodate nu < 1 although Chornoboy claims valid for non-negative
-integer. The example implementation here will continue to use real values
+Code developed from Weinberg (2006). The biascor feature is of my own devise and this Poisson method does not seem to accommodate nu < 1 although Chornoboy claims valid for non-negative integer. The example implementation here will continue to use real values
 of nu.
 
+\preformatted{
 See NEWS file and entries for version 2.0.1 for this "R Marcum"
 "marcumq" <- function(a, b, nu=1) {
 	      pchisq(b^2, df=2*nu, ncp=a^2, lower.tail=FALSE) }
@@ -90,6 +82,8 @@ abline(0,1, lty=2)
 }
 \references{
 Shi, Q., 2012, Semi-infinite Gauss-Hermite quadrature based approximations to the generalized Marcum and Nuttall Q-functions and further applications: First IEEE International Conference on Communications in China---Communications Theory and Security (CTS), pp. 268--273, ISBN 978--1--4673--2815--9,12.
+
+Weinberg, G.V., 2006, Poisson representation and Monte Carlo estimation of generalized Marcum Q-function: IEEE Transactions on Aerospace and Electronic Systems, v. 42, no. 4, pp. 1520--1531.
 
 Yacoub, M.D., 2007, The kappa-mu distribution and the eta-mu distribution: IEEE Antennas and Propagation Magazine, v. 49, no. 1, pp. 68--81.
 }

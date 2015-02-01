@@ -2,9 +2,9 @@
 \alias{fpds2f}
 \title{Conversion of Partial-Duration Nonexceedance Probability to Annual Nonexceedance Probability}
 \description{
-This function takes partial duration series nonexceedance probability and converts it to a  an annual exceedance probability through a simple assumption that the Poisson  distribution is appropriate. The relation between the cumulative distribution function \eqn{F(x)} for the annual series is related to the cumulative distribution function \eqn{G(x)} of the partial-duration series by
+This function takes partial duration series nonexceedance probability and converts it to a  an annual exceedance probability through a simple assumption that the Poisson distribution is appropriate. The relation between the cumulative distribution function \eqn{F(x)} for the annual series is related to the cumulative distribution function \eqn{G(x)} of the partial-duration series by
 \deqn{F(x) = \mathrm{exp}(-\eta[1 - G(x)])\mathrm{.}}
-The core assumption is that successive events in the partial duration series can be considered as \emph{independent}. The \eqn{\eta} term is the arrival rate of the events. For example, suppose that 21 events have occurred in 15 years, then \eqn{\eta = 21/15 = 1.4} events per year.
+The core assumption is that successive events in the partial-duration series can be considered as \emph{independent}. The \eqn{\eta} term is the arrival rate of the events. For example, suppose that 21 events have occurred in 15 years, then \eqn{\eta = 21/15 = 1.4} events per year.
 
 The example documented here provides a comprehensive demonstration of the function along with a partnering function \code{\link{f2fpds}}. That function performs the opposite conversion. Lastly, the cross reference to \code{\link{x2xlo}} is made because the example contained therein provides another demonstration of partial-duration and annual series frequency analysis.
 }
@@ -12,7 +12,7 @@ The example documented here provides a comprehensive demonstration of the functi
 fpds2f(fpds, rate=NA)
 }
 \arguments{
-  \item{fpds}{A vector of partial duration nonexceedance probabilities.}
+  \item{fpds}{A vector of partial-duration nonexceedance probabilities.}
   \item{rate}{The number of events per year.}
 }
 \value{

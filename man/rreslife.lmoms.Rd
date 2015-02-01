@@ -64,5 +64,5 @@ rL2u2 <- rreslife.lmoms(F,A)$lambdas[2]
 \keyword{L-moment (theoretical)}
 \concept{residual life}
 \concept{lifetime}
-\concept{life time}
+\concept{lifetime}
 \concept{reliability}

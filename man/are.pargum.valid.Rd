@@ -2,7 +2,7 @@
 \alias{are.pargum.valid}
 \title{Are the Distribution Parameters Consistent with the Gumbel Distribution}
 \description{
-Is the distribution parameter object consistent with the corresponding distribution?  The functions  (\code{\link{cdfgum}}, \code{\link{pdfgum}}, \code{\link{quagum}}, and
+Is the distribution parameter object consistent with the corresponding distribution?  The distribution functions  (\code{\link{cdfgum}}, \code{\link{pdfgum}}, \code{\link{quagum}}, and
 \code{\link{lmomgum}}) require consistent parameters to return the cumulative
 probability (nonexceedance), density, quantile, and L-moments of the distribution,
 respectively.  These functions internally use the \code{\link{are.pargum.valid}}

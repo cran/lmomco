@@ -1,6 +1,6 @@
 "z.par2qua" <-
 function(f,p,para,z=0,...) {
-  x <- vector(mode = "numeric")
+  x <- vector(mode = "numeric", length=length(f))
   for(i in seq(1,length(f))) {
     if(f[i] <= p) {
       x[i] <- z

@@ -13,9 +13,8 @@ function(f,wakpara,paracheck=TRUE) {
     B <- wakpara$para[3] # beta
     C <- wakpara$para[4] # gamma
     D <- wakpara$para[5] # delta
-    n <- length(f)
-    x <- vector(mode="numeric",length=n)
-    for(i in seq(1,n)) {
+    x <- vector(mode="numeric", length=length(f))
+    for(i in seq(1,length(f))) {
       if(f[i] == 0) { x[i] <- XI; next }
       if(f[i] == 1) {
         x[i] <- XI+A/B*(1-0^B) - C/D*(1 - 0^(-D))
@@ -40,16 +39,3 @@ function(f,wakpara,paracheck=TRUE) {
     return(x)
 }
 
-#   30 IF(D.GT.ZERO)GOTO 1010 
-#      IF(D.LT.ZERO)QUAWAK=XI+A/B-C/D 
-#      IF(D.EQ.ZERO.AND.C.GT.ZERO)GOTO 1010 
-#      IF(D.EQ.ZERO.AND.C.EQ.ZERO.AND.B.EQ.ZERO)GOTO 1010 
-#      IF(D.EQ.ZERO.AND.C.EQ.ZERO.AND.B.GT.ZERO)QUAWAK=XI+A/B 
-#      RETURN 
-#C 
-# 1000 WRITE(6,7000) 
-#      QUAWAK=ZERO 
-#      RETURN 
-# 1010 WRITE(6,7010) 
-#      QUAWAK=ZERO 
-#      RETURN 

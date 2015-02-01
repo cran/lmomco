@@ -12,7 +12,7 @@ function(x,para) {
   SIGMA <- para$para[2] # scale
   GAMMA <- para$para[3] # shape
 
-  f <- vector(mode="numeric")
+  f <- vector(mode="numeric", length=length(x))
 
   if(GAMMA == 0) { # distribution is normal
     for(i in seq(1,length(x))) {

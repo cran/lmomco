@@ -11,23 +11,23 @@ function(para) {
 
     attributes(para$para) <- NULL
 
-    XI <- para$para[1] 
-    A  <- para$para[2] 
-    K  <- para$para[3] 
+    XI <- para$para[1]
+    A  <- para$para[2]
+    K  <- para$para[3]
 
 
     zeta <- NULL
     if(is.na(para$zeta)) { zeta <- 1 } else { zeta <- para$zeta }
 
-    mr  <- function(r,z,k) { (1 - (1-z)^(r+k))/(r+k) } 
-    mr1 <- mr(1,zeta,K) 
+    mr  <- function(r,z,k) { (1 - (1-z)^(r+k))/(r+k) }
+    mr1 <- mr(1,zeta,K)
     mr2 <- mr(2,zeta,K)
     mr3 <- mr(3,zeta,K)
-    mr4 <- mr(4,zeta,K) 
-    mr5 <- mr(5,zeta,K) 
+    mr4 <- mr(4,zeta,K)
+    mr5 <- mr(5,zeta,K)
 
-    L <- vector(mode = "numeric")
-    R <- vector(mode = "numeric")
+    L <- vector(mode = "numeric", length=5)
+    R <- vector(mode = "numeric", length=5)
     R[1] <- NA
 
     L[1] <- XI+A*mr1    # r = 1
@@ -53,15 +53,15 @@ function(para) {
 #library(lmomco)
 
 #zeta <- 1
-#mr <- function(r,z,k) { (1 - (1-z)^(r+k))/(r+k) } 
+#mr <- function(r,z,k) { (1 - (1-z)^(r+k))/(r+k) }
 #K <- .1
 #alpha <- 7
 #xi <- 15
-#    mr1 <- mr(1,zeta,K) 
+#    mr1 <- mr(1,zeta,K)
 #    mr2 <- mr(2,zeta,K)
 #    mr3 <- mr(3,zeta,K)
-#    mr4 <- mr(4,zeta,K) 
-#    mr5 <- mr(5,zeta,K) 
+#    mr4 <- mr(4,zeta,K)
+#    mr5 <- mr(5,zeta,K)
 
 #para <- vec2par(c(xi,alpha,K),type='gpa')
 #lmr <- lmomgpa(para)
@@ -82,7 +82,7 @@ function(para) {
 #  d <- A[as.integer(runif(1,min=1,max=length(D)))]
 #  L5.hat <- alpha*(mr1 - a*mr2 + b*mr3 - c*mr4 + d*mr5)
 #  diff <- abs(L5.hat - L5)
-#  if(diff <= mindiff) { 
+#  if(diff <= mindiff) {
 #     mindiff <- diff
 #     cat(c(diff,a,b,c,d,"\n"))
 #  }

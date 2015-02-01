@@ -2,7 +2,7 @@
 \alias{are.parglo.valid}
 \title{Are the Distribution Parameters Consistent with the Generalized Logistic Distribution}
 \description{
-Is the distribution parameter object consistent with the corresponding distribution?  The functions  (\code{\link{cdfglo}}, \code{\link{pdfglo}}, \code{\link{quaglo}}, and
+Is the distribution parameter object consistent with the corresponding distribution?  The distribution functions  (\code{\link{cdfglo}}, \code{\link{pdfglo}}, \code{\link{quaglo}}, and
 \code{\link{lmomglo}}) require consistent parameters to return the cumulative
 probability (nonexceedance), density, quantile, and L-moments of the distribution,
 respectively.  These functions internally use the \code{\link{are.parglo.valid}}

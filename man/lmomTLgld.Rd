@@ -55,10 +55,10 @@ lmomTLgld(para, nmom=6, trim=1, leftrim=NULL, rightrim=NULL, tau34=FALSE)
   \item{trim}{Symmetrical trimming level set to unity as the default.}
   \item{leftrim}{Left trimming level, \eqn{t_1}.}
   \item{rightrim}{Right trimming level, \eqn{t_2}.}
-  \item{tau34}{A logical controlling the level of L-moments returned by the function. If true, then this function returns only \eqn{\tau_3} and \eqn{\tau_4}; this feature might be useful in certain research applications of the generalized lambda distribution associated with the multiple solutions possible for the distribution.}
+  \item{tau34}{A logical controlling the level of L-moments returned by the function. If true, then this function returns only \eqn{\tau_3} and \eqn{\tau_4}; this feature might be useful in certain research applications of the Generalized Lambda distribution associated with the multiple solutions possible for the distribution.}
 }
 \details{
-The opening comments in the description pertain to single and symmetrical endpoint trimming, which has been extensively considered by Asquith (2007).  Deriviations backed by numerical proofing of variable arrangement in March 2011 led the the inclusion of the following generalization of the L-moments and TL-moments of the GLD shown in Asquith (2011) that was squeezed in late ahead of the deadlines for that monograph.
+The opening comments in the description pertain to single and symmetrical endpoint trimming, which has been extensively considered by Asquith (2007).  Deriviations backed by numerical proofing of variable arrangement in March 2011 led the the inclusion of the following generalization of the L-moments and TL-moments of the Generalized Lambda shown in Asquith (2011) that was squeezed in late ahead of the deadlines for that monograph.
 \deqn{
 \lambda^{(t_1,t_2)}_{r} = \alpha (r^{-1}) (r+t_1+t_2) \sum_{j=0}^{r-1} (-1)^{r}{r-1 \choose j}{r+t_1+t_2-1 \choose r+t_1-j-1} \times A\mbox{,}}
 where \eqn{A} is
@@ -90,6 +90,8 @@ Derivations conducted by W.H. Asquith on February 18 and 19, 2006 and others in 
 }
 \references{
 Asquith, W.H., 2007, L-moments and TL-moments of the generalized lambda distribution: Computational Statistics and Data Analysis, v. 51, no. 9, pp. 4484--4496.
+
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
 
 Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational statistics and data analysis, v. 43, pp. 299--314.
 

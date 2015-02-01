@@ -16,7 +16,7 @@ fliplmoms(lmom, flip=NULL, checklmom=TRUE)
   An \R \code{list} is returned that matches the structure of the \var{lmom} argument (unless an \code{\link{lmorph}} was attempted). The structure is intended to match that coming from \code{\link{lmomsRCmark}}.
 }
 \references{
-Wang, Dongliang, Hutson, A.D., and Miecznikowski, J.C., 2010, L-moment estimation for parametric survival models given censored data: Statistical Methodology, preprint
+Wang, Dongliang, Hutson, A.D., and Miecznikowski, J.C., 2010,  L-moment estimation for parametric survival models given censored data: Statistical Methodology, v. 7, no. 6, pp. 655--667.
 
 Helsel, D.R., 2005, Nondetects and data analysis---Statistics for censored environmental data: Hoboken, New Jersey, John Wiley, 250 p.
 }
@@ -26,31 +26,30 @@ Helsel, D.R., 2005, Nondetects and data analysis---Statistics for censored envir
 \examples{
 # Create some data with **multiple detection limits**
 # This is a left-tail censoring problem, and flipping will be required.
-fakedat1 <- rnorm(50, mean=16, sd=5);
-fake1.left.censor.indicator <- fakedat1 < 14;
-fakedat1[fake1.left.censor.indicator]   <- 14;
+fakedat1 <- rnorm(50, mean=16, sd=5)
+fake1.left.censor.indicator <- fakedat1 <  14
+fakedat1[fake1.left.censor.indicator]   <- 14
 
-fakedat2 <- rnorm(50, mean=16, sd=5);
-fake2.left.censor.indicator <- fakedat2 < 10;
-fakedat2[fake2.left.censor.indicator]   <- 10;
+fakedat2 <- rnorm(50, mean=16, sd=5)
+fake2.left.censor.indicator <- fakedat2 <  10
+fakedat2[fake2.left.censor.indicator]   <- 10
 
 # combine the data sets
 fakedat <- c(fakedat1, fakedat2);
 fake.left.censor.indicator <- c(fake1.left.censor.indicator,
-                                fake2.left.censor.indicator);
-ix <- order(fakedat);
-fakedat <- fakedat[ix];
-fake.left.censor.indicator <- fake.left.censor.indicator[ix];
+                                fake2.left.censor.indicator)
+ix <- order(fakedat)
+fakedat <- fakedat[ix]
+fake.left.censor.indicator <- fake.left.censor.indicator[ix]
 
-lmr.usual       <- lmoms(fakedat);
+lmr.usual       <- lmoms(fakedat)
 lmr.flipped     <- lmomsRCmark(fakedat, flip=TRUE,
-                               rcmark=fake.left.censor.indicator);
+                               rcmark=fake.left.censor.indicator)
 lmr.backflipped <- fliplmoms(lmr.flipped); # re-transform
-pch <- as.numeric(fake.left.censor.indicator)*15 + 1;
-F <- nonexceeds();
+pch <- as.numeric(fake.left.censor.indicator)*15 + 1
+F <- nonexceeds()
 plot(pp(fakedat), sort(fakedat), pch=pch,
-     xlab="NONEXCEEDANCE PROBABILITY",
-     ylab="DATA VALUE");
+     xlab="NONEXCEEDANCE PROBABILITY", ylab="DATA VALUE")
 lines(F, qlmomco(F, parnor(lmr.backflipped)), lwd=2)
 lines(F, qlmomco(F, parnor(lmr.usual)), lty=2)
 legend(0,20, c("Uncensored", "Left-tail censored"), pch=c(1,16))
@@ -72,8 +71,7 @@ LClmr <- lmorph(LClmr)
 #LClmr$flip <- 100; fliplmoms(LClmr) # would also work
 fliplmoms(LClmr, flip=flip) # OUTPUT2 STARTS HERE
 
-# The two outputs are the same showing how the flip
-# argument works
+# The two outputs are the same showing how the flip argument works
 }
 }
 \keyword{data censoring}

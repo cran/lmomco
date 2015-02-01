@@ -8,7 +8,7 @@ function(f,para,paracheck=TRUE) {
     U  <- para$para[2]
     A  <- para$para[3]
 
-    x <- vector(mode="numeric")
+    x <- vector(mode="numeric", length=length(f))
     for(i in seq(1,length(f))) {
       x[i] <- exp(qnorm(f[i])*A + U) + ZETA
     }

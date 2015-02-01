@@ -2,7 +2,7 @@
 \alias{are.pargpa.valid}
 \title{Are the Distribution Parameters Consistent with the Generalized Pareto Distribution}
 \description{
-Is the distribution parameter object consistent with the corresponding distribution?  The functions  (\code{\link{cdfgpa}}, \code{\link{pdfgpa}}, \code{\link{quagpa}}, and
+Is the distribution parameter object consistent with the corresponding distribution?  The distribution functions  (\code{\link{cdfgpa}}, \code{\link{pdfgpa}}, \code{\link{quagpa}}, and
 \code{\link{lmomgpa}}) require consistent parameters to return the cumulative
 probability (nonexceedance), density, quantile, and L-moments of the distribution,
 respectively.  These functions internally use the \code{\link{are.pargpa.valid}}

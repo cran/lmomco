@@ -89,6 +89,9 @@ function(para,...) {
     else if(type == 'st3') {
       return(are.parst3.valid(para,...))
     }
+    else if(type == 'tri') {
+      return(are.partri.valid(para,...))
+    }
     else if(type == 'wak') {
       return(are.parwak.valid(para,...))
     }

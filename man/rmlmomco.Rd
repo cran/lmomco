@@ -4,7 +4,7 @@
 \description{
 This function computes the Mean Residual Quantile Function for quantile function \eqn{x(F)} (\code{\link{par2qua}}, \code{\link{qlmomco}}). The function is defined by Nair et al. (2013, p. 51) as
 \deqn{M(u) = \frac{1}{1-u}\int_u^1 [x(p) - x(u)]\; \mathrm{d}p\mbox{,}}
-where \eqn{M(u)} is the mean residual quantile for nonexceedance probability \eqn{u} and \eqn{x(u)} (a constant) is the quantile for \eqn{u}. The variance of \eqn{M(u)} is provided in \code{\link{rmvarlmomco}}.
+where \eqn{M(u)} is the mean residual quantile for nonexceedance probability \eqn{u} and \eqn{x(u)} is a constant for \eqn{x(F = u)}. The variance of \eqn{M(u)} is provided in \code{\link{rmvarlmomco}}.
 
 The integration instead of from \eqn{0 \rightarrow 1} for the usual quantile function is \eqn{u \rightarrow 1}. Note that \eqn{x(u)} is a constant, so
 \deqn{M(u) = \frac{1}{1-u}\int_u^1 x(p)\; \mathrm{d}p - x(u)\mbox{,}}
@@ -12,7 +12,7 @@ is equivalent and the basis for the implementation in \code{\link{rmlmomco}}. As
 
 If \eqn{u = 0}, then \eqn{M(0)} is the expectation of the life distribution or in otherwords \eqn{M(0) = \lambda_1} of the parent quantile function.  If \eqn{u = 1}, then \eqn{M(u) = 0} (death has occurred)---there is zero residual life remaining. The implementation intercepts an intermediate \eqn{\infty} and returns 0 for \eqn{u = 1}.
 
-The \eqn{M(u)} is referred to as a quantile function but this quantity is not to be interpreted as a type of probability distribution. The 2nd example shown produces a \eqn{M(u)} that is not monotonic increasing with \eqn{u} and therefore it is immediately apparent that \eqn{M(u)} is not the quantile function of some probability distribution by itself. Nair et al. (2013) provide extensive details on quantile-based reliability analysis.
+The \eqn{M(u)} is referred to as a quantile function but this quantity is not to be interpreted as a type of probability distribution. The second example produces a \eqn{M(u)} that is not monotonic increasing with \eqn{u} and therefore it is immediately apparent that \eqn{M(u)} is not the quantile function of some probability distribution by itself. Nair et al. (2013) provide extensive details on quantile-based reliability analysis.
 }
 \usage{
 rmlmomco(f, para)
@@ -58,7 +58,7 @@ Nair, N.U., Sankaran, P.G., and Balakrishnan, N., 2013, Quantile-based reliabili
 \examples{
 # It is easiest to think about residual life as starting at the origin, units in days.
 A <- vec2par(c(0.0, 2649, 2.11), type="gov") # so set lower bounds = 0.0
-qlmomco(0.5, A)  # The median life time = 1261 days
+qlmomco(0.5, A)  # The median lifetime = 1261 days
 rmlmomco(0.5, A) # The average remaining life given survival to the median = 861 days
 
 # 2nd example with discussion points
@@ -66,7 +66,7 @@ F <- nonexceeds(f01=TRUE)
 plot(F, qlmomco(F, A), type="l", # usual quantile plot as seen throughout lmomco
      xlab="NONEXCEEDANCE PROBABILITY", ylab="LIFETIME, IN DAYS")
 lines(F, rmlmomco(F, A), col=2, lwd=3)           # mean residual life
-L1 <- lmomgov(A)$lambdas[1]                      # mean life time at start/birth
+L1 <- lmomgov(A)$lambdas[1]                      # mean lifetime at start/birth
 lines(c(0,1), c(L1,L1), lty=2)                   # line "ML" (mean life)
 # Notice how ML intersects M(F|F=0) and again later in "time" (about F = 1/4)  showing
 # that this Govindarajulu as a peak mean resiudal life that is **greater** than the
@@ -77,6 +77,6 @@ lines(c(0,1), c(L1,L1), lty=2)                   # line "ML" (mean life)
 \keyword{mean residual quantile function}
 \keyword{lifetime/reliability analysis}
 \concept{lifetime}
-\concept{life time}
+\concept{lifetime}
 \concept{reliability}
 \keyword{The lmomco functions}

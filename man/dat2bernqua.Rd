@@ -1,7 +1,7 @@
 \encoding{utf8}
 \name{dat2bernqua}
 \alias{dat2bernqua}
-\title{ Observed Data to Quantiles through Bernstein or Kantorovich Polynomials }
+\title{ Observed Data to Empirical Quantiles through Bernstein or Kantorovich Polynomials }
 \description{
 The empirical quantile function can be \dQuote{smoothed} (\enc{Hernández-Maldonado}{Hernandez-Maldonado} and others, 2012, p. 114) through the Kantorovich polynomial (\enc{Muñoz-Pérez}{Munoz-Perez} and \enc{Fernández-Palacín}{Fernandez-Palacin}, 1987) for the sample order statistics \eqn{x_{k:n}} for a sample of size \eqn{n} by
 \deqn{\tilde{X}_n(F) = \frac{1}{2}\sum_{k=0}^n (x_{k:n} + x_{(k+1):n}) {n \choose k} F^k (1-F)^{n-k}\mbox{,}}
@@ -59,10 +59,10 @@ lines(1-R$f, -R$x, col=4)
 Lastly, there can be many practical situations in which transformation is desired. Because of the logic structure related to how \code{fix.lower} and \code{fix.upper} are determined or provided by the user, it is highly recommended that this function not internally handle transformation and detransformation. See the second example for use of logarithms.
 }
 \section{Special Attention}{
-The limiting properties of the Bernstein and Kantorovich polynomials differ. The Kantorovich polynomial uses the average of the largest (smallest) value and the respective outer order statistics (\eqn{x_{n+1:n}} or \eqn{x_{0:n}}) unlike the Bernstein polynomial whose \eqn{F = 0} or \eqn{F = 1} are purely a function of the outer order statistics. Thus, the Bernstein polynomial can attain the \code{fix.lower} and(or) \code{fix.upper} whereas the Kantorovich fundamentally can not. 
+The limiting properties of the Bernstein and Kantorovich polynomials differ. The Kantorovich polynomial uses the average of the largest (smallest) value and the respective outer order statistics (\eqn{x_{n+1:n}} or \eqn{x_{0:n}}) unlike the Bernstein polynomial whose \eqn{F = 0} or \eqn{F = 1} are purely a function of the outer order statistics. Thus, the Bernstein polynomial can attain the \code{fix.lower} and(or) \code{fix.upper} whereas the Kantorovich fundamentally can not.  For a final comment, the function \code{\link{dat2bernquaf}} is an inverse of \code{dat2bernqua}.
 }
 \references{
-Cheng, C., 1995, The Berstein polynomial estimator of a smooth quantile function: Statistics and Probability Letters, v. 24, pp. 321--330.
+Cheng, C., 1995, The Bernstein polynomial estimator of a smooth quantile function: Statistics and Probability Letters, v. 24, pp. 321--330.
 
 de Carvalho, M., 2012, A generalization of the Solis-Wets method: Journal of Statistical Planning and Inference, v. 142, no. 3, pp. 633--644.
 
@@ -80,7 +80,7 @@ Parzen, E., 1979, Nonparametric statistical data modeling: Journal American Stat
 The function makes use of \R functions \code{lchoose} and \code{exp} and logarithmic expressions, such as \eqn{(1-F)^{(n-k)} \rightarrow (n-k)\log(1-F)}, for numerical stability for large sample sizes.
 }
 \author{ W.H. Asquith}
-\seealso{ \code{\link{lmoms.bernstein}}, \code{\link{pfactor.bernstein}} }
+\seealso{ \code{\link{lmoms.bernstein}}, \code{\link{pfactor.bernstein}}, \code{\link{dat2bernquaf}} }
 \examples{
 # Compute smoothed extremes, quartiles, and median
 # The smoothing seems to extend to F=0 and F=1.

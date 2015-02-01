@@ -29,7 +29,7 @@ function(x, para, paracheck=TRUE) {
 
    Z <- H*K / ( A * (1 + K*K) * gamma(1/H) )
 
-   f <- vector(mode = "numeric")
+   f <- vector(mode = "numeric", length=length(x))
    for(i in seq(1,length(x))) {
       Y   <-  abs(x[i] - U) / A
       f[i] <- Z * exp(-1 * (  K^sign(x[i] - U) * Y )^H )

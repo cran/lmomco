@@ -16,7 +16,7 @@ pp(x, A=NULL, B=NULL, a=0, sort=TRUE)
   \item{A}{A value for the plotting-position coefficient \eqn{A}.}
   \item{B}{A value for the plotting-position coefficient \eqn{B}.}
   \item{a}{A value for the plotting-position formula from which \eqn{A} and \eqn{B} are computed, default is \code{a=0}, which returns the Weibull plotting positions.}
-  \item{sort}{A logical whether the ranks of the data are sorted prior to \eqn{F} computation.}
+  \item{sort}{A logical whether the ranks of the data are sorted prior to \eqn{F} computation. It was a design mistake years ago to default this function to a sort, but it is now far too late to risk changing the logic now. The function originally lacked the \code{sort} argument for many years.}
 }
 \value{
   An \R \code{vector} is returned.

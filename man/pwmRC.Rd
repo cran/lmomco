@@ -28,7 +28,7 @@ pwmRC(x, threshold=NULL, nmom=5, sort=TRUE, checkbetas=FALSE)
   \item{x}{A vector of data values.}
   \item{threshold}{The right-tail censoring (upper) threshold.}
   \item{nmom}{Number of PWMs to return.}
-  \item{sort}{Does the data need sorting? Note that convention is the have a \eqn{\beta_0}, but this is placed in the first index \code{i=1} of the \code{betas} vector.}
+  \item{sort}{Do the data need sorting? Note that convention is the have a \eqn{\beta_0}, but this is placed in the first index \code{i=1} of the \code{betas} vector.}
   \item{checkbetas}{A cross relation between \eqn{\beta^A_r} and \eqn{\beta^B_r} exists---display the results of the secondary computation of the \eqn{\beta^B_r}. The two displayed vectors should be numerically equal.}
 }
 \value{
@@ -48,7 +48,7 @@ There is some ambiguity if the threshold also numerically equals valid data in t
 \preformatted{
 sapply(x, function(v) { if(v >= T) return(T); return(v) } )
 }
-to reset the data vector \code{x}. The \code{aleftbrace} or \code{arightbrace} is to be interpreted as meaning a brace as used in a programming syntax. By operating on the data in this fashion one can toy with various levels of the threshold for experimental purposes; this seemed a more natural way for general implementation. The code sets \eqn{n} = \code{length(x)} and \eqn{m} = \code{n - length(x[x == T])}, which also seems natural. The \eqn{\beta^A_r} are computed by dispatching to \code{\link{pwm}}.
+to reset the data vector \code{x}. By operating on the data in this fashion one can toy with various levels of the threshold for experimental purposes; this seemed a more natural way for general implementation. The code sets \eqn{n} = \code{length(x)} and \eqn{m} = \code{n - length(x[x == T])}, which also seems natural. The \eqn{\beta^A_r} are computed by dispatching to \code{\link{pwm}}.
 }
 \references{
 Greenwood, J.A., Landwehr, J.M., Matalas, N.C., and Wallis, J.R., 1979, Probability weighted moments---Definition and relation to parameters of several distributions expressable in inverse form: Water Resources Research, v. 15, pp. 1,049--1,054.

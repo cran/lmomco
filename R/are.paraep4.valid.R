@@ -1,6 +1,7 @@
 "are.paraep4.valid" <-
 function(para,nowarn=FALSE) {
     if(! is.aep4(para)) return(FALSE)
+    if(any(is.na(para$para))) return(FALSE)
 
     A <- para$para[2]
     K <- para$para[3]
@@ -10,15 +11,15 @@ function(para,nowarn=FALSE) {
     GO <- TRUE
     if(nowarn == TRUE) options(warn=-1)
     if(A <= 0) {
-      warning("Parameters are invalid")
+      warning("Parameter A is not > 0, invalid")
       GO <- FALSE
     }
     if(K <= 0) {
-      warning("Parameters are invalid")
+      warning("Parameter K is not > 0, invalid")
       GO <- FALSE
     }
     if(H <= 0) {
-      warning("Parameters are invalid")
+      warning("Parameter H is not > 0, invalid")
       GO <- FALSE
     }
     options(op)

@@ -8,7 +8,7 @@ function(x,para) {
     A  <- para$para[2]
     K  <- para$para[3]
 
-    f <- vector(mode="numeric")
+    f <- vector(mode="numeric", length=length(x))
     for(i in seq(1,length(x))) {
       Y <- (x[i]-XI)/A
       if(Y <= 0) { f[i] <- 0; next }

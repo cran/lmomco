@@ -17,11 +17,10 @@ The coefficient of L-variation is computed by \code{Lcomoment.coefficients(L1,L2
   \deqn{ \hat{\tau}_{[12]} = \frac{\hat{\lambda}_{2[12]}}
                                    {\hat{\lambda}_{1[12]}} \mbox{.}}
 
-The higher L-comoment coefficients (L-coskew, L-cokurtosis, \ldots) are computed by the function \code{Lcomoment.coefficients(L3,L2)} (\eqn{k=3}),  \code{Lcomoment.coefficients(L4,L2)} (\eqn{k=4}), and so on. Symbolically, the higher L-comoment coefficients are
+The higher L-comoment coefficients (L-coskew, L-cokurtosis, \ldots) are computed by the function \code{Lcomoment.coefficients(L3,L2)} (\eqn{k=3}),  \code{Lcomoment.coefficients(L4,L2)} (\eqn{k=4}), and so on. Symbolically, the higher L-comoment coefficients for \eqn{k \ge 3} are
 
   \deqn{ \hat{\tau}_{k[12]} = \frac{\hat{\lambda}_{k[12]}}
-                                   {\hat{\lambda}_{2[12]}}
-                                   \mbox{, for } k \ge 3 \mbox{.}}
+                                   {\hat{\lambda}_{2[12]}}\mbox{.}}
 
 Finally, the usual univariate L-moment ratios as seen from \code{\link{lmom.ub}} or \code{\link{lmoms}} are along the diagonal. The \code{\link{Lcomoment.coefficients}} function does not make use of \code{\link{lmom.ub}} or \code{\link{lmoms}}.
 }
@@ -37,7 +36,7 @@ The function begins with a capital letter. This is intentionally done so that lo
 }
 \author{ W.H. Asquith}
 \references{
-Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: CreateSpace Independent Publishing Platform, 2nd printing, ISBN 978--146350841--8.
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
 
 Serfling, R., and Xiao, P., 2007, A contribution to multivariate L-moments---L-comoment matrices: Journal of Multivariate Analysis, v. 98, pp. 1765--1781.
 }

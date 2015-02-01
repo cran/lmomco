@@ -8,7 +8,7 @@ Return a list of the three character syntax identifying distributions supported 
 \code{gpa}, \code{gum}, \code{kap}, \code{kmu}, \code{kur},
 \code{lap}, \code{lmrq}, \code{ln3}, \code{nor}, \code{pe3},
 \code{ray}, \code{revgum}, \code{rice}, \code{sla}, \code{st3},
-\code{texp}, \code{wak}, and \code{wei}. These abbreviations and only these are used in routing logic within \pkg{lmomco}. There is no provision for fuzzy matching.
+\code{texp}, \code{tri}, \code{wak}, and \code{wei}. These abbreviations and only these are used in routing logic within \pkg{lmomco}. There is no provision for fuzzy matching.
 }
 \usage{
 dist.list(type=NULL)
@@ -38,7 +38,7 @@ for(i in seq(1,length(dist))) {
   # The Student t (3-parameter) is skipped because inapplicable to the L-moments.
   # The Truncated Exponential also is skipped for the same reason.
   if(dist[i] == 'aep4' | dist[i] == 'cau' | dist[i] == 'emu'  | dist[i] == 'gep' |
-     dist[i] == 'kmu'  | dist[i] == 'kur' | dist[i] == 'lmrq' |
+     dist[i] == 'kmu'  | dist[i] == 'kur' | dist[i] == 'lmrq' | dist[i] == 'tri' |
      dist[i] == 'sla'  | dist[i] == 'st3' | dist[i] == 'texp') next
   print(lmom2par(lm1,type=dist[i]))
   print(lmom2par(lm2,type=dist[i]))

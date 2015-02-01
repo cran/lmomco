@@ -3,7 +3,7 @@
 \title{Estimate the Parameters of the Reverse Gumbel Distribution}
 \description{
 This function estimates the parameters of the Reverse Gumbel distribution given the type-B L-moments of the data in an L-moment object such as that returned by
-\code{\link{pwmRC}} using \code{\link{pwm2lmom}}. This distribution is important in the analysis of censored data. It is the distribution of a logarithmically transformed two-parameter Weibull distribution. The relations between distribution parameters and L-moments are
+\code{\link{pwmRC}} using \code{\link{pwm2lmom}}. This distribution is important in the analysis of censored data. It is the distribution of a logarithmically transformed 2-parameter Weibull distribution. The relations between distribution parameters and L-moments are
 \deqn{\alpha = \lambda^B_2/\lbrace\log(2) + \mathrm{Ei}(-2\log(1-\zeta)) - \mathrm{Ei}(-\log(1-\zeta))\rbrace}
 and
 \deqn{\xi = \lambda^B_1 + \alpha\lbrace\mathrm{Ei}(-\log(1-\zeta))\rbrace\mbox{,}}

@@ -2,7 +2,7 @@
 \alias{sentiv.curve}
 \title{Compute the Sensitivity Curve for a Single Quantile}
 \description{
-The \emph{sensitivity curve} (\eqn{SC}) is a means to assess how sensitive a particular statistic \eqn{T_{n+1}} (here the quantile \eqn{x(F)} for a single value of \eqn{F}) is to an additional sample \eqn{x} to be included in a sample already having a size \eqn{n}. For the implementation by this function, the statistic \eqn{T} is a specific quantile of interest set by a nonexceedance probability \eqn{F}.  The \eqn{SC} is
+The \emph{sensitivity curve} (\eqn{SC}) is a means to assess how sensitive a particular statistic \eqn{T_{n+1}} for a sample of size \eqn{n} is to an additional sample \eqn{x} to be included. For the implementation by this function, the statistic \eqn{T} is a specific quantile \eqn{x(F)} of interest set by a nonexceedance probability \eqn{F}.  The \eqn{SC} is
 \deqn{SC_{n+1}(x,\,| F) = (n+1)(T_{n+1} - T_n)\mbox{,}}
 where \eqn{T_n} represent the statistic for the sample of size \eqn{n}. The notation here follows that of Hampel (1974, p. 384) concerning \eqn{n} and \eqn{n+1}.
 }
@@ -29,13 +29,13 @@ The main features of this function involve how the statistics are computed and a
 
 The internal variable \code{EX} now requires discussion. If \code{method=none}, then the \code{data} are sorted and set into the internal variable \code{EX}. Conversely, if \code{method=}\code{bootstrap} or \code{method=}\code{polynomial}, then \code{EX} will contain the expectations of the order statistics from \code{\link{lmoms.bootbarvar}}.
 
-Lastly, the Weibull plotting positions are used for the probability values for the data as provided by the \code{\link{pp}} function. Evidently, if \code{method} is either \code{parent} or \code{polynomial} then a \dQuote{stylized sensitivity curve} would created (David, 1981, p. 165) because the expectations of the sample order statistics and not the simple order statistics (the sorted sample) are used.
+Lastly, the Weibull plotting positions are used for the probability values for the data as provided by the \code{\link{pp}} function. Evidently, if \code{method} is either \code{parent} or \code{polynomial} then a \dQuote{stylized sensitivity curve} would created (David, 1981, p. 165) because the expectations of the sample order statistics and not the sample order statistics (the sorted sample) are used.
 }
 \value{
 An \R \code{list} is returned.
 
 \item{curve}{The value for \eqn{SC(x) = (n+1)(T_{n+1} - T_n)}.}
-\item{curve.perchg}{The percent change sensitivity curve by \eqn{SCp(x) = 100\times (T_{n+1} - T_n)/T_n}.}
+\item{curve.perchg}{The percent change sensitivity curve by \eqn{SC^{(\%)}(x) = 100\times (T_{n+1} - T_n)/T_n}.}
 \item{Tnp1}{The values for \eqn{T_{n+1} = T_n + SC(x)/(n+1)}.}
 \item{Tn}{The value (singular) for \eqn{T_n} which was estimated according to \code{method}.}
 \item{color}{The curve potentially passes through a zero depending on the values for \eqn{x}. The \code{color} is set to distinquish between negatives and positives so that the user could use the absolute value of \code{curve} on logarithmic scales and use the color to distinquish the original negatives.}
@@ -76,9 +76,9 @@ plot(xlim, c(0,0), type="l", lty=2, ylim=ylim, xaxs="i", yaxs="i",
      ylab=paste("Percent change fitted",F,"probability quantile"))
 mtext(paste("Distribution",par.s$type,"with parameters",
       paste(round(par.s$para, digits=3), collapse=", ")))
-lines(rep(TRUE.Q,2), c(-10,10), lty=4, lwd=3)
+lines(rep(TRUE.Q,  2), c(-10,10), lty=4, lwd=3)
 lines(rep(SIM.BAR, 2), c(-10,10), lty=3, lwd=2)
-lines(rep(SIM.Q, 2), c(-10,10), lty=2)
+lines(rep(SIM.Q,   2), c(-10,10), lty=2)
 lines(Xs, SC1$curve.perchg, lwd=3, col=1)
 lines(Xs, SC2$curve.perchg, lwd=2, col=2)
 lines(Xs, SC3$curve.perchg, lwd=1, col=4)

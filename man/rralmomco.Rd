@@ -4,7 +4,7 @@
 \description{
 This function computes the Reversed \eqn{\alpha}-Percentile Residual Quantile Function for quantile function \eqn{x(F)} (\code{\link{par2qua}}, \code{\link{qlmomco}}). The function is defined by Nair and Vineshkumar (2011, p. 87) and Midhu et al. (2013, p. 13) as
 \deqn{R_\alpha(u) = x(u) - x(u[1-\alpha])\mbox{,}}
-where \eqn{R_\alpha(u)} is the reversed \eqn{\alpha}-percentile residual quantile for nonexceedance probability \eqn{u} and percentile \eqn{\alpha}. Nonreversed \eqn{\alpha}-percentile residual quantile is available under \code{\link{ralmomco}}.
+where \eqn{R_\alpha(u)} is the reversed \eqn{\alpha}-percentile residual quantile for nonexceedance probability \eqn{u} and percentile \eqn{\alpha} and \eqn{x(u[1-\alpha])} is a constant for \eqn{x(F = u[1-\alpha])}. The nonreversed \eqn{\alpha}-percentile residual quantile is available under \code{\link{ralmomco}}.
 }
 \usage{
 rralmomco(f, para, alpha=0)
@@ -45,6 +45,6 @@ lines(F, ralmomco(F, A, alpha=50), col=2) # notice the lack of symmetry
 \keyword{alpha-percentile residual quantile function}
 \keyword{lifetime/reliability analysis}
 \concept{lifetime}
-\concept{life time}
+\concept{lifetime}
 \concept{reliability}
 \keyword{The lmomco functions}

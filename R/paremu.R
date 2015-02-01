@@ -101,9 +101,9 @@ function(lmom, checklmom=TRUE, checkbounds=TRUE,
        SS <- transSS(SS)
        if(trackoptim) {
            message("justfitT3T4: eta = ", round(e,  digits=4),
-                   "  mu = ",               round(mu, digits=4),
-                   "  m = ",                round(m,  digits=4),
-                   "  SS = ",               round(SS, digits=9))
+                   "  mu = ",             round(mu, digits=4),
+                   "  m = ",              round(m,  digits=4),
+                   "  SS = ",             round(SS, digits=9))
        }
        return(SS)
    }
@@ -137,9 +137,9 @@ function(lmom, checklmom=TRUE, checkbounds=TRUE,
        SS <- transSS(SS)
        if(trackoptim) {
            message("alsofitT3T4: eta = ", round(e,  digits=4),
-                   "  mu = ",               round(mu, digits=4),
-                   "  m = ",                round(m,  digits=4),
-                   "  SS = ",               round(SS, digits=9))
+                   "  mu = ",             round(mu, digits=4),
+                   "  m = ",              round(m,  digits=4),
+                   "  SS = ",             round(SS, digits=9))
        }
        return(SS)
    }
@@ -155,9 +155,9 @@ function(lmom, checklmom=TRUE, checkbounds=TRUE,
        SS <- transSS(SS)
        if(trackoptim) {
            message("alsofitT3: eta = ",   round(e,  digits=4),
-                   "  mu = ",               round(mu, digits=4),
-                   "  m = ",                round(m,  digits=4),
-                   "  SS = ",               round(SS, digits=9))
+                   "  mu = ",             round(mu, digits=4),
+                   "  m = ",              round(m,  digits=4),
+                   "  SS = ",             round(SS, digits=9))
        }
        return(SS)
    }
@@ -172,9 +172,9 @@ function(lmom, checklmom=TRUE, checkbounds=TRUE,
        SS <- transSS(SS)
        if(trackoptim) {
            message("justfitL1T2: eta = ", round(e,  digits=4),
-                   "  mu = ",               round(mu, digits=4),
-                   "  m = ",                round(m,  digits=4),
-                   "  SS = ",               round(SS, digits=9))
+                   "  mu = ",             round(mu, digits=4),
+                   "  m = ",              round(m,  digits=4),
+                   "  SS = ",             round(SS, digits=9))
        }
        return(SS)
    }

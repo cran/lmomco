@@ -26,9 +26,9 @@ The parameterization of the Log-Normal3 results in ready support for either a kn
 }
 \author{ W.H. Asquith}
 \references{
-Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: CreateSpace Independent Publishing Platform, 2nd printing, ISBN 978--146350841--8.
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
 }
-\seealso{\code{\link{pdfln3}}, \code{\link{qualn3}}, \code{\link{lmomln3}}, \code{\link{parln3}}}
+\seealso{\code{\link{pdfln3}}, \code{\link{qualn3}}, \code{\link{lmomln3}}, \code{\link{parln3}}, \code{\link{cdfgno}}}
 \examples{
   lmr <- lmoms(c(123,34,4,654,37,78))
   cdfln3(50,parln3(lmr))

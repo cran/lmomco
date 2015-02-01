@@ -11,7 +11,7 @@ compute the discorancy of the \eqn{i}th site as
 D_i = \frac{n}{3} (\bm{\mu} - \bm{\overline\mu})^T \bm{S}^{-1} (\bm{\mu} - \bm{\overline\mu}\mbox{.})
 }
 
-A site is judged to be discordance if \eqn{D_i} exceeds a critical value. The critical value is a function of sample size. Hosking and Wallis (1997, p. 47) provide a table for general application. By about \eqn{n=14}, the critical value is taken as \eqn{D_c = 3}, although the \eqn{D_{max}} increases with sample size. Specifically, the \eqn{D_i} has an upper limit of
+The L-moments of a sample for a location are judged to be discordance if \eqn{D_i} exceeds a critical value. The critical value is a function of sample size. Hosking and Wallis (1997, p. 47) provide a table for general application. By about \eqn{n=14}, the critical value is taken as \eqn{D_c = 3}, although the \eqn{D_{max}} increases with sample size. Specifically, the \eqn{D_i} has an upper limit of
 \deqn{D_i \le (n-1)/3\mbox{.}}
 However, Hosking and Wallis (1997, p. 47) recommend \dQuote{that any site with \eqn{D_i > 3} be regarded as discordant.} A statistical test of \eqn{D_i} can be constructed. Hosking and Wallis (1997, p. 47) report that the \eqn{D_{critical}} is
 \deqn{D_{critical, n, \alpha} = \frac{(n - 1)Z}{n - 4 + 3Z}\mbox{,}}

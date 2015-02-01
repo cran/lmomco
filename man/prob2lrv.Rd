@@ -24,6 +24,10 @@ Bradford, R.B., 2002, Volume-duration growth curves for flood estimation in perm
 \examples{
 F <- nonexceeds()
 lrv <- prob2lrv(F)
+\dontrun{
+X <- rlmomco(10040, vec2par(c(0,1,0), type="glo"))
+plot(prob2lrv(pp(X, a=0.4)), sort(X)); abline(0,1)
+}
 }
 \keyword{utility (probability)}
 \concept{Logistic reduced variate}

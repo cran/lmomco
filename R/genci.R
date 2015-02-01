@@ -14,18 +14,20 @@ function(para,n, F=NULL, ci=0.90, edist="gno",
     warning("Confidence limit is specified by nonexceedance probability 0.5 <= ci < 1")
     return()
   }
-  ci_low <- vector(mode = 'numeric')
-  ci_tru <- vector(mode = 'numeric')
-  ci_hi  <- vector(mode = 'numeric')
-  ci_l1  <- vector(mode = 'numeric')
-  ci_l2  <- vector(mode = 'numeric')
-  ci_t3  <- vector(mode = 'numeric')
-  ci_t4  <- vector(mode = 'numeric')
-  ci_t5  <- vector(mode = 'numeric')
-  ci_mu  <- vector(mode = 'numeric')
-  ci_var <- vector(mode = 'numeric')
-  ci_skw <- vector(mode = 'numeric')
+
   num.Fs <- length(F)
+  ci_low <- vector(mode = 'numeric', length=num.Fs)
+  ci_tru <- vector(mode = 'numeric', length=num.Fs)
+  ci_hi  <- vector(mode = 'numeric', length=num.Fs)
+  ci_l1  <- vector(mode = 'numeric', length=num.Fs)
+  ci_l2  <- vector(mode = 'numeric', length=num.Fs)
+  ci_t3  <- vector(mode = 'numeric', length=num.Fs)
+  ci_t4  <- vector(mode = 'numeric', length=num.Fs)
+  ci_t5  <- vector(mode = 'numeric', length=num.Fs)
+  ci_mu  <- vector(mode = 'numeric', length=num.Fs)
+  ci_var <- vector(mode = 'numeric', length=num.Fs)
+  ci_skw <- vector(mode = 'numeric', length=num.Fs)
+
   if(! quiet) cat(c(num.Fs,"-"),sep="")
   for(i in seq(1,num.Fs)) {
     CI <- qua2ci(F[i], para, n, ci=ci, edist=edist, nsim=nsim,

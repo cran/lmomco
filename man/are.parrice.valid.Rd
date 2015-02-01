@@ -2,7 +2,7 @@
 \alias{are.parrice.valid}
 \title{Are the Distribution Parameters Consistent with the Rice Distribution}
 \description{
-Is the distribution parameter object consistent with the corresponding distribution?  The functions  (\code{\link{cdfrice}}, \code{\link{pdfrice}}, \code{\link{quarice}}, and
+Is the distribution parameter object consistent with the corresponding distribution?  The distribution functions  (\code{\link{cdfrice}}, \code{\link{pdfrice}}, \code{\link{quarice}}, and
 \code{\link{lmomrice}}) require consistent parameters to return the cumulative
 probability (nonexceedance), density, quantile, and L-moments of the distribution,
 respectively.  These functions internally use the \code{\link{are.parrice.valid}}
@@ -24,7 +24,7 @@ This function calls \code{\link{is.rice}} to verify consistency between the dist
 }
 \author{ W.H. Asquith}
 \references{
-Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: CreateSpace Independent Publishing Platform, 2nd printing, ISBN 978--146350841--8.
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
 }
 \seealso{ \code{\link{is.rice}}, \code{\link{parrice}} }
 \examples{

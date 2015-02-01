@@ -24,14 +24,14 @@ values provided as separate arguments.}
   \item{bound.type}{Same argument as for \code{\link{dat2bernqua}}.}
   \item{fix.lower}{Same argument as for \code{\link{dat2bernqua}}.}
   \item{fix.upper}{Same argument as for \code{\link{dat2bernqua}}.}
-  \item{p}{The \dQuote{p-factor} that is the same argument as for \code{\link{dat2bernqua}}.}
+  \item{p}{The \dQuote{p-factor} is the same argument as for \code{\link{dat2bernqua}}.}
 }
 \value{
   An \R \code{vector} is returned.
 }
 \author{ W.H. Asquith}
 \references{
-Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: First edition, CreateSpace Independent Publishing Platform, 2nd printing, ISBN 978--146350841-8.
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
 }
 \seealso{ \code{\link{dat2bernqua}}, \code{\link{pfactor.bernstein}}, \code{\link{lmoms}} }
 \examples{

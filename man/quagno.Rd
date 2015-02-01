@@ -2,7 +2,7 @@
 \alias{quagno}
 \title{Quantile Function of the Generalized Normal Distribution}
 \description{
-This function computes the quantiles of the Generalized Normal (log-Normal) distribution given parameters (\eqn{\xi}, \eqn{\alpha}, and \eqn{\kappa}) computed by \code{\link{pargno}}.  The quantile function has no explicit form. The parameters have the following interpretations: \eqn{\xi} is a location parameter, \eqn{\alpha} is a scale parameter, and \eqn{\kappa} is a shape parameter.
+This function computes the quantiles of the Generalized Normal (Log-Normal3) distribution given parameters (\eqn{\xi}, \eqn{\alpha}, and \eqn{\kappa}) computed by \code{\link{pargno}}.  The quantile function has no explicit form. The parameters have the following interpretations: \eqn{\xi} is a location parameter, \eqn{\alpha} is a scale parameter, and \eqn{\kappa} is a shape parameter.
 }
 \usage{
 quagno(f, para, paracheck=TRUE)
@@ -29,7 +29,7 @@ approach based on L-moments: Cambridge University Press.
 }
 \author{ W.H. Asquith}
 \seealso{
-\code{\link{cdfgno}}, \code{\link{pdfgno}}, \code{\link{lmomgno}}, \code{\link{pargno}}
+\code{\link{cdfgno}}, \code{\link{pdfgno}}, \code{\link{lmomgno}}, \code{\link{pargno}}, \code{\link{qualn3}}
 }
 \examples{
   lmr <- lmoms(c(123,34,4,654,37,78))

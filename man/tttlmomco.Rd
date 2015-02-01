@@ -6,11 +6,11 @@ This function computes the Total Time on Test Transform Quantile Function for a 
 \deqn{T(u) = \mu - (1 - u) M(u)\mbox{,}}
 \deqn{T(u) = x(u) - u R(u)\mbox{,}}
 \deqn{T(u) = (1-u) x(u) + \mu L(u)\mbox{,}}
-where \eqn{T(u)} is the total time on test,  \eqn{M(u)} is the residual mean quantile function (\code{\link{rmlmomco}}), \eqn{x(u)} (a constant) is the quantile for nonexceedance probability \eqn{u}, \eqn{R(u)} is the reversed mean residual quantile function (\code{\link{rrmlmomco}}), \eqn{L(u)} is the Lorenz curve (\code{\link{lrzlmomco}}), and \eqn{\mu} as the following definitions
+where \eqn{T(u)} is the total time on test for nonexceedance probability \eqn{u},  \eqn{M(u)} is the residual mean quantile function (\code{\link{rmlmomco}}), \eqn{x(u)} is a constant for \eqn{x(F = u)}, \eqn{R(u)} is the reversed mean residual quantile function (\code{\link{rrmlmomco}}), \eqn{L(u)} is the Lorenz curve (\code{\link{lrzlmomco}}), and \eqn{\mu} as the following definitions
 \deqn{\mu \equiv \lambda_1(u=0)\mbox{\ first L-moment of residual life for\ }u=0\mbox{,}}
 \deqn{\mu \equiv \lambda_1(x(F))\mbox{\ first L-moment of the quantile function}\mbox{,}}
 \deqn{\mu \equiv \mu(0)\mbox{\ conditional mean for\ }u=0\mbox{.}}
-The definitions imply that within numerical tolerances that \eqn{\mu(0)} (\code{\link{cmlmomco}}) should be equal to \eqn{T(1)}, which means that the conditional mean that the 0th percentile in life has been reached equals that total time on test for the 100th percentile. The later can be interpreted as meaning that each of realization of the life time distribution for the respective sample size lived to its expeccted ordered lifetimes.
+The definitions imply that within numerical tolerances that \eqn{\mu(0)} (\code{\link{cmlmomco}}) should be equal to \eqn{T(1)}, which means that the conditional mean that the 0th percentile in life has been reached equals that total time on test for the 100th percentile. The later can be interpreted as meaning that each of realization of the lifetime distribution for the respective sample size lived to its expected ordered lifetimes.
 }
 \usage{
 tttlmomco(f, para)
@@ -42,7 +42,7 @@ Nair, N.U., Sankaran, P.G., and Balakrishnan, N., 2013, Quantile-based reliabili
 \examples{
 # It is easiest to think about residual life as starting at the origin, units in days.
 A <- vec2par(c(0.0, 2649, 2.11), type="gov") # so set lower bounds = 0.0
-tttlmomco(0.5, A)  # The median life time = 859 days
+tttlmomco(0.5, A)  # The median lifetime = 859 days
 
 f <- c(0.25,0.75) # All three computations report: 306.2951 and 1217.1360 days.
 Tu1 <- cmlmomco(f=0, A) - (1-f)* rmlmomco(f, A)
@@ -57,7 +57,7 @@ if(abs(cmlmomco(0,A) - tttlmomco(1,A)) < 1E-4) {
 \keyword{total time on test transform}
 \keyword{lifetime/reliability analysis}
 \concept{lifetime}
-\concept{life time}
+\concept{lifetime}
 \concept{reliability}
 \concept{ttt transform}
 \keyword{The lmomco functions}

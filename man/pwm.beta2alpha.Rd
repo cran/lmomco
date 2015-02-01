@@ -18,7 +18,7 @@ pwm.alpha2beta(pwm)
   \item{pwm}{A vector of alpha or beta probability-weighted moments depending on which related function is called.}
 }
 \value{
-  If \eqn{\beta_r \rightarrow \alpha_r} (\code{\link{pwm.beta2alpha}}), a vector of the \eqn{\alpha_r}. Note that convention is the have a \eqn{\alpha_0}, but this is placed in the first index \code{i=1} vector. Alternatively, if \eqn{\alpha_r \rightarrow \beta_r} ( (\code{\link{pwm.alpha2beta}})), a vector of the \eqn{\beta_r}.
+  If \eqn{\beta_r \rightarrow \alpha_r} (\code{\link{pwm.beta2alpha}}), a vector of the \eqn{\alpha_r}. Note that convention is the have a \eqn{\alpha_0}, but this is placed in the first index \code{i=1} vector. Alternatively, if \eqn{\alpha_r \rightarrow \beta_r} (\code{\link{pwm.alpha2beta}}), a vector of the \eqn{\beta_r}.
 }
 \references{
 # NEED

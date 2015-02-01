@@ -4,7 +4,7 @@
 \description{
 This function estimates the parameters of the 4-parameter Asymmetric Exponential Power distribution given the L-moments of the data in an L-moment object such as that returned by \code{\link{lmoms}}. The relation between distribution parameters and L-moments is seen under \code{\link{lmomaep4}}. Relatively straightforward, but difficult to numerically achieve, optimization is needed to extract the parameters from the L-moments.
 
-Delicado and Goria (2008) make argue for numerical methods to use the following objective function
+Delicado and Goria (2008) argue for numerical methods to use the following objective function
 \deqn{\epsilon(\alpha, \kappa, h) = \log(1 + \sum_{r=2}^4 (\hat\lambda_r - \lambda_r)^2)\mbox{,}}
 and subsequently solve directly for \eqn{\xi}. This objective function was chosen by Delicado and Goria because the solution surface can become quite flat for away from the minimum.  The author of \pkg{lmomco} agrees with the findings of those authors from limited exploratory analysis and the development of the algorithms used here under the rubic of the \dQuote{DG} method. This exploration resulted in an alternative algorithm using tabulated initial guesses described below. An evident drawback of the Delicado-Goria algorithm, is that precision in \eqn{\alpha} is may be lost according to the observation that this parameter can be analytically computed given \eqn{\lambda_2}, \eqn{\kappa}, and \eqn{h}.
 
@@ -12,12 +12,12 @@ It is established practice in L-moment theory of four (and similarly three) para
 
 Another optimization, referred to here as the \dQuote{A} (Asquith) method, is available for parameter estimation using the following objective function
 \deqn{\epsilon(\kappa, h) = \sqrt{(\hat\tau_3 - \tau_3)^2 + (\hat\tau_4 - \tau_4)^2}\mbox{,}}
-and subsequently solve directly for \eqn{\alpha} and then \eqn{\xi}. The \dQuote{A} method appears to perform better in \eqn{\kappa} and \eqn{h} estimation and quite a bit better in \eqn{\alpha} and and \eqn{\xi} as seemingly expected because these last two are analytically computed (Asquith, 2014). The objective function of the A method defaults to use of the \eqn{\sqrt{x}} but this can be removed by setting \code{sqrt.t3t4=FALSE}.
+and subsequently solve directly for \eqn{\alpha} and then \eqn{\xi}. The \dQuote{A} method appears to perform better in \eqn{\kappa} and \eqn{h} estimation and quite a bit better in \eqn{\alpha} and and \eqn{\xi} as seemingly expected because these last two are analytically computed (Asquith, 2014). The objective function of the \dQuote{A} method defaults to use of the \eqn{\sqrt{x}} but this can be removed by setting \code{sqrt.t3t4=FALSE}.
 
 The initial guesses for the \eqn{\kappa} and \eqn{h} parameters derives from a hashed environment in in file \cr \file{sysdata.rda} (\env{.lmomcohash$AEPkh2lmrTable}) in which the \eqn{\{\kappa, h\}} pair having the minimum \eqn{\epsilon(\kappa, h)} in which \eqn{\tau_3} and \eqn{\tau_4} derive from the table as well.  The file \file{SysDataBuilder.R} provides additional technical details on how the \code{AEPkh2lmrTable} was generated. The table represents a systematic double-loop sweep through \code{\link{lmomaep4}} for
-\deqn{-3 \le \log(\kappa) \le 3, \Delta=0.05\mbox{,}}
+\deqn{\kappa \mapsto \{-3 \le \log(\kappa) \le 3, \Delta\log(\kappa)=0.05\}\mbox{,}}
 and
-\deqn{-3 \le \log(h) \le 3, \Delta=0.05\mbox{.}}
+\deqn{h \mapsto \{-3 \le \log(h) \le 3, \Delta\log(h)=0.05\}\mbox{.}}
 
 The function will not return parameters if the following lower bounds of \eqn{\tau_4} are not met: \cr \eqn{\tau_4 \ge 0.77555(|\tau_3|) - 3.3355(|\tau_3|)^2 + 14.196(|\tau_3|)^3 - 29.909(|\tau_3|)^4 + 37.214(|\tau_3|)^5 - 24.741(|\tau_3|)^6 + 6.7998(|\tau_3|)^7}. For this polynomial, the residual standard error is RSE = 0.0003125 and the maximum absolute error for \eqn{\tau_3{:}[0,1] < 0.0015}. The actual coefficients in \code{\link{paraep4}} have additional significant figures.
 }

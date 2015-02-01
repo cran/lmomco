@@ -2,7 +2,7 @@
 \alias{is.ln3}
 \title{Is a Distribution Parameter Object Typed as 3-Parameter Log-Normal}
 \description{
-The distribution parameter object returned by functions of \pkg{lmomco} such as by \code{\link{parln3}} are typed by an attribute \code{type}. This function checks that \code{type} is \code{ln3} for the 3-parameter log-Normal distribution.
+The distribution parameter object returned by functions of \pkg{lmomco} such as by \code{\link{parln3}} are typed by an attribute \code{type}. This function checks that \code{type} is \code{ln3} for the 3-parameter Log-Normal distribution.
 }
 \usage{
 is.ln3(para)

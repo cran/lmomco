@@ -6,8 +6,7 @@ This function computes the probability density function
 of the Normal distribution given parameters  computed
 by \code{\link{parnor}}.  The probability density function is
 \deqn{f(x) = \frac{1}{\sigma \sqrt{2\pi}} \exp\!\left(\frac{-(x-\mu)^2}{2\sigma^2}\right) \mbox{,}}
-where \eqn{f(x)} is the probability density for quantile \eqn{x}, \eqn{\mu} is the arithmetic mean, and \eqn{\sigma} is the standard deviation, and \eqn{\Phi} is the cumulative distribution function of the Standard Normal
-distribution. The \R function \code{pnorm} is used.
+where \eqn{f(x)} is the probability density for quantile \eqn{x}, \eqn{\mu} is the arithmetic mean, and \eqn{\sigma} is the standard deviation. The \R function \code{pnorm} is used.
 }
 \usage{
 pdfnor(x, para)

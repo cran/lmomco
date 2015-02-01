@@ -2,7 +2,7 @@
 \alias{are.parlmrq.valid}
 \title{Are the Distribution Parameters Consistent with the Linear Mean Residual Quantile Function Distribution}
 \description{
-Is the distribution parameter object consistent with the corresponding distribution?  The functions (\code{\link{cdflmrq}}, \code{\link{pdflmrq}}, \code{\link{qualmrq}}, and \code{\link{lmomlmrq}}) require consistent parameters to return the cumulative probability (nonexceedance), density, quantile, and L-moments of the distribution, respectively.  These functions internally use the \code{\link{are.parlmrq.valid}} function. The constraints on the parameters are listed under \code{\link{qualmrq}}. The documentation for \code{\link{qualmrq}} provides the conditions for valid parameters.
+Is the distribution parameter object consistent with the corresponding distribution?  The distribution functions (\code{\link{cdflmrq}}, \code{\link{pdflmrq}}, \code{\link{qualmrq}}, and \code{\link{lmomlmrq}}) require consistent parameters to return the cumulative probability (nonexceedance), density, quantile, and L-moments of the distribution, respectively.  These functions internally use the \code{\link{are.parlmrq.valid}} function. The constraints on the parameters are listed under \code{\link{qualmrq}}. The documentation for \code{\link{qualmrq}} provides the conditions for valid parameters.
 }
 \usage{
 are.parlmrq.valid(para, nowarn=FALSE)

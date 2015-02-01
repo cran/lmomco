@@ -36,6 +36,6 @@ Bu2 <- bfrlmomco(f, A)
 \keyword{Bonferroni curve}
 \keyword{lifetime/reliability analysis}
 \concept{lifetime}
-\concept{life time}
+\concept{lifetime}
 \concept{reliability}
 \keyword{The lmomco functions}

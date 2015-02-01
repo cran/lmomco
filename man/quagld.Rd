@@ -7,7 +7,7 @@ This function computes the quantiles of the Generalized Lambda distribution give
       x(F) = x + a*(F^k-(1-F)^h)}
 where \eqn{x(F)} is the quantile for nonexceedance probability \eqn{F},
 \eqn{\xi} is a location parameter, \eqn{\alpha} is a scale
-parameter, and \eqn{\kappa}, and \eqn{h} are shape parameters. Note that in this parameterization the scale term is shown in the numerator and not the denominator. This is done for \pkg{lmomco} as part of the parallel nature between distributions whose various scale parameters are shown have same units and the location parameter.
+parameter, and \eqn{\kappa}, and \eqn{h} are shape parameters. Note that in this parameterization, the scale term is shown in the numerator and not the denominator. This is done for \pkg{lmomco} as part of the parallel nature between distributions whose various scale parameters are shown having the same units as the location parameter.
 }
 \usage{
 quagld(f, gldpara, paracheck=TRUE)

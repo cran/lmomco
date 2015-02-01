@@ -66,8 +66,8 @@ function(x) {
 
   # Addition 5/8/2013 with discussion with Sergio Gomez
   # http://www.tc3.edu/instruct/sbrown/stat/shape.htm#KurtosisCompute
-  # D. N. Joanes and C. A. Gill., 1998, “Comparing Measures of Sample Skewness
-  # and Kurtosis”. The Statistician 47(1):183–189.
+  # D. N. Joanes and C. A. Gill., 1998, Comparing Measures of Sample Skewness
+  # and Kurtosis. The Statistician 47(1):183-189.
   #Brown.a4 <- hosking.M4 / (hosking.M2)^2
   #Brown.g2 <- Brown.a4 - 3 # excess kurtosis
   #Brown.k  <- (n-1)/((n-2)*(n-3)) * ((n+1)*Brown.g2 + 6)

@@ -2,7 +2,7 @@
 \alias{are.partexp.valid}
 \title{Are the Distribution Parameters Consistent with the Truncated Exponential Distribution}
 \description{
-Is the distribution parameter object consistent with the corresponding distribution?  The functions  (\code{\link{cdftexp}}, \code{\link{pdftexp}}, \code{\link{quatexp}}, and \code{\link{lmomtexp}}) require consistent parameters to return the cumulative probability (nonexceedance), density, quantile, and L-moments of the distribution, respectively. These functions internally use the \code{\link{are.partexp.valid}} function.
+Is the distribution parameter object consistent with the corresponding distribution?  The distribution functions  (\code{\link{cdftexp}}, \code{\link{pdftexp}}, \code{\link{quatexp}}, and \code{\link{lmomtexp}}) require consistent parameters to return the cumulative probability (nonexceedance), density, quantile, and L-moments of the distribution, respectively. These functions internally use the \code{\link{are.partexp.valid}} function.
 }
 \usage{
 are.partexp.valid(para, nowarn=FALSE)

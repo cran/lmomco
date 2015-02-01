@@ -2,7 +2,7 @@
 \alias{cdf2lmoms}
 \title{ Compute L-moments from Cumulative Distribution Function }
 \description{
-Compute the L-moments from a cumulative distribution function. For \eqn{r \ge 1}, the L-moments can be computed by sequential calling \code{\link{cdf2lmom}}. Consult the documentation of that function for mathematical definitions.
+Compute the L-moments from a cumulative distribution function. For \eqn{r \ge 1}, the L-moments can be computed by sequential calling of \code{\link{cdf2lmom}}. Consult the documentation of that function for mathematical definitions.
 }
 \usage{
 cdf2lmoms(para, nmom=6, fdepth=0, silent=TRUE, lambegr=1, ...)

@@ -11,7 +11,7 @@ pwmLC(x, threshold=NULL, nmom=5, sort=TRUE)
   \item{x}{A vector of data values.}
   \item{threshold}{The left-tail censoring (lower) threshold.}
   \item{nmom}{Number of PWMs to return.}
-  \item{sort}{Does the data need sorting? Note that convention is the have a \eqn{\beta'_0}, but this is placed in the first index \code{i=1} of the \code{betas} vector.}
+  \item{sort}{Do the data need sorting? Note that convention is the have a \eqn{\beta'_0}, but this is placed in the first index \code{i=1} of the \code{betas} vector.}
 }
 \value{
   An \R \code{list} is returned.
@@ -26,7 +26,11 @@ pwmLC(x, threshold=NULL, nmom=5, sort=TRUE)
   \item{samplesize}{Number of actual sample values.}
 }
 \details{
-There is some ambiguity if the threshold also numerically equals valid data in the data set. In the data for the examples below, which are taken from elsewhere, there are real observations at the censoring level. One can see how a hack is made to marginally decrease or increase the data or the threshold for the computations. This is needed because the code uses \code{sapply(x, function(v) } \cr \code{aleftbrace if(v >= T) return(T); return(v) arightbrace )} to reset the data vector \code{x}. The \code{aleftbrace} or \code{arightbrace} is to be interpreted as meaning a brace as used in a programming syntax. By operating on the data in this fashion one can toy with various levels of the threshold for experimental purposes; this seemed a more natural way for general implementation. The code sets \eqn{n} = \code{length(x)} and \eqn{m} = \code{n - length(x[x == T])}, which also seems natural. The \eqn{\beta^A_r} are computed by dispatching to \code{\link{pwm}}.
+There is some ambiguity if the threshold also numerically equals valid data in the data set. In the data for the examples below, which are taken from elsewhere, there are real observations at the censoring level. One can see how a hack is made to marginally decrease or increase the data or the threshold for the computations. This is needed because the code uses
+\preformatted{
+sapply(x, function(v) { if(v >= T) return(T); return(v) } )
+}
+to reset the data vector \code{x}. By operating on the data in this fashion one can toy with various levels of the threshold for experimental purposes; this seemed a more natural way for general implementation. The code sets \eqn{n} = \code{length(x)} and \eqn{m} = \code{n - length(x[x == T])}, which also seems natural. The \eqn{\beta^A_r} are computed by dispatching to \code{\link{pwm}}.
 }
 \references{
 Zafirakou-Koulouris, A., Vogel, R.M., Craig, S.M., and Habermeier, J., 1998, L-moment diagrams for censored observations: Water Resources Research, v. 34, no. 5, pp. 1241--1249.

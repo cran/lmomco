@@ -30,7 +30,7 @@ Nair, N.U., Sankaran, P.G., and Balakrishnan, N., 2013, Quantile-based reliabili
 A <- vec2par(c(0.0, 2649, 2.11), type="gov") # so set lower bounds = 0.0
 
 "afunc" <- function(u) { return(par2qua(u,A,paracheck=FALSE)) }
-f <- 0.35 # All three computations report: 0.6413727
+f <- 0.35 # All three computations report: Ku = 0.6413727
 Ku1 <- 1 - 1/cmlmomco(f=0,A) * integrate(afunc,0,1-f)$value
 Ku2 <- (cmlmomco(0,A) - (1-f)*(quagov(1-f,A) - rrmlmomco(1-f,A)))/cmlmomco(0,A)
 Ku3 <- lkhlmomco(f, A)
@@ -39,6 +39,6 @@ Ku3 <- lkhlmomco(f, A)
 \keyword{Leimkuhler curve}
 \keyword{lifetime/reliability analysis}
 \concept{lifetime}
-\concept{life time}
+\concept{lifetime}
 \concept{reliability}
 \keyword{The lmomco functions}

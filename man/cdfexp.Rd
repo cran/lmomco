@@ -5,7 +5,7 @@
 This function computes the cumulative probability or nonexceedance probability of the Exponential distribution given parameters (\eqn{\xi} and \eqn{\alpha}  computed by \code{\link{parexp}}. The cumulative distribution function is
 \deqn{F(x) = 1 - \exp(Y)\mbox{,}}
 where \eqn{Y} is
-\deqn{\frac{-(x - \xi)}{\alpha}\mbox{, and}}
+\deqn{\frac{-(x - \xi)}{\alpha}\mbox{,}}
 where \eqn{F(x)} is the nonexceedance probability for the quantile \eqn{x}, 
 \eqn{\xi} is a location parameter, and \eqn{\alpha} is a scale parameter.
 }

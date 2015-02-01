@@ -48,7 +48,7 @@ function(x, para, paracheck=TRUE, yacoubsintegral=TRUE) {
        if(val == 0) return(0)
        return(Ymuleft * int1$value)
     }
-    f <- vector(mode="numeric")
+    f <- vector(mode="numeric", length=length(x))
     for(i in seq(1,length(x))) {
       xi <- x[i]
       if(xi == 0) { f[i] <- 0; next }

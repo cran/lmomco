@@ -6,7 +6,7 @@ This function computes the probability density
 of the Cauchy distribution given parameters (\eqn{\xi} and \eqn{\alpha})  provided by \code{\link{parcau}}.  The probability density function is
 \deqn{f(x) = \left(\pi \alpha \left[1 + \left({\frac{x-\xi}{\alpha}}\right)^2\right] \right)^{-1}\mbox{,}}
 where \eqn{f(x)} is the probability density for quantile \eqn{x},
-\eqn{\xi} is a location parameter ,and \eqn{\alpha} is a scale parameter.
+\eqn{\xi} is a location parameter, and \eqn{\alpha} is a scale parameter.
 }
 \usage{
 pdfcau(x, para)

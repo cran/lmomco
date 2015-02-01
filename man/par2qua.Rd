@@ -9,7 +9,7 @@ par2qua(f,para,...)
 }
 \arguments{
   \item{f}{Nonexceedance probability (\eqn{0 \le F \le 1}).}
-  \item{para}{The parameters from \code{\link{lmom2par}} or\code{\link{vec2par}}.}
+  \item{para}{The parameters from \code{\link{lmom2par}} or \code{\link{vec2par}}.}
   \item{...}{The additional arguments are passed to the quantile function such as \cr \code{paracheck = FALSE} for the Generalized Lambda distribution (\code{\link{quagld}}).}
 }
 \value{

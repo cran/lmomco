@@ -18,7 +18,7 @@ pdfexp(x, para)
   \item{para}{The parameters from \code{\link{parexp}} or \code{\link{vec2par}}.}
 }
 \value{
-  Probability density (\eqn{F}) for \eqn{x}.
+  Probability density (\eqn{f}) for \eqn{x}.
 }
 \references{
 Hosking, J.R.M., 1990, L-moments---Analysis and estimation of

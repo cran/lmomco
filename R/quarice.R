@@ -35,7 +35,7 @@ function(f, para, xmax=NULL, paracheck=TRUE) {
         ord <- ord + 1
       }
    }
-   x <- vector(mode="numeric")
+   x <- vector(mode="numeric", length=length(f))
    for(i in 1:length(f)) {
      Fx   <- f[i]
      x[i] <- NA

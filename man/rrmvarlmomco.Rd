@@ -37,6 +37,6 @@ lines(F, rrmvarlmomco(F,A), col=2)
 \keyword{reversed variance residual quantile function}
 \keyword{lifetime/reliability analysis}
 \concept{lifetime}
-\concept{life time}
+\concept{lifetime}
 \concept{reliability}
 \keyword{The lmomco functions}

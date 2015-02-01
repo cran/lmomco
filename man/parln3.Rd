@@ -24,10 +24,10 @@ Let the L-moments by in variable \code{lmr}, if the \eqn{\zeta} (lower bounds) i
 }
 \author{ W.H. Asquith}
 \references{
-Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: CreateSpace Independent Publishing Platform, 2nd printing, ISBN 978--146350841--8.
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
 }
 \seealso{\code{\link{lmomln3}},
-\code{\link{cdfln3}}, \code{\link{pdfln3}}, \code{\link{qualn3}}
+\code{\link{cdfln3}}, \code{\link{pdfln3}}, \code{\link{qualn3}}, \code{\link{pargno}}
 }
 \examples{
 lmr <- lmoms(rnorm(20))

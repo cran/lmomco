@@ -15,9 +15,6 @@ A data frame with
   \item{REFUNDS}{Dollars of refunds.}
 }
 }
-\references{
-\url{http://www.irs.gov/taxstats/article/0,,id=168593,00.html} accessed in December 2007.
-}
 \examples{
 data(IRSrefunds.by.state)
 summary(IRSrefunds.by.state)

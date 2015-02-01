@@ -13,12 +13,13 @@ Lcomoment.Wk(k,r,n)
   \item{n}{Sample size.}
 }
 \details{
-This function computes the weight factors needed to calculation L-comoments and is interfaced or used by \code{\link{Lcomoment.Lk12}}. This function is not intended for end users. The weight factor \eqn{w^{(k)}_{r:n}} is the discrete Legendre polynomial. The weight factors are well illustrated in figure 6.1 of Asquith (2011). The weight factors are
+This function computes the weight factors needed to calculation L-comoments and is interfaced or used by \code{\link{Lcomoment.Lk12}}. The weight factors are
  \deqn{ w^{(k)}_{r:n} = \sum_{j=0}^{min\{r-1,k-1\}} (-1)^{k-1-j}
                                     \frac{{k-1 \choose j}{k-1+j \choose j}
           {r-1 \choose j}}
          {{n-1 \choose j}}
       \mbox{.}}
+The weight factor \eqn{w^{(k)}_{r:n}} is the discrete Legendre polynomial. The weight factors are well illustrated in figure 6.1 of Asquith (2011). This function is not intended for end users.
 }
 \value{A single L-comoment weight factor.}
 \note{
@@ -26,7 +27,7 @@ The function begins with a capital letter. This is intentionally done so that lo
 }
 \author{ W.H. Asquith}
 \references{
-Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: CreateSpace Independent Publishing Platform, 2nd printing, ISBN 978--146350841--8.
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
 
 Serfling, R., and Xiao, P., 2007, A contribution to multivariate L-moments---L-comoment matrices: Journal of Multivariate Analysis, v. 98, pp. 1765--1781.
 }

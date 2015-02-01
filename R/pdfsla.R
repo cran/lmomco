@@ -9,7 +9,7 @@ function(x,para) {
     A <- para$para[2]
     tmp <- dnorm(0)
     
-    f <- vector(mode="numeric")
+    f <- vector(mode="numeric", length=length(x))
     for(i in seq(1,length(x))) {
       Y <- (x[i] - U)/A
       the.diff <- tmp - dnorm(Y)

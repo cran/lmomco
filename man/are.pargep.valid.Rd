@@ -2,7 +2,7 @@
 \alias{are.pargep.valid}
 \title{Are the Distribution Parameters Consistent with the Generalized Exponential Poisson Distribution}
 \description{
-Is the distribution parameter object consistent with the corresponding distribution?  The functions  (\code{\link{cdfgep}}, \code{\link{pdfgep}}, \code{\link{quagep}}, and
+Is the distribution parameter object consistent with the corresponding distribution?  The distribution functions  (\code{\link{cdfgep}}, \code{\link{pdfgep}}, \code{\link{quagep}}, and
 \code{\link{lmomgep}}) require consistent parameters to return the cumulative
 probability (nonexceedance), density, quantile, and L-moments of the distribution,
 respectively.  These functions internally use the \code{\link{are.pargep.valid}}

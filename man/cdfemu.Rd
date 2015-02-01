@@ -10,8 +10,7 @@ where
 \deqn{
 Y_\nu(a,b) = \frac{2^{3/2 - \nu}\sqrt{\pi}(1-a^2)^\nu}{a^{\nu - 1/2} \Gamma(\nu)} \int_b^\infty x^{2\nu}\,\mathrm{exp}(-x^2)\,I_{\nu-1/2}(ax^2) \; \mathrm{d}x\mbox{,}
 }
-where \eqn{I_{\nu}(a)} is
-\deqn{I_\nu(a) = \mbox{.}}
+where \eqn{I_{\nu}(a)}  is the ``\eqn{\nu}th-order modified Bessel function of the first kind.''
 
 }
 \usage{

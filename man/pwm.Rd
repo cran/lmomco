@@ -2,7 +2,7 @@
 \alias{pwm}
 \title{ Unbiased Sample Probability-Weighted Moments }
 \description{
-Unbiased sample probability-weighted moments (PWMs) are computed from a sample. The first five \eqn{\beta_r}'s are computed by default using
+Unbiased sample probability-weighted moments (PWMs) are computed from a sample. The \eqn{\beta_r}'s are computed using
 \deqn{\beta_r = n^{-1}\sum^n_{j=1} {j-1 \choose r} x_{j:n}\mbox{.}}
 }
 \usage{
@@ -10,8 +10,8 @@ pwm(x, nmom=5, sort=TRUE)
 }
 \arguments{
   \item{x}{A vector of data values.}
-  \item{nmom}{Number of PWMs to return.}
-  \item{sort}{Does the data need sorting? The computations require sorted data. This option is provided to optimize processing speed if presorted data already exists.}
+  \item{nmom}{Number of PWMs to return (\eqn{r = } \code{nmom - 1}).}
+  \item{sort}{Do the data need sorting? The computations require sorted data. This option is provided to optimize processing speed if presorted data already exists.}
 }
 \value{
   An \R \code{list} is returned.

@@ -1,6 +1,7 @@
 "are.parln3.valid" <-
 function(para,nowarn=FALSE) {
     if(! is.ln3(para)) return(FALSE)
+    if(any(is.na(para$para))) return(FALSE)
 
     ZETA  <- para$para[1]
     MU    <- para$para[2]
@@ -18,11 +19,11 @@ function(para,nowarn=FALSE) {
     GO <- TRUE
     if(nowarn == TRUE) options(warn=-1)
     if(SIG <= 0) {
-       warning("Parameters are invalid, Slog <= 0")
+       warning("Parameter SIG is not > 0, invalid")
        GO <- FALSE
     }
     if(ZETA >= (LAM1 + LAM2)) {
-       warning("Parameters are invalid, zeta >= L1 + L2")
+       warning("Parameter ZETA is not < LAM1 + LAM2, invalid")
        GO <- FALSE
     }
     options(op)

@@ -1,10 +1,11 @@
 "theoLmoms.max.ostat" <-
-function(para=NULL, cdf=NULL, pdf=NULL, qua=NULL, nmom=4, switch2minostat=FALSE, ...) {
+function(para=NULL, cdf=NULL, pdf=NULL, qua=NULL, nmom=4,
+         switch2minostat=FALSE, showterms=FALSE, ...) {
 
    if(is.null(para)) stop("parameter list not specified and it needs to be in lmomco style")
 
    if(is.null(qua)) {
-   	  if(is.null(cdf)) stop("cdf function using lmomco parameter style not specified")
+      if(is.null(cdf)) stop("cdf function using lmomco parameter style not specified")
       if(is.null(pdf)) stop("pdf function using lmomco parameter style not specified")
    }
 
@@ -24,13 +25,22 @@ function(para=NULL, cdf=NULL, pdf=NULL, qua=NULL, nmom=4, switch2minostat=FALSE,
      enn[r] <- mo
      if(is.na(mo)) next
      series <- 0
+     the.terms <- vector(mode="numeric", length=r)
      for(k in r:1) {
-       term <- (-1)^(r-k)*k^(-1)*choose(r-1,k-1)*choose(r+k-2,k-1)
-       series <- series + term*enn[k]
+       term <- (-1)^(r-k) * k^(-1) * exp( lchoose(r-1,k-1) + lchoose(r+k-2,k-1) )
+       if(switch2minostat) term <- (-1)^(r-1) * term
+       the.terms[k] <- term
+       series[k] <- term*enn[k]
      }
-     lms[r] <- ifelse(switch2minostat,
-                      (-1)^(r-1)*sum(series),
-                                 sum(series))
+     if(showterms) {
+        message("  Order (r)=", r, ": terms (m=r:1) on E[X_m:(m|1)]s --> ",
+                                paste(rev(the.terms), collapse="  "))
+        #print(rev(series)) # only for debugging
+     }
+     # Note that the (-1)^(r-1) term in typeset mathematics would be pulled out from
+     # the summation, but it is inserted here so that the multipliers on the Exx have
+     # the correct sign in showterms is TRUE
+     lms[r] <- sum(series)
    }
    if(nmom >= 1) lmr[1] <- NA
    if(nmom >= 2) {

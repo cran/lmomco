@@ -9,7 +9,7 @@ where \eqn{F(x)} is the nonexceedance probability for quantile \eqn{x > 0}, \eqn
 \usage{
 quagep(f, para, paracheck=TRUE)
 }
-\details{If \code{f = 1} or is so close to unity that \code{NaN} in the computations of the quantile function, then the function enters into an infinite loop for which an order of magnitude decrement on \code{.Machine$double.eps} is made until a numeric hit is encountered.  Let \eqn{\eta} by this machine value, then \eqn{F = 1 - \eta^{1/j}} where \eqn{j} is the iteration in the infinite loop. Eventually \eqn{F} becomes small enough that a finite value with result. This result is the maximum numerical value the function can produce on the current running platform.  This feature greatly assists in the numerical integration of the quantile function for L-moment estimation (see \code{\link{expect.max.ostat}}).  The \code{\link{expect.max.ostat}} was zealous on reporting errors related to lack of finite integration limited but with the order magnitude decrementing, then the errors in \code{\link{expect.max.ostat}} become fewer and are
+\details{If \code{f = 1} or is so close to unity that \code{NaN} in the computations of the quantile function, then the function enters into an infinite loop for which an \dQuote{order of magnitude decrement} on \code{.Machine$double.eps} is made until a numeric hit is encountered.  Let \eqn{\eta} be this machine value, then \eqn{F = 1 - \eta^{1/j}} where \eqn{j} is the iteration in the infinite loop. Eventually \eqn{F} becomes small enough that a finite value will result. This result is an estimate of the maximum numerical value the function can produce on the current running platform.  This feature assists in the numerical integration of the quantile function for L-moment estimation (see \code{\link{expect.max.ostat}}).  The \code{\link{expect.max.ostat}} was zealous on reporting errors related to lack of finite integration. However with the \dQuote{order magnitude decrementing,} then the errors in \code{\link{expect.max.ostat}} become fewer and are either
 \preformatted{
 Error in integrate(fnb, lower, upper, subdivisions = 200L) : 
   extremely bad integrand behaviour
@@ -18,7 +18,8 @@ or
 \preformatted{
 Error in integrate(fnb, lower, upper, subdivisions = 200L) : 
   maximum number of subdivisions reached
-}.
+}
+and are shown here to aid in research into Generalized Exponential Power implementation.
 }
 \arguments{
   \item{f}{Nonexceedance probability (\eqn{0 \le F \le 1}).}

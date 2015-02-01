@@ -1,6 +1,7 @@
 "are.parwak.valid" <-
 function(para,nowarn=FALSE) {
     if(! is.wak(para)) return(FALSE)
+    if(any(is.na(para$para))) return(FALSE)
 
     A <- para$para[2]
     B <- para$para[3]

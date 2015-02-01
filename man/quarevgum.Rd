@@ -4,7 +4,7 @@
 \description{
 This function computes the quantiles of the Reverse Gumbel distribution given parameters (\eqn{\xi} and \eqn{\alpha}) computed by \code{\link{parrevgum}}. The quantile function  is
 \deqn{x(F) = \xi + \alpha\log(-\log(1-F)) \mbox{,}}
-where \eqn{x(F)} is the quantile for nonexceedance probability \eqn{F}, \eqn{\xi} is a location parameter, and \eqn{\alpha} is a scale parameter. Notice that the function has some sign differences and uses the complement of \eqn{F} compared to the Gumbel quantile function in \code{\link{quagum}}.
+where \eqn{x(F)} is the quantile for nonexceedance probability \eqn{F}, \eqn{\xi} is a location parameter, and \eqn{\alpha} is a scale parameter.
 }
 \usage{
 quarevgum(f, para, paracheck=TRUE)

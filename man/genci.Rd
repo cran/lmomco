@@ -1,6 +1,6 @@
 \name{genci}
 \alias{genci}
-\title{Generate Confidence Intervals for Quantiles of a Parent Distribution}
+\title{Generate (Estimate) Confidence Intervals for Quantiles of a Parent Distribution}
 \description{
 This function estimates the lower and upper limits of a specified confidence interval for a vector of nonexceedance probabilities \eqn{F} of a specified parent distribution [quantile function \eqn{Q(F,\theta)} with parameters \eqn{\theta}] using Monte Carlo simulation. The \eqn{F} are specified by the user. The user also provides \eqn{\Theta} of the parent distribution (see \code{\link{lmom2par}}). This function is a wrapper on \code{\link{qua2ci}}; please consult the documentation for that function for further details of the simulations.
 }

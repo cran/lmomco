@@ -2,7 +2,7 @@
 \alias{lmoms}
 \title{ The Sample L-moments and L-moment Ratios }
 \description{
-Compute the sample L-moments. The mathematical expression for sample L-moment computation is shown under \code{\link{TLmoms}}. The formula jointly handles sample L-moment computation and sample TL-moment (Elamir and Seheult, 2003) computation. A decription of the most common L-moments is provided under \code{\link{lmom.ub}}.
+Compute the sample L-moments. The mathematical expression for sample L-moment computation is shown under \code{\link{TLmoms}}. The formula jointly handles sample L-moment computation and sample TL-moment (Elamir and Seheult, 2003) computation. A description of the most common L-moments is provided under \code{\link{lmom.ub}}.
 }
 \usage{
 lmoms(x,nmom=5)
@@ -27,7 +27,7 @@ lmoms(x,nmom=5)
 This function computes the L-moments through the generalization of the TL-moments (\code{\link{TLmoms}}). In fact, this function calls the default TL-moments with no trimming of the sample. This function is equivalent to \code{\link{lmom.ub}}, but returns a different data structure. The \code{\link{lmoms}} function is preferred by the author.
 }
 \references{
-Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: CreateSpace Independent Publishing Platform, 2nd printing, ISBN 978--146350841--8.
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
 
 Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational statistics and data analysis, vol. 43, pp. 299-314.
 

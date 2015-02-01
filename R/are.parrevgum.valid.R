@@ -1,6 +1,8 @@
 "are.parrevgum.valid" <-
 function(para,nowarn=FALSE) {
     if(! is.revgum(para)) return(FALSE)
+    if(any(is.na(para$para))) return(FALSE)
+
     A <- para$para[2]
     op <- options()
     GO <- TRUE

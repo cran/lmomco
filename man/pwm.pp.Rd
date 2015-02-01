@@ -20,7 +20,7 @@ pwm.pp(x, pp=NULL, A=NULL, B=NULL, a=0, nmom=5, sort=TRUE)
   \item{B}{Another value for the plotting-position formula. If \code{A} and \code{B} are both zero then the unbiased PWMs are computed through \code{\link{pwm.ub}}.}
   \item{a}{A single plotting position coefficient from which, if not \code{NULL}, \eqn{A} and \eqn{B} will be internally computed;}
   \item{nmom}{Number of PWMs to return.}
-  \item{sort}{Does the data need sorting? The computations require sorted data. This option is provided to optimize processing speed if presorted data already exists.}
+  \item{sort}{Do the data need sorting? The computations require sorted data. This option is provided to optimize processing speed if presorted data already exists.}
 }
 \value{
   An \R \code{list} is returned.

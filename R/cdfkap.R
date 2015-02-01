@@ -11,7 +11,7 @@ function(x,para) {
     G <- para$para[3]
     H <- para$para[4]
     
-    f <- vector(mode="numeric")
+    f <- vector(mode="numeric", length=length(x))
     for(i in seq(1,length(x))) {
       Y <- (x[i]-U)/A
       if(G == 0) {

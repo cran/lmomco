@@ -2,7 +2,7 @@
 \alias{are.pargam.valid}
 \title{Are the Distribution Parameters Consistent with the Gamma Distribution}
 \description{
-Is the distribution parameter object consistent with the corresponding distribution?  The functions  (\code{\link{cdfgam}}, \code{\link{pdfgam}}, \code{\link{quagam}}, and
+Is the distribution parameter object consistent with the corresponding distribution?  The distribution functions  (\code{\link{cdfgam}}, \code{\link{pdfgam}}, \code{\link{quagam}}, and
 \code{\link{lmomgam}}) require consistent parameters to return the cumulative
 probability (nonexceedance), density, quantile, and L-moments of the distribution,
 respectively.  These functions internally use the \code{\link{are.pargam.valid}}

@@ -2,7 +2,7 @@
 \alias{lmom2vec}
 \title{ Convert an L-moment object to a Vector of L-moments}
 \description{
-This function converts an L-moment object in the structure used by \pkg{lmomco} into a simple vector. The precise operation of this function is dependent on the L-moment object argument. The \code{\link{lmorph}} function is not used. This function is useful if one needs to use certain function in the \pkg{lmoms} package that are built around vectors of L-moments and L-moment ratios as arguments.
+This function converts an L-moment object in the structure used by \pkg{lmomco} into a simple vector. The precise operation of this function is dependent on the L-moment object argument. The \code{\link{lmorph}} function is not used. This function is useful if one needs to use certain functions in the \pkg{lmoms} package that are built around vectors of L-moments and L-moment ratios as arguments.
 }
 \usage{
 lmom2vec(lmom, ...)

@@ -6,7 +6,8 @@ This function computes the Conditional Mean Residual Quantile Function for quant
 \deqn{\mu(u) = \frac{1}{1-u}\int_u^1 x(p)\; \mathrm{d}p\mbox{,}}
 where \eqn{\mu(u)} is the conditional mean for nonexceedance probability \eqn{u}. The \eqn{\mu(u)} is the expectation \eqn{\mathrm{E}[X | X > x]}.
 The \eqn{\mu(u)} also is known as the \emph{vitality function}. Details can be found in Nair et al. (2013, p. 68) and Kupka and Loo (1989). Mathematically, the vitality function simply is
-\deqn{\mu(u) = M(u) + x(u)\mbox{.}}
+\deqn{\mu(u) = M(u) + x(u)\mbox{,}}
+where \eqn{M(u)} is the mean residual quantile function (\code{\link{rmlmomco}}), \eqn{x(u)} is a constant for \eqn{x(F = u)}.
 }
 \usage{
 cmlmomco(f, para)
@@ -29,13 +30,13 @@ Nair, N.U., Sankaran, P.G., and Balakrishnan, N., 2013, Quantile-based reliabili
 \examples{
 # It is easiest to think about residual life as starting at the origin, units in days.
 A <- vec2par(c(0.0, 2649, 2.11), type="gov") # so set lower bounds = 0.0
-qlmomco(0.5, A)  # The median life time = 1261 days
+qlmomco(0.5, A)  # The median lifetime = 1261 days
 rmlmomco(0.5, A) # The average remaining life given survival to the median = 861 days
 cmlmomco(0.5, A) # The average total life given survival to the median = 2122 days
 
 # Now create with a nonzero origin
 A <- vec2par(c(100, 2649, 2.11), type="gov") # so set lower bounds = 0.0
-qlmomco(0.5, A)  # The median life time = 1361 days
+qlmomco(0.5, A)  # The median lifetime = 1361 days
 rmlmomco(0.5, A) # The average remaining life given survival to the median = 861 days
 cmlmomco(0.5, A) # The average total life given survival to the median = 2222 days
 
@@ -49,6 +50,6 @@ mu3 <- reslife.lmoms(0,A)$lambdas[1]
 \keyword{conditional mean quantile function}
 \keyword{lifetime/reliability analysis}
 \concept{lifetime}
-\concept{life time}
+\concept{lifetime}
 \concept{reliability}
 \keyword{The lmomco functions}

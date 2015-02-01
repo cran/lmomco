@@ -3,7 +3,7 @@
 \title{L-moments of the Reverse Gumbel Distribution}
 \description{
 This function estimates the L-moments of the Reverse Gumbel distribution given the parameters (\eqn{\xi} and \eqn{\alpha}) from \code{\link{parrevgum}}. The first two type-B L-moments in terms of the parameters are
-\deqn{\lambda^B_1 = \xi - (0.5722\dots) \alpha  - \alpha\lbrace\mathrm{Ei}(-\log(1-\zeta))\rbrace\mbox{,}}
+\deqn{\lambda^B_1 = \xi - (0.5722\dots) \alpha  - \alpha\lbrace\mathrm{Ei}(-\log(1-\zeta))\rbrace\mbox{and}}
 \deqn{\lambda^B_2 = \alpha\lbrace\log(2) + \mathrm{Ei}(-2\log(1-\zeta)) - \mathrm{Ei}(-\log(1-\zeta))\rbrace\mbox{,}}
 where \eqn{\zeta} is the right-tail censoring fraction of the sample or the nonexceedance probability of the right-tail censoring threshold, and \eqn{\mathrm{Ei}(x)} is the exponential integral defined as
 \deqn{ \mathrm{Ei}(X) = \int_X^{\infty} x^{-1}\mathrm{exp}(-x)\mathrm{d}x \mbox{,}}

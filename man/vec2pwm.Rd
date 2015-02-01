@@ -6,7 +6,7 @@ This function converts a vector of probability-weighted moments (PWM) to a PWM
 object of \pkg{lmomco}. The object is an \R \code{list}. This function is intended
 to facilitate the use of PWM that the user might have from other sources. The
 first five PWMs are supported (\eqn{\beta_0}, \eqn{\beta_1}, \eqn{\beta_2},
-\eqn{\beta_3}, \eqn{\beta_4}).
+\eqn{\beta_3}, \eqn{\beta_4}) if \code{as.list=FALSE} otherwise the \eqn{\beta_r} are unlimited.
 }
 \usage{
 vec2pwm(vec, as.list=FALSE)
@@ -18,7 +18,7 @@ vec2pwm(vec, as.list=FALSE)
 \value{
   An \R \code{list} is returned if \code{as.list=TRUE}.
 
-  \item{BETA0}{The first PWM--equal to the arithmetic mean.}
+  \item{BETA0}{The first PWM, which is equal to the arithmetic mean.}
   \item{BETA1}{The second PWM.}
   \item{BETA2}{The third PWM.}
   \item{BETA3}{The fourth PWM.}

@@ -6,7 +6,7 @@ This function acts as a front end to \code{\link{dlmomco}} and \code{\link{plmom
 \deqn{h(x) = \frac{f(x)}{1 - F(x)}\mbox{,}}
 where \eqn{f(x)} is a probability density function and \eqn{F(x)} is the cumulative distribution function.
 
-To help with intuitive understanding of what \eqn{h(x)} means (Ugarte and others, 2008), let \eqn{\mathrm{d}x} represent a small unit of measurement. Then the quantity \eqn{h(x)dx} can be conceptualized as the approximate probability that random variable \eqn{X} takes on a value in the interval \eqn{[x, x+\mathrm{d}x]}.
+To help with intuitive understanding of what \eqn{h(x)} means (Ugarte and others, 2008), let \eqn{\mathrm{d}x} represent a small unit of measurement. Then the quantity \eqn{h(x)\,\mathrm{d}x} can be conceptualized as the approximate probability that random variable \eqn{X} takes on a value in the interval \eqn{[x, x+\mathrm{d}x]}.
 
 Ugarte and others (2008) continue by stating that \eqn{h(x)} represents the instantaneous rate of death or failure at time \eqn{x}, given the survival to time \eqn{x} has occurred. Emphasis is needed that \eqn{h(x)} is a rate of probability change and not a probability itself.
 }
@@ -41,7 +41,7 @@ hlmomco(x,para) # returns vector of 0.01
 \keyword{lifetime/reliability analysis}
 \concept{hazard}
 \concept{lifetime}
-\concept{life time}
+\concept{lifetime}
 \concept{reliability}
 \keyword{The lmomco functions}
 \keyword{The lmomco function mimics of R nomenclature}

@@ -11,7 +11,7 @@ function(x, para) {
 
    "afunc" <- function(x, f) return(x - quagov(f, para))
 
-   f <- vector(mode="numeric")
+   f <- vector(mode="numeric", length=length(x))
    for(i in seq(1,length(x))) {
       X <- x[i]
       if(X == U) {

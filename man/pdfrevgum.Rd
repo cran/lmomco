@@ -8,7 +8,7 @@ of the Reverse Gumbel distribution given parameters (\eqn{\xi} and \eqn{\alpha})
 where
 \deqn{Y = \frac{x - \xi}{\alpha} \mbox{,}}
 where \eqn{f(x)} is the probability density for quantile \eqn{x},
-\eqn{\xi} is a location parameter, and \eqn{\alpha} is a scale parameter. Notice that the function has some sign differences and uses the complement of \eqn{f} compared to the probability density function of the Gumbel distribution in \code{\link{pdfgum}}.
+\eqn{\xi} is a location parameter, and \eqn{\alpha} is a scale parameter.
 }
 \usage{
 pdfrevgum(x, para)

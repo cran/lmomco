@@ -33,7 +33,7 @@ The function uses numerical integration of the quantile function of the distribu
 }
 \author{ W.H. Asquith }
 \seealso{
-\code{\link{quagno}}, \code{\link{theoTLmoms}}
+\code{\link{quagno}}, \code{\link{theoTLmoms}}, \code{\link{tlmrln3}}
 }
 \examples{
 \dontrun{

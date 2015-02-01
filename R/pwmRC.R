@@ -39,7 +39,7 @@ function(x, threshold=NULL, nmom=5, sort=TRUE, checkbetas=FALSE) {
   if(checkbetas) { # see eqs. 29.3.3 and 29.3.4 in Hosking (1995, p. 548)
     # The Abetas and Bbetas have an intrinsic interconnection.
     # See the above reference "The use of L-moments in the Analysis of Censored Data"
-    checkBbetas <- vector(mode="numeric")
+    checkBbetas <- vector(mode="numeric", length=nmom)
     for(r in seq(0,nmom-1)) {
       bigZ <- (m/n)*choose(m-1,r)/choose(n-1,r)
       checkBbetas[r+1] <- bigZ*Abetas[r+1] + ((1-bigZ)/(r+1))*T

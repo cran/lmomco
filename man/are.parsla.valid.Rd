@@ -2,7 +2,7 @@
 \alias{are.parsla.valid}
 \title{Are the Distribution Parameters Consistent with the Slash Distribution}
 \description{
-Is the distribution parameter object consistent with the corresponding distribution?  The functions  (\code{\link{cdfsla}}, \code{\link{pdfsla}}, \code{\link{quasla}}, and \code{\link{lmomsla}}) require consistent parameters to return the cumulative probability (nonexceedance), density, quantile, and L-moments of the distribution, respectively. These functions internally use the \code{\link{are.parsla.valid}} function.
+Is the distribution parameter object consistent with the corresponding distribution?  The distribution functions  (\code{\link{cdfsla}}, \code{\link{pdfsla}}, \code{\link{quasla}}, and \code{\link{lmomsla}}) require consistent parameters to return the cumulative probability (nonexceedance), density, quantile, and L-moments of the distribution, respectively. These functions internally use the \code{\link{are.parsla.valid}} function.
 }
 \usage{
 are.parsla.valid(para, nowarn=FALSE)

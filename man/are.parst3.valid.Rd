@@ -2,7 +2,7 @@
 \alias{are.parst3.valid}
 \title{Are the Distribution Parameters Consistent with the 3-Parameter Student t Distribution}
 \description{
-Is the distribution parameter object consistent with the corresponding distribution?  The functions  (\code{\link{cdfst3}}, \code{\link{pdfst3}}, \code{\link{quast3}}, and \code{\link{lmomst3}}) require consistent parameters to return the cumulative probability (nonexceedance), density, quantile, and L-moments of the distribution, respectively. These functions internally use the \code{\link{are.parst3.valid}} function.
+Is the distribution parameter object consistent with the corresponding distribution?  The distribution functions  (\code{\link{cdfst3}}, \code{\link{pdfst3}}, \code{\link{quast3}}, and \code{\link{lmomst3}}) require consistent parameters to return the cumulative probability (nonexceedance), density, quantile, and L-moments of the distribution, respectively. These functions internally use the \code{\link{are.parst3.valid}} function.
 }
 \usage{
 are.parst3.valid(para, nowarn=FALSE)
@@ -20,7 +20,7 @@ This function calls \code{\link{is.st3}} to verify consistency between the distr
 }
 \author{ W.H. Asquith}
 \references{
-Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: First edition, CreateSpace Independent Publishing Platform, , 2nd printing, ISBN 978-146350841-8.
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
 }
 \seealso{ \code{\link{is.st3}}, \code{\link{parst3}} }
 \examples{

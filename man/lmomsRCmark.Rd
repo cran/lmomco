@@ -11,14 +11,14 @@ lmomsRCmark(x, rcmark=NULL, nmom=5, flip=NA, flipfactor=1.1)
   \item{x}{A vector of data values.}
   \item{rcmark}{The right-tail censoring (upper) marking variable for unknown threshold: 0 is uncensored, 1 is censored.}
   \item{nmom}{Number of L-moments to return.}
-  \item{flip}{Do the data require flipping so that left-censored data can be processed as such. If the flip is a logical and \code{TRUE}, then flipfactor times the maximum of \code{x} is used. If the flip is a numeric, then it is used as the flip. The mean is NOT unflipped during the population of this statistics.}
-  \item{flipfactor}{The value that is greater than 1, which is multiplied on the maximum of \code{x} to determine the flip, if the flip is not otherwise provided.}
+  \item{flip}{Do the data require flipping so that left-censored data can be processed as such. If the flip is a logical and \code{TRUE}, then \code{flipfactor} \eqn{\times} \eqn{\mathrm{max}(x)} (the maximum of \code{x}) is used. If the \code{flip} is a numeric, then it is used as the flip.}
+  \item{flipfactor}{The value that is greater than 1, which is multiplied on the maximum of \code{x} to determine the flip, if the \code{flip} is not otherwise provided.}
 }
 \value{
   An \R \code{list} is returned.
 
   \item{lambdas}{Vector of the L-moments. First element is
-\eqn{\hat{\lambda}^{(0,0)}_1}, second element is \eqn{\hat{\lambda}^{(0,0)}_2}, and so on.}
+\eqn{\hat{\lambda}^{(0,0)}_1}, second element is \eqn{\hat{\lambda}^{(0,0)}_2}, and so on.  \emph{The returned mean is NOT unflipped.}}
   \item{ratios}{Vector of the L-moment ratios. Second element is
 \eqn{\hat{\tau}^{(0,0)}}, third element is \eqn{\hat{\tau}^{(0,0)}_3} and so on.}
   \item{trim}{Level of symmetrical trimming used in the computation, which will equal \code{NULL} if asymmetrical trimming was used. This is not currently implemented as no one has done the derivations.}

@@ -61,7 +61,7 @@ function(para,nmom=5,trim=NULL,leftrim=NULL,rightrim=NULL,verbose=FALSE, minF=0,
       int <- NULL
       try( int <- integrate(XofF,minF,maxF) )
       if(is.null(int)) {
-         warning("some type of error detected in integration on the r=",r,"L-moment, abandoning and returning all NA")
+         warning("some type of error detected in integration on the r=",r," L-moment, abandoning and returning all NA")
          return(z)
       }
       # Sum up

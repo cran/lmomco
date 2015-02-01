@@ -35,4 +35,4 @@ for(i in 1:length(K)) {
 }
 \keyword{distribution}
 \keyword{probability density function}
-\keyword{Distribution: Generalized Exponential Poisson Value}
+\keyword{Distribution: Generalized Exponential Poisson}

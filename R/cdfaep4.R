@@ -35,7 +35,7 @@ function(x, para, paracheck=TRUE) {
     AK1 <- (A*K)^-H
     AK2 <- (K/A)^H
 
-    f <- vector(mode="numeric")
+    f <- vector(mode="numeric", length=length(x))
     for(i in seq(1,length(x))) {
        myx <- x[i]
        if(myx < U) {
@@ -59,7 +59,7 @@ function(x, para, paracheck=TRUE) {
   # P(a, x) is 'pgamma(x, a)'.  Other authors (for example Karl
   # Pearson in his 1922 tables) omit the normalizing factor, defining
   # the incomplete gamma function as 'pgamma(x, a) * gamma(a)'.
-  # A few use the ‘upper’ incomplete gamma function, the integral from x
+  # A few use the 'upper' incomplete gamma function, the integral from x
   # to infinity which can be computed by pgamma(x, a, lower=FALSE) * gamma(a),
   # for its normalized version.
   # **** Note the switch in argument order between definition and R's

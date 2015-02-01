@@ -2,7 +2,7 @@
 \alias{lmomrice}
 \title{L-moments of the Rice Distribution}
 \description{
-This function estimates the L-moments of the Rice distribution given the parameters (\eqn{\nu} and \eqn{\alpha}) from \code{\link{parrice}}. The L-moments in terms of the parameters are complex. They are computed here by the system of maximum order statistic expectations from \code{\link{theoLmoms.max.ostat}}, which uses \code{\link{expect.max.ostat}}. The connection between \eqn{\tau_2} and \eqn{\nu/\alpha} and a special function (the Laguerre polynomial, \code{\link{LaguerreHalf}}) of \eqn{\nu^2/\alpha^2} and additional algebraic terms is tabulated in the data frame located in \env{.lmomcohash$RiceTable}. The file \file{SysDataBuilder.R} provides additional technical details.
+This function estimates the L-moments of the Rice distribution given the parameters (\eqn{\nu} and \eqn{\alpha}) from \code{\link{parrice}}. The L-moments in terms of the parameters are complex. They are computed here by the system of maximum order statistic expectations from \code{\link{theoLmoms.max.ostat}}, which uses \code{\link{expect.max.ostat}}. The connection between \eqn{\tau_2} and \eqn{\nu/\alpha} and a special function (the Laguerre polynomial, \code{\link{LaguerreHalf}}) of \eqn{\nu^2/\alpha^2} and additional algebraic terms is tabulated in the \R \code{data.frame} located within \env{.lmomcohash$RiceTable}. The file \file{SysDataBuilder.R} provides additional details.
 }
 \usage{
 lmomrice(para, ...)
@@ -25,7 +25,7 @@ lmomrice(para, ...)
 source of the L-moments: \dQuote{lmomrice}, but the exact contents of the remainder of the string might vary as limiting distributions of Normal and Rayleigh can be involved for \eqn{\nu/\alpha > 52} (super high SNR, Normal) or \eqn{24 < \nu/\alpha \le 52} (high SNR, Normal) or \eqn{\nu/\alpha < 0.08} (very low SNR, Rayleigh).}
 }
 \references{
-Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: CreateSpace Independent Publishing Platform, 2nd printing, ISBN 978--146350841--8.
+Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{parrice}}, \code{\link{cdfrice}}, \code{\link{cdfrice}}, \code{\link{quarice}} }

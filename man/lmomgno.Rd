@@ -2,7 +2,7 @@
 \alias{lmomgno}
 \title{L-moments of the Generalized Normal Distribution}
 \description{
-This function estimates the L-moments of the Generalized Normal (log-Normal) distribution given the parameters (\eqn{\xi}, \eqn{\alpha}, and \eqn{\kappa}) from \code{\link{pargno}}. The L-moments in terms of the parameters are
+This function estimates the L-moments of the Generalized Normal (Log-Normal3) distribution given the parameters (\eqn{\xi}, \eqn{\alpha}, and \eqn{\kappa}) from \code{\link{pargno}}. The L-moments in terms of the parameters are
 \deqn{\lambda_1 = \xi + \frac{\alpha}{\kappa}(1-\mathrm{exp}(\kappa^2/2) \mbox{, and}}
 \deqn{\lambda_2 = \frac{\alpha}{\kappa}(\mathrm{exp}(\kappa^2/2)(1-2\Phi(-\kappa/\sqrt{2})) \mbox{,}}
 where \eqn{\Phi} is the cumulative distribution of the Standard Normal distribution. There are no simple expressions for \eqn{\tau_3}, \eqn{\tau_4}, and \eqn{\tau_5}. Logarthmic transformation of the data prior to fitting of the Generalized Normal distribution is not required. The distribution is algorithmically the same with subtle parameter modifications as the Log-Normal3 distribution (see \code{\link{lmomln3}}, \code{\link{parln3}}). If desired for user-level control of the lower bounds of a Log-Normal-like distribution is required, then see \code{\link{parln3}}.
@@ -35,7 +35,7 @@ Hosking, J.R.M., and Wallis, J.R., 1997, Regional frequency analysis---An approa
 }
 \author{ W.H. Asquith}
 \seealso{
-\code{\link{pargno}}, \code{\link{cdfgno}}, \code{\link{pdfgno}}, \code{\link{quagno}}
+\code{\link{pargno}}, \code{\link{cdfgno}}, \code{\link{pdfgno}}, \code{\link{quagno}}, \code{\link{lmomln3}}
 }
 \examples{
 lmr <- lmoms(c(123,34,4,654,37,78))

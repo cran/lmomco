@@ -6,7 +6,7 @@ This function computes the cumulative probability or nonexceedance probability o
 \deqn{F(x) = 1 - \mathrm{exp}(-\mathrm{exp}(Y)) \mbox{,}}
 where
 \deqn{Y = -\frac{x - \xi}{\alpha} \mbox{,}}
-where \eqn{F(x)} is the nonexceedance probability for quantile \eqn{x}, \eqn{\xi} is a location parameter, and \eqn{\alpha} is a scale parameter. Notice that the function has some sign differences and uses the complement of \eqn{F} compared to the cumulative distribution function of the Gumbel distribution in \code{\link{cdfgum}}.
+where \eqn{F(x)} is the nonexceedance probability for quantile \eqn{x}, \eqn{\xi} is a location parameter, and \eqn{\alpha} is a scale parameter.
 }
 \usage{
 cdfrevgum(x, para)

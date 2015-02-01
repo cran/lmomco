@@ -7,7 +7,7 @@ function(x,para) {
     A <- para$para[2]
     UpA <- U - A
 
-    f <- vector(mode="numeric")
+    f <- vector(mode="numeric", length=length(x))
     for(i in seq(1,length(x))) {
        F <- cdflmrq(x[i], para, paracheck=FALSE)
        f[i] <- (1 - F)/(2*A*F + UpA)

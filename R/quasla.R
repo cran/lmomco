@@ -9,14 +9,10 @@ function(f, para, paracheck=TRUE) {
    U <- para$para[1]
    A <- para$para[2]
 
-   x <- vector(mode="numeric")
+   x <- vector(mode="numeric", length=length(f))
    for(i in 1:length(f)) {
      Fx   <- f[i]
      x[i] <- NA
-     if(Fx < 0 | Fx > 1) {
-       warning("invalid nonexceedance probability")
-       next
-     }
      if(Fx == 0) {
        x[i] <- -Inf # is this ok?
      } else if(Fx == 1) {

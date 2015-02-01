@@ -2,7 +2,7 @@
 \alias{cdfgam}
 \title{Cumulative Distribution Function of the Gamma Distribution}
 \description{
-This function computes the cumulative probability or nonexceedance probability of the Gamma distribution given parameters (\eqn{\alpha} and \eqn{\beta}) computed by \code{\link{pargam}}.  The cumulative distribution function has no explicit form but is expressed as an integral.
+This function computes the cumulative probability or nonexceedance probability of the Gamma distribution given parameters (\eqn{\alpha} and \eqn{\beta}) computed by \code{\link{pargam}}.  The cumulative distribution function has no explicit form but is expressed as an integral:
 \deqn{F(x) = \frac{\beta^{-\alpha}}{\Gamma(\alpha)}\int_0^x t^{\alpha - 1}
 \exp(-t/\beta)\; \mbox{d}F \mbox{,}}
 where \eqn{F(x)} is the nonexceedance probability for the quantile \eqn{x}, \eqn{\alpha} is a shape parameter, and \eqn{\beta} is a scale parameter.

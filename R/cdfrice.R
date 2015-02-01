@@ -18,7 +18,7 @@
       nor  <- vec2par(c(xbar,sqrt(xvar)), type="nor")
       return(cdfnor(x,para=nor))
    }
-   f <- vector(mode="numeric")
+   f <- vector(mode="numeric", length=length(x))
    for(i in 1:length(x)) {
      if(x[i] < 0) {
        f[i] <- 0

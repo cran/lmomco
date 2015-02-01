@@ -82,6 +82,9 @@ function(f,para,...) {
     else if(type == 'texp') {
       return(pdftexp(f,para))
     }
+    else if(type == 'tri') {
+      return(pdftri(f,para))
+    }
     else if(type == 'wak') {
       return(pdfwak(f,para))
     }
