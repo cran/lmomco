@@ -2,6 +2,10 @@
 NEWS for R Package "lmomco"
 --------------------------------------------------------------------------------
 
+Version 2.1.4--April 20, 2015
+1. Trival changes to CITATION for CRAN compliance.
+
+
 Version 2.1.3--February 1, 2015
 1. Removed broken URL within man/IRSrefunds.by.state.Rd
 2. Removed non-ASCII quotation marks from comment in cdfaep4.R and pmoms.R.

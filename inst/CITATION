@@ -1,6 +1,5 @@
 citHeader("To cite package 'lmomco' in publications use:")
 
-desc <- packageDescription("lmomco") 
 year <- sub(".*(2[[:digit:]]{3})-.*", "\\1", meta$Date) 
 vers <- paste("R package version",           meta$Version) 
 url<-paste("http://www.cran.r-project.org/package=lmomco",sep="")
