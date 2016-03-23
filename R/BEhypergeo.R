@@ -11,7 +11,7 @@
       NK <- sum(sapply(1:p, function(i) lgamma(n[i] + k) + lgamma(n[i])))
       DK <- sum(sapply(1:q, function(i) lgamma(d[i] + k) + lgamma(d[i])))
       TMP <- exp(log(lambda^k) - lgamma(k+1) + NK - DK)
-      if(is.nan(TMP)) break
+      if(     is.nan(TMP)) break
       if(! is.finite(TMP)) break
       #message("TMP: ",TMP)
       Fpq <- Fpq + TMP

@@ -43,7 +43,8 @@ function(para, ...) {
                 lower=0, upper=.Machine$double.max, ...)
     lmr$source <- "lmomrice"
     if(! are.lmom.valid(lmr)) {
-      warning("The Rician parameters are producing invalid L-moments or L-moments outside of implementation of Rice distribution in lmomco")
+      warning("The Rician parameters are producing invalid L-moments or L-moments outside ",
+              "of implementation of Rice distribution in lmomco")
       warning("Printing the parameters")
       print(para)
       warning("Printing the Lmoments")

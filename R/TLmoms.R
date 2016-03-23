@@ -30,24 +30,19 @@ function(x, nmom=5, trim=NULL, leftrim=NULL, rightrim=NULL) {
     stop("More TLmoments requested by parameter 'nmom' than data points available in 'x'")
   }
 
-  L <- vector(mode="numeric",length=nmom)
-  R <- vector(mode="numeric",length=nmom)
+  L <- R <- rep(NA, nmom)
   for(r in seq(1,nmom)) {
     lambda <- TLmom(x, trim=trim, leftrim=leftrim,
                     rightrim=rightrim, order=r, sortdata=FALSE)
     lr <- lambda$lambda
-    L[r] <- lr
+    L[r] <- ifelse(is.nan(lr), NA, lr)
   }
   
-  if(nmom >= 2) {
-    R[2] <- L[2]/L[1]
-  }
+  if(nmom >= 2) R[2] <- L[2]/L[1]
+
   if(nmom >= 3) {
-    for(r in seq(3,nmom)) {
-      R[r] <- L[r]/L[2]
-    }
+    for(r in seq(3,nmom)) R[r] <- ifelse(! is.na(L[r]) && L[r] == 0, NA, L[r]/L[2])
   }
-  R[1] <- NA
 
   z <- list(lambdas = L, ratios = R,
             trim=trim, leftrim=leftrim,

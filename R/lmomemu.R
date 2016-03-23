@@ -39,6 +39,9 @@ function(para, nmom=5, paracheck=TRUE, tol=1E-6, maxn=100) {
     afunc <- function(x, r=0) {
        Y <- sapply(1:length(x), function(i) { return(yacoubsintegral(A,B*x[i])) } )
        pdf <- pdfemu(x, para=para, paracheck=FALSE)
+       pdf[is.na(pdf)] <- 0 # This a reverse hack.  The pdf,cdf,qua functions are
+       # aggressive on returning NAs for values near or outside the apparent
+       # domain of the support, let us consider those zero.
        W <- Y^r * x * pdf
        return(W)
     }

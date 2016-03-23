@@ -1,14 +1,11 @@
 "cdfrevgum" <-
-function(x,para) { 
+function(x,para) {
    if(! are.parrevgum.valid(para)) return()
-   U <- para$para[1] 
-   A <- para$para[2] 
+   U <- para$para[1]
+   A <- para$para[2]
 
-   f <- vector(mode="numeric", length=length(x))
-   for(i in seq(1,length(x))) {
-     Y <- (x[i]-U)/A 
-     f[i] = 1 - exp(-exp(Y)) 
-   }
+   Y <- (x-U)/A
+   f <- (1 - exp(-exp(Y)))
+   names(f) <- NULL
    return(f)
 }
-

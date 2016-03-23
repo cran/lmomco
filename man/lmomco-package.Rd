@@ -5,7 +5,7 @@
 \description{
    The \pkg{lmomco} package is a comparatively comprehensive implementation of L-moments in addition to probability-weighted moments, and parameter estimation for numerous familiar and not-so-familiar distributions. L-moments and their cousins are based on certain linear combinations of order statistic expectations. Being based on linear mathematics and thus especially robust compared to conventional moments, they are particular suitable for analysis of rare events of non-Normal data. L-moments are consistent and often have smaller sampling variances than maximum likelihood in small to moderate sample sizes. L-moments are especially useful in the context of quantile functions.
 
-Over 330 user-level functions are implemented in \pkg{lmomco} that range from low-level utilities forming an application programming interface (API) to high-level sophisticated data analysis and visualization operators. The \dQuote{See Also} section lists recommended function entry points for new users. The nomenclature (\code{d}, \code{p}, \code{r}, \code{q})-\code{lmomco} is directly analogous to that for distributions built-in to \R. 
+Over 330 user-level functions are implemented in \pkg{lmomco} that range from low-level utilities forming an application programming interface (API) to high-level sophisticated data analysis and visualization operators. The \dQuote{See Also} section lists recommended function entry points for new users. The nomenclature (\code{d}, \code{p}, \code{r}, \code{q})-\code{lmomco} is directly analogous to that for distributions built-in to \R.
 
 Lastly, the \R packages \pkg{lmom} (Hosking), \pkg{lmomRFA} (Hosking), \pkg{Lmoments} (Karvanen) might also be of great interest.
 }
@@ -34,3 +34,7 @@ Serfling, R., and Xiao, P., 2007, A contribution to multivariate L-moments---L-c
 }
 \keyword{distribution}
 \keyword{mixture}
+\keyword{L-moments}
+\concept{Lmoments}
+\concept{linear moments}
+\concept{L moments}

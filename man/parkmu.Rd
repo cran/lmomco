@@ -75,6 +75,9 @@ Yacoub, M.D., 2007, The kappa-mu distribution and the eta-mu distribution: IEEE 
    lines(x, pdfkmu(x, par2.2), col=4)
    lines(x, pdfkmu(x, par2.3), col=3, lty=3, lwd=2)
    lines(x, pdfkmu(x, par2.4), col=5, lty=2, lwd=2)
+   lines(x, dlmomco(x, lmom2par(lmr1, type="gam")),  lwd=2, col=2)
+   lines(x, dlmomco(x, lmom2par(lmr1, type="ray")),  lwd=2, col=2, lty=2)
+   lines(x, dlmomco(x, lmom2par(lmr1, type="rice")), lwd=2, col=4, lty=2)
 }
 }
 \keyword{distribution (parameters)}

@@ -28,21 +28,16 @@ An \R \code{list} structure is returned
 }
 \author{ W.H. Asquith}
 \examples{
-lmr <- vec2lmom(c(100,40,0.1)) # Arbitrary L-moments
-gev <- pargev(lmr) # parameters of Generalized Extreme Value distribution
-wei <- parwei(lmr) # parameters of Weibull distribution
+lmrg <- vec2lmom(c( 100, 40, 0.1)) # Arbitrary L-moments
+lmrw <- vec2lmom(c(-100, 40,-0.1)) # Reversed Arbitrary L-moments
+gev  <- pargev(lmrg) # parameters of Generalized Extreme Value distribution
+wei  <- parwei(lmrw) # parameters of Weibull distribution
 
-# The Weibull is effectively a reversed GEV and the plots in the
-# following examples should demonstrate this.
+# The Weibull is a reversed GEV and plots in the following examples show this.
 # Two examples that should integrate to "unity" given default parameters.
+layout(matrix(c(1,2), 2, 2, byrow = TRUE), respect = TRUE)
 check.pdf(pdfgev,gev,plot=TRUE)
 check.pdf(pdfwei,wei,plot=TRUE)
-
-# Two examples that will not, but the integrated value on the return list
-# should be very close to the median (F=0.5) and the resulting plots
-# should affirm what this convenience function is actually doing.
-check.pdf(pdfgev,upperF=0.5,gev,plot=TRUE)
-check.pdf(pdfwei,upperF=0.5,wei,plot=TRUE)
 }
 \keyword{utility (distribution)}
 \keyword{Graphics}

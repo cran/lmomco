@@ -3,12 +3,12 @@ function(x,para) {
    if(! are.parrevgum.valid(para)) return()
    U <- para$para[1]
    A <- para$para[2]
-   IA <- 1/A
-   f <- vector(mode="numeric", length=length(x))
-   for(i in seq(1,length(x))) {
-     Y <- (x[i]-U)*IA
-     f[i] = IA * exp(Y) * ( exp( -exp(Y) ) )
-   }
+
+   Y <- (x-U)/A
+   f <- (1/A) * exp(Y) * ( exp( -exp(Y) ) )
+   names(f) <- NULL
+   f[! is.finite(f)] <- NA
+   f[is.na(f)] <- 0 # decision Dec. 2015
    return(f)
 }
 

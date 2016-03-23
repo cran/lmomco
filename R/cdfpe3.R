@@ -1,28 +1,25 @@
-"cdfpe3" <- 
+"cdfpe3" <-
 function(x,para) {
 
-  # This function is a verbatim implementation of 
+  # This function is a verbatim implementation of
   # Pearson Type III CDF as defined by Hosking and Wallis (1997, p. 200)
-  # This function represents a complete break from Hosking's FORTRAN 
+  # This function represents a complete break from Hosking's FORTRAN
   # implementation seen in cdfpe3.original().
- 
+
   if(! are.parpe3.valid(para)) return()
 
+  # SMALL IS USED TO TEST WHETHER SKEWNESS IS EFFECTIVELY ZERO
+  SMALL <- sqrt(.Machine$double.eps)
+
+  names(para$para) <- NULL
   MU    <- para$para[1] # location
   SIGMA <- para$para[2] # scale
   GAMMA <- para$para[3] # shape
 
-  f <- vector(mode="numeric", length=length(x))
-
-  if(GAMMA == 0) { # distribution is normal
-    for(i in seq(1,length(x))) {
-      f[i] = pnorm((x[i] - MU)/SIGMA)
-    }
-    return(f)
-  }
+  # distribution is normal
+  if(abs(GAMMA) <= SMALL) return(pnorm((x - MU)/SIGMA))
 
   # GAMMA != 0, distribution is nonnormal
-
   # Letting
   ALPHA <- 4/GAMMA^2
   BETA  <- 0.5*SIGMA*abs(GAMMA)
@@ -36,21 +33,15 @@ function(x,para) {
   # P(a, x) is 'pgamma(x, a)'.  Other authors (for example Karl
   # Pearson in his 1922 tables) omit the normalizing factor, defining
   # the incomplete gamma function as 'pgamma(x, a) * gamma(a)'.
-  
-  # **** Note the switch in argument order between definition and R's
-  # implementation **** This screwed me up at first code version.  
 
+  # **** Note the switch in argument order between definition and R's
+  # implementation **** This screwed me up at first code version.
 
   # HW1997 defines G(ALPHA,x) = integral_0^x t^(a-1) exp(-t) dt
   #      and F(x) = G(ALPHA,(x-XI)/BETA)/COMPLETE_GAMMA(ALPHA) for GAMMA > 0
 
   # The definition in R permits us to not call gamma(ALPHA) at all
-  if(GAMMA > 0) {
-  	G <- pgamma((x-XI)/BETA,ALPHA)
-    return(G)
-  }
-  else {
-  	G <- pgamma((XI - x)/BETA,ALPHA)  	
-    return(1 - G)  # must be GAMMA < 0
-  }
+  if(GAMMA > 0) return(pgamma((x-XI)/BETA,ALPHA))
+
+  return(1 - pgamma((XI - x)/BETA,ALPHA)) # must be GAMMA < 0
 }

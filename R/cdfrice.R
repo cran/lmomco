@@ -1,10 +1,12 @@
 "cdfrice" <- function(x, para=NULL) {
-    V   <- para$para[1]
-    A   <- para$para[2]
-    if(V == 0) {
-      ray <- vec2par(c(0,A), type="ray")
-      return(cdfray(x,para=ray))
-    }
+   if(! are.parrice.valid(para)) return()
+   V   <- para$para[1]
+   A   <- para$para[2]
+
+   if(V == 0) {
+     ray <- vec2par(c(0,A), type="ray")
+     return(cdfray(x,para=ray))
+   }
    SNR <- V/A
    if(SNR > 52) {
       xbar <- A * SNR
@@ -18,17 +20,11 @@
       nor  <- vec2par(c(xbar,sqrt(xvar)), type="nor")
       return(cdfnor(x,para=nor))
    }
-   f <- vector(mode="numeric", length=length(x))
-   for(i in 1:length(x)) {
-     if(x[i] < 0) {
-       f[i] <- 0
-     } else if(x[i] == Inf) {
-       f[i] <- 1
-     } else {
-         f[i] <- integrate(pdfrice,
-                           0, x[i],
-                           para=para)$value
-     }
-   }
+   f <- sapply(1:length(x), function(i) {
+                       if(x[i] < 0)    return(0)
+                       if(x[i] == Inf) return(1)
+                       return(integrate(pdfrice, 0, x[i], para=para)$value)  })
+   names(f) <- NULL
    return(f)
 }
+

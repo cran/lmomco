@@ -1,19 +1,15 @@
 "quagld" <-
-function(f,gldpara,paracheck=TRUE) {
+function(f,para, paracheck=TRUE) {
     if(! check.fs(f)) return()
     if(paracheck == TRUE) {
-      if(! are.pargld.valid(gldpara)) return()
+      if(! are.pargld.valid(para)) return()
     }
+    La1 <- para$para[1]
+    La2 <- para$para[2]
+    La3 <- para$para[3]
+    La4 <- para$para[4]
 
-    La1 <- gldpara$para[1]
-    La2 <- gldpara$para[2]
-    La3 <- gldpara$para[3]
-    La4 <- gldpara$para[4]
-    x <- vector(mode="numeric", length=length(f))
-    for(i in seq(1,length(f))) {
-      if(f[i] == 0) { x[i] <- La1-La2; next }
-      if(f[i] == 1) { x[i] <- La1+La2; next }
-      x[i] <- La1 + La2*(f[i]**La3 - (1-f[i])**La4)
-    }
+    x <- La1 + La2*(f**La3 - (1-f)**La4)
+    names(x) <- NULL
     return(x)
 }

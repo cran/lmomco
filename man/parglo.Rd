@@ -33,6 +33,18 @@ Hosking, J.R.M., and Wallis, J.R., 1997, Regional frequency analysis---An approa
 \examples{
 lmr <- lmoms(rnorm(20))
 parglo(lmr)
+\dontrun{
+# A then Ph.D. student, L. Read inquired in February 2014 about the relation between
+# GLO and the "Log-Logistic" distributions:
+par.glo  <- vec2par(c(10, .56, 0), type="glo")         # Define GLO parameters
+par.lnlo <- c(exp(par.glo$para[1]), 1/par.glo$para[2]) # Equivalent LN-LO parameters
+F <- nonexceeds(); qF <- qnorm(F) # use a real probability axis to show features
+plot(qF, exp(quaglo(F, par.glo)), type="l", lwd=5, xaxt="n", log="y",
+     xlab="", ylab="QUANTILE") # notice the exp() wrapper on the GLO quantiles
+lines(qF, par.lnlo[1]*(F/(1-F))^(1/par.lnlo[2]), col=2, lwd=2) # eq. for LN-LO
+add.lmomco.axis(las=2, tcl=0.5, side.type="RI", otherside.type="NPP")
+}
 }
 \keyword{distribution (parameters)}
 \keyword{Distribution: Generalized Logistic}
+\keyword{Distribution: Log-Logistic}

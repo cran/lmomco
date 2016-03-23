@@ -45,10 +45,8 @@ Yacoub, M.D., 2007, The kappa-mu distribution and the eta-mu distribution: IEEE 
 \examples{
 x <- seq(0,4, by=.1)
 para <- vec2par(c(.5, 1.4), type="emu")
-F <- cdfemu(x, para)
-X <- quaemu(F, para)
-plot(F, X, type="l", lwd=8)
-lines(F, x, col=2)
+F <- cdfemu(x, para);         X <- quaemu(F, para)
+plot(F, X, type="l", lwd=8);  lines(F, x, col=2)
 \dontrun{
 delx <- 0.005
 x <- seq(0,3, by=delx)

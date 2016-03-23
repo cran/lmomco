@@ -1,8 +1,6 @@
 "cdftri" <-
 function(x,para) {
-
     if(! are.partri.valid(para)) return()
-
     MIN  <- para$para[1]
     MODE <- para$para[2]
     MAX  <- para$para[3]
@@ -13,16 +11,14 @@ function(x,para) {
     AC <- A*C
 
     f <- vector(mode = "numeric", length=length(x))
-    for(i in seq(1,length(x))) {
-       X <- x[i]
-       if(X > MODE) {
-          f[i] <- 1 - (MAX-X)^2/(AC)
-       } else if(X < MODE) {
-          f[i] <-     (X-MIN)^2/(AB)
-       } else { # X == MODE
-          f[i] <- B/A
-       }
-    }
+    f[x >  MODE] <- 1 - (MAX-x[x > MODE]     )^2/(AC)
+    f[x <  MODE] <-     (    x[x < MODE]-MIN)^2/(AB)
+    f[x == MODE] <- B/A
+
+    names(f) <- NULL
+    f[! is.finite(f)] <- NA
+    f[x < MIN] <- 0
+    f[x > MAX] <- 1
     return(f)
 }
 

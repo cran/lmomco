@@ -1,13 +1,19 @@
 "cdfkmu" <-
-function(x, para, paracheck=TRUE, marcumQ=TRUE) {
-    if(paracheck == TRUE) {
-      if(! are.parkmu.valid(para)) return()
-    }
+function(x, para, paracheck=TRUE, getmed=TRUE, qualo=NA, quahi=NA,
+         marcumQ=TRUE, marcumQmethod=c("chisq", "delta", "integral")) {
 
-    names(para$para) <- NULL
-    K <- para$para[1]
-    MU <- para$para[2]
-    NEARZERO <- 1E-6
+   marcumQmethod <- match.arg(marcumQmethod)
+   if(paracheck == TRUE & ! are.parkmu.valid(para)) return()
+
+   names(para$para) <- NULL
+   K  <- para$para[1]
+   MU <- para$para[2]
+
+   MEDIAN <- NA
+   if(getmed) MEDIAN <- quakmu(0.5, para, getmed=FALSE, qualo=qualo, quahi=quahi,
+                                 marcumQ=marcumQ, marcumQmethod=marcumQmethod)
+   was.getmed.true <- getmed
+   getmed <- FALSE
 
    diracdelta <- 0
    fixedM <- FALSE
@@ -28,10 +34,12 @@ function(x, para, paracheck=TRUE, marcumQ=TRUE) {
       # and not through the function vec2par that it will be assumed that the Dirac computed here is fine.
       if(length(para$diracdelta) == 0 | is.na(para$diracdelta)) para$diracdelta <- diracdelta
       if(diracdelta != para$diracdelta) {
-          warning("Dirac delta (x=0) computed herein does not match that embedded in the parameter object, going to use the freshly computed one")
+          warning("Dirac delta (x=0) computed herein does not match that embedded in the parameter object, ",
+                  "going to use the freshly computed one")
           warning("Dirac delta = ", diracdelta,"   and embedded = ", para$diracdelta)
       }
-      message("Note: The Dirac Delta function for (x=0) for this parameterized Kappa-Mu distribution provides ",round(diracdelta, digits=6)," of total probability.\n")
+      #message("Note: The Dirac Delta function for (x=0) for this parameterized ",
+      #        "Kappa-Mu distribution provides ",round(diracdelta, digits=6)," of total probability.\n")
    }
 
     LARGE <- sqrt(.Machine$double.xmax)
@@ -90,24 +98,39 @@ function(x, para, paracheck=TRUE, marcumQ=TRUE) {
        return(Qnu)
     }
 
-    marcumq <- marcumq.bydelta
-    f <- vector(mode="numeric", length=length(x))
-    for(i in seq(1,length(x))) {
-      xi <- x[i]
-      if(xi < 0) { f[i] <- 0 }
-      if(xi == 0) { f[i] <- diracdelta; next }
-      if(is.na(xi)) { f[i] <- NA; next }
-      if(marcumQ & K != 0 & is.finite(K)) {
-         Q <- marcumq(sqrt(2*K*MU), sqrt(2*(1+K)*MU)*xi, nu=MU)
-         f[i] <- 1 - Q
-      } else {
-         if(xi == 0) { f[i] <- diracdelta; next; }
-         int1 <- NULL
-         try( int1 <- integrate(pdfkmu, NEARZERO, xi,
-                                para=para, paracheck=FALSE) )
-         if(is.null(int1)) { f[i] <- NA; next }
-         f[i] <- int1$value + diracdelta
-      }
+    if(marcumQmethod == "chisq") {
+       marcumq <- function(a, b, nu=1) {
+                 pchisq(b^2, df=2*nu, ncp=a^2, lower.tail=FALSE) }
+    } else if(marcumQmethod == "delta") {
+       marcumq <- marcumq.bydelta
+    } else {
+       marcumq <- marcumq.integral
+    }
+
+    f <- sapply(1:length(x), function(i) {
+                   xi <- x[i]
+                   if(xi <  0)                     return(NA)
+                   if(xi == 0)                     return(diracdelta)
+                   if(! is.na(qualo) & xi < qualo) return(diracdelta)
+                   if(! is.na(quahi) & xi > quahi) return(1)
+                   if(! is.finite(xi))             return(1)
+                   if(is.na(xi))                   return(NA)
+                   if(marcumQ & K != 0 & is.finite(K)) {
+                      Q <- marcumq(sqrt(2*K*MU), sqrt(2*(1+K)*MU)*xi, nu=MU)
+                      #message(" marcumQ=",Q)
+                      return(1 - Q)
+                   }
+                   int1 <- NULL
+                   try( int1 <- integrate(pdfkmu, SMALL, xi,
+                                para=para, paracheck=FALSE), silent=TRUE )
+                   ifelse(is.null(int1), return(NA),
+                          return(int1$value + diracdelta)) })
+    names(f) <- NULL
+    f[! is.finite(f)] <- NA
+    if(was.getmed.true) {
+       #print(MEDIAN); print(f)
+       f[! is.na(MEDIAN) & x < MEDIAN & f > 0.5] <- 0
+       f[! is.na(MEDIAN) & x < MEDIAN & f < 0  ] <- 0
     }
     return(f)
 }

@@ -3,7 +3,6 @@ function(x, para, paracheck=TRUE) {
    if(paracheck) {
       if(! are.parst3.valid(para)) return()
    }
-
    U <- para$para[1]
    A <- para$para[2]
    N <- para$para[3]
@@ -16,9 +15,10 @@ function(x, para, paracheck=TRUE) {
    if(N == LARGE.NU) {
       return(dnorm(x, mean=U, sd=A))
    } else {
-      pdf <- dt((x-U)/A, N)/A
-      names(pdf) <- NULL
-      return(pdf)
+      f <- dt((x-U)/A, N)/A
+      names(f) <- NULL
+      f[! is.finite(f)] <- NA
+      f[is.na(f)] <- 0 # decision Dec. 2015
+      return(f)
    }
-   stop("Should not be here in execution")
 }

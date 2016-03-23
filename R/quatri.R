@@ -17,16 +17,10 @@ function(f,para, paracheck = TRUE) {
     P <- B/A # The F value at the mode
 
     x <- vector(mode = "numeric", length=length(f))
-    for(i in seq(1,length(f))) {
-       F <- f[i]
-       if(F > P) {
-          x[i] <- MAX - sqrt((1-F)*AC)
-       } else if(F < P) {
-          x[i] <- MIN + sqrt(F*AB)
-       } else { # F == P
-          x[i] <- MODE
-       }
-    }
+    x[f >  P] <- MAX - sqrt((1-f[f > P])*AC)
+    x[f <  P] <- MIN + sqrt((  f[f < P])*AB)
+    x[f == P] <- MODE
+
     return(x)
 }
 

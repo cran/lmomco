@@ -12,7 +12,7 @@ cdf2lmoms(para, nmom=6, fdepth=0, silent=TRUE, lambegr=1, ...)
   \item{nmom}{The number of moments to compute. Default is 6.}
   \item{fdepth}{The depth of the nonexceedance/exceedance probabilities to determine the lower and upper integration limits through a call to the \code{\link{par2qua}} function. The default of 0 implies the quantile for \eqn{F=0} and quantile for \eqn{F=1} as the respective lower and upper limits.}
   \item{silent}{A logical to be passed into \code{\link{cdf2lmom}} and then onto the  \code{try} functions encompassing the \code{integrate} function calls.}
-  \item{lambegr}{The \eqn{r}th order to begin the sequence \code{lambegr:nmom} for L-moment computation. Can be used as a means to bypass a mean computation if the user has an alternative method for the mean or other central tendency characterization in which case \code{lambegr = 2}.}
+  \item{lambegr}{The \eqn{r}th order to begin the sequence for L-moment computation. Can be used as a means to bypass a mean computation if the user has an alternative method for the mean or other central tendency characterization in which case \code{lambegr = 2}.}
   \item{...}{Additional arguments to pass to \code{\link{cdf2lmom}}.}
 }
 \value{

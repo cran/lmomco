@@ -34,20 +34,24 @@ Q_\nu(a,b) = Q_\Delta(a,b) + \mathrm{exp}(-(a^2 + b^2)/2) \times \biggl[\biggl(\
 This result produces incompatible cumulative distribution functions of the distribution using \eqn{Q_\nu(a,b)} for \eqn{-1 < \nu < 1}. Therefore, the author of \pkg{lmomco} concludes that Shi (2012) is in error (or your author misinterprets the summation notation) and that the specific condition for \eqn{\nu = 0} shown above and lacking \eqn{\sum} is correct; there are three individual and separate conditions to support the Marcum Q function using the \dQuote{delta nu method}: \eqn{\nu \le -1}, \eqn{-1 < \nu < 1}, and \eqn{\nu \ge -1}.
 }
 \usage{
-cdfkmu(x, para, paracheck=TRUE, marcumQ=TRUE)
+cdfkmu(x, para, paracheck=TRUE, getmed=TRUE, qualo=NA, quahi=NA,
+                marcumQ=TRUE, marcumQmethod=c("chisq", "delta", "integral"))
 }
 \arguments{
   \item{x}{A real value vector.}
   \item{para}{The parameters from \code{\link{parkmu}} or  \code{\link{vec2par}}.}
   \item{paracheck}{A logical controlling whether the parameters and checked for validity.}
+  \item{getmed}{Numerical problems rolling onto the distribution from the right can result in erroneous \eqn{F} being integrated of \code{\link{pdfkmu}}. This option is used to interrupt recurrsion, but if \code{TRUE}, then the median will be computed and for those \eqn{x} values less than the median and \eqn{F} initially computing as greater than 50 percent, are reset to 0.  Users are unlikely to need this option changed. But the hack can be turned off by setting \code{getmed=FALSE} as the user level.}
+  \item{qualo}{A lower limit of the range of \eqn{x} to look for a \code{uniroot} of \eqn{F(x) = 0.5} to estimate the median quantile that is used to mitigate for erroneous numerical results. This argument is passed along to \code{\link{quakmu}} but also used as a truncation point for which \eqn{F=1} is returned if \eqn{x <} \code{qualo}. Lastly, see the last example below.}
+    \item{quahi}{An upper limit of the range of \eqn{x} to look for a \code{uniroot} of \eqn{F(x) = 0.5} to estimate the median quantile that is used to mitigate for erroneous numerical results. This argument is passed along to \code{\link{quakmu}} but also used as a truncation point for which \eqn{F=1} is returned if \eqn{x >} \code{quahi}. Lastly, see the last example below.}
   \item{marcumQ}{A logical controlling whether the Marcum Q function is used instead of numerical integration of \code{\link{pdfkmu}}.}
+  \item{marcumQmethod}{Which method for Marcum Q computation is to be used (see source code).}
 }
 \value{
   Nonexceedance probability (\eqn{F}) for \eqn{x}.
 }
 \note{
-Code developed from Weinberg (2006). The biascor feature is of my own devise and this Poisson method does not seem to accommodate nu < 1 although Chornoboy claims valid for non-negative integer. The example implementation here will continue to use real values
-of nu.
+Code developed from Weinberg (2006). The biascor feature is of my own devise and this Poisson method does not seem to accommodate nu < 1 although Chornoboy claims valid for non-negative integer. The example implementation here will continue to use real values of nu.
 
 \preformatted{
 See NEWS file and entries for version 2.0.1 for this "R Marcum"
@@ -92,8 +96,14 @@ Yacoub, M.D., 2007, The kappa-mu distribution and the eta-mu distribution: IEEE 
 \examples{
 x <- seq(0,3, by=0.5)
 para <- vec2par(c(0.69, 0.625), type="kmu")
-cdfkmu(x, para, marcumQ=TRUE)
-cdfkmu(x, para, marcumQ=FALSE)
+cdfkmu(x, para, marcumQ=TRUE, marcumQmethod="chisq")
+cdfkmu(x, para, marcumQ=TRUE, marcumQmethod="delta")
+cdfkmu(x, para, marcumQ=FALSE) # about 3 times slower
+\dontrun{
+para <- vec2par(c(0.69, 0.625), type="kmu")
+quahi <- supdist(para, delexp=.1)$support[2]
+cdfkmu(quahi, para, quahi=quahi)
+}
 \dontrun{
 delx <- 0.01
 x <- seq(0,3, by=delx)
@@ -117,7 +127,7 @@ for(i in 1:length(kappas)) {
 }
 }
 \dontrun{
-delx <- 0.0005
+delx <- 0.005
 x <- seq(0,3, by=delx)
 nx <- 20*log10(x)
 plot(c(-30,10), 10^c(-4,0), log="y", xaxs="i", yaxs="i",
@@ -135,6 +145,35 @@ for(mu in mus) {
    lines(nx, cdfkmu(x, para), col=col)
 }
 mtext("Yacoub (2007, figure 4)")
+}
+\dontrun{
+# The Marcum Q use for the CDF avoid numerical integration of pdfkmu(), but
+# below is an example for which there is some failure that remains to be found.
+para <- vec2par(c(10, 23), type="kmu")
+# The following are reliable but slower as they avoid the Marcum Q function
+# and use traditional numerical integration of the PDF function.
+A <- cdfkmu(c(0.10, 0.35, 0.9, 1, 1.16), para, marcumQ=FALSE)
+# Continuing, the first value in c() has an erroneous value for the next call.
+B <- cdfkmu(c(0.10, 0.35, 0.9, 1, 1.16), para, marcumQ=TRUE)
+# But this distribution is tightly peaks and well away from the origin, so in
+# order to snap the erroneous value to zero, we need a successful median
+# computation.  We can try again using the qualo argument to pass through to
+# quakmu() like the following:
+C <- cdfkmu(c(0.10, 0.35, 0.9, 1, 1.16), para, marcumQ=TRUE, qualo=0.4)
+# The existance of the median for the last one also triggers a truncation of
+# the CDF to 0 when negative solution results for the 0.35, although the
+# negative is about -1E-14.
+}
+\dontrun{
+# Does the discipline of the signal litature just "know" about the apparent
+# upper support of the Kappa-Mu being quite near or even at pi?
+"simKMU" <- function() {
+   km <- 10^runif(2, min=-3, max=3)
+   f <- cdfkmu(pi, vec2par(km, type="kmu"))
+   return(c(km, f))
+}
+EndStudy <- sapply(1:1000, function(i) { simKMU() } )
+boxplot(EndStudy[3,])
 }
 }
 \keyword{distribution}

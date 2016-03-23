@@ -25,8 +25,11 @@ lmrdia()
   \item{lognormal}{\eqn{\tau_3} and \eqn{\tau_4} of the Generalized Normal (3-parameter Log-Normal) distribution.}
   \item{nor}{\eqn{\tau_3} and \eqn{\tau_4} of the Normal distribution.}
   \item{pe3}{\eqn{\tau_3} and \eqn{\tau_4} of the Pearson Type III distribution.}
+  \item{rgov}{\eqn{\tau_3} and \eqn{\tau_4} of the reversed Govindarajulu.}
+  \item{rgpa}{\eqn{\tau_3} and \eqn{\tau_4} of the reversed Generalized Pareto.}
   \item{slash}{\eqn{\tau^{(1)}_3} and \eqn{\tau^{(1)}_4} of the Slash distribution (TL-moment [trim=1]).}
   \item{uniform}{\eqn{\tau_3} and \eqn{\tau_4} of the uniform distribution.}
+  \item{wei}{\eqn{\tau_3} and \eqn{\tau_4} of the Weibull distribution (reversed Generalized Extreme Value).}
 }
 \references{
 Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.

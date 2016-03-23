@@ -4,7 +4,6 @@ function(f, para, paracheck=TRUE) {
     if(paracheck == TRUE) {
       if(! are.parlmrq.valid(para)) return()
     }
-
     U <- para$para[1]
     A <- para$para[2]
 

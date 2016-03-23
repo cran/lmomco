@@ -22,7 +22,7 @@ in terms of \eqn{x}, the PDF \eqn{f(x)}, and the CDF \eqn{F(x)}. Lastly, the \eq
 \deqn{
 \alpha_r = \int_{-\infty}^{\infty} Q_\mu\biggl(\sqrt{2\kappa\mu},\; x\sqrt{2(1+\kappa)\mu}\biggr)^r\,x\, f(x)\; \mathrm{d}x\mbox{.}
 }
-
+Although multiple methods for Marcum Q-function computation are in \code{\link{cdfkmu}} and discussed in that documentation, the \code{lmomkmu} presenting is built only using the \dQuote{chisq} approach.
 
 Yacoub (2007, eq. 5) provides an expectation for the \eqn{j}th moment of the distribution as given by
 \deqn{

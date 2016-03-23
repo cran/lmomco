@@ -1,15 +1,13 @@
 "rrmvarlmomco"  <- function(f,para) {
     if(! are.par.valid(para)) return()
-    Du <- vector(mode="numeric", length=length(f))
-    for(i in 1:length(f)) {
-       if(f[i] == 0) { Du[i] <- 0; next }
+    "afunc" <- function(p) return(rrmlmomco(p,para)^2)
+    Du <- sapply(1:length(f), function(i) {
+       if(f[i] == 0) return(0)
        tmp <- NULL
-       "afunc" <- function(p) {
-          return(rrmlmomco(p,para)^2)
-       }
        try(tmp <- integrate(afunc, 0, f[i]))
-       Du[i] <- ifelse(is.null(tmp), NA, tmp$value/f[i])
-    }
+       ifelse(is.null(tmp), return(NA), return(tmp$value/f[i]))
+    })
+    Du[Du < 0] <- 0
     return(Du)
 }
 

@@ -38,17 +38,12 @@ function(x, order=1, trim=NULL, leftrim=NULL, rightrim=NULL, sortdata=TRUE) {
     return()
   }
 
-
   if(sortdata == TRUE) x <- sort(x)
   lambda <- 0
   for(i in seq(t1+1,n-t2)) {
     wk <- 0
     for(k in seq(0,r-1)) {
-      # FIX t TERMS ON THE CHOOSE
-      term <- (-1)^k * choose(r-1,k) *
-                       choose(i-1,r+t1-1-k) *
-                       choose(n-i,t2+k)
-      wk <- wk + term
+       wk <- wk + (-1)^k * choose(r-1,k) * choose(i-1,r+t1-1-k) * choose(n-i,t2+k)
     }
     wk <- wk / choose(n,r+t1+t2)
     lambda <- lambda + wk * x[i]

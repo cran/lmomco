@@ -1,6 +1,7 @@
 "add.lmomco.axis" <-
 function(side=1, twoside=FALSE,
          side.type=c("NPP", "RI", "SNV"), otherside.type=c("NA", "RI", "SNV", "NPP"),
+         alt.lab=NA,
          NPP.control=NULL, RI.control=NULL, SNV.control=NULL, ...) {
 
    other.side <- switch(as.character(side), "1"=3, "2"=4, "3"=1, "4"=1)
@@ -9,7 +10,7 @@ function(side=1, twoside=FALSE,
    otherside.type <- match.arg(otherside.type)
    if(otherside.type == "NA") otherside.type <- NA
    if(twoside & ! is.na(otherside.type)) twoside <- FALSE
- 
+
    "my.nonexceeds" <- function(minors=FALSE) {
       if(minors) {
          F <- c(0.55, 0.65, 0.75, 0.825, 0.850, 0.875,
@@ -21,30 +22,33 @@ function(side=1, twoside=FALSE,
          return(c(sort(1-F), 0.5, F))
       }
    }
- 
+
    if(is.null(NPP.control)) {
-      NPP.control <- list(label="NONEXCEEDANCE PROBABILITY",
+      the.label <- ifelse(is.na(alt.lab), "NONEXCEEDANCE PROBABILITY", alt.lab)
+      NPP.control <- list(label=the.label,
                           probs=my.nonexceeds(minors=TRUE),
                           probs.label=my.nonexceeds(minors=FALSE),
                           digits=3, line=3, as.exceed=FALSE)
    }
    if(is.null(RI.control)) {
-      RI.control <- list(label="RECURRENCE INTERVAL, YEARS",
+      the.label <- ifelse(is.na(alt.lab), "RECURRENCE INTERVAL, YEARS", alt.lab)
+      RI.control <- list(label=the.label,
                          Tyear=c(2, 5, 10, 25, 50, 100, 200, 500), line=2)
    }
    if(is.null(SNV.control)) {
-      SNV.control <- list(label="STANDARD NORMAL VARIATE",
+      the.label <- ifelse(is.na(alt.lab), "STANDARD NORMAL VARIATE", alt.lab)
+      SNV.control <- list(label=the.label,
                           begin=-5, end=5, by=0.5, line=2)
    }
- 
+
    NPPf <- function(side, other.side) {
       dots <- list(...)
       tcl <- ifelse("tcl" %in% names(dots), dots$tcl, par()$tcl)
       NPP <- NPP.control$probs;  NPP.lab <- NPP.control$probs.lab
       if(NPP.control$as.exceed) {
-         the.true.NPP.lab <-  1- NPP.lab 
+         the.true.NPP.lab <- 1 - NPP.lab
       } else {
-         the.true.NPP.lab <- NPP.lab
+         the.true.NPP.lab <-     NPP.lab
       }
       qNPP <- qnorm(NPP); qNPP.lab <- qnorm(NPP.lab)
       NPP.lab <- format(the.true.NPP.lab, nsmall=NPP.control$digits)
@@ -66,7 +70,7 @@ function(side=1, twoside=FALSE,
       }
       mtext(RI.control$label, line=RI.control$line, side=side)
    }
- 
+
    SNVf <- function(side, other.side) {
       SNV <- NULL
       try( SNV <- seq(SNV.control$begin, SNV.control$end, by=SNV.control$by) )
@@ -77,12 +81,12 @@ function(side=1, twoside=FALSE,
       Axis(SNV, at=SNV, side=side, ...)
       mtext(SNV.control$label, line=SNV.control$line, side=side)
       if(twoside) {
-         Axis(SNV, at=SNV, side=other.side, ...) 
+         Axis(SNV, at=SNV, side=other.side, ...)
       }
    }
- 
+
    NULLf <- function() { return("no axis function made") }
- 
+
    primary.axis <- switch(side.type, NPP=NPPf, RI=RIf, SNV=SNVf, NULLf)
    primary.axis(side, other.side)
 

@@ -1,15 +1,17 @@
 "pdfray" <-
-function(x,para) { 
+function(x,para) {
    if(! are.parray.valid(para)) return()
-   U <- para$para[1] 
-   A <- para$para[2] 
+   U <- para$para[1]
+   A <- para$para[2]
+   AA <- A^2
 
-   AS <- A^2
-   f <- vector(mode="numeric", length=length(x))
-   for(i in seq(1,length(x))) {
-     tmp <- x[i] - U
-     f[i] = tmp/AS * exp(-(tmp^2/(2*AS)))
-   }
+   Y <- x - U
+   f <- Y/AA * exp(-(Y^2/(2*AA)))
+
+   names(f) <- NULL
+   f[Y <= 0] <- NA
+   f[! is.finite(f)] <- NA
+   f[is.na(f)] <- 0 # decision Dec. 2015
    return(f)
 }
 

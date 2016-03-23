@@ -39,14 +39,14 @@ approach based on L-moments: Cambridge University Press.
 \dontrun{
   # The Weibull is a reversed generalized extreme value
   Q <- sort(rlmomco(34,WEI)) # generate Weibull sample
-  lm1 <- lmoms(Q)    # regular L-moments
+  lm1 <- lmoms( Q)   # regular L-moments
   lm2 <- lmoms(-Q)   # L-moment of negated (reversed) data
   WEI <- parwei(lm1) # parameters of Weibull
   GEV <- pargev(lm2) # parameters of GEV
-  F <- nonexceeds()  # Get a vector of nonexceedance probs
+  F <- nonexceeds()  # Get a vector of nonexceedance probabilities
   plot(pp(Q),Q)
   lines(cdfwei(Q,WEI),Q,lwd=5,col=8)
-  lines(1-cdfgev(-Q,GEV),Q,col=2) # line over laps previous
+  lines(1-cdfgev(-Q,GEV),Q,col=2) # line overlaps previous distribution
 }
 }
 \keyword{distribution}

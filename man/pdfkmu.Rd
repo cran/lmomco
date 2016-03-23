@@ -11,7 +11,7 @@ where \eqn{f(x)} is the nonexceedance probability for quantile \eqn{x}, and the 
 \deqn{m = \frac{\mu(1+\kappa)^2}{1+2\kappa}\mbox{.}}
 and for a given \eqn{m}, the new parameter \eqn{\mu} must lie in the range
 \deqn{0 \le \mu \le m\mbox{.}}
-The definition of \eqn{I_k(x)} is seen under \code{\link{pdfemu}}.
+The definition of \eqn{I_k(x)} is seen under \code{\link{pdfemu}}. Lastly, if \eqn{\kappa = \infty}, then there is a Dirca Delta function of probability at \eqn{x=0}.
 }
 \usage{
 pdfkmu(x, para, paracheck=TRUE)
@@ -34,7 +34,7 @@ Yacoub, M.D., 2007, The kappa-mu distribution and the eta-mu distribution: IEEE 
 x <- seq(0,4, by=.1)
 para <- vec2par(c(.5, 1.4), type="kmu")
 F <- cdfkmu(x, para)
-X <- quakmu(F, para)
+X <- quakmu(F, para, quahi=pi)
 plot(F, X, type="l", lwd=8)
 lines(F, x, col=2)
 }
@@ -63,7 +63,7 @@ for(mu in mus) {
       dirac <- 1/delx - sum(density[x != 0])
       cumulant <- (sum(density) + density[1]*(1/delx - 1))*delx
       density[x == 0] <- rep(dirac, length(density[x == 0]))
-      message("total probability is ", cumulant, "\n")
+      message("Total integrated probability is ", cumulant, "\n")
    }
    lines(x, pdfkmu(x, para))
 }

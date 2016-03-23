@@ -33,16 +33,15 @@ A <- lmom2par(vec2lmom(c(2000, 450, 0.14, 0.1)), type="kap")
 F <- nonexceeds(f01=TRUE)
 plot(F, qlmomco(F,A), type="l", ylim=c(100,6000),
      xlab="NONEXCEEDANCE PROBABILITY", ylab="LIFETIME OR SQRT(VAR LIFE), IN DAYS")
-lines(F, sqrt(rmvarlmomco(F, A)),  col=4, lwd=4) # thick blue, residual mean life
-lines(F, sqrt(rrmvarlmomco(F, A)), col=2, lwd=4) # thick red, reversed residual mean life
-lines(F,  rmlmomco(F,A), col=4, lty=2); lines(F, rrmlmomco(F,A), col=2, lty=2)
-lines(F,  tttmlmomco(F,A), col=3, lty=2); lines(F, cmlmomco(F,A), col=3)
+lines(F, sqrt( rmvarlmomco(F, A)), col=4, lwd=4) # thick blue, residual mean life
+lines(F, sqrt(rrmvarlmomco(F, A)), col=2, lwd=4) # thick red, reversed resid. mean life
+lines(F,   rmlmomco(F,A), col=4, lty=2); lines(F, rrmlmomco(F,A), col=2, lty=2)
+lines(F,  tttlmomco(F,A), col=3, lty=2); lines(F,  cmlmomco(F,A), col=3)
 }
 }
 \keyword{quantile function}
 \keyword{variance residual quantile function}
 \keyword{lifetime/reliability analysis}
-\concept{lifetime}
 \concept{lifetime}
 \concept{reliability}
 \keyword{The lmomco functions}

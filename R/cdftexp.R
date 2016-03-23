@@ -1,31 +1,22 @@
 "cdftexp" <-
 function(x,para) {
     if(! are.partexp.valid(para)) return()
-    f <- vector(mode="numeric", length=length(x))
-
-    U <- para$para[1]
+    U <-   para$para[1]
     B <- 1/para$para[2]
-    S <- para$para[3]
+    S <-   para$para[3]
 
+    f <- vector(mode="numeric", length(x))
     if(S) {
-      for(i in seq(1,length(x))) {
-        Y <- x[i]
-        if(Y < 0) { f[i] <- 0; next }
-        if(Y > S) { f[i] <- 1; next }
-        f[i] <- Y/S
-      }
-      return(f)
+       f <- x/S
     } else if(is.na(U)) {
-       return(pexp(x, rate=B))
+       f <- pexp(x, rate=B)
     } else {
-       BU <- 1/(1 - exp(-B*U))
-       for(i in seq(1,length(x))) {
-         Y <- x[i]
-         if(Y < 0) { f[i] <- 0; next }
-         if(Y > U) { f[i] <- 1; next }
-         f[i] <- BU * (1-exp(-B*Y))
-       }
-       return(f)
+       BU <-  1 / (1 - exp(-B*U))
+       f  <- BU * (1 - exp(-B*x))
     }
+    f[x < 0] <- 0 # although a negative makes little sense anyway
+    f[x > U] <- 1 # Vogel et al. (2008, eqs. 1, 5, and 6)
+    f <- names(f)
+    return(f)
 }
 

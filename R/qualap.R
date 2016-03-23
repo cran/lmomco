@@ -8,14 +8,9 @@ function(f,para,paracheck=TRUE) {
     A  <- para$para[2]
 
     x <- vector(mode="numeric", length=length(f))
-    for(i in seq(1,length(f))) {
-      my.f <- f[i]
-      if(my.f <= 0.5) {
-        x[i] <- XI + A * log(2*my.f)
-      } else {
-        x[i] <- XI - A * log(2*(1-my.f))
-      }
-    }
+    x[f <= 0.5] <- XI + A * log(2*   f[f <= 0.5])
+    x[f >  0.5] <- XI - A * log(2*(1-f[f >  0.5]))
+    names(f) <- NULL
     return(x)
 }
 

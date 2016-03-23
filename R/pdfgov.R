@@ -1,24 +1,22 @@
 "pdfgov" <-
 function(x,para) {
-
    if(! are.pargov.valid(para)) return()
-
    U <- para$para[1]
    A <- para$para[2]
    B <- para$para[3]
+   ARG <- 1 / (A*B*(B+1))
 
-   Bp1  <- B + 1
-   nBm1 <- 1 - B
-   UpA  <- U + A
-   tmp1  <- 1 / (A*B*Bp1)
+   lo <- U
+   hi <- U+A
 
-   f <- vector(mode="numeric", length=length(x))
-   for(i in seq(1,length(x))) {
-      X <- x[i]
-      Fx <- cdfgov(X, para) # cdfgov traps the end points
-      tmp2 <- tmp1 * Fx^nBm1 / (1 - Fx) # just fine
-      f[i] <- ifelse(is.finite(tmp2), tmp2, NA) # so that this test suffices
-   }
+   F <- cdfgov(x, para)
+   F[x < lo] <- NA
+   F[x > hi] <- NA
+   f <- ARG * F^(1-B) / (1 - F)
+
+   names(f) <- NULL
+   f[! is.finite(f)] <- NA
+   f[is.na(f)] <- 0 # decision Dec. 2015
    return(f)
 }
 

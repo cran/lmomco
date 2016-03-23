@@ -2,13 +2,114 @@
 NEWS for R Package "lmomco"
 --------------------------------------------------------------------------------
 
+Version 2.2.2--March 20, 2016 (The Density-NA ==> 0 Release [see Item 7])
+1. Added example to parglo.Rd concerning relation to log-logistic distribution
+      following an inquiring from user Laura Read.
+2. Inserted exp(log()) nests in tau34sq.normtest() to protect against integer
+      overflow as WHA encountered a problem having a sample size in a real-world
+      problem too large for computation of the useHoskingZt4=TRUE circumstance.
+3. Added example to lmomtri.Rd showing a positive L-skew, right-triangle distri-
+      bution being compared to the Generalized Pareto with same L-moments.
+4. Added "nmom" argument to lmomtri() to avoid calls to expect.max.ostat() if
+      desired. Changes to lmomtri() and partri() to avoid spraying of error
+      messages from partri()-->lmomtri()-->expect.max.ostat()-->integrate() if
+      outside the acceptable parameter range. Also, return vector of NA from
+      partri() if abs(Tau3) is too big.  All of this for the distribution is
+      very subtle but issues were identified by Berry Boessenkool. Thanks.
+5. BUG FIX: Fixed unity erroneously being returned by pdfgpa(), which was
+      discovered from experiments with Asymmetric Triangular distribution near
+      a positive-skew right triangle density function while thinking about
+      other design thoughts on pdfs raised by Berry Boessenkook. The unity
+      check then yielded next Item.
+6. BUG FIX: Fixed unity erroneously returned by pdfgev(), pdfglo(), and pdfgno()
+      as part of trap for log(0). These were discovered by intuition from
+      grep'ing pdf*.R sources for the operation: f[i] <- 1. And this Item in
+      turn yielded Item 7. Source of this was bad cut-paste from CDF algorithms
+      that were written before pdf support was written---dating from circa 2006.
+7. Enhanced the entire pdf ensemble using R idioms from original FORTRAN port
+      in functions---mainly this meant replacing a for() loop with sapply().
+      This should greatly accelerate computation times. The enhancement also
+      uses syntax like this: f[! is.finite(f)] <- NA and (or) additional NA
+      setting for x values outside the domain of the distribution. Thus the
+      reference to this version being the "Density-NA" release. HOWEVER, AFTER
+      ALMOST A YEAR OF INTROSPECTION AND USER OPINION, DENSITIES THAT SHOULD
+      BE NA (say log(negative number) encountered) ARE SET TO ZERO. In other
+      words, the density outside the support of a distribution is set to zero.
+8. L-moments dependent on the numerical integration of the PDF might require
+      that PDF values being NA be treated as zero. This trap is in Item 7 but
+      does cascade logically into check.pdf(), dlmomco(), expect.max.ostat(),
+      expect.min.ostat(), and hlmomco().
+9. Changed argument "paragld" to "para" in pdfgld(), cdfgld(), and quagld(),
+      and cdfgld() had an example using supdist() added.
+10. Added "delexp" argument to supdist().
+11. Changed "gldpara" syntax to "para" in GLD distribution functions to mimic
+      style in the functions for other distributions.
+12. Updated the Examples section of check.pdf.Rd.
+13. Further testing of the Kappa-Mu distribution--still somewhat experimental.
+14. Further testing of the Eta-Mu distribution---still somewhat experimental.
+15. Changed to R idioms (removed for() loops) in z.par2cdf.R and z.par2qua.R.
+16. Added "paracheck" to are.par.valid() for easy of globally switching off
+      parameter checking and then next Item.
+17 Added "paracheck" to supdist() so that this function may be called when it
+      is already know that the parameters are valid and added to the returned
+      list the nonexceedance probabilities of the lower and upper supports.
+18. Moved a variable into a sum() to that presumably of R will use less memory.
+19. R idiom vectorization as may be to all cdfCCC.R lacking it---mainly
+      the replacement of for() loops with either sapply() and in some cases
+      not even sapply() and pure R vectorization is used.
+20. R idiom vectorization as may be to all pdfCCC.R lacking it---mainly
+      the replacement of for() loops with either sapply() and in some cases
+      not even sapply() and pure R vectorization is used.
+21. R idiom vectorization as may be to all quaCCC.R lacking it---mainly
+      the replacement of for() loops with either sapply() and in some cases
+      not even sapply() and pure R vectorization is used.
+22. R idiom vectorization in rmlmomco(), rrmlmomco(), rmvarlmomco(), and
+      rrmvarlmomco()---replacement of for() loops with sapply().
+23. Documentation: (1) Corrected a spelling error that called nonexistant
+      function in Examples in rmvarlmomco.Rd; (2) Example expansion quarice.Rd;
+      and (3) Removed "the probability density for" in quatexp.Rd.
+24. Added "sig6" to nonexceeds() for +/-6 sigma vector of probability.
+25. Documentation: Changed language in z.par2cdf.Rd and z.par2qua.Rd along with
+      syntax changes in z.par2cdf() and z.par2qua() into R idioms for enormous
+      speed increases.
+26. Documentation: smoothed language in Examples of dist.list.Rd.
+27. Change to TLmoms() and added example to TLmoms.Rd for trapping of NaN
+      coming back from TLmom() and converting to NAs.
+28. Title change for "new" CRAN policy by tools::toTitleCase(). WHA does not
+      like "L-Moment" versus "L-moment" but whatever.
+29. Added disfitqua() for fitting a distribution by a multi-dimensional
+      optimization to available quantiles. The first hint of this need was
+      circa 2005-2007 from a K. Khorzad whom was needing an LPIII fit (for
+      reasons now forgotten) to quantiles from Asquith and Slade (1997). The
+      reason for implementation now is that WHA has a situation needing LPIII
+      fit to quantiles from Asquith and Roussel (2009).
+30. Added add.log.axis for enhanced (nice looking) base-10 logarithmic axes.
+31. Added the alt.lab argument to add.lmomco.axis().
+32. Added the quafunc argument to theoTLmoms() for arbirary quantile function.
+33. Added lmoms.cov() for distribution-free, variance-covariance computation
+       of the sample L-moments (and probability-weighted moments).
+34. Added L-skew and L-kurtosis trajectory for the reversed Govindarajulu,
+       reversed Generalized Pareto, and Weibull distributions to lmrdia().
+35. NAME CHANGE: qua2ci() changed to qua2ci.simple() to make NAMESPACE available
+       to qua2ci.cov(). Also genci() changed to genci.simple() because of
+       its close connection. A deprecated name warning is now issued with
+       qua2ci() and genci() and these will be removed at some later date.
+36. BUG FIX: Tony Labson was testing with deep close to k=0 in quagev() and 
+       required a trapping of effectively close enough to k=0 to not cause
+       oscillation in numerical routines. Because of core relationships, 
+       similar modifications made to quaglo() and quagp().  For the GNO,
+       quagno() had a commented out trap like that needed by Tony for the
+       GEV but was using the finiteness of 1/k.  Tony's example for GEV
+       would not work for GNO, so quagno() changed too.
+
+
 Version 2.1.4--April 20, 2015
 1. Trival changes to CITATION for CRAN compliance.
 
 
 Version 2.1.3--February 1, 2015
 1. Removed broken URL within man/IRSrefunds.by.state.Rd
-2. Removed non-ASCII quotation marks from comment in cdfaep4.R and pmoms.R.
+2. Removed non-ASCII quotation marks from a comment in cdfaep4.R and pmoms.R.
 
 
 Version 2.1.2--January 31, 2015 (never pushed to CRAN for trival but new checks)
@@ -18,7 +119,7 @@ Version 2.1.2--January 31, 2015 (never pushed to CRAN for trival but new checks)
       distribution and not the Laplace distribution in first sentence as
       reported by Berry Boessenkool.
 3. Added supdist() as a single interface to determine a distribution's support.
-      Hints of the author's original ideals maybe found in the listed returned
+      Hints of the author's original ideals maybe found in the list returned
       by parkap() but never fully matured as a design idea. An inquiry about
       probability density functions in lmomco by Berry Boessenkool spawned the
       development of supdist().
@@ -47,16 +148,15 @@ Version 2.1.2--January 31, 2015 (never pushed to CRAN for trival but new checks)
 15. Added the Asymmetrical Triangular distribution for which it seems(?) that
       the L-moments have not been previously described.
 16. Added the showterms argument to theoLmoms.max.ostat() so the multipliers
-      on the expectations of the order statistic maxima and minima can be 
+      on the expectations of the order statistic maxima and minima can be
       rapidly seen for pedagogic reasons.
 17. Added internal numerical support estimation for pdfwak() following inquiry
-      by Berry Boessenkool (see item 3).
+      by Berry Boessenkool (see Item 3).
 18. Added systemic vector pre-allocation throughout the package following
       inquiry by Berry Boessenkool. This is particularly important for the
       cdfCCC(), pdfCCC(), and quaCCC() functions for speed in large simulations.
       Many functions dated from a time when WHA knew less about optimizing R.
       WHA should have done the pre-allocation from the beginning.
-
 
 
 Version 2.1.1--May 31, 2014 (The Concordance Release and Residual Life Release)
@@ -71,7 +171,7 @@ Version 2.1.1--May 31, 2014 (The Concordance Release and Residual Life Release)
       documentation in concordance with Asquith (2011), approximately 200 hours
       of effort from hand edits on the then 428p+ hardcopy of the manual. One
       effect is that the named format for an L-moment object is finally
-      deprecated in favor of the list] format (lmoms()).
+      deprecated in favor of the list format (lmoms()).
 5. BUG FIX: parln3() had an incorrect subtraction when attempting to fit with
       a known lower bounds. WHA has never used this feature and no users have
       commented on it---the audit bore fruit. Documentation of LN3 completed.
@@ -361,7 +461,7 @@ Version 1.7.1---October 30, 2012
 
 
 Version 1.6.2---July 16, 2012
-1. Included strategic downturn{} directives in the examples of
+1. Included strategic dontrun{} directives in the examples of
       lmomgld.Rd, paraep4.Rd, parTLgld.Rd, pargld.Rd, and qua.ostat.Rd,
       which resulted in a 60-percent reduction in elapsed time of
       R CMD check --timings on one of my platforms. (Trying to help out
@@ -942,7 +1042,7 @@ Version 0.85---July 14, 2007
      the original lmomco package (preCRAN) are now updated. The new list
      structure supports an arbitrary number of moments now. This activity
      was spawned by the addition of pwm(), which in turn was spawned by
-     the addition of pwmRC() described in the next item. In fact
+     the addition of pwmRC() described in the next Item. In fact
      pwm.ub() now dispatches to pwm(). Also if A=0 and B=0 in pwm.pp(), then a
      dispatch is made to pwm(); this mimics Hosking's ideas of implementation.
 3. Added the pwm() function. The function provides a nice neat and clean

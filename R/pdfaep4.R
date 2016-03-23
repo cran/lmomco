@@ -1,6 +1,5 @@
 "pdfaep4" <-
 function(x, para, paracheck=TRUE) {
-
    if(paracheck == TRUE) {
      if(! are.paraep4.valid(para)) return()
    }
@@ -29,10 +28,11 @@ function(x, para, paracheck=TRUE) {
 
    Z <- H*K / ( A * (1 + K*K) * gamma(1/H) )
 
-   f <- vector(mode = "numeric", length=length(x))
-   for(i in seq(1,length(x))) {
-      Y   <-  abs(x[i] - U) / A
-      f[i] <- Z * exp(-1 * (  K^sign(x[i] - U) * Y )^H )
-   }
+   Y <- abs(x - U) / A
+   f <- Z * exp(-1 * (  K^sign(x - U) * Y )^H )
+
+   names(f) <- NULL
+   f[! is.finite(f)] <- NA
+   f[is.na(f)] <- 0 # decision Dec. 2015
    return(f)
 }

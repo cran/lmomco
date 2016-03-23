@@ -1,9 +1,15 @@
-"qua2ci" <-
-function(f,para,n, ci=0.90, edist="gno", nsim=1000,
-         showpar=FALSE, empdist=TRUE, verbose=FALSE, maxlogdiff=6) {
+"qua2ci" <- function(...) {
+   warning("function name qua2ci() is deprecated, please use ",
+           "qua2ci.simple() instead")
+   qua2ci.simple(...)
+}
+
+"qua2ci.simple" <-
+function(f,para,n, level=0.90, edist="gno", nsim=1000,
+         showpar=FALSE, empdist=TRUE, verbose=FALSE, maxlogdiff=6, ...) {
   max.permitted.log10cycle.diff <- maxlogdiff
   ifail <- 0
-  ifailtext <- "successful qua2ci() run"
+  ifailtext <- "successful qua2ci.simple() run"
 
 
   if(! check.fs(f)) {
@@ -18,12 +24,12 @@ function(f,para,n, ci=0.90, edist="gno", nsim=1000,
      warning("The distribution parameters are invalid")
      return()
   }
-  if(ci < 0.5 || ci >= 1) {
-    warning("Confidence limit is specified by nonexceedance probability 0.5 <= ci < 1")
-    return()
-  }
+   if(! check.fs(level) | level == 1) { # invalid confidence level
+      warning("level is not in [0,1), returning NA")
+      return(NA)
+   }
 
-  cilo <- (1-ci)/2
+  cilo <- (1-level)/2
   cihi <- 1 - cilo
 
   Xtrue <- par2qua(f,para)
@@ -42,7 +48,7 @@ function(f,para,n, ci=0.90, edist="gno", nsim=1000,
       # yet another ad hoc solution for bizarre simulated values
       next
     }
-    sPAR <- lmom2par(sLMR, type=type)
+    sPAR <- lmom2par(sLMR, type=type, ...)
     if(showpar == TRUE) print(sPAR)
     if(is.null(sPAR) || ( length(sPAR$ifail) == 1
                                    &&
@@ -57,7 +63,9 @@ function(f,para,n, ci=0.90, edist="gno", nsim=1000,
 
     tmpQ  <- par2qua(f,sPAR) # save for the next test before loading into sQ
     if(log10(abs(tmpQ - Xtrue)) > max.permitted.log10cycle.diff ) {
-      warning("qua2ci: Large difference between simulated quantile and the true seen by the maxlogdiff argument. repeating this simulation run.")
+      warning("qua2ci.simple: Large difference between simulated quantile and ",
+              "the true seen by the maxlogdiff argument. repeating this ",
+              "simulation run.")
       next
     }
     count     <- count + 1
@@ -78,14 +86,14 @@ function(f,para,n, ci=0.90, edist="gno", nsim=1000,
     ciPARlo <- NA
     ciPARhi <- NA
     if(verbose == TRUE) {
-       cat(c("qua2ci:",ifailtext,"\n"),sep="")
+       cat(c("qua2ci.simple:",ifailtext,"\n"),sep="")
     }
   }
   else {
     ciPAR <- lmom2par(ciLMR, type=edist)
     if(is.na(ciPAR$para[1])) {
       ifail <- 2
-      ifailtext <- "L-moments are seemingly incompatable with the choosen error distribution"
+      ifailtext <- "L-moments seemingly incompatable with choosen error dist."
       ciPAR <- NA
       ciPARlo <- NA
       ciPARhi <- NA
@@ -94,7 +102,7 @@ function(f,para,n, ci=0.90, edist="gno", nsim=1000,
       ciPARhi <- par2qua(cihi, ciPAR)
     }
     if(verbose == TRUE) {
-      pci <- 100*ci
+      pci <- 100*level
       cat(c(pci,"-percent Confidence Interval\n"),sep="")
       cat("LowerCI      Prediction      UpperCI\n")
       cat(c(ciPARlo, Xtrue, ciPARhi,"\n"),sep="    ")
@@ -109,18 +117,19 @@ function(f,para,n, ci=0.90, edist="gno", nsim=1000,
      assign("simquas", sQ, emp.dist)
      upper <- quantile(sQ, probs=cihi, type=6)
      lower <- quantile(sQ, probs=cilo, type=6)
-     assign("empir.dist.lower", lower, emp.dist)
-     assign("empir.dist.upper", upper, emp.dist)
+     assign("empir.dist.lwr", lower, emp.dist)
+     assign("empir.dist.upr", upper, emp.dist)
      if(verbose == TRUE) {
         cat("Assigning the confidence limits by the Bernstein smoother.\n")
      }
      upper <- dat2bernqua(cihi, sQ, poly.type="Bernstein", bound.type="none")
      lower <- dat2bernqua(cilo, sQ, poly.type="Bernstein", bound.type="none")
-     assign("bern.smooth.lower", lower, emp.dist)
-     assign("bern.smooth.upper", upper, emp.dist)
+     assign("bern.smooth.lwr", lower, emp.dist)
+     assign("bern.smooth.upr", upper, emp.dist)
      assign("epmoms", pmoms(sQ), emp.dist)
+     assign("median", median(sQ, na.rm=TRUE), emp.dist)
   }
-  return(list(lower=ciPARlo, true=Xtrue, upper=ciPARhi,
+  return(list(lwr=ciPARlo, true=Xtrue, upr=ciPARhi,
               elmoms=ciLMR,  epara=ciPAR, empdist=emp.dist,
               ifail=ifail, ifailtext=ifailtext, nsim=nsim,
               sim.attempts=total.while))

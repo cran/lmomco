@@ -20,6 +20,25 @@ pdfrice(x, para)
 \value{
   Probability density (\eqn{f}) for \eqn{x}.
 }
+\note{
+The \pkg{VGAM} package provides a pdf of the Rice for reference:
+\preformatted{
+"drice" <- function(x, vee, sigma, log = FALSE) { # From the VGAM package
+    if(!is.logical(log.arg <- log)) stop("bad input for argument 'log'")
+    rm(log)
+    N = max(length(x), length(vee), length(sigma))
+    x = rep(x, len=N); vee = rep(vee, len=N); sigma = rep(sigma, len=N)
+    logdensity = rep(log(0), len=N)
+    xok = (x > 0)
+    x.abs = abs(x[xok]*vee[xok]/sigma[xok]^2)
+    logdensity[xok] = log(x[xok]) - 2 * log(sigma[xok]) +
+                      (-(x[xok]^2+vee[xok]^2)/(2*sigma[xok]^2)) +
+                      log(besselI(x.abs, nu=0, expon.scaled = TRUE)) + x.abs
+    logdensity[sigma <= 0] <- NaN; logdensity[vee < 0] <- NaN
+    if(log.arg) logdensity else exp(logdensity)
+}
+}
+}
 \author{ W.H. Asquith}
 \references{
 Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
@@ -30,25 +49,8 @@ lmr <- lmoms(c(10, 43, 27, 26, 49, 26, 62, 39, 51, 14))
 rice <- parrice(lmr)
 x <- quarice(nonexceeds(),rice)
 plot(x,pdfrice(x,rice), type="b")
-\dontrun{
-"drice" <- function(x, vee, sigma, log = FALSE) { # From the VGAM package
-    if (!is.logical(log.arg <- log))
-        stop("bad input for argument 'log'")
-    rm(log)
-    N = max(length(x), length(vee), length(sigma))
-    x = rep(x, len=N); vee = rep(vee, len=N); sigma = rep(sigma, len=N)
-    logdensity = rep(log(0), len=N)
-    xok = (x > 0)
-    x.abs = abs(x[xok]*vee[xok]/sigma[xok]^2)
-    logdensity[xok] = log(x[xok]) - 2 * log(sigma[xok]) +
-                      (-(x[xok]^2+vee[xok]^2)/(2*sigma[xok]^2)) +
-                      log(besselI(x.abs, nu=0, expon.scaled = TRUE)) +
-                      x.abs
-    logdensity[sigma <= 0] <- NaN
-    logdensity[vee < 0]    <- NaN
-    if(log.arg) logdensity else exp(logdensity)
-}
-}
+
+
 # For SNR=v/a > 24 or 240.001/10 > 24, the Normal distribution is
 # used by the Rice as implemented here.
 rice1 <- vec2par(c(239.9999,10), type="rice")

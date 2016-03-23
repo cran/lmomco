@@ -25,7 +25,7 @@ gen.freq.curves(n, para, F=NULL, nsim=10, callplot=TRUE, aslog=FALSE,
   \item{...}{Additional parameters are passed to the \code{lines} call within the function---except for the drawing of the parent distribution (see argument \code{showparent}).}
 }
 \value{
-  This function is largely used for its graphical side effects, but if estimates of the lower and upper confidence limits are known (say from \code{\link{genci}}) then this function can be used to evaluate the counts of simulations at nonexceedance probability \code{FCI} outside the limits provided in \code{lowerCI} and \code{upperCI}.
+  This function is largely used for its graphical side effects, but if estimates of the lower and upper confidence limits are known (say from \code{\link{genci.simple}}) then this function can be used to evaluate the counts of simulations at nonexceedance probability \code{FCI} outside the limits provided in \code{lowerCI} and \code{upperCI}.
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{lmom2par}}, \code{\link{nonexceeds}}, \code{\link{rlmomco}}, \code{\link{lmoms}}
@@ -44,11 +44,11 @@ n <- 46 # sample size derived from 75th percentile of record length distribution
 nsim <- 5000 # simulation size
 seed <- runif(1, min=1, max=10000)
 set.seed(seed)
-CI <- genci(para, n, F=F, nsim=nsim, edist="nor")
+CI <- genci.simple(para, n, F=F, nsim=nsim, edist="nor")
 lo.nor <- CI$lower; hi.nor <- CI$upper
 
 set.seed(seed)
-CI <- genci(para, n, F=F, nsim=nsim, edist="aep4")
+CI <- genci.simple(para, n, F=F, nsim=nsim, edist="aep4")
 lo.aep4 <- CI$lower; hi.aep4 <- CI$upper
 message("NORMAL ERROR DIST: lowerCI = ",lo.nor, " and upperCI = ",hi.nor)
 message("  AEP4 ERROR DIST: lowerCI = ",lo.aep4," and upperCI = ",hi.aep4)

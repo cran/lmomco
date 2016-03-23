@@ -2,11 +2,13 @@
 \alias{add.lmomco.axis}
 \title{Add an lmomco Axis to a Plot}
 \description{
-This function provides special support for adding probability-like axes to an existing plot. The function supports a recurrence interval (RI) axis, normal probability axis (NPP), and standard normal variate (SNV) axis.
+This function provides special support for adding probability-like axes to an existing plot. The function supports a recurrence interval (RI) axis, normal probability axis (NPP), and standard normal variate (SNV) axis. The function is built around the interface model that standard normal transformation of the values for the respective axis controlled by this function are being plotted; this means that \code{qnorm()} should be wrapped on the values of nonexceedance probability. This is an ease oversight to make (see Examples section below and note use of \code{qnorm(pp)}).
+
+The function provides a convenient interface for labeling and titling two axes, so adjustments to default margins might be desired. The pertinent control is achieved using the \code{par()} function, which might be of the form \code{par(mgp=c(3,0.5,0), mar=c(5,4,4,3))} say for plotting the \pkg{lmomco} axis both on the left and right (see \code{\link{z.par2cdf}} for an example).
 }
 \usage{
 add.lmomco.axis(side=1, twoside=FALSE, side.type=c("NPP", "RI", "SNV"),
-                otherside.type=c("NA", "RI", "SNV", "NPP"),
+                otherside.type=c("NA", "RI", "SNV", "NPP"), alt.lab=NA,
                 NPP.control=NULL, RI.control=NULL, SNV.control=NULL, ...)
 }
 \arguments{
@@ -14,6 +16,7 @@ add.lmomco.axis(side=1, twoside=FALSE, side.type=c("NPP", "RI", "SNV"),
   \item{twoside}{A logical triggering whether the tick marks are echoed on the opposite side. This value is forced to \code{FALSE} if \code{otherside.type} is not \code{"NA"}.}
   \item{side.type}{The axis type for the primary \code{side}.}
   \item{otherside.type}{The optional axis type for the opposite side. The default is a literal not applicable.}
+    \item{alt.lab}{A short-cut to change the axis label without having to specify a \code{*.control} argument and its \code{label} attribute. The label attribute of \code{alt.lab} is not \code{NA} is used instead of the defaults. This argument overrides behavior of the \code{otherside.type} labeling so use of \code{alt.lab} only makes sense if \code{otherside.type} is left as \code{NA}.}
   \item{NPP.control}{An optional \R \code{list} used to influence the NPP axis.}
   \item{RI.control}{An optional \R \code{list} used to influence the RI axis.}
   \item{SNV.control}{An optional \R \code{list} used to influence the SNV axis.}
@@ -23,6 +26,8 @@ add.lmomco.axis(side=1, twoside=FALSE, side.type=c("NPP", "RI", "SNV"),
    No value is returned. This function is used for its side effects.
 }
 \note{
+The \code{NPP.control}, \code{RI.control}, and \code{SNV.control} are \R \code{list} structures that can be populated (and perhaps someday extended) to feed various settings into the respective axis types.  In brief:
+
 The \code{NPP.control} provides
 \tabular{ll}{
   \code{label} \tab The title for the NPP axis---be careful with value of \code{as.exceed}. \cr
@@ -52,7 +57,7 @@ The \code{SNV.control} provides
 The user is responsible for appropriate construction of the \code{control} lists. Very little error trapping is made to keep the code base tight. The defaults when the function definition are likely good for many types of applications. Lastly, the manipulation of the \code{mgp} parameter in the example is to show how to handle the offset between the numbers and the ticks when the ticks are moved to pointing inward, which is opposite of the default in \R.
 }
 \author{ W.H. Asquith}
-\seealso{\code{\link{prob2T}}, \code{\link{T2prob}}}
+\seealso{\code{\link{prob2T}}, \code{\link{T2prob}}, \code{\link{add.log.axis}} }
 \examples{
 par(mgp=c(3,0.5,0)) # going to tick to the inside, change some parameters
 X <- sort(rnorm(65)); pp <- pp(X) # generate synthetic data

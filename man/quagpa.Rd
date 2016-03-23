@@ -40,6 +40,18 @@ approach based on L-moments: Cambridge University Press.
 \examples{
   lmr <- lmoms(c(123,34,4,654,37,78))
   quagpa(0.5,pargpa(lmr))
+\dontrun{
+# Let us compare L-moments, parameters, and 90th percentile for a simulated
+# GPA distibution of sample size 100 having the following parameters between
+# lmomco and lmom packages in R. The answers are the same.
+gpa.par <- lmomco::vec2par(c(1.02787, 4.54603, 0.07234), type="gpa")
+X <- lmomco::rlmomco(100, gpa.par)
+lmom::samlmu(X)
+lmomco::lmoms(X)
+lmom::pelgpa(lmom::samlmu(X))
+lmomco::pargpa(lmomco::lmoms(X))
+lmom::quagpa(0.90, lmom::pelgpa(lmom::samlmu(X)))
+lmomco::quagpa(0.90, lmomco::pargpa(lmomco::lmoms(X)))}
 }
 \keyword{distribution}
 \keyword{quantile function}

@@ -5,11 +5,11 @@
 This function computes the cumulative probability or nonexceedance probability of the Wakeby distribution given parameters (\eqn{\xi}, \eqn{\alpha}, \eqn{\beta}, \eqn{\gamma}, and \eqn{\delta}) computed by \code{\link{parwak}}. The cumulative distribution function has no explicit form, but the \code{\link{pdfwak}} (density) and \code{\link{quawak}} (quantiles) do.
 }
 \usage{
-cdfwak(x, wakpara)
+cdfwak(x, para)
 }
 \arguments{
   \item{x}{A real value vector.}
-  \item{wakpara}{The parameters from \code{\link{parwak}} or  \code{\link{vec2par}}.}
+  \item{para}{The parameters from \code{\link{parwak}} or  \code{\link{vec2par}}.}
 }
 
 \value{

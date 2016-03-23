@@ -130,10 +130,10 @@ function(vec,type,nowarn=FALSE,paracheck=TRUE,...) {
     if(! paracheck) return(z)
 
     if(! are.par.valid(z,nowarn,...)) {
-      op <- options()
+      ops <- options()
       if(nowarn == TRUE) options(warn=-1)
       warning("The parameters are invalid for the distribution")
-      options(op)
+      options(ops)
       return()
     }
     if(type == "kmu") {

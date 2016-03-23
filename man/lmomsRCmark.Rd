@@ -37,7 +37,6 @@ Helsel, D.R., 2005, Nondetects and data analysis---Statistics for censored envir
 \author{W.H. Asquith}
 \seealso{ \code{\link{lmomRCmark}}, \code{\link{fliplmoms}} }
 \examples{
-
 # Efron, B., 1988, Logistic regression, survival analysis, and the
 # Kaplan-Meier curve: Journal of the American Statistical Association,
 # v. 83, no. 402, pp.414--425
@@ -71,6 +70,20 @@ legend(0,1000,c("uncensored L-moments by indicator (Kappa distribution)",
                 "unbiased L-moments (Kappa)",
            "right-censored L-moments by indicator (Kappa distribution)"),
                 lwd=c(3,1,2), col=c(8,1,2))
+
+########
+ZF <- 5 # discharge of undetection of streamflow
+Q <- c(rep(ZF,8), 116, 34, 56, 78, 909, 12, 56, 45, 560, 300, 2500)
+Qc <- Q == ZF; Qc <- as.numeric(Qc)
+lmr     <- lmoms(Q)
+lmr.cen <- lmomsRCmark(Q, rcmark=Qc, flip=TRUE)
+flip <- lmr.cen$flip
+fit  <- pargev(lmr);                     fit.cen <- pargev(lmr.cen)
+F <- seq(0.001, 0.999, by=0.001)
+Qfit     <-        qlmomco(    F, fit    )
+Qfit.cen <- flip - qlmomco(1 - F, fit.cen) # remember to reverse qdf
+plot(pp(Q),sort(Q), log="y", xlab="NONEXCEED PROB.", ylab="QUANTILE")
+lines(F, Qfit);   lines(F, Qfit.cen,col=2)
 }
 \keyword{L-moment (sample)}
 \keyword{data censoring}

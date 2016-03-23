@@ -23,7 +23,8 @@ function(f, lmom, checklmom=TRUE) {
        aep4 <- paraep4(lmom, method="A",
                        kapapproved=FALSE, checklmom=docheck)
        if(aep4$ifail > 0) {
-          warning("It seems a mixture should be ok, but failure by the aep4 algorithms reporting invalid parameters, reverting to kappa only if possible")
+          warning("It seems a mixture should be ok, but failure by the aep4 algorithms ",
+                  "reporting invalid parameters, reverting to kappa only if possible")
           kap  <- parkap(lmom, checklmom=docheck)
           if(kap$ifail > 0) {
              return(rep(NA, length(f)))

@@ -2,11 +2,11 @@
 function(x, alpha=0.05, pvalue.only=FALSE, getlist=TRUE,
          useHoskingZt4=TRUE, verbose=FALSE, digits=4) {
    n   <- length(x)
-   lmr <- lmoms(x); T3  <- lmr$ratios[3]; T4  <- lmr$ratios[4]
-   Zt3 <- T3 * (1/sqrt(0.1866/n + 0.8/(n*n)))
-   Zt4 <- 0.0883/n
+   lmr <- lmoms(x); T3 <- lmr$ratios[3]; T4 <- lmr$ratios[4]
+   Zt3 <- T3 * (1/sqrt(exp(log(0.1866) - log(n)) + exp(log(0.8) - 2*log(n))))
+   Zt4 <- exp(log(0.0883) - log(n))
 
-   if(useHoskingZt4) Zt4 <- Zt4 + 0.68/(n*n) + 4.9/(n*n*n)
+   if(useHoskingZt4) Zt4 <- Zt4 + exp(log(0.68) - 2*log(n)) + exp(log(4.9) - 3*log(n))
    Zt4 <- (T4 - 0.1226) * (1/sqrt(Zt4))
 
    t34sq <- Zt3^2 + Zt4^2
@@ -14,19 +14,19 @@ function(x, alpha=0.05, pvalue.only=FALSE, getlist=TRUE,
    chiSQ     <- pchisq(t34sq, df=2)
    pvalue    <- 1 - chiSQ
 
-   t34sqrd <- round(t34sq, digits=digits)
-   chiSQrd   <- round(chiSQ, digits=digits)*100
-   pvaluerd  <- round(pvalue, digits=digits)
-   Zt3rd <- round(Zt3, digits=digits)
-   Zt4rd <- round(Zt4, digits=digits)
-   issig <- ifelse(pvalue <= alpha, TRUE, FALSE)
-   txt   <- ifelse(issig, "<= alpha: reject Ho, conclude 'non-normal data'.",
-                          "> alpha: accept Ho, conclude 'normal data'.")
+   t34sqrd  <- round(t34sq,  digits=digits)
+   chiSQrd  <- round(chiSQ,  digits=digits)*100
+   pvaluerd <- round(pvalue, digits=digits)
+   Zt3rd    <- round(Zt3,    digits=digits)
+   Zt4rd    <- round(Zt4,    digits=digits)
+   issig    <- ifelse(pvalue <= alpha, TRUE, FALSE)
+   txt      <- ifelse(issig, "<= alpha: reject Ho, conclude 'non-normal data'.",
+                             "> alpha: accept Ho, conclude 'normal data'.")
    if(verbose) {
       message("\n        *** Harri-Coble Tau34-squared Test for Normality ***\n")
         message("  --A normality test using sample L-skew (T3) and L-kurtosis (T4)--\n")
       if(! useHoskingZt4) {
-         message("Warning: Hosking's personnal approximation for Z-score(L-kurtosis) is *NOT* being used.\n")
+         message("Warning: Hosking's personal approximation for Z-score(L-kurtosis) is *NOT* being used.\n")
       }
       message("  Z-score(T3) = ", Zt3rd, " and Z-score(T4) = ", Zt4rd)
       message("    (Mapping of T3 and T4 to standard normal variates)\n")
@@ -46,7 +46,7 @@ function(x, alpha=0.05, pvalue.only=FALSE, getlist=TRUE,
                 Ztau3=Zt3, Ztau4=Zt4, Tau34sq=t34sq,
                 ChiSq.2df=chiSQ, pvalue=pvalue, isSig=issig,
                 source="tau34sq.normtest")
-      return(as.data.frame(z, row.names="RESULTS"))
+      return(as.data.frame(z, row.names="Harri-Coble test"))
    }
    return(ifelse(issig, TRUE, FALSE))
 }

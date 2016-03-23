@@ -44,7 +44,7 @@ function(para, x=NULL, n=NULL,
       lmr <- par2lmom(para)
       if(length(lmr$L1) == 1) lmr <- lmorph(lmr)
       if(is.null(n)) {
-          warning("Data not provided and a sample length was not provided in lieu, returnining NA")
+          warning("Data not provided and a sample length was not provided in lieu, returning NA")
           return(NA)
       }
    }

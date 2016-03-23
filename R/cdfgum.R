@@ -4,11 +4,9 @@ function(x,para) {
    U <- para$para[1]
    A <- para$para[2]
 
-   f <- vector(mode="numeric", length=length(x))
-   for(i in seq(1,length(x))) {
-     Y <- -(x[i]-U)/A  # condition of GEV(kappa=0)
-     f[i] = exp(-exp(Y)) # HW1997, p.195
-   }
+   Y <- -(x-U)/A
+   f <- exp(-exp(Y)) # Condition GEV(K=0), HW1997, p.195
+   names(f) <- NULL
    return(f)
 }
 

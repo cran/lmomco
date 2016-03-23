@@ -9,21 +9,21 @@ function(x, leftout=0, a=0, ghost=NULL) {
 
    if(! is.null(ghost)) {
    	  if(length(x) != length(ghost)) {
-   	     warning("Length of x is not the same as the ghosting variable")	
+   	     warning("Length of x is not the same as the ghosting variable")
    	  }
       ghostin  <-  ghost[x >  leftout]
       ghostlo  <-  ghost[x <= leftout]
    }
    if(length(xin)  == 0) {
-       xin  <- NA
+       xin     <- NA
        ghostin <- NA
-       ppin <- NA
+       ppin    <- NA
        ppthres <- 1
    }
    if(length(xlo)  == 0) {
-       xlo  <- NA
+       xlo     <- NA
        ghostlo <- NA
-       pplo <- NA
+       pplo    <- NA
        ppthres <- 0
    } else {
        ppthres <- max(pplo)

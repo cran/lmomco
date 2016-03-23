@@ -36,10 +36,11 @@ quarice(0.75,parrice(lmr))
     Y = rnorm(n, mean=nu * sin(theta), sd=alpha)
     return(sqrt(X^2 + Y^2))
 }
-n <- 500; # suggest making it about 10,000
+n <- 5000; # suggest making it about 10,000
 nu <- 100; alpha <- 10
-lmoms(rrice(n, nu, alpha))
-lmoms(rlmomco(n, vec2par(c(nu,alpha), type='rice')))
+set.seed(501); lmoms(rrice(n, nu, alpha))
+set.seed(501); lmoms(rlmomco(n, vec2par(c(nu,alpha), type='rice')))
+# There are slight numerical differences between the two?
 }
 }
 \keyword{distribution}

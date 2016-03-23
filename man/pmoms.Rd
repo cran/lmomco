@@ -32,8 +32,6 @@ This function is primarily available for gamesmanship with the Pearson Type III 
 
 The \code{umvu.sd} is computed by
 \deqn{\hat\sigma' = \frac{\Gamma[(n-1)/2]}{\Gamma(n/2)\sqrt{2}}\sqrt{\sum_{i=1}^{n} (x_i - \hat\mu)^2}\mbox{.}}
-
-This function also is used by \code{\link{qua2ci}} in support of tabular results shown by \code{\link{genci}}.
 }
 \references{
 Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.

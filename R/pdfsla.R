@@ -1,26 +1,18 @@
 "pdfsla" <-
 function(x,para) {
-    EPS   <- sqrt(.Machine$double.eps) 
-    SMALL <- 1E-6 # hacked into limit based on behavior of dnorm()
-
     if(! are.parsla.valid(para)) return()
-
+    EPS   <- sqrt(.Machine$double.eps)
+    SMALL <- 1E-6 # hacked into limit based on behavior of dnorm()
     U <- para$para[1]
     A <- para$para[2]
-    tmp <- dnorm(0)
-    
-    f <- vector(mode="numeric", length=length(x))
-    for(i in seq(1,length(x))) {
-      Y <- (x[i] - U)/A
-      the.diff <- tmp - dnorm(Y)
-      if(abs(tmp) <= EPS | Y == 0) { # one trap for discontinuity
-         f[i] <- 1/(2*sqrt(2))/sqrt(pi)
-      } else if(the.diff == 0 & abs(Y) < SMALL) { # another trap for discontinuity
-         f[i] <- 1/(2*sqrt(2))/sqrt(pi)
-      } else {
-         f[i] <- the.diff/Y^2
-      }
-    }
+
+    Y <- (x - U)/A 
+    DEL <- dnorm(0) - dnorm(Y)
+    f <- DEL/Y^2
+    names(f) <- NULL
+    f[abs(DEL) <= EPS |     Y == 0    ] <- 1/(2*sqrt(2))/sqrt(pi)
+    f[    DEL  == 0   & abs(Y) < SMALL] <- 1/(2*sqrt(2))/sqrt(pi)
+    f[is.na(f)] <- 0 # decision Dec. 2015
     return(f)
 }
 

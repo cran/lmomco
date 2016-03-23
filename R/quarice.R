@@ -32,27 +32,20 @@ function(f, para, xmax=NULL, paracheck=TRUE) {
           break
         }
         ifelse(is.finite(val), xmax <- test.xmax, break)
-        ord <- ord + 1
+        #ord <- ord + 1
       }
    }
-   x <- vector(mode="numeric", length=length(f))
-   for(i in 1:length(f)) {
-     Fx   <- f[i]
-     x[i] <- NA
-     if(Fx < 0 | Fx >= 1) {
-       warning("invalid nonexceedance probability")
-       next
-     }
-     if(Fx == 0) {
-       x[i] <- 0
-     } else if(Fx == 1) {
-       x[i] <- Inf # is this ok?
-     } else {
-       try( x[i] <-
-         uniroot(function(X,...)
-                  return(Fx - cdfrice(X,...)),
-                  c(0,xmax), para=para)$root, silent=FALSE)
-     }
-   }
+   Fmax <- cdfrice(xmax, para)
+   #message("xmax=",xmax," and Fmax=",Fmax)
+
+   x <- sapply(1:length(f), function(i) {
+            Fx <- f[i]
+            if(Fx == 0) return(0)
+            if(Fx == 1 | Fx >= Fmax) return(xmax)
+            rt.tmp <- NULL
+            try(rt.tmp <- uniroot(function(X,...) return(Fx - cdfrice(X,...)),
+                                       c(0,xmax), para=para)$root, silent=FALSE)
+            ifelse(is.null(rt.tmp), return(NA), return(rt.tmp)) })
+   names(x) <- NULL
    return(x)
 }

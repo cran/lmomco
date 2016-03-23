@@ -1,5 +1,6 @@
 "are.par.valid" <-
-function(para,...) {
+function(para, paracheck=TRUE, ...) {
+    if(paracheck) return(TRUE)
     if(is.null(para$para)) {
       warning("The parameter object is missing a para attribute")
       return()

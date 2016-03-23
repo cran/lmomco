@@ -4,14 +4,15 @@ function(x,para) {
    A <- para$para[1]
    B <- para$para[2]
 
-   f <- vector(mode="numeric", length=length(x))
-   for(i in seq(1,length(x))) {
-     if(x[i] >= 0 & x[i] <= 1) {
-       f[i] = A*B*x[i]^(A-1)*(1-x[i]^A)^(B-1)
-     } else {
-       f[i] <- NA;
-     }
-   }
+   lo <- quakur(0, para) # just in case a location/scale version
+   hi <- quakur(1, para) # is ever implemented
+
+   f <- A*B*x^(A-1)*(1-x^A)^(B-1)
+   f[x < lo | x > hi] <- NA
+
+   names(f) <- NULL
+   f[! is.finite(f)] <- NA
+   f[is.na(f)] <- 0 # decision Dec. 2015
    return(f)
 }
 

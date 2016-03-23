@@ -1,31 +1,12 @@
 "cdfaep4" <-
 function(x, para, paracheck=TRUE) {
-
     if(paracheck == TRUE) {
       if(! are.paraep4.valid(para)) return()
     }
-
     U <- para$para[1]
     A <- para$para[2]
     K <- para$para[3]
     H <- para$para[4]
-
-    # The following appears unnecessary as the AEP4 seemingly sweeps through
-    # either the Normal or Laplace distributions as the K or H pass near the
-    # critical points. Hence, all of this code is commented out.
-    # SMALL <- 1E-6
-    #if(abs(K - 1) < SMALL & abs(H - 2) < SMALL) {
-    #   warning("Normal distribution being used for k=", K, " and h=", H)
-    #   SIGMA <- 0.39894228 * sqrt(pi) * A
-    #   MU    <- U
-    #   return(cdfnor(x, vec2par(c(MU, SIGMA), type="nor")))
-    #}
-    #if(abs(K - 1) < SMALL & abs(H - 1) < SMALL) {
-    #   warning("Laplace distribution being used for k=", K, " and h=", H)
-    #   A  <- A # L2lap = 0.75 * Alap;  L2aep = 0.75 * Aaep
-    #   XI <- U
-    #   return(cdflap(x, vec2par(c(XI, A), type="lap")))
-    #}
 
     # The "a" argument to the incomplete gamma functions
     IGA <- 1/H
@@ -36,19 +17,14 @@ function(x, para, paracheck=TRUE) {
     AK2 <- (K/A)^H
 
     f <- vector(mode="numeric", length=length(x))
-    for(i in seq(1,length(x))) {
-       myx <- x[i]
-       if(myx < U) {
-          IGB <- AK1 * (U - myx)^H
-          Qax <- pgamma(IGB, IGA, lower.tail=FALSE, log.p=TRUE)
-          f[i] <- K^2/(1+K^2) * exp(Qax)
-       } else {
-          IGB <- AK2 * (myx - U)^H
-          Qax <- pgamma(IGB, IGA, lower.tail=FALSE, log.p=TRUE)
-          f[i] <- 1 - 1/(1+K^2) * exp(Qax)
-       }
-   }
-  return(f)
+    IGB.1 <- AK1 * (U - x)^H
+    IGB.2 <- AK2 * (x - U)^H
+    Qax.1 <- pgamma(IGB.1, IGA, lower.tail=FALSE, log.p=TRUE)
+    Qax.2 <- pgamma(IGB.2, IGA, lower.tail=FALSE, log.p=TRUE)
+    f[x <  U] <-  (K^2/(1+K^2) * exp(Qax.1[x <  U]))
+    f[x >= U] <- 1 - 1/(1+K^2) * exp(Qax.2[x >= U])
+    names(f) <- NULL
+    return(f)
 }
 
 # 'pgamma' is closely related to the incomplete gamma function.  As

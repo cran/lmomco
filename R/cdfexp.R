@@ -5,11 +5,11 @@ function(x,para) {
     A <- para$para[2]
 
     f <- vector(mode="numeric", length=length(x))
-    for(i in seq(1,length(x))) {
-      Y <- (x[i]-U)/A
-      if(Y <= 0) { f[i] <- 0; next }
-      f[i] <- (1-exp(-Y))
-    }
+    Y <- (x-U)/A
+    f <- 1-exp(-Y)
+
+    f[Y <= 0] <- 0
+    names(f) <- NULL
     return(f)
 }
 

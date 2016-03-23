@@ -2,7 +2,6 @@
    if(paracheck) {
       if(! are.parst3.valid(para)) return()
    }
-
    U <- para$para[1]
    A <- para$para[2]
    N <- para$para[3]
@@ -12,13 +11,9 @@
    if(N < SMALL.NU) N <- SMALL.NU
    if(N > LARGE.NU) N <- LARGE.NU
 
-   if(N == LARGE.NU) {
-      return(pnorm(x, mean=U, sd=A))
-   } else {
-      f <- pt((x-U)/A, N)
-      names(f) <- NULL
-      return(f)
-   }
-   stop("Should not be here in execution")
+   if(N == LARGE.NU) return(pnorm(x, mean=U, sd=A))
+   f <- pt((x-U)/A, N)
+   names(f) <- NULL
+   return(f)
 }
 

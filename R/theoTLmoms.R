@@ -1,5 +1,6 @@
 "theoTLmoms" <-
-function(para,nmom=5,trim=NULL,leftrim=NULL,rightrim=NULL,verbose=FALSE, minF=0, maxF=1) {
+function(para, nmom=5, trim=NULL, leftrim=NULL, rightrim=NULL,
+               verbose=FALSE, minF=0, maxF=1, quafunc=NULL) {
   if(nmom < 1) {
     warning("Number of TL-moments requested is less than 1")
     return()
@@ -39,7 +40,8 @@ function(para,nmom=5,trim=NULL,leftrim=NULL,rightrim=NULL,verbose=FALSE, minF=0,
   }
 
   if(is.null(t1) || is.null(t2)) {
-    warning("Ambiguous asymmetrical trimming values--use explicit leftrim and rightrim arguments")
+    warning("Ambiguous asymmetrical trimming values--use explicit leftrim ",
+            "and rightrim arguments")
     return()
   }
 
@@ -54,14 +56,22 @@ function(para,nmom=5,trim=NULL,leftrim=NULL,rightrim=NULL,verbose=FALSE, minF=0,
       tmp <- (-1)^k*choose(r-1,k)
       tmp <- tmp*exp(lgamma(r+t1+t2+1) - lgamma(r+t1-k-1+1) - lgamma(t2+k+1))
       # Quantile function X(F), which will require numerical integration
-      XofF <- function(F) {
-        par2qua(F,para,paracheck=FALSE)*F^(r+t1-k-1)*(1-F)^(t2+k)
+      XofF <- NULL
+      if(is.null(quafunc)) {
+         XofF <- function(F) {
+            par2qua(F,para,paracheck=FALSE)*F^(r+t1-k-1)*(1-F)^(t2+k)
+         }
+      } else {
+         XofF <- function(F) {
+            quafunc(F, para)*F^(r+t1-k-1)*(1-F)^(t2+k)
+         }
       }
       # Perform the numerical integration
       int <- NULL
       try( int <- integrate(XofF,minF,maxF) )
       if(is.null(int)) {
-         warning("some type of error detected in integration on the r=",r," L-moment, abandoning and returning all NA")
+         warning("some type of error detected in integration on the r=",r,
+                 " L-moment, abandoning and returning all NA")
          return(z)
       }
       # Sum up

@@ -4,27 +4,24 @@ function(f,para,paracheck=TRUE) {
     if(paracheck == TRUE) {
       if(! are.partexp.valid(para)) return()
     }
+    U <-   para$para[1]
+    B <- 1/para$para[2]
+    S <-   para$para[3]
 
     x <- vector(mode="numeric", length=length(f))
-
-    U <- para$para[1]
-    B <- 1/para$para[2]
-    S <- para$para[3]
-
     if(S) { # stationary
-       for(i in seq(1,length(f))) {
-         x[i] <- S*f[i]
-       }
-       return(x)
+       x <- S*f
     } else if(is.na(U)) {
-       return(qexp(f, rate=B))
-    } else {
+       x <- qexp(f, rate=B)
+    } else { # non stationary
        BU <- 1 - exp(-B*U)
-       for(i in seq(1,length(f))) {
-         x[i] <- - log(1 - f[i]*BU) / B
-       }
-       x[! is.finite(x)] <- - log(.Machine$double.eps) / B
-       return(x)
+       ops <- options(warn=-1)
+       x <- -log(1 - f*BU)/B
+       options(ops)
+       # is the below trap for finiteness needed?
+       x[! is.finite(x)] <- -log(.Machine$double.eps) / B
     }
+    names(x) <- NULL
+    return(x)
 }
 

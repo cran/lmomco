@@ -1,15 +1,16 @@
 "rmlmomco" <- function(f,para) {
     if(! are.par.valid(para)) return()
+    "afunc" <- function(p) return(par2qua(p,para,paracheck=FALSE))
     Qu <- par2qua(f,para,paracheck=FALSE)
-    Mu <- vector(mode="numeric", length=length(f))
-    for(i in 1:length(f)) {
-       if(f[i] == 1) { Mu[i] <- 0; next }
+    Mu <- sapply(1:length(f), function(i) {
+       if(f[i] == 1) return(0)
        tmp <- NULL
-       "afunc" <- function(p) {
-          return(par2qua(p,para,paracheck=FALSE))
-       }
        try(tmp <- integrate(afunc, f[i], 1))
-       Mu[i] <- ifelse(is.null(tmp), NA, tmp$value/(1-f[i]) - Qu[i])
-    }
+       ifelse(is.null(tmp), return(NA), return(tmp$value/(1-f[i]) - Qu[i]))
+    })
+    Mu[Mu < 0] <- 0 # At least for the example in docs, as the residual
+    # life goes to zero via the integration and deep into the rigth tail,
+    # numerical variations touching just below zero, say -1E-12 can happen,
+    # so truncate the result.
     return(Mu)
 }

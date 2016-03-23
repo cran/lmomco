@@ -40,12 +40,20 @@ p.179: A "tau_3 > 0" note for log-Normal3 is needed as in "for x > 0 and
       Normal3 application is used in lieu of the Generalized Normal."
   (This is not an errata per se, but represents slight clarification.)
 
+p.203: "remarkablely" should be written "remarkably"
+
+p.204: Character "k" in eqs. 9.1 and 9.2 should be a "\kappa".
+
 p.209: Added 'Karian and Dudewicz (2011)' citation among others for the
            GLD. (11/7/2013)
   (This is not an errata per se, I was not aware of the book until 2013.)
 
-p.316. Incorrect opening quotation mark used for the opening quote by
+p.316: Incorrect opening quotation mark used for the opening quote by
            Gubareva and Gartsman (2010). Trivial fix.
+
+p.320: Incorrect author-name order in Balakrishnan and Chen (1995), it
+           should be Chen and Balakrishnan (1995) but the order on the
+           citation inside the text (see PWM chapter) is correct.
 
 ==========  END ERRATA FOR SECOND PRINTING (post February 2013) =======
 

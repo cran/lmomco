@@ -23,6 +23,8 @@ function() {
      gpa[n,2] <- (t3*(1+5*t3))/(5+t3)
      n <- n + 1
    }
+   rgpa <- gpa; rgpa[,1] <- -rgpa[,1]
+
    n <- 1
    gev <- matrix(nrow = 582, ncol = 2)
    for(k in seq(-1,1,step)) {
@@ -37,6 +39,9 @@ function() {
      gev[n,2] <- (5*(1-4^h)-10*(1-3^h)+6*(1-2^h))/(1-2^h)
      n <- n + 1
    }
+   gev <- gev[! is.nan(gev[,1]), ]
+   wei <- gev; wei[,1] <- -wei[,1]
+
    n <- 1
    glo <- matrix(nrow = 401, ncol = 2)
    for(k in seq(-1,1,step)) {
@@ -69,7 +74,7 @@ function() {
      gov[n,2] <- -0.071430227 - 0.153032772*t3^1 + 1.049617013*t3^2 + 0.149620402*t3^3 + 0.021311828*t3^4 + 0.003912343*t3^5
      n <- n + 1
    }
-
+   rgov <- gov; rgov[,1] <- -rgov[,1]
 
    exp <- matrix(nrow = 1, ncol = 2)
    exp[1,] <- c(1/3,1/6)
@@ -85,10 +90,10 @@ function() {
    cau[1,] <- c(0, 1)
    sla <- matrix(nrow = 1, ncol = 2)
    sla[1,] <- c(0, 0.3042045)
-   z <- list(limits = lim, aep4=aep4, cau=cau, exp=exp,
-             gev = gev, glo = glo,
-             gpa=gpa, gum=gum, gno=ln, gov=gov, nor=nor,
-             pe3=pIII, ray=ray, slash=sla, uniform=uni)
+   z <- list(limits=lim, aep4=aep4, cau=cau, exp=exp,
+             gev=gev, glo=glo, gpa=gpa, gum=gum, gno=ln, gov=gov,
+             nor=nor, pe3=pIII, ray=ray, rgov=rgov, rgpa=rgpa,
+             slash=sla, uniform=uni, wei=wei)
    return(z)
 }
 

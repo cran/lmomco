@@ -1,5 +1,7 @@
 "lmomtri" <-
-function(para, paracheck=TRUE) {
+function(para, paracheck=TRUE, nmom=c("3", "5")) {
+    nmom <- match.arg(nmom)
+    nmom <- as.numeric(nmom)
 
     if(paracheck) {
        if(! are.partri.valid(para)) return()
@@ -24,21 +26,43 @@ function(para, paracheck=TRUE) {
     E11  <- L1
     E22  <- L2 + E11
     E33  <- (L3 + 3*E22 - E11)/2
-    E33p <- expect.max.ostat(3, para=para, qua=quatri)
-    E44  <- expect.max.ostat(4, para=para, qua=quatri)
-    E55  <- expect.max.ostat(5, para=para, qua=quatri)
+    if(nmom == 3) {
+       z <- list(lambdas=c(L1, L2, L3, NA, NA),
+                 ratios=c(NA, LCV, TAU3, NA, NA),
+                 trim=0, rightrim=0, leftrim=0, E33err=NA,
+                 source="lmomtri")
+       return(z)
+    } else {
+       E33p <- E44 <- E55 <- NULL
+       try(E33p <- expect.max.ostat(3, para=para, qua=quatri), silent=TRUE)
+       try(E44  <- expect.max.ostat(4, para=para, qua=quatri), silent=TRUE)
+       try(E55  <- expect.max.ostat(5, para=para, qua=quatri), silent=TRUE)
+       if(is.null(E33p)) {
+          warning("E33p could not be computed by expect.max.ostat() numerical integration ",
+                  "so E33err will be NA")
+          E33p <- NA
+       }
+       if(is.null(E44)) {
+          warning("E44 could not be computed by expect.max.ostat() numerical integration ",
+                  "so Tau4 will be NA")
+          E44 <- NA
+       }
+       if(is.null(E55)) {
+          warning("E55 could not be computed by expect.max.ostat() numerical integration ",
+                  "so Tau5 will be NA")
+          E55 <- NA
+       }
+       L4 <-           5*E44 - 10*E33 +  6*E22 - 1*E11
+       L5 <- 14*E55 - 35*E44 + 30*E33 - 10*E22 + 1*E11
+       TAU4 <- L4/L2; TAU5 <- L5/L2
 
-    L4 <-           5*E44 - 10*E33 +  6*E22 - 1*E11
-    L5 <- 14*E55 - 35*E44 + 30*E33 - 10*E22 + 1*E11
-    TAU4 <- L4/L2; TAU5 <- L5/L2
+       E33percent.error <- 100*((E33 - E33p)/E33)
 
-    E33percent.error <- 100*((E33 - E33p)/E33)
-    # But this error is not reported but easily used for inspection.
-
-    z <- list(lambdas=c(L1, L2, L3, L4, L5),
-              ratios=c(NA, LCV, TAU3, TAU4, TAU5),
-              trim=0, rightrim=0, leftrim=0,
-              source="lmomtri")
-    return(z)
+       z <- list(lambdas=c(L1, L2, L3, L4, L5),
+                 ratios=c(NA, LCV, TAU3, TAU4, TAU5),
+                 trim=0, rightrim=0, leftrim=0, E33err=E33percent.error,
+                 source="lmomtri")
+       return(z)
+    }
 }
 

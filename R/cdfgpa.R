@@ -1,31 +1,25 @@
 "cdfgpa" <-
 function(x,para) {
     if(! are.pargpa.valid(para)) return()
-    #  SMALL IS USED TO TEST WHETHER X IS EFFECTIVELY AT
-    #  THE ENDPOINT OF THE DISTRIBUTION
-    SMALL <- 1e-15
-    XI <- para$para[1] 
-    A  <- para$para[2] 
-    K  <- para$para[3] 
+
+    XI <- para$para[1]
+    A  <- para$para[2]
+    K  <- para$para[3]
 
     f <- vector(mode="numeric", length=length(x))
-    for(i in seq(1,length(x))) {
-      Y <- (x[i]-XI)/A
-      if(Y <= 0) { f[i] <- 0; next }
-      if(K == 0) {
-        f[i] <- 1-exp(-Y)
-      }
-      else {
-        ARG <- 1-K*Y
-        if(ARG > SMALL) {
-          Y <- -log(ARG)/K
-          f[i] <- 1-exp(-Y)
-        }
-        else {
-          f[i] <- 1
-        }
-      }
+    X <- Y <- (x-XI)/A
+    if(K == 0) {
+       f <- 1-exp(-Y)
+    } else {
+       ARG <- 1-K*Y
+       ops <- options(warn = -1)
+       Y <- -log(ARG)/K
+       options(ops)
+       f <- (1-exp(-Y))
     }
+    f[X <= 0] <- 0
+    f[!is.finite(f)] <- 1
+    names(f) <- NULL
     return(f)
 }
 

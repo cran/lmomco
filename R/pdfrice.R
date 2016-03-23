@@ -3,6 +3,7 @@ function(x,para) {
    if(! are.parrice.valid(para)) return()
    V   <- para$para[1]
    A   <- para$para[2]
+
    if(V == 0) {
       ray <- vec2par(c(0,A), type="ray")
       return(pdfray(x,para=ray))
@@ -20,20 +21,18 @@ function(x,para) {
       nor  <- vec2par(c(xbar,sqrt(xvar)), type="nor")
       return(pdfnor(x,para=nor))
    }
-   B   <- V/A^2
-   Asq <- A^2; Vsq <- V^2
-   f   <- vector(mode="numeric", length=length(x))
-   for(i in seq(1,length(x))) {
-     xi  <- x[i]
-     tmp <- xi/Asq * exp( -(xi^2 + Vsq) / (2*Asq) )
-     toIo <- xi*B
-     Bo  <- besselI(toIo, nu=0, expon.scaled = TRUE)
-     if(is.finite(Bo)) {
-       f[i] <- exp(log(tmp) + (log(Bo) + toIo))
-     } else {
-       f[i] <- 0
-     }
-   }
+   B  <- V/A^2
+
+   TMP  <- x/(A^2) * exp( -(x^2 + V^2) / (2*A^2) )
+   toIo <- x*B
+   ops  <- options(warn=-1)
+   Bo   <- besselI(toIo, nu=0, expon.scaled = TRUE)
+   f    <- exp(log(TMP) + (log(Bo) + toIo))
+   options(ops)
+
+   names(f) <- NULL
+   f[! is.finite(f)] <- NA
+   f[is.na(f)] <- 0 # decision Dec. 2015
    return(f)
 }
 

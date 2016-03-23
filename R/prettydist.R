@@ -23,7 +23,7 @@ function(x) {
      if(x == "nor") return("Normal")
      if(x == "pe3") return("Pearson Type III")
      if(x == "sla") return("Slash")
-     if(x == "st3") return("Student t (3-parameter")
+     if(x == "st3") return("Student t (3-parameter)")
      if(x == "ray") return("Rayleigh")
      if(x == "rice") return("Rice")
      if(x == "revgum") return("Reverse Gumbel")

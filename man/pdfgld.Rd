@@ -7,11 +7,11 @@ This function computes the probability density function of the Generalized Lambd
 where \eqn{f(x)} is the probability density function at \eqn{x}, \eqn{F(x)} is the cumulative distribution function at \eqn{x}.
 }
 \usage{
-pdfgld(x, gldpara, paracheck)
+pdfgld(x, para, paracheck)
 }
 \arguments{
   \item{x}{A real value vector.}
-  \item{gldpara}{The parameters from \code{\link{pargld}} or \code{\link{vec2par}}.}
+  \item{para}{The parameters from \code{\link{pargld}} or \code{\link{vec2par}}.}
   \item{paracheck}{A logical switch as to whether the validity of the parameters should be checked. Default is \code{paracheck=TRUE}. This switch is made so that the root solution needed for \code{\link{cdfgld}} exhibits an extreme speed increase because of the repeated calls to \code{\link{quagld}}.}
 }
 \value{
@@ -25,7 +25,6 @@ Karian, Z.A., and Dudewicz, E.J., 2000, Fitting statistical distributions---The 
 \author{ W.H. Asquith}
 \seealso{\code{\link{cdfgld}}, \code{\link{quagld}}, \code{\link{lmomgld}}, \code{\link{pargld}}}
 \examples{
-
 \dontrun{
 # Using Karian and Dudewicz, 2000, p. 10
 gld <- vec2par(c(0.0305,1/1.3673,0.004581,0.01020),type='gld')
@@ -35,7 +34,6 @@ F <- seq(.001,.999,by=.001)
 x <- quagld(F,gld)
 plot(x, pdfgld(x,gld), type='l', xlim=c(0,.1))
 }
-
 }
 \keyword{distribution}
 \keyword{probability density function}

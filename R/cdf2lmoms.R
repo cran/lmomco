@@ -10,7 +10,8 @@ function(para, nmom=6, fdepth=0, silent=TRUE, lambegr=1, ...) {
    rats[1] <- NA; rats[2] <- lams[2]/lams[1]
    ratbegr <- 3
    if(lambegr > ratbegr) ratbegr <- lambegr
-   for(r in ratbegr:nmom) rats[r] <- ifelse(is.na(lams[2]), NA, lams[r]/lams[2])
+   rats[ratbegr:nmom] <- sapply(ratbegr:nmom, function(r) { # notice the indexing!!
+                          ifelse(is.na(lams[2]), return(NA), return(lams[r]/lams[2])) })
    z <- list(lambdas=lams,
              ratios=rats,
              trim=NULL, leftrim=NULL, rightrim=NULL,

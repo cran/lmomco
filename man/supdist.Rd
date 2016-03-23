@@ -13,11 +13,13 @@ The intent of this function is to provide a unified portal for \eqn{\{L, U\}} es
 The support returned by this function might be useful in extended application development involving probability density functions \code{pdfCCC} (\eqn{f(x,\Theta)}, see \code{\link{dlmomco}}) and cumulative distribution functions \code{cdfCCC} (\eqn{F(x,\Theta)}, see \code{\link{plmomco}}) functions---both of these functions use as their primary argument a value \eqn{x} that exists along the real number line.
 }
 \usage{
-supdist(para, trapNaN=FALSE, ...)
+supdist(para, trapNaN=FALSE, delexp=0.5, paracheck=TRUE, ...)
 }
 \arguments{
   \item{para}{The parameters of the distribution.}
   \item{trapNaN}{A logical influencing how \code{NaN} are handled (see Note).}
+  \item{delexp}{The magnitude of the decrementing of the exponent to search down and up from.  A very long-tailed but highly peaked distribution might require this to be smaller than default.}
+    \item{paracheck}{A logical controlling whether the parameters are checked for validity.}
   \item{...}{Additional arguments to pass.}
 }
 \value{
@@ -25,6 +27,7 @@ supdist(para, trapNaN=FALSE, ...)
 
   \item{type}{Three character (minimum) distribution type (for example, \code{type="gev"});}
   \item{support}{The support (or range) of the fitted distribution;}
+  \item{nonexceeds}{The nonexceedance probabilities at the computed support.}
   \item{fexpons}{A vector indicating how the respective lower and upper boundaries were arrived at (see Note); and}
   \item{finite}{A logical on each entry of the \code{support} with a preemptive call by the \code{is.finite} function in \R.}
   \item{source}{An attribute identifying the computational source
@@ -51,6 +54,13 @@ supdist(lmom2par(lmr, type="wak" ), trapNaN=TRUE) # Lower = 16.43722, Upper = 15
 #$support  16.43722  152.75126
 #$fexpons        NA  -16
 #$finite       TRUE  TRUE
+\dontrun{
+para <- vec2par(c(0.69, 0.625), type="kmu") # very flat tails and narrow peak!
+supdist(para, delexp=1   )$support # [1] 0        NaN
+supdist(para, delexp=0.5 )$support # [1] 0.000000 3.030334
+supdist(para, delexp=0.05)$support # [1] 0.000000 3.155655
+# This distribution appears to have a limit at PI and the delexp=0.5
+}
 }
 \keyword{utility (distribution)}
 \keyword{distribution (utility)}

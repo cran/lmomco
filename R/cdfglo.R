@@ -1,28 +1,27 @@
 "cdfglo" <-
 function(x,para) {
     if(! are.parglo.valid(para)) return()
-    SMALL <- 1e-15 
-    XI <- para$para[1] 
-    A  <- para$para[2] 
-    K  <- para$para[3] 
+    XI <- para$para[1]
+    A  <- para$para[2]
+    K  <- para$para[3]
 
     f <- vector(mode="numeric", length=length(x))
-    for(i in seq(1,length(x))) {
-      Y  <- (x[i]-XI)/A 
-      if(K == 0) {
-        f[i] <- 1/(1+exp(-Y))
-        next
-      }
-      ARG <- 1-K*Y 
-      if(ARG > SMALL) {
-        Y <- -log(ARG)/K
-        f[i] <- 1/(1+exp(-Y))
-        next
-      }
-      if(K < 0) { f[i] <- 0; next }
-      if(K > 0) { f[i] <- 1; next }
-      warning("Should not be here in execution")
+    Y <- (x-XI)/A
+    if(K == 0) {
+       f <- 1/(1+exp(-Y))
+    } else {
+       ARG <- 1-K*Y
+       ops <- options(warn = -1)
+       Y <- -log(ARG)/K
+       ops <- options(ops)
+       f <- 1/(1+exp(-Y))
     }
+    if(K < 0) {
+       f[!is.finite(f)] <- 0
+    } else if(K > 0) {
+       f[!is.finite(f)] <- 1
+    }
+    names(f) <- NULL
     return(f)
 }
 

@@ -8,7 +8,7 @@ Return a list of the three character syntax identifying distributions supported 
 \code{gpa}, \code{gum}, \code{kap}, \code{kmu}, \code{kur},
 \code{lap}, \code{lmrq}, \code{ln3}, \code{nor}, \code{pe3},
 \code{ray}, \code{revgum}, \code{rice}, \code{sla}, \code{st3},
-\code{texp}, \code{tri}, \code{wak}, and \code{wei}. These abbreviations and only these are used in routing logic within \pkg{lmomco}. There is no provision for fuzzy matching.
+\code{texp}, \code{tri}, \code{wak}, and \code{wei}. These abbreviations and only these are used in routing logic within \pkg{lmomco}. There is no provision for fuzzy matching. The full distributions names are available in \code{\link{prettydist}}.
 }
 \usage{
 dist.list(type=NULL)
@@ -20,6 +20,8 @@ dist.list(type=NULL)
 A vector of distribution identifiers as listed above or the number of parameters for a given distribution type.
 }
 \author{ W.H. Asquith}
+\seealso{ \code{\link{prettydist}}
+}
 \examples{
 dist.list("gpa")
 \dontrun{
@@ -28,20 +30,17 @@ LM <- vec2lmom(c(10000,1500,0.3,0.1,0.04))
 lm2 <- lmorph(LM)  # convert to vectored format
 lm1 <- lmorph(lm2) # and back to named format
 dist <- dist.list()
-# demonstrate that lmom2par internally converts
-# to needed L-moment object
-for(i in seq(1,length(dist))) {
+# Demonstrate that lmom2par internally converts to needed L-moment object
+for(i in 1:length(dist)) {
   # Skip Cauchy and Slash (need TL-moments).
-  # The AEP4 is skipped because inapplicable to the L-moments.
+  # Skip AEP4, Kumaraswamy, LMRQ, Student t (3-parameter), Truncated Exponential
+  # are skipped because each is inapplicable to the given L-moments.
   # The Eta-Mu and Kappa-Mu are skipped for speed.
-  # The Kumaraswamy and LMRQ are skipped because inapplicable to the L-moments.
-  # The Student t (3-parameter) is skipped because inapplicable to the L-moments.
-  # The Truncated Exponential also is skipped for the same reason.
   if(dist[i] == 'aep4' | dist[i] == 'cau' | dist[i] == 'emu'  | dist[i] == 'gep' |
      dist[i] == 'kmu'  | dist[i] == 'kur' | dist[i] == 'lmrq' | dist[i] == 'tri' |
      dist[i] == 'sla'  | dist[i] == 'st3' | dist[i] == 'texp') next
-  print(lmom2par(lm1,type=dist[i]))
-  print(lmom2par(lm2,type=dist[i]))
+  print(lmom2par(lm1,type=dist[i])$para)
+  print(lmom2par(lm2,type=dist[i])$para)
 }
 }
 }

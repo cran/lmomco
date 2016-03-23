@@ -4,7 +4,7 @@
 \description{
 This function computes the quantiles of the Truncated Exponential distribution given parameters (\eqn{\psi} and \eqn{\alpha})  computed by \code{\link{partexp}}. The parameter \eqn{\psi} is the right truncation, and \eqn{\alpha} is a scale parameter. The quantile function, letting \eqn{\beta = 1/\alpha} to match nomenclature of Vogel and others (2008), is
 \deqn{x(F) = -\frac{1}{\beta}\log(1-F[1-\mathrm{exp}(-\beta\psi)])\mbox{,}}
-where \eqn{x(x)} is the probability density for the quantile \eqn{0 \le x \le \psi} and \eqn{\psi > 0} and \eqn{\alpha > 0}. This distribution represents a nonstationary Poisson process.
+where \eqn{x(F)} is the quantile \eqn{0 \le x \le \psi} for nonexceedance probability \eqn{F} and \eqn{\psi > 0} and \eqn{\alpha > 0}. This distribution represents a nonstationary Poisson process.
 
 The distribution is restricted to a narrow range of L-CV (\eqn{\tau_2 = \lambda_2/\lambda_1}). If \eqn{\tau_2 = 1/3}, the process represented is a stationary Poisson for which the quantile function is simply the uniform distribution and \eqn{x(F) = \psi\,F}. If \eqn{\tau_2 = 1/2}, then the distribution is represented as the usual exponential distribution with a location parameter of zero and a scale parameter \eqn{1/\beta}. Both of these limiting conditions are supported.
 }
@@ -35,8 +35,7 @@ by <- 0.01; lcvs <- c(1/3, seq(1/3+by, 1/2-by, by=by), 1/2)
 reds <- (lcvs - 1/3)/max(lcvs - 1/3)
 for(lcv in lcvs) {
     A <- partexp(vec2lmom(c(100, lcv), lscale=FALSE))
-    lines(qnorm(F), quatexp(F, A),
-    pch=16, col=rgb(reds[lcvs == lcv],0,0))
+    lines(qnorm(F), quatexp(F, A), col=rgb(reds[lcvs == lcv],0,0))
 }
 }
 }
