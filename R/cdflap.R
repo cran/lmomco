@@ -6,8 +6,8 @@ function(x,para) {
 
     f <- vector(mode="numeric", length=length(x))
     Y <- (x - XI)/A
-    f[x <= XI] <-     0.5*exp( Y)
-    f[x >  XI] <- 1 - 0.5*exp(-Y)
+    f[x <= XI] <-     0.5*exp( Y[x <= XI])
+    f[x >  XI] <- 1 - 0.5*exp(-Y[x >  XI])
     names(f) <- NULL
     return(f)
 }

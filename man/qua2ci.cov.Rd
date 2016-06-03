@@ -8,7 +8,7 @@ This function estimates the lower and upper limits of a specified confidence int
 qua2ci.cov(x,f, type=NULL, nsim=1000,
                 interval=c("confidence", "none"), level=0.90,
                 asnorm=FALSE, altlmoms=NULL, flip=NULL, dimless=TRUE,
-                usefastlcov=FALSE, nmom=5, getsimlmom=FALSE, verbose=FALSE, ...)
+                usefastlcov=TRUE, nmom=5, getsimlmom=FALSE, verbose=FALSE, ...)
 }
 \arguments{
   \item{x}{A real value vector.}
@@ -21,7 +21,7 @@ qua2ci.cov(x,f, type=NULL, nsim=1000,
   \item{altlmoms}{Alternative L-moments to rescale the simulated L-moments from the variance-covariance structure of the sample L-moments in \code{x}. These L-moments need to be an \pkg{lmomco} package L-moment object (e.g. \code{\link{lmoms}}). The presence of alternative L-moments will result in \code{dimless=TRUE}.}
   \item{flip}{A flipping or reflection value denoted as \eqn{\eta}. The values in \code{x} are flipped by this value (\eqn{y = \eta - x}) and analysis proceeds with flipped information, and then results are flipped back just prior to returning values with the exception that if \code{getsimlmom=TRUE} then the simultated L-moments are in \dQuote{flipped space.}}
   \item{dimless}{Perform the simulations in dimensionless space meaning that values in \code{x} are converted by \eqn{y = (x-\lambda_1)/\lambda_2} and simulation based on \eqn{y} and scale is returned on output according to the L-moments of \code{x} or the alternative L-moments in \code{altlmoms}. Scale is returned to the simulated L-moments, if returned by \code{getsimlmom=TRUE}, which is not fully parallel with the returned behavior when flipping is involved.}
-  \item{usefastlcov}{A logical to use the function \code{Lmomcov} from the \pkg{Lmoments} package to compute the sample variance-covariance matrices and not the much slower function \code{\link{lmoms.cov}} in the \pkg{lmomco} package.}
+  \item{usefastlcov}{A logical to use the function \code{Lmomcov()} from the \pkg{Lmoments} package to compute the sample variance-covariance matrices and not the much slower function \code{\link{lmoms.cov}} in the \pkg{lmomco} package.}
   \item{nmom}{The number of L-moments involved. This argument needs to be high enough to permit parameterization of the distribution in \code{type} but computational effort increases as \code{nmom} gets large.  This option is provided in conjunction with \code{getsimlmom=TRUE} to be able to get a \dQuote{wider set} of simulated L-moments returned than precisely required by the distribution. Also, some distributions might as part of their specific fitting algorithms, require inspection of higher L-moments than seemingly required than their numer of parameters suggests.}
   \item{getsimlmom}{A logical controlling whether the simulated L-moment matrix having \code{nsim} rows and \code{nmom} columns is returned instead of confidence limits.}
   \item{verbose}{The verbosity of the operation of the function.}
@@ -48,8 +48,8 @@ wei <- parwei(vec2lmom(c(100,75,-.3)))
 set.seed(1734); X <- rlmomco(samsize, wei); set.seed(1734)
 tmp <- qua2ci.cov(X, f, type="wei", nsim=nsim)
 print(tmp) # show results of one 2000 replicated Monte Carlo
-# nonexceed   lwr   fit   upr  qua_med qua_mean qua_var qua_lam2
-#     0.999 308.5 333.2 359.0    333.5    333.4   225.8     8.48
+# nonexceed     lwr    fit    upr  qua_med  qua_mean  qua_var  qua_lam2
+#     0.999   310.4  333.2  360.2    333.6     334.3    227.3    8.4988
 set.seed(1734)
 qf <- qua2ci.cov(X, f, type="wei", nsim=nsim, interval="none") # another
 boxplot(qf)
@@ -57,27 +57,27 @@ message(" quantile variance: ", round(tmp$qua_var,  digits=2),
         " compared to ", round(var(qf, na.rm=TRUE), digits=2))
 set.seed(1734)
 genci.simple(wei, n=samsize, f=f)
-# nonexceed   lwr  true   upr  qua_med qua_mean qua_var qua_lam2
-#     0.999 289.5 312.0 339.1    314.2    314.1   227.8     8.51
+# nonexceed     lwr    fit    upr  qua_med  qua_mean  qua_var  qua_lam2
+#     0.999   289.7  312.0  337.7    313.5     313.6    213.5    8.2330
 
 #----------------------------------------
 # Using X from above example, demonstrate that using dimensionless
 # simulation that the results are the same.
 set.seed(145); qua2ci.cov(X, 0.1, type="wei") # both outputs same
 set.seed(145); qua2ci.cov(X, 0.1, type="wei", dimless=TRUE)
-# nonexceed    lwr    fit    upr  qua_med qua_mean qua_var qua_lam2
-#       0.1 -78.62 -46.01 -11.39   -43.58   -44.38  416.04    11.54
+# nonexceed     lwr    fit    upr  qua_med  qua_mean  qua_var  qua_lam2
+#       0.1  -78.62 -46.01 -11.39   -43.58    -44.38   416.04     11.54
 
 #----------------------------------------
 # Using X again, demonstration application of the flip and notice that just
 # simple reversal is occurring and that the Weibull is a reversed GEV.
 eta <- 0
 set.seed(145); qua2ci.cov(X, 0.9, type="wei", nsim=nsim)
-# nonexceed    lwr    fit    upr  qua_med qua_mean qua_var qua_lam2
-#       0.9 232.22 244.18 255.90   244.26   244.12    51.91    4.06
+# nonexceed     lwr    fit    upr  qua_med  qua_mean  qua_var  qua_lam2
+#       0.9   232.2  244.2  255.9    244.3     244.1    51.91    4.0635
 set.seed(145); qua2ci.cov(X, 0.9, type="gev", nsim=nsim, flip=eta)
-# nonexceed    lwr    fit    upr  qua_med qua_mean qua_var qua_lam2
-#       0.9 232.19 244.18 256.23   244.21   244.25   53.02     4.11
+# nonexceed     lwr    fit    upr  qua_med  qua_mean  qua_var  qua_lam2
+#       0.9   232.2  244.2  256.2    244.2     244.3    53.02    4.1088
 # The values are slightly different, which likely represents a combination
 # of numerics of the variance-covariance matrix because the Monte Carlo
 # is seeded the same.
@@ -86,7 +86,7 @@ set.seed(145); qua2ci.cov(X, 0.9, type="gev", nsim=nsim, flip=eta)
 # Using X again, removed dimension and have the function add it back.
 lmr <- lmoms(X); Y <- (X - lmr$lambdas[1])/lmr$lambdas[2]
 set.seed(145); qua2ci.cov(Y, 0.9, type="wei", altlmoms=lmr, nsim=nsim)
-# nonexceed    lwr    fit    upr  qua_med qua_mean qua_var qua_lam2
-#       0.9 232.22 244.18 255.90   244.26   244.12   51.91     4.06}
+# nonexceed     lwr    fit    upr  qua_med  qua_mean  qua_var  qua_lam2
+#       0.9   232.2  244.2  255.9    244.3     244.1    51.91   4.0635}
 }
 \keyword{quantile function (confidence limit)}

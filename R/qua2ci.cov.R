@@ -1,7 +1,7 @@
 "qua2ci.cov" <-
 function(x,f, type=NULL, nsim=1000, interval=c("confidence", "none"), level=0.90,
               asnorm=FALSE, altlmoms=NULL, flip=NULL, dimless=TRUE,
-              usefastlcov=FALSE, nmom=5, getsimlmom=FALSE, verbose=FALSE, ...) {
+              usefastlcov=TRUE, nmom=5, getsimlmom=FALSE, verbose=FALSE, ...) {
    interval <- match.arg(interval)
    if(is.null(type)) {
       message("must specify an lmomco distribution abbreviation, returning NA")
@@ -61,10 +61,10 @@ function(x,f, type=NULL, nsim=1000, interval=c("confidence", "none"), level=0.90
    # Multi-variate Normal simulation of the L-moments
    if(dimless) { # Removal of dimensions and scale standardization are requested
       newx  <- (x - xlmoms$lambdas[1]) / xlmoms$lambdas[2] # standardize
-      if(usefastlcov) {
-         lmrcv <- lmoms.cov(newx, nmom=nmom)
-      } else { # Lmoments package has a fast algorithm
+      if(usefastlcov) { # Lmoments package has a fast algorithm
          lmrcv <- Lmoments::Lmomcov(newx, rmax=nmom)
+      } else {
+         lmrcv <- lmoms.cov(newx, nmom=nmom)
       }
       sLM <- NULL
       try(sLM   <- MASS::mvrnorm(n=nsim, c(0, 1, altlmoms$ratios[3:nmom]), lmrcv))
@@ -79,10 +79,10 @@ function(x,f, type=NULL, nsim=1000, interval=c("confidence", "none"), level=0.90
       for(i in 2:nmom) sLM[,i] <- sLM[,i]*L2      # rescale
                        sLM[,1] <- sLM[,1]*L2 + MU # rescale and shift
    } else {
-      if(usefastlcov) {
-         lmrcv <- lmoms.cov(x, nmom=nmom)
-      } else { # Lmoments package has a fast algorithm
+      if(usefastlcov) { # Lmoments package has a fast algorithm
          lmrcv <- Lmoments::Lmomcov(x, rmax=nmom)
+      } else {
+         lmrcv <- lmoms.cov(x, nmom=nmom)
       }
       sLM <- NULL
       try(sLM <- MASS::mvrnorm(n=nsim, altlmoms$lambdas, lmrcv))
@@ -100,19 +100,23 @@ function(x,f, type=NULL, nsim=1000, interval=c("confidence", "none"), level=0.90
    for(i in 1:n) {
       ff <- f[i]
       quasf <- sapply(1:nsim, function(i) {
+               para <- NULL
                slams <- sLM[i,] # extract L-moments, then cast to lmomco style
                lmr  <- vec2lmom(c(slams[1:2], slams[3:nmom]/slams[2]))
                if(! are.lmom.valid(lmr)) return(NA) # silent warning
-               par  <- lmom2par(lmr, type=type, ...)
-               if(is.null(par)) return(NA)
-               quaf <- NULL
-               try(quaf <- ifelse(is.null(flip), par2qua(  ff, par),
-                                          flip - par2qua(1-ff, par)))
-               ifelse(is.null(quaf), return(NA), return(quaf))
+               para  <- lmom2par(lmr, type=type, ...)
+               if(is.null(para)) return(NA)
+               qf <- NULL
+               if(is.null(flip)) {
+                  try(qf <- par2qua(  ff, para))
+                  ifelse(is.null(qf), return(NA), return(qf))
+               } else {
+                  try(qf <- par2qua(1-ff, para))
+                  ifelse(is.null(qf), return(NA), return(flip - qf))
+               }
             })
       if(interval == "none") return(quasf) # NAs will be returned by having this
       # conditional ahead of the stripping and subsequent statistics thereof
-
       if(any(is.na(quasf))) {
          num.na <- length(quasf[is.na(quasf)])
          warning("at least one of 'quasf' is NA, stripping ", num.na,

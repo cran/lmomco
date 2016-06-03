@@ -1,11 +1,11 @@
 \name{lmom2par}
 \alias{lmom2par}
-\title{Convert L-moments to the the Parameters of a Distribution}
+\title{Convert L-moments to the Parameters of a Distribution}
 \description{
 This function converts L-moments to the parameters of a distribution. The type of distribution is specified in the argument list:
-\code{aep4}, \code{cau}, \code{emu}, \code{exp}, \code{gam}, \code{gep}, 
+\code{aep4}, \code{cau}, \code{emu}, \code{exp}, \code{gam}, \code{gep},
 \code{gev}, \code{gld}, \code{glo}, \code{gno}, \code{gov},
-\code{gpa}, \code{gum}, \code{kap}, \code{kmu}, \code{kur}, 
+\code{gpa}, \code{gum}, \code{kap}, \code{kmu}, \code{kur},
 \code{lap}, \code{lmrq}, \code{ln3}, \code{nor}, \code{pe3},
 \code{ray}, \code{revgum}, \code{rice}, \code{sla}, \code{st3},
 \code{texp}, \code{wak}, or \code{wei}.

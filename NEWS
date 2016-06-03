@@ -2,6 +2,27 @@
 NEWS for R Package "lmomco"
 --------------------------------------------------------------------------------
 
+Version 2.2.3--May 31, 2016
+1. BUG FIX: cdflap() was incorrectly vectorized in R idioms, Berry Boessenkool
+      provided discovery and the fix.
+2. BUG FIX: malformed call to supdist() in cdfgld(), Berry Boessenkool
+      provided discovery and the fix.
+3. SINISTER R BEHAVIOR(?): Code flow changes in qua2ci.cov() that caused a
+      certain warning() related to the Weibull distribution call.  Could not
+      trace the source of the problem, but Weibull, which requires a pass
+      through pargev(), was ending up with Inf for the parameters. However,
+      the cause simply is not known. The problem in qua2ci.cov() was buried
+      inside the quaf construction often for the last simulation but the 
+      simulated L-moments convert properly to Weibull if intercepted. WHA
+      thinks the issue was an ifelse() construction as the end of the
+      sapply() for quaf. This code was pretty well vetted.  WHA wonders if a 
+      change in R version caused the problem, or WHA has misunderstood a 
+      subtlety related to the ifelse() construction.
+4. Added mps2par() for the maximum product spacing method for parameter
+      estimation. The method is a straightforward parameter optimization 
+      method, is not widely available, and simple to implement in this package.
+
+
 Version 2.2.2--March 20, 2016 (The Density-NA ==> 0 Release [see Item 7])
 1. Added example to parglo.Rd concerning relation to log-logistic distribution
       following an inquiring from user Laura Read.

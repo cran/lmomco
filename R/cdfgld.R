@@ -8,7 +8,7 @@ function(x,para,paracheck=TRUE) {
       if(! are.pargld.valid(para)) return()
     }
 
-    sup <- supdist(par, paracheck=FALSE)
+    sup <- supdist(para, paracheck=FALSE)
     lo  <- sup$support[1]
     hi  <- sup$support[2]
     flo <- sup$nonexceeds[1]
