@@ -42,8 +42,7 @@ lines(F, ralmomco(F, A, alpha=50), col=2) # solid red, median residual life
 lines(F, ralmomco(F, A, alpha=10), col=2, lty=2) # lower dashed line,
                                               # the 10th percentile of residual life
 lines(F, ralmomco(F, A, alpha=90), col=2, lty=2) # upper dashed line,
-                                              # 10th percentile of residual life
-}
+                                              # 10th percentile of residual life}
 }
 \keyword{quantile function}
 \keyword{alpha-percentile residual quantile function}

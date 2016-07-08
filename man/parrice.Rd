@@ -33,18 +33,18 @@ Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the 
 \seealso{\code{\link{lmomrice}}, \code{\link{cdfrice}}, \code{\link{pdfrice}}, \code{\link{quarice}}
 }
 \examples{
-parrice(lmomrice(vec2par(c(10,50),  type="rice")))
-\dontrun{ # Beyond limits of the Rice
-  parrice(lmomrice(vec2par(c(100,0.1), type="rice")))
-}
+\dontrun{ 
+  parrice(lmomrice(vec2par(c(10,50),   type="rice"))) # Within Rician limits
+  parrice(lmomrice(vec2par(c(100,0.1), type="rice"))) # Beyond Rician limits
+
 plotlmrdia(lmrdia(), xlim=c(0,0.2), ylim=c(-0.1,0.22),
            autolegend=TRUE, xleg=0.05, yleg=0.05)
-lines(.lmomcohash$RiceTable$TAU3, .lmomcohash$RiceTable$TAU4,
-      lwd=5, col=8)
+lines(.lmomcohash$RiceTable$TAU3, .lmomcohash$RiceTable$TAU4, lwd=5, col=8)
 legend(0.1,0, "RICE DISTRIBUTION", lwd=5, col=8, bty="n")
 text(0.14,-0.04, "Normal distribution limit on left end point")
 text(0.14,-0.055, "Rayleigh distribution limit on right end point")
-\dontrun{ # check parrice against a Maximum Likelihood method in VGAM
+
+# check parrice against a Maximum Likelihood method in VGAM
 set.seed(1)
 library(VGAM) # now example from riceff() of VGAM
 vee <- exp(2); sigma <- exp(1); y <- rrice(n <- 1000, vee, sigma)
@@ -57,8 +57,7 @@ parrice(lmoms(y))
 # 7.344560 2.805877
 # lmomco 1.2.2 reports
 #      nu    alpha
-# 7.348784 2.797651
-}
+# 7.348784 2.797651}
 }
 \keyword{distribution (parameters)}
 \keyword{Distribution: Rice}

@@ -37,10 +37,11 @@ Barreto-Souza, W., and Cribari-Neto, F., 2009, A generalization of the exponenti
 \author{ W.H. Asquith}
 \seealso{\code{\link{pargep}}, \code{\link{cdfgep}}, \code{\link{pdfgep}}, \code{\link{quagep}} }
 \examples{
+\dontrun{
 gep <- vec2par(c(2, 1.5, 3), type="gep")
 lmrA <- lmomgep(gep, byqua=TRUE);   print(lmrA)
 lmrB <- lmomgep(gep, byqua=FALSE);  print(lmrB)
-\dontrun{
+
 # Because the L-moments of the Generalized Exponential Poisson are computed
 # strictly from the expectations of the order statistic extrema, lets us evaluate
 # by theoretical integration of the quantile function and simulation:
@@ -52,8 +53,7 @@ E33c <- mean(replicate(20000, max(quagep(runif(3), gep))))        # 2.140226
 # See how the E[X_{3:3}] by the formula shown in this documentation results in
 # a value that is about 0.007 too small. Now this might now seem large but it
 # is a difference.  Try gep <- list(para=c(2, 1.5, 13), type="gep") or
-#  gep <- list(para=c(2, .08, 21), type="gep"), which fails on byqua=TRUE
-}
+#  gep <- list(para=c(2, .08, 21), type="gep"), which fails on byqua=TRUE}
 }
 \keyword{L-moment (distribution)}
 \keyword{Distribution: Generalized Exponential Poisson}

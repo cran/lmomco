@@ -29,8 +29,7 @@ riglmomco(0.5, A)
 \dontrun{
 F <- nonexceeds(f01=TRUE)
 plot(F, riglmomco(F,A), type="l",
-     xlab="NONEXCEEDANCE PROBABILITY", ylab="INCOME GAP RATIO")
-}
+     xlab="NONEXCEEDANCE PROBABILITY", ylab="INCOME GAP RATIO")}
 }
 \keyword{quantile function}
 \keyword{income gap ratio quantile function}

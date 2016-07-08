@@ -33,33 +33,26 @@ Computational Statistics and Data Analysis, v. 52, no. 3, pp. 1661--1673.
 \examples{
 x <- -0.1
 para <- vec2par(c(0, 100, 0.5, 4), type="aep4")
-F <- cdfaep4(-.1,para)
-estx <- quaaep4(F, para)
-cat(c("F=",F,"  and estx=",estx,"\n"))
+FF <- cdfaep4(-.1,para)
+cat(c("F=",FF,"  and estx=",quaaep4(FF, para),"\n"))
 \dontrun{
 delx <- .1
 x <- seq(-20,20, by=delx);
 K <- 1;
-
 PAR <- list(para=c(0,1, K, 0.5), type="aep4");
-plot(x,cdfaep4(x, PAR), type="n",
-     ylab="NONEXCEEDANCE PROBABILITY",
-     ylim=c(0,1), xlim=range(x));
+plot(x,cdfaep4(x, PAR), type="n",ylim=c(0,1), xlim=range(x),
+     ylab="NONEXCEEDANCE PROBABILITY");
 lines(x,cdfaep4(x,PAR), lwd=4);
 lines(quaaep4(cdfaep4(x,PAR),PAR), cdfaep4(x,PAR), col=2)
-
 PAR <- list(para=c(0,1, K, 1), type="aep4");
 lines(x,cdfaep4(x, PAR), lty=2, lwd=4);
 lines(quaaep4(cdfaep4(x,PAR),PAR), cdfaep4(x,PAR), col=2)
-
 PAR <- list(para=c(0,1, K, 2), type="aep4");
 lines(x,cdfaep4(x, PAR), lty=3, lwd=4);
 lines(quaaep4(cdfaep4(x,PAR),PAR), cdfaep4(x,PAR), col=2)
-
 PAR <- list(para=c(0,1, K, 4), type="aep4");
 lines(x,cdfaep4(x, PAR), lty=4, lwd=4);
-lines(quaaep4(cdfaep4(x,PAR),PAR), cdfaep4(x,PAR), col=2)
-}
+lines(quaaep4(cdfaep4(x,PAR),PAR), cdfaep4(x,PAR), col=2)}
 }
 \keyword{distribution}
 \keyword{cumulative distribution function}

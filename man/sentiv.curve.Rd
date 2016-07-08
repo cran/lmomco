@@ -51,6 +51,7 @@ Hampel, F.R., 1974, The influence curve and its role in robust estimation: Journ
 \seealso{\code{\link{expect.max.ostat}}
 }
 \examples{
+\dontrun{
 set.seed(50)
 mean <- 12530; lscale <- 5033; lskew <- 0.4
 n <- 46; type <- "gev"; lmr <- vec2lmom(c(mean,lscale,lskew))
@@ -84,7 +85,7 @@ lines(Xs, SC2$curve.perchg, lwd=2, col=2)
 lines(Xs, SC3$curve.perchg, lwd=1, col=4)
 rug(SC1$Tnp1, col=rgb(0,0,0,0.3))
 rug(SC2$Tnp1, col=rgb(1,0,0,0.3))
-rug(SC3$Tnp1, col=rgb(0,0,1,0.3), tcl=-.75)
+rug(SC3$Tnp1, col=rgb(0,0,1,0.3), tcl=-.75) #}
 }
 \keyword{order statistics (misc.)}
 \keyword{Sensitivity curve} 

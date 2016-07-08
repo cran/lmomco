@@ -31,10 +31,9 @@ Hosking, J.R.M., and Wallis, J.R., 1997, Regional frequency analysis---An approa
 \code{\link{cdfwei}}, \code{\link{pdfwei}}, \code{\link{quawei}}
 }
 \examples{
-lmr <- lmoms(rnorm(20))
-parwei(lmr)
-lmr <- parwei(lmoms(rweibull(3000,1.3, scale=340)-1200))
-str(lmr)
+parwei(lmoms(rnorm(20)))
+\dontrun{
+str(parwei(lmoms(rweibull(3000,1.3, scale=340)-1200))) #}
 }
 \keyword{distribution (parameters)}
 \keyword{Distribution: Weibull}

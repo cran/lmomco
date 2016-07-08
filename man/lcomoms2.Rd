@@ -34,6 +34,7 @@ Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the 
 }
 \seealso{\code{\link{Lcomoment.matrix}} and \code{\link{Lcomoment.coefficients}}}
 \examples{
+\dontrun{
 # Random simulation of standard normal and then combine with
 # a random standard exponential distribution
 X <- rnorm(200); Y <- X + rexp(200)
@@ -44,7 +45,7 @@ z <- lcomoms2(data.frame(X=X, Y=Y), diag=TRUE)
 print(z$T3) # the L-skew values of the margins
 
 z <- lcomoms2(data.frame(X=X, Y=Y), opdiag=TRUE)
-print(z$T3) # the L-coskew values
+print(z$T3) # the L-coskew values}
 }
 \keyword{multivariate}
 \keyword{L-comoment}

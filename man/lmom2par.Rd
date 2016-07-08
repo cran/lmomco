@@ -44,4 +44,5 @@ lines(nonexceeds(), par2qua(nonexceeds(), slash), col=2)
 \keyword{distribution (parameters)}
 \keyword{parameter (L-moments to)}
 \keyword{distribution (utility)}
+\keyword{parameter (estimation)}
 

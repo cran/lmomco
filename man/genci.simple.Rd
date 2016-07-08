@@ -15,7 +15,7 @@ genci.simple(para, n, f=NULL, level=0.90, edist="gno", nsim=1000,
   \item{f}{Vector of nonexceedance probabilities (\eqn{0 \le f \le 1}) of the quantiles for which the confidence interval are needed. If \code{NULL}, then the vector as returned by \code{\link{nonexceeds}} is used.}
   \item{level}{The confidence interval (\eqn{0 \le } \code{level} \eqn{ < 1}). The interval is specified as the size of the interval. The default is 0.90 or the 90th percentile. The function will return the 5th (\eqn{(1-0.90)/2}) and 95th (\eqn{1-(1-0.90)/2}) percentile cumulative probability of the error distribution for the parent quantile as specified by the nonexceedance probability argument (\code{f}). This argument is passed unused to \code{\link{qua2ci.simple}}.}
   \item{edist}{The model for the error distribution. Although the Normal (the default) commonly is  assumed in error analyses, it need not be, as support for other distributions supported by \pkg{lmomco} is available. The default is the Generalized Normal so the not only is the Normal possible but asymmetry is also accomodated (\code{\link{lmomgno}}).  For example, if the L-skew  (\eqn{\tau_4}) or L-kurtosis (\eqn{\tau_4}) values depart considerably from those of the Normal (\eqn{\tau_3 = 0} and \eqn{\tau_4 = 0.122602}), then the Generalized Normal or some alternative distribution would likely provide more reliable confidence interval estimation. This argument is passed unused to \code{\link{qua2ci.simple}}.}
-  \item{nsim}{The number of simulations (replications) for the sample size \code{n} to perform. Much larger simulation numbers are recommended---see discussion about \code{\link{qua2ci.simple}}. This argument is passed unused to \code{\link{qua2ci.simple}}. Users are encouraged to experiment with \code{\link{qua2ci.simple}} to get a feel for the value of \code{edist} and \code{nsim}.}
+  \item{nsim}{The number of simulations (replications) for the sample size \code{n} to perform. Much larger simulation numbers are recommended---see discussion about\cr \code{\link{qua2ci.simple}}. This argument is passed unused to \code{\link{qua2ci.simple}}. Users are encouraged to experiment with \code{\link{qua2ci.simple}} to get a feel for the value of \code{edist} and \code{nsim}.}
   \item{expand}{Should the returned values be expanded to include information relating to the distribution type and L-moments of the distribution at the corresponding nonexceedance probabilities---in other words the information necessary to reconstruct the reported confidence interval. The default is \code{FALSE}. If \code{expand=FALSE} then a single \code{data.frame} of the lower and upper limits along with the true quantile value of the parent is returned. If \code{expand=TRUE}, then a more complicated \code{list} containing multiple \code{data.frame}s is returned.}
   \item{verbose}{The verbosity of the operation of the function. This argument is passed unused to \code{\link{qua2ci.simple}}.}
   \item{showpar}{The parameters of the \code{edist} for each simulation for each \eqn{F} value passed to \code{\link{qua2ci.simple}} are printed. This argument is passed unused to \code{\link{qua2ci.simple}}.}
@@ -40,6 +40,7 @@ genci.simple(para, n, f=NULL, level=0.90, edist="gno", nsim=1000,
 \seealso{\code{\link{genci}}, \code{\link{gen.freq.curves}}
 }
 \examples{
+\dontrun{
 # For all these examples, nsim is way too small.
 mean   <- 0; sigma <- 100
 parent <- vec2par(c(mean,sigma), type='nor') # make parameter object
@@ -48,7 +49,7 @@ f      <- c(0.5, 0.8, 0.9, 0.96, 0.98, 0.99) # nonexceed probabilities
 CI     <- genci.simple(parent, n=10, f=f, nsim=20); FF <- CI$nonexceed
 plot( FF, CI$true, type='l', lwd=2)
 lines(FF, CI$lwr, col=2); lines(FF, CI$upr, col=3)
-\dontrun{
+
 pdf("twoCIplots.pdf")
 # The qnorm() call has been added to produce "normal probability"
 # paper on the horizonal axis. The parent is heavy-tailed.

@@ -18,10 +18,9 @@ is.emu(para)
 \author{ W.H. Asquith}
 \seealso{ \code{\link{paremu}} }
 \examples{
+\dontrun{
 para <- vec2par(c(0.25, 1.4), type='emu')
-if(is.emu(para)) {
-  Q <- quaemu(0.5,para)
-}
+if(is.emu(para)) Q <- quaemu(0.5,para) #}
 }
 \keyword{utility (distribution, type check)}
 \keyword{Distribution: Eta-Mu}

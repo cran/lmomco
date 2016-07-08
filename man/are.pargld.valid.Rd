@@ -46,8 +46,7 @@ if(are.pargld.valid(para)) Q <- quagld(0.5,para)
 # The following is an example of inconsistent L-moments for fitting but
 # prior to lmomco version 2.1.2 and untrapped error was occurring.
 lmr <- lmoms(c(33, 37, 41, 54, 78, 91, 100, 120, 124))
-para <- pargld(lmr); are.pargld.valid(para)
-}
+para <- pargld(lmr); are.pargld.valid(para)}
 }
 \keyword{utility (distribution)}
 \keyword{Distribution: Generalized Lambda}

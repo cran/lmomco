@@ -2,6 +2,17 @@
 NEWS for R Package "lmomco"
 --------------------------------------------------------------------------------
 
+Version 2.2.4--July 8, 2016
+1. Added "..." argument to pp(). A higher calling function to pp() could not
+      implement the arguments to pp through the "..." argument of the that
+      higher function with arugments intended to yet a another function.
+2. Added "ties" argument to mps2par(), the motivation for Item 1. above.
+3. Further refinement of mps2par() during a vacation. Added the "delta",
+      "log10offset", "get.untied", "check.support", and "moran" arguments,
+      where the first three additions are to enhance accommodation of ties.
+      Also extensive expansion of the Note, References, and Examples sections.
+
+
 Version 2.2.3--May 31, 2016
 1. BUG FIX: cdflap() was incorrectly vectorized in R idioms, Berry Boessenkool
       provided discovery and the fix.
@@ -12,14 +23,14 @@ Version 2.2.3--May 31, 2016
       trace the source of the problem, but Weibull, which requires a pass
       through pargev(), was ending up with Inf for the parameters. However,
       the cause simply is not known. The problem in qua2ci.cov() was buried
-      inside the quaf construction often for the last simulation but the 
+      inside the quaf construction often for the last simulation but the
       simulated L-moments convert properly to Weibull if intercepted. WHA
-      thinks the issue was an ifelse() construction as the end of the
-      sapply() for quaf. This code was pretty well vetted.  WHA wonders if a 
-      change in R version caused the problem, or WHA has misunderstood a 
+      thinks the issue was an ifelse() construction at the end of the
+      sapply() for quaf. This code was pretty well vetted.  WHA wonders if a
+      change in R version caused the problem, or WHA has misunderstood a
       subtlety related to the ifelse() construction.
 4. Added mps2par() for the maximum product spacing method for parameter
-      estimation. The method is a straightforward parameter optimization 
+      estimation. The method is a straightforward parameter optimization
       method, is not widely available, and simple to implement in this package.
 
 
@@ -115,9 +126,9 @@ Version 2.2.2--March 20, 2016 (The Density-NA ==> 0 Release [see Item 7])
        to qua2ci.cov(). Also genci() changed to genci.simple() because of
        its close connection. A deprecated name warning is now issued with
        qua2ci() and genci() and these will be removed at some later date.
-36. BUG FIX: Tony Labson was testing with deep close to k=0 in quagev() and 
+36. BUG FIX: Tony Labson was testing with deep close to k=0 in quagev() and
        required a trapping of effectively close enough to k=0 to not cause
-       oscillation in numerical routines. Because of core relationships, 
+       oscillation in numerical routines. Because of core relationships,
        similar modifications made to quaglo() and quagp().  For the GNO,
        quagno() had a commented out trap like that needed by Tony for the
        GEV but was using the finiteness of 1/k.  Tony's example for GEV

@@ -94,11 +94,12 @@ Yacoub, M.D., 2007, The kappa-mu distribution and the eta-mu distribution: IEEE 
 \author{ W.H. Asquith}
 \seealso{\code{\link{pdfkmu}}, \code{\link{quakmu}}, \code{\link{lmomkmu}}, \code{\link{parkmu}}}
 \examples{
+\dontrun{
 x <- seq(0,3, by=0.5)
 para <- vec2par(c(0.69, 0.625), type="kmu")
 cdfkmu(x, para, marcumQ=TRUE, marcumQmethod="chisq")
 cdfkmu(x, para, marcumQ=TRUE, marcumQmethod="delta")
-cdfkmu(x, para, marcumQ=FALSE) # about 3 times slower
+cdfkmu(x, para, marcumQ=FALSE) # about 3 times slower}
 \dontrun{
 para <- vec2par(c(0.69, 0.625), type="kmu")
 quahi <- supdist(para, delexp=.1)$support[2]

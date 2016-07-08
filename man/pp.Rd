@@ -9,7 +9,7 @@ where \eqn{pp_i} is the nonexceedance probability \eqn{F} of the \eqn{i}th ascen
 where \eqn{A} and \eqn{B} can obviously be expressed in terms of \eqn{a}. The criteria \eqn{A > B > -1} must be satisfied.
 }
 \usage{
-pp(x, A=NULL, B=NULL, a=0, sort=TRUE)
+pp(x, A=NULL, B=NULL, a=0, sort=TRUE, ...)
 }
 \arguments{
   \item{x}{A vector of data values. The vector is used to get sample size through \code{length}.}
@@ -17,6 +17,7 @@ pp(x, A=NULL, B=NULL, a=0, sort=TRUE)
   \item{B}{A value for the plotting-position coefficient \eqn{B}.}
   \item{a}{A value for the plotting-position formula from which \eqn{A} and \eqn{B} are computed, default is \code{a=0}, which returns the Weibull plotting positions.}
   \item{sort}{A logical whether the ranks of the data are sorted prior to \eqn{F} computation. It was a design mistake years ago to default this function to a sort, but it is now far too late to risk changing the logic now. The function originally lacked the \code{sort} argument for many years.}
+  \item{...}{Additional arguments to pass.}
 }
 \value{
   An \R \code{vector} is returned.

@@ -30,9 +30,9 @@ Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the 
 \author{ W.H. Asquith}
 \seealso{\code{\link{parrice}}, \code{\link{cdfrice}}, \code{\link{cdfrice}}, \code{\link{quarice}} }
 \examples{
-rice <- vec2par(c(65,34), type="rice")
-lmomrice(rice)
 \dontrun{
+lmomrice(vec2par(c(65,34), type="rice"))
+
 # Use the additional arguments to show how to avoid unnecessary overhead
 # when using the Rice, which only has two parameters.
   rice <- vec2par(c(15,14), type="rice")
@@ -62,8 +62,7 @@ T3 <- .lmomcohash$RiceTable$TAU3
 T4 <- .lmomcohash$RiceTable$TAU4
 LM <- lm(T4~T3+I(T3^2)+I(T3^3)+I(T3^4)+
                I(T3^5)+I(T3^6)+I(T3^7)+I(T3^8))
-summary(LM) # note shown
-}
+summary(LM) # note shown}
 }
 \keyword{L-moment (distribution)}
 \keyword{Distribution: Rice}

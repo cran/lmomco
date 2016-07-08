@@ -65,16 +65,16 @@ Yacoub, M.D., 2007, The kappa-mu distribution and the eta-mu distribution: IEEE 
 \author{ W.H. Asquith}
 \seealso{\code{\link{paremu}}, \code{\link{cdfemu}}, \code{\link{pdfemu}}, \code{\link{quaemu}}  }
 \examples{
+\dontrun{
 emu <- vec2par(c(.19,2.3), type="emu")
 lmomemu(emu)
-\dontrun{
+
 par <- vec2par(c(.67, .5), type="emu")
 lmomemu(par)$lambdas
 cdf2lmoms(par, nmom=4)$lambdas
 system.time(lmomemu(par))
 system.time(cdf2lmoms(par, nmom=4))
-}
-\dontrun{
+
 # This extensive sequence of operations provides very important
 # perspective on the L-moment ratio diagram of L-skew and L-kurtosis.
 # But more importantly this example demonstrates the L-moment

@@ -61,7 +61,6 @@ Hosking, J.R.M., and Wallis, J.R., 1997, Regional frequency analysis---An approa
 \seealso{\code{\link{lmoms}}
 }
 \examples{
-
 \dontrun{
 # This is the canonical test of lmrdiscord().
 library(lmomRFA) # Import lmomRFA, needs lmom package too
@@ -76,7 +75,6 @@ Dasquith <- Dlmomco$D
 print(data.frame(NAME=data$name, Dhosking=Dhosking,
                                  Dasquith=Dasquith))
 # The Dhosking and Dasquith columns had better match!
-}
 
 set.seed(3) # This seed produces a "*" and "**", but users
 # are strongly encouraged to repeat the folowing code block
@@ -107,7 +105,7 @@ plotlmrdia(lmrdia(), xlim=c(-.2,.6), ylim=c(-.1, .4),
            autolegend=TRUE, xleg=0.1, yleg=.4)
 points(D$t3,D$t4)
 text(D$t3,D$t4,D$site, cex=0.75, pos=3)
-text(D$t3,D$t4,D$D, cex=0.75, pos=1)
+text(D$t3,D$t4,D$D, cex=0.75, pos=1) #}
 }
 \keyword{L-moment (hypothesis)}
 

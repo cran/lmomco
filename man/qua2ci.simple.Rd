@@ -58,6 +58,7 @@ This function relies on a \code{while} loop that runs until \code{nsim} have suc
 \seealso{\code{\link{lmoms}}, \code{\link{pmoms}}, \code{\link{par2qua}}, \code{\link{genci.simple}}, \code{\link{qua2ci.cov}}
 }
 \examples{
+\dontrun{
 # It is well known that standard deviation (sigma) of the
 # sample mean is equal to sigma/sample_size. Let is look at the
 # quantile distribution of the median (f=0.5)
@@ -68,7 +69,7 @@ CI     <- qua2ci.simple(0.5, parent, n=10, nsim=20)
 # L-moment theory: L-scale * sqrt(pi) = sigma
 # Thus, it follows that the quantity
 CI$elmoms$lambdas[2]/sqrt(pi)
-# approaches 10 as nsim --> Inf.
+# approaches 10 as nsim --> Inf.}
 
 # Another example.
 D   <- c(123, 34, 4, 654, 37, 78, 93, 95, 120) # fake sample

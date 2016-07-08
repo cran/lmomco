@@ -23,7 +23,8 @@ Yacoub, M.D., 2007, The kappa-mu distribution and the eta-mu distribution: IEEE 
 \author{ W.H. Asquith}
 \seealso{\code{\link{cdfemu}}, \code{\link{pdfemu}}, \code{\link{lmomemu}},  \code{\link{paremu}}}
 \examples{
-quaemu(0.75,vec2par(c(0.9, 1.5), type="emu"))
+\dontrun{
+quaemu(0.75,vec2par(c(0.9, 1.5), type="emu")) #}
 }
 \keyword{distribution}
 \keyword{quantile function}

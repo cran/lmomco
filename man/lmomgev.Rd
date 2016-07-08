@@ -39,7 +39,6 @@ Hosking, J.R.M., and Wallis, J.R., 1997, Regional frequency analysis---An approa
 \seealso{\code{\link{pargev}}, \code{\link{cdfgev}}, \code{\link{pdfgev}}, \code{\link{quagev}} }
 \examples{
 lmr <- lmoms(c(123,34,4,654,37,78))
-lmr
 lmomgev(pargev(lmr))
 }
 \keyword{L-moment (distribution)}

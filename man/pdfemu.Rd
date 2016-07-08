@@ -43,11 +43,12 @@ Yacoub, M.D., 2007, The kappa-mu distribution and the eta-mu distribution: IEEE 
 \author{ W.H. Asquith}
 \seealso{\code{\link{cdfemu}}, \code{\link{quaemu}}, \code{\link{lmomemu}}, \code{\link{paremu}}}
 \examples{
+\dontrun{
 x <- seq(0,4, by=.1)
 para <- vec2par(c(.5, 1.4), type="emu")
 F <- cdfemu(x, para);         X <- quaemu(F, para)
 plot(F, X, type="l", lwd=8);  lines(F, x, col=2)
-\dontrun{
+
 delx <- 0.005
 x <- seq(0,3, by=delx)
 plot(c(0,3), c(0,1), xaxs="i", yaxs="i",
@@ -86,8 +87,7 @@ for(mu in mus) {
    print(eta)
    lines(x, pdfemu(x, vec2par(c(eta, mu), type="emu")))
 }
-mtext("Yacoub (2007, figure 7)")
-}
+mtext("Yacoub (2007, figure 7)") #}
 }
 \keyword{distribution}
 \keyword{probability density function}

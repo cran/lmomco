@@ -30,7 +30,7 @@ Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the 
 \dontrun{
 xs <- -200:200
    para <- vec2par(c(37,25,114), type="st3")
-plot(xs, pdfst3(xs, para), type='l')
+plot(xs, pdfst3(xs, para), type="l")
    para <- vec2par(c(11,36,1000), type="st3")
 lines(xs, pdfst3(xs, para), lty=2)
    para <- vec2par(c(-7,60,40), type="st3")

@@ -35,8 +35,7 @@ para <- vec2par(c(0.5, 1.4), type="emu")
 cdfemu(1.2, para, yacoubsintegral=TRUE)
 cdfemu(1.2, para, yacoubsintegral=FALSE)
 \dontrun{
-delx <- 0.01
-x <- seq(0,3, by=delx)
+delx <- 0.01; x <- seq(0,3, by=delx)
 nx <- 20*log10(x)
 plot(c(-30,10), 10^c(-3,0), log="y", xaxs="i", yaxs="i",
      xlab="RHO", ylab="cdfemu(RHO)", type="n")
@@ -53,10 +52,9 @@ mu <- m; eta <- sqrt((m / (2*mu))^-1 - 1)
 lines(nx, cdfemu(x, vec2par(c(eta, mu), type="emu")),  col=8, lwd=4)
 mu <- m/2; eta <- sqrt((m / (2*mu))^-1 - 1)
 lines(nx, cdfemu(x, vec2par(c(eta, mu), type="emu")), col=4, lwd=2, lty=2)
-}
-\dontrun{
-delx <- 0.01
-x <- seq(0,3, by=delx)
+
+
+delx <- 0.01; x <- seq(0,3, by=delx)
 nx <- 20*log10(x)
 m <- 0.75; col <- 4; lty <- 2
 plot(c(-30,10), 10^c(-3,0), log="y", xaxs="i", yaxs="i",
@@ -66,8 +64,7 @@ for(mu in c(m/2,seq(m/2+0.01,m,by=0.01), m-0.001, m)) {
    eta <- sqrt((m / (2*mu))^-1 - 1)
    lines(nx, cdfemu(x, vec2par(c(eta, mu), type="emu")),
          col=col, lwd=.75, lty=lty)
-}
-}
+}}
 }
 \keyword{distribution}
 \keyword{cumulative distribution function}

@@ -1,5 +1,5 @@
 "pp" <-
-function(x, A=NULL, B=NULL, a=0, sort=TRUE) {
+function(x, A=NULL, B=NULL, a=0, sort=TRUE, ...) {
 
    if(! is.null(a)) {
       if(a < 0 | a > 0.50) {
@@ -21,10 +21,10 @@ function(x, A=NULL, B=NULL, a=0, sort=TRUE) {
       warnings("Plotting position parameters A or B are invalid")
       return(NULL)
    }
-    
+
    denom <- length(x) + B
    ranks <- rank(x, ties.method="first")
-    
+
    if(sort) {
       return( (sort(ranks) + A) / denom)
    } else {

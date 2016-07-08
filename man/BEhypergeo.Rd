@@ -28,18 +28,15 @@ for the \eqn{h} parameter of the distribution.
 
 Lastly, for \pkg{lmomco} and the GEP the arguments only involve \eqn{p = q = 2} and \eqn{N = 1}, \eqn{D = 2}, so the function is uniquely a function of the \eqn{h} parameter of the distribution:
 \preformatted{
-H <- 10^seq(-10,10, by=0.01)
-F22 <- rep(NA, length(H))
-for(i in 1:length(H)) {
-  F22[i] <- BEhypergeo(2,2,1,1, H[i])$value
-}
-plot(log10(H), log10(F22), type="l")
+  H <- 10^seq(-10,10, by=0.01)
+  F22 <- sapply(1:length(H), function(i) BEhypergeo(2,2,1,1, H[i])$value
+  plot(log10(H), log10(F22), type="l")
 }
 For this example, the solution increasingly wobbles towards large \eqn{h}, which is further explored by
 \preformatted{
-plot(log10(H[1:(length(H)-1)]), diff(log10(F22)), type="l", xlim=c(0,7))
-plot(log10(H[H > 75 & H < 140]), c(NA,diff(log10(F22[H > 75 & H < 140]))),
-     type="b"); lines(c(2.11,2.11), c(0,10))
+  plot(log10(H[1:(length(H)-1)]), diff(log10(F22)), type="l", xlim=c(0,7))
+  plot(log10(H[H > 75 & H < 140]), c(NA,diff(log10(F22[H > 75 & H < 140]))),
+       type="b"); lines(c(2.11,2.11), c(0,10))
 }
 It can be provisionally concluded that the solution to \eqn{F^{12}_{22}(\cdot)} begins to be suddenly questionable because of numerical difficulties beyond \eqn{\log(h) = 2.11}. Therefore, it is given that \eqn{h < 128} might be an operational numerical upper limit.
 }

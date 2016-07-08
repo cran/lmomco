@@ -83,6 +83,7 @@ Vogel, R.M., and Fennessey, N.M., 1993, L moment diagrams should replace product
 \examples{
 plotlmrdia(lmrdia()) # simplest of all uses
 
+\dontrun{
 # A more complex example follows.
 # For a given mean, L-scale, L-skew and L-kurtosis, a sample size
 # of 30 and using 50 simulations, set the L-moments in lmr and fit
@@ -114,7 +115,7 @@ points(mean(t3),mean(t4),pch=16,cex=3)
 # A complete the example by plotting crossing dashed lines at the
 # population values of L-skew and L-kurtosis
 lines(c(T3,T3),c(-1,1),col=8, lty=2)
-lines(c(-1,1),c(T4,T4),col=8, lty=2)
+lines(c(-1,1),c(T4,T4),col=8, lty=2) #}
 }
 \keyword{L-moment ratio diagram}
 \keyword{Graphics}

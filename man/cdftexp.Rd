@@ -25,8 +25,7 @@ Vogel, R.M., Hosking, J.R.M., Elphick, C.S., Roberts, D.L., and Reed, J.M., 2008
 \author{ W.H. Asquith}
 \seealso{\code{\link{pdftexp}}, \code{\link{quatexp}}, \code{\link{lmomtexp}}, \code{\link{partexp}}}
 \examples{
-lmr <- vec2lmom(c(40,0.38), lscale=FALSE)
-cdftexp(50,partexp(lmr))
+cdftexp(50,partexp(vec2lmom(c(40,0.38), lscale=FALSE)))
 \dontrun{
 F <- seq(0,1,by=0.001)
 A <- partexp(vec2lmom(c(100, 1/2), lscale=FALSE))
@@ -39,8 +38,7 @@ for(lcv in lcvs) {
     x <- quatexp(F, A)
     lines(x, cdftexp(x, A), pch=16, col=rgb(reds[lcvs == lcv],0,0))
 }
-}
-\dontrun{
+
   # Vogel and others (2008) example sighting times for the bird
   # Eskimo Curlew, inspection shows that these are fairly uniform.
   # There is a sighting about every year to two.
@@ -61,8 +59,7 @@ for(lcv in lcvs) {
   plot(X, cdftexp(X,PARcurlew), type="l")
   # or use the MVUE estimator
   TE <- max(S)*((length(S)+1)/length(S)) # Time of Extinction
-  lines(X, punif(X, min=0, max=TE), col=2)
-}
+  lines(X, punif(X, min=0, max=TE), col=2)}
 }
 \keyword{distribution}
 \keyword{cumulative distribution function}
