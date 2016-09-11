@@ -8,7 +8,8 @@ The function provides a convenient interface for labeling and titling two axes, 
 }
 \usage{
 add.lmomco.axis(side=1, twoside=FALSE, side.type=c("NPP", "RI", "SNV"),
-                otherside.type=c("NA", "RI", "SNV", "NPP"), alt.lab=NA,
+                otherside.type=c("NA", "RI", "SNV", "NPP"),
+                alt.lab=NA, alt.other.lab=NA, npp.as.aep=FALSE,
                 NPP.control=NULL, RI.control=NULL, SNV.control=NULL, ...)
 }
 \arguments{
@@ -17,6 +18,8 @@ add.lmomco.axis(side=1, twoside=FALSE, side.type=c("NPP", "RI", "SNV"),
   \item{side.type}{The axis type for the primary \code{side}.}
   \item{otherside.type}{The optional axis type for the opposite side. The default is a literal not applicable.}
     \item{alt.lab}{A short-cut to change the axis label without having to specify a \code{*.control} argument and its \code{label} attribute. The label attribute of \code{alt.lab} is not \code{NA} is used instead of the defaults. This argument overrides behavior of the \code{otherside.type} labeling so use of \code{alt.lab} only makes sense if \code{otherside.type} is left as \code{NA}.}
+   \item{alt.other.lab}{Similar to \code{alt.lab} but can house an alternative label (see \bold{Examples}.}
+  \item{npp.as.aep}{Convert nonexceedance probability to exceedance probability, which is a que for \code{alt.other.lab} and nonexceedance probabilities are changed by \eqn{1-F}, but the real coordinates for plotting remain in the nonexceedance probability context.}
   \item{NPP.control}{An optional \R \code{list} used to influence the NPP axis.}
   \item{RI.control}{An optional \R \code{list} used to influence the RI axis.}
   \item{SNV.control}{An optional \R \code{list} used to influence the SNV axis.}
@@ -64,6 +67,18 @@ X <- sort(rnorm(65)); pp <- pp(X) # generate synthetic data
 plot(qnorm(pp), X, xaxt="n", xlab="", ylab="QUANTILE", xlim=c(-2,3))
 add.lmomco.axis(las=2, tcl=0.5, side.type="RI", otherside.type="NPP")
 par(mgp=c(3,1,0)) # restore defaults
+
+\dontrun{
+opts <- options(scipen=6); par(mgp=c(3,0.5,0))
+X <- sort(rexp(65, rate=.0001))*100; pp <- pp(X) # generate synthetic data
+plot(qnorm(pp), X, yaxt="n", xaxt="n", xlab="", ylab="", log="y")
+add.log.axis(side=2,    tcl=+0.8*abs(par()$tcl),         two.sided=TRUE)
+add.log.axis(logs=c(1), tcl=-0.5*abs(par()$tcl), side=2, two.sided=TRUE)
+add.log.axis(logs=c(1), tcl=+1.3*abs(par()$tcl), side=2, two.sided=TRUE)
+add.log.axis(logs=1:8, side=2, make.labs=TRUE, las=1, label="QUANTILE")
+add.lmomco.axis(las=2, tcl=0.5, side.type="NPP", npp.as.aep=TRUE)
+options(opts)
+par(mgp=c(3,1,0)) # restore defaults}
 }
 \keyword{utility (probability)}
 \keyword{axis (utility)}

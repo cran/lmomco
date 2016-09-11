@@ -5,12 +5,13 @@
 This function estimates the parameters (\eqn{\zeta}, lower bounds; \eqn{\mu_{\mathrm{log}}}, location; and \eqn{\sigma_{\mathrm{log}}}, scale) of the Log-Normal3 distribution given the L-moments of the data in an L-moment object such as that returned by \code{\link{lmoms}}. The relations between distribution parameters and L-moments are seen under \code{\link{lmomln3}}. The function uses algorithms of the Generalized Normal for core computations. Also, if \eqn{\tau_3 \le 0}, then the Log-Normal3 distribution can not be fit, however reversing the data alleviates this problem.
 }
 \usage{
-parln3(lmom, zeta=NULL, checklmom=TRUE)
+parln3(lmom, zeta=NULL, checklmom=TRUE, ...)
 }
 \arguments{
   \item{lmom}{An L-moment object created by \code{\link{lmoms}} or \code{\link{vec2lmom}}.}
   \item{zeta}{Lower bounds, if \code{NULL} then solved for.}
   \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{\link{are.lmom.valid}} function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check.}
+  \item{...}{Other arguments to pass.}
 }
 \details{
 Let the L-moments by in variable \code{lmr}, if the \eqn{\zeta} (lower bounds) is unknown, then the algorithms return the same fit as the Generalized Normal will attain. However, \code{\link{pargno}} does not have intrinsic control on the lower bounds and \code{\link{parln3}} does. The \eqn{\lambda_1}, \eqn{\lambda_2}, and \eqn{\tau_3} are used in the fitting for \code{\link{pargno}} and \code{\link{parln3}} but only \eqn{\lambda_1} and \eqn{\lambda_2} are used when the \eqn{\zeta} is provided as in \code{parln3(lmr, zeta=0)}. In otherwords, if \eqn{\zeta} is known, then \eqn{\tau_3} is not used and shaping comes from the choice of \eqn{\zeta}. 

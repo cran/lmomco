@@ -1,6 +1,7 @@
 "pargum" <-
-function(lmom,checklmom=TRUE) {
-   euler <- 0.577215664901532861
+function(lmom,checklmom=TRUE,...) {
+   # euler <- print(-digamma(1), digits=15)
+   euler <- 0.5772156649015323 # Euler's constant
    para <- vector(mode="numeric", length=2)
    names(para) <- c("xi","alpha")
    if(length(lmom$L1) == 0) { # convert to named L-moments

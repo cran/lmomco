@@ -1,5 +1,6 @@
 \name{lmom2par}
 \alias{lmom2par}
+\alias{lmr2par}
 \title{Convert L-moments to the Parameters of a Distribution}
 \description{
 This function converts L-moments to the parameters of a distribution. The type of distribution is specified in the argument list:
@@ -12,11 +13,13 @@ This function converts L-moments to the parameters of a distribution. The type o
 }
 \usage{
 lmom2par(lmom, type, ...)
+lmr2par(x, type, ...)
 }
 \arguments{
   \item{lmom}{An L-moment object such as that returned by \code{\link{lmoms}} or \code{\link{pwm2lmom}}.}
   \item{type}{Three character (minimum) distribution type (for example, \code{type="gev"}).}
   \item{\ldots}{Additional arguments for the \code{parCCC} functions.}
+  \item{x}{In the \code{lmr2par} call the L-moments are computed from the \eqn{x} values. This function is a parallel to \code{\link{mle2par}} and \code{\link{mps2par}}.}
 }
 \value{
   An \R \code{list} is returned.  This list should contain at least the following items, but some distributions such as the \code{revgum} have extra.
@@ -29,7 +32,7 @@ lmom2par(lmom, type, ...)
 \seealso{\code{\link{par2lmom}}}
 \examples{
 lmr  <- lmoms(rnorm(20))
-para <- lmom2par(lmr,type='nor')
+para <- lmom2par(lmr,type="nor")
 
 # The lmom2par() calls will error if trim != 1.
 X <- rcauchy(20)

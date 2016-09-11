@@ -49,7 +49,7 @@ function(para) {
     H2 <-  0.26649995e2
     H3 <-  0.26193668e2
 
-    SD <- para$para[2]
+    SIGMA <- para$para[2]
 
     # LAMBDA-1
     z$L1 <- para$para[1]
@@ -58,18 +58,18 @@ function(para) {
     GAMMA <- para$para[3]
     if(abs(GAMMA) < SMALL) {
       # CASE OF ZERO SKEWNESS
-      z$L2 <- CONST*para[2]
+      z$L2 <- CONST*SIGMA
       z$TAU3 <- 0
       z$TAU4 <- C0
       z$L3 <- z$L2*z$TAU3
       z$L4 <- z$L2*z$TAU4
       # NO TAU5 AVAILABLE
     }
-    else { 
+    else {
       ALPHA <- 4/(GAMMA*GAMMA)
-      BETA <- abs(0.5*SD*GAMMA)
+      BETA  <- abs(0.5*SIGMA*GAMMA)
       ALAM2 <- CONST*exp(lgamma(ALPHA+0.5)-lgamma(ALPHA))
-      z$L2 <- ALAM2*BETA
+      z$L2  <- ALAM2*BETA
 
       #  HIGHER MOMENTS
       if(ALPHA < 1) {

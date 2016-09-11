@@ -1,5 +1,5 @@
 "parwak" <-
-function(lmom,checklmom=TRUE) {
+function(lmom,checklmom=TRUE,...) {
     #  PARA   *OUTPUT* ARRAY OF LENGTH 5. ON EXIT, CONTAINS THE PARAMETERS
     #                  IN THE ORDER XI, ALPHA, BETA, GAMMA, DELTA.
     #  IFAIL  *OUTPUT* FAIL FLAG. ON EXIT, IT IS SET AS FOLLOWS.

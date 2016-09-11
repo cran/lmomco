@@ -4,8 +4,14 @@
 \description{
 This function computes the cumulative probability or nonexceedance probability of the Gamma distribution given parameters (\eqn{\alpha} and \eqn{\beta}) computed by \code{\link{pargam}}.  The cumulative distribution function has no explicit form but is expressed as an integral:
 \deqn{F(x) = \frac{\beta^{-\alpha}}{\Gamma(\alpha)}\int_0^x t^{\alpha - 1}
-\exp(-t/\beta)\; \mbox{d}F \mbox{,}}
+\exp(-t/\beta)\; \mbox{d}t \mbox{,}}
 where \eqn{F(x)} is the nonexceedance probability for the quantile \eqn{x}, \eqn{\alpha} is a shape parameter, and \eqn{\beta} is a scale parameter.
+
+Alternatively, a three-parameter version is available following the parameterization of the Generalized Gamma distribution used in the \pkg{gamlss.dist} package and is
+
+\deqn{F(x) =\frac{\theta^\theta\, |\nu|}{\Gamma(\theta)}\int_0^x \frac{z^\theta}{x}\,\mathrm{exp}(-z\theta)\; \mbox{d}x \mbox{,}}
+
+where \eqn{z =(x/\mu)^\nu}, \eqn{\theta = 1/(\sigma^2\,|\nu|^2)} for \eqn{x > 0}, location parameter \eqn{\mu > 0}, scale parameter \eqn{\sigma > 0}, and shape parameter \eqn{-\infty < \nu < \infty}. The three parameter version is automatically triggered if the length of the \code{para} element is three and not two.
 }
 \usage{
 cdfgam(x, para)
@@ -21,10 +27,6 @@ cdfgam(x, para)
 Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
 distributions using linear combinations of order statistics: Journal
 of the Royal Statistical Society, Series B, v. 52, pp. 105--124.
-
-Hosking, J.R.M., 1996, FORTRAN routines for use with the method of L-moments:
-Version 3, IBM Research Report RC20525, T.J. Watson Research Center,
-Yorktown Heights, New York.
 
 Hosking, J.R.M., and Wallis, J.R., 1997, Regional frequency analysis---An
 approach based on L-moments: Cambridge University Press.
@@ -48,7 +50,24 @@ approach based on L-moments: Cambridge University Press.
   F2 <- Q$val*b^(-a)/gamma(a)
   # check the result
   if(abs(F1-F2) < 1e-8) print("yes")
+
+\dontrun{
+# 3-p Generalized Gamma Distribution and gamlss.dist package parameterization
+gg <- vec2par(c(7.4, 0.2, 14), type="gam"); X <- seq(0.04,9, by=.01)
+GGa <- gamlss.dist::pGG(X, mu=7.4, sigma=0.2, nu=14)
+GGb <- cdfgam(X, gg) # lets compare the two cumulative probabilities
+plot( X, GGa, type="l", xlab="X", ylab="PROBABILITY", col=3, lwd=6)
+lines(X, GGb, col=2, lwd=2) #}
+
+\dontrun{
+# 3-p Generalized Gamma Distribution and gamlss.dist package parameterization
+gg <- vec2par(c(4, 1.5, -.6), type="gam"); X <- seq(0,1000, by=1)
+GGa <- 1-gamlss.dist::pGG(X, mu=4, sigma=1.5, nu=-.6) # Note 1-... (pGG bug?)
+GGb <- cdfgam(X, gg) # lets compare the two cumulative probabilities
+plot( X, GGa, type="l", xlab="X", ylab="PROBABILITY", col=3, lwd=6)
+lines(X, GGb, col=2, lwd=2) #}
 }
 \keyword{distribution}
 \keyword{cumulative distribution function}
 \keyword{Distribution: Gamma}
+\keyword{Distribution: Generalized Gamma}

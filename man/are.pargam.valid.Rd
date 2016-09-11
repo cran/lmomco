@@ -8,6 +8,10 @@ probability (nonexceedance), density, quantile, and L-moments of the distributio
 respectively.  These functions internally use the \code{\link{are.pargam.valid}}
 function.  The parameters are restricted to the following conditions.
 \deqn{\alpha > 0 \mbox{ and } \beta > 0\mbox{.}}
+
+Alternatively, a three-parameter version is available following the parameterization of the Generalized Gamma distribution used in the \pkg{gamlss.dist} package and  and for \pkg{lmomco} is documented under \code{\link{pdfgam}}. The parameters for this version are 
+\deqn{\mu > 0;\;\; \sigma > 0;\;\; -\infty < \nu < \infty}
+for parameters number 1, 2, 3, respectively.
 }
 \usage{
 are.pargam.valid(para, nowarn=FALSE)
@@ -21,10 +25,6 @@ are.pargam.valid(para, nowarn=FALSE)
   \item{FALSE}{If the parameters are not \code{gam} consistent.}
 }
 \references{
-Hosking, J.R.M., 1996, FORTRAN routines for use with the method of L-moments:
-Version 3, IBM Research Report RC20525, T.J. Watson Research Center,
-Yorktown Heights, New York.
-
 Hosking, J.R.M., and Wallis, J.R., 1997, Regional frequency analysis---An
 approach based on L-moments: Cambridge University Press.
 }
@@ -41,4 +41,5 @@ if(are.pargam.valid(para)) Q <- quagam(0.5,para)
 \keyword{utility (distribution)}
 \keyword{Distribution: Gamma}
 \keyword{utility (distribution, parameter validation)}
+\keyword{Distribution: Generalized Gamma}
 

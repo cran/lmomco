@@ -12,11 +12,12 @@ The alternative and even simpler method only uses \eqn{\lambda_1} and \eqn{\lamb
 The user could easily estimate the parameters from the L-moments and use \code{\link{vec2par}} to create a parameter object.
 }
 \usage{
-parlap(lmom, checklmom=TRUE)
+parlap(lmom, checklmom=TRUE, ...)
 }
 \arguments{
   \item{lmom}{An L-moment object created by \code{\link{lmoms}} or \code{\link{vec2lmom}}.}
   \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{\link{are.lmom.valid}} function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check.}
+  \item{...}{Other arguments to pass.}
 }
 \value{
   An \R \code{list} is returned.

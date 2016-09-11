@@ -5,13 +5,13 @@
 This function estimates the parameters of the Pearson Type III distribution given the L-moments of the data in an L-moment object such as that returned by \code{\link{lmoms}}. The L-moments in terms of the parameters are complicated and solved numerically. For the implementation in \pkg{lmomco}, the three parameters are \eqn{\mu}, \eqn{\sigma}, and \eqn{\gamma} for the mean, standard deviation, and skew, respectively.
 }
 \usage{
-parpe3(lmom, checklmom=TRUE)
+parpe3(lmom, checklmom=TRUE, ...)
 }
 \arguments{
   \item{lmom}{An L-moment object created by \code{\link{lmoms}} or \code{\link{vec2lmom}}.}
   \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{\link{are.lmom.valid}} function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check.}
+  \item{...}{Other arguments to pass.}
 }
-
 \value{
   An \R \code{list} is returned.
 

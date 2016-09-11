@@ -3,9 +3,9 @@
 \alias{lmomco-package}
 \title{L-moments, Censored L-moments, Trimmed L-moments, L-comoments, and Many Distributions}
 \description{
-   The \pkg{lmomco} package is a comparatively comprehensive implementation of L-moments in addition to probability-weighted moments, and parameter estimation for numerous familiar and not-so-familiar distributions. L-moments and their cousins are based on certain linear combinations of order statistic expectations. Being based on linear mathematics and thus especially robust compared to conventional moments, they are particular suitable for analysis of rare events of non-Normal data. L-moments are consistent and often have smaller sampling variances than maximum likelihood in small to moderate sample sizes. L-moments are especially useful in the context of quantile functions.
+   The \pkg{lmomco} package is a comparatively comprehensive implementation of L-moments in addition to probability-weighted moments, and parameter estimation for numerous familiar and not-so-familiar distributions. L-moments and their cousins are based on certain linear combinations of order statistic expectations. Being based on linear mathematics and thus especially robust compared to conventional moments, they are particular suitable for analysis of rare events of non-Normal data. L-moments are consistent and often have smaller sampling variances than maximum likelihood in small to moderate sample sizes. L-moments are especially useful in the context of quantile functions. The method of L-moments (\code{\link{lmr2par}}) is augmented here with access to the methods of maximum likelihood (\code{\link{mle2par}}) and maximum product of spacings (\code{\link{mps2par}}) as alternatives bound against the distributions of the \pkg{lmomco} package.
 
-Over 330 user-level functions are implemented in \pkg{lmomco} that range from low-level utilities forming an application programming interface (API) to high-level sophisticated data analysis and visualization operators. The \dQuote{See Also} section lists recommended function entry points for new users. The nomenclature (\code{d}, \code{p}, \code{r}, \code{q})-\code{lmomco} is directly analogous to that for distributions built-in to \R.
+About 350 user-level functions are implemented in \pkg{lmomco} that range from low-level utilities forming an application programming interface (API) to high-level sophisticated data analysis and visualization operators. The \dQuote{See Also} section lists recommended function entry points for new users. The nomenclature (\code{d}, \code{p}, \code{r}, \code{q})-\code{lmomco} is directly analogous to that for distributions built-in to \R.
 
 Lastly, the \R packages \pkg{lmom} (Hosking), \pkg{lmomRFA} (Hosking), \pkg{Lmoments} (Karvanen) might also be of great interest.
 }
@@ -15,6 +15,8 @@ Asquith, W.H., 2007, L-moments and TL-moments of the generalized lambda distribu
 Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8, \url{http://www.amazon.com/dp/1463508417/}
 
 Asquith, W.H., 2014, Parameter estimation for the 4-parameter asymmetric exponential power distribution by the method of L-moments using R: Computational Statistics and Data Analysis, v. 71, pp. 955--970, \url{http://dx.doi.org/10.1016/j.csda.2012.12.013}
+
+Dey, D.K., Roy, Dooti, Yan, Jun, 2016, Univariate extreme value analysis, chapter 1, \emph{in} Dey, D.K., and Yan, Jun, eds., Extreme value modeling and risk analysis---Methods and applications: Boca Raton, FL, CRC Press, pp. 1--22.
 
 Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational statistics and data analysis, vol. 43, pp. 299-314,  \url{http://dx.doi.org/10.1016/S0167-9473(02)00250-5}
 
@@ -36,5 +38,12 @@ Serfling, R., and Xiao, P., 2007, A contribution to multivariate L-moments---L-c
 \keyword{mixture}
 \keyword{L-moments}
 \concept{Lmoments}
+\concept{LMoments}
 \concept{linear moments}
 \concept{L moments}
+\concept{L Moments}
+\concept{method of L moments}
+\concept{method of L-moments}
+\concept{method of L Moments}
+\concept{method of maximum likelihood}
+\concept{method of maximum of product spacings}

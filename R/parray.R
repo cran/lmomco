@@ -1,5 +1,5 @@
 "parray" <-
-function(lmom, xi=NULL, checklmom=TRUE) {
+function(lmom, xi=NULL, checklmom=TRUE,...) {
    para <- vector(mode="numeric", length=2)
    names(para) <- c("xi","alpha")
    if(length(lmom$L1) == 0) { # convert to named L-moments

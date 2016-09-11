@@ -1,6 +1,6 @@
 "pargpaRC" <-
 function(lmom, zeta=1, xi=NULL,
-         lower=-1, upper=20, checklmom=TRUE) {
+         lower=-1, upper=20, checklmom=TRUE,...) {
 
     para <- vector(mode="numeric", length=3)
     names(para) <- c("xi","alpha","kappa")

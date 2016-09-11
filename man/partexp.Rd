@@ -20,12 +20,13 @@ If the distribution shows to be uniform (\eqn{\tau_2 = 1/3}), then the third ele
 If the distribution shows to be exponential (\eqn{\tau_2 = 1/2}), then the second element in the returned parameter vector is the inverse of the rate parameter for the exponential distribution, and the first element is \code{NA} and the third element is \code{0} (a numeric \code{FALSE}) of the returned parameter vector.
 }
 \usage{
-partexp(lmom, checklmom=TRUE)
+partexp(lmom, checklmom=TRUE, ...)
 }
 \arguments{
   \item{lmom}{An L-moment object created by \code{\link{lmoms}} or
 \code{\link{vec2lmom}}.}
   \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{\link{are.lmom.valid}} function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check.}
+  \item{...}{Other arguments to pass.}
 }
 \value{
   An \R \code{list} is returned.

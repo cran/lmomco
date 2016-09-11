@@ -1,5 +1,5 @@
 "parTLgpa" <-
-function(lmom) {
+function(lmom,...) {
     if(length(lmom$trim) == 1 && lmom$trim != 1) {
       warning("Attribute of TL-moments is not trim=1--can not complete parameter estimation")
       return()

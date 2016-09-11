@@ -1,5 +1,5 @@
 "pargpa" <-
-function(lmom, zeta=1, xi=NULL, checklmom=TRUE) {
+function(lmom, zeta=1, xi=NULL, checklmom=TRUE,...) {
 
     # B-type L-moments are presumably being passed, dispatch to the
     # alternative parameter estimation function

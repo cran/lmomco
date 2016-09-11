@@ -9,10 +9,11 @@ the the trimmed L-moments (TL-moments) for \eqn{t=1} of the data in TL-moment ob
 \deqn{\xi = \lambda^{(1)}_1 - \frac{\alpha(\kappa+5)}{(\kappa+2)(\kappa+3)} \mbox{.}}
 }
 \usage{
-parTLgpa(lmom)
+parTLgpa(lmom, ...)
 }
 \arguments{
   \item{lmom}{A TL-moment object created by \code{\link{TLmoms}}.}
+  \item{...}{Other arguments to pass.}
 }
 \value{
   An \R \code{list} is returned.

@@ -8,10 +8,11 @@ This function acts as a frontend or dispatcher to the distribution-specific L-mo
 The conversion of parameters to TL-moments (\code{\link{TLmoms}}) is not supported. Specific use of functions such as \code{\link{lmomTLgld}} and \code{\link{lmomTLgpa}} for the TL-moments of the Generalized Lambda and Generalized Pareto distributions is required.
 }
 \usage{
-par2lmom(para)
+par2lmom(para, ...)
 }
 \arguments{
   \item{para}{A parameter object of a distribution.}
+  \item{...}{Other arguments to pass.}
 }
 \value{
   An L-moment object (an \R \code{list}) is returned.

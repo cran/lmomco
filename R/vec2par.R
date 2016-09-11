@@ -18,7 +18,20 @@ function(vec,type,nowarn=FALSE,paracheck=TRUE,...) {
     }
     else if(type == 'gam') {
       z <- list(type = 'gam', para = vec, source = "vec2par")
-      names(z$para) <- c("alpha","beta")
+      if(length(vec) == 2) {
+        names(z$para) <- c("alpha","beta")
+      } else {
+        names(z$para) <- c("mu","sigma","nu")
+        #theta <- 1/(z$para[2]^2*z$para[3]^2)
+        #Q <- z$para[2]*z$para[3];
+        #d <- 1/(z$para[2]*Q)
+        #p <- z$para[3]*d;
+        #a <- exp(log(z$para[1]) - (log(d)-log(p))/p)
+        #mu <- a*exp(lgamma((d+1)/p)-lgamma(d/p))
+        #sd <- 1/(p*sqrt(d))
+        #z$other <- c(theta, Q, a, d, p, mu)
+        #names(z$other) <- c("theta", "Q", "Wiki(a)", "Wiki(d)", "Wiki(p)", "Wiki(mean)")
+      }
     }
     else if(type == 'gep') {
       z <- list(type = 'gep', para = vec, source = "vec2par")

@@ -1,5 +1,5 @@
 "parkur" <-
-function(lmom,checklmom=TRUE) {
+function(lmom,checklmom=TRUE,...) {
    para <- vector(mode="numeric", length=2)
    names(para) <- c("alpha","beta")
    if(length(lmom$L1) == 0) { # convert to named L-moments

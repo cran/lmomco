@@ -1,5 +1,5 @@
 "partexp" <-
-function(lmom, checklmom=TRUE) {
+function(lmom, checklmom=TRUE,...) {
     para <- c(NA, NA, 1)
     names(para) <- c("xi", "alpha", "is.stationary")
     if(checklmom & ! are.lmom.valid(lmom)) {

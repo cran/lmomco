@@ -1,7 +1,10 @@
 "mps2par" <-
 function(x, type, para.int=NULL, ties=c("bernstein", "rounding", "density"),
             delta=0, log10offset=3, get.untied=FALSE, check.support=TRUE,
-            silent=TRUE, moran=TRUE, ...) {
+            moran=TRUE, silent=TRUE, null.on.not.converge=TRUE,
+            ptransf=  function(t) return(t),
+            pretransf=function(t) return(t),
+            mle2par=TRUE, ...) {
   x <- sort(x); n <- length(x); untied <- FALSE; ITS <- NA
   ties.method <- match.arg(ties)
   if(is.null(type)) {
@@ -28,12 +31,12 @@ function(x, type, para.int=NULL, ties=c("bernstein", "rounding", "density"),
                              "5" =function(x)    -sqrt(x) ,
                              "6" =function(x)        1/x  ,
                              "7" =function(x)    abs(x-1))
-  # The Moran Test only if the cfunc() is "1".
+  # The Moran Test if and only if the cfunc() is "1".
   moran <- ifelse(moran & cfunc == "1", TRUE, FALSE)
 
   there_are_ties <- as.logical(sum(duplicated(x)))
   if(there_are_ties & ! silent) message("ties detected")
-  if(there_are_ties & ! ties.method=="density") {
+  if(there_are_ties & ! ties.method == "density") {
      untied <- TRUE; ITS <- 0; ix <- 1:n
      while( n != length(unique(x)) ) {
        ITS <- ITS + 1
@@ -80,28 +83,13 @@ function(x, type, para.int=NULL, ties=c("bernstein", "rounding", "density"),
   }
   x <- sort(x) # final insurance on the sort
 
-  "afunc" <- function(para, x=NULL, n=NA, ...) {
-     lmomco.para <- vec2par(para, type=type, paracheck=FALSE)
-     #print(lmomco.para$para)
-     if(is.null(lmomco.para)) return(Inf) # trap if bad parameters
-     uu <- c(0,plmomco(x, lmomco.para),1) # padding the edges
-     dd <- diff(uu) # the deltas, length shrinks by one
-     if(ties == "density") {
-        dd[dd == 0] <- dlmomco(x[dd == 0], lmomco.para)
-     }
-     M <- sum(the.cfunc(dd))
-     if(! silent) message(" M=",M) # note M=0 will be shown but overrided
-     if(M == 0) return(Inf) # this is key to keeping the simplex alive!
-     return(M)
-  }
-
   if(is.null(para.int)) {
      lmr <- lmoms(x)
      if(! are.lmom.valid(lmr)) {
         warning("L-moments of x are not valid, try manual initial parameters")
         return(NULL)
      }
-     para.int <- lmom2par(lmr, type=type)
+     para.int <- lmom2par(lmr, type=type, ...)
      if(is.null(para.int)) {
         warning("could not estimate initial parameters via L-moments")
         return(NULL)
@@ -120,12 +108,15 @@ function(x, type, para.int=NULL, ties=c("bernstein", "rounding", "density"),
             if(! silent) message(" trying pwm.pp --> lmom --> a=",a.pp.coe)
             lmr <- pwm2lmom(pwm.pp(x, a=a.pp.coe))
             if(! are.lmom.valid(lmr)) next
-            para.int <- lmom2par(lmr, type=type)
+            para.int <- lmom2par(lmr, type=type, ...)
             next
-         } else if(a.pp.coe == 1) {
+         } else if(a.pp.coe == 1 & mle2par) {
             if(! silent) message(" trying MLE instead for initial parameters")
             para.int <- mle2par(x, type=type, ...)
-            if(is.null(para.int)) return(NULL)
+            if(is.null(para.int)) {
+               warning("attempted final spinup by subordinated call to mle2par()")
+               return(NULL)
+            }
             next
          } else {
             warning(" giving up on automatic starting parameters")
@@ -139,12 +130,15 @@ function(x, type, para.int=NULL, ties=c("bernstein", "rounding", "density"),
             if(! silent) message(" trying pwm.pp --> lmom --> para for a=",a.pp.coe)
             lmr <- pwm2lmom(pwm.pp(x, a=a.pp.coe))
             if(! are.lmom.valid(lmr)) next
-            para.int <- lmom2par(lmr, type=type)
+            para.int <- lmom2par(lmr, type=type, ...)
             next
-         } else if(a.pp.coe == 1) {
+         } else if(a.pp.coe == 1 & mle2par) {
             if(! silent) message(" trying MLE instead for initial parameters")
             para.int <- mle2par(x, type=type, ...)
-            if(is.null(para.int)) return(NULL)
+            if(is.null(para.int)) {
+               warning("attempted final spinup by subordinated call to mle2par()")
+               return(NULL)
+            }
             next
          } else {
             warning(" giving up on automatic starting parameters")
@@ -157,18 +151,51 @@ function(x, type, para.int=NULL, ties=c("bernstein", "rounding", "density"),
      warning(" initial parameters are NULL")
      return(NULL)
   }
-  rt <- NULL
   if(para.int$type != type) {
      warning("distribution requested to fit does not match the type of the ",
              "initial parameters")
      return(NULL)
   }
-  try(rt <- optim(para.int$para, afunc, x=x, n=n, ...), silent=silent)
+  if(length(para.int$para) == 1) {
+     warning("function is not yet built for single parameter optimization")
+     return(NULL)
+  }
+
+  "afunc" <- function(para, x=NULL, n=NA, ...) {
+     lmomco.para <- vec2par(pretransf(para), type=type, paracheck=TRUE)
+     if(is.null(lmomco.para)) return(Inf) # trap if bad parameters
+     uu <- c(0,plmomco(x, lmomco.para),1) # padding the edges
+     dd <- diff(uu) # the deltas, length shrinks by one
+     if(ties.method == "density") {
+        dd[dd == 0] <- dlmomco(x[dd == 0], lmomco.para)
+     }
+     M <- sum(the.cfunc(dd))
+     #if(! silent) message(" M=",M) # note M=0 will be shown but overrided
+     if(M == 0) return(Inf) # this is key to keeping the simplex alive!
+     return(M)
+  }
+
+  #   print(ptransf(para.int$para))
+  #   raw.afunc.call <- afunc(ptransf(para.int$para), x=x, n=n)
+  #   print("RAW afunc() CALL WITH INITIAL PARAMETERS")
+  #   print(raw.afunc.call)
+
+  # Note for some reason there is an argument name clash(?) that WHA can not get to
+  # the bottom of for a case where ... in the main call has say p=3 to trigger the
+  # generalized gamma if type="gam" so ... is not wrapped into the optim() call as
+  # WHA would instinctively do.
+
+  rt <- NULL
+  try(rt <- optim(par=ptransf(para.int$para), fn=afunc, x=x, n=n), silent=silent)
   if(is.null(rt)) {
      warning("optim() attempt is NULL")
      return(NULL)
   }
-  lmomco.para          <- vec2par(rt$par, type=type)
+  if(null.on.not.converge & rt$convergence != 0) {
+     warning("optim() reports convergence error")
+     return(NULL)
+  }
+  lmomco.para          <- vec2par(pretransf(rt$par), type=type)
   lmomco.para$source   <- "mps2par" # override vec2par()
   lmomco.para$para.int <- para.int  # preserve the initial parameters
   M <- rt$value
@@ -176,8 +203,9 @@ function(x, type, para.int=NULL, ties=c("bernstein", "rounding", "density"),
 
   moranTest <- function(M,n,p) {
      moran_mean <- function(n) {
-        g <- 0.57721566490153286060 # Euler's constant
-        (n+1)*(log(n+1)+g) - (1/2) - 1/(12*(n+1))
+        # euler <- print(-digamma(1), digits=15)
+        euler <- 0.5772156649015323 # Euler's constant
+        (n+1)*(log(n+1)+euler) - (1/2) - 1/(12*(n+1))
      }
      moran_variance <- function(n, minusone=FALSE) {
         (n+1)*(pi^2/6 - 1) - (1/2) - 1/(6*(n+1))

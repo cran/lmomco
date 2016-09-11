@@ -5,10 +5,11 @@
 This function estimates the parameters of the Cauchy distribution from the trimmed L-moments (TL-moments) having trim level 1. The relations between distribution parameters and the TL-moments (trim=1) are seen under \code{\link{lmomcau}}.
 }
 \usage{
-parcau(lmom)
+parcau(lmom, ...)
 }
 \arguments{
   \item{lmom}{A TL-moment object from \code{\link{TLmoms}} with \code{trim=1}.}
+  \item{...}{Other arguments to pass.}
 }
 \value{
   An \R \code{list} is returned.

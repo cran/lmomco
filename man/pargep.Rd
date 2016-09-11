@@ -5,7 +5,7 @@
 This function estimates the parameters of the Generalized Exponential Poisson distribution given the L-moments of the data in an L-moment object such as that returned by \code{\link{lmoms}}. The relations between distribution parameters and L-moments are seen under \code{\link{lmomgep}}. However, the expectations of order statistic extrema are computed through numerical integration of the quantile function and the fundamental definition of L-moments (\code{\link{theoLmoms.max.ostat}}). The mean must be \eqn{\lambda_1 > 0}. The implementation here fits the first three L-moments. A distribution having two scale parameters produces more than one solution.  The higher L-moments are not consulted as yet in an effort to further enhance functionality. This function has deterministic starting points but on subsequent iterations the starting points do change. If a solution is not forthcoming, try running the whole function again.
 }
 \usage{
-pargep(lmom, checklmom=TRUE, checkdomain=TRUE, maxit=10, verbose=FALSE)
+pargep(lmom, checklmom=TRUE, checkdomain=TRUE, maxit=10, verbose=FALSE, ...)
 }
 \arguments{
   \item{lmom}{An L-moment object created by \code{\link{lmoms}} or \code{\link{vec2lmom}}.}
@@ -13,6 +13,7 @@ pargep(lmom, checklmom=TRUE, checkdomain=TRUE, maxit=10, verbose=FALSE)
   \item{checkdomain}{A logical controlling whether the empirically derived (approximated) boundaries of the GEP in the \eqn{\tau_2} and \eqn{\tau_3} domain are used for early exiting if the \code{lmom} do not appear compatible with the distribution.}
   \item{maxit}{The maximum number of iterations. The default should be about twice as big as necessary.}
   \item{verbose}{A logical controlling intermediate results, which is useful given the experimental nature of GEP parameter estimation and if the user is evaluating results at each iteration. The verbosity is subject to change.}
+  \item{...}{Other arguments to pass.}
 }
 \value{
   An \R \code{list} is returned.

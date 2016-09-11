@@ -2,6 +2,46 @@
 NEWS for R Package "lmomco"
 --------------------------------------------------------------------------------
 
+Version 2.2.5--September 9, 2016: ("PG that Turtle Biscuit" Release)
+1. PERFORMANCE FIX: pdfpe3() a certain combination of SIGMA and GAMMA
+      parameters could leak through and cause later div0, for which a passage
+      to Normality should be triggered. This caused intensive study of 
+      performance for small variation and near zero skew. Gutted the function
+      and using dgamma() and parallel logic to cdfpe3().
+2. BUG FIX: lmompe3() had a misspecified variable accessing the 2nd parameter
+      for the condition of small or zero skewness. Discovered playing with
+      mle2par(), which had yielded the pdfpe3() bug mentioned in Item 1.
+3. BUG FIX: mps2par() had a lingering variable name change problem related
+      to the "ties" argument but the old argument "ties.method" receiving the
+      results of match.arg(). The variable ties was still being used in a value
+      check expecting a scalar (the result of match.arg) but ties was remaining
+      the vector as set by the function declaration. Trivially small issue.
+4. Added another example to are.lmom.valid() to show a bail out attempt at
+      L-moment computation via probability-weighted moments computed by
+      plotting-position formula.
+5. Added the "null.on.not.converge" argument to mle2par() and mps2par().
+6. Added the 3-parameter Generalized Gamma to *gam() functions using the special
+      parameterization of the 3-p GG in the gamlss package. Though a gamlss 
+      dependency is not foreseen, cross applications are now possible.
+7. Text adjustment to pdfpe3.Rd and addition of two examples related to 
+      interaction with the PearsonDS package support for Pearson Type III.
+8. Added arguments "alt.other.lab" and "npp.as.aep" to add.lmomco.axis() to
+      support the inversion of axis drawing from nonexceedance probability to
+      exceedance probability.
+9. Euler's constant standardization in lmomrevgum(), mps2par(), pargum(),
+      and parrevgum() to the DiGamma: "print(-digamma(1), digits=15)"
+10. Added "ptransf" and "pretransf" arguments to mle2par() and mps2par() to 
+      support parameter transformation and retransformation if a user needs to
+      impose parameter constraints to assist the optimizer.
+11. Added "no.stop" argument to lmoms().
+12. Govindarajulu: cdfgov() now returns 0 or 1 if x is outside the support.
+13. Added the Cramer--von Mises goodness-of-fit in cvm.test.lmomco()
+      mimicking and using the goftest package.
+14. Added the "..." argument to all of the par*() functions [e.g. parwei()],
+      which should have happened a decade ago. A problem was encountered in
+      progressively more complicated functions wrapping these.
+
+
 Version 2.2.4--July 8, 2016
 1. Added "..." argument to pp(). A higher calling function to pp() could not
       implement the arguments to pp through the "..." argument of the that
@@ -86,15 +126,15 @@ Version 2.2.2--March 20, 2016 (The Density-NA ==> 0 Release [see Item 7])
       is already know that the parameters are valid and added to the returned
       list the nonexceedance probabilities of the lower and upper supports.
 18. Moved a variable into a sum() to that presumably of R will use less memory.
-19. R idiom vectorization as may be to all cdfCCC.R lacking it---mainly
-      the replacement of for() loops with either sapply() and in some cases
-      not even sapply() and pure R vectorization is used.
-20. R idiom vectorization as may be to all pdfCCC.R lacking it---mainly
-      the replacement of for() loops with either sapply() and in some cases
-      not even sapply() and pure R vectorization is used.
-21. R idiom vectorization as may be to all quaCCC.R lacking it---mainly
-      the replacement of for() loops with either sapply() and in some cases
-      not even sapply() and pure R vectorization is used.
+19. R idiom vectorization as may be to all cdfCCC.R lacking it---mainly the
+      replacement of for() loops with either sapply() and in some cases not even
+      sapply() and pure R vectorization is used.
+20. R idiom vectorization as may be to all pdfCCC.R lacking it---mainly the
+      replacement of for() loops with either sapply() and in some cases not even
+      sapply() and pure R vectorization is used.
+21. R idiom vectorization as may be to all quaCCC.R lacking it---mainly the
+      replacement of for() loops with either sapply() and in some cases not even
+      sapply() and pure R vectorization is used.
 22. R idiom vectorization in rmlmomco(), rrmlmomco(), rmvarlmomco(), and
       rrmvarlmomco()---replacement of for() loops with sapply().
 23. Documentation: (1) Corrected a spelling error that called nonexistant
@@ -115,24 +155,24 @@ Version 2.2.2--March 20, 2016 (The Density-NA ==> 0 Release [see Item 7])
       reasons now forgotten) to quantiles from Asquith and Slade (1997). The
       reason for implementation now is that WHA has a situation needing LPIII
       fit to quantiles from Asquith and Roussel (2009).
-30. Added add.log.axis for enhanced (nice looking) base-10 logarithmic axes.
-31. Added the alt.lab argument to add.lmomco.axis().
-32. Added the quafunc argument to theoTLmoms() for arbirary quantile function.
+30. Added add.log.axis() for enhanced (nice looking) base-10 logarithmic axes.
+31. Added the "alt.lab" argument to add.lmomco.axis().
+32. Added the "quafunc" argument to theoTLmoms() for arbirary quantile function.
 33. Added lmoms.cov() for distribution-free, variance-covariance computation
-       of the sample L-moments (and probability-weighted moments).
+      of the sample L-moments (and probability-weighted moments).
 34. Added L-skew and L-kurtosis trajectory for the reversed Govindarajulu,
-       reversed Generalized Pareto, and Weibull distributions to lmrdia().
+      reversed Generalized Pareto, and Weibull distributions to lmrdia().
 35. NAME CHANGE: qua2ci() changed to qua2ci.simple() to make NAMESPACE available
-       to qua2ci.cov(). Also genci() changed to genci.simple() because of
-       its close connection. A deprecated name warning is now issued with
-       qua2ci() and genci() and these will be removed at some later date.
+      to qua2ci.cov(). Also genci() changed to genci.simple() because of its
+      close connection. A deprecated name warning is now issued with qua2ci()
+      and genci() and these will be removed at some later date.
 36. BUG FIX: Tony Labson was testing with deep close to k=0 in quagev() and
-       required a trapping of effectively close enough to k=0 to not cause
-       oscillation in numerical routines. Because of core relationships,
-       similar modifications made to quaglo() and quagp().  For the GNO,
-       quagno() had a commented out trap like that needed by Tony for the
-       GEV but was using the finiteness of 1/k.  Tony's example for GEV
-       would not work for GNO, so quagno() changed too.
+      required a trapping of effectively close enough to k=0 to not cause
+      oscillation in numerical routines. Because of core relationships, similar
+      modifications made to quaglo() and quagp().  For the GNO, quagno() had a
+      commented out trap like that needed by Tony for the GEV but was using the
+      finiteness of 1/k.  Tony's example for GEV would not work for GNO, so
+      quagno() changed too.
 
 
 Version 2.1.4--April 20, 2015
@@ -179,7 +219,7 @@ Version 2.1.2--January 31, 2015 (never pushed to CRAN for trival but new checks)
 14. Minor changes to CITATION following CRAN email dated 01/09/2014.
 15. Added the Asymmetrical Triangular distribution for which it seems(?) that
       the L-moments have not been previously described.
-16. Added the showterms argument to theoLmoms.max.ostat() so the multipliers
+16. Added the "showterms" argument to theoLmoms.max.ostat() so the multipliers
       on the expectations of the order statistic maxima and minima can be
       rapidly seen for pedagogic reasons.
 17. Added internal numerical support estimation for pdfwak() following inquiry
@@ -251,7 +291,7 @@ Version 2.0.1--March 14, 2014
 1. BUG FIX: quakap() hit an incorrect stop() because of the absence of
       a "next" associated with the conditional: H <= 0 & G >= 0 when
       nonexceedance probability was F=0.
-2. Added the force.exact (default TRUE) and nsim arguments to
+2. Added the "force.exact" (default TRUE) and "nsim" arguments to
       lmoms.bootbarvar().  It seems that numerical problems are firmly
       occurring in matrices at about a sample size of 50. So a hardwired
       threshold hold between the exact analytical and simulation-only
@@ -566,12 +606,12 @@ Version 1.5.1---April 15, 2012
      but should be considered experimental. The author needs to work
      on a table of K,H ---> T3,T4 mappings to add the optimizers in
      the return direction.
-3. Added the minF and maxF arguments to theoLmoms() and theoTLlmoms()
-     so that one can try to get past divergent integrals should they
-     occur using the defaults. These were added as the far-far tails
-     of the aep distribution do not behave well. Testing against the
-     aep with minF=0.00001 and maxF=0.99999 seems to nearly hit the
-     true L-moments from lmomaep().
+3. Added the "minF" and "maxF" arguments to theoLmoms() and
+     theoTLlmoms() so that one can try to get past divergent integrals
+     should they occur using the defaults. These were added as the far-far
+     tails of the AEP4 distribution do not behave well. Testing against
+     the AEP4 with minF=0.00001 and maxF=0.99999 seems to nearly hit the
+     true L-moments from lmomaep4().
 4. Added the "#" sign in front of Package lmomco (1.5.1) loaded when
      the library is loaded. This is done so that users running a
      standard out redirection are able to embedded "#" as comment
@@ -607,8 +647,8 @@ Version 1.4.4---April 30, 2012
 
 
 Version 1.4.3---August 30, 2011
-1. BUG FIX: Added the checklmom argument to parTLgld() and pargld() as part of
-     an check on how the functions of lmomco interact.
+1. BUG FIX: Added the "checklmom" argument to parTLgld() and pargld() as part
+     of an check on how the functions of lmomco interact.
 2. BUG FIX: pwm.pp() did not fully accommodate user supplied probabilities.
      Removed the feature for now. Further, some a major bug was introduced
      in version 1.4.2. This function now appears through testing as shown
@@ -644,7 +684,7 @@ Version 1.4.2---July 21, 2011
 
 
 Version 1.4.1--July 7, 2011
-1. Added paracheck=TRUE argument to the quaXXX() functions and vec2par().
+1. Added "paracheck=TRUE" argument to the quaXXX() functions and vec2par().
      This was added to bypass the validity checks in terms of L-moments so
      that the quantile functions remain accessible when TL-moment
      computations are desired. This argument had long existed for the GLD
@@ -675,20 +715,20 @@ Version 1.3.6---June 24, 2011
 Version 1.3.5---May 14, 2011
 1. Added tau34=FALSE to lmomTLgld() for certain research applications
      of the generalized lambda distribution.
-2. BUG FIX in LaguerreHalf() and pdfrice(). Both of these functions called
+2. BUG FIX: in LaguerreHalf() and pdfrice(). Both of these functions called
      besselI() [built-in to R] using an argument 'n' for 'nu' (a partial
      argument match). Unreleased versions of R 2.14 on some platforms were
      showing a warning about partial match. The LaguerreHalf() and
      pdfrice() are now updated internally (no Rd changes needed).
-3. BUG FIX in TLmoms(). This function was using a partial argument match
+3. BUG FIX: in TLmoms(). This function was using a partial argument match
      on a call to TLmom(). The argument was 'sort' but 'sortdata' was
      needed by TLmom(). Again, this was an unreleased R 2.14 on some
      platforms reporting the warning.
 
 
 Version 1.3.3---April 3, 2011
-1. BUG FIX in a "<= test" in cdfln3().
-2. BUG FIX in plotlmrdia() pertaining to the Cauchy distribution.
+1. BUG FIX: in a "<= test" in cdfln3().
+2. BUG FIX: in plotlmrdia() pertaining to the Cauchy distribution.
 3. Added lmrdiscord() for computation of the discordance of triplets of
      the first three L-moment ratios.
 
@@ -699,7 +739,7 @@ Version 1.3.4---April 15, 2011
      an lmomco function can be accessed by
         examparametersWOlibrary <- lmomco:::vec2par(c(0,1), type="nor")
      for a standard Normal distribution parameter set.
-2. Added lmrdigits argument to lmrdiscord().
+2. Added "lmrdigits" argument to lmrdiscord().
 3. Title change of the entire package to a more logical ordering of
      terms.
 
@@ -722,11 +762,11 @@ Version 1.3.1---March 6, 2011
 
 Version 1.2.4---February 13, 2011
 1. Added limiting condition of Cauchy to plotlmrdia() and lmrdia().
-2. Added as.list argument to vec2pwm() so that it can return both PWM data
+2. Added "as.list" argument to vec2pwm() so that it can return both PWM data
      structures support in the package. This was done in preparation of
      example computations for comparison of pwmLC() (by flipping) to
      pwmRC() to support left-tail censored PWMs.
-3. BUG FIX for pwmRC(), which previous did not support nmom number of
+3. BUG FIX: for pwmRC(), which previous did not support nmom number of
      A-type PWMs as the documentation states and need requires.
 4. Added pwmLC() for support of left-tail censored PWMs. Presently, there
      are no distributions supporting left-tail directly. It is suggested
@@ -764,25 +804,22 @@ Version 1.2.1---November 20, 2010
 2. Revisions to SysDataBuilder.R to better canvas LCV, SNR, and G pairings
      to the Rice L-moment to parameter lookup table.
 3. Added the LaguerreHalf.R/Rd to support variance estimation of a set of
-     Rician parameters so that hand off to Normal distribution functions
-     for high SNR can be made.
-4. Revisions in parameterization of the Rice distribution over the
-     confusion caused by having several different definitions of the
-     signal-to-noise ratio SNR in the literature.
-     Also, if nu=0 for the Rice, then behind-the-scenes generation of
-     Rayleigh parameters with xi=0 is made and the Rayleigh distribution
-     functions are used.
-     If SNR > 24 for the Rice, then behind-the-scenes generation of Normal
-     parameters is made and the Normal distribution functions used. This
-     SNR threshold was determined by careful evaluation of the LCV, Tau3,
-     Tau4, SNR, and G used in RiceTable generation in the file
-     inst/doc/SysDataBuilder.R. The evaluation looks and numerical problems
-     such as Tau3 and Tau4 breakdown as Normal distribution is approached
-     and filtering for sub Rayleigh solutions.
-     Finally, if SNR > 52 for the Rice, then the use of the Laguerre
-     polynomial for variance estimation to feed to the Normal is bypassed
-     and the SNR used in place of sqrt(pi/2)*LaguerreHalf(-SNR^2/2)
-     because:
+     Rician parameters so that hand off to Normal distribution functions for
+     high SNR can be made.
+4. Revisions in parameterization of the Rice distribution over the confusion
+     caused by having several different definitions of the signal-to-noise ratio
+     SNR in the literature. Also, if nu=0 for the Rice, then behind-the-scenes
+     generation of Rayleigh parameters with xi=0 is made and the Rayleigh
+     distribution functions are used. If SNR > 24 for the Rice, then behind-the-
+     scenes generation of Normal parameters is made and the Normal distribution 
+     functions used. This SNR threshold was determined by careful evaluation of
+     the LCV, Tau3, Tau4, SNR, and G used in RiceTable generation in the file
+     inst/doc/SysDataBuilder.R. The evaluation looks and numerical problems such
+     as Tau3 and Tau4 breakdown as Normal distribution is approached and 
+     filtering for sub Rayleigh solutions. Finally, if SNR > 52 for the Rice,
+     then the use of the Laguerre polynomial for variance estimation to feed to
+     the Normal is bypassed and the SNR used in place of sqrt(pi/2) * 
+     LaguerreHalf(-SNR^2/2) because:
         sqrt(pi/2)*LaguerreHalf(-53^2/2) \approx 52 == 52.00962
         sqrt(pi/2)*LaguerreHalf(-53^2/2) \approx 53 == 53.00943
         sqrt(pi/2)*LaguerreHalf(-54^2/2) \approx 54 --> Inf
@@ -790,11 +827,11 @@ Version 1.2.1---November 20, 2010
 
 
 Version 1.2.0---November 14, 2010
-1. Trapping NULL values for xleg and yleg in plotlmrdia.R, which was
-     discovered in giving a presentation concerning the diagrams.
-2. BUG FIX for incorrect "gum" references in are.parray.valid.Rd,
-     pdfray.Rd, quaray.Rd, and lmomray.Rd.
-3. BUG FIX for incorrect "kur" dispatch in par2lmom.R and in par2qua.R.
+1. Trapping NULL values for xleg and yleg in plotlmrdia.R, which was discovered
+     in giving a presentation concerning the diagrams.
+2. BUG FIX: for incorrect "gum" references in are.parray.valid.Rd, pdfray.Rd,
+     quaray.Rd, and lmomray.Rd.
+3. BUG FIX: for incorrect "kur" dispatch in par2lmom.R and in par2qua.R.
 3. Added the Rice distribution ("rice") functions and the SysDataBuilder.R
      and of course the now present R/sysdata.rda because Rice distribution
      uses tabular lookup and interpolation for parameter estimation. The
@@ -854,7 +891,7 @@ Version 0.97.2---October 27, 2009
 
 Version 0.97.1---July 18, 2009
 1. Tweak in documentation in is.ray().
-2. BUG FIX in parray() and lmomray().
+2. BUG FIX: in parray() and lmomray().
 3. Added the 3-parameter log-Normal distribution ("ln3") by referencing the
      algorithms in the lmom package by J.R.M. Hosking. Remember that the
      3-parameter is an alternative parameterization of the Generalized
@@ -877,7 +914,7 @@ Version 0.96.3---February 20, 2009
 
 Version 0.96.2---November 17, 2008
 1. Tweak to quawak() for condition of F=1.
-2. Added the sort=TRUE argument to pp() so that sorted (default and historical)
+2. Added the "sort=TRUE" argument to pp() so that sorted (default and historical)
      and unsorted plotting positions could be returned. An appropriate example
      was added. Also strengthened the condition of the plotting-position
      coefficient range---have restricted the coefficient between Weibull (a=0)
@@ -897,7 +934,7 @@ Version  0.96---September 15, 2008
      parameter vector within ALL the lmomXXX() functions. Unsightly,
      L-moments were otherwise being returned.
 5. The example in is.revgum() did not actually call the function--does now.
-6. Added the quiet argument to genci().
+6. Added the "quiet" argument to genci().
 7. Added lcomoms2() to make it much easier to access bundles of
      sample L-comoments values. Output of---that is, return of---the
      matrices or diagonals can be specified.
@@ -989,31 +1026,31 @@ Version 0.91---October 24, 2007
 4. Added check.pdf(), which will be an important convenience function for
      testing the properties of the pdfCCC() functions and the cdfCCC()
      functions.
-5. BUG FIX on parwei(). Function was unnecessarily querying fifth
+5. BUG FIX: on parwei(). Function was unnecessarily querying fifth
      L-moment when the fifth L-moment is not needed. So one did not have five
      or more L-moments then parwei() would not work. This was unnecessarily
      restrictive.
 6. Added z.par2cdf() and z.par2qua() to accommodate zero values or other in the
      building of "blipped distributions" to quote Gilchrist (2000, p. 148).
 7. Added umvu.sd to pmoms()---uniformly-minimum variance unbiased estimator.
-8. BUG FIX on quacau(). Function did not return a vector if one of the F values
+8. BUG FIX: on quacau(). Function did not return a vector if one of the F values
      happened to be equal to exactly 0.5.
-9. BUG FIX on are.pargam.valid(). Test did not permit Beta > 0, but mistakenly
+9. BUG FIX: on are.pargam.valid(). Test did not permit Beta > 0, but mistakenly
      tested for Beta > 1.
-10. BUG FIX on are.parcau.valid(). Test did not check that Alpha > 0.
+10. BUG FIX: on are.parcau.valid(). Test did not check that Alpha > 0.
 
 
 Version 0.90---October 2, 2007
-1. Added the autolegend, xleg, and yleg arguments to plotlmrdia().
+1. Added the "autolegend", "xleg", and "yleg" arguments to plotlmrdia().
 2. Error in lmrdia.Rd regarding gamma distribution fixed.
 3. Error in equation in pwm.ub.Rd fixed.
-4. BUG FIX on pwm.pp(). Why has getting the plotting-position estimator
+4. BUG FIX: on pwm.pp(). Why has getting the plotting-position estimator
      working correctly been a nightmare? I think it is finally correct.
      Part of the problem is in inconsistencies in nomenclature in the
      literature as well as your humble author.
 5. Correction to math in TLmoms.Rd.
 6. Correction to math in parTLgpa.Rd.
-7. BUG FIX on cdfpe3() and a correction made to the documentation. The
+7. BUG FIX: on cdfpe3() and a correction made to the documentation. The
      function did not work for negative skew. Whew! Problem was discovered
      during development of pdfpe3().
 8. Added probability density functions for cau, exp, gam, gev, gld, glo,
@@ -1032,9 +1069,9 @@ Version 0.88---September 1, 2007
 
 
 Version 0.87---August 1, 2007
-1. Added the xlab and ylab arguments to plotlmrdia(), which provide user
+1. Added the "xlab" and "ylab" arguments to plotlmrdia(), which provide user
      flexibility of the naming of each axis.
-2. Added the checklmom=TRUE argument to parexp(), pargam(), pargev(),
+2. Added the "checklmom=TRUE" argument to parexp(), pargam(), pargev(),
      parglo(), pargno(), pargpa(), pargpaRC(), pargum(), parkap(),
      parnor(), parpe3(), parrevgum(), parwak(), and parwei() to bypass
      the internal call to are.lmom.valid(). This feature was added after
@@ -1056,14 +1093,14 @@ Version 0.86---July 23, 2007
      cdfpe3.original() and is not loaded with the package, but resides
      elsewhere in the directory structure. This reworking was spawned by
      an inquiry from R.R.P. van Nooyen in July 2007.
-3. BUG FIX on parpe3(). Condition of negative L-skew was not implemented
+3. BUG FIX: on parpe3(). Condition of negative L-skew was not implemented
      correctly---fixed and rigorously tested using the pmoms() function.
 
 
 Version 0.85---July 14, 2007
 1. Textual fixes to documentation of qua2ci() and warning message change
      in qua2ci().
-2. BUG FIX on pwm.ub() by fixing pwm.pp(). I had misinterpreted Hosking's
+2. BUG FIX: on pwm.ub() by fixing pwm.pp(). I had misinterpreted Hosking's
      argument call in his samlmr FORTRAN function. The unbiased PWMs were
      certainly not being correctly computed. I gutted the code entirely and
      now rely on R's choose() to get binomial coefficients. The much cleaner
@@ -1115,7 +1152,7 @@ Version 0.85---July 14, 2007
 
 
 Version 0.84---May 2, 2007
-1. BUG FIX on genci() related to overwriting the sample size by the length
+1. BUG FIX: on genci() related to overwriting the sample size by the length
      of the nonexceedance probability vector. Fixed and tested. The function
      was extended to handle the ifail value from qua2ci().
 2. Additional warning message added to qua2ci() when the L-moments of the
@@ -1135,7 +1172,7 @@ Version 0.83---April 10, 2007
 1. Added callplot and showsample options to gen.freq.curves().
 2. Added plmomco() and qlmomco() as adjuncts to rlmomco() and to better
      parallel built-in distribution functions of R itself.
-3. BUG FIX on examples in genci() that manifested as the April 2007
+3. BUG FIX: on examples in genci() that manifested as the April 2007
      release of R approached.
 
 
@@ -1158,7 +1195,7 @@ Version 0.82---July 13, 2006
 6. Recognition that the quaCCC() functions had been extended into the features
      provided by freq.curve.CCC() functions.  Thus, all freq.curve.CCC()
      functions were removed from the package.
-7. BUG FIX on F=0||1 probabilities into quape3(). Bug occurred in extension
+7. BUG FIX: on F=0||1 probabilities into quape3(). Bug occurred in extension
      of function to handle a vector of probabilities during development of
      version 0.7 of this package.
 8. lmompe3() did not compute and hence return L-CV---incomplete port from
@@ -1172,7 +1209,7 @@ Version 0.80---June 20, 2006
 0. Further tweaks to the documentation.
 1. Warning message added when TAU5 missing on call to pargld() and parTLgld().
 2. Added support for user supplied initial guess for pargld() and parTLgld().
-3. BUG FIX on pargev(). The function was broken for TAU3 < -0.80. Bug caused
+3. BUG FIX: on pargev(). The function was broken for TAU3 < -0.80. Bug caused
      during port from Hosking FORTRAN library. Bug was discovered during tests
      of parwei().
 
@@ -1180,7 +1217,7 @@ Version 0.80---June 20, 2006
 Version 0.77---May 15, 2006
 0. Pertaining to number 1, enhancement to documentation of the L-comoment
      functions has been made.
-1. BUG FIX on a single conditional in Lcomoment.coefficients(). Function was
+1. BUG FIX: on a single conditional in Lcomoment.coefficients(). Function was
      handling a first-order first argument, but crashing on order evaluation
      of the second argument.
 
@@ -1189,9 +1226,9 @@ Version 0.76---May 11, 2006
 0a. Further progress on documentation following R-help feedback and my own
      proofreads.
 0b. Adding more examples to the documentation.
-1. Added par2cdf2() and par2qua2() for combining two quantile functions
-     into one through minor abilities to control weight factors.
-2. BUG FIX on vec2lmom()---function did not retain NULL for undefined
+1. Added par2cdf2() and par2qua2() for combining two quantile functions into one
+     through minor abilities to control weight factors.
+2. BUG FIX: on vec2lmom()---function did not retain NULL for undefined
      L-moment (because of sample size) prior to calling are.lmom.valid().
 3. Plotting-position formula changed in pp.R and substantial documentation
      added to parallel that in Handbook of Hydrology.
@@ -1215,7 +1252,7 @@ Version 0.7---April 13, 2006
 1. Added full vectorization of the quaCCC() and cdfCCC() functions. Previously
      each function did not handle a vector of nonexceedance probability and
      quantile values in each respective function.
-2. Added extract argument to the pargld() and parTLgld() functions.
+2. Added "extract" argument to the pargld() and parTLgld() functions.
 3. Incorporated endpoint or range checking on cdfgld().
 
 
@@ -1225,11 +1262,11 @@ Version 0.6---March 25, 2006
 2. Extension of TL-moments to asymmetry: trimming in either tails is available.
 3. Addition of theoLmoms() to compute theoretical L-moments: uses theoTLmoms().
 4. Addition of theoTLmoms() to compute theoretical TL-moments using numerical
-     integration of the quantile function. A valuable check on par2lmom()
-     or the lmomCCC() functions.
+     integration of the quantile function. A valuable check on par2lmom() or the
+     lmomCCC() functions.
 5. par2cdf() did not dispatch to Generalized Lambda distribution---fixed.
 6. Addition of nowarn toggle to vec2par() {implemented therein}, through
-     are.par.valid() via the ..., and each of the are.parCCC.valid()
+     are.par.valid() via the "..." argument, and each of the are.parCCC.valid()
      {implemented therein}. This was done so that parameter optimization
      algorithms could be built on top of the parameter validation checks and
      cascading warning messages that the user would not care about can be
@@ -1240,8 +1277,8 @@ Version 0.5---March 12, 2006
 1. Total redesign of pargld() and parTLgld().
 2. Adjustments to interface of lmomTLgpa() and parTLgpa() for consistency with
      the GLD distribution.
-3. Major additions to freq.curve.all() (addition of plotting options and
-     more verbose messaging).
+3. Major additions to freq.curve.all() (addition of plotting options and more
+     verbose messaging).
 4. Speed up of freq.curve.gld() by addition of paracheck=FALSE to quagld().
 5. Internal functions to lmomkap() are now defined internal to the function.
 6. check.fs() added.
@@ -1250,8 +1287,8 @@ Version 0.5---March 12, 2006
 
 Version 0.4---February 28, 2006
 0. Numerous enhancements to the documentation.
-1. BUG FIX on fourth L-moment of Cauchy distribution in lmomcau().
-2. BUG FIX on absolute value of TAU5 in are.lmom.valid().
+1. BUG FIX: on fourth L-moment of Cauchy distribution in lmomcau().
+2. BUG FIX: on absolute value of TAU5 in are.lmom.valid().
 3. BUG FIXES on are.pargld.valid().
 4. Addition of cdfgld() [stable], lmomgld() [stable], pargld() [experimental].
 5. Addition of lmomTLgld() [stable] and parTLgld() [experimental].

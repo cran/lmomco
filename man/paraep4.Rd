@@ -24,7 +24,7 @@ The function will not return parameters if the following lower bounds of \eqn{\t
 \usage{
 paraep4(lmom, checklmom=TRUE, method=c("A", "DG", "ADG"),
         sqrt.t3t4=TRUE, eps=1e-4, checkbounds=TRUE, kapapproved=TRUE,
-        A.guess=NULL, K.guess=NULL, H.guess=NULL)
+        A.guess=NULL, K.guess=NULL, H.guess=NULL, ...)
 }
 \arguments{
   \item{lmom}{An L-moment object created by \code{\link{lmoms}} or \code{\link{vec2lmom}}.}
@@ -37,6 +37,7 @@ paraep4(lmom, checklmom=TRUE, method=c("A", "DG", "ADG"),
   \item{A.guess}{A user specified guess of the \eqn{\alpha} parameter to provide to the optimization of any of the methods. This argument just superceeds the simple initial guess of \eqn{\alpha = 1}.}
   \item{K.guess}{A user specified guess of the \eqn{\kappa} parameter to supercede that derived from the \env{.lmomcohash$AEPkh2lmrTable} in file \file{sysdata.rda}.}
   \item{H.guess}{A user specified guess of the \eqn{h} parameter to supercede that derived from the \env{.lmomcohash$AEPkh2lmrTable} in file \file{sysdata.rda}.}
+  \item{...}{Other arguments to pass.}
 }
 \value{
   An \R \code{list} is returned.

@@ -1,3 +1,8 @@
+"lmr2par" <- function(x, type, ...) {
+   lmom2par(lmoms(x), type, ...)
+}
+
+
 "lmom2par" <-
 function(lmom,type,...) {
     if(type == 'aep4') {

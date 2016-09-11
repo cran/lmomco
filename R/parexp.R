@@ -1,5 +1,5 @@
 "parexp" <-
-function(lmom,checklmom=TRUE) {
+function(lmom,checklmom=TRUE,...) {
     para <- vector(mode="numeric", length=2)
     names(para) <- c("xi","alpha")
     if(checklmom & ! are.lmom.valid(lmom)) {

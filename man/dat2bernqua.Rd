@@ -21,8 +21,9 @@ An alternative formula for smoothing is by Cheng (1995) and is
 }
 \usage{
 dat2bernqua(f, x, bern.control=NULL,
-                  poly.type=c("Bernstein", "Kantorovich", "Cheng", "Parzen"),
-                  bound.type=c("none", "sd", "Carv", "either"),
+                  poly.type=c("Bernstein", "Kantorovich", "Cheng", "Parzen",
+                              "bernstein", "kantorovich", "cheng", "parzen"),
+                  bound.type=c("none", "sd", "Carv", "either", "carv"),
                   fix.lower=NULL, fix.upper=NULL, p=0.05, listem=FALSE)
 }
 \arguments{

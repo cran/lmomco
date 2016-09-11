@@ -1,5 +1,5 @@
 "parst3" <-
-function(lmom, checklmom=TRUE) {
+function(lmom, checklmom=TRUE,...) {
     para <- vector(mode="numeric", length=3)
     names(para) <- c("xi","alpha","nu")
 

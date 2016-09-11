@@ -1,5 +1,5 @@
 "partri" <-
-function(lmom,checklmom=TRUE) {
+function(lmom,checklmom=TRUE,...) {
 
     if(length(lmom$L1) == 1) { # convert to named L-moments
       lmom <- lmorph(lmom)     # nondestructive conversion!

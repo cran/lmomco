@@ -5,13 +5,13 @@
 \description{This function estimates the parameters of the Linear Mean Residual Quantile Function distribution given the L-moments of the data in an L-moment object such as that returned by \code{lmoms}. The relations between distribution parameters and L-moments are seen under \code{\link{lmomlmrq}}.
 }
 \usage{
-parlmrq(lmom, checklmom=TRUE)
+parlmrq(lmom, checklmom=TRUE, ...)
 }
 \arguments{
   \item{lmom}{An L-moment object created by \code{\link{lmoms}} or \code{\link{vec2lmom}}.}
   \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{\link{are.lmom.valid}} function. Normally this should be left as the default.}
+  \item{...}{Other arguments to pass.}
 }
-
 \value{
   An \R \code{list} is returned.
 

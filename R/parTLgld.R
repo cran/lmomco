@@ -1,6 +1,6 @@
 "parTLgld" <-
 function(lmom, verbose=FALSE, initkh=NULL, eps=1e-3,
-         aux=c("tau5", "tau6"), checklmom=TRUE) {
+         aux=c("tau5", "tau6"), checklmom=TRUE,...) {
     aux <- match.arg(aux)
 
     if(is.null(lmom$trim)) {

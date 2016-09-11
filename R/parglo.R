@@ -1,5 +1,5 @@
 "parglo" <-
-function(lmom,checklmom=TRUE) {
+function(lmom,checklmom=TRUE,...) {
     SMALL <- 1e-6 
     # Estimate kappa of distribution
     para <- vector(mode="numeric", length=3)

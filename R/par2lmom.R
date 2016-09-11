@@ -1,5 +1,5 @@
 "par2lmom" <-
-function(para) {
+function(para,...) {
     type <- para$type
        if(type == 'aep4')  {
       return(lmomaep4(para))

@@ -1,5 +1,5 @@
 "parln3" <-
-function(lmom, zeta=NULL, checklmom=TRUE) {
+function(lmom, zeta=NULL, checklmom=TRUE,...) {
 
     if(length(lmom$L1) == 0) { # convert to named L-moments
       lmom <- lmorph(lmom)     # nondestructive conversion!

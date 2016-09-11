@@ -1,5 +1,5 @@
 "parsla" <-
-function(lmom) {
+function(lmom,...) {
     para <- vector(mode="numeric", length=2)
     names(para) <- c("xi", "alpha")
     if(lmom$trim != 1) {

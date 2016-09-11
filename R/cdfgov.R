@@ -13,8 +13,8 @@ function(x, para) {
                    tmp <- NULL
                try(tmp <- uniroot(afunc, lower=0, upper=1, x=x[i]), silent=TRUE)
                ifelse(is.null(tmp), return(NA), return(tmp$root)) } )
-   f[x < lo] <- NA
-   f[x > hi] <- NA
+   f[x < lo] <- 0
+   f[x > hi] <- 1
 
    names(f) <- NULL
    f[! is.finite(f)] <- NA

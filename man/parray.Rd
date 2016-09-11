@@ -8,13 +8,14 @@ and
 \deqn{\xi = \lambda_1 - \alpha\sqrt{\pi/2}\mbox{.}}
 }
 \usage{
-parray(lmom, xi=NULL, checklmom=TRUE)
+parray(lmom, xi=NULL, checklmom=TRUE, ...)
 }
 \arguments{
   \item{lmom}{An L-moment object created by \code{\link{lmoms}} or \code{\link{vec2lmom}}.}
   \item{xi}{The lower limit of the distribution. If \eqn{\xi} is known then alternative algorithms are triggered and only the first L-moment is required for fitting.}
   \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{\link{are.lmom.valid}
 } function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check.}
+  \item{...}{Other arguments to pass.}
 }
 
 \value{

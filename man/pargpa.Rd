@@ -5,15 +5,15 @@
 This function estimates the parameters of the Generalized Pareto distribution given the L-moments of the data in an ordinary L-moment object (\code{\link{lmoms}}) or a trimmed L-moment object (\code{\link{TLmoms}} for \code{t=1}). The relations between distribution parameters and L-moments are seen under \code{\link{lmomgpa}} or \code{\link{lmomTLgpa}}.
 }
 \usage{
-pargpa(lmom, zeta=1, xi=NULL, checklmom=TRUE)
+pargpa(lmom, zeta=1, xi=NULL, checklmom=TRUE, ...)
 }
 \arguments{
   \item{lmom}{An L-moment object created by \code{\link{lmoms}}, \code{\link{TLmoms}} with \code{trim=0}, or \code{\link{vec2lmom}}.}
   \item{zeta}{The right censoring fraction. If less than unity then a dispatch to the \code{\link{pargpaRC}} is made and the \code{lmom} argument must contain the B-type L-moments. If the data are not right censored, then this value must be left alone to the default of unity.}
   \item{xi}{The lower limit of the distribution. If \eqn{\xi} is known, then alternative algorithms are used.}
   \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{\link{are.lmom.valid}} function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check.}
+  \item{...}{Other arguments to pass.}
 }
-
 \value{
   An \R \code{list} is returned.
 

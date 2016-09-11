@@ -25,6 +25,12 @@ Hosking, J.R.M. and Wallis, J.R., 1997, Regional frequency analysis---An approac
 \examples{
 lmr <- lmoms(rnorm(20))
 if(are.lmom.valid(lmr)) print("They are.")
+\dontrun{
+X <- c(1.7106278,  1.7598761,  1.2111335,  0.3447490,  1.8312889,
+       1.3938445, -0.5376054, -0.2341009, -0.4333601, -0.2545229)
+are.lmom.valid(lmoms(X))
+are.lmom.valid(pwm2lmom(pwm.pp(X, a=0.5)))
+}
 }
 \keyword{L-moment (theoretical)}
 \keyword{L-moment (validation)}

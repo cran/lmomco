@@ -1,5 +1,5 @@
 "parkap" <-
-function(lmom,checklmom=TRUE) {
+function(lmom,checklmom=TRUE,...) {
     para <- vector(mode="numeric", length=4)
     XL <- NA
     XU <- NA

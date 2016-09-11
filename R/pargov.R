@@ -1,5 +1,5 @@
 "pargov" <-
-function(lmom, xi=NULL, checklmom=TRUE) {
+function(lmom, xi=NULL, checklmom=TRUE,...) {
     para <- vector(mode="numeric", length=3)
     names(para) <- c("xi","alpha", "beta")
     if(length(lmom$L1) == 1) { # convert to named L-moments

@@ -10,27 +10,36 @@ with the additions to the vector \eqn{U} of \eqn{U_0(\Theta) = 0} and \eqn{U_{n+
 \deqn{M_n(\Theta) = - \sum_{i=1}^{n+1} \log\, D_i(\Theta)\mbox{,}}
 where the \eqn{\Theta} for a maximized \eqn{{-}M_n} represents the parameters fit by MPS. Some authors to keep with the idea of geometric mean include factor of \eqn{1/(n+1)} for the definition of \eqn{M_n}. Whereas other authors (Shao and Hahn, 1999, eq. 2.0), show
 \deqn{S_n(\Theta) = (n+1)^{-1} \sum_{i=1}^{n+1} \log[(n+1)D_i(\Theta)]\mbox{.}}
-So it seems that some care is needed when considering the implementation when the value of \dQuote{the summation of the logarithms} is to be directly interpreted. Finally, Wong and Li (2006) provide a salient review of MPS in regards to an investigation of maximum likelihood (MLE), MPS, and probability-weighted moments (\code{\link{pwm}}) for the GEV (\code{\link{quagev}}) and GPA (\code{\link{quagpa}}) distributions. Also, Soukissian and Tsalis (2015) also study MPS, MLE, L-moments, and several other methods for GEV fitting.
+So it seems that some care is needed when considering the implementation when the value of \dQuote{the summation of the logarithms} is to be directly interpreted. Wong and Li (2006) provide a salient review of MPS in regards to an investigation of maximum likelihood (MLE), MPS, and probability-weighted moments (\code{\link{pwm}}) for the GEV (\code{\link{quagev}}) and GPA (\code{\link{quagpa}}) distributions. Finally, Soukissian and Tsalis (2015) also study MPS, MLE, L-moments, and several other methods for GEV fitting.
 
-For the implementation here, if \code{check.support} is true, and the initial parameter estimate (if not provided and acceptable by \code{para.int}) by default will be seeded through the method of L-moments (unbiased, \code{\link{lmoms}}), which should be close and convergence will be fairly fast if a solution is possible. If these parameters can not be used for spinup, the implementation will then attempt various probability-weighted moment by plotting position (\code{\link{pwm.pp}}) converted to L-moments (\code{\link{pwm2lmom}}) as part of an extended attempt to find a support of the starting distribution encompass the data. Finally, if that approach fails, a last ditch effort using starting parameters from maximum likelihood computed by a default call to \code{\link{mle2par}} is made. Sometimes data are pathological and user supervision is needed but not always successful---MPS can show failure for certain samples and(or) choice of distribution.
+If the initial parameters have a support inside the range of the data, infinity is returned immediately by the optimizer and further action stops and the parameters returned are \code{NULL}. For the implementation here, if \code{check.support} is true, and the initial parameter estimate (if not provided and acceptable by \code{para.int}) by default will be seeded through the method of L-moments (unbiased, \code{\link{lmoms}}), which should be close and convergence will be fairly fast if a solution is possible. If these parameters can not be used for spinup, the implementation will then attempt various probability-weighted moment by plotting position (\code{\link{pwm.pp}}) converted to L-moments (\code{\link{pwm2lmom}}) as part of an extended attempt to find a support of the starting distribution encompass the data. Finally, if that approach fails, a last ditch effort using starting parameters from maximum likelihood computed by a default call to \code{\link{mle2par}} is made. Sometimes data are pathological and user supervision is needed but not always successful---MPS can show failure for certain samples and(or) choice of distribution.
 
-As a note, if all \eqn{U} are equally spaced, then \eqn{|M(\Theta)| = I_o = (n+1)\log(n+1)}. This begins the concepts towards goodness-of-fit. The \eqn{M_n(\Theta)} is a form of the Moran-Darling statistic for goodness-of-fit. The \eqn{M_n(\Theta)} as a normal distribution with
+It is important to remark that the support of a fitted distribution is not checked within the loop for optimization once spun up. The reasons are twofold: (1) The speed hit by repeated calls to \code{\link{supdist}}, but in reality (2) PDFs in \pkg{lmomco} are supposed to report zero density for outside the support of a distribution (see NEWS) and for the \eqn{-\log(D_i(\Theta)\rightarrow 0) \rightarrow \infty} and hence infinity is returned for that state of the optimization loop and alternative solution will be tried.
+
+As a note, if all \eqn{U} are equally spaced, then \eqn{|M(\Theta)| = I_o = (n+1)\log(n+1)}. This begins the concepts towards goodness-of-fit. The \eqn{M_n(\Theta)} is a form of the Moran-Darling statistic for goodness-of-fit. The \eqn{M_n(\Theta)} as a Normal distribution with
 \deqn{\mu_M \approx (n+1)[\log(n+1)+\gamma{}] - \frac{1}{2} - \frac{1}{12(n+1)}\mbox{,}}
 \deqn{\sigma_M \approx (n+1)\biggl(\frac{\pi^2}{6\,{}} - 1\biggr)-\frac{1}{2} - \frac{1}{6(n+1)}\mbox{,}}
-where \eqn{\gamma \approx 0.57722} (Euler's constant) and where for an extension into small samples using the Chi-Square distribution is
+where \eqn{\gamma \approx 0.577221} (Euler--Mascheroni constant, \code{-digamma(1)}) or as the definite integral
+
+\deqn{\gamma^\mathrm{Euler}_{\mathrm{Mascheroni}} = -\int_0^\infty \mathrm{exp}(-t) \log(t)\; \mathrm{d}{t}\mbox{,}}
+
+An extension into small samples using the Chi-Square distribution is
 \deqn{A = C_1 + C_2\times\chi^2_n\mbox{,}}
 where
 \deqn{C_1 = \mu_M - \sqrt{\frac{\sigma^2_M\,n}{2}}\mbox{\ and\ }C_2 = \sqrt{\frac{\sigma^2_M}{2n}}\mbox{,}}
 and where \eqn{\chi^2_n} is the Chi-Square distribution with \eqn{n} degrees of freedom. A test statistic is
 \deqn{T(\Theta) = \frac{M_n(\Theta) - C_1 + \frac{p}{2}}{C_2}\mbox{,}}
-where the term \eqn{p/2} is a bias correction based on the number of fitted distribution parameters \eqn{p}. The null hypothesis that the fitted distribution is correct is to be rejected if \eqn{T(\Theta)} exceeds a critical value from the chi-square distribution. The MPS method has a relation to maximum likelihood and the two are asymptotically equivalent.
+where the term \eqn{p/2} is a bias correction based on the number of fitted distribution parameters \eqn{p}. The null hypothesis that the fitted distribution is correct is to be rejected if \eqn{T(\Theta)} exceeds a critical value from the Chi-Square distribution. The MPS method has a relation to maximum likelihood (\code{\link{mle2par}}) and the two are asymptotically equivalent.
 
 \bold{Important Remark Concerning Ties}---Ties in the data cause \emph{instant degeneration} and must be mitigated for and thus attention to this documentation and even the source code itself is required.
 }
 \usage{
 mps2par(x, type, para.int=NULL, ties=c("bernstein", "rounding", "density"),
             delta=0, log10offset=3, get.untied=FALSE, check.support=TRUE,
-            silent=TRUE, moran=TRUE, ...)
+            moran=TRUE, silent=TRUE, null.on.not.converge=TRUE,
+            ptransf=  function(t) return(t),
+            pretransf=function(t) return(t),
+            mle2par=TRUE, ...)
 }
 \arguments{
   \item{x}{A vector of data values.}
@@ -44,8 +53,13 @@ mps2par(x, type, para.int=NULL, ties=c("bernstein", "rounding", "density"),
   \item{log10offset}{The optional base-10 logarithmic offset approach to roundoff errors if \code{delta=0} and if \code{ties=}\code{"rounding"}.}
   \item{get.untied}{A logical to populate a \code{ties} element in the returned \code{list} with the untied-pseudo data as it was made available to the optimizer and the number of iternations required to exhaust all ties. An emergency break it implemented if the number of iterations appears to be blowing up.}
   \item{check.support}{A logical to trigger a call to \code{\link{supdist}} to compute the support of the distribution at the initial parameters. As mentioned, MPS degenerates if \code{min(x)} \eqn{<} the lower support or if \code{max(x)} \eqn{>} the upper support. Regardless of the setting of \code{check.support} and \code{NULL} will be returned because this is what the optimizer will do anyway.}
+  \item{moran}{A logical to trigger the goodness-of-fit test described previously.}
   \item{silent}{A logical to silence the \code{try()} function wrapping the \code{optim()} function and to provide a returned list of the optimization output.}
-  \item{moran}{A lgocial to trigger the goodness-of-fit test described previously.}
+  \item{null.on.not.converge}{A logical to trigging simple return of \code{NULL} if the \code{optim()} function returns a nonzero convergence status.}
+  \item{ptransf}{An optional parameter transformation function (see \bold{Examples}) that is useful to guide the optimization run. For example, suppose the first parameter of a three parameter distribution resides in the positive domain, then \cr \code{ptransf(t) = }
+\code{function(t) c(log(t[1]), t[2], t[3])}.}
+  \item{pretransf}{An optional parameter retransformation function (see \bold{Examples}) that is useful to guide the optimization run. For example, suppose the first parameter of a three parameter distribution resides in the positive domain, then \cr \code{pretransf(t) = } \code{function(t) c(exp(t[1]), t[2], t[3])}.}
+  \item{mle2par}{A logical to turn off the potential last attempt at maximum likelihood estimates of a valid seed as part of \code{check.support=TRUE}.}
   \item{...}{Additional arguments for the \code{optim()} function and other uses.}
 }
 \value{
@@ -59,13 +73,13 @@ mps2par(x, type, para.int=NULL, ties=c("bernstein", "rounding", "density"),
   \item{MoranTest}{An optional \code{list} of returned values that will include both diagnostics and statistics. The diagnostics are the computed \eqn{\mu_M(n)}, \eqn{\sigma^2_M(n)}, \eqn{C_1}, \eqn{C_2}, and \eqn{n}. The statistics are the minimum value \eqn{I_o} theoretically attainable \eqn{|M_n(\Theta)|} for equally spaced differences, the minimized value \eqn{M_n(\Theta)}, the \eqn{T(\Theta)}, and the corresponding \code{p.value} from the upper tail of the \eqn{\chi^2_n} distribution.}
 }
 \note{
-During the optimization process, the function requires evaluation at the initial parameters. If \code{Inf} is returned on first call to the objective function, then a warning like this
+During optimization, the objective function requires evaluation at the initial parameters and must be finite. If \code{Inf} is returned on first call to the objective function, then a warning like this
 \preformatted{
   optim() attempt is NULL
 }
-will be seen. The \code{silent} by default though will silence this error. Error trapping for the estimated support of the distribution from the initial parameter values is made and verbose warnings given to help remind the user. Considerable attempt is made internally to circumvent the appearance of the above error.
+should be seen. The \code{silent} by default though will silence this error. Error trapping for the estimated support of the distribution from the initial parameter values is made by \code{check.support=TRUE} and verbose warnings given to help remind the user. Considerable attempt is made internally to circumvent the appearance of the above error.
 
-The solution degenerates when the fitted distribution has a narrower support than the underlying data and artificially \dQuote{ties} show up within the objective function. The user's only real recourse is to try fitting another distribution either by starting parameters or even distribution type. Situations could arise for which carefully chosen starting parameters could permit the optimizer to keep its simplex within the viable domain. The MPS method is sensitive to tails of a distribution having asymoptic limits as \eqn{F \rightarrow 0^{+}} or \eqn{F \rightarrow 1^{-}}.
+More specifically, an MPS solution degenerates when the fitted distribution has a narrower support than the underlying data and artificially \dQuote{ties} show up within the objective function even if the original data lacked ties or were already mitigated for. The user's only real recourse is to try fitting another distribution either by starting parameters or even distribution type. Situations could arise for which carefully chosen starting parameters could permit the optimizer to keep its simplex within the viable domain. The MPS method is sensitive to tails of a distribution having asymoptic limits as \eqn{F \rightarrow 0^{+}} or \eqn{F \rightarrow 1^{-}}.
 
 The Moran test can be quickly checked with highly skewed and somewhat problematic data by
 \preformatted{
@@ -93,13 +107,32 @@ A note of other MPS implementations in \R is needed. The \pkg{fBasics} and \pkg{
   fBasics --> dist-gldFit.R --> .gldFit.mps -->
             f = try(-typeFun(log(DH[DH > 0])), silent = TRUE)
 }
-where it is seen that \eqn{D_i = 0} are ignored! Such a practice does not appear efficacious during development and testing of the implementation in \pkg{lmomco}, parameter solutions very substantially different than reason can occur or even failure of convergence by the \pkg{fBasics} implementation.  Further investigation is warranted. Second, consider package \pkg{gld}:
+where it is seen that \eqn{D_i = 0} are ignored! Such a practice does not appear efficacious during development and testing of the implementation in \pkg{lmomco}, parameter solutions very substantially different than reason can occur or even failure of convergence by the \pkg{fBasics} implementation. Further investigation is warranted. Second, consider package \pkg{gld}:
 \preformatted{
   gld --> fit_fkml.R --> fit_fkml.c --> method.id == 2:
   # If F[i]-F[i-1] = 0, replace by f[i-1]
   #                      (ie the density at smaller observation)
 }
-which obviously make the density substitution for ties as will \code{ties=}\code{"density"} for the implementation here. Testing indicates that viable parameter solutions will result with direct insertion of the density in the case of ties. Interference, however, of the \eqn{M_n} is almost assuredly to be greatly weakened or destroyed depending on the shape of the probability density function or a large number of ties. The problem is that the sum of the \eqn{D_i} are no longered ensured to sum to unity. The literature appears silent on this particular aspect of MPS. Further investigation is warranted.
+which obviously make the density substitution for ties as well \code{ties=}\code{"density"} for the implementation here. Testing indicates that viable parameter solutions will result with direct insertion of the density in the case of ties. Interference, however, of the \eqn{M_n} is almost assuredly to be greatly weakened or destroyed depending on the shape of the probability density function or a large number of ties. The problem is that the sum of the \eqn{D_i} are no longered ensured to sum to unity. The literature appears silent on this particular aspect of MPS, and further investigation is warranted.
+
+The \pkg{eva} package provides MPS for GEV and GPD. The approach there does not appear to replace changes of zero by density but to insert a \dQuote{smallness} in conjunction with other conditioning checking (only the \code{cond3} is shown below) and a curious penalty of \code{1e6}. The point is that different approaches have been made by others.
+\preformatted{
+  eva --> gevrFit --> method="mps"
+  cdf[(is.nan(cdf) | is.infinite(cdf))] <- 0
+  cdf <- c(0, cdf, 1); D <- diff(cdf); cond3 <- any(D < 0)
+  ## Check if any differences are zero due to rounding and adjust
+  D <- ifelse(D <= 0, .Machine$double.eps, D)
+  if(cond1 | cond2 | cond3) { abs(sum(log(D))) + 1e6 } else { -sum(log(D)) }
+}
+Let us conclude with an example for the GEV between \pkg{eva} and \pkg{lmomco} and note sign difference in definition of the GEV shape but otherwise a general similarity in results:
+\preformatted{
+  X <- rlmomco(vec2par(c(100,12,-.5), type="gev"), para);pargev(lmoms(X))$para
+       #                  xi                alpha                kappa 
+       #         101.3500961           14.0654618           -0.4923501
+  gevrFit(X, method="mps")$par.ests
+       #Location (Intercept)    Scale (Intercept)    Shape (Intercept) 
+       #         101.0257581           13.8779822            0.5824502 
+}
 }
 \author{ W.H. Asquith}
 \references{
@@ -111,7 +144,7 @@ Shao, Y., and Hahn, M.G., 1999, Strong consistency of the maximum product of spa
 
 Soukissian, T.H., and Tsalis, C., 2015, The effect of the generalized extreme value distribution parameter estimation methods in extreme wind speed prediction: Natural Hazards, v. 78, pp. 1777--1809.
 
-Wong, T.S.T., and Li, W.K., 2006, A note on the estimation of extreme value distributions using maximum product of spacings. IMS Lecture Notes, v. 52, pp. 272--283.
+Wong, T.S.T., and Li, W.K., 2006, A note on the estimation of extreme value distributions using maximum product of spacings: IMS Lecture Notes, v. 52, pp. 272--283.
 }
 \seealso{\code{\link{lmom2par}}, \code{\link{mle2par}}}
 \examples{
@@ -184,6 +217,16 @@ mps2par(H590, type="nor", ties="bernstein")$para
 # The MoranTest show rejection of the Normal distribution at alpha = 0.05, with the
 # "rounding" and "delta=0.005"" and T=63.8 compared to their result of T=63.1,
 # which to be considered that the strategy here is not precisely the same as theirs.}
+
+\dontrun{
+# Demonstration of parameter transformation and retransformation
+set.seed(9209) # same seed used under mle2par() in parallel example
+x <- rlmomco(500, vec2par(c(1,1,3), type="gam")) # 3-p Generalized Gamma
+mps2par(x, type="gam", para.int=NULL, silent=FALSE, p=3, # p triggers 3pGenGamma
+           ptransf=  function(t) { c(log(t[1]), log(t[2]), t[3])},
+           pretransf=function(t) { c(exp(t[1]), exp(t[2]), t[3])})$para
+# Reports:       mu     sigma        nu   for some simulated data. 
+#         0.9997019 1.0135674 3.0259012 }
 }
 \keyword{distribution (parameters)}
 \keyword{parameter (maximum product spacing to)}
@@ -193,4 +236,5 @@ mps2par(H590, type="nor", ties="bernstein")$para
 \keyword{parameter (estimation)}
 \concept{maximum spacing estimation}
 \concept{product of spacing estimation}
-
+\keyword{goodness-of-fit}
+\keyword{Moran-Darling statistic}

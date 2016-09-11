@@ -12,7 +12,7 @@ Limited testing indicates that of the \dQuote{error term controlling options} th
 paremu(lmom, checklmom=TRUE, checkbounds=TRUE,
          alsofitT3=FALSE, alsofitT3T4=FALSE, alsofitT3T4T5=FALSE,
          justfitT3T4=TRUE, boundary.tolerance=0.001,
-         verbose=FALSE, trackoptim=TRUE)
+         verbose=FALSE, trackoptim=TRUE, ...)
 }
 \arguments{
   \item{lmom}{An L-moment object created by \code{\link{lmoms}} or \code{\link{vec2lmom}}.}
@@ -24,7 +24,9 @@ paremu(lmom, checklmom=TRUE, checkbounds=TRUE,
    \item{justfitT3T4}{Logical when true will only consider the sum of squares errors for L-skew and L-kurtosis as mathematically shown for \code{alsofitT3T4}.}
    \item{boundary.tolerance}{A fudge number to help guide how close to the boundaries an arbitrary list of \eqn{\tau_3} and \eqn{\tau_4} can be to consider them formally in or out of the attainable \eqn{\{\tau_3, \tau_4\}} domain.}
    \item{verbose}{A logical to control a level of diagnostic output.}
-   \item{trackoptim}{A logical to control specific messaging through each iteration of the objective function.}}
+   \item{trackoptim}{A logical to control specific messaging through each iteration of the objective function.}
+  \item{...}{Other arguments to pass.}
+}
 \value{
   An \R \code{list} is returned.
 

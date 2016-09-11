@@ -5,10 +5,11 @@
 This function estimates the parameters of the Slash distribution from the trimmed L-moments (TL-moments) having trim level 1. The relations between distribution parameters and TL-moments are shown under \code{\link{lmomsla}}.
 }
 \usage{
-parsla(lmom)
+parsla(lmom, ...)
 }
 \arguments{
   \item{lmom}{A TL-moment object from \code{\link{TLmoms}} with \code{trim=1}.}
+  \item{...}{Other arguments to pass.}
 }
 \value{
   An \R \code{list} is returned.

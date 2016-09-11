@@ -1,7 +1,7 @@
 "add.lmomco.axis" <-
 function(side=1, twoside=FALSE,
          side.type=c("NPP", "RI", "SNV"), otherside.type=c("NA", "RI", "SNV", "NPP"),
-         alt.lab=NA,
+         alt.lab=NA, alt.other.lab=NA, npp.as.aep=FALSE,
          NPP.control=NULL, RI.control=NULL, SNV.control=NULL, ...) {
 
    other.side <- switch(as.character(side), "1"=3, "2"=4, "3"=1, "4"=1)
@@ -24,8 +24,10 @@ function(side=1, twoside=FALSE,
    }
 
    if(is.null(NPP.control)) {
-      the.label <- ifelse(is.na(alt.lab), "NONEXCEEDANCE PROBABILITY", alt.lab)
+      the.label       <- ifelse(is.na(alt.lab),       "NONEXCEEDANCE PROBABILITY", alt.lab)
+      the.other.label <- ifelse(is.na(alt.other.lab), "EXCEEDANCE PROBABILITY",    alt.other.lab)
       NPP.control <- list(label=the.label,
+                          other.label=the.other.label,
                           probs=my.nonexceeds(minors=TRUE),
                           probs.label=my.nonexceeds(minors=FALSE),
                           digits=3, line=3, as.exceed=FALSE)
@@ -51,11 +53,21 @@ function(side=1, twoside=FALSE,
          the.true.NPP.lab <-     NPP.lab
       }
       qNPP <- qnorm(NPP); qNPP.lab <- qnorm(NPP.lab)
-      NPP.lab <- format(the.true.NPP.lab, nsmall=NPP.control$digits)
+      if(npp.as.aep) {
+        NPP.lab <- format(1-the.true.NPP.lab, nsmall=NPP.control$digits)
+      } else {
+        NPP.lab <- format(  the.true.NPP.lab, nsmall=NPP.control$digits)
+      }
       # By placing tcl last (after ...), its value will trump that potentially in ...
+
       Axis(qNPP,     at=qNPP,     labels=NA,      side=side, ..., tcl=0.8*tcl)
       Axis(qNPP.lab, at=qNPP.lab, labels=NPP.lab, side=side, ..., tcl=1.3*tcl)
-      mtext(NPP.control$label, line=NPP.control$line, side=side)
+      if(npp.as.aep) {
+        mtext(NPP.control$other.label, line=NPP.control$line, side=side)
+      } else {
+        mtext(NPP.control$label, line=NPP.control$line, side=side)
+      }
+
       if(twoside) {
          Axis(qNPP,     at=qNPP,     labels=NA,      side=other.side, ..., tcl=0.8*tcl)
          Axis(qNPP.lab, at=qNPP.lab, labels=NPP.lab, side=other.side, ..., tcl=1.3*tcl)

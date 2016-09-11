@@ -3,7 +3,7 @@ function(lmom, checklmom=TRUE,
          method=c("A", "DG", "ADG"),
          sqrt.t3t4=TRUE, eps=1e-4,
          checkbounds=TRUE, kapapproved=TRUE,
-         A.guess=NULL, K.guess=NULL, H.guess=NULL) {
+         A.guess=NULL, K.guess=NULL, H.guess=NULL,...) {
 
     method <- match.arg(method)
 

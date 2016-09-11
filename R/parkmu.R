@@ -2,7 +2,7 @@
 function(lmom, checklmom=TRUE, checkbounds=TRUE,
          alsofitT3=FALSE, alsofitT3T4=FALSE, alsofitT3T4T5=FALSE,
          justfitT3T4=TRUE, boundary.tolerance=0.001,
-         verbose=FALSE, trackoptim=TRUE) {
+         verbose=FALSE, trackoptim=TRUE,...) {
 
    if(alsofitT3T4T5) alsofitT3T4 <- alsofitT3 <- FALSE
    if(alsofitT3T4)   alsofitT3   <- FALSE

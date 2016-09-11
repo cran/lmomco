@@ -4,7 +4,6 @@ function(make.labs=FALSE, logs=c(2, 3, 4, 5, 6, 7, 8, 9), side=1,
 
    ifelse(side == 2 | side == 4, interval <- par()$usr[3:4],
                                  interval <- par()$usr[1:2])
-
    interval <- 10^interval
 
    other.side <- switch(as.character(side), "1"=3, "2"=4, "3"=1, "4"=1)

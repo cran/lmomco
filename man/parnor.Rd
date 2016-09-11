@@ -7,12 +7,13 @@ This function estimates the parameters of the Normal distribution given the L-mo
 There are interesting parallels between \eqn{\lambda_2} (L-scale) and \eqn{\sigma} (standard deviation). The \eqn{\sigma} estimated from this function will not necessarily equal the output of the \code{sd} function of \R, and in fact such equality is not expected. This disconnect between the parameters of the Normal distribution and the moments (sample) of the same name can be most confusing to young trainees in statistics. The Pearson Type III is similar. See the extended example for further illustration.
 }
 \usage{
-parnor(lmom, checklmom=TRUE)
+parnor(lmom, checklmom=TRUE, ...)
 }
 \arguments{
   \item{lmom}{An L-moment object created by \code{\link{lmoms}}
 or \code{\link{vec2lmom}}.}
   \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{\link{are.lmom.valid}} function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check.}
+  \item{...}{Other arguments to pass.}
 }
 \value{
   An \R \code{list} is returned.

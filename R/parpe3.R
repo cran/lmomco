@@ -1,5 +1,5 @@
 "parpe3" <-
-function(lmom,checklmom=TRUE) {
+function(lmom,checklmom=TRUE,...) {
     para <- vector(mode="numeric", length=3)
     names(para) <- c("mu","sigma","gamma")
 

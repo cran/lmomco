@@ -11,11 +11,12 @@ The \eqn{\lambda_1} (mean) is most straightforward
 for which the terms to the right of the multiplication symbol are uniquely a function of \eqn{\tau} and precomputed for tabular lookup and interpolation from \file{sysdata.rdb} (\env{.lmomcohash$RiceTable}). Parameter estimation also relies directly on tabular lookup and interpolation to convert \eqn{\tau} to \eqn{\mathrm{SNR}}. The file \file{SysDataBuilder.R} provides additional technical details.
 }
 \usage{
-parrice(lmom, checklmom=TRUE)
+parrice(lmom, checklmom=TRUE, ...)
 }
 \arguments{
   \item{lmom}{An L-moment object created by \code{\link{lmoms}} or \code{\link{vec2lmom}}.}
   \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{\link{are.lmom.valid}} function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check. However, the end point of the Rice distribution for high \eqn{\nu/\alpha} is not determined here, so it is recommended to leave \code{checklmom} turned on.}
+  \item{...}{Other arguments to pass.}
 }
 \value{
   An \R \code{list} is returned.

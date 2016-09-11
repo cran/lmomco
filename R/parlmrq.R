@@ -1,5 +1,5 @@
 "parlmrq" <-
-function(lmom, checklmom=TRUE) {
+function(lmom, checklmom=TRUE,...) {
     para <- vector(mode="numeric", length=2)
     names(para) <- c("mu","alpha")
     if(length(lmom$L1) == 1) { # convert to named L-moments

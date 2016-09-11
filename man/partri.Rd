@@ -11,11 +11,12 @@ for estimation of the three parameters (\eqn{\nu}, minimum; \eqn{\omega}, mode; 
 The function is designed to support both left- or right-hand right triangular shapes because of (1) \code{paracheck} argument availability in \code{\link{lmomtri}}, (2) the sorting of the numerical estimates if the mode is no compatable with either of the limits, and (3) the snapping of \eqn{\nu = \omega \equiv (\nu^\star + \omega^\star)/2} when \eqn{\hat\tau_3 > 0.142857} or \eqn{\psi = \omega \equiv (\psi^\star + \omega^\star)/2} when \eqn{\hat\tau_3 < 0.142857} where the \eqn{\star} versions are the optimized values if the \eqn{\tau_3} is very near to its numerical bounds.
 }
 \usage{
-partri(lmom, checklmom=TRUE)
+partri(lmom, checklmom=TRUE, ...)
 }
 \arguments{
   \item{lmom}{An L-moment object created by \code{\link{lmoms}} or \code{\link{vec2lmom}}.}
   \item{checklmom}{Should the \code{lmom} be checked for validity using the \code{\link{are.lmom.valid}} function. Normally this should be left as the default and it is very unlikely that the L-moments will not be viable (particularly in the \eqn{\tau_4} and \eqn{\tau_3} inequality). However, for some circumstances or large simulation exercises then one might want to bypass this check.}
+  \item{...}{Other arguments to pass.}
 }
 
 \value{

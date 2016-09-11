@@ -1,5 +1,5 @@
 "pargep" <-
-function(lmom, checklmom=TRUE, checkdomain=TRUE, maxit=10, verbose=FALSE) {
+function(lmom, checklmom=TRUE, checkdomain=TRUE, maxit=10, verbose=FALSE,...) {
 
    "canGEPsingle" <- function(t2, t3) {
       "T3geplo" <- function(t2) {

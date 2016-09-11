@@ -1,7 +1,8 @@
 "parrevgum" <-
-function(lmom,zeta=1,checklmom=TRUE) {
+function(lmom,zeta=1,checklmom=TRUE,...) {
    # L-moments need to be Type-B
-   euler <- 0.577215664901532861
+   # euler <- print(-digamma(1), digits=15)
+   euler <- 0.5772156649015323 # Euler's constant
 
    # Exponential Integral as defined by Hosking (1995, p. 558, A.9)
    Ei <- function(X) {
