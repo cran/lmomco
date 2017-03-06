@@ -11,9 +11,7 @@ function(x,para) {
        f <- 1/(1+exp(-Y))
     } else {
        ARG <- 1-K*Y
-       ops <- options(warn = -1)
-       Y <- -log(ARG)/K
-       ops <- options(ops)
+       Y <- suppressWarnings( -log(ARG)/K )
        f <- 1/(1+exp(-Y))
     }
     if(K < 0) {

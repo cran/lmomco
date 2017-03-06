@@ -40,7 +40,6 @@ Hosking, J.R.M., and Wallis, J.R., 1997, Regional frequency analysis---An approa
 \seealso{\code{\link{pargum}}, \code{\link{cdfgum}}, \code{\link{pdfgum}}, \code{\link{quagum}} }
 \examples{
 lmr <- lmoms(c(123,34,4,654,37,78))
-lmr
 lmomgum(pargum(lmr))
 }
 \keyword{L-moment (distribution)}

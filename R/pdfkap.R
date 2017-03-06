@@ -12,9 +12,7 @@ function(x,para) {
    Y  <- (x - XI)/A
    if(K != 0) {
       Y <- 1 - K*Y
-      ops <- options(warn=-1)
-      Y <- (1-1/K)*log(Y)
-      options(ops)
+      Y <- suppressWarnings((1-1/K)*log(Y))
    }
    Y <- exp(-Y)
    f <- Y/A * Fs^(1-H)

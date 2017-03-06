@@ -1,5 +1,5 @@
 "parln3" <-
-function(lmom, zeta=NULL, checklmom=TRUE,...) {
+function(lmom, zeta=NULL, checklmom=TRUE, ...) {
 
     if(length(lmom$L1) == 0) { # convert to named L-moments
       lmom <- lmorph(lmom)     # nondestructive conversion!
@@ -29,9 +29,9 @@ function(lmom, zeta=NULL, checklmom=TRUE,...) {
            warning("L-skew is zero, try using the Generalized Normal distribution, gno, instead");
            return()
         }
-        gno   <- pargno(lmom)
+        gno   <- pargno(lmom, checklmom=FALSE)
         sigma <-  -gno$para[3]
-        eta   <- gno$para[2]/sigma
+        eta   <-   gno$para[2]/sigma
         mu    <- log(eta)
         para  <- c(gno$para[1] - eta, mu, sigma)
     }

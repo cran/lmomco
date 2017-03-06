@@ -166,11 +166,12 @@ function(x, type, para.int=NULL, ties=c("bernstein", "rounding", "density"),
      if(is.null(lmomco.para)) return(Inf) # trap if bad parameters
      uu <- c(0,plmomco(x, lmomco.para),1) # padding the edges
      dd <- diff(uu) # the deltas, length shrinks by one
+     dd[is.nan(dd)] <- 0 # this is a trap in case NaN leak through on performance of the CDF
      if(ties.method == "density") {
         dd[dd == 0] <- dlmomco(x[dd == 0], lmomco.para)
      }
      M <- sum(the.cfunc(dd))
-     #if(! silent) message(" M=",M) # note M=0 will be shown but overrided
+     if(! silent) message(" M=",M) # note M=0 will be shown but overrided
      if(M == 0) return(Inf) # this is key to keeping the simplex alive!
      return(M)
   }
@@ -186,7 +187,7 @@ function(x, type, para.int=NULL, ties=c("bernstein", "rounding", "density"),
   # WHA would instinctively do.
 
   rt <- NULL
-  try(rt <- optim(par=ptransf(para.int$para), fn=afunc, x=x, n=n), silent=silent)
+  try(rt <- optim(par=ptransf(para.int$para), fn=afunc, x=x, n=n, ...), silent=silent)
   if(is.null(rt)) {
      warning("optim() attempt is NULL")
      return(NULL)

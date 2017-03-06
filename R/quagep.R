@@ -10,11 +10,10 @@ function(f, para, paracheck=TRUE) {
     H <- para$para[3]
 
     ix <- seq(1:length(f))
-    ops <- options(warn=-1)
-    x <- -B * log(1 + (1/H) * log(1 - f^(1/K) * (1-exp(-H)) ) )
+    x <- suppressWarnings(-B * log(1 + (1/H) * log(1 - f^(1/K) * (1-exp(-H)) ) ))
     for(i in ix[is.nan(x)]) {
-       warning("The ",i,"(th) value of 'f' results in NaN (assuming then f == 1), ",
-               "decrementing from the Machine's small to an f that just hits non NaN")
+       #warning("The ",i,"(th) value of 'f' results in NaN (assuming then f == 1), ",
+       #        "decrementing from the Machine's small to an f that just hits non NaN")
        j <- 0
        while(1) {
           j <- j + 1
@@ -26,7 +25,6 @@ function(f, para, paracheck=TRUE) {
           }
        }
     }
-    options(ops)
     return(x)
 }
 

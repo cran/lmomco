@@ -43,16 +43,9 @@ Generalized Pareto distributions.
 See my monograph on L-moments available at a near zero-royalty price at
 http://www.amazon.com/Distributional-Statistics-Environment-Statistical-Computing/dp/1463508417/
 
-wha (March 5, 2014)
+wha (March 5, 2016)
 
 See inst/doc/WARRANTY for lack-of-warranty information.
 
 See the excellent R-package Lmoments by Juha Karvanen.
 See the excellent R-package lmoms by J.R.M. Hosking.
-
-Note: This is a large package with hundreds of examples. The examples will 
-take considerable time to process on 'R CMD check lmomco'.
-
-Note: Building binaries on MacOSX or the *.tgz files is accomplished by
-R CMD install --build lmomco
-

@@ -8,9 +8,7 @@ function(f,para,paracheck=TRUE) {
     A  <- para$para[2]
     K  <- para$para[3]
 
-    ops <- options(warn=-1)
-    Y <- -log(1 - f)
-    options(ops)
+    Y <- suppressWarnings( -log(1 - f) )
 
     ZERO <- sqrt(.Machine$double.eps) # following Tony Ladson, March 2016
     if(abs(K) > ZERO) Y <- ( 1 - exp(-K*Y) ) / K # following Tony Ladson, March 2016

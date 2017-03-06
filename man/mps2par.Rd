@@ -1,8 +1,8 @@
 \name{mps2par}
 \alias{mps2par}
-\title{Use Maximum Product Spacing to Estimate the Parameters of a Distribution}
+\title{Use Maximum Product of Spacings to Estimate the Parameters of a Distribution}
 \description{
-This function uses the method of maximum product of spacings (MPS; maximum spacing estimation or product of spacing estimation) to estimate the parameters of a distribution. The method is based on maximization of the \emph{geometric mean} of probability spacings in the data where the spacings are defined as the differences between the values of the cumulative distribution function, \eqn{F(x)}, at sequential data indices.
+This function uses the method of maximum product of spacings (MPS; maximum spacing estimation or maximum product of spacings estimation) to estimate the parameters of a distribution. The method is based on maximization of the \emph{geometric mean} of probability spacings in the data where the spacings are defined as the differences between the values of the cumulative distribution function, \eqn{F(x)}, at sequential data indices.
 
 MPS (Dey \emph{et al.}, 2016, pp. 13--14) is an optimization problem formed by maximizing the geometric mean of the spacing between consecutively ordered observations standardized to a U-statistic. Let \eqn{\Theta} represent a vector of parameters for a candidate fit of \eqn{F(x|\Theta)}, and let \eqn{U_i(\Theta) = F(X_{i:n}|\Theta)} be the nonexceedance probabilities of the observed values of the order statistics \eqn{x_{i:n}} for a sample of size \eqn{n}.  Define the differences
 \deqn{D_i(\Theta) = U_i(\Theta) - U_{i-1}(\Theta)\mbox{\ for\ } i = 1, \ldots, n+1\mbox{,}}
@@ -16,7 +16,7 @@ If the initial parameters have a support inside the range of the data, infinity 
 
 It is important to remark that the support of a fitted distribution is not checked within the loop for optimization once spun up. The reasons are twofold: (1) The speed hit by repeated calls to \code{\link{supdist}}, but in reality (2) PDFs in \pkg{lmomco} are supposed to report zero density for outside the support of a distribution (see NEWS) and for the \eqn{-\log(D_i(\Theta)\rightarrow 0) \rightarrow \infty} and hence infinity is returned for that state of the optimization loop and alternative solution will be tried.
 
-As a note, if all \eqn{U} are equally spaced, then \eqn{|M(\Theta)| = I_o = (n+1)\log(n+1)}. This begins the concepts towards goodness-of-fit. The \eqn{M_n(\Theta)} is a form of the Moran-Darling statistic for goodness-of-fit. The \eqn{M_n(\Theta)} as a Normal distribution with
+As a note, if all \eqn{U} are equally spaced, then \eqn{|M(\Theta)| = I_o = (n+1)\log(n+1)}. This begins the concept towards goodness-of-fit. The \eqn{M_n(\Theta)} is a form of the Moran-Darling statistic for goodness-of-fit. The \eqn{M_n(\Theta)} is a Normal distribution with
 \deqn{\mu_M \approx (n+1)[\log(n+1)+\gamma{}] - \frac{1}{2} - \frac{1}{12(n+1)}\mbox{,}}
 \deqn{\sigma_M \approx (n+1)\biggl(\frac{\pi^2}{6\,{}} - 1\biggr)-\frac{1}{2} - \frac{1}{6(n+1)}\mbox{,}}
 where \eqn{\gamma \approx 0.577221} (Euler--Mascheroni constant, \code{-digamma(1)}) or as the definite integral
@@ -85,15 +85,15 @@ The Moran test can be quickly checked with highly skewed and somewhat problemati
 \preformatted{
   gev <- vec2par(c(4,0.3,-0.2), type="gev"); nsim <- 5000
   G <- replicate(nsim, mps2par(rlmomco(100, gev), # extract the p-values
-                               type="gev")$MoranTest$statistics[5])
+                               type="gev")$MoranTest$statistics[4])
   G <- unlist(G) # unlisting required if NULLs came back from mps2par()
   length(G[G <= 0.05])/length(G) # 0.0408 (!=0.05 but some fits not possible)
   V <- replicate(nsim, mps2par(rlmomco(100, gev),
-                               type="nor")$MoranTest$statistics[5])
+                               type="nor")$MoranTest$statistics[4])
   V <- unlist(V) # A test run give 4,518 solutions
   length(V[V <= 0.05])/length(V) # 0.820 higher because not gev used
   W <- replicate(nsim, mps2par(rlmomco(100, gev),
-                               type="glo")$MoranTest$statistics[5])
+                               type="glo")$MoranTest$statistics[4])
   W <- unlist(W)
   length(W[W <= 0.05])/length(W) # 0.0456 higher because not gev used but
   # very close because of the proximity of the glo to the gev for the given
@@ -126,12 +126,13 @@ The \pkg{eva} package provides MPS for GEV and GPD. The approach there does not 
 }
 Let us conclude with an example for the GEV between \pkg{eva} and \pkg{lmomco} and note sign difference in definition of the GEV shape but otherwise a general similarity in results:
 \preformatted{
-  X <- rlmomco(vec2par(c(100,12,-.5), type="gev"), para);pargev(lmoms(X))$para
-       #                  xi                alpha                kappa 
-       #         101.3500961           14.0654618           -0.4923501
-  gevrFit(X, method="mps")$par.ests
-       #Location (Intercept)    Scale (Intercept)    Shape (Intercept) 
-       #         101.0257581           13.8779822            0.5824502 
+  X <- rlmomco(97, vec2par(c(100,12,-.5), type="gev"))
+  pargev(lmoms(X))$para
+       #                  xi                alpha                kappa
+       #         100.4015424           12.6401335           -0.5926457
+  eva::gevrFit(X, method="mps")$par.ests
+       #Location (Intercept)    Scale (Intercept)    Shape (Intercept)
+       #         100.5407709           13.5385491            0.6106928
 }
 }
 \author{ W.H. Asquith}
@@ -214,7 +215,7 @@ mps2par(H590, type="nor", ties="bernstein")$para
 # 34.071424  2.622484 # using a slight variant on their eq. 4.1.
 # 34.071424  2.622614 # using log10offset=3
 # 34.088769  2.690781 # using Bernstein smooth and unaffecting middle of odd tie runs
-# The MoranTest show rejection of the Normal distribution at alpha = 0.05, with the
+# The MoranTest show rejection of the Normal distribution at alpha=0.05, with the
 # "rounding" and "delta=0.005"" and T=63.8 compared to their result of T=63.1,
 # which to be considered that the strategy here is not precisely the same as theirs.}
 
@@ -222,10 +223,13 @@ mps2par(H590, type="nor", ties="bernstein")$para
 # Demonstration of parameter transformation and retransformation
 set.seed(9209) # same seed used under mle2par() in parallel example
 x <- rlmomco(500, vec2par(c(1,1,3), type="gam")) # 3-p Generalized Gamma
-mps2par(x, type="gam", para.int=NULL, silent=FALSE, p=3, # p triggers 3pGenGamma
+guess <- lmr2par(x, type="gam", p=3) # By providing a 3-p guess the 3-p
+# Generalized Gamma will be triggered internally. There are problems passing
+# "p" argument to optim() if that function is to pick up the ... argument.
+mps2par(x, type="gam", para.int=guess, silent=FALSE,
            ptransf=  function(t) { c(log(t[1]), log(t[2]), t[3])},
            pretransf=function(t) { c(exp(t[1]), exp(t[2]), t[3])})$para
-# Reports:       mu     sigma        nu   for some simulated data. 
+# Reports:       mu     sigma        nu   for some simulated data.
 #         0.9997019 1.0135674 3.0259012 }
 }
 \keyword{distribution (parameters)}

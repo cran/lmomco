@@ -8,9 +8,7 @@ function(x,para) {
     Y <- (x - XI)/A
     if(K != 0) {
        ARG <- 1-K*Y
-       ops <- options(warn=-1)
-       Y <- -log(ARG)/K
-       options(ops)
+       Y <- suppressWarnings(-log(ARG)/K)
     }
     f <- exp(K*Y - Y^2/2)/(A*sqrt(2*pi))
 

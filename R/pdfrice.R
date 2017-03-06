@@ -25,10 +25,8 @@ function(x,para) {
 
    TMP  <- x/(A^2) * exp( -(x^2 + V^2) / (2*A^2) )
    toIo <- x*B
-   ops  <- options(warn=-1)
-   Bo   <- besselI(toIo, nu=0, expon.scaled = TRUE)
-   f    <- exp(log(TMP) + (log(Bo) + toIo))
-   options(ops)
+   Bo   <- suppressWarnings(besselI(toIo, nu=0, expon.scaled = TRUE))
+   f    <- suppressWarnings(exp(log(TMP) + (log(Bo) + toIo)))
 
    names(f) <- NULL
    f[! is.finite(f)] <- NA

@@ -12,9 +12,7 @@ function(x,para) {
     Y <- (x-XI)/A
     if(K != 0) {
        ARG <- 1-K*Y
-       ops <- options(warn = -1)
-       Y <- -log(ARG)/K
-       ops <- options(ops)
+       Y <- suppressWarnings( -log(ARG)/K )
     }
     f <- 0.5+0.5*erf(Y*RTHALF)
     if(K < 0) {

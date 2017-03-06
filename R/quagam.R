@@ -18,7 +18,7 @@ function(f,para,paracheck=TRUE) {
        # the 1-f is commented out for the log-Normal (for a nonvectorized nu)
        # only for a 2nd check as used in pdfgam
        theta <- 1/(SIGMA^2*abs(NU)^2)
-       opts <- options(warn=-1); lGT <- lgamma(theta); options(opts)
+       lGT <- suppressWarnings(lgamma(theta))
        if(! is.finite(lGT) | abs(NU) < 1e-06) {
          # Call taken from inspection of gamlss.dist::qGG and gamlss.dist::qNO
          z <- qnorm(f, mean=log(MU), sd=SIGMA)

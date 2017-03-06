@@ -44,12 +44,12 @@ function(x, para, paracheck=TRUE) {
                     tmpA <- 4*M/exp(2*M*(1+xi^2))
                     tmpB <- sqrt(2*M*pi)/exp(M)
                     toI <- 4*M*xi
-                    ops <- options(warn=-1)
-                    B1 <- besselI(toI, nu=1)
+
+                    B1 <- suppressWarnings(besselI(toI, nu=1))
                     #if(! is.finite(B1)) B1 <- 0
-                    B2 <- besselI(M, nu=1/2)
+                    B2 <- suppressWarnings(besselI(M, nu=1/2))
                     #if(! is.finite(B2)) B2 <- 0
-                    options(ops)
+
                     V <- tmpA*B1 + (1 - tmpB*B2)
                     ifelse(xi < SMALL, return(    diracdelta),
                                        return(V - diracdelta))
@@ -57,9 +57,7 @@ function(x, para, paracheck=TRUE) {
                     if(MU == 1) {
                        tmpB <- 2 * (1+K) / exp(K) * xi * exp( -(1+K) * xi^2)
                        toI <- 2 * sqrt(K*(1+K)) * xi
-                       ops <- options(warn=-1)
-                       B <- besselI(toI, nu=0, expon.scaled=TRUE)/exp(-toI)
-                       options(ops)
+                       B <- suppressWarnings(besselI(toI, nu=0, expon.scaled=TRUE)/exp(-toI))
                     } else if(K == 0) {
                        tmpB <- 2*MU^MU / gamma(MU) * xi^(2*MU - 1) * exp( -MU * xi^2 )
                        B <- 1
@@ -67,9 +65,7 @@ function(x, para, paracheck=TRUE) {
                        tmpA <- 2 * MU * ( 1 + K )^( (MU+1) / 2 ) / ( K^( (MU-1) / 2 ) * exp( MU * K ) )
                        tmpB <- tmpA * xi^MU * exp( -MU * (1+K) * xi^2 )
                        toI  <- 2 * MU * sqrt( K * (K+1) ) * xi
-                       ops <- options(warn=-1)
-                       B <- besselI(toI, nu=MU-1, expon.scaled=TRUE)/exp(-toI)
-                       options(ops)
+                       B <- suppressWarnings(besselI(toI, nu=MU-1, expon.scaled=TRUE)/exp(-toI))
                     }
                  }
                  f <- tmpB * B

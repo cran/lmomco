@@ -20,9 +20,10 @@ function(x, nmom=5, trim=NULL, leftrim=NULL, rightrim=NULL) {
     trim <- 0
   }
 
+  # This traps for the entire sample being the same but this does leak if whole
+  # sample is not but after trimming is!
   if(length(unique(x)) == 1) stop("all values are equal--TLmoments can not be computed")
 
-  t <- trim
   x <- sort(x)
   n <- length(x)
 
@@ -37,12 +38,10 @@ function(x, nmom=5, trim=NULL, leftrim=NULL, rightrim=NULL) {
     lr <- lambda$lambda
     L[r] <- ifelse(is.nan(lr), NA, lr)
   }
-  
+
   if(nmom >= 2) R[2] <- L[2]/L[1]
 
-  if(nmom >= 3) {
-    for(r in seq(3,nmom)) R[r] <- ifelse(! is.na(L[r]) && L[r] == 0, NA, L[r]/L[2])
-  }
+  if(nmom >= 3) for(r in seq(3,nmom)) R[r] <- ifelse(!is.finite(L[r]/L[2]), NA, L[r]/L[2])
 
   z <- list(lambdas = L, ratios = R,
             trim=trim, leftrim=leftrim,

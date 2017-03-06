@@ -12,7 +12,7 @@ function(x,para) {
        MU <- para$para[1]; SIGMA <- para$para[2]; NU <- para$para[3]
        z <- (x/MU)^NU
        theta <- 1/(SIGMA^2*abs(NU)^2) # only for a 2nd check as used in pdfgam
-       opts <- options(warn=-1); lGT <- lgamma(theta); options(opts)
+       lGT <- suppressWarnings(lgamma(theta))
        if(! is.finite(lGT) | abs(NU) < 1e-06) {
          # Call taken from inspection of gamlss.dist::pGG and gamlss.dist::pNO
          f <- pnorm(z, mean=log(MU), sd=SIGMA)

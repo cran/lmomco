@@ -15,9 +15,7 @@ function(f,para,paracheck=TRUE) {
        x <- qexp(f, rate=B)
     } else { # non stationary
        BU <- 1 - exp(-B*U)
-       ops <- options(warn=-1)
-       x <- -log(1 - f*BU)/B
-       options(ops)
+       x <- suppressWarnings(-log(1 - f*BU)/B)
        # is the below trap for finiteness needed?
        x[! is.finite(x)] <- -log(.Machine$double.eps) / B
     }

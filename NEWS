@@ -2,6 +2,56 @@
 NEWS for R Package "lmomco"
 --------------------------------------------------------------------------------
 
+Version 2.2.6--03/06/2017: (Daffodil cluster)
+1. Documentation revision to lmomco-package.Rd showing quick primer to the
+      package and how to make L-moments, MLE, and MPS estimates for a GEV
+      sample and compare to the same purpose methods from the eva package.
+2. Added passing of "..." argument into optim() within mle2par() and mps2par().
+      Originally, this was not made because of constraints of working with the
+      3-p Generalized Gamma using the p=3 argument. Now the Examples in the
+      pargam() function show that an init.para argument to mps2par() and by
+      extension mle3par() when the initial parameters are already three para-
+      meters wide then the 3-p version can be triggered without having to get
+      "p=3" passed into mle2par() or mps2par().
+3. Presumed Enhancement: Added a trap to convert the Deltas of the U-statistics
+      for mps2par() when NaN to zero. Some further testing indicates that
+      during optimization that parameter space could get accessed for some
+      distributions that cause NaN to be returned from the CDF. The zeros in
+      turn get hit with log(Delta), which the triggers Inf that is fed back to 
+      the simplex and a portion of inappropriate parameter space gets flagged
+      during the optimization. This trap is anticipated to enhance the robust-
+      ness of the MPS algorithm.
+4. BUG FIX: TLmoms() was trapping for NaN back in NEWS:2.2.2:27. The trap was
+      incorrectly formed and an untrimmed symmetrical data set could cause
+      TAU3 = NA when LAMBDA3 == 0 and LAMBDA2 != 0. Berry Boessenkool
+      provided discovery through an unrelated cascade of errors.
+5. Enhancement: are.parln3.valid() could receive non-NA parameters incoming
+      from LN3 estimation for L-skew too large for the underlying pargno()
+      algorithm providing LN3 support. These non-NA leak through to the
+      conditionals on the parameter values. Rearrangement of tests made so that
+      if standard deviation is zero, which is representative of the leak, then
+      immediate return of FALSE is made. Also added a finiteness check on LAM1 
+      and LAM2. Berry Boessenkool provided discovery of a cascade of errors
+      when extremely high L-skew was fed to parln3().
+6. Enhancement: removed extra check on L-moment validity in parln3.R by calling
+      pargno(..., checklmom=FALSE).
+7. Enhancement: removed most of the code snippets that look something like:
+         opts <- options(warn=-1); Y <- log(X); options(opts) # X might be < 0
+      as a wrapper on operations that could trigger NaNs. Replaced with code
+      like this: Y <- suppressWarnings(X). Streamlines the overall code base.
+      About 20 functions involved, so about 40 lines of code removed.
+      Berry Boessenkool provided this suggestion.
+8. BUG FIX: Infinite L-moments could leak through are.lmom.valid() as testing
+      TRUE. For example, the sample L-moments of logarithms of data having a 
+      zero. This should have been fixed years ago for even the author would add
+      elaborate checking in applications. This feature should have long had its
+      own implementation. Thanks to Brian Breaker for pushing the issue.
+15. Added a large simulation example within lmomGEV.Rd showing how successive
+      definitions of maxima of n-events per year converge to GEV families no
+      matter what is the parent distribution. Thanks for M.G. Schaeferf for
+      demonstrating the idea at a March 2017 meeting.
+
+
 Version 2.2.5--September 9, 2016: ("PG that Turtle Biscuit" Release)
 1. PERFORMANCE FIX: pdfpe3() a certain combination of SIGMA and GAMMA
       parameters could leak through and cause later div0, for which a passage
@@ -16,7 +66,7 @@ Version 2.2.5--September 9, 2016: ("PG that Turtle Biscuit" Release)
       results of match.arg(). The variable ties was still being used in a value
       check expecting a scalar (the result of match.arg) but ties was remaining
       the vector as set by the function declaration. Trivially small issue.
-4. Added another example to are.lmom.valid() to show a bail out attempt at
+4. Added another example to are.lmom.valid() to show a bail-out attempt at
       L-moment computation via probability-weighted moments computed by
       plotting-position formula.
 5. Added the "null.on.not.converge" argument to mle2par() and mps2par().
@@ -59,14 +109,14 @@ Version 2.2.3--May 31, 2016
 2. BUG FIX: malformed call to supdist() in cdfgld(), Berry Boessenkool
       provided discovery and the fix.
 3. SINISTER R BEHAVIOR(?): Code flow changes in qua2ci.cov() that caused a
-      certain warning() related to the Weibull distribution call.  Could not
+      certain warning() related to the Weibull distribution call. Could not
       trace the source of the problem, but Weibull, which requires a pass
       through pargev(), was ending up with Inf for the parameters. However,
       the cause simply is not known. The problem in qua2ci.cov() was buried
       inside the quaf construction often for the last simulation but the
       simulated L-moments convert properly to Weibull if intercepted. WHA
       thinks the issue was an ifelse() construction at the end of the
-      sapply() for quaf. This code was pretty well vetted.  WHA wonders if a
+      sapply() for quaf. This code was pretty well vetted. WHA wonders if a
       change in R version caused the problem, or WHA has misunderstood a
       subtlety related to the ifelse() construction.
 4. Added mps2par() for the maximum product spacing method for parameter
@@ -86,7 +136,7 @@ Version 2.2.2--March 20, 2016 (The Density-NA ==> 0 Release [see Item 7])
       desired. Changes to lmomtri() and partri() to avoid spraying of error
       messages from partri()-->lmomtri()-->expect.max.ostat()-->integrate() if
       outside the acceptable parameter range. Also, return vector of NA from
-      partri() if abs(Tau3) is too big.  All of this for the distribution is
+      partri() if abs(Tau3) is too big. All of this for the distribution is
       very subtle but issues were identified by Berry Boessenkool. Thanks.
 5. BUG FIX: Fixed unity erroneously being returned by pdfgpa(), which was
       discovered from experiments with Asymmetric Triangular distribution near
@@ -169,9 +219,9 @@ Version 2.2.2--March 20, 2016 (The Density-NA ==> 0 Release [see Item 7])
 36. BUG FIX: Tony Labson was testing with deep close to k=0 in quagev() and
       required a trapping of effectively close enough to k=0 to not cause
       oscillation in numerical routines. Because of core relationships, similar
-      modifications made to quaglo() and quagp().  For the GNO, quagno() had a
+      modifications made to quaglo() and quagp(). For the GNO, quagno() had a
       commented out trap like that needed by Tony for the GEV but was using the
-      finiteness of 1/k.  Tony's example for GEV would not work for GNO, so
+      finiteness of 1/k. Tony's example for GEV would not work for GNO, so
       quagno() changed too.
 
 
@@ -233,7 +283,7 @@ Version 2.1.2--January 31, 2015 (never pushed to CRAN for trival but new checks)
 
 Version 2.1.1--May 31, 2014 (The Concordance Release and Residual Life Release)
 1. Enormous effort in indexing consistency and new keywords for most of the Rd
-      files (see no. 4).  George R. Herrmann provided a correction to
+      files (see no. 4). George R. Herrmann provided a correction to
       lmom.ub.Rd.
 2. Added another reference to the Govindarajulu distribution documentation:
       Nair et al. (2012).
@@ -292,10 +342,10 @@ Version 2.0.1--March 14, 2014
       a "next" associated with the conditional: H <= 0 & G >= 0 when
       nonexceedance probability was F=0.
 2. Added the "force.exact" (default TRUE) and "nsim" arguments to
-      lmoms.bootbarvar().  It seems that numerical problems are firmly
+      lmoms.bootbarvar(). It seems that numerical problems are firmly
       occurring in matrices at about a sample size of 50. So a hardwired
       threshold hold between the exact analytical and simulation-only
-      estimates of the variances is set at 40.  This can be superseded by
+      estimates of the variances is set at 40. This can be superseded by
       force.exact---when simulation is used only the observed L-moments and
       the variances via simulation are reported. The much lengthier output
       results when the exact method is used are set to NA.
@@ -689,7 +739,7 @@ Version 1.4.1--July 7, 2011
      that the quantile functions remain accessible when TL-moment
      computations are desired. This argument had long existed for the GLD
      distribution because the parameter range changes depending on the
-     TL-moment trimming level.  These paracheck changes are made now in
+     TL-moment trimming level. These paracheck changes are made now in
      preparation for TL-moment computation of trimmed distributions.
 2. Added tlmrcau(), tlmrexp(), tlmrgev(), tlmrglo(), tlmrgno(), tlmrgpa(),
      tlmrgum(), tlmrln3(), tlmrnor(), tlmrpe3(), and tlmrray().
@@ -1054,7 +1104,7 @@ Version 0.90---October 2, 2007
      function did not work for negative skew. Whew! Problem was discovered
      during development of pdfpe3().
 8. Added probability density functions for cau, exp, gam, gev, gld, glo,
-     gno, gpa, gum, nor, pe3.  More to come---in another release.
+     gno, gpa, gum, nor, pe3. More to come---in another release.
 9. Added par2pdf().
 
 
@@ -1193,7 +1243,7 @@ Version 0.82---July 13, 2006
      confidence intervals for a vector of nonexceedance probabilities, a given
      sample size, and a specified parent using Monte Carlo simulation.
 6. Recognition that the quaCCC() functions had been extended into the features
-     provided by freq.curve.CCC() functions.  Thus, all freq.curve.CCC()
+     provided by freq.curve.CCC() functions. Thus, all freq.curve.CCC()
      functions were removed from the package.
 7. BUG FIX: on F=0||1 probabilities into quape3(). Bug occurred in extension
      of function to handle a vector of probabilities during development of

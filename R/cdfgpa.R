@@ -12,9 +12,7 @@ function(x,para) {
        f <- 1-exp(-Y)
     } else {
        ARG <- 1-K*Y
-       ops <- options(warn = -1)
-       Y <- -log(ARG)/K
-       options(ops)
+       Y <- suppressWarnings( -log(ARG)/K )
        f <- (1-exp(-Y))
     }
     f[X <= 0] <- 0

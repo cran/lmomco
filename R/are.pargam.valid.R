@@ -4,11 +4,11 @@ function(para,nowarn=FALSE) {
     if(any(is.na(para$para))) return(FALSE)
 
     op <- options()
+    if(nowarn == TRUE) options(warn=-1)
     GO <- TRUE
     if(length(para$para) == 2) {
-       ALPHA <- para$para[1] 
+       ALPHA <- para$para[1]
        BETA  <- para$para[2]
-       if(nowarn == TRUE) options(warn=-1) 
        if(ALPHA <= 0) {
          warning("Parameter ALPHA is not > 0, invalid")
          GO <- FALSE

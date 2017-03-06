@@ -41,6 +41,9 @@ TL <- TLmoms(X1,nmom=6,trim=1)
 # NaN but these are intercepted and systematically changed to NAs.
 TLmoms(c(1,2,2,2,4,4), leftrim=1, rightrim=2, nmom=6)$lambdas
 # [1]  2  0  0 NA NA NA
+
+# Example of zero skewness (Berry Boessenkool)
+TLmoms(c(3.2, 4.4, 4.8, 2.6, 3.6))
 }
 \keyword{L-moment (sample)}
 \keyword{L-moment (trimmed sample)}

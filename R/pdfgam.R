@@ -19,7 +19,7 @@ function(x,para) {
        MU <- para$para[1]; SIGMA <- para$para[2]; NU <- para$para[3]
        Z <- (x/MU)^NU
        theta <- 1/(SIGMA^2*abs(NU)^2)
-       opts <- options(warn=-1); lGT <- lgamma(theta); options(opts)
+       lGT <- suppressWarnings(lgamma(theta))
        #abs(NU) is from gamlss.dist:dGG sources
        if(! is.finite(lGT) | abs(NU) < 1e-06) {
           # taken from gamlss.dist:dGG sources
