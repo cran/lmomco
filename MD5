@@ -1,6 +1,6 @@
-7e4a5bba9ee0aa3bcf5b38f04f3513ce *DESCRIPTION
+ba70901fa1835c2cc76854dca663710e *DESCRIPTION
 c00de16871b4cce625d3a26d6e8cbee8 *NAMESPACE
-310aa9006b18fc5f44e99a8c8954965a *NEWS
+d585c825b92ebe35460b0cfe0850c553 *NEWS
 91c377e3d90235733e3fae0ceaa02130 *R/Apwm2BpwmRC.R
 05baa85151d05dab3e528243a858e0dd *R/BEhypergeo.R
 0bea58b114f9545d4e85853f4a1ba91e *R/Bpwm2ApwmRC.R
@@ -15,7 +15,7 @@ a64d7074ace43847a4d02c842a0cd5c5 *R/TLmom.R
 0da395a34fe9039b05b7864665a1468d *R/TLmoms.R
 1b7b1bfbfaf7aaf06e11c46d4017be53 *R/add.lmomco.axis.R
 29f9fce81dfcb18dd50eba57ecedce02 *R/add.log.axis.R
-acd6e567c390392b89c6043024a95f17 *R/are.lmom.valid.R
+0a131b010e8b5eac9a54cba6a2ff191c *R/are.lmom.valid.R
 57c4820ecff95271b41faf2c563eb469 *R/are.par.valid.R
 2471ddf521951d05b61cbd505a23d4f0 *R/are.paraep4.valid.R
 a4d60c0f189fb642a3f8f21cbf394d73 *R/are.parcau.valid.R

@@ -2,6 +2,13 @@
 NEWS for R Package "lmomco"
 --------------------------------------------------------------------------------
 
+Version 2.2.7--03/07/2017: (Emergency Release)
+1. BUG FIX: are.lmom.valid() from version 2.2.6 had a bug that missing Tau5
+      would short circuit the Tau3-Tau4 consistency check for which that
+      check needed to occur before Tau5 and not after. Author discovered this
+      during algorithmic review of the parkap() function.
+
+
 Version 2.2.6--03/06/2017: (Daffodil cluster)
 1. Documentation revision to lmomco-package.Rd showing quick primer to the
       package and how to make L-moments, MLE, and MPS estimates for a GEV

@@ -20,11 +20,11 @@ function(lmom, checkt3t4=TRUE) {
    if(        abs(lmom$TAU3) >= 1)                  return(FALSE)
    if(    is.null(lmom$TAU4) | is.na(lmom$TAU4))    return(TRUE )
    if(            lmom$TAU4  >= 1 )                 return(FALSE)
-   if(    is.null(lmom$TAU5) | is.na(lmom$TAU5))    return(TRUE )
-   if(        abs(lmom$TAU5) >= 1)                  return(FALSE)
-   if(checkt3t4) {
+   if(checkt3t4) { # This test must come before a Tau5 check! (03/07/2017)
       if(lmom$TAU4 < (5*lmom$TAU3^2 - 1)/4)         return(FALSE)
    }
+   if(    is.null(lmom$TAU5) | is.na(lmom$TAU5))    return(TRUE )
+   if(        abs(lmom$TAU5) >= 1)                  return(FALSE)
    return(TRUE)
 }
 
