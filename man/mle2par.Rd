@@ -16,7 +16,7 @@ mle2par(x, type, para.int=NULL, silent=TRUE, null.on.not.converge=TRUE,
 \arguments{
   \item{x}{A vector of data values.}
   \item{type}{Three character (minimum) distribution type (for example, \code{type="gev"}).}
-  \item{para.int}{Initial parameters as a vector \eqn{\Theta}.}
+  \item{para.int}{Initial parameters as a vector \eqn{\Theta} or as an \pkg{lmomco} parameter \dQuote{object} from say \code{\link{vec2par}}. If a vector is given, then internally \code{\link{vec2par}} is called with distribution equal to \code{type}.}
   \item{silent}{A logical to silence the \code{try()} function wrapping the \code{optim()} function.}
   \item{null.on.not.converge}{A logical to trigging simple return of \code{NULL} if the \code{optim()} function returns a nonzero convergence status.}
   \item{ptransf}{An optional parameter transformation function (see \bold{Examples}) that is useful to guide the optimization run. For example, suppose the first parameter of a three parameter distribution resides in the positive domain, then \cr \code{ptransf(t) = }
@@ -85,7 +85,7 @@ x <- rlmomco(500, vec2par(c(1,1,3), type="gam")) # 3-p Generalized Gamma
 mle2par(x, type="gam", para.int=NULL, silent=FALSE, p=3, # p triggers 3pGenGamma
            ptransf=  function(t) { c(log(t[1]), log(t[2]), t[3])},
            pretransf=function(t) { c(exp(t[1]), exp(t[2]), t[3])})$para
-# Reports:       mu     sigma        nu   for some simulated data. 
+# Reports:       mu     sigma        nu   for some simulated data.
 #         1.0341269 0.9731455 3.2727218 }
 }
 \keyword{distribution (parameters)}

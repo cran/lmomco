@@ -22,10 +22,13 @@ x2xlo(x, leftout=0, a=0, ghost=NULL)
   \item{ppout}{The plotting positions of the subselected values  less than or equal to the \code{leftout} threshold. These plotting positions correspond to those data values in \code{xout}.}
   \item{pp}{The plotting position of the largest value left out of \code{xin}.}
   \item{thres}{The threshold value provided by the argument \code{leftout}.}
+  \item{nin}{Number of values greater than the threshold.}
+  \item{nlo}{Number of values less than or equal to the threshold.}
+  \item{n}{Total number of values: \code{nin} + \code{nlo}.}
   \item{source}{The source of the parameters: \dQuote{x2xlo}.}
 }
 \author{ W.H. Asquith}
-\seealso{ \code{\link{f2flo}}, \code{\link{flo2f}} }
+\seealso{ \code{\link{f2flo}}, \code{\link{flo2f}}, \code{\link{par2qua2lo}} }
 \examples{
 \dontrun{
 set.seed(62)
@@ -59,3 +62,5 @@ legend(.3,1, c("Simulated random variates",
 }
 }
 \keyword{utility (probability)}
+\keyword{conditional probability}
+\keyword{probability (conditional)}

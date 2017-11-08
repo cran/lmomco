@@ -19,6 +19,7 @@ function(x) {
      if(x == "kmu") return("Kappa minus Mu")
      if(x == "kur") return("Kumaraswamy")
      if(x == "lap") return("Laplace")
+     if(x == "lmrq") return("Linear Mean Residual Quantile Function")
      if(x == "ln3") return("log-Normal3")
      if(x == "nor") return("Normal")
      if(x == "pe3") return("Pearson Type III")

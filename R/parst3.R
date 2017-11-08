@@ -1,6 +1,6 @@
 "parst3" <-
 function(lmom, checklmom=TRUE,...) {
-    para <- vector(mode="numeric", length=3)
+    para <- rep(NA,3)
     names(para) <- c("xi","alpha","nu")
 
     if(length(lmom$lambdas) == 0) { # convert to named L-moments

@@ -7,7 +7,7 @@ This function computes the cumulative probability or nonexceedance probability o
 where \eqn{Y} is
 \deqn{Y = -\kappa^{-1} \log\left(1 - \frac{\kappa(x-\xi)}{\alpha}\right)\mbox{,}}
 for \eqn{\kappa \ne 0} and
-\deqn{Y = (x-\xi)/A\mbox{,}}
+\deqn{Y = (x-\xi)/\alpha\mbox{,}}
 for \eqn{\kappa = 0}, where \eqn{F(x)} is the nonexceedance probability for quantile \eqn{x}, \eqn{\xi} is a location parameter, \eqn{\alpha} is a scale parameter, and \eqn{\kappa} is a shape parameter.
 }
 \usage{

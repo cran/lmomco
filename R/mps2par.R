@@ -86,12 +86,20 @@ function(x, type, para.int=NULL, ties=c("bernstein", "rounding", "density"),
   if(is.null(para.int)) {
      lmr <- lmoms(x)
      if(! are.lmom.valid(lmr)) {
-        warning("L-moments of x are not valid, try manual initial parameters")
+        warning("L-moments of x are not valid for initial parameters, ",
+                "try manual initial parameters")
         return(NULL)
      }
      para.int <- lmom2par(lmr, type=type, ...)
      if(is.null(para.int)) {
         warning("could not estimate initial parameters via L-moments")
+        return(NULL)
+     }
+  } else if(is.vector(para.int)) {
+     para.int <- vec2par(para.int, type=type)
+     if(is.null(para.int)) {
+        warning("initial parameters given by vector are not valid for initial parameters, ",
+                "try other initial parameters")
         return(NULL)
      }
   }

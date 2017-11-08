@@ -1,6 +1,6 @@
 "parnor" <-
 function(lmom,checklmom=TRUE,...) {
-    para <- vector(mode="numeric", length=2)
+    para <- rep(NA,2)
     names(para) <- c("mu","sigma")
     if(length(lmom$L1) == 0) { # convert to named L-moments
       lmom <- lmorph(lmom)     # nondestructive conversion!

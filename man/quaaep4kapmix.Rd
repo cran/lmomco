@@ -32,8 +32,8 @@ Asquith, W.H., 2014, Parameter estimation for the 4-parameter asymmetric exponen
 \seealso{\code{\link{par2qua2}}, \code{\link{quaaep4}}, \code{\link{quakap}}, \code{\link{paraep4}}, \code{\link{parkap}}}
 \examples{
 \dontrun{
-F <- c(0.0001, 0.0005, 0.001, seq(0.01,0.99, by=0.01), 0.999,
-       0.9995, 0.9999); Z <- qnorm(F)
+FF <- c(0.0001, 0.0005, 0.001, seq(0.01,0.99, by=0.01), 0.999,
+       0.9995, 0.9999); Z <- qnorm(FF)
 t3s <- seq(0, 0.5, by=0.1); T4step <- 0.02
 pdf("mixture_test.pdf")
 for(t3 in t3s) {
@@ -45,7 +45,7 @@ for(t3 in t3s) {
       kap  <- parkap(lmr)
       if(kap$ifail == 5) next # avoid further work if numeric problems
       aep4 <- paraep4(lmr, method="A")
-      X <- quaaep4kapmix(F, lmr)
+      X <- quaaep4kapmix(FF, lmr)
       if(is.null(X)) next # one last protection
       plot(Z, X, type="l", lwd=5, col=1, ylim=c(-15,15),
            xlab="STANDARD NORMAL VARIATE",

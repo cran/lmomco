@@ -18,16 +18,9 @@ quakap(f, para, paracheck=TRUE)
   Quantile value for nonexceedance probability \eqn{F}.
 }
 \references{
-Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
-distributions using linear combinations of order statistics: Journal
-of the Royal Statistical Society, Series B, v. 52, pp. 105--124.
+Hosking, J.R.M., 1994, The four-parameter kappa distribution: IBM Journal of Reserach and Development, v. 38, no. 3, pp. 251--258.
 
-Hosking, J.R.M., 1996, FORTRAN routines for use with the method of L-moments:
-Version 3, IBM Research Report RC20525, T.J. Watson Research Center,
-Yorktown Heights, New York.
-
-Hosking, J.R.M., and Wallis, J.R., 1997, Regional frequency analysis---An
-approach based on L-moments: Cambridge University Press.
+Hosking, J.R.M., and Wallis, J.R., 1997, Regional frequency analysis---An approach based on L-moments: Cambridge University Press.
 }
 \author{ W.H. Asquith}
 \seealso{\code{\link{cdfkap}}, \code{\link{pdfkap}}, \code{\link{lmomkap}}, \code{\link{parkap}}}

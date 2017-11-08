@@ -8,21 +8,24 @@ P(x) <- (F(x) - pp)/(1-pp)\mathrm{,}
 }
 where the term \eqn{\mathrm{pp}} corresponds to the estimated probability or plotting position of the left-hand threshold.
 
-This function is particularly useful for applications in which zero values in the data set require truncation so that logarithms of the data may be used. But also this function  contributes to the isolation of the right-hand tail of the distribution for analysis.
+This function is particularly useful for applications in which zero values in the data set require truncation so that logarithms of the data may be used. But also this function  contributes to the isolation of the right-hand tail of the distribution for analysis. Finally, \code{f <- f[f >= pp]} is used internally for probability subsetting, so the user does not have to do that with the nonexceedance probability before calling this function. The function \code{\link{f2f}} does similar subsetting without converting \eqn{F(x)} to \eqn{P(x)}. Users are directed to \bold{Examples} under \code{\link{par2qua2lo}} and carefully note how \code{f2flow} and \code{\link{f2f}} are used.
 }
 \usage{
-f2flo(f, pp=NA)
+f2flo(f, pp=NA, xlo=NULL)
 }
 \arguments{
   \item{f}{A vector of nonexceedance probabilities.}
   \item{pp}{The plotting position of the left-hand threshold and recommended to come from \code{\link{x2xlo}}.}
+  \item{xlo}{An optional result from \code{\link{x2xlo}} from which the \code{pp} will be take instead of from the argument \code{pp}.}
 }
 \value{
   A vector of conditional nonexceedance probabilities.
 }
 \author{ W.H. Asquith}
-\seealso{ \code{\link{x2xlo}}, \code{\link{flo2f}} }
+\seealso{ \code{\link{x2xlo}}, \code{\link{flo2f}}, \code{\link{f2f}} }
 \examples{
 # See examples for x2xlo().
 }
 \keyword{utility (probability)}
+\keyword{conditional probability}
+\keyword{probability (conditional)}

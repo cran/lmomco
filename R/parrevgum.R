@@ -13,7 +13,7 @@ function(lmom,zeta=1,checklmom=TRUE,...) {
    }
 
 
-   para <- vector(mode="numeric", length=2)
+   para <- rep(NA,2)
    names(para) <- c("xi","alpha")
 
    if(length(lmom$L1) == 1) { # convert to unnamed L-moments
@@ -23,7 +23,7 @@ function(lmom,zeta=1,checklmom=TRUE,...) {
      warning("B-type L-moments are invalid")
      return()
    }
-   
+
 
    zc <- 1 - zeta
 
@@ -34,14 +34,14 @@ function(lmom,zeta=1,checklmom=TRUE,...) {
      z1 <- Ei(-log(zc))
      z2 <- Ei(-2*log(zc))
    }
-   
+
 
    tmp <- log(2) + z2$value - z1$value
    para[2] <- lmom$lambdas[2]/tmp
 
    tmp <- euler + z1$value
    para[1] <- lmom$lambdas[1] + tmp*para[2]
- 
+
    return(list(type = 'revgum', para=para, zeta=zeta, source="parrevgum"))
 }
 

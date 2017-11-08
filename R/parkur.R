@@ -1,6 +1,6 @@
 "parkur" <-
 function(lmom,checklmom=TRUE,...) {
-   para <- vector(mode="numeric", length=2)
+   para <- rep(NA,2)
    names(para) <- c("alpha","beta")
    if(length(lmom$L1) == 0) { # convert to named L-moments
      lmom <- lmorph(lmom)     # nondestructive conversion!
@@ -8,12 +8,12 @@ function(lmom,checklmom=TRUE,...) {
    if(checklmom & ! are.lmom.valid(lmom)) {
      warning("L-moments are invalid")
      return()
-   } 
-   
+   }
+
    L1 <- lmom$L1
    L2 <- lmom$L2
    EPS <- 1e-6
-   
+
    "afunc" <- function(ab) {
      a <- ab[1]; b <- ab[2]
      B1 <- beta(1+1/a,b)
@@ -23,7 +23,7 @@ function(lmom,checklmom=TRUE,...) {
      error <- sqrt((L1 - tmpL1)^2 + (L2 - tmpL2)^2)
      return(error)
    }
-   
+
    ops <- options(warn = -1)
    root <- try(optim(c(1,1), afunc), silent=TRUE)
    options(ops)

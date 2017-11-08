@@ -1,12 +1,12 @@
 "parexp" <-
 function(lmom,checklmom=TRUE,...) {
-    para <- vector(mode="numeric", length=2)
+    para <- rep(NA,2)
     names(para) <- c("xi","alpha")
     if(checklmom & ! are.lmom.valid(lmom)) {
       warning("L-moments are invalid")
       return()
     }
-    
+
     if(length(lmom$L1) == 0) { # convert to named L-moments
       lmom <- lmorph(lmom)     # nondestructive conversion!
     }

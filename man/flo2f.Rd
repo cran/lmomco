@@ -11,11 +11,12 @@ where the term \eqn{pp} corresponds to the estimated probability or plotting pos
 This function is particularly useful for applications in which zero values in the data set require truncation so that logarithms of the data may be used. But also this function  contributes to the isolation of the right-hand tail of the distribution for analysis by conditionally trimming out the left-hand tail at the analyst's discretion.
 }
 \usage{
-flo2f(f, pp=NA)
+flo2f(f, pp=NA, xlo=NULL)
 }
 \arguments{
   \item{f}{A vector of nonexceedance probabilities.}
   \item{pp}{The plotting position of the left-hand threshold and recommended to come from \code{\link{x2xlo}}.}
+  \item{xlo}{An optional result from \code{\link{x2xlo}} from which the \code{pp} will be take instead of from the argument \code{pp}.}
 }
 \value{
   A vector of converted nonexceedance probabilities.
@@ -23,6 +24,9 @@ flo2f(f, pp=NA)
 \author{ W.H. Asquith}
 \seealso{ \code{\link{x2xlo}}, \code{\link{f2flo}} }
 \examples{
-# See examples for x2xlo().
+flo2f(f2flo(.73,pp=.1),pp=.1)
+# Also see examples for x2xlo().
 }
 \keyword{utility (probability)}
+\keyword{conditional probability}
+\keyword{probability (conditional)}

@@ -31,7 +31,7 @@ and where \eqn{\chi^2_n} is the Chi-Square distribution with \eqn{n} degrees of 
 \deqn{T(\Theta) = \frac{M_n(\Theta) - C_1 + \frac{p}{2}}{C_2}\mbox{,}}
 where the term \eqn{p/2} is a bias correction based on the number of fitted distribution parameters \eqn{p}. The null hypothesis that the fitted distribution is correct is to be rejected if \eqn{T(\Theta)} exceeds a critical value from the Chi-Square distribution. The MPS method has a relation to maximum likelihood (\code{\link{mle2par}}) and the two are asymptotically equivalent.
 
-\bold{Important Remark Concerning Ties}---Ties in the data cause \emph{instant degeneration} and must be mitigated for and thus attention to this documentation and even the source code itself is required.
+\bold{Important Remark Concerning Ties}---Ties in the data cause \emph{instant degeneration} with MPS and must be mitigated for and thus attention to this documentation and even the source code itself is required.
 }
 \usage{
 mps2par(x, type, para.int=NULL, ties=c("bernstein", "rounding", "density"),
@@ -44,7 +44,7 @@ mps2par(x, type, para.int=NULL, ties=c("bernstein", "rounding", "density"),
 \arguments{
   \item{x}{A vector of data values.}
   \item{type}{Three character (minimum) distribution type (for example, \code{type="gev"}, see \code{\link{dist.list}}).}
-  \item{para.int}{Initial parameters as a vector \eqn{\Theta}.}
+  \item{para.int}{Initial parameters as a vector \eqn{\Theta} or as an \pkg{lmomco} parameter \dQuote{object} from say \code{\link{vec2par}}. If a vector is given, then internally \code{\link{vec2par}} is called with distribution equal to \code{type}.}
   \item{ties}{Ties cause degeneration in the computation of \eqn{M(\Theta)}:\cr
   Option \code{bernstein} triggers a smoothing of only the ties using the \code{\link{dat2bernqua}} function---Bernstein-type smoothing for ties is likely near harmless when ties are near the center of the distribution, but of course caution is advised if ties exist near the extremal values; the settings for \code{log10offset} and \code{delta} are ignored if \code{bernstein} is selected Also for a tie-run having an odd number of elements, the middle tied value is left as original data.\cr
   Option \code{rounding} triggers two types of adjustment: if \code{delta > 0} then a round-off error approach inspired by Cheng and Stephens (1989, eq. 4.1) is used (see \bold{Note}) and \code{log10offset} is ignored, but if \code{delta=0}, then \code{log10offset} is picked up as an order of magnitude offset (see \bold{Note}). Use of options \code{log10offset} and \code{delta} are likely to not keep a middle unmodified in an odd-length, tie-run in contrast to use of \code{bernstein}.\cr

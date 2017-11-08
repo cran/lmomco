@@ -73,7 +73,7 @@ function(lmom, verbose=FALSE, initkh=NULL, eps=1e-3, aux=c("tau5", "tau6"), chec
       t6 <- (N1 + N2)/(D1*D2)
       return(t6)
     }
-    
+
     # Define the objective function
     fn <- function(x) {
       La3 <- x[1]
@@ -238,7 +238,7 @@ function(lmom, verbose=FALSE, initkh=NULL, eps=1e-3, aux=c("tau5", "tau6"), chec
    REST <- BEST[-c(1),]
    rownames(REST) <- NULL
    # Preparing final best guess . . .
-   para <- vector(mode="numeric", length=4)
+   para <- rep(NA,4)
    names(para) <- c("xi","alpha","kappa","h")
    para[1]  <- BEST$xi[1]
    para[2]  <- BEST$alpha[1]

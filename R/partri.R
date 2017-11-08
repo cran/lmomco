@@ -8,8 +8,8 @@ function(lmom,checklmom=TRUE,...) {
       warning("L-moments are invalid")
       return()
     }
-    
-    para <- c(NA, NA, NA)
+
+    para <- rep(NA,3)
     names(para) <- c("min","mode","max")
 
     S  <- 30/7

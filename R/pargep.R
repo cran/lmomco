@@ -43,7 +43,7 @@ function(lmom, checklmom=TRUE, checkdomain=TRUE, maxit=10, verbose=FALSE,...) {
    }
 
 
-   para <- vector(mode = "numeric", length = 3)
+   para <- rep(NA,3)
    names(para) <- c("beta", "kappa", "h")
 
    if(length(lmom$L1) == 1) { # convert to named L-moments
@@ -110,12 +110,12 @@ function(lmom, checklmom=TRUE, checkdomain=TRUE, maxit=10, verbose=FALSE,...) {
 
    if(! verbose) message("STATUS (iteration): ", appendLF=FALSE)
    khpar <- c(1,1) # Very frequently a solution can be hit with log10{k,h} = {1,1}
-   it <- 0 
+   it <- 0
    while(1) {
       it <- it + 1
       if(! verbose) message(it,"-", appendLF=FALSE)
 
-      tmp <- NULL 
+      tmp <- NULL
       try(tmp <- optim(khpar, khfunc, control=list(trace=0), b=beta.guess), silent=TRUE)
       khpar <- runif(2, min=-1, max=1) # if we hit the next iteration, have some different start points
       if(is.null(tmp)) tmp <- list(convergence = 9999)

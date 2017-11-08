@@ -2,6 +2,48 @@
 NEWS for R Package "lmomco"
 --------------------------------------------------------------------------------
 
+Version 2.2.9--11/08/2017
+1. Added high L-skew example to pargno.Rd as clarification on Issue 4 in 2.2.8.
+
+
+Version 2.2.8--11/01/2017 (Illumination Album in Probe)
+1. Enhancement: lmomkap() and parkap() overhauled into R idioms. Minor errors in 
+      old lmomkap() fixed and parkap() breaks entirely from Hosking's Newton-
+      Raphson approach to one based on simultaneous 2-d optimization by optim()
+      using either a mean absolute deviation of Tau3 and Tau4 or square root of
+      total squared divergences (Pythagorean distance). The preference appears
+      to be Pythagorean distance from extensive simulations. The new algorithm
+      performs very similarly to Hosking's but achieves much greater symmetry 
+      about Tau3=0 in failures. Hosking's tends to fail in the far upper 
+      negative Tau3 and large Tau4 corner of L-moment ratio diagram. Both 
+      methods fail as Tau3 and Tau4 approach the theoretical lower bounds of 
+      Tau3 and Tau4.
+2. Enhancement: Most of the "par***()" functions now have the parameters
+      explicitly initialized as NA. This should mitigate some very subtle
+      user experiences.
+3. Enhancement: mle2par() and mps2par() incorrectly stated that initial
+      parameters could be specified as vector. This was incorrect, but now they
+      can be either an lmomco "object" (see vec2par()) or as a vector in which
+      the vec2par() function is called internally. Also the sanity checks on
+      para.int for both mle2par() and mps2par() are written absolutely parallel
+      with each other.
+4. Clarification: pargno(), abs(Tau3) > 0.95, now truncates Tau3 to 0.95
+      instead of failing to return a solution. A warning() is triggered. This
+      still is not an ideal solution and further research into limits of R
+      performance relative to Hosking's original FORTRAN is needed.
+5. Added: par2qua2lo(), which is a generalization of par2qua2 for two quantile
+      function mixing when one has two data objects from the x2xlo() function.
+      This has been on the drawing board since version 1.7.3 (January 28, 2013).
+      *** Experimental and subject to overhaul. ***
+6. Changes to documentation and code cleaning in par2cdf2.R/Rd, par2qua2.R/Rd,
+      f2flo.Rd, flo2f.Rd, and x2xlo.Rd.
+7. Added: xlo=NULL argument to f2flo() and flo2f() as optional means to get
+      the probability level of the threshold into the logic.
+8. Added: f2f() to form an idiom for use in conditional probability computations.
+9. BUG FIX: "lmrq" is now returned as "Linear Mean Residual Quantile Function" in
+      prettydist(dist.list()). Credit to Berry Boessenkool.
+
+
 Version 2.2.7--03/07/2017: (Emergency Release)
 1. BUG FIX: are.lmom.valid() from version 2.2.6 had a bug that missing Tau5
       would short circuit the Tau3-Tau4 consistency check for which that
@@ -55,7 +97,7 @@ Version 2.2.6--03/06/2017: (Daffodil cluster)
       own implementation. Thanks to Brian Breaker for pushing the issue.
 15. Added a large simulation example within lmomGEV.Rd showing how successive
       definitions of maxima of n-events per year converge to GEV families no
-      matter what is the parent distribution. Thanks for M.G. Schaeferf for
+      matter what is the parent distribution. Thanks for M.G. Schaefer for
       demonstrating the idea at a March 2017 meeting.
 
 

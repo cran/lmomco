@@ -16,7 +16,7 @@ function(lmom, p=c("2", "3"), checklmom=TRUE,...) {
        warning("not enough L-moments (need 2)")
        return(NULL)
     }
-    para <- vector(mode="numeric", length=2)
+    para <- rep(NA,2)
     names(para) <- c("alpha","beta")
     # METHOD: RATIONAL APPROXIMATION IS USED TO EXPRESS ALPHA AS A FUNCTION
     # OF L-CV. RELATIVE ACCURACY OF THE  APPROXIMATION IS BETTER THAN 5E-5.

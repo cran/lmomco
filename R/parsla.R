@@ -1,6 +1,6 @@
 "parsla" <-
 function(lmom,...) {
-    para <- vector(mode="numeric", length=2)
+    para <- rep(NA,2)
     names(para) <- c("xi", "alpha")
     if(lmom$trim != 1) {
        warning("The trimming of the L-moments is not unity")

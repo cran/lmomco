@@ -1,6 +1,6 @@
 "parkap" <-
 function(lmom,checklmom=TRUE,...) {
-    para <- vector(mode="numeric", length=4)
+    para <- rep(NA,4)
     XL <- NA
     XU <- NA
     names(para) <- c("xi","alpha","kappa","h")

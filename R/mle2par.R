@@ -5,12 +5,26 @@ function(x, type, para.int=NULL, silent=TRUE, null.on.not.converge=TRUE,
 
   if(is.null(para.int)) {
      lmr <- lmoms(x)
+     if(! are.lmom.valid(lmr)) {
+        warning("L-moments of x are not valid for initial parameters, ",
+                "try manual initial parameters")
+        return(NULL)
+     }
      para.int <- lmom2par(lmr, type=type, ...)
+     if(is.null(para.int)) {
+        warning("L-moments of x are not valid for initial parameters, ",
+                "try manual initial parameters")
+        return(NULL)
+     }
+  } else if(is.vector(para.int)) {
+     para.int <- vec2par(para.int, type=type)
+     if(is.null(para.int)) {
+        warning("initial parameters given by vector are not valid for initial parameters, ",
+                "try other initial parameters")
+        return(NULL)
+     }
   }
-  if(is.null(para.int)) {
-     warning("could not estimate initial parameters via L-moments")
-     return(NULL)
-  }
+
   if(length(para.int$para) == 1) {
      warning("function is not yet built for single parameter optimization")
      return(NULL)

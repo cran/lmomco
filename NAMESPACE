@@ -1,8 +1,8 @@
 importFrom("grDevices", "rgb")
 importFrom("graphics", "Axis", "arrows", "legend", "lines", "mtext",
            "par", "plot", "points", "polygon", "text")
-importFrom("stats", "approx", "complete.cases",
-           "dcauchy", "dexp", "dgamma", "dnorm", "dt",
+importFrom("stats", "approx", "binomial", "coefficients", "complete.cases",
+           "dcauchy", "dexp", "dgamma", "dnorm", "dt", "glm",
            "integrate", "median", "optim", "optimize",
            "pbeta", "pcauchy", "pchisq", "pexp", "pgamma", "pnorm", "pt",
            "qbeta", "qcauchy", "qexp", "qf", "qgamma", "qnorm", "qt",
@@ -28,6 +28,7 @@ export(T2prob)
 export(TLmom)
 export(TLmoms)
 export(x2xlo)
+export(f2f)
 export(f2flo)
 export(flo2f)
 export(f2fpds)
@@ -207,6 +208,7 @@ export(par2lmom)
 export(par2pdf)
 export(par2qua)
 export(par2qua2)
+export(par2qua2lo)
 export(par2vec)
 export(parTLgld)
 export(parTLgpa)

@@ -1,6 +1,7 @@
 "flo2f" <-
-function(f, pp=NA) {
+function(f, pp=NA, xlo=NULL) {
    if(! check.fs(f)) return(FALSE)
+   if(! is.null(xlo)) pp <- xlo$pp
    if(is.na(pp)) {
       warning("pp can not be NA")
       return(FALSE)

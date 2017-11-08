@@ -1,6 +1,6 @@
 "parray" <-
 function(lmom, xi=NULL, checklmom=TRUE,...) {
-   para <- vector(mode="numeric", length=2)
+   para <- rep(NA,2)
    names(para) <- c("xi","alpha")
    if(length(lmom$L1) == 0) { # convert to named L-moments
      lmom <- lmorph(lmom)     # nondestructive conversion!
@@ -17,7 +17,7 @@ function(lmom, xi=NULL, checklmom=TRUE,...) {
    else {
      para[1] <- xi
      para[2] <- (lmom$L1-xi)/sqrt(pi/2)
-   } 
+   }
    return(list(type='ray', para=para, source="parray"))
 }
 

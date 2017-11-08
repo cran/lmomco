@@ -14,16 +14,17 @@ function(x, leftout=0, a=0, ghost=NULL) {
       ghostin  <-  ghost[x >  leftout]
       ghostlo  <-  ghost[x <= leftout]
    }
+   nin <- length(xin); nlo <- length(xlo)
    if(length(xin)  == 0) {
-       xin     <- NA
-       ghostin <- NA
-       ppin    <- NA
+       xin     <- NULL
+       ghostin <- NULL
+       ppin    <- NULL
        ppthres <- 1
    }
    if(length(xlo)  == 0) {
-       xlo     <- NA
-       ghostlo <- NA
-       pplo    <- NA
+       xlo     <- NULL
+       ghostlo <- NULL
+       pplo    <- NULL
        ppthres <- 0
    } else {
        ppthres <- max(pplo)
@@ -32,6 +33,7 @@ function(x, leftout=0, a=0, ghost=NULL) {
    z <- list(xin=xin,  ppin=ppin,
              xout=xlo, ppout=pplo,
              pp=ppthres, thres=leftout,
+             nin=nin, nlo=nlo, n=nin+nlo,
              source="x2xlo")
 
    if(! is.null(ghost)) {

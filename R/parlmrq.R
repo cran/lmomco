@@ -1,6 +1,6 @@
 "parlmrq" <-
 function(lmom, checklmom=TRUE,...) {
-    para <- vector(mode="numeric", length=2)
+    para <- rep(NA,2)
     names(para) <- c("mu","alpha")
     if(length(lmom$L1) == 1) { # convert to named L-moments
       lmom <- lmorph(lmom)     # nondestructive conversion!
@@ -12,7 +12,7 @@ function(lmom, checklmom=TRUE,...) {
     L1 <- lmom$lambdas[1]
     L2 <- lmom$lambdas[2]
     T2 <- L2/L1
-    
+
     if(T2 <= 1/3 | T2 >= 2/3) {
        warning("L-CV is outside the interval (1/3, 2/3), can not fit LMRQ distribution")
        return()

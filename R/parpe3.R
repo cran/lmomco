@@ -1,6 +1,6 @@
 "parpe3" <-
 function(lmom,checklmom=TRUE,...) {
-    para <- vector(mode="numeric", length=3)
+    para <- rep(NA,3)
     names(para) <- c("mu","sigma","gamma")
 
     # METHOD: RATIONAL APPROXIMATION IS USED TO EXPRESS ALPHA, THE SHAPE
@@ -31,7 +31,7 @@ function(lmom,checklmom=TRUE,...) {
       warning("L-moments are invalid")
       return()
     }
-    
+
     L1 <- lmom$L1
     L2 <- lmom$L2
     T3 <- abs(lmom$TAU3)

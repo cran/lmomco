@@ -5,7 +5,7 @@ function(lmom, zeta=1, xi=NULL, checklmom=TRUE,...) {
     # alternative parameter estimation function
     if(zeta < 1) return(pargpaRC(lmom,zeta=zeta,xi=xi))
 
-    para <- vector(mode="numeric", length=3)
+    para <- rep(NA,3)
     names(para) <- c("xi","alpha","kappa")
 
     if(length(lmom$source) == 1 && lmom$source == "TLmoms") {
@@ -21,7 +21,7 @@ function(lmom, zeta=1, xi=NULL, checklmom=TRUE,...) {
     if(checklmom & ! are.lmom.valid(lmom)) {
        warning("L-moments are invalid")
        return()
-    } 
+    }
 
     L1 <- lmom$L1
     L2 <- lmom$L2

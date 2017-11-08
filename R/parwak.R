@@ -22,7 +22,7 @@ function(lmom,checklmom=TRUE,...) {
 
 # Hosking's GOTO 20 in the Wakeby Parameter Estimation
 wak.gpa_instead <- function(ALAM1,ALAM2,T3) {
-    para <- vector(mode="numeric", length=5)
+    para <- rep(NA,5)
     names(para) <- c("xi","alpha","beta","gamma","delta")
     #
     #         CAN'T FIND VALID ESTIMATES EVEN WITH XI=0 -
@@ -58,7 +58,7 @@ wak.gpa_instead <- function(ALAM1,ALAM2,T3) {
 
 
 
-    para <- vector(mode="numeric", length=5)
+    para <- rep(NA,5)
     names(para) <- c("xi","alpha","beta","gamma","delta")
 
 
@@ -93,7 +93,7 @@ wak.gpa_instead <- function(ALAM1,ALAM2,T3) {
     if(is.null(T4) || is.na(T4)) {
       warning("The fourth L-moment ratio is undefined")
       return()
-    }   
+    }
     if(is.null(T5) || is.na(T5)) {
       warning("The fifth L-moment ratio is undefined")
       return()
@@ -180,7 +180,7 @@ wak.gpa_instead <- function(ALAM1,ALAM2,T3) {
           para[3] <- B
           para[4] <- C
           para[5] <- D
-          return(list(type = 'wak', para = para, source="parwak", 
+          return(list(type = 'wak', para = para, source="parwak",
                       ifail = IFAIL,
                       ifailtext = "Solution possible only with XI=0."))
         }

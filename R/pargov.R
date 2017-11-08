@@ -1,6 +1,6 @@
 "pargov" <-
 function(lmom, xi=NULL, checklmom=TRUE,...) {
-    para <- vector(mode="numeric", length=3)
+    para <- rep(NA,3)
     names(para) <- c("xi","alpha", "beta")
     if(length(lmom$L1) == 1) { # convert to named L-moments
       lmom <- lmorph(lmom)     # nondestructive conversion!
@@ -14,7 +14,7 @@ function(lmom, xi=NULL, checklmom=TRUE,...) {
     T3 <- lmom$ratios[3]
     B <- -1*(4*T3 + 2)/(T3 - 1)
 
-    if(is.null(xi)) {   
+    if(is.null(xi)) {
        A <- (B+2)*(B+3)*L2/(2*B)
        U <- L1 - 2*A/(B+2)
     } else {

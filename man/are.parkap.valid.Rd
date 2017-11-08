@@ -20,12 +20,9 @@ are.parkap.valid(para, nowarn=FALSE)
   \item{FALSE}{If the parameters are not \code{kap} consistent.}
 }
 \references{
-Hosking, J.R.M., 1996, FORTRAN routines for use with the method of L-moments:
-Version 3, IBM Research Report RC20525, T.J. Watson Research Center,
-Yorktown Heights, New York.
+Hosking, J.R.M., 1994, The four-parameter kappa distribution: IBM Journal of Reserach and Development, v. 38, no. 3, pp. 251--258.
 
-Hosking, J.R.M., and Wallis, J.R., 1997, Regional frequency analysis---An
-approach based on L-moments: Cambridge University Press.
+Hosking, J.R.M., and Wallis, J.R., 1997, Regional frequency analysis---An approach based on L-moments: Cambridge University Press.
 }
 \note{
 This function calls \code{\link{is.kap}} to verify consistency between
