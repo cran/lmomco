@@ -82,11 +82,33 @@ plot( MLE, MPS, xlab="SKEWNESS BY MLE", ylab="SKEWNESS BY MPS")#}
 # Demonstration of parameter transformation and retransformation
 set.seed(9209) # same seed used under mps2par() in parallel example
 x <- rlmomco(500, vec2par(c(1,1,3), type="gam")) # 3-p Generalized Gamma
-mle2par(x, type="gam", para.int=NULL, silent=FALSE, p=3, # p triggers 3pGenGamma
+guess <- lmr2par(x, type="gam", p=3) # By providing a 3-p guess the 3-p
+# Generalized Gamma will be triggered internally. There are problems passing
+# "p" argument to optim() if that function is to pick up the ... argument.
+mle2par(x, type="gam", para.int=guess, silent=FALSE,
            ptransf=  function(t) { c(log(t[1]), log(t[2]), t[3])},
            pretransf=function(t) { c(exp(t[1]), exp(t[2]), t[3])})$para
 # Reports:       mu     sigma        nu   for some simulated data.
 #         1.0341269 0.9731455 3.2727218 }
+
+\dontrun{
+# Demonstration of parameter estimation with tails of density zero, which
+# are intercepted internally to maintain finiteness. We explore the height
+# distribution for male cats of the cats dataset from the MASS package and
+# fit the generalized lambda. The log-likelihood is shown by silent=FALSE
+# to see that the algorithm converges slowly. and shows how we can control
+# the relative tolerance of the optim() function as shown below and
+# investigate the convergence by reviewing the five fits to the data.
+FF <- nonexceeds(sig6=TRUE)
+library(MASS); data(cats); x <- cats$Hwt[cats$Sex == "M"]
+p2 <- mle2par(x, type="gld", silent=FALSE, control=list(reltol=1E-2))
+p3 <- mle2par(x, type="gld", silent=FALSE, control=list(reltol=1E-3))
+p4 <- mle2par(x, type="gld", silent=FALSE, control=list(reltol=1E-4))
+p5 <- mle2par(x, type="gld", silent=FALSE, control=list(reltol=1E-5))
+p6 <- mle2par(x, type="gld", silent=FALSE, control=list(reltol=1E-6))
+plot( FF, quagld(FF, p2), type="l", col=1); points(pp(x), sort(x))
+lines(FF, quagld(FF, p3), col=2); lines(FF, par2qua(FF, p4), col=3)
+lines(FF, quagld(FF, p5), col=4); lines(FF, par2qua(FF, p6), col=6) #}
 }
 \keyword{distribution (parameters)}
 \keyword{parameter (maximum likelihood to)}
