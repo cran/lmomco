@@ -1,6 +1,6 @@
-c6f583129d597bf642e2ef1f98e27777 *DESCRIPTION
+cfac4f0830c65120ec5498b2f438cb27 *DESCRIPTION
 a2ae628de306d26b7c93d656edc5aea1 *NAMESPACE
-502008fc11bed6900e6eb63e234097f0 *NEWS
+6da2cd29eba95b4068a032134400e10f *NEWS
 91c377e3d90235733e3fae0ceaa02130 *R/Apwm2BpwmRC.R
 05baa85151d05dab3e528243a858e0dd *R/BEhypergeo.R
 0bea58b114f9545d4e85853f4a1ba91e *R/Bpwm2ApwmRC.R
@@ -13,8 +13,8 @@ c3757f8fea8e2ddbf56eee5b93f6540e *R/Lcomoment.Wk.R
 1f40636e28ad97cf797b966df6844ed2 *R/T2prob.R
 a64d7074ace43847a4d02c842a0cd5c5 *R/TLmom.R
 fea57a6c3ebc270f5753cb805886715a *R/TLmoms.R
-1b7b1bfbfaf7aaf06e11c46d4017be53 *R/add.lmomco.axis.R
-29f9fce81dfcb18dd50eba57ecedce02 *R/add.log.axis.R
+876dd7b3725f6bc3a8cb767dc91aeda9 *R/add.lmomco.axis.R
+7abc3474bd55ecfb9e0007135f5b6d9a *R/add.log.axis.R
 0a131b010e8b5eac9a54cba6a2ff191c *R/are.lmom.valid.R
 57c4820ecff95271b41faf2c563eb469 *R/are.par.valid.R
 2471ddf521951d05b61cbd505a23d4f0 *R/are.paraep4.valid.R
@@ -212,7 +212,7 @@ c5e9c01ba2762ad45196de604a77dc58 *R/pargno.R
 8862e01e415bf44fe3ae7ae2c2d5f66f *R/pargpa.R
 14d52b84ed633ab51eb47a02436d343b *R/pargpaRC.R
 7121484dd9c99726b40788343a5eff67 *R/pargum.R
-82c48b785de05a116475b19a1ef45dc7 *R/parkap.R
+4fb7793e6934edf4e1620320a5f1f7e1 *R/parkap.R
 c6b2373ce84f13932cb0b20573ecec73 *R/parkmu.R
 67a079afb60e54553959b6843cdec983 *R/parkur.R
 1a29c7c53b1730604e1e58e38cc388b4 *R/parlap.R
@@ -262,7 +262,7 @@ e06d4ad6267fd103fa0e59bab3ae8642 *R/pdfrevgum.R
 acb6fc0ba440c21ccd5aa825de6e7538 *R/pdfwei.R
 46141ae7a29bcb84aaf9a614e2eea80f *R/pfactor.bernstein.R
 cc6dc5eb10d320076ffc25411c4774e9 *R/plmomco.R
-28f64d84ce7874b93ff98be954027b9b *R/plotlmrdia.R
+7fce482a4eaf6b30621ed2d5a1e5ee0e *R/plotlmrdia.R
 5ce3e63483d9febe132a4945417f9fa5 *R/plotradarlmr.R
 df12e09a23d85932838170161eec3185 *R/pmoms.R
 10adeb5feea645809b05412588519606 *R/pp.R
@@ -375,7 +375,7 @@ ec0d9aaaa94bbdc483f8dcccff1851d6 *data/herefordprecip.RData
 ef515c05e116d7cdc90dd5e59c1e73bb *data/tulia6Eprecip.RData
 a573e026593eac1f8e7d9d207007f302 *data/tuliaprecip.RData
 5049ee6161ebd75373280c998dfe01f0 *data/vegaprecip.RData
-d4101a647eaf670cd6c31f5cfa0c2b12 *inst/ACKNOWLEDGEMENTS
+71e0723348d83eef65d615fd432fd681 *inst/ACKNOWLEDGEMENTS
 be0136e038d21828841268dd7c6b2a7b *inst/CITATION
 3d99ef16d8696a1321078b95761688a9 *inst/ERRATA_FOR_ISBN9781463508418.txt
 bab06eade86220b365cd40766b86e73f *inst/READMEinst
@@ -408,8 +408,8 @@ d7725871f8f1df566bf7d1a5ed2644d4 *man/USGSsta05405000peaks.Rd
 84b89b5f317d04b50e5ccb4383cb7238 *man/USGSsta08190000peaks.Rd
 4950244cc83b0f9aab9a229a5de6c7d7 *man/USGSsta09442000peaks.Rd
 4c94e8a265bdab26d8fb73117b55cb52 *man/USGSsta14321000peaks.Rd
-1a55dd81450a4f366a1fc19e94b33313 *man/add.lmomco.axis.Rd
-6ce0323436a0881e5ffcfab3a7b4f6a5 *man/add.log.axis.Rd
+e7c69cede1f2c5ce5bd6957efba54199 *man/add.lmomco.axis.Rd
+a57614f22dbd31b3d47318c3de0a6750 *man/add.log.axis.Rd
 df3465f94e5bac4cc7eafa0ef67550a1 *man/amarilloprecip.Rd
 6c1428273b15e055e2c3f4956e1c50e8 *man/are.lmom.valid.Rd
 85688f4a52d6477009ec3ea64476b3b9 *man/are.par.valid.Rd
@@ -492,7 +492,7 @@ f8f4b8a1169d7d27839e2c36690c147d *man/dlmomco.Rd
 80e7d53d4b908e32a39479b0eaaa861d *man/f2f.Rd
 999a2a8469a4f19195b0a77420937188 *man/f2flo.Rd
 7c6acc746b7b46d951624939260de65f *man/f2fpds.Rd
-24f22ac69d8b6ba3f0f92e8c9defc844 *man/fliplmoms.Rd
+27a8af15072a7f0dd7f853fb91d9eff2 *man/fliplmoms.Rd
 a27920e11cfd8fabbf5a5272a05eed1b *man/flo2f.Rd
 411c9102f6d41913d74b81cd82f0354c *man/fpds2f.Rd
 b8633b794be3fd0e32f72a8f3b177a3f *man/freq.curve.all.Rd
@@ -545,7 +545,7 @@ ca3fc46a52c748d199f206746d197331 *man/lmomRCmark.Rd
 858b09ea302e924155720b3dbc4ca79c *man/lmomTLgpa.Rd
 b729aa092b3c269f0fbfaabe913b3c0b *man/lmomaep4.Rd
 86b0efe76f360f3d22a85aadd4993711 *man/lmomcau.Rd
-20a5a0779f6644a6e841f824b307e473 *man/lmomco-package.Rd
+bfaad1f734c06d678a5599ecf45e7ad5 *man/lmomco-package.Rd
 37cc29f9aa782f21550ded906ae6c5ac *man/lmomcoBook.Rd
 3e87e24d872c706b07f2bb837b194f92 *man/lmomcoNews.Rd
 c2b811dac6f87cbbea66f31a6e4257f1 *man/lmomemu.Rd
@@ -554,7 +554,7 @@ c49bcef4fc3564921970bbec483c30d8 *man/lmomgam.Rd
 59ecf7e405759ad5f4a7ac0b7cf082af *man/lmomgep.Rd
 e4375ed4f1fb2f85f701b046bfad84cc *man/lmomgev.Rd
 c41bac616d13f1bcc0e3487e7a90499e *man/lmomgld.Rd
-5032032602e272eb96d8bfe5036e652c *man/lmomglo.Rd
+fa34268a868bebb0020da90dea7e319a *man/lmomglo.Rd
 7ae60b364bbee99532641d810ef83d11 *man/lmomgno.Rd
 d2778dc6c2d04e23121a16fdfa5fec97 *man/lmomgov.Rd
 be19eec16cab2e034b10010e240f7e47 *man/lmomgpa.Rd
@@ -600,7 +600,7 @@ d30510bd6d0a021e196fd2a7c60b854c *man/par2lmom.Rd
 dfb8005c37b83cd566fc50cae5d83f5f *man/par2vec.Rd
 306cdfc6346f44ceb0ae38e98a8b778b *man/parTLgld.Rd
 dbf472c4f630467ed715e63eccc37ddc *man/parTLgpa.Rd
-e16c24611e5dd55e94dc1a9ed1e61d82 *man/paraep4.Rd
+e724d3abebbb01d4c6091a03ed695c6d *man/paraep4.Rd
 91c6e47f68e5cc6990766218ee9ee7ff *man/parcau.Rd
 d3c6322486f761f17c4c812270527b16 *man/paremu.Rd
 7f8eaf46731547ea9d1b3e6161c1f61b *man/parexp.Rd
@@ -614,7 +614,7 @@ c9ca92e800c977888d258f7c659e12fe *man/pargno.Rd
 c2f680d9c21c7696bc874276f7acc439 *man/pargpa.Rd
 d0346eab058213d8cca4e1ce33a7229e *man/pargpaRC.Rd
 6b4e3faedec426c69746c6012788162d *man/pargum.Rd
-d57f26d6dada1d3d8b9c0d3e8a91e748 *man/parkap.Rd
+5235401ee48ef847efde4fde7b8464f4 *man/parkap.Rd
 d01057f9a3bfcc05ed84e184badb19b5 *man/parkmu.Rd
 01439656f9df4a9ec81f980b0ef8ed2e *man/parkur.Rd
 4a500ffde2eed0c8a9a5aedc100391ac *man/parlap.Rd
@@ -664,7 +664,7 @@ efa4c7f6583d554caaf079e42b93fe11 *man/pdftexp.Rd
 ad832b324be9a91571ceb9788585af1c *man/pdfwei.Rd
 a43724c32ab7fd00d94fa1db43fb7a2b *man/pfactor.bernstein.Rd
 89cf4e52d33aa5848f72253d9ab59fbb *man/plmomco.Rd
-7035d50f8b28d99648a977f6295f5791 *man/plotlmrdia.Rd
+90d2c5d8da0b4521a3d9672dad4c78ed *man/plotlmrdia.Rd
 52b5f8a86dcbb30c4628ebf1e7fef1b9 *man/plotradarlmr.Rd
 85726944537d3a03f4b4b24ba8f4aad6 *man/pmoms.Rd
 e060f6d6c80aa727646e72ff1e4ad8d9 *man/pp.Rd
