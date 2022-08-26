@@ -5,7 +5,7 @@
 \description{
 The \pkg{lmomco} package is a comparatively comprehensive implementation of L-moments in addition to probability-weighted moments, and parameter estimation for numerous familiar and not-so-familiar distributions. L-moments and their cousins are based on certain linear combinations of order statistic expectations. Being based on linear mathematics and thus especially robust compared to conventional moments, they are particular suitable for analysis of rare events of non-Normal data. L-moments are consistent and often have smaller sampling variances than maximum likelihood in small to moderate sample sizes. L-moments are especially useful in the context of quantile functions. The method of L-moments (\code{\link{lmr2par}}) is augmented here with access to the methods of maximum likelihood (\code{\link{mle2par}}) and maximum product of spacings (\code{\link{mps2par}}) as alternatives for parameter estimation bound into the distributions of the \pkg{lmomco} package.
 
-About 365 user-level functions are implemented in \pkg{lmomco} that range from low-level utilities forming an application programming interface (API) to high-level sophisticated data analysis and visualization operators. The \dQuote{See Also} section lists recommended function entry points for new users. The nomenclature (\code{d}, \code{p}, \code{r}, \code{q})-\code{lmomco} is directly analogous to that for distributions built-in to \R. To conclude, the \R packages \pkg{lmom} (Hosking), \pkg{lmomRFA} (Hosking), \pkg{Lmoments} (Karvanen) might also be of great interest.
+About 370 user-level functions are implemented in \pkg{lmomco} that range from low-level utilities forming an application programming interface (API) to high-level sophisticated data analysis and visualization operators. The \dQuote{See Also} section lists recommended function entry points for new users. The nomenclature (\code{d}, \code{p}, \code{r}, \code{q})-\code{lmomco} is directly analogous to that for distributions built-in to \R. To conclude, the \R packages \pkg{lmom} (Hosking), \pkg{lmomRFA} (Hosking), \pkg{Lmoments} (Karvanen) might also be of great interest.
 
 How does \pkg{lmomco} basically work? The design of \pkg{lmomco} is to fit distributions to the L-moments of sample data. Distributions are specified by a \code{type} argument for very many functions. The package stores both L-moments (see \code{\link{vec2lmom}}) and parameters (see \code{\link{vec2par}}) in simple \R \code{list} structures---very elementary. The following code shows a comparison of parameter estimation for a random sample (\code{\link{rlmomco}}) of a GEV distribution using L-moments (\code{\link{lmoms}} coupled with \code{\link{lmom2par}} or simply \code{\link{lmr2par}}), maximum likelihood (MLE, \code{\link{mle2par}}), and maximum product of spacings (MPS, \code{\link{mps2par}}). (A note of warning, the MLE and MPS algorithms might not converge with the initial parameters---for purposes of \dQuote{learning} about this package just rerun the code below again for another random sample.)
 \preformatted{
@@ -38,12 +38,12 @@ Now let us inspect the contents of the six estimates of the three GEV parameters
 }
 The results show compatible estimates between the two packages. Lastly, let us plot what these distributions look like using the \pkg{lmomco} functions: \code{\link{add.lmomco.axis}}, \code{\link{nonexceeds}}, \code{\link{pp}}, and \code{\link{qlmomco}}.
 \preformatted{
-  par(las=2, mgp=c(3,0.5,0)); FF <- nonexceeds(); qFF <- qnorm(FF)
+  par(las=2, mgp=c(3, 0.5, 0)); FF <- nonexceeds(); qFF <- qnorm(FF)
   PP <- pp(Q); qPP <- qnorm(PP); Q <- sort(Q)
   plot(  qFF, qlmomco(FF, lmr), xaxt="n", xlab="", tcl=0.5,
                                 ylab="QUANTILE", type="l")
   lines( qFF, qlmomco(FF, mle), col="blue")
-  lines( qFF, qlmomco(FF, mps), col="red")
+  lines( qFF, qlmomco(FF, mps), col="red" )
   points(qPP, Q, lwd=0.6, cex=0.8, col=grey(0.3)); par(las=1)
   add.lmomco.axis(las=2, tcl=0.5, side.type="NPP")
 }
@@ -61,6 +61,8 @@ Elamir, E.A.H., and Seheult, A.H., 2003, Trimmed L-moments: Computational statis
 
 Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
 distributions using linear combinations of order statistics: Journal of the Royal Statistical Society, Series B, v. 52, pp. 105--124.
+
+Hosking, J.R.M., 2007, Distributions with maximum entropy subject to constraints on their L-moments or expected order statistics: Journal of Statistical Planning and Inference, v. 137, no. 9, pp. 2870--2891, \doi{10.1016/j.jspi.2006.10.010}.
 
 Hosking, J.R.M., and Wallis, J.R., 1997, Regional frequency analysis---An approach based on L-moments: Cambridge University Press, \url{https://www.amazon.com/dp/0521019400/}.
 

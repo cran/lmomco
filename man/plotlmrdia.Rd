@@ -7,11 +7,11 @@ Plot the L-moment ratio diagram of L-skew and L-kurtosis from an L-moment ratio 
 \usage{
 plotlmrdia(lmr=NULL, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
            noaep4=FALSE, nogev=FALSE, noglo=FALSE, nogpa=FALSE,
-           nope3=FALSE,  nogno=FALSE, nogov=FALSE, nocau=TRUE,
+           nope3=FALSE,  nopdq3=FALSE, nogno=FALSE, nogov=FALSE, nocau=TRUE,
            noexp=FALSE,  nonor=FALSE, nogum=FALSE, noray=FALSE,
            nosla=TRUE,  nouni=FALSE,
            xlab="L-SKEW", ylab="L-KURTOSIS", add=FALSE, empty=FALSE,
-           autolegend=FALSE, xleg=NULL, yleg=NULL, ...)
+           autolegend=FALSE, xleg=NULL, yleg=NULL, legendcex=0.9, ...)
 }
 \arguments{
   \item{lmr}{L-moment diagram object from \code{\link{lmrdia}}, if \code{NULL}, then \code{empty} is internally set to \code{TRUE}.}
@@ -25,6 +25,7 @@ plotlmrdia(lmr=NULL, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
   \item{nogov}{If \code{TRUE} then line of Govindarajulu distribution is not drawn.}
   \item{nogpa}{If \code{TRUE} then line of Generalized Pareto distribution is not drawn.}
   \item{nope3}{If \code{TRUE} then line of Pearson Type III distribution is not drawn.}
+  \item{nopdq3}{If \code{TRUE} then line of Polynomial Density-Quantile3 distribution is not drawn.}
   \item{nocau}{If \code{TRUE} then point (limiting, TL-moment [trim=1]) of the Cauchy distribution is not drawn.}
   \item{noexp}{If \code{TRUE} then point of Exponential distribution is not drawn.}
   \item{nonor}{If \code{TRUE} then point of Normal distribution is not drawn.}
@@ -37,8 +38,9 @@ plotlmrdia(lmr=NULL, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
   \item{add}{A logical to toggle a call to \code{plot} to start a new plot, otherwise, just the trajectories are otherwise plotted.}
   \item{empty}{A logical to return before any trajectories are plotted but after the condition of the \code{add} has been evaluated, and \dQuote{empty} character string is returned.}
   \item{autolegend}{Generate the legend by built-in algorithm.}
-  \item{xleg}{X-coordinate of the legend.}
+  \item{xleg}{X-coordinate of the legend. This argument is checked for being a character versus a numeric. If it is a character, then \code{yleg} is not needed and \code{xleg} and take on \dQuote{location may also be specified by setting x to a single keyword} as per the functionality of \code{graphics::legend()} itself.}
   \item{yleg}{Y-coordinate of the legend.}
+  \item{legendcex}{The \code{cex} to pass to \code{graphics::legend()}.}
   \item{...}{Additional arguments passed onto the \code{plot} function.}
 }
 \note{
@@ -55,6 +57,7 @@ theoretical L-moment limits on the bottom. The Asymmetric Exponential Power dema
   Govindarajulu \tab line width 1, line type 2 (dash), and color 6 (purple) \cr
   Generalized Pareto \tab line width 1 and color blue \cr
   Pearson Type III \tab line width 1 and color 6 (purple) \cr
+  Polynomial Density-Quantile3 \tab line width 1.3, line type 2 (dash), and color darkgreen \cr
   Exponential \tab symbol 16 (filled circle) and color red \cr
   Normal \tab symbol 15 (filled square) and color red \cr
   Gumbel \tab symbol 17 (filled triangle) and color red) \cr
@@ -90,7 +93,7 @@ plotlmrdia(lmrdia()) # simplest of all uses
 # For a given mean, L-scale, L-skew, and L-kurtosis, let us use a sample size
 # of 30 and using 500 simulations, set the L-moments in lmr and fit the Kappa.
 T3 <- 0.34; T4 <- 0.21; n <- 30; nsim <- 500
-lmr <- vec2lmom(c(10000,7500,T3,T4)); kap <- parkap(lmr)
+lmr <- vec2lmom(c(10000, 7500, T3, T4)); kap <- parkap(lmr)
 
 # Next, create vectors for storing simulated L-skew (t3) and L-kurtosis (t4)
 t3 <- t4 <- vector(mode = "numeric")
@@ -105,18 +108,18 @@ for(i in 1:nsim) {
 # Next, plot the diagram with a legend at a specified location, and "zoom"
 # into the diagram by manually setting the axis limits.
 plotlmrdia(lmrdia(), autolegend=TRUE, xleg=0.1, yleg=.41,
-        xlim=c(-.1,.5), ylim=c(-.1,.4), nopoints=TRUE, empty=TRUE)
+        xlim=c(-.1, .5), ylim=c(-.1, .4), nopoints=TRUE, empty=TRUE)
 
-# Follow up by plotting the {t3,t4} values and the mean of these.
-points(t3,t4)
-points(mean(t3),mean(t4),pch=16,cex=3)
+# Follow up by plotting the {t3, t4} values and the mean of these.
+points(t3, t4)
+points(mean(t3), mean(t4), pch=16, cex=3)
 
 # Now plot the trajectories of the distributions.
 plotlmrdia(lmrdia(), add=TRUE)
 
 # Finally, plot crossing dashed lines at true values of L-skew and L-kurtosis.
-lines(c(T3,T3),c(-1,1),col=8, lty=2)
-lines(c(-1,1),c(T4,T4),col=8, lty=2) #}
+lines(c(T3, T3), c(-1,  1), col=8, lty=2)
+lines(c(-1, 1 ), c(T4, T4), col=8, lty=2) #}
 }
 \keyword{L-moment ratio diagram}
 \keyword{Graphics}
