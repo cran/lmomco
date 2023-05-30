@@ -1,6 +1,6 @@
 \name{pmoms}
 \alias{pmoms}
-\title{ The Sample Product Moments: Mean, Standard Deviation, Skew, and Excess Kurtosis}
+\title{The Sample Product Moments: Mean, Standard Deviation, Skew, and Excess Kurtosis}
 \description{
 Compute the first four sample product moments. Both classical (theoretical and biased) versions and unbiased (nearly) versions are produced. Readers are directed to the References and the source code for implementation details.
 }
@@ -31,7 +31,9 @@ pmoms(x)
 This function is primarily available for gamesmanship with the Pearson Type III distribution as its parameterization in \pkg{lmomco} returns the product moments as the very parameters of that distribution. This of course is like the Normal distribution in which the first two parameters are the first two product moments; the Pearson Type III just adds skew.  See the example below. Another reason for having this function in \pkg{lmomco} is that it demonstrates application of unbiased product moments and permits comparisons to the L-moments (see Asquith, 2011; figs. 12.13--12.16).
 
 The \code{umvu.sd} is computed by
-\deqn{\hat\sigma' = \frac{\Gamma[(n-1)/2]}{\Gamma(n/2)\sqrt{2}}\sqrt{\sum_{i=1}^{n} (x_i - \hat\mu)^2}\mbox{.}}
+\deqn{\hat\sigma' = \frac{\Gamma[(n-1)/2]}{\Gamma(n/2)\sqrt{2}}\sqrt{\sum_{i=1}^{n} (x_i - \hat\mu)^2}\mbox{,}}
+
+where \eqn{\hat\sigma'} is the estimate of standard deviation for the sample \eqn{x} of size \eqn{n}, \eqn{\Gamma(\cdots)} is the complete gamma function, and \eqn{\hat\mu} is the arthimetic mean.
 }
 \references{
 Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the R environment for statistical computing: Createspace Independent Publishing Platform, ISBN 978--146350841--8.
@@ -40,7 +42,7 @@ Hosking, J.R.M., and Wallis, J.R., 1997, Regional frequency analysis---An approa
 
 Joanes, D.N., Gill, C.A., 1998, Comparing measures of sample skewness and kurtosis: The Statistician, v. 47, no. 1, pp. 183--189.
 }
-\author{ W.H. Asquith}
+\author{W.H. Asquith}
 \seealso{\code{\link{lmoms}}}
 \examples{
 # A simple example

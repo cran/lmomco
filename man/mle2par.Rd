@@ -40,7 +40,7 @@ During the optimization process, the function requires evaluation at the initial
 }
 if \code{Inf} is returned on first call to the objective function. The \code{silent} by default though will silence this error.  Alternative starting parameters might help.  This function is not built around subordinate control functions to say keep the parameters within distribution-specific bounds.  However, in practice, the L-moment estimates should already be fairly close and the optimizer can take it from there.  More sophisticated MLE for many distributions is widely available in other \R packages. The \pkg{lmomco} package uses its own probability density functions.
 }
-\author{ W.H. Asquith}
+\author{W.H. Asquith}
 \seealso{\code{\link{lmom2par}}, \code{\link{mps2par}}, \code{\link{tlmr2par}}}
 \examples{
 \dontrun{
@@ -50,9 +50,9 @@ father <- vec2par(c(37,25,114), type="st3"); FF <- nonexceeds(); qFF <- qnorm(FF
 X <- rlmomco(78, father) # rerun if MLE and MPS fail to get a solution
 plot(qFF,  qlmomco(FF, father), type="l", xlim=c(-3,3),
      xlab="STANDARD NORMAL VARIATE", ylab="QUANTILE") # parent (black)
-lines(qFF, qlmomco(FF, lmom2par(lmoms(X), type="gev")), col=2) # L-moments (red)
-lines(qFF, qlmomco(FF, mps2par(X, type="gev")), col=3)         #     MPS (green)
-lines(qFF, qlmomco(FF, mle2par(X, type="gev")), col=4)         #     MLE  (blue)
+lines(qFF, qlmomco(FF, lmr2par(X, type="gev")), col="red"  ) # L-moments (red)
+lines(qFF, qlmomco(FF, mps2par(X, type="gev")), col="green") #     MPS (green)
+lines(qFF, qlmomco(FF, mle2par(X, type="gev")), col="blue" ) #     MLE  (blue)
 points(qnorm(pp(X)), sort(X)) # the simulated data}
 
 \dontrun{
@@ -106,9 +106,12 @@ p3 <- mle2par(x, type="gld", silent=FALSE, control=list(reltol=1E-3))
 p4 <- mle2par(x, type="gld", silent=FALSE, control=list(reltol=1E-4))
 p5 <- mle2par(x, type="gld", silent=FALSE, control=list(reltol=1E-5))
 p6 <- mle2par(x, type="gld", silent=FALSE, control=list(reltol=1E-6))
-plot( FF, quagld(FF, p2), type="l", col=1); points(pp(x), sort(x))
-lines(FF, quagld(FF, p3), col=2); lines(FF, par2qua(FF, p4), col=3)
-lines(FF, quagld(FF, p5), col=4); lines(FF, par2qua(FF, p6), col=6) #}
+plot( FF,  quagld(FF, p2), type="l", col="black")
+points(pp(x), sort(x), lwd=0.6, col=grey(0.6))
+lines(FF,  quagld(FF, p3), col="red"    )
+lines(FF, par2qua(FF, p4), col="green"  )
+lines(FF,  quagld(FF, p5), col="blue"   )
+lines(FF, par2qua(FF, p6), col="magenta") #}
 }
 \keyword{distribution (parameters)}
 \keyword{parameter (maximum likelihood to)}
