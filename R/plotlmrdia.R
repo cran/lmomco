@@ -22,6 +22,7 @@ function(lmr=NULL,
          ylab="L-KURTOSIS",
          add=FALSE, empty=FALSE,
          autolegend=FALSE, xleg=NULL, yleg=NULL, legendcex=0.9,
+         ncol=1, text.width=NULL,
          ...) {
 
    entries <- vector(mode = "character")
@@ -52,7 +53,7 @@ function(lmr=NULL,
      if(! noaep4) {
         lines(lmr$aep4, col="red", lty=4)
         entryi <- entryi + 1
-        entries[entryi] <- "AEP4"
+        entries[entryi] <- "AEP4 lower bounds"
         Elwd[entryi] <- 1
         Ecol[entryi] <- "red"
         Epch[entryi] <- NA
@@ -210,7 +211,7 @@ function(lmr=NULL,
               col=Ecol,
               pch=Epch,
               lty=Elty,
-              pt.cex=Ecex,
+              pt.cex=Ecex, ncol=ncol, text.width=text.width,
               xjust=0.5, bty="n", cex=legendcex)
      } else {
        if(is.null(xleg)) warning("xleg is NULL, but needed")
@@ -221,7 +222,7 @@ function(lmr=NULL,
               col=Ecol,
               pch=Epch,
               lty=Elty,
-              pt.cex=Ecex,
+              pt.cex=Ecex, ncol=ncol, text.width=text.width,
               xjust=0.5, bty="n", cex=legendcex)
      }
    }

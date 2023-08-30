@@ -6,19 +6,19 @@ Plot the L-moment ratio diagram of L-skew and L-kurtosis from an L-moment ratio 
 }
 \usage{
 plotlmrdia(lmr=NULL, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
-           noaep4=FALSE, nogev=FALSE, noglo=FALSE, nogpa=FALSE,
-           nope3=FALSE,  nopdq3=FALSE, nogno=FALSE, nogov=FALSE, nocau=TRUE,
-           noexp=FALSE,  nonor=FALSE, nogum=FALSE, noray=FALSE,
-           nosla=TRUE,  nouni=FALSE,
+           noaep4=FALSE, nogev=FALSE, noglo=FALSE, nogpa=FALSE, nope3=FALSE,
+           nopdq3=FALSE, nogno=FALSE, nogov=FALSE, nocau=TRUE,  noexp=FALSE,
+           nonor=FALSE,  nogum=FALSE, noray=FALSE, nosla=TRUE,  nouni=FALSE,
            xlab="L-SKEW", ylab="L-KURTOSIS", add=FALSE, empty=FALSE,
-           autolegend=FALSE, xleg=NULL, yleg=NULL, legendcex=0.9, ...)
+           autolegend=FALSE, xleg=NULL, yleg=NULL, legendcex=0.9,
+           ncol=1, text.width=NULL, ...)
 }
 \arguments{
   \item{lmr}{L-moment diagram object from \code{\link{lmrdia}}, if \code{NULL}, then \code{empty} is internally set to \code{TRUE}.}
   \item{nopoints}{If \code{TRUE} then point distributions are not drawn.}
   \item{nolines}{If \code{TRUE} then line distributions are not drawn.}
   \item{nolimits}{If \code{TRUE} then theoretical limits of L-moments are not drawn.}
-  \item{noaep4}{If \code{TRUE} then line of Asymmetric Exponential Power distribution is not drawn.}
+  \item{noaep4}{If \code{TRUE} then the lower bounds line of Asymmetric Exponential Power distribution is not drawn.}
   \item{nogev}{If \code{TRUE} then line of Generalized Extreme Value distribution is not drawn.}
   \item{noglo}{If \code{TRUE} then line of Generalized Logistic distribution is not drawn.}
   \item{nogno}{If \code{TRUE} then line of Generalized Normal (Log-Normal3) distribution is not drawn.}
@@ -41,6 +41,8 @@ plotlmrdia(lmr=NULL, nopoints=FALSE, nolines=FALSE, nolimits=FALSE,
   \item{xleg}{X-coordinate of the legend. This argument is checked for being a character versus a numeric. If it is a character, then \code{yleg} is not needed and \code{xleg} and take on \dQuote{location may also be specified by setting x to a single keyword} as per the functionality of \code{graphics::legend()} itself.}
   \item{yleg}{Y-coordinate of the legend.}
   \item{legendcex}{The \code{cex} to pass to \code{graphics::legend()}.}
+    \item{ncol}{The number of columns in which to set the legend items (default is 1, which differs from \code{legend()} default of 1).}
+  \item{text.width}{Argument of the same name for \code{legend}. Setting to 0.1 for \code{ncol} set to 2 seems to work pretty well when two columns are desired.}
   \item{...}{Additional arguments passed onto the \code{plot} function.}
 }
 \note{
@@ -72,14 +74,11 @@ Asquith, W.H., 2011, Distributional analysis with L-moment statistics using the 
 
 Asquith, W.H., 2014, Parameter estimation for the 4-parameter asymmetric exponential power distribution by the method of L-moments using R: Computational Statistics and Data Analysis, v. 71, pp. 955--970.
 
-Hosking, J.R.M., 1986, The theory of probability weighted moments:
-Research Report RC12210, IBM Research Division, Yorkton Heights, N.Y.
+Hosking, J.R.M., 1986, The theory of probability weighted moments: Research Report RC12210, IBM Research Division, Yorkton Heights, N.Y.
 
-Hosking, J.R.M., 1990, L-moments---Analysis and estimation of
-distributions using linear combinations of order statistics: Journal of the Royal Statistical Society, Series B, v. 52, pp. 105--124.
+Hosking, J.R.M., 1990, L-moments---Analysis and estimation of distributions using linear combinations of order statistics: Journal of the Royal Statistical Society, Series B, v. 52, pp. 105--124.
 
-Hosking, J.R.M., and Wallis, J.R., 1997, Regional frequency analysis--An
-approach based on L-moments: Cambridge University Press.
+Hosking, J.R.M., and Wallis, J.R., 1997, Regional frequency analysis--An approach based on L-moments: Cambridge University Press.
 
 Vogel, R.M., and Fennessey, N.M., 1993, L moment diagrams should replace product moment diagrams: Water Resources Research, v. 29, no. 6, pp. 1745--1752.
 }
@@ -107,8 +106,8 @@ for(i in 1:nsim) {
 
 # Next, plot the diagram with a legend at a specified location, and "zoom"
 # into the diagram by manually setting the axis limits.
-plotlmrdia(lmrdia(), autolegend=TRUE, xleg=0.1, yleg=.41,
-        xlim=c(-.1, .5), ylim=c(-.1, .4), nopoints=TRUE, empty=TRUE)
+plotlmrdia(lmrdia(), autolegend=TRUE, xleg=0.1, yleg=0.41,
+        xlim=c(-0.1, 0.5), ylim=c(-0.1, 0.4), nopoints=TRUE, empty=TRUE)
 
 # Follow up by plotting the {t3, t4} values and the mean of these.
 points(t3, t4)

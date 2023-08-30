@@ -1,7 +1,7 @@
 "par2lmom" <-
 function(para,...) {
     type <- para$type
-       if(type == 'aep4')  {
+    if(type == 'aep4')  {
       return(lmomaep4(para))
     }
     else if(type == 'cau') {
@@ -81,6 +81,9 @@ function(para,...) {
     }
     else if(type == 'sla') {
       return(lmomsla(para))
+    }
+    else if(type == 'smd') {
+      return(lmomsmd(para))
     }
     else if(type == 'st3') {
       return(lmomst3(para))
