@@ -1,6 +1,44 @@
 --------------------------------------------------------------------------------
                          NEWS for R Package "lmomco"
 --------------------------------------------------------------------------------
+Changes in version 2.4.13 (2024-01-08)
+-  Brace edits to par2qua2lo.Rd wherein devel-R picked up Rd format note.
+
+
+Changes in version 2.4.12 (2024-01-07)
+-  Spelling corrections within this NEWS.
+-  Added the disfitgovloc() function for parameter estimation of distribution
+     Govindarajulu to specified lower and upper bounds in conjunction with a
+     measure of location (mean or median).
+-  Minor grammar changes to disfitqua.Rd.
+-  BUG FIX: lmomkap() was not returning the lambda[3] of the distribution.
+     Simple fix but amazing the bug has existed since very beginning of lmomco.
+     Minor update in lmomkap.Rd with a non-NULL example data set for Kappa.
+-  Added the xlo2qua() function to help reform the quantiles stemming from an
+     f2flo() call on the nonexceedances and augmentation of the quantiles with
+     the threshold. This helps to streamline lines of code used in for blipped
+     or conditional truncated distribution modeling.
+-  Extended theoLmoms(), theoTLmoms(), and theopwms() to detect failure in the
+     numerical integration and switch over to Monte Carlo integration. Within
+     Examples of theoTLmoms.Rd, and theopwms.Rd added demonstration of places
+     in Kappa (k,h)-space for which numerical integration is triggered for at
+     least one of the L-moments or probability-weighted moments. This extension
+     should provide for even more flexibility within the package.
+     *** Note, some of the motivation here was for looking again at the cases
+     *** that either the L-moments or parameter estimation of the Kappa is a
+     *** problem. Potentially, these additions might be used for backstopping
+     *** certain "failures" of extant Kappa algorithms. *********************
+-  Added export("utils", "str") to NAMESPACE because a print(str()) is used in
+     theoTLmoms() and theopwms().
+-  Adjusted preformatted code demonstration in the parpdq4.Rd for simple bugs
+     in the plotting operations.
+-  Changed choose()'s to exp(lchoose()'s) in TLmom.R to support very large
+     trimming. Truncation errors were adding up in some tests; so, the change
+     to using logarithms. Also, changed the nexted for() loops to nested
+     sapply() calls.
+-  Grammar edits in lmoms.bootbarvar.Rd.
+
+
 Changes in version 2.4.11 (2023-08-30)
 -  BUG FIX: par2cdf() had improper routing of the new "smd" distribution.
 -  Added "lower bounds" to the AEP4 in the autolegend of plotlmrdia().
@@ -59,7 +97,7 @@ Changes in version 2.4.10 (2023-08-21)
 -  Enhanced are.lmom.valid.R to return FALSE if the lmom argument is NULL.
 -  Enhanced vec2lmom(checklmom=TRUE) to still issue warning but to add the
      lambdas and ratios in the warning message. This might help some users
-     working through large-scale automation excercises.
+     working through large-scale automation exercises.
 -  Spelling correction in lmomln3.Rd.
 
 
