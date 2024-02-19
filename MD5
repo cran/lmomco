@@ -1,6 +1,6 @@
-2cd986d203a33cb4e88b895276222896 *DESCRIPTION
+45ece6b37aecfa6ba427808610581edc *DESCRIPTION
 f0d3d68cfe95a845b22a3c156e58f1db *NAMESPACE
-1701a5d2015ddf9e1ca9d2e9209cd4a1 *NEWS
+5d76143d8b0cc6124ad3b70f5d6f6b10 *NEWS
 91c377e3d90235733e3fae0ceaa02130 *R/Apwm2BpwmRC.R
 05baa85151d05dab3e528243a858e0dd *R/BEhypergeo.R
 0bea58b114f9545d4e85853f4a1ba91e *R/Bpwm2ApwmRC.R
@@ -376,7 +376,7 @@ e2b4bffb058211bfa84a6768aaf45619 *R/vec2par.R
 4fbc0c26c47e69559101d59834ff240b *R/vec2pwm.R
 0c670ba8999f245b7c234cdd561e524c *R/x2pars.R
 1fca27eb5d30ee516237f23ee3cd8c6d *R/x2xlo.R
-a3aaff413294bee42abf93ad58dd2bd0 *R/xlo2qua.R
+41520f561f80292d38302515dc6bfc58 *R/xlo2qua.R
 383644958c54fecd5f68fd6012b3f179 *R/z.par2cdf.R
 07046c27367eafb17738e12f91f6ac88 *R/z.par2qua.R
 a4dbc34986c2eb893d829eb1fee3e1c4 *R/zzz.R
@@ -809,6 +809,6 @@ bf275d4c4d8aaff881a5707a97db2e8e *man/vec2pwm.Rd
 322e2706f6d0dcd3fa65bda49ee3b6da *man/vegaprecip.Rd
 f7f24f0fe1d48a85776cbf096f416ec8 *man/x2pars.Rd
 7cb4fa66c1259fd9d646e2df70f55968 *man/x2xlo.Rd
-a092ce220358fbf4ff80538dcf1b28ce *man/xlo2qua.Rd
+9fbf9b80fa0c8487b112cf8ece76affd *man/xlo2qua.Rd
 8582422e1f8338daa52a1750c6256fc3 *man/z.par2cdf.Rd
 7f04bcc0ae1580b45af0a0691b834332 *man/z.par2qua.Rd
