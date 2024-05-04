@@ -2,13 +2,13 @@
 \alias{lmomsla}
 \title{Trimmed L-moments of the Slash Distribution}
 \description{
-This function estimates the trimmed L-moments of the Slash distribution given the parameters (\eqn{\xi} and \eqn{\alpha}) from \code{\link{parsla}}. The relation between the TL-moments (\code{trim=1}) and the parameters have been numerically determined and are 
-\eqn{\lambda^{(1)}_1 = \xi}, 
-\eqn{\lambda^{(1)}_2 = 0.9368627\alpha},  
-\eqn{\tau^{(1)}_3 = 0}, 
-\eqn{\tau^{(1)}_4 = 0.3042045}, 
-\eqn{\tau^{(1)}_5 = 0}, and 
-\eqn{\tau^{(1)}_6 = 0.1890072}.
+This function estimates the trimmed L-moments of the Slash distribution given the parameters (\eqn{\xi} and \eqn{\alpha}) from \code{\link{parsla}}. The relation between the TL-moments (\code{trim=1}) and the parameters have been numerically determined and are
+\eqn{\lambda^{(1)}_1 = \xi},
+\eqn{\lambda^{(1)}_2 = 0.93686275\alpha},
+\eqn{\tau^{(1)}_3 = 0},
+\eqn{\tau^{(1)}_4 = 0.30420472},
+\eqn{\tau^{(1)}_5 = 0}, and
+\eqn{\tau^{(1)}_6 = 0.18900723}.
 These TL-moments (trim=1) are symmetrical for the first L-moments defined because \eqn{\mathrm{E}[X_{1:n}]} and \eqn{\mathrm{E}[X_{n:n}]} are undefined expectations for the Slash.
 }
 \usage{
@@ -35,10 +35,10 @@ Rogers, W.H., and Tukey, J.W., 1972, Understanding some long-tailed symmetrical 
 \seealso{\code{\link{parsla}}, \code{\link{cdfsla}}, \code{\link{pdfsla}}, \code{\link{quasla}} }
 \examples{
 \dontrun{
-# This example was used to numerically back into the TL-moments and the 
+# This example was used to numerically back into the TL-moments and the
 # relation between \alpha and \lambda_2.
 "lmomtrim1" <- function(para) {
-    bigF <- 0.999
+    bigF <- 0.9999
     minX <- para$para[1] - para$para[2]*qnorm(1 - bigF) / qunif(1 - bigF)
     maxX <- para$para[1] + para$para[2]*qnorm(    bigF) / qunif(1 - bigF)
     minF <- cdfsla(minX, para); maxF <- cdfsla(maxX, para)
@@ -57,8 +57,12 @@ for(A in As) {
 }
 print(summary(lm(L2s~As-1))$coe)
 print(mean(T4s))
-print(mean(T6s))
-}
+print(mean(T6s)) # }
+
+\dontrun{
+  alpha <- 30
+  tlmr <- theoTLmoms(vec2par(c(100, alpha), type="cau"), nmom=6, trim=1)
+  print( c(tlmr$lambdas[2] / alpha, tlmr$ratios[c(4,6)]), 8 ) # }
 }
 \keyword{L-moment (distribution)}
 \keyword{Distribution: Slash}

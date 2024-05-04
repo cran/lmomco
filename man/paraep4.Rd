@@ -2,7 +2,7 @@
 \alias{paraep4}
 \title{Estimate the Parameters of the 4-Parameter Asymmetric Exponential Power Distribution}
 \description{
-This function estimates the parameters of the 4-parameter Asymmetric Exponential Power distribution given the L-moments of the data in an L-moment object such as that returned by \code{\link{lmoms}}. The relation between distribution parameters and L-moments is seen under \code{\link{lmomaep4}}. Relatively straightforward, but difficult to numerically achieve, optimization is needed to extract the parameters from the L-moments.
+This function estimates the parameters of the 4-parameter Asymmetric Exponential Power distribution given the L-moments of the data in an L-moment object such as that returned by \code{\link{lmoms}}. The relation between distribution parameters and L-moments is seen under \code{\link{lmomaep4}}. Relatively straightforward, but difficult to numerically achieve, optimization is needed to extract the parameters from the L-moments. If the \eqn{\tau_3} of the distribution is zero (symmetrical), then the distribution is known as the Exponential Power (see \code{\link{lmrdia46}}).
 
 Delicado and Goria (2008) argue for numerical methods to use the following objective function
 \deqn{\epsilon(\alpha, \kappa, h) = \log(1 + \sum_{r=2}^4 (\hat\lambda_r - \lambda_r)^2)\mbox{,}}
@@ -14,7 +14,7 @@ Another optimization, referred to here as the \dQuote{A} (Asquith) method, is av
 \deqn{\epsilon(\kappa, h) = \sqrt{(\hat\tau_3 - \tau_3)^2 + (\hat\tau_4 - \tau_4)^2}\mbox{,}}
 and subsequently solve directly for \eqn{\alpha} and then \eqn{\xi}. The \dQuote{A} method appears to perform better in \eqn{\kappa} and \eqn{h} estimation and quite a bit better in \eqn{\alpha} and and \eqn{\xi} as seemingly expected because these last two are analytically computed (Asquith, 2014). The objective function of the \dQuote{A} method defaults to use of the \eqn{\sqrt{x}} but this can be removed by setting \code{sqrt.t3t4=FALSE}.
 
-The initial guesses for the \eqn{\kappa} and \eqn{h} parameters derives from a hashed environment in in file \cr \file{sysdata.rda} (\env{.lmomcohash$AEPkh2lmrTable}) in which the \eqn{\{\kappa, h\}} pair having the minimum \eqn{\epsilon(\kappa, h)} in which \eqn{\tau_3} and \eqn{\tau_4} derive from the table as well.  The file \file{SysDataBuilder.R} provides additional technical details on how the \code{AEPkh2lmrTable} was generated. The table represents a systematic double-loop sweep through \code{\link{lmomaep4}} for
+The initial guesses for the \eqn{\kappa} and \eqn{h} parameters derives from a hashed environment in in file \cr \file{sysdata.rda} (\env{.lmomcohash$AEPkh2lmrTable}) in which the \eqn{\{\kappa, h\}} pair having the minimum \eqn{\epsilon(\kappa, h)} in which \eqn{\tau_3} and \eqn{\tau_4} derive from the table as well.  The file \file{SysDataBuilder01.R} provides additional technical details on how the \code{AEPkh2lmrTable} was generated. The table represents a systematic double-loop sweep through \code{\link{lmomaep4}} for
 \deqn{\kappa \mapsto \{-3 \le \log(\kappa) \le 3, \Delta\log(\kappa)=0.05\}\mbox{,}}
 and
 \deqn{h \mapsto \{-3 \le \log(h) \le 3, \Delta\log(h)=0.05\}\mbox{.}}
@@ -133,3 +133,4 @@ print(MADasq)
 }
 \keyword{distribution (parameters)}
 \keyword{Distribution: Asymmetric Exponential Power}
+\keyword{Distribution: Exponential Power}
