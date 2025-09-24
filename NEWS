@@ -1,6 +1,17 @@
 --------------------------------------------------------------------------------
                          NEWS for R Package "lmomco"
 --------------------------------------------------------------------------------
+Changes in version 2.5.2 (2025-09-21)
+-  Added the internal mylegend() hack to plotlmrdia() to silence certain
+     combinations of ... arguments that make legend() therein stop with Error.
+-  Added the internal mylegend() hack to plotlmrdia46() to silence certain
+     combinations of ... arguments that make legend() therein stop with Error.
+-  Added the Gamma Difference distribution as "gdd."
+-  Added Benford distribution, cdfben(), lmomben(), pmfben(), quaben().
+-  Minor math delimiter size changes in PDQ3 and PDQ4 quantile functions.
+-  Updated contact structure in DESCRIPTION to the Authors "at" R style.
+
+
 Changes in version 2.5.1 (2024-05-02)
 -  Added trajectory of PE3 and GNO to extend beyond Tau3 -0.9 and +0.9 in
      lmrdia(). I do not recall why these two distributions were stopped at these

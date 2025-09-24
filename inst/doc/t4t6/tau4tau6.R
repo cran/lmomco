@@ -37,6 +37,7 @@ for(T4 in T4s) {
   ggg <- c(L1, L2, 0, T4, 0)
   lmr <- lmomco::vec2lmom(ggg, checklmom=FALSE) # structure needed by lmomco package
   for(dtype in dtypes) { # for each of the distribution types
+    print(dtype)
     if(dtype == "pdq4" & T4 > 0.845) next # beyond apparent computational limits in R for the math of PDQ4
     para <- NULL # initialization for the try() logic
     try(para <- lmomco::lmom2par(lmr, type=dtype, checklmom=FALSE))
@@ -115,10 +116,10 @@ TukeyT6 <- TukeyL6 / TukeyL2
 # We will see that the Stable is "new" per se to the lmomco infrastructure, the Student t with
 # df matches the Student 3t from lmomco, the Tukey matches Wikipedia entry, and the Power
 # Exponential is the AEP4 from lmomco with Tau3 = 0.
-Stable  <- read.table("StableDistribution.txt",   sep="|", header=TRUE)
-Student <- read.table("StudentT.txt",             sep="|", header=TRUE)
-Tukey   <- read.table("SymmetricTukeyLambda.txt", sep="|", header=TRUE)
-PowExp  <- read.table("PowerExponential.txt",     sep="|", header=TRUE)
+Stable  <- read.table("StableDistribution.txt", sep="|", header=TRUE)
+Student <- read.table("StudentT.txt",           sep="|", header=TRUE)
+Tukey   <- read.table("SymTukeyLambda.txt",     sep="|", header=TRUE)
+PowExp  <- read.table("PowerExponential.txt",   sep="|", header=TRUE)
 
 plot(                                      T6df$tau6[T6df$type == "aep4"],
      approx(PowExp$tau4, PowExp$tau6, xout=T6df$tau4[T6df$type == "aep4"])$y)
