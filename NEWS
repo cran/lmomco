@@ -1,11 +1,43 @@
 --------------------------------------------------------------------------------
                          NEWS for R Package "lmomco"
 --------------------------------------------------------------------------------
+Changes in version 2.5.5 (2026-04-20)
+-  Grammar fixes in lmomgdd.Rd, bibliography format change lmomco-package.Rd.
+-  Extension of lmrdia.R/Rd and lmrdia46.R/Rd with new argument usrtrim that
+     dynamically truncates the trajectories to the current axis limits by
+     par()$usr so that the user has some freedom in using par(xpd) and (or)
+     working with post processing of graphics in vector editing software
+     because R's clipping mask is just that a mask. The usrtrim argument helps
+     users by reducing manual intervention to cut the trajectories by hand.
+     The default is usrtrim=FALSE; all historical operations with these
+     functions are unaffected.
+-  Added autoaxes=TRUE to plotlmrdia[46].R/Rd to give the user the flexibility
+     for them to draw the axes separately.
+-  Fixed NAMESPACE to export gdd functions (see NEWS:2.5.2).
+-  Extended inst/ACKNOWLEDGEMENTS.
+-  Added proper use of ... in theoTLmoms() down to the integrate(...) function.
+-  Added inst/newcoes/makGNOcoes.R for new coefficients in pargno.R to make
+     improved coefficients on an approximation formula to convert L-skew to
+     the kappa relative to those in the 1996 Hosking FORTRAN source code and
+     then switched to the new coefficients for tau3 to gamma conversion in
+     pargno() with new argument useHosking=TRUE. Edits made thus to pargno.Rd.
+-  Added inst/newcoes/makePE3coes.R for new coefficients in parpe3.R to make
+     improved coefficients on an approximation formula to convert L-skew to
+     the gamma relative to those in the 1996 Hosking FORTRAN source code and
+     then switched to the new coefficients for tau3 to gamma conversion in
+     parpe3() with new argument useHosking=TRUE. Edits made thus to parpe3.Rd.
+-  Added useHosking=FALSE to pargev.[R|Rd] with extension to pargev.R to use
+     direct estimation by the uniroot() function in lieu of 1996 Hosking
+     FORTRAN. The cost is a speed hit as explained in Examples of pargev.Rd.
+-  NOTE, expect in a future release for useHosking=FALSE to be a new default
+     for pargev.R, pargno.R, and parpe3.R.
+
+
 Changes in version 2.5.2 (2025-09-21)
 -  Added the internal mylegend() hack to plotlmrdia() to silence certain
-     combinations of ... arguments that make legend() therein stop with Error.
+     combinations of ... arguments that made legend() therein stop with Error.
 -  Added the internal mylegend() hack to plotlmrdia46() to silence certain
-     combinations of ... arguments that make legend() therein stop with Error.
+     combinations of ... arguments that made legend() therein stop with Error.
 -  Added the Gamma Difference distribution as "gdd."
 -  Added Benford distribution, cdfben(), lmomben(), pmfben(), quaben().
 -  Minor math delimiter size changes in PDQ3 and PDQ4 quantile functions.
@@ -268,7 +300,7 @@ Changes in version 2.3.8 (2022-08-14)
 -  Student 3t distribution in pdfst3.Rd needed editing, the t in the integral
       needed definition.
 -  Grammar edit in quawei.Rd.
--  Added the polynomail density-quantile3 (PDQ3) distribution.
+-  Added the polynomial density-quantile3 (PDQ3) distribution.
 -  Added the polynomial density-quantile4 (PDQ4) distribution.
 -  Eq. 8.106 of ISBN 978-1463508418 is incorrect. The part written as
       [1-\kappa(2F-1)^2] needs to be written as [1-\kappa(2F-1)]^2 for the
@@ -897,7 +929,7 @@ Changes in version 1.7.9 (2013-12-03)
       of it (Asquith, W.H., 2014, Parameter Estimation for the 4-Parameter
       Asymmetric Exponential Power Distribution by the Method of L-moments
       using R, Computational Statistics and Data Analysis, v. 41, pp. 955--970,
-      http://dx.doi.org/10.1016/j.csda.2012.12.013).
+      https://doi.org/10.1016/j.csda.2012.12.013).
 
 
 Changes in version 1.7.8 (2013-07-05)
@@ -1139,9 +1171,8 @@ Changes in version 1.4.5 (2012-04-30)
 
      Asquith, W.H., 2011, Distributional analysis with L-moment statistics
        using the R environment for statistical computing: First edition,
-       CreateSpace, ISBN 978-1463508418, 344 p. http://www.amazon.com/
-       Distributional-Statistics-Environment-Statistical-Computing/dp/
-       1463508417
+       CreateSpace, ISBN 978-1463508418, 344 p. https://www.amazon.com/
+       dp/1463508417
 
 
 Changes in version 1.4.4 (2012-04-30)

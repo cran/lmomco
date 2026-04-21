@@ -37,7 +37,6 @@ for(T4 in T4s) {
   ggg <- c(L1, L2, 0, T4, 0)
   lmr <- lmomco::vec2lmom(ggg, checklmom=FALSE) # structure needed by lmomco package
   for(dtype in dtypes) { # for each of the distribution types
-    print(dtype)
     if(dtype == "pdq4" & T4 > 0.845) next # beyond apparent computational limits in R for the math of PDQ4
     para <- NULL # initialization for the try() logic
     try(para <- lmomco::lmom2par(lmr, type=dtype, checklmom=FALSE))
